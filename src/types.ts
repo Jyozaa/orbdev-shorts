@@ -22,6 +22,8 @@ export type SelectedMeme = {
   presentation: 'overlay' | 'cutaway';
   sourceDurationSeconds?: number;
   completeClip?: boolean;
+  hasAudio?: boolean;
+  intentSource?: 'explicit' | 'auto-cue';
 };
 
 export type Cutaway = {
@@ -92,6 +94,33 @@ export type FlowVisual = {
   nodes: FlowNode[];
 };
 
+export type ChartBar = {
+  label: string;
+  value: string;
+  amount: number;
+};
+
+export type ChartVisual = {
+  type: 'chart';
+  bars: ChartBar[];
+};
+
+export type TimelinePoint = {
+  label: string;
+  position: number;
+};
+
+export type TimelineVisual = {
+  type: 'timeline';
+  points: TimelinePoint[];
+};
+
+export type NetworkVisual = {
+  type: 'network';
+  center: string;
+  nodes: string[];
+};
+
 export type BeatVisualSpec =
   | SourceVisual
   | MetricVisual
@@ -100,7 +129,10 @@ export type BeatVisualSpec =
   | SymbolVisual
   | TextVisual
   | LogoVisual
-  | FlowVisual;
+  | FlowVisual
+  | ChartVisual
+  | TimelineVisual
+  | NetworkVisual;
 
 export type Beat = {
   text: string;

@@ -111,7 +111,12 @@ def main() -> None:
         cursor = end_index + 1
 
         selected = selections.get(str(index))
-        if not selected or selected.get("presentation") != "cutaway":
+        if (
+            not selected
+            or selected.get("presentation") != "cutaway"
+            or selected.get("mediaType") != "video"
+            or selected.get("hasAudio") is not True
+        ):
             continue
 
         raw_insert_ms = int(words[end_index]["endMs"]) + caption_lead_ms

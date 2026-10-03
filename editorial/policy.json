@@ -1,5 +1,5 @@
 {
-  "version": 10,
+  "version": 11,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -39,7 +39,10 @@
     "Use memes as editorial punctuation, not random filler.",
     "Use full-screen cutaways for standalone visual punchlines; cutaways pause narration and hide captions automatically.",
     "Prefer animated logos, flows, diagrams and source imagery over text-only visuals.",
-    "Short visual meme cutaways must play to a natural end; reject long cutaway videos instead of hard-trimming them."
+    "Short visual meme cutaways must play to a natural end; reject long cutaway videos instead of hard-trimming them.",
+    "Silent meme images and silent meme videos must never appear as standalone full-screen cutaways; composite them alongside the main visual instead.",
+    "Use at least four visual treatment families and avoid repeating the same composition across consecutive beats.",
+    "Editorial reaction-cue phrases such as 'the headline sounds wild' should be considered meme opportunities."
   ],
   "visualRules": {
     "background": "#000000",
@@ -52,11 +55,17 @@
     "diagramsOverParagraphs": true,
     "phraseCaptions": true,
     "diagramConnectorsAutomatic": true,
-    "richVisualMinimumFraction": 0.45,
-    "textVisualMaximumFraction": 0.3,
+    "richVisualMinimumFraction": 0.55,
+    "textVisualMaximumFraction": 0.25,
     "animatedLogos": true,
     "animatedFlows": true,
-    "animatedDiagrams": true
+    "animatedDiagrams": true,
+    "genericFlowMaximumFraction": 0.35,
+    "minimumTreatmentFamilies": 4,
+    "maximumIdenticalVisualsInARow": 2,
+    "animatedCharts": true,
+    "animatedTimelines": true,
+    "animatedNetworks": true
   },
   "narration": {
     "preferredVoice": "en-US-AndrewNeural",
@@ -134,6 +143,19 @@
       "cutaway"
     ],
     "excludeGreenScreen": true,
-    "completeCutawayVideoMaxSeconds": 3.4
+    "completeCutawayVideoMaxSeconds": 3.4,
+    "silentVisualsOverlayOnly": true,
+    "cutawayRequiresAudioVideo": true,
+    "autoReactionCueDetection": true,
+    "autoReactionCues": [
+      "headline sounds wild",
+      "sounds wild",
+      "this is wild",
+      "here's the catch",
+      "not so fast",
+      "this gets weird",
+      "sounds great",
+      "kind of insane"
+    ]
   }
 }

@@ -14,6 +14,22 @@ PUBLIC = Path("public/memes")
 CATALOG = BUILD / "meme-catalog.json"
 SELECTION = BUILD / "meme-selection.json"
 MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS = 3.4
+MAX_MEME_MOMENTS = 4
+
+REACTION_CUES = (
+    (r"\b(headline )?sounds? wild\b|\bthis is wild\b|\bkind of insane\b|\bpretty insane\b|\bsounds? insane\b",
+     {"purpose":"reaction","tone":"surprised","intensity":2,"preferredMedia":"any","presentation":"overlay",
+      "concepts":["wow","surprised","disbelief","reaction"]}),
+    (r"\bhere(?:'|’)s the catch\b|\bthe catch is\b|\bnot so fast\b",
+     {"purpose":"reaction","tone":"awkward","intensity":2,"preferredMedia":"any","presentation":"overlay",
+      "concepts":["bruh","facepalm","disbelief","catch"]}),
+    (r"\bgets? weird\b|\bthis is weird\b|\bgets? strange\b",
+     {"purpose":"confusion","tone":"confused","intensity":2,"preferredMedia":"any","presentation":"overlay",
+      "concepts":["confused","question","what do you mean","disbelief"]}),
+    (r"\bsounds? great\b|\bgreat news\b|\bgood news\b",
+     {"purpose":"success","tone":"positive","intensity":1,"preferredMedia":"any","presentation":"overlay",
+      "concepts":["nice","success","celebration","good news"]}),
+)
 
 
 def tokens(values: list[str] | None) -> set[str]:
@@ -23,6 +39,14 @@ def tokens(values: list[str] | None) -> set[str]:
     for value in values:
         output.update(re.sub(r"[^a-z0-9]+", " ", value.lower()).split())
     return output
+
+
+def automatic_intent(text: str) -> dict[str, object] | None:
+    lowered = text.lower().replace("’", "'")
+    for pattern, intent in REACTION_CUES:
+        if re.search(pattern, lowered, flags=re.I):
+            return dict(intent)
+    return None
 
 
 def score(item: dict[str, object], intent: dict[str, object]) -> float:
@@ -56,9 +80,6 @@ def score(item: dict[str, object], intent: dict[str, object]) -> float:
         if concept in name:
             result += 2
 
-    if intent.get("presentation") == "cutaway" and item.get("mediaType") in {"video", "image"}:
-        result += 5
-
     return result
 
 
@@ -76,21 +97,34 @@ def duration(path: Path) -> float:
         return 0.0
 
 
+def has_audio_stream(path: Path) -> bool:
+    try:
+        value = subprocess.check_output(
+            [
+                "ffprobe", "-v", "error", "-select_streams", "a",
+                "-show_entries", "stream=index", "-of", "csv=p=0", str(path)
+            ],
+            text=True,
+        ).strip()
+        return bool(value)
+    except Exception:
+        return False
+
+
 def normalize_asset(
     source: Path,
     media_type: str,
     beat_index: int,
     requested_duration: float,
     preserve_complete_video: bool,
-) -> tuple[str, float, float, bool]:
+) -> tuple[str, float, float, bool, bool]:
     PUBLIC.mkdir(parents=True, exist_ok=True)
     source_duration = duration(source)
+    source_has_audio = media_type == "audio" or (media_type == "video" and has_audio_stream(source))
 
     if media_type == "audio":
         output = PUBLIC / f"beat-{beat_index}.mp3"
-        render_duration = requested_duration
-        if source_duration > 0:
-            render_duration = min(render_duration, source_duration)
+        render_duration = min(requested_duration, source_duration) if source_duration > 0 else requested_duration
         subprocess.run(
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
@@ -100,10 +134,13 @@ def normalize_asset(
             check=True,
         )
         actual = duration(output) or render_duration
-        return f"memes/{output.name}", actual, source_duration, actual >= source_duration - 0.08 if source_duration > 0 else False
+        complete = actual >= source_duration - 0.08 if source_duration > 0 else False
+        return f"memes/{output.name}", actual, source_duration, complete, True
 
     if media_type == "video":
         if preserve_complete_video:
+            if not source_has_audio:
+                raise ValueError("standalone cutaway video has no audio")
             if source_duration <= 0:
                 raise ValueError("video duration could not be measured")
             if source_duration > MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS:
@@ -113,23 +150,23 @@ def normalize_asset(
                 )
             render_duration = source_duration
         else:
-            render_duration = requested_duration
-            if source_duration > 0:
-                render_duration = min(render_duration, source_duration)
+            render_duration = min(requested_duration, source_duration) if source_duration > 0 else requested_duration
 
         output = PUBLIC / f"beat-{beat_index}.mp4"
-        subprocess.run(
-            [
-                "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-                "-t", str(render_duration), "-vf", "scale=1080:-2,fps=30",
-                "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
-                "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(output)
-            ],
-            check=True,
-        )
+        command = [
+            "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
+            "-t", str(render_duration), "-vf", "scale=1080:-2,fps=30",
+            "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
+        ]
+        if source_has_audio:
+            command += ["-c:a", "aac", "-b:a", "160k"]
+        else:
+            command += ["-an"]
+        command += ["-movflags", "+faststart", str(output)]
+        subprocess.run(command, check=True)
         actual = duration(output) or render_duration
         complete = source_duration > 0 and actual >= source_duration - 0.08
-        return f"memes/{output.name}", actual, source_duration, complete
+        return f"memes/{output.name}", actual, source_duration, complete, source_has_audio
 
     output = PUBLIC / f"beat-{beat_index}.png"
     subprocess.run(
@@ -139,17 +176,19 @@ def normalize_asset(
         ],
         check=True,
     )
-    return f"memes/{output.name}", requested_duration, source_duration, True
+    return f"memes/{output.name}", requested_duration, source_duration, True, False
 
 
-def infer_presentation(intent: dict[str, object], media_type: str) -> str:
-    requested = intent.get("presentation", "auto")
-    if requested in {"overlay", "cutaway"}:
-        return str(requested)
+def desired_presentation(intent: dict[str, object], media_type: str) -> str:
+    requested = str(intent.get("presentation", "auto"))
+    if requested == "overlay":
+        return "overlay"
+    if requested == "cutaway":
+        return "cutaway" if media_type == "video" else "overlay"
 
     purpose = str(intent.get("purpose", "reaction"))
     intensity = int(intent.get("intensity", 1))
-    if media_type in {"video", "image"} and intensity >= 2 and purpose in {
+    if media_type == "video" and intensity >= 2 and purpose in {
         "waiting", "punchline", "confusion", "failure", "success", "absurdity", "reaction"
     }:
         return "cutaway"
@@ -165,8 +204,21 @@ def main() -> None:
     chosen_ids: set[str] = set()
     selections: dict[str, object] = {}
 
+    explicit_count = sum(1 for beat in story.get("beats", []) if beat.get("memeIntent"))
+    auto_slots = max(0, MAX_MEME_MOMENTS - explicit_count)
+    last_auto_index = -99
+
     for index, beat in enumerate(story.get("beats", [])):
-        intent = beat.get("memeIntent")
+        explicit = beat.get("memeIntent")
+        intent_source = "explicit"
+        intent = explicit
+
+        if not intent and auto_slots > 0 and index - last_auto_index >= 2:
+            inferred = automatic_intent(str(beat.get("text", "")))
+            if inferred:
+                intent = inferred
+                intent_source = "auto-cue"
+
         if not intent:
             continue
 
@@ -184,7 +236,7 @@ def main() -> None:
             continue
 
         selected_result = None
-        for value, selected in candidates[:12]:
+        for value, selected in candidates[:14]:
             path = str(selected["path"])
             repo_name = os.getenv("GITHUB_REPOSITORY", "Jyozaa/orbdev-shorts")
             encoded = urllib.parse.quote(path, safe="/")
@@ -196,26 +248,24 @@ def main() -> None:
                     temp.write_bytes(response.read())
 
                 media_type = str(selected["mediaType"])
-                presentation = infer_presentation(intent, media_type)
+                presentation = desired_presentation(intent, media_type)
+
+                if media_type == "video" and presentation == "cutaway" and not has_audio_stream(temp):
+                    presentation = "overlay"
+
                 default_duration = 0.85 if media_type == "audio" else (1.35 if presentation == "cutaway" else 1.1)
                 requested_duration = float(intent.get("maxDurationSeconds") or default_duration)
 
-                src, normalized_duration, source_duration, complete = normalize_asset(
+                src, normalized_duration, source_duration, complete, has_audio = normalize_asset(
                     temp,
                     media_type,
                     index,
                     requested_duration,
-                    preserve_complete_video=presentation == "cutaway" and media_type == "video",
+                    preserve_complete_video=presentation == "cutaway",
                 )
                 selected_result = (
-                    value,
-                    selected,
-                    path,
-                    src,
-                    normalized_duration,
-                    presentation,
-                    source_duration,
-                    complete,
+                    value, selected, path, src, normalized_duration,
+                    presentation, source_duration, complete, has_audio
                 )
                 break
             except Exception as exc:
@@ -227,15 +277,13 @@ def main() -> None:
             continue
 
         (
-            value,
-            selected,
-            path,
-            src,
-            normalized_duration,
-            presentation,
-            source_duration,
-            complete,
+            value, selected, path, src, normalized_duration,
+            presentation, source_duration, complete, has_audio
         ) = selected_result
+
+        if presentation == "cutaway" and not (selected["mediaType"] == "video" and has_audio):
+            presentation = "overlay"
+
         chosen_ids.add(str(selected["id"]))
         selections[str(index)] = {
             "id": selected["id"],
@@ -246,12 +294,20 @@ def main() -> None:
             "durationSeconds": round(normalized_duration, 3),
             "sourceDurationSeconds": round(float(source_duration), 3) if source_duration else None,
             "completeClip": bool(complete),
-            "volume": 0.64 if selected["mediaType"] == "audio" else (0.78 if presentation == "cutaway" else 0.44),
+            "hasAudio": bool(has_audio),
+            "volume": 0.64 if selected["mediaType"] == "audio" else (0.78 if presentation == "cutaway" else 0.40),
             "presentation": presentation,
+            "intentSource": intent_source,
         }
+        chosen_ids.add(str(selected["id"]))
+
+        if intent_source == "auto-cue":
+            auto_slots -= 1
+            last_auto_index = index
+
         print(
             f"Beat {index}: selected {path} "
-            f"({value:.1f}, {presentation}, complete={bool(complete)})"
+            f"({value:.1f}, {presentation}, audio={bool(has_audio)}, intent={intent_source})"
         )
 
     SELECTION.parent.mkdir(parents=True, exist_ok=True)

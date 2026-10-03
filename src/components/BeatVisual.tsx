@@ -464,6 +464,258 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
     );
   }
 
+
+  if (beat.visual.type === 'chart') {
+    const bars = beat.visual.bars;
+    const maxBarHeight = 520;
+    return (
+      <AbsoluteFill style={shell}>
+        <div
+          style={{
+            width: 900,
+            height: 720,
+            display: 'flex',
+            alignItems: 'flex-end',
+            justifyContent: 'center',
+            gap: 42,
+            paddingBottom: 80,
+            boxSizing: 'border-box',
+            borderBottom: '3px solid rgba(255,255,255,0.32)'
+          }}
+        >
+          {bars.map((bar, index) => {
+            const reveal = spring({
+              frame,
+              fps,
+              delay: index * 5,
+              config: {damping: 18, stiffness: 170, mass: 0.65}
+            });
+            const height = Math.max(34, (Math.max(0, Math.min(100, bar.amount)) / 100) * maxBarHeight * reveal);
+            return (
+              <div
+                key={`${bar.label}-${index}`}
+                style={{
+                  width: Math.max(120, Math.floor(700 / Math.max(1, bars.length))),
+                  display: 'flex',
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  justifyContent: 'flex-end',
+                  height: 620
+                }}
+              >
+                <div
+                  style={{
+                    marginBottom: 14,
+                    fontSize: 36,
+                    fontWeight: 950,
+                    opacity: reveal
+                  }}
+                >
+                  {bar.value}
+                </div>
+                <div
+                  style={{
+                    width: '100%',
+                    height,
+                    minHeight: 34,
+                    background: '#ffffff',
+                    borderRadius: '22px 22px 6px 6px',
+                    transformOrigin: 'bottom center'
+                  }}
+                />
+                <div
+                  style={{
+                    marginTop: 18,
+                    fontSize: fittedFontSize(bar.label, 180, 30, 18),
+                    fontWeight: 850,
+                    textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                    opacity: reveal
+                  }}
+                >
+                  {bar.label}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </AbsoluteFill>
+    );
+  }
+
+  if (beat.visual.type === 'timeline') {
+    const points = beat.visual.points;
+    return (
+      <AbsoluteFill style={shell}>
+        <div style={{width: 900, height: 460, position: 'relative'}}>
+          <div
+            style={{
+              position: 'absolute',
+              left: 40,
+              right: 40,
+              top: 214,
+              height: 6,
+              background: 'rgba(255,255,255,0.22)',
+              borderRadius: 999
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              left: 40,
+              top: 214,
+              height: 6,
+              width: `${Math.max(0, Math.min(100, progress * 115))}%`,
+              maxWidth: 820,
+              background: '#ffffff',
+              borderRadius: 999,
+              transformOrigin: 'left center'
+            }}
+          />
+          {points.map((point, index) => {
+            const reveal = spring({
+              frame,
+              fps,
+              delay: index * 5,
+              config: {damping: 18, stiffness: 175}
+            });
+            const left = 40 + (Math.max(0, Math.min(100, point.position)) / 100) * 820;
+            const above = index % 2 === 0;
+            return (
+              <div
+                key={`${point.label}-${index}`}
+                style={{
+                  position: 'absolute',
+                  left,
+                  top: 217,
+                  transform: `translate(-50%, -50%) scale(${0.7 + reveal * 0.3})`,
+                  opacity: reveal
+                }}
+              >
+                <div
+                  style={{
+                    width: 34,
+                    height: 34,
+                    borderRadius: '50%',
+                    background: '#ffffff',
+                    boxShadow: '0 0 0 10px rgba(255,255,255,0.08)'
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    width: 190,
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    top: above ? -86 : 58,
+                    fontSize: fittedFontSize(point.label, 170, 30, 18),
+                    fontWeight: 900,
+                    textAlign: 'center'
+                  }}
+                >
+                  {point.label}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </AbsoluteFill>
+    );
+  }
+
+  if (beat.visual.type === 'network') {
+    const nodes = beat.visual.nodes.slice(0, 6);
+    const radius = 300;
+    return (
+      <AbsoluteFill style={shell}>
+        <div style={{position: 'relative', width: 820, height: 820}}>
+          {nodes.map((node, index) => {
+            const angle = (-Math.PI / 2) + (Math.PI * 2 * index) / Math.max(1, nodes.length);
+            const x = 410 + Math.cos(angle) * radius;
+            const y = 410 + Math.sin(angle) * radius;
+            const reveal = spring({
+              frame,
+              fps,
+              delay: 6 + index * 4,
+              config: {damping: 17, stiffness: 180}
+            });
+            const dx = x - 410;
+            const dy = y - 410;
+            const length = Math.sqrt(dx * dx + dy * dy);
+            const angleDeg = (Math.atan2(dy, dx) * 180) / Math.PI;
+            return (
+              <React.Fragment key={`${node}-${index}`}>
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: 410,
+                    top: 410,
+                    width: length * reveal,
+                    height: 4,
+                    background: 'rgba(255,255,255,0.72)',
+                    transformOrigin: 'left center',
+                    transform: `rotate(${angleDeg}deg)`
+                  }}
+                />
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: x,
+                    top: y,
+                    width: 170,
+                    height: 170,
+                    marginLeft: -85,
+                    marginTop: -85,
+                    borderRadius: '50%',
+                    border: '3px solid rgba(255,255,255,0.72)',
+                    background: '#000000',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: 18,
+                    boxSizing: 'border-box',
+                    fontSize: fittedFontSize(node, 136, 46, 24),
+                    fontWeight: 950,
+                    textAlign: 'center',
+                    opacity: reveal,
+                    transform: `scale(${0.72 + reveal * 0.28})`
+                  }}
+                >
+                  {node}
+                </div>
+              </React.Fragment>
+            );
+          })}
+          <div
+            style={{
+              position: 'absolute',
+              left: 410,
+              top: 410,
+              width: 230,
+              height: 230,
+              marginLeft: -115,
+              marginTop: -115,
+              borderRadius: '50%',
+              background: '#ffffff',
+              color: '#000000',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: 24,
+              boxSizing: 'border-box',
+              fontSize: fittedFontSize(beat.visual.center, 180, 52, 28),
+              fontWeight: 950,
+              textAlign: 'center',
+              transform: `scale(${0.72 + enter * 0.28})`
+            }}
+          >
+            {beat.visual.center}
+          </div>
+        </div>
+      </AbsoluteFill>
+    );
+  }
+
   if (beat.visual.type === 'symbol') {
     const fontSize = fittedFontSize(beat.visual.symbol, 840, 270, 100);
     const rotate = interpolate(enter, [0, 1], [-7, 0]);

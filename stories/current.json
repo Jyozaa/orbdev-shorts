@@ -15,39 +15,22 @@
     {
       "text": "AI upscaling",
       "visual": {
-        "type": "flow",
+        "type": "network",
+        "center": "AI",
         "nodes": [
-          {
-            "kind": "logo",
-            "slug": "playstation",
-            "label": "PS5"
-          },
-          {
-            "kind": "symbol",
-            "value": "AI"
-          },
-          {
-            "kind": "symbol",
-            "value": "↑"
-          }
+          "PIXELS",
+          "PS5",
+          "DETAIL",
+          "4K"
         ]
       }
     },
     {
       "text": "to the regular PS5.",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "text",
-            "value": "PRO"
-          },
-          {
-            "kind": "logo",
-            "slug": "playstation",
-            "label": "PS5"
-          }
-        ]
+        "type": "comparison",
+        "left": "PS5 PRO",
+        "right": "PS5"
       },
       "memeIntent": {
         "purpose": "success",
@@ -66,33 +49,26 @@
     {
       "text": "Until now, PlayStation Spectral Super Resolution",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "logo",
-            "slug": "playstation",
-            "label": "PlayStation"
-          },
-          {
-            "kind": "text",
-            "value": "PSSR"
-          }
-        ]
+        "type": "source",
+        "sourceIndex": 0
       }
     },
     {
       "text": "was a PS5 Pro feature",
       "visual": {
-        "type": "flow",
-        "nodes": [
+        "type": "timeline",
+        "points": [
           {
-            "kind": "logo",
-            "slug": "playstation",
-            "label": "PS5"
+            "label": "PS5",
+            "position": 0
           },
           {
-            "kind": "text",
-            "value": "PRO"
+            "label": "PS5 PRO",
+            "position": 60
+          },
+          {
+            "label": "NOW",
+            "position": 100
           }
         ]
       }
@@ -100,19 +76,17 @@
     {
       "text": "because it was too computationally expensive.",
       "visual": {
-        "type": "flow",
-        "nodes": [
+        "type": "chart",
+        "bars": [
           {
-            "kind": "symbol",
-            "value": "AI"
+            "label": "GPU",
+            "value": "100%",
+            "amount": 100
           },
           {
-            "kind": "symbol",
-            "value": "GPU"
-          },
-          {
-            "kind": "symbol",
-            "value": "$$$"
+            "label": "BUDGET",
+            "value": "35%",
+            "amount": 35
           }
         ]
       },
@@ -134,53 +108,31 @@
     {
       "text": "The new version is called QSSR:",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "text",
-            "value": "PSSR"
-          },
-          {
-            "kind": "text",
-            "value": "QSSR"
-          }
-        ]
+        "type": "comparison",
+        "left": "PSSR",
+        "right": "QSSR"
       },
       "sfx": "impact"
     },
     {
       "text": "a smaller neural network,",
       "visual": {
-        "type": "flow",
+        "type": "network",
+        "center": "NN",
         "nodes": [
-          {
-            "kind": "symbol",
-            "value": "NN"
-          },
-          {
-            "kind": "symbol",
-            "value": "✂"
-          },
-          {
-            "kind": "text",
-            "value": "SMALL"
-          }
+          "○○○",
+          "○○",
+          "○"
         ]
       }
     },
     {
       "text": "hand-tuned to run",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "symbol",
-            "value": "⚙"
-          },
-          {
-            "kind": "symbol",
-            "value": "✓"
-          }
+        "type": "diagram",
+        "symbols": [
+          "⚙",
+          "✓"
         ]
       }
     },
@@ -195,19 +147,17 @@
     {
       "text": "Sony says it improves detail",
       "visual": {
-        "type": "flow",
-        "nodes": [
+        "type": "chart",
+        "bars": [
           {
-            "kind": "symbol",
-            "value": "▦"
+            "label": "INPUT",
+            "value": "720p",
+            "amount": 45
           },
           {
-            "kind": "symbol",
-            "value": "🔎"
-          },
-          {
-            "kind": "symbol",
-            "value": "↑"
+            "label": "OUTPUT",
+            "value": "4K",
+            "amount": 100
           }
         ]
       }
@@ -215,55 +165,34 @@
     {
       "text": "and image stability,",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "symbol",
-            "value": "~"
-          },
-          {
-            "kind": "symbol",
-            "value": "▭"
-          },
-          {
-            "kind": "symbol",
-            "value": "—"
-          }
-        ]
+        "type": "comparison",
+        "left": "~~~~",
+        "right": "———"
       }
     },
     {
       "text": "with Marvel’s Wolverine",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "text",
-            "value": "WOLVERINE"
-          },
-          {
-            "kind": "symbol",
-            "value": "✓"
-          }
-        ]
+        "type": "source",
+        "sourceIndex": 0
       }
     },
     {
       "text": "and Ghost of Yōtei getting support first.",
       "visual": {
-        "type": "flow",
-        "nodes": [
+        "type": "timeline",
+        "points": [
           {
-            "kind": "text",
-            "value": "YŌTEI"
+            "label": "WOLVERINE",
+            "position": 20
           },
           {
-            "kind": "symbol",
-            "value": "✓"
+            "label": "YŌTEI",
+            "position": 55
           },
           {
-            "kind": "text",
-            "value": "FIRST"
+            "label": "MORE",
+            "position": 100
           }
         ]
       }
@@ -292,28 +221,37 @@
     {
       "text": "is still the higher-quality option.",
       "visual": {
-        "type": "comparison",
-        "left": "QSSR",
-        "right": "PSSR"
+        "type": "chart",
+        "bars": [
+          {
+            "label": "QSSR",
+            "value": "GOOD",
+            "amount": 72
+          },
+          {
+            "label": "PSSR",
+            "value": "BEST",
+            "amount": 100
+          }
+        ]
       }
     },
     {
       "text": "So your five-year-old console",
       "visual": {
-        "type": "flow",
-        "nodes": [
+        "type": "timeline",
+        "points": [
           {
-            "kind": "text",
-            "value": "2020"
+            "label": "2020",
+            "position": 0
           },
           {
-            "kind": "logo",
-            "slug": "playstation",
-            "label": "PS5"
+            "label": "PS5",
+            "position": 35
           },
           {
-            "kind": "text",
-            "value": "2026"
+            "label": "2026",
+            "position": 100
           }
         ]
       }
@@ -321,29 +259,16 @@
     {
       "text": "just got a little Pro-ish,",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "logo",
-            "slug": "playstation",
-            "label": "PS5"
-          },
-          {
-            "kind": "symbol",
-            "value": "↑"
-          },
-          {
-            "kind": "text",
-            "value": "PRO-ish"
-          }
-        ]
+        "type": "logo",
+        "slug": "playstation",
+        "label": "PS5 ↑"
       },
       "memeIntent": {
         "purpose": "success",
         "tone": "positive",
         "intensity": 2,
         "preferredMedia": "image",
-        "presentation": "cutaway",
+        "presentation": "overlay",
         "maxDurationSeconds": 1.25,
         "concepts": [
           "stonks",
@@ -356,22 +281,9 @@
     {
       "text": "without actually becoming a Pro.",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "logo",
-            "slug": "playstation",
-            "label": "PS5"
-          },
-          {
-            "kind": "symbol",
-            "value": "≠"
-          },
-          {
-            "kind": "text",
-            "value": "PRO"
-          }
-        ]
+        "type": "comparison",
+        "left": "PS5",
+        "right": "≠ PRO"
       },
       "memeIntent": {
         "purpose": "punchline",

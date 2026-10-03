@@ -16,11 +16,11 @@ Aim for 12-22 beats in a normal Short. Most beats should contain roughly 3-9 spo
 
 Narration should be concise, dry, conversational, technically accurate, roughly 70-105 words, free of filler intros, and explicit when benchmarks are company-reported.
 
-## Visual vocabulary
+## Visual direction
 
-Prefer animated graphical explanation over words on a black canvas.
+The Short must feel edited, not templated. Do not default to a row of labelled boxes.
 
-Supported visuals:
+Supported treatments include:
 
 ```json
 {"type":"source","sourceIndex":0}
@@ -30,6 +30,16 @@ Supported visuals:
   {"kind":"symbol","value":"AI"},
   {"kind":"symbol","value":"↑"}
 ]}
+{"type":"network","center":"AI","nodes":["GPU","PIXELS","PS5","QSSR"]}
+{"type":"chart","bars":[
+  {"label":"OLD","value":"100","amount":100},
+  {"label":"NEW","value":"55","amount":55}
+]}
+{"type":"timeline","points":[
+  {"label":"2020","position":0},
+  {"label":"PS5 PRO","position":55},
+  {"label":"2026","position":100}
+]}
 {"type":"metric","value":"95%"}
 {"type":"diagram","symbols":["GPU","AI","$$$"]}
 {"type":"comparison","left":"6.0","right":"6.1"}
@@ -38,51 +48,57 @@ Supported visuals:
 ```
 
 Rules:
-- Logos, flows, diagrams, comparisons and source imagery are preferred over text-only scenes.
-- Use a real brand logo when the beat is about a recognizable company/platform/product family and a Simple Icons slug is available.
-- `logo`, `flow`, `diagram`, and `comparison` are animated automatically. Do not design static slides.
-- `flow` is preferred for explaining a process or relationship. It supports logo, symbol and short-text nodes.
-- Diagram arrays contain nodes only; connectors are drawn and animated automatically.
-- `text` is a fallback and must be at most three words.
-- Keep text-only beats below roughly 30% of the Short.
-- At least ~45% of beats should be rich visuals: source, logo, flow, diagram, or comparison.
+- Prefer real/source imagery, animated logos, explanatory diagrams, networks, charts, timelines and comparisons over text.
+- A flow should explain an actual relationship; do not use flow merely to put three words in boxes.
+- Use `network` for systems with one central concept and several related components.
+- Use `chart` for cost/performance/percentage comparisons.
+- Use `timeline` for release history, waiting, progression, or before→after over time.
+- Logos, flows, diagrams, comparisons, charts, timelines and networks are animated automatically.
+- Keep text-only beats below ~25%.
+- At least ~55% of beats must use rich graphical treatments.
+- Use at least four visual treatment families in a normal Short.
+- Never use the exact same visual type three beats in a row.
+- Keep generic flow/diagram beats below ~35% of the Short.
+- Use at least one chart/timeline/network in a longer Short when the story supports it.
 - Use at least one source visual when available.
-- For a 25-40 second Short, target 3-4 meme/reaction moments when the story provides natural opportunities; never force an irrelevant meme.
 
-## Meme presentation
+## Meme opportunities
 
-A meme intent may set `presentation` to `overlay`, `cutaway`, or `auto`.
+Target 3-4 meme/reaction moments when natural.
 
-`overlay`:
+Explicitly consider reaction memes on editorial setup language such as:
+- "the headline sounds wild"
+- "this is wild"
+- "here's the catch"
+- "not so fast"
+- "this gets weird"
+- "sounds great"
+- "kind of insane"
+
+The selector also detects common reaction-cue phrases automatically, so do not add a forced meme if the line is already an obvious cue.
+
+### Meme presentation rules
+
+A meme can be `overlay`, `cutaway`, or `auto`.
+
+**overlay**
 - narration continues
 - subtitles remain
-- best for quick sounds or small reactions
+- silent images/videos appear alongside the main visual as a smaller reaction layer
+- audio memes play over the main visual
 
-`cutaway`:
-- full-screen takeover
-- narration pauses
-- subtitles disappear
-- meme plays to a natural end when it is a short video
+**cutaway**
+- reserved for a video meme that actually contains audio
+- takes over the full screen
+- pauses narration
+- hides subtitles
+- plays to a natural end when short enough
 - narration resumes afterward
-- the selector rejects overly long video memes instead of chopping them mid-reaction
 
-For cutaway videos, `maxDurationSeconds` is not a hard trim point. Short clips up to the cutaway budget are preserved to their natural end. Use `maxDurationSeconds` mainly for images or overlays.
+A silent image or silent video must NEVER be a standalone full-screen cutaway. It can only appear as an overlay alongside the main visual.
 
-Example:
+If a requested visual cutaway has no audio, the selector automatically downgrades it to overlay.
 
-```json
-{
-  "purpose":"success",
-  "tone":"positive",
-  "intensity":2,
-  "preferredMedia":"video",
-  "presentation":"cutaway",
-  "concepts":["celebration","upgrade","win"]
-}
-```
-
-The local meme selector chooses the actual file.
-
-Do not manually provide start/end times. The timeline compiler inserts cutaway pauses into narration and keeps captions/visual beats synchronized automatically.
+Do not manually provide start/end times. The timeline compiler keeps narration, cutaways, captions and visuals synchronized automatically.
 
 After successfully queuing a story, report only its headline, score, and primary source. If nothing qualifies, make no repository changes and produce no notification.
