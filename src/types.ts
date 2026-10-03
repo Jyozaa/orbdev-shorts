@@ -1,19 +1,4 @@
-export type SceneType =
-  | 'hook'
-  | 'explain'
-  | 'metric'
-  | 'diagram'
-  | 'comparison'
-  | 'impact'
-  | 'caveat'
-  | 'outro';
-
-export type ReactionSfx =
-  | 'scratch'
-  | 'impact'
-  | 'whoosh'
-  | 'tick'
-  | 'none';
+export type ReactionSfx = 'scratch' | 'impact' | 'whoosh' | 'tick' | 'none';
 
 export type MemeIntent = {
   purpose: 'reaction' | 'punchline' | 'contrast' | 'confusion' | 'failure' | 'success' | 'waiting' | 'absurdity' | 'emphasis';
@@ -33,27 +18,53 @@ export type SelectedMeme = {
   volume?: number;
 };
 
-export type DiagramNode = {
-  symbol: string;
-  label?: string;
+export type SourceVisual = {
+  type: 'source';
+  sourceIndex: number;
+  src?: string;
 };
 
-export type Scene = {
-  type: SceneType;
-  start: number;
-  end: number;
-  kicker?: string;
-  title: string;
-  body?: string;
-  leftTitle?: string;
-  leftBody?: string;
-  leftSymbol?: string;
-  rightTitle?: string;
-  rightBody?: string;
-  rightSymbol?: string;
-  nodes?: DiagramNode[];
+export type MetricVisual = {
+  type: 'metric';
+  value: string;
+};
+
+export type DiagramVisual = {
+  type: 'diagram';
+  symbols: string[];
+};
+
+export type ComparisonVisual = {
+  type: 'comparison';
+  left: string;
+  right: string;
+};
+
+export type SymbolVisual = {
+  type: 'symbol';
+  symbol: string;
+};
+
+export type TextVisual = {
+  type: 'text';
+  text: string;
+};
+
+export type BeatVisualSpec =
+  | SourceVisual
+  | MetricVisual
+  | DiagramVisual
+  | ComparisonVisual
+  | SymbolVisual
+  | TextVisual;
+
+export type Beat = {
+  text: string;
+  visual: BeatVisualSpec;
   sfx?: ReactionSfx;
   memeIntent?: MemeIntent;
+  start?: number;
+  end?: number;
   meme?: SelectedMeme;
 };
 
@@ -67,8 +78,7 @@ export type StoryProps = {
   slug: string;
   title: string;
   narration: string;
-  plannedDurationSeconds: number;
   durationSeconds: number;
-  scenes: Scene[];
+  beats: Beat[];
   captions: CaptionWord[];
 };

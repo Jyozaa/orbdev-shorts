@@ -9,76 +9,56 @@ import {
   useCurrentFrame,
   useVideoConfig
 } from 'remotion';
-import {Scene, SelectedMeme} from '../types';
+import {Beat, SelectedMeme} from '../types';
 
 const VisualMeme: React.FC<{meme: SelectedMeme}> = ({meme}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const age = frame / fps;
-  const enter = Math.min(1, age / 0.12);
-  const exitStart = Math.max(0, meme.durationSeconds - 0.16);
-  const exit = age > exitStart ? Math.max(0, 1 - (age - exitStart) / 0.16) : 1;
+  const enter = Math.min(1, age / 0.08);
+  const exitStart = Math.max(0, meme.durationSeconds - 0.10);
+  const exit = age > exitStart ? Math.max(0, 1 - (age - exitStart) / 0.10) : 1;
   const opacity = enter * exit;
-  const scale = 0.92 + enter * 0.08;
 
   if (meme.mediaType === 'audio') {
-    return <Audio src={staticFile(meme.src)} volume={meme.volume ?? 0.56} />;
+    return <Audio src={staticFile(meme.src)} volume={meme.volume ?? 0.58} />;
   }
 
   return (
     <AbsoluteFill
       style={{
+        zIndex: 30,
+        background: '#000000',
         alignItems: 'center',
         justifyContent: 'center',
-        pointerEvents: 'none',
-        zIndex: 20
+        opacity
       }}
     >
-      <div
-        style={{
-          width: 820,
-          height: 600,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          opacity,
-          transform: `scale(${scale})`
-        }}
-      >
-        {meme.mediaType === 'image' ? (
-          <Img
-            src={staticFile(meme.src)}
-            style={{
-              maxWidth: '100%',
-              maxHeight: '100%',
-              objectFit: 'contain'
-            }}
-          />
-        ) : (
-          <OffthreadVideo
-            src={staticFile(meme.src)}
-            volume={meme.volume ?? 0.42}
-            style={{
-              maxWidth: '100%',
-              maxHeight: '100%',
-              objectFit: 'contain'
-            }}
-          />
-        )}
-      </div>
+      {meme.mediaType === 'image' ? (
+        <Img
+          src={staticFile(meme.src)}
+          style={{width: 940, height: 1180, objectFit: 'contain'}}
+        />
+      ) : (
+        <OffthreadVideo
+          src={staticFile(meme.src)}
+          volume={meme.volume ?? 0.44}
+          style={{width: 940, height: 1180, objectFit: 'contain'}}
+        />
+      )}
     </AbsoluteFill>
   );
 };
 
-export const MemeTrack: React.FC<{scenes: Scene[]}> = ({scenes}) => {
+export const MemeTrack: React.FC<{beats: Beat[]}> = ({beats}) => {
   const {fps} = useVideoConfig();
 
   return (
     <>
-      {scenes.map((scene, index) => {
-        if (!scene.meme) return null;
-        const meme = scene.meme;
-        const from = Math.max(0, Math.round((scene.start + meme.offsetSeconds) * fps));
+      {beats.map((beat, index) => {
+        if (!beat.meme || beat.start === undefined) return null;
+        const meme = beat.meme;
+        const from = Math.max(0, Math.round((beat.start + meme.offsetSeconds) * fps));
         const durationInFrames = Math.max(1, Math.round(meme.durationSeconds * fps));
 
         return (

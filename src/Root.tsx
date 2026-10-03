@@ -6,22 +6,14 @@ import {StoryProps} from './types';
 const defaultProps: StoryProps = {
   slug: 'preview',
   title: 'orbdev preview',
-  narration: 'A compact technology update from orbdev.',
-  plannedDurationSeconds: 10,
-  durationSeconds: 10,
-  scenes: [
+  narration: 'A compact technology update.',
+  durationSeconds: 6,
+  beats: [
     {
-      type: 'hook',
+      text: 'A compact technology update.',
+      visual: {type: 'text', text: 'TECH UPDATE'},
       start: 0,
-      end: 7,
-      kicker: 'QUICK UPDATE',
-      title: 'A compact technology update'
-    },
-    {
-      type: 'outro',
-      start: 7,
-      end: 10,
-      title: 'orbdev'
+      end: 6
     }
   ],
   captions: []
@@ -35,7 +27,7 @@ export const Root: React.FC = () => (
   <Composition
     id="OrbdevShort"
     component={OrbdevShort}
-    durationInFrames={300}
+    durationInFrames={180}
     fps={30}
     width={1080}
     height={1920}

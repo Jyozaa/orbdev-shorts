@@ -6,7 +6,7 @@ on:
       story:
         description: Story JSON path
         required: false
-        default: stories/test.json
+        default: stories/current.json
   push:
     branches:
       - main
@@ -30,9 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      ORBDEV_VOICE: en-GB-RyanNeural
-      ORBDEV_RATE: +10%
-      ORBDEV_CAPTION_LEAD_MS: 220
+      ORBDEV_VOICE: en-US-AndrewNeural
+      ORBDEV_VOICE_FALLBACK: en-GB-RyanNeural
+      ORBDEV_RATE: +18%
+      ORBDEV_PITCH: -2Hz
+      ORBDEV_CAPTION_LEAD_MS: 90
 
     steps:
       - name: Checkout
@@ -43,12 +45,9 @@ jobs:
         run: |
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             story="${{ inputs.story }}"
-          elif [ -f stories/current.json ]; then
-            story="stories/current.json"
           else
-            story="stories/test.json"
+            story="stories/current.json"
           fi
-
           slug="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["slug"])' "$story")"
           echo "STORY_FILE=$story" >> "$GITHUB_ENV"
           echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
@@ -90,7 +89,10 @@ jobs:
       - name: Select meme assets
         run: python scripts/select_memes.py "$STORY_FILE"
 
-      - name: Prepare render
+      - name: Capture source visuals
+        run: python scripts/capture_sources.py "$STORY_FILE"
+
+      - name: Prepare voice-timed render
         run: python scripts/prepare_render_props.py "$STORY_FILE"
 
       - name: Type check
@@ -114,10 +116,12 @@ jobs:
           if-no-files-found: error
           retention-days: 30
 
-      - name: Upload meme selection report
+      - name: Upload selection report
         uses: actions/upload-artifact@v4
         with:
-          name: meme-selection-${{ env.STORY_SLUG }}
-          path: build/meme-selection.json
+          name: render-selection-${{ env.STORY_SLUG }}
+          path: |
+            build/meme-selection.json
+            build/source-assets.json
           if-no-files-found: ignore
           retention-days: 30

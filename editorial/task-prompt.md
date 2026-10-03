@@ -2,63 +2,108 @@
 
 Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
-Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json` if it exists before selecting anything.
+Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json` before selecting anything.
 
-Search current public sources for important AI and developer-technology announcements inside the configured lookback window. Prioritize official primary sources. Secondary reporting may be used for discovery or context, but every selected story must have at least one primary source.
+Search current public sources for significant AI and developer-technology developments inside the configured lookback window. Every selected story must have at least one primary source.
 
-Orbdev covers concrete technical developments: new models, capabilities, developer tools, research results, discoveries, robotics, hardware, security findings, infrastructure changes, and meaningful open-source releases. Do not select hiring, recruitment, fellowships, training programs, educational cohorts, staffing announcements, or generic company initiatives unless a substantial new technology is the actual story.
+Orbdev covers concrete technical changes: models, capabilities, developer tools, research, discoveries, robotics, hardware, security, infrastructure, and meaningful open-source releases. Ignore hiring, training cohorts, staffing announcements, routine partnerships, and generic business news unless a substantial technology is the actual story.
 
-Establish the true original announcement time from the source itself where possible. Do not use crawler dates, reposts, or page-refresh timestamps to make old news look current.
+## Voice-first production
 
-Apply every hard rule in the policy. Score each viable candidate using the configured weights. Do not queue anything below the minimum score or above the daily cap.
+Write the narration first. Then split the *exact narration text* into short sequential `beats`. Beat text must reproduce the narration exactly, word-for-word and in order. Do not invent timestamps. The renderer derives every beat's start/end time from the narration's word timestamps.
 
-If nothing qualifies, make no repository changes.
+Aim for 12-22 beats in a normal Short. Most beats should contain roughly 3-9 spoken words and should visually change every ~1.2-2.0 seconds.
 
-If a story qualifies:
+The narration should be:
+- concise, dry, conversational and technically accurate
+- roughly 70-105 words
+- written to sound natural when spoken quickly
+- free of filler intros and generic conclusions
+- explicit when a benchmark is company-reported
+- built around setup → technical delta → implication → caveat/punchline
 
-1. Verify factual claims against the primary source.
-2. Write a concise script inside the configured word and duration targets.
-3. Structure it around the technical delta: what changed, concrete numbers/capabilities, why it matters, and a material limitation when relevant.
-4. Prefer visual scenes using diagrams, arrows, nodes, symbols and numbers. Supported scene types are `hook`, `explain`, `metric`, `diagram`, `comparison`, `impact`, `caveat`, and `outro`.
-5. Do not put paragraphs on screen. Narration carries the explanation.
-6. Outside subtitles, default to symbols and numbers. Hook text should normally be three words or fewer. Metric scenes should normally have no label. Diagram node labels should normally be omitted.
-7. Use 2-4 nodes for a diagram. Prefer symbols such as `6.0`, `6.1`, `$`, `%`, `</>`, `⚙`, `↑`, and `↓`.
-8. Use built-in transition SFX only for neutral motion cues: `scratch`, `impact`, `whoosh`, `tick`, or `none`.
-9. For comedic or emotional reactions, describe a `memeIntent` instead of naming a specific meme. The selector will choose the asset later.
-10. A `memeIntent` must specify:
-   - `purpose`: reaction, punchline, contrast, confusion, failure, success, waiting, absurdity, or emphasis
-   - `tone`: positive, negative, surprised, confused, awkward, deadpan, chaotic, or neutral
-   - `intensity`: 1, 2, or 3
-   - optional `preferredMedia`: audio, image, video, or any
-   - optional `maxDurationSeconds`
-   - optional `concepts`: 2-5 short semantic cues such as `celebration`, `bruh`, `facepalm`, `waiting`, `confusion`, `money`, or `disbelief`
-11. Use no more than two meme moments in a normal Short. A meme should land immediately after the statement it reacts to, not randomly in the middle of an explanation.
-12. When using company benchmarks, clearly attribute them in narration.
-13. Create a stable lowercase kebab-case `storyKey`.
-14. Write `stories/current.json`.
-15. Append the story to `history/covered.json` after the current story has been written successfully.
+## Visual vocabulary
 
-Example:
+Use real/source imagery when useful and simple abstract visuals everywhere else. Supported visuals:
+
+```json
+{"type":"source","sourceIndex":0}
+{"type":"metric","value":"95%"}
+{"type":"diagram","symbols":["$","→","↓"]}
+{"type":"comparison","left":"6.0","right":"6.1"}
+{"type":"symbol","symbol":"</>"}
+{"type":"text","text":"NOT #1"}
+```
+
+Rules:
+- `source` uses the referenced primary-source page's OpenGraph image or page screenshot.
+- `text` is rare and must be at most three words.
+- Prefer real source visuals, screenshots, numbers, symbols, arrows, diagrams and memes over explanatory text.
+- Do not put paragraphs on screen.
+- Change visual composition frequently.
+- Use at least one source visual when a primary source is available.
+- Use no more than two meme moments in a normal Short.
+- A meme should punctuate a joke, success, failure, contradiction, confusion or caveat—not replace the explanation.
+
+Neutral motion SFX: `scratch`, `impact`, `whoosh`, `tick`, or `none`.
+
+For meme moments, describe semantic intent rather than a filename:
 
 ```json
 {
-  "type": "metric",
-  "start": 5,
-  "end": 9,
-  "title": "+50%",
-  "sfx": "impact",
-  "memeIntent": {
-    "purpose": "reaction",
-    "tone": "negative",
-    "intensity": 3,
-    "preferredMedia": "audio",
-    "maxDurationSeconds": 1.5
+  "purpose":"reaction",
+  "tone":"negative",
+  "intensity":2,
+  "preferredMedia":"audio",
+  "maxDurationSeconds":1.0,
+  "concepts":["bruh","disbelief","bad news"]
+}
+```
+
+The local meme selector chooses the actual asset.
+
+## Story shape
+
+```json
+{
+  "slug":"short-kebab-slug",
+  "title":"Internal factual title",
+  "narration":"Complete narration.",
+  "beats":[
+    {
+      "text":"Exact first narration phrase.",
+      "visual":{"type":"source","sourceIndex":0},
+      "sfx":"whoosh"
+    },
+    {
+      "text":"Exact next narration phrase.",
+      "visual":{"type":"metric","value":"50%"}
+    }
+  ],
+  "editorial":{
+    "storyKey":"stable-story-key",
+    "selectedAt":"ISO-8601",
+    "score":8.6,
+    "sources":[
+      {
+        "title":"Primary source",
+        "publisher":"Publisher",
+        "url":"https://example.com",
+        "publishedAt":"ISO-8601 or date",
+        "primary":true
+      }
+    ]
+  },
+  "publish":{
+    "youtubeTitle":"Short factual title",
+    "description":"Short description plus source link",
+    "tags":["AI","technology"],
+    "category":"SCIENCE_TECHNOLOGY",
+    "madeForKids":false
   }
 }
 ```
 
-The editorial worker describes the reaction. It does not choose the actual meme file. The meme selector maps that intent to the curated meme catalog.
+Do not manually provide start/end times. The renderer synchronizes visuals to the generated voice.
 
-All scene times must be contiguous, start at zero, and end at `plannedDurationSeconds`.
-
-After successfully queuing a story, report only its headline, score, and primary source. If no story qualifies, produce no user notification.
+After successfully queuing a story, report only its headline, score, and primary source. If nothing qualifies, make no repository changes and produce no notification.

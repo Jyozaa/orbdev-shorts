@@ -2,114 +2,168 @@
   "slug": "gpt-6-1-sol",
   "title": "OpenAI launches GPT-6.1 Sol",
   "narration": "OpenAI just released GPT-6.1 Sol. The pitch is simple: near-Astra capability for much less money. OpenAI says it matches Astra on DeepSWE at roughly one-fifth the cost, while beating GPT-6 Sol by 6.4 percentage points. Cached input is now ten cents per million tokens, a 95 percent discount from standard input pricing. It also improves computer use, professional workflows, and scientific tasks. The catch is that Astra still leads on the hardest research workloads, so 6.1 Sol is the cheaper middle ground, not the absolute top model.",
-  "plannedDurationSeconds": 36,
-  "scenes": [
+  "beats": [
     {
-      "type": "hook",
-      "start": 0,
-      "end": 3.5,
-      "title": "GPT 6.1",
+      "text": "OpenAI just released GPT-6.1 Sol.",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0
+      },
       "sfx": "whoosh"
     },
     {
-      "type": "metric",
-      "start": 3.5,
-      "end": 7.5,
-      "title": "1/5",
+      "text": "The pitch is simple:",
+      "visual": {
+        "type": "text",
+        "text": "SIMPLE"
+      }
+    },
+    {
+      "text": "near-Astra capability for much less money.",
+      "visual": {
+        "type": "comparison",
+        "left": "ASTRA",
+        "right": "6.1"
+      }
+    },
+    {
+      "text": "OpenAI says it matches Astra on DeepSWE",
+      "visual": {
+        "type": "symbol",
+        "symbol": "</>"
+      },
+      "sfx": "tick"
+    },
+    {
+      "text": "at roughly one-fifth the cost,",
+      "visual": {
+        "type": "metric",
+        "value": "1/5"
+      },
       "sfx": "impact",
       "memeIntent": {
         "purpose": "success",
         "tone": "positive",
-        "intensity": 3,
+        "intensity": 2,
         "preferredMedia": "video",
-        "maxDurationSeconds": 1.6,
+        "maxDurationSeconds": 1.2,
         "concepts": [
           "celebration",
           "win",
-          "excitement",
           "good news"
         ]
       }
     },
     {
-      "type": "diagram",
-      "start": 7.5,
-      "end": 11.5,
-      "title": "upgrade",
-      "nodes": [
-        {
-          "symbol": "6.0"
-        },
-        {
-          "symbol": "6.1"
-        }
-      ],
-      "sfx": "tick"
+      "text": "while beating GPT-6 Sol",
+      "visual": {
+        "type": "diagram",
+        "symbols": [
+          "6.0",
+          "6.1"
+        ]
+      }
     },
     {
-      "type": "metric",
-      "start": 11.5,
-      "end": 15.5,
-      "title": "+6.4",
+      "text": "by 6.4 percentage points.",
+      "visual": {
+        "type": "metric",
+        "value": "+6.4"
+      },
       "sfx": "impact"
     },
     {
-      "type": "diagram",
-      "start": 15.5,
-      "end": 20,
-      "title": "coding",
-      "nodes": [
-        {
-          "symbol": "</>"
-        },
-        {
-          "symbol": "↑"
-        }
-      ],
-      "sfx": "whoosh"
+      "text": "Cached input is now ten cents",
+      "visual": {
+        "type": "metric",
+        "value": "$0.10"
+      }
     },
     {
-      "type": "metric",
-      "start": 20,
-      "end": 24,
-      "title": "95%",
+      "text": "per million tokens,",
+      "visual": {
+        "type": "symbol",
+        "symbol": "1M"
+      }
+    },
+    {
+      "text": "a 95 percent discount",
+      "visual": {
+        "type": "metric",
+        "value": "95%"
+      },
       "sfx": "impact"
     },
     {
-      "type": "diagram",
-      "start": 24,
-      "end": 30.5,
-      "title": "agent cost",
-      "nodes": [
-        {
-          "symbol": "$0.10"
-        },
-        {
-          "symbol": "↻"
-        },
-        {
-          "symbol": "⚙"
-        }
-      ],
-      "sfx": "tick"
+      "text": "from standard input pricing.",
+      "visual": {
+        "type": "diagram",
+        "symbols": [
+          "$",
+          "↓"
+        ]
+      }
     },
     {
-      "type": "caveat",
-      "start": 30.5,
-      "end": 36,
-      "title": "6.1 < ASTRA",
-      "sfx": "scratch",
+      "text": "It also improves computer use,",
+      "visual": {
+        "type": "symbol",
+        "symbol": "⌨"
+      }
+    },
+    {
+      "text": "professional workflows,",
+      "visual": {
+        "type": "symbol",
+        "symbol": "⚙"
+      }
+    },
+    {
+      "text": "and scientific tasks.",
+      "visual": {
+        "type": "symbol",
+        "symbol": "∑"
+      }
+    },
+    {
+      "text": "The catch is that Astra still leads",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "on the hardest research workloads,",
+      "visual": {
+        "type": "symbol",
+        "symbol": "↑"
+      }
+    },
+    {
+      "text": "so 6.1 Sol is the cheaper middle ground,",
+      "visual": {
+        "type": "comparison",
+        "left": "6.1",
+        "right": "ASTRA"
+      }
+    },
+    {
+      "text": "not the absolute top model.",
+      "visual": {
+        "type": "text",
+        "text": "NOT #1"
+      },
       "memeIntent": {
         "purpose": "reaction",
         "tone": "negative",
         "intensity": 2,
         "preferredMedia": "audio",
-        "maxDurationSeconds": 1,
+        "maxDurationSeconds": 0.9,
         "concepts": [
           "bruh",
           "disbelief",
-          "disappointment",
-          "bad news"
+          "disappointment"
         ]
       }
     }
@@ -140,7 +194,7 @@
   },
   "publish": {
     "youtubeTitle": "GPT-6.1 Sol: near-Astra performance for much less",
-    "description": "OpenAI says GPT-6.1 Sol brings near-Astra performance to coding, computer use, and professional work at a much lower cost.\n\nSource: https://openai.com/index/introducing-gpt-6-1-sol/",
+    "description": "OpenAI says GPT-6.1 Sol brings near-Astra performance to coding, computer use, and professional work at a much lower cost.\\n\\nSource: https://openai.com/index/introducing-gpt-6-1-sol/",
     "tags": [
       "AI",
       "OpenAI",

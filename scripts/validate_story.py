@@ -1,11 +1,12 @@
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
-ALLOWED_TYPES = {"hook", "explain", "metric", "diagram", "comparison", "impact", "caveat", "outro"}
+ALLOWED_VISUALS = {"source", "metric", "diagram", "comparison", "symbol", "text"}
 ALLOWED_SFX = {"scratch", "impact", "whoosh", "tick", "none"}
 ALLOWED_PURPOSES = {"reaction", "punchline", "contrast", "confusion", "failure", "success", "waiting", "absurdity", "emphasis"}
 ALLOWED_TONES = {"positive", "negative", "surprised", "confused", "awkward", "deadpan", "chaotic", "neutral"}
@@ -16,67 +17,54 @@ def fail(message: str) -> None:
     raise SystemExit(f"Story validation failed: {message}")
 
 
+def normalized_space(text: str) -> str:
+    return " ".join(text.split())
+
+
 def validate_editorial(data: dict[str, object]) -> None:
     editorial = data.get("editorial")
     if not isinstance(editorial, dict):
         fail("current story needs editorial metadata")
 
-    story_key = editorial.get("storyKey")
-    if not isinstance(story_key, str) or not story_key.strip():
-        fail("editorial.storyKey is required")
+    for key in ("storyKey", "selectedAt", "score", "sources"):
+        if key not in editorial:
+            fail(f"editorial.{key} is required")
 
-    selected_at = editorial.get("selectedAt")
-    if not isinstance(selected_at, str) or "T" not in selected_at:
-        fail("editorial.selectedAt must be an ISO-8601 timestamp")
-
-    score = editorial.get("score")
-    if not isinstance(score, (int, float)) or score < 0 or score > 10:
+    score = editorial["score"]
+    if not isinstance(score, (int, float)) or not 0 <= score <= 10:
         fail("editorial.score must be between 0 and 10")
 
-    sources = editorial.get("sources")
+    sources = editorial["sources"]
     if not isinstance(sources, list) or not sources:
         fail("editorial.sources must contain at least one source")
 
     has_primary = False
     for index, source in enumerate(sources):
         if not isinstance(source, dict):
-            fail(f"editorial source {index} must be an object")
+            fail(f"source {index} must be an object")
         url = source.get("url")
         if not isinstance(url, str):
-            fail(f"editorial source {index} needs a URL")
+            fail(f"source {index} needs a URL")
         parsed = urlparse(url)
         if parsed.scheme != "https" or not parsed.netloc:
-            fail(f"editorial source {index} needs a valid HTTPS URL")
-        if source.get("primary") is True:
-            has_primary = True
+            fail(f"source {index} needs a valid HTTPS URL")
+        has_primary = has_primary or source.get("primary") is True
 
     if not has_primary:
-        fail("at least one editorial source must be primary")
-
-    publish = data.get("publish")
-    if not isinstance(publish, dict):
-        fail("current story needs publish metadata")
-    if not isinstance(publish.get("youtubeTitle"), str) or not publish["youtubeTitle"].strip():
-        fail("publish.youtubeTitle is required")
-    if publish.get("madeForKids") is not False:
-        fail("publish.madeForKids must be false")
+        fail("at least one source must be primary")
 
 
-def validate_meme_intent(intent: object, scene_index: int) -> None:
+def validate_meme_intent(intent: object, beat_index: int) -> None:
     if not isinstance(intent, dict):
-        fail(f"scene {scene_index} memeIntent must be an object")
+        fail(f"beat {beat_index} memeIntent must be an object")
     if intent.get("purpose") not in ALLOWED_PURPOSES:
-        fail(f"scene {scene_index} has invalid meme purpose")
+        fail(f"beat {beat_index} has invalid meme purpose")
     if intent.get("tone") not in ALLOWED_TONES:
-        fail(f"scene {scene_index} has invalid meme tone")
+        fail(f"beat {beat_index} has invalid meme tone")
     if intent.get("intensity") not in {1, 2, 3}:
-        fail(f"scene {scene_index} meme intensity must be 1, 2, or 3")
+        fail(f"beat {beat_index} meme intensity must be 1, 2, or 3")
     if intent.get("preferredMedia") is not None and intent.get("preferredMedia") not in ALLOWED_MEDIA:
-        fail(f"scene {scene_index} has invalid preferred meme media")
-    if intent.get("maxDurationSeconds") is not None:
-        value = intent["maxDurationSeconds"]
-        if not isinstance(value, (int, float)) or value <= 0 or value > 3:
-            fail(f"scene {scene_index} max meme duration must be between 0 and 3 seconds")
+        fail(f"beat {beat_index} has invalid meme media")
 
 
 def main() -> None:
@@ -84,70 +72,77 @@ def main() -> None:
         fail("usage: validate_story.py <story.json>")
 
     path = Path(sys.argv[1])
-    if not path.is_file():
-        fail(f"file not found: {path}")
-
     data = json.loads(path.read_text(encoding="utf-8"))
 
-    for key in ("slug", "title", "narration", "plannedDurationSeconds", "scenes"):
+    for key in ("slug", "title", "narration", "beats"):
         if key not in data:
             fail(f"missing field: {key}")
 
-    if not isinstance(data["narration"], str) or len(data["narration"].strip()) < 10:
+    narration = data["narration"]
+    if not isinstance(narration, str) or len(narration.strip()) < 10:
         fail("narration must contain usable text")
 
-    planned = data["plannedDurationSeconds"]
-    if not isinstance(planned, (int, float)) or planned <= 0 or planned > 90:
-        fail("plannedDurationSeconds must be between 0 and 90")
+    beats = data["beats"]
+    if not isinstance(beats, list) or not 8 <= len(beats) <= 24:
+        fail("beats must contain between 8 and 24 voice-first beats")
 
-    scenes = data["scenes"]
-    if not isinstance(scenes, list) or not scenes:
-        fail("scenes must be a non-empty list")
-
-    previous_end = 0.0
     meme_count = 0
-    for index, scene in enumerate(scenes):
-        if not isinstance(scene, dict):
-            fail(f"scene {index} must be an object")
-        if scene.get("type") not in ALLOWED_TYPES:
-            fail(f"scene {index} has an unsupported type")
-        if not isinstance(scene.get("title"), str) or not scene["title"].strip():
-            fail(f"scene {index} needs a title")
-        if scene.get("sfx") is not None and scene.get("sfx") not in ALLOWED_SFX:
-            fail(f"scene {index} has an unsupported sfx")
+    for index, beat in enumerate(beats):
+        if not isinstance(beat, dict):
+            fail(f"beat {index} must be an object")
 
-        if scene.get("memeIntent") is not None:
-            validate_meme_intent(scene["memeIntent"], index)
+        text = beat.get("text")
+        if not isinstance(text, str) or not text.strip():
+            fail(f"beat {index} needs exact narration text")
+        if len(re.findall(r"\S+", text)) > 12:
+            fail(f"beat {index} is too long; split it into a faster visual beat")
+
+        visual = beat.get("visual")
+        if not isinstance(visual, dict) or visual.get("type") not in ALLOWED_VISUALS:
+            fail(f"beat {index} has an invalid visual")
+
+        kind = visual["type"]
+        if kind == "source":
+            if not isinstance(visual.get("sourceIndex"), int) or visual["sourceIndex"] < 0:
+                fail(f"beat {index} source visual needs sourceIndex")
+        elif kind == "metric":
+            if not isinstance(visual.get("value"), str) or not visual["value"].strip():
+                fail(f"beat {index} metric needs value")
+        elif kind == "diagram":
+            symbols = visual.get("symbols")
+            if not isinstance(symbols, list) or not 2 <= len(symbols) <= 4:
+                fail(f"beat {index} diagram needs 2-4 symbols")
+        elif kind == "comparison":
+            if not isinstance(visual.get("left"), str) or not isinstance(visual.get("right"), str):
+                fail(f"beat {index} comparison needs left and right")
+        elif kind == "symbol":
+            if not isinstance(visual.get("symbol"), str) or not visual["symbol"].strip():
+                fail(f"beat {index} symbol visual needs symbol")
+        elif kind == "text":
+            value = visual.get("text")
+            if not isinstance(value, str) or not value.strip():
+                fail(f"beat {index} text visual needs text")
+            if len(value.split()) > 3:
+                fail(f"beat {index} text visual must be at most 3 words")
+
+        if beat.get("sfx") is not None and beat.get("sfx") not in ALLOWED_SFX:
+            fail(f"beat {index} has unsupported sfx")
+
+        if beat.get("memeIntent") is not None:
+            validate_meme_intent(beat["memeIntent"], index)
             meme_count += 1
 
-        if scene.get("type") == "diagram":
-            nodes = scene.get("nodes")
-            if not isinstance(nodes, list) or len(nodes) < 2 or len(nodes) > 4:
-                fail(f"diagram scene {index} needs 2 to 4 nodes")
-            for node_index, node in enumerate(nodes):
-                if not isinstance(node, dict) or not isinstance(node.get("symbol"), str) or not node["symbol"].strip():
-                    fail(f"diagram scene {index} node {node_index} needs a symbol")
-
-        start = scene.get("start")
-        end = scene.get("end")
-        if not isinstance(start, (int, float)) or not isinstance(end, (int, float)):
-            fail(f"scene {index} needs numeric start and end values")
-        if start < 0 or end <= start:
-            fail(f"scene {index} has an invalid time range")
-        if abs(float(start) - previous_end) > 0.001:
-            fail(f"scene {index} must start where the previous scene ends")
-        previous_end = float(end)
+    reconstructed = normalized_space(" ".join(str(beat["text"]) for beat in beats))
+    if reconstructed != normalized_space(narration):
+        fail("beat text must reproduce the narration exactly and in order")
 
     if meme_count > 2:
         fail("normal Shorts may contain at most two meme moments")
 
-    if abs(previous_end - float(planned)) > 0.5:
-        fail("scene timeline must end at plannedDurationSeconds")
-
     if path.name == "current.json":
         validate_editorial(data)
 
-    print(f"Validated {path} with {len(scenes)} scenes and {meme_count} meme intents")
+    print(f"Validated {path} with {len(beats)} voice-first beats and {meme_count} meme intents")
 
 
 if __name__ == "__main__":

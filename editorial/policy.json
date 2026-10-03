@@ -1,15 +1,17 @@
 {
-  "version": 6,
+  "version": 7,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
   "maxStoriesPerDay": 2,
   "minimumScore": 7.2,
   "target": {
-    "wordsMin": 65,
-    "wordsMax": 100,
+    "wordsMin": 70,
+    "wordsMax": 105,
     "durationSecondsMin": 24,
-    "durationSecondsMax": 40
+    "durationSecondsMax": 36,
+    "beatsMin": 12,
+    "beatsMax": 22
   },
   "scoring": {
     "significance": 4,
@@ -20,32 +22,35 @@
   },
   "hardRules": [
     "Use at least one primary source.",
-    "Use the original announcement or release time for recency. A refreshed page, crawler date, repost, or later page update does not make an older story new.",
+    "Use the original announcement or release time for recency.",
     "Do not cover a story already present in history or the current story file.",
     "Do not publish rumours, leaks, predictions, or unverified benchmark claims.",
-    "The core of every story must be a new technology, model, capability, developer tool, hardware release, research result, scientific discovery, robotics advance, infrastructure change, security finding, or meaningful open-source release.",
-    "Do not select hiring, recruitment, fellowships, training academies, educational cohorts, job programs, grants, workforce-reskilling initiatives, or company staffing announcements unless the actual news is a substantial new technology or research result.",
-    "Exclude routine partnerships, funding announcements, customer wins, executive commentary, and generic business expansion unless they reveal a concrete technical development.",
-    "Prefer stories with a clear technical delta that can be shown visually using symbols, arrows, numbers, nodes, or a before-versus-after diagram.",
-    "Explain what changed, why it matters, and any material limitation.",
-    "When citing company-reported benchmarks, make the attribution clear and avoid presenting them as independent verification.",
-    "Do not exaggerate the source or introduce claims the source does not support.",
-    "Use clear, fast language for a technical but broad audience.",
-    "Avoid paragraph-style on-screen copy. The narration carries detail; visuals should communicate with diagrams, arrows, symbols and short labels.",
-    "Outside subtitles, prefer numbers, arrows, mathematical operators and symbols over words. Use words only when a symbol would be ambiguous.",
-    "Do not synthesize vocal reaction sounds. Use the curated meme library for comedic reactions."
+    "The core of every story must be a technical development, discovery, release, capability, research result, security finding, hardware change, robotics advance, infrastructure change, or meaningful open-source release.",
+    "Exclude hiring, recruitment, fellowships, training cohorts, staffing announcements, routine partnerships, funding news, customer wins, and generic company expansion unless the actual story is technical.",
+    "Write narration first, then split that exact narration into short voice-first beats.",
+    "Beat text must reproduce narration exactly and in order.",
+    "Do not manually time visual beats; timing comes from narration word boundaries.",
+    "Prefer source imagery, screenshots, metrics, symbols, diagrams, comparisons and memes over explanatory on-screen copy.",
+    "Do not put paragraphs on screen.",
+    "When using company-reported benchmarks, explicitly attribute them in narration.",
+    "Use memes as punctuation, not as filler."
   ],
   "visualRules": {
     "background": "#000000",
     "subtitles": "pure white",
     "cornerLogo": false,
-    "maxHookWords": 3,
-    "maxMetricLabelWords": 0,
-    "maxDiagramLabelWords": 0,
-    "preferredBeatSeconds": "2-3",
+    "preferredBeatSeconds": "1.2-2.0",
+    "maxTextVisualWords": 3,
+    "sourceVisualsPreferred": true,
     "diagramsOverParagraphs": true,
-    "preferNoLabels": true,
-    "maxNonSubtitleWordsPerScene": 3
+    "phraseCaptions": true
+  },
+  "narration": {
+    "preferredVoice": "en-US-AndrewNeural",
+    "fallbackVoice": "en-GB-RyanNeural",
+    "rate": "+18%",
+    "pitch": "-2Hz",
+    "processing": "broadcast EQ, compression, loudness normalization"
   },
   "reactionSfx": [
     "scratch",
@@ -99,55 +104,15 @@
     "computer use",
     "agent systems"
   ],
-  "sceneGuidance": {
-    "modelOrProductLaunch": [
-      "hook",
-      "metric",
-      "diagram",
-      "comparison",
-      "impact",
-      "caveat"
-    ],
-    "research": [
-      "hook",
-      "diagram",
-      "metric",
-      "impact",
-      "caveat"
-    ],
-    "developerTool": [
-      "hook",
-      "diagram",
-      "comparison",
-      "metric",
-      "impact"
-    ],
-    "infrastructure": [
-      "hook",
-      "metric",
-      "diagram",
-      "impact",
-      "caveat"
-    ]
-  },
   "memeSelection": {
     "source": "local",
-    "folders": [
-      "Meme Pack/Meme Sound Effects",
-      "Meme Pack/Meme Videos",
-      "Memes templates -HD-",
-      "Memes templates -HD- 2"
-    ],
     "strategy": "intent-tag retrieval",
     "defaultMaxUsesPerShort": 2,
-    "defaultMaxVideoDurationSeconds": 2.5,
     "allowedMedia": [
       "audio",
       "image",
       "video"
     ],
-    "excludeGreenScreen": true,
-    "requireBrandSafe": true,
-    "requireRightsReview": false
+    "excludeGreenScreen": true
   }
 }

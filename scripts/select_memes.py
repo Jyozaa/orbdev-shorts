@@ -32,10 +32,8 @@ def score(item: dict[str, object], intent: dict[str, object]) -> float:
         result += 35
     if intent.get("tone") in tones:
         result += 25
-
-    overlap = len(item_tags & concepts)
     if concepts:
-        result += min(20, overlap * 7)
+        result += min(20, len(item_tags & concepts) * 7)
 
     preferred = intent.get("preferredMedia", "any")
     if preferred == "any":
@@ -53,7 +51,6 @@ def score(item: dict[str, object], intent: dict[str, object]) -> float:
     for concept in concepts:
         if concept in name:
             result += 2
-
     return result
 
 
@@ -71,15 +68,15 @@ def duration(path: Path) -> float:
         return 0.0
 
 
-def normalize_asset(source: Path, media_type: str, scene_index: int, max_duration: float) -> tuple[str, float]:
+def normalize_asset(source: Path, media_type: str, beat_index: int, max_duration: float) -> tuple[str, float]:
     PUBLIC.mkdir(parents=True, exist_ok=True)
 
     if media_type == "audio":
-        output = PUBLIC / f"scene-{scene_index}.mp3"
+        output = PUBLIC / f"beat-{beat_index}.mp3"
         subprocess.run(
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-                "-t", str(max_duration), "-af", "loudnorm=I=-16:TP=-1.5:LRA=7",
+                "-t", str(max_duration), "-af", "loudnorm=I=-15:TP=-1.5:LRA=6",
                 "-codec:a", "libmp3lame", "-q:a", "3", str(output)
             ],
             check=True,
@@ -87,26 +84,23 @@ def normalize_asset(source: Path, media_type: str, scene_index: int, max_duratio
         return f"memes/{output.name}", min(max_duration, duration(output) or max_duration)
 
     if media_type == "video":
-        output = PUBLIC / f"scene-{scene_index}.mp4"
+        output = PUBLIC / f"beat-{beat_index}.mp4"
         subprocess.run(
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-                "-t", str(max_duration),
-                "-vf", "scale=840:-2,fps=30",
+                "-t", str(max_duration), "-vf", "scale=900:-2,fps=30",
                 "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
-                "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
-                str(output)
+                "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(output)
             ],
             check=True,
         )
         return f"memes/{output.name}", min(max_duration, duration(output) or max_duration)
 
-    output = PUBLIC / f"scene-{scene_index}.png"
+    output = PUBLIC / f"beat-{beat_index}.png"
     subprocess.run(
         [
             "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-            "-vf", "scale=840:-2",
-            "-frames:v", "1", str(output)
+            "-vf", "scale=900:-2", "-frames:v", "1", str(output)
         ],
         check=True,
     )
@@ -122,8 +116,8 @@ def main() -> None:
     chosen_ids: set[str] = set()
     selections: dict[str, object] = {}
 
-    for index, scene in enumerate(story.get("scenes", [])):
-        intent = scene.get("memeIntent")
+    for index, beat in enumerate(story.get("beats", [])):
+        intent = beat.get("memeIntent")
         if not intent:
             continue
 
@@ -133,50 +127,37 @@ def main() -> None:
                 continue
             if item.get("id") in chosen_ids:
                 continue
-            value = score(item, intent)
-            candidates.append((value, item))
+            candidates.append((score(item, intent), item))
 
         candidates.sort(key=lambda pair: pair[0], reverse=True)
         if not candidates or candidates[0][0] < 50:
-            print(f"Scene {index}: no meme passed confidence threshold")
+            print(f"Beat {index}: no meme passed confidence threshold")
             continue
 
         selected_result = None
         for value, selected in candidates[:8]:
             path = str(selected["path"])
             source = Path(path)
-
             if not source.is_file():
-                print(f"Scene {index}: local meme missing: {path}")
                 continue
-
             try:
-                print(f"Scene {index}: trying local meme {path} ({value:.1f})")
                 max_duration = float(
                     intent.get("maxDurationSeconds")
-                    or (1.2 if selected["mediaType"] == "audio" else 1.8)
+                    or (1.0 if selected["mediaType"] == "audio" else 1.5)
                 )
                 src, normalized_duration = normalize_asset(
-                    source,
-                    str(selected["mediaType"]),
-                    index,
-                    max_duration,
+                    source, str(selected["mediaType"]), index, max_duration
                 )
                 selected_result = (value, selected, path, src, normalized_duration)
                 break
             except Exception as exc:
-                print(f"Scene {index}: candidate failed: {path}: {exc}")
+                print(f"Beat {index}: candidate failed: {path}: {exc}")
 
         if selected_result is None:
-            print(f"Scene {index}: no local candidate could be normalized")
             continue
 
         value, selected, path, src, normalized_duration = selected_result
         chosen_ids.add(str(selected["id"]))
-
-        scene_duration = float(scene["end"]) - float(scene["start"])
-        offset = max(0.15, scene_duration - normalized_duration - 0.28)
-
         selections[str(index)] = {
             "id": selected["id"],
             "sourcePath": path,
@@ -184,10 +165,9 @@ def main() -> None:
             "mediaType": selected["mediaType"],
             "src": src,
             "durationSeconds": round(normalized_duration, 3),
-            "offsetSeconds": round(offset, 3),
-            "volume": 0.56 if selected["mediaType"] == "audio" else 0.40,
+            "volume": 0.60 if selected["mediaType"] == "audio" else 0.44,
         }
-        print(f"Scene {index}: selected local meme {path} ({value:.1f})")
+        print(f"Beat {index}: selected {path} ({value:.1f})")
 
     SELECTION.parent.mkdir(parents=True, exist_ok=True)
     SELECTION.write_text(json.dumps(selections, indent=2), encoding="utf-8")
