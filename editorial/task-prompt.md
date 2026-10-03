@@ -52,6 +52,9 @@ Use real imagery for recognizable products, demos, UI, games, hardware and resea
 - Logos can participate inside explanations rather than requiring a separate logo scene.
 - Charts/timelines/comparisons remain useful where they actually fit.
 - Never place explanatory-animation windows back-to-back when a valid source, logo, chart, comparison, timeline, metric, meme-backed composition, or other treatment can carry one of those moments.
+- Treat explain/chart/timeline/comparison/flow/diagram/network as one abstract-tech family.
+- Keep that entire family to roughly half or less of final visual windows.
+- Never plan more than two abstract-tech moments consecutively; reset with real imagery, a large unboxed logo/brand composition, meme-backed imagery, a metric, or kinetic typography.
 - Avoid the same treatment family consecutively when alternatives exist.
 - Keep generic flow/diagram treatments below ~25%.
 
@@ -73,3 +76,8 @@ Silent image/video memes are overlays only: no border, no card, narration contin
 The renderer groups semantic beats into ~1.8-3.35s visual windows, choosing the strongest and most varied visual rather than blindly preferring source images.
 
 After queueing a story, report only headline, score and primary source. If nothing qualifies, make no repository changes.
+
+
+## Narration rendering
+
+The production renderer uses Kokoro-82M with a natural US male voice as the primary TTS engine. Write punctuation for natural speech: short sentences, commas where a human would breathe, and contractions where appropriate. Edge neural TTS is fallback only.

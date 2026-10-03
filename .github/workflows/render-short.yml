@@ -30,12 +30,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      ORBDEV_VOICE: en-US-BrianMultilingualNeural
-      ORBDEV_VOICE_FALLBACK: en-US-AndrewMultilingualNeural
-      ORBDEV_VOICE_TERTIARY: en-US-AndrewNeural
-      ORBDEV_RATE: +8%
-      ORBDEV_PITCH: +0Hz
-      ORBDEV_CAPTION_LEAD_MS: 80
+      ORBDEV_KOKORO_VOICE: am_michael
+      ORBDEV_KOKORO_SPEED: '1.05'
+      ORBDEV_VOICE_FALLBACK: en-US-BrianMultilingualNeural
+      ORBDEV_VOICE_TERTIARY: en-US-AndrewMultilingualNeural
+      ORBDEV_EDGE_RATE: +6%
+      ORBDEV_CAPTION_LEAD_MS: 70
 
     steps:
       - name: Checkout application files

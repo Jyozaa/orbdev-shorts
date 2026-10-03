@@ -751,6 +751,28 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
     );
   }
 
+  if (beat.visual.type === 'kinetic') {
+    const words = beat.visual.text.trim().split(/\s+/).slice(0, 6);
+    const emphasis = (beat.visual.emphasis ?? words[words.length - 1] ?? '').toLowerCase();
+    return (
+      <AbsoluteFill style={shell}>
+        <div style={{width: 960, minHeight: 760, display: 'flex', flexWrap: 'wrap', alignContent: 'center', justifyContent: 'center', gap: '14px 22px', transform: `scale(${0.94 + progress * 0.06}) translateY(${-18 * progress}px)`}}>
+          {words.map((word, index) => {
+            const reveal = spring({frame, fps, delay: index * 3, config: {damping: 17, stiffness: 210, mass: 0.48}});
+            const clean = word.replace(/[^A-Za-z0-9'’.-]/g, '').toLowerCase();
+            const target = emphasis.replace(/[^a-z0-9'’.-]/g, '');
+            const isEmphasis = clean === target;
+            return (
+              <div key={`${word}-${index}`} style={{fontSize: isEmphasis ? 132 : 82, lineHeight: 0.88, fontWeight: 950, letterSpacing: isEmphasis ? -7 : -4, textTransform: 'uppercase', opacity: reveal, transform: `translateY(${(1 - reveal) * (index % 2 === 0 ? 50 : -45)}px) scale(${0.82 + reveal * 0.18}) rotate(${(1 - reveal) * (index % 2 === 0 ? -4 : 4)}deg)`, borderBottom: isEmphasis ? '8px solid #ffffff' : undefined, paddingBottom: isEmphasis ? 8 : 0}}>
+                {word}
+              </div>
+            );
+          })}
+        </div>
+      </AbsoluteFill>
+    );
+  }
+
   if (beat.visual.type === 'symbol') {
     const fontSize = fittedFontSize(beat.visual.symbol, 840, 270, 100);
     const rotate = interpolate(enter, [0, 1], [-7, 0]);

@@ -62,14 +62,14 @@ def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allo
     if not scored or scored[0][0]<SOURCE_MIN_MATCH:return None,(scored[0][0] if scored else 0.0)
     return scored[0][2].get("src"),scored[0][0]
 
+ABSTRACT_TYPES={"explain","chart","timeline","comparison","flow","diagram","network"}
+
 def family(kind:str)->str:
-    if kind=="explain":return "explain"
+    if kind in ABSTRACT_TYPES:return "abstract-tech"
     if kind=="source":return "source"
-    if kind in {"chart","metric"}:return "data"
-    if kind in {"timeline"}:return "timeline"
-    if kind in {"logo"}:return "brand"
-    if kind in {"comparison"}:return "comparison"
-    if kind in {"flow","diagram","network"}:return "generic-diagram"
+    if kind=="logo":return "brand"
+    if kind=="metric":return "metric"
+    if kind=="kinetic":return "kinetic"
     return "minimal"
 
 def base_visual_weight(beat)->float:
@@ -85,6 +85,7 @@ def base_visual_weight(beat)->float:
         "network":6.0,
         "flow":5.6,
         "diagram":5.4,
+        "kinetic":7.5,
         "symbol":4.8,
         "text":3.2,
     }.get(kind,1.0)
@@ -105,79 +106,55 @@ def candidate_score(beat,prev_family=None,prev_explain_mode=None)->float:
             score-=3.0
     return score
 
-def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain):
-    viable=[i for i in candidates if base_visual_weight(beats[i])>=0]
-    if not viable: viable=list(candidates)
+def kinetic_from_beat(beat):
+    words=re.findall(r"[A-Za-z0-9'’.-]+",str(beat.get("text","")))
+    return {"type":"kinetic","text":" ".join(words[:6]).strip() or "TECH UPDATE","emphasis":words[-1] if words else "UPDATE"}
 
+def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,abstract_streak):
+    viable=[i for i in candidates if base_visual_weight(beats[i])>=0] or list(candidates)
+    non_abstract=[i for i in viable if str(beats[i].get("visual",{}).get("type","")) not in ABSTRACT_TYPES]
     non_explain=[i for i in viable if str(beats[i].get("visual",{}).get("type",""))!="explain"]
 
-    # Explanations are high-value, but they should not become the entire edit.
-    # If the previous window was already an explanation, use a valid alternative.
-    if prev_family=="explain" and non_explain:
-        viable=non_explain
-    elif explain_count>=max_explain and non_explain:
-        viable=non_explain
+    if (abstract_streak>=2 or abstract_count>=max_abstract) and non_abstract:
+        viable=non_abstract
+    elif prev_family=="abstract-tech" and non_abstract:
+        best_non=max(non_abstract,key=lambda i:base_visual_weight(beats[i]));best_all=max(viable,key=lambda i:base_visual_weight(beats[i]))
+        if base_visual_weight(beats[best_non])>=base_visual_weight(beats[best_all])-1.25:viable=non_abstract
 
-    # Avoid repeating the exact same explanation grammar when alternatives exist.
+    if explain_count>=max_explain and non_explain:viable=non_explain
     if prev_explain_mode:
-        different=[
-            i for i in viable
-            if not (
-                str(beats[i].get("visual",{}).get("type",""))=="explain"
-                and str(beats[i].get("visual",{}).get("mode",""))==prev_explain_mode
-            )
-        ]
-        if different:
-            viable=different
+        different=[i for i in viable if not(str(beats[i].get("visual",{}).get("type",""))=="explain" and str(beats[i].get("visual",{}).get("mode",""))==prev_explain_mode)]
+        if different:viable=different
 
-    return max(
-        viable,
-        key=lambda i:(
-            candidate_score(beats[i],prev_family,prev_explain_mode),
-            float(beats[i]["end"])-float(beats[i]["start"]),
-            -i,
-        ),
-    )
+    chosen=max(viable,key=lambda i:(candidate_score(beats[i],prev_family,prev_explain_mode),float(beats[i]["end"])-float(beats[i]["start"]),-i))
+    chosen_kind=str(beats[chosen].get("visual",{}).get("type",""))
+    force_kinetic=chosen_kind in ABSTRACT_TYPES and (abstract_count>=max_abstract or abstract_streak>=2) and not non_abstract
+    return chosen,force_kinetic
 
 def build_visual_windows(beats,cutaway_by_beat,final_duration):
-    windows=[];index=0;prev_family=None;prev_explain_mode=None;explain_count=0
-    # Roughly 25-35% of final windows may be explanatory animations.
-    max_explain=max(2,min(4,math.floor(final_duration/9.5)))
-
+    windows=[];index=0;prev_family=None;prev_explain_mode=None;explain_count=0;abstract_count=0;abstract_streak=0
+    max_explain=max(2,min(3,math.floor(final_duration/11.0)));expected=max(8,round(final_duration/TARGET_VISUAL_SECONDS));max_abstract=max(4,math.floor(expected*.50))
     while index<len(beats):
         start_index=index;end_index=index;start=float(beats[index]["start"]);end=float(beats[index]["end"])
-
         while end_index+1<len(beats):
             if end_index in cutaway_by_beat:break
             current=end-start
             if current>=TARGET_VISUAL_SECONDS:break
-            next_end=float(beats[end_index+1]["end"]);proposed=next_end-start
-            if proposed>MAX_VISUAL_SECONDS and current>=MIN_VISUAL_SECONDS:break
+            next_end=float(beats[end_index+1]["end"])
+            if next_end-start>MAX_VISUAL_SECONDS and current>=MIN_VISUAL_SECONDS:break
             end_index+=1;end=next_end
             if end_index in cutaway_by_beat or end-start>=TARGET_VISUAL_SECONDS:break
-
         candidates=list(range(start_index,end_index+1))
-        chosen=choose_window_candidate(
-            beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain
-        )
-
-        vb=copy.deepcopy(beats[chosen]);vb["start"]=round(start,4);vb["end"]=round(end,4)
-        vb.pop("meme",None);vb.pop("memeIntent",None);vb.pop("sfx",None)
-        windows.append(vb)
-
-        kind=str(vb.get("visual",{}).get("type","text"))
-        prev_family=family(kind)
-        if kind=="explain":
-            explain_count+=1
-            prev_explain_mode=str(vb.get("visual",{}).get("mode",""))
-        else:
-            prev_explain_mode=None
-
+        chosen,force_kinetic=choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,abstract_streak)
+        vb=copy.deepcopy(beats[chosen]);vb["start"]=round(start,4);vb["end"]=round(end,4);vb.pop("meme",None);vb.pop("memeIntent",None);vb.pop("sfx",None)
+        if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen])
+        windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind)
+        if kind in ABSTRACT_TYPES:abstract_count+=1;abstract_streak+=1
+        else:abstract_streak=0
+        if kind=="explain":explain_count+=1;prev_explain_mode=str(vb.get("visual",{}).get("mode",""))
+        else:prev_explain_mode=None
         index=end_index+1
-
-    if windows and float(windows[-1]["end"])<final_duration:
-        windows[-1]["end"]=round(final_duration,4)
-
+    if windows and float(windows[-1]["end"])<final_duration:windows[-1]["end"]=round(final_duration,4)
     return windows
 
 def main():
@@ -235,8 +212,11 @@ def main():
     props=dict(story);props["durationSeconds"]=round(final_duration,4);props["beats"]=prepared;props["visualBeats"]=visual_beats;props["captions"]=words;props["cutaways"]=cutaways
     BUILD_DIR.mkdir(parents=True,exist_ok=True);(BUILD_DIR/"render-props.json").write_text(json.dumps(props,indent=2),encoding="utf-8")
     print(f"Render props ready: {len(prepared)} semantic beats -> {len(visual_beats)} visual windows, {final_duration:.2f}s")
-    print("Visual treatments:",[b["visual"]["type"] for b in visual_beats])
+    treatments=[b["visual"]["type"] for b in visual_beats]
+    print("Visual treatments:",treatments)
     print("Explain modes:",[b["visual"].get("mode") for b in visual_beats if b["visual"]["type"]=="explain"])
+    abstract=sum(1 for kind in treatments if kind in ABSTRACT_TYPES)
+    print(f"Abstract-tech windows: {abstract}/{len(treatments)} ({abstract/max(1,len(treatments)):.0%})")
     print("Visual holds:",[round(float(b["end"])-float(b["start"]),2) for b in visual_beats])
 
 if __name__=="__main__":main()

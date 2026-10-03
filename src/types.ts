@@ -58,6 +58,12 @@ export type ComparisonVisual = {type: 'comparison'; left: string; right: string}
 export type SymbolVisual = {type: 'symbol'; symbol: string};
 export type TextVisual = {type: 'text'; text: string};
 
+export type KineticVisual = {
+  type: 'kinetic';
+  text: string;
+  emphasis?: string;
+};
+
 export type LogoVisual = {
   type: 'logo';
   slug: string;
@@ -99,6 +105,7 @@ export type BeatVisualSpec =
   | ComparisonVisual
   | SymbolVisual
   | TextVisual
+  | KineticVisual
   | LogoVisual
   | FlowVisual
   | ChartVisual

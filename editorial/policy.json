@@ -1,5 +1,5 @@
 {
-  "version": 17,
+  "version": 18,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -57,7 +57,10 @@
     "Do not reuse the same source image for unrelated beats unless reuse is explicitly justified.",
     "Explanatory animations must not occupy consecutive visual windows when a valid source, logo, comparison, chart, timeline, metric, or other treatment is available.",
     "Keep explanatory-animation windows to roughly one third of the finished Short; variety is more important than maximizing diagram usage.",
-    "Narration should use the multilingual neural voice path first and avoid artificial pitch shifting or heavy compression."
+    "Narration should use the multilingual neural voice path first and avoid artificial pitch shifting or heavy compression.",
+    "Treat explain, charts, timelines, comparisons, flows, diagrams and networks as one abstract-tech family; together they should occupy no more than about half of final visual windows.",
+    "Never show more than two abstract-tech visual windows consecutively; use source imagery, branding, memes, metrics or kinetic typography as a visual reset.",
+    "Use Kokoro-82M as the primary narration engine; Edge neural voices are fallback only."
   ],
   "visualRules": {
     "background": "#000000",
@@ -107,16 +110,23 @@
     "maxExplainWindowFraction": 0.35,
     "noBackToBackExplainWhenAlternative": true,
     "maxSameExplainModeInARow": 1,
-    "explainWindowBudget": "roughly 2-4 per 25-40s Short, depending on duration"
+    "explainWindowBudget": "roughly 2-4 per 25-40s Short, depending on duration",
+    "maxAbstractTechWindowFraction": 0.5,
+    "maxConsecutiveAbstractTechWindows": 2,
+    "kineticResetWhenAbstractBudgetExceeded": true
   },
   "narration": {
     "preferredVoice": "en-US-BrianMultilingualNeural",
     "fallbackVoice": "en-US-AndrewMultilingualNeural",
     "rate": "+8%",
     "pitch": "+0Hz",
-    "processing": "minimal EQ, light compression, limiter, natural-dynamics loudness normalization",
+    "processing": "high-pass + very light compression + limiter + loudness normalization",
     "style": "conversational, concise, dry/playful, human-sounding, setup-change-implication-catch-punchline",
-    "tertiaryVoice": "en-US-AndrewNeural"
+    "tertiaryVoice": "en-US-AndrewNeural",
+    "engine": "Kokoro-82M",
+    "voice": "am_michael",
+    "speed": 1.05,
+    "fallback": "Edge BrianMultilingualNeural"
   },
   "reactionSfx": [
     "scratch",
