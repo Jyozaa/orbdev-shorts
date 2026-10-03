@@ -28,11 +28,11 @@ concurrency:
 jobs:
   render:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     env:
       ORBDEV_VOICE: en-GB-RyanNeural
       ORBDEV_RATE: +10%
-      ORBDEV_CAPTION_LEAD_MS: 180
+      ORBDEV_CAPTION_LEAD_MS: 220
 
     steps:
       - name: Checkout
@@ -81,8 +81,16 @@ jobs:
       - name: Generate narration
         run: python scripts/generate_narration.py "$STORY_FILE"
 
-      - name: Generate sound effects
+      - name: Generate transition sound effects
         run: python scripts/generate_sfx.py
+
+      - name: Build meme catalog
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/build_meme_catalog.py
+
+      - name: Select meme assets
+        run: python scripts/select_memes.py "$STORY_FILE"
 
       - name: Prepare render
         run: python scripts/prepare_render_props.py "$STORY_FILE"
@@ -106,4 +114,12 @@ jobs:
           name: orbdev-${{ env.STORY_SLUG }}
           path: out/${{ env.STORY_SLUG }}.mp4
           if-no-files-found: error
+          retention-days: 30
+
+      - name: Upload meme selection report
+        uses: actions/upload-artifact@v4
+        with:
+          name: meme-selection-${{ env.STORY_SLUG }}
+          path: build/meme-selection.json
+          if-no-files-found: ignore
           retention-days: 30

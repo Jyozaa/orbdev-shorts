@@ -16,7 +16,20 @@
       "start": 3.5,
       "end": 7.5,
       "title": "1/5",
-      "sfx": "impact"
+      "sfx": "impact",
+      "memeIntent": {
+        "purpose": "success",
+        "tone": "positive",
+        "intensity": 3,
+        "preferredMedia": "video",
+        "maxDurationSeconds": 1.6,
+        "concepts": [
+          "celebration",
+          "win",
+          "excitement",
+          "good news"
+        ]
+      }
     },
     {
       "type": "diagram",
@@ -85,7 +98,20 @@
       "start": 30.5,
       "end": 36,
       "title": "6.1 < ASTRA",
-      "sfx": "scratch"
+      "sfx": "scratch",
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "negative",
+        "intensity": 2,
+        "preferredMedia": "audio",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "bruh",
+          "disbelief",
+          "disappointment",
+          "bad news"
+        ]
+      }
     }
   ],
   "editorial": {

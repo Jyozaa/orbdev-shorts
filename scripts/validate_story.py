@@ -6,7 +6,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ALLOWED_TYPES = {"hook", "explain", "metric", "diagram", "comparison", "impact", "caveat", "outro"}
-ALLOWED_SFX = {"yay", "rage", "scratch", "impact", "whoosh", "tick", "none"}
+ALLOWED_SFX = {"scratch", "impact", "whoosh", "tick", "none"}
+ALLOWED_PURPOSES = {"reaction", "punchline", "contrast", "confusion", "failure", "success", "waiting", "absurdity", "emphasis"}
+ALLOWED_TONES = {"positive", "negative", "surprised", "confused", "awkward", "deadpan", "chaotic", "neutral"}
+ALLOWED_MEDIA = {"audio", "image", "video", "any"}
 
 
 def fail(message: str) -> None:
@@ -59,6 +62,23 @@ def validate_editorial(data: dict[str, object]) -> None:
         fail("publish.madeForKids must be false")
 
 
+def validate_meme_intent(intent: object, scene_index: int) -> None:
+    if not isinstance(intent, dict):
+        fail(f"scene {scene_index} memeIntent must be an object")
+    if intent.get("purpose") not in ALLOWED_PURPOSES:
+        fail(f"scene {scene_index} has invalid meme purpose")
+    if intent.get("tone") not in ALLOWED_TONES:
+        fail(f"scene {scene_index} has invalid meme tone")
+    if intent.get("intensity") not in {1, 2, 3}:
+        fail(f"scene {scene_index} meme intensity must be 1, 2, or 3")
+    if intent.get("preferredMedia") is not None and intent.get("preferredMedia") not in ALLOWED_MEDIA:
+        fail(f"scene {scene_index} has invalid preferred meme media")
+    if intent.get("maxDurationSeconds") is not None:
+        value = intent["maxDurationSeconds"]
+        if not isinstance(value, (int, float)) or value <= 0 or value > 3:
+            fail(f"scene {scene_index} max meme duration must be between 0 and 3 seconds")
+
+
 def main() -> None:
     if len(sys.argv) != 2:
         fail("usage: validate_story.py <story.json>")
@@ -85,6 +105,7 @@ def main() -> None:
         fail("scenes must be a non-empty list")
 
     previous_end = 0.0
+    meme_count = 0
     for index, scene in enumerate(scenes):
         if not isinstance(scene, dict):
             fail(f"scene {index} must be an object")
@@ -94,6 +115,10 @@ def main() -> None:
             fail(f"scene {index} needs a title")
         if scene.get("sfx") is not None and scene.get("sfx") not in ALLOWED_SFX:
             fail(f"scene {index} has an unsupported sfx")
+
+        if scene.get("memeIntent") is not None:
+            validate_meme_intent(scene["memeIntent"], index)
+            meme_count += 1
 
         if scene.get("type") == "diagram":
             nodes = scene.get("nodes")
@@ -113,13 +138,16 @@ def main() -> None:
             fail(f"scene {index} must start where the previous scene ends")
         previous_end = float(end)
 
+    if meme_count > 2:
+        fail("normal Shorts may contain at most two meme moments")
+
     if abs(previous_end - float(planned)) > 0.5:
         fail("scene timeline must end at plannedDurationSeconds")
 
     if path.name == "current.json":
         validate_editorial(data)
 
-    print(f"Validated {path} with {len(scenes)} scenes")
+    print(f"Validated {path} with {len(scenes)} scenes and {meme_count} meme intents")
 
 
 if __name__ == "__main__":

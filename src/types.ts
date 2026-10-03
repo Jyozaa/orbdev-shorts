@@ -21,6 +21,16 @@ export type MemeIntent = {
   intensity: 1 | 2 | 3;
   preferredMedia?: 'audio' | 'image' | 'video' | 'any';
   maxDurationSeconds?: number;
+  concepts?: string[];
+};
+
+export type SelectedMeme = {
+  id: string;
+  mediaType: 'audio' | 'image' | 'video';
+  src: string;
+  durationSeconds: number;
+  offsetSeconds: number;
+  volume?: number;
 };
 
 export type DiagramNode = {
@@ -44,6 +54,7 @@ export type Scene = {
   nodes?: DiagramNode[];
   sfx?: ReactionSfx;
   memeIntent?: MemeIntent;
+  meme?: SelectedMeme;
 };
 
 export type CaptionWord = {

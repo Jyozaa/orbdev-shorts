@@ -31,6 +31,7 @@ If a story qualifies:
    - `intensity`: 1, 2, or 3
    - optional `preferredMedia`: audio, image, video, or any
    - optional `maxDurationSeconds`
+   - optional `concepts`: 2-5 short semantic cues such as `celebration`, `bruh`, `facepalm`, `waiting`, `confusion`, `money`, or `disbelief`
 11. Use no more than two meme moments in a normal Short. A meme should land immediately after the statement it reacts to, not randomly in the middle of an explanation.
 12. When using company benchmarks, clearly attribute them in narration.
 13. Create a stable lowercase kebab-case `storyKey`.

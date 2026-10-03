@@ -6,6 +6,7 @@ from pathlib import Path
 
 BUILD_DIR = Path("build")
 CAPTIONS_PATH = Path("public/captions.json")
+MEME_SELECTION_PATH = BUILD_DIR / "meme-selection.json"
 
 
 def main() -> None:
@@ -14,6 +15,9 @@ def main() -> None:
 
     story = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     timing = json.loads(CAPTIONS_PATH.read_text(encoding="utf-8"))
+    selections = {}
+    if MEME_SELECTION_PATH.exists():
+        selections = json.loads(MEME_SELECTION_PATH.read_text(encoding="utf-8"))
 
     planned = float(story["plannedDurationSeconds"])
     audio_duration = float(timing["durationSeconds"])
@@ -21,13 +25,20 @@ def main() -> None:
     scale = final_duration / planned
 
     scenes = []
-    for scene in story["scenes"]:
+    for index, scene in enumerate(story["scenes"]):
         adjusted = dict(scene)
         adjusted["start"] = round(float(scene["start"]) * scale, 4)
         adjusted["end"] = min(
             final_duration,
             round(float(scene["end"]) * scale, 4),
         )
+
+        selected = selections.get(str(index))
+        if selected:
+            meme = dict(selected)
+            meme["offsetSeconds"] = round(float(meme["offsetSeconds"]) * scale, 4)
+            adjusted["meme"] = meme
+
         scenes.append(adjusted)
 
     if scenes:

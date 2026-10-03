@@ -8,6 +8,7 @@ import {
   useVideoConfig
 } from 'remotion';
 import {CaptionStrip} from './components/CaptionStrip';
+import {MemeTrack} from './components/MemeTrack';
 import {SceneCard} from './components/SceneCard';
 import {SfxTrack} from './components/SfxTrack';
 import {StoryProps} from './types';
@@ -35,6 +36,7 @@ export const OrbdevShort: React.FC<StoryProps> = ({scenes, captions}) => {
         );
       })}
 
+      <MemeTrack scenes={scenes} />
       <CaptionStrip captions={captions} />
       <SfxTrack scenes={scenes} />
       <Audio src={staticFile('voice.mp3')} volume={1} />
