@@ -6,7 +6,7 @@ Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json`
 
 Search the public web for important AI and developer-technology announcements within the configured lookback window. Prioritize the official sources listed in the policy. Secondary reporting may be used to discover a story or add context, but every selected story must have at least one primary source.
 
-Apply every hard rule in the policy. Score each viable candidate out of 10 using the configured scoring weights. Do not queue anything below the minimum score. Do not exceed the daily cap in Europe/London time. Treat matching announcements, product names, URLs, or substantially identical developments as duplicates.
+Apply every hard rule in the policy. Establish the true original announcement time from the source itself where possible; do not use search-engine crawl dates, repost dates, or later page-update timestamps to make an old announcement look current. Score each viable candidate out of 10 using the configured scoring weights. Do not queue anything below the minimum score. Do not exceed the daily cap in Europe/London time. Treat matching announcements, product names, URLs, or substantially identical developments as duplicates.
 
 If nothing qualifies, make no repository changes.
 
