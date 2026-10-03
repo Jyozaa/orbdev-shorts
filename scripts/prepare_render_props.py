@@ -7,7 +7,7 @@ SOURCE_ASSETS_PATH=BUILD_DIR/"source-assets.json"; LOGO_ASSETS_PATH=BUILD_DIR/"l
 MIN_VISUAL_SECONDS=1.8; TARGET_VISUAL_SECONDS=2.35; MAX_VISUAL_SECONDS=3.35
 SOURCE_MIN_MATCH=0.34
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
-STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new"}
+STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
 
 def norm(t:str)->str:return re.sub(r"[^a-z0-9]+","",t.lower())
 def tokens(t:str)->set[str]:
@@ -69,7 +69,12 @@ def visual_weight(beat,prev_family=None)->float:
         base+=match*2
     fam=family(kind)
     if prev_family:
-        base+=1.6 if fam!=prev_family else -2.4
+        if fam!=prev_family:
+            base+=1.6
+        elif kind=="explain":
+            base-=0.5
+        else:
+            base-=2.4
     return base
 
 def build_visual_windows(beats,cutaway_by_beat,final_duration):
@@ -80,6 +85,12 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
             if end_index in cutaway_by_beat:break
             current=end-start
             if current>=TARGET_VISUAL_SECONDS:break
+            next_kind=str(beats[end_index+1].get("visual",{}).get("type","text"))
+            current_has_explain=any(str(beats[i].get("visual",{}).get("type",""))=="explain" for i in range(start_index,end_index+1))
+            if next_kind=="explain" and current>=1.20:
+                break
+            if current_has_explain and next_kind=="explain":
+                break
             next_end=float(beats[end_index+1]["end"]); proposed=next_end-start
             if proposed>MAX_VISUAL_SECONDS and current>=MIN_VISUAL_SECONDS:break
             end_index+=1; end=next_end

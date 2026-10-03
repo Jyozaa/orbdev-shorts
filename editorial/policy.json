@@ -1,5 +1,5 @@
 {
-  "version": 14,
+  "version": 15,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -50,7 +50,9 @@
     "Narration must read like spoken editorial copy with a hook, concrete technical explanation, a limitation/catch, and a concise implication or punchline when appropriate.",
     "Source images must semantically match the beat query; reject low-confidence images rather than forcing them into the edit.",
     "Explanatory animations should visualize transformation, capacity, causality, hierarchy, or movement rather than restating narration as labels.",
-    "Do not automatically assign reaction memes to structural transition phrases such as 'here is the catch'."
+    "Do not automatically assign reaction memes to structural transition phrases such as 'here is the catch'.",
+    "Do not let page-global metadata make unrelated source images appear semantically relevant.",
+    "Do not collapse distinct adjacent explanatory animations merely to maximize treatment-family diversity."
   ],
   "visualRules": {
     "background": "#000000",
@@ -92,7 +94,9 @@
       "fanout"
     ],
     "minimumExplainBeatsForLongTechnicalShort": 2,
-    "visualWindowSelection": "semantic relevance + explanatory strength + treatment diversity"
+    "visualWindowSelection": "semantic relevance + explanatory strength + treatment diversity",
+    "sourceCandidateMetadata": "asset-local alt/title/context only; page title/description only for hero metadata",
+    "preserveAdjacentExplanationBeats": true
   },
   "narration": {
     "preferredVoice": "en-US-AndrewNeural",

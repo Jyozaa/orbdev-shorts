@@ -34,13 +34,13 @@ def extract_image_candidates(page:str,base_url:str)->list[dict[str,object]]:
         url=absolute(base_url,raw); low=url.lower()
         if url in seen or any(x in low for x in ("avatar","favicon","sprite","emoji","tracking","pixel.gif","author")): return
         seen.add(url)
-        candidates.append({"url":url,"baseScore":score,"text":clean_text(f"{text} {title} {desc}")})
+        candidates.append({"url":url,"baseScore":score,"text":clean_text(text)})
 
     for pattern,score in [
         (r'<meta[^>]+property=["\']og:image(?::secure_url)?["\'][^>]+content=["\']([^"\']+)["\']',75),
         (r'<meta[^>]+name=["\']twitter:image(?::src)?["\'][^>]+content=["\']([^"\']+)["\']',70),
     ]:
-        for m in re.finditer(pattern,page,flags=re.I): add(m.group(1),score,f"hero {title}")
+        for m in re.finditer(pattern,page,flags=re.I): add(m.group(1),score,f"hero {title} {desc}")
 
     for m in re.finditer(r"<img\b[^>]*>",page,flags=re.I):
         tag=m.group(0); low=tag.lower(); score=45

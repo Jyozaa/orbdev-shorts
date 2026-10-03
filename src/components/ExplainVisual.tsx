@@ -135,8 +135,8 @@ export const ExplainVisual: React.FC<{visual: ExplainSpec}> = ({visual}) => {
         {stages.map((stage,i)=>{
           const r=spring({frame,fps,delay:i*6,config:{damping:18,stiffness:175}});
           return <React.Fragment key={stage+i}>
-            <div style={{width:160,height:160,borderRadius:'50%',border:'4px solid #fff',display:'flex',alignItems:'center',justifyContent:'center',
-              fontSize:Math.max(22,42-stage.length*1.4),fontWeight:950,textAlign:'center',opacity:r,transform:`scale(${.7+.3*r})`,padding:16,boxSizing:'border-box'}}>{stage}</div>
+            <div style={{width:190,height:190,borderRadius:'50%',border:'4px solid #fff',display:'flex',alignItems:'center',justifyContent:'center',
+              fontSize:Math.max(24,46-stage.length*1.35),fontWeight:950,textAlign:'center',opacity:r,transform:`scale(${.7+.3*r})`,padding:16,boxSizing:'border-box'}}>{stage}</div>
             {i<stages.length-1&&<div style={{height:5,flex:1,margin:'0 14px',background:'#fff',transformOrigin:'left',transform:`scaleX(${clamp01((p-.12*i)*1.8)})`}}/>}
           </React.Fragment>;
         })}
