@@ -20,6 +20,7 @@
   },
   "hardRules": [
     "Use at least one primary source.",
+    "Use the original announcement or release time for recency. A refreshed page, crawler date, repost, or later page update does not make an older story new.",
     "Do not cover a story already present in history or the current story file.",
     "Do not publish rumours, leaks, predictions, or unverified benchmark claims.",
     "Prefer concrete product, model, developer-tool, research, infrastructure, and major company announcements.",
