@@ -81,11 +81,16 @@ def infer(path: str, media_type: str) -> dict[str, object]:
         add(tags, "impact", "punchline", "chaotic")
         intensity = max(intensity, 2)
 
-    if "not stonk" in name or "anti stonk" in name:
+    if "not stonk" in name or "stonk not" in name or "anti stonk" in name:
         add(purposes, "failure", "contrast", "absurdity")
         tones = {"negative", "deadpan"}
         add(tags, "money", "price", "stocks", "loss", "bad news")
         tags.discard("profit")
+        intensity = max(intensity, 2)
+    elif "confused stonk" in name or "stonks confused" in name:
+        add(purposes, "confusion", "contrast", "absurdity")
+        tones = {"confused", "deadpan"}
+        add(tags, "money", "price", "stocks", "confusion", "unclear")
         intensity = max(intensity, 2)
     elif "stonk" in name:
         add(purposes, "success", "contrast", "absurdity")
@@ -145,7 +150,7 @@ def main() -> None:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
-        json.dumps({"version": 5, "source": repo, "items": catalog}, indent=2),
+        json.dumps({"version": 6, "source": repo, "items": catalog}, indent=2),
         encoding="utf-8",
     )
     print(f"Cataloged {len(catalog)} meme assets from {repo}")
