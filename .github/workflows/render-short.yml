@@ -11,9 +11,9 @@ on:
     branches:
       - main
     paths:
+      - 'stories/current.json'
       - 'src/**'
       - 'scripts/**'
-      - 'stories/test.json'
       - 'package.json'
       - 'requirements.txt'
       - '.github/workflows/render-short.yml'
@@ -22,21 +22,35 @@ permissions:
   contents: read
 
 concurrency:
-  group: render-short-${{ github.ref }}
-  cancel-in-progress: true
+  group: orbdev-render
+  cancel-in-progress: false
 
 jobs:
   render:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     env:
-      STORY_FILE: ${{ github.event.inputs.story || 'stories/test.json' }}
       ORBDEV_VOICE: en-GB-RyanNeural
       ORBDEV_RATE: +8%
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Resolve story
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            story="${{ inputs.story }}"
+          elif [ -f stories/current.json ]; then
+            story="stories/current.json"
+          else
+            story="stories/test.json"
+          fi
+
+          slug="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["slug"])' "$story")"
+          echo "STORY_FILE=$story" >> "$GITHUB_ENV"
+          echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
 
       - name: Set up Node
         uses: actions/setup-node@v4
@@ -75,7 +89,7 @@ jobs:
       - name: Render video
         run: |
           mkdir -p out
-          npx remotion render src/index.ts OrbdevShort out/orbdev-short.mp4 \
+          npx remotion render src/index.ts OrbdevShort "out/${STORY_SLUG}.mp4" \
             --props=build/render-props.json \
             --codec=h264 \
             --pixel-format=yuv420p \
@@ -85,7 +99,7 @@ jobs:
       - name: Upload video
         uses: actions/upload-artifact@v4
         with:
-          name: orbdev-short
-          path: out/orbdev-short.mp4
+          name: orbdev-${{ env.STORY_SLUG }}
+          path: out/${{ env.STORY_SLUG }}.mp4
           if-no-files-found: error
-          retention-days: 7
+          retention-days: 30

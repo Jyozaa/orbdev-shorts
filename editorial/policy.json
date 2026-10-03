@@ -1,0 +1,82 @@
+{
+  "version": 1,
+  "timezone": "Europe/London",
+  "lookbackHours": 18,
+  "exceptionLookbackHours": 48,
+  "maxStoriesPerDay": 2,
+  "minimumScore": 7.2,
+  "target": {
+    "wordsMin": 70,
+    "wordsMax": 105,
+    "durationSecondsMin": 25,
+    "durationSecondsMax": 42
+  },
+  "scoring": {
+    "significance": 4,
+    "practicalImpact": 2,
+    "novelty": 2,
+    "sourceConfidence": 1,
+    "visualClarity": 1
+  },
+  "hardRules": [
+    "Use at least one primary source.",
+    "Do not cover a story already present in history or the current story file.",
+    "Do not publish rumours, leaks, predictions, or unverified benchmark claims.",
+    "Prefer concrete product, model, developer-tool, research, infrastructure, and major company announcements.",
+    "Exclude routine partnerships, minor enterprise customer announcements, and vague executive commentary unless there is a substantial technical development.",
+    "Explain what changed, why it matters, and any material limitation.",
+    "Do not exaggerate the source or introduce claims the source does not support.",
+    "Use clear language for a technical but broad audience."
+  ],
+  "primarySources": [
+    "openai.com",
+    "anthropic.com",
+    "deepmind.google",
+    "blog.google",
+    "ai.meta.com",
+    "microsoft.com",
+    "azure.microsoft.com",
+    "nvidia.com",
+    "huggingface.co",
+    "github.blog",
+    "arxiv.org"
+  ],
+  "excludedTopics": [
+    "election coverage",
+    "partisan political commentary",
+    "celebrity use of technology",
+    "unconfirmed leaks",
+    "price rumours"
+  ],
+  "sceneGuidance": {
+    "modelOrProductLaunch": [
+      "hook",
+      "explain",
+      "comparison",
+      "impact",
+      "caveat",
+      "outro"
+    ],
+    "research": [
+      "hook",
+      "explain",
+      "impact",
+      "caveat",
+      "outro"
+    ],
+    "developerTool": [
+      "hook",
+      "explain",
+      "comparison",
+      "impact",
+      "outro"
+    ],
+    "infrastructure": [
+      "hook",
+      "explain",
+      "impact",
+      "caveat",
+      "outro"
+    ]
+  }
+}
