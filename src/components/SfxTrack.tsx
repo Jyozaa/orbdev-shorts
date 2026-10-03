@@ -25,12 +25,12 @@ const fileFor: Record<Exclude<ReactionSfx, 'none'>, string> = {
 };
 
 const volumeFor: Record<Exclude<ReactionSfx, 'none'>, number> = {
-  yay: 0.34,
-  rage: 0.30,
-  scratch: 0.26,
-  impact: 0.28,
-  whoosh: 0.22,
-  tick: 0.18
+  yay: 0.58,
+  rage: 0.58,
+  scratch: 0.42,
+  impact: 0.44,
+  whoosh: 0.34,
+  tick: 0.28
 };
 
 export const SfxTrack: React.FC<Props> = ({scenes}) => {
