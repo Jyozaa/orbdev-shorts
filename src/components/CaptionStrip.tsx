@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import {useCurrentFrame, useVideoConfig} from 'remotion';
-import {CaptionWord} from '../types';
+import {CaptionWord, Cutaway} from '../types';
 
 type Phrase = {
   text: string;
@@ -25,25 +25,28 @@ const buildPhrases = (words: CaptionWord[]): Phrase[] => {
   for (const word of words) {
     group.push(word);
     const punctuationBreak = /[.!?,:;]$/.test(word.text);
-    if (group.length >= 5 || (group.length >= 3 && punctuationBreak)) {
-      flush();
-    }
+    if (group.length >= 5 || (group.length >= 3 && punctuationBreak)) flush();
   }
   flush();
   return phrases;
 };
 
-export const CaptionStrip: React.FC<{captions: CaptionWord[]}> = ({captions}) => {
+export const CaptionStrip: React.FC<{captions: CaptionWord[]; cutaways: Cutaway[]}> = ({captions, cutaways}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const nowMs = (frame / fps) * 1000;
+  const nowSeconds = frame / fps;
   const phrases = useMemo(() => buildPhrases(captions), [captions]);
 
+  if (cutaways.some((cutaway) => nowSeconds >= cutaway.start && nowSeconds < cutaway.end)) {
+    return null;
+  }
+
   const phrase =
-    phrases.find((item) => nowMs >= item.startMs && nowMs <= item.endMs + 140) ??
+    phrases.find((item) => nowMs >= item.startMs && nowMs <= item.endMs + 120) ??
     phrases.find((item) => nowMs < item.startMs);
 
-  if (!phrase || nowMs + 220 < phrase.startMs) return null;
+  if (!phrase || nowMs + 180 < phrase.startMs) return null;
 
   return (
     <div

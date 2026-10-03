@@ -1,10 +1,10 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 import sys
-import os
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -54,6 +54,10 @@ def score(item: dict[str, object], intent: dict[str, object]) -> float:
     for concept in concepts:
         if concept in name:
             result += 2
+
+    if intent.get("presentation") == "cutaway" and item.get("mediaType") in {"video", "image"}:
+        result += 5
+
     return result
 
 
@@ -91,9 +95,9 @@ def normalize_asset(source: Path, media_type: str, beat_index: int, max_duration
         subprocess.run(
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-                "-t", str(max_duration), "-vf", "scale=900:-2,fps=30",
+                "-t", str(max_duration), "-vf", "scale=1080:-2,fps=30",
                 "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
-                "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart", str(output)
+                "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(output)
             ],
             check=True,
         )
@@ -103,11 +107,25 @@ def normalize_asset(source: Path, media_type: str, beat_index: int, max_duration
     subprocess.run(
         [
             "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-            "-vf", "scale=900:-2", "-frames:v", "1", str(output)
+            "-vf", "scale=1080:-2", "-frames:v", "1", str(output)
         ],
         check=True,
     )
     return f"memes/{output.name}", max_duration
+
+
+def infer_presentation(intent: dict[str, object], media_type: str) -> str:
+    requested = intent.get("presentation", "auto")
+    if requested in {"overlay", "cutaway"}:
+        return str(requested)
+
+    purpose = str(intent.get("purpose", "reaction"))
+    intensity = int(intent.get("intensity", 1))
+    if media_type in {"video", "image"} and intensity >= 2 and purpose in {
+        "waiting", "punchline", "confusion", "failure", "success", "absurdity", "reaction"
+    }:
+        return "cutaway"
+    return "overlay"
 
 
 def main() -> None:
@@ -138,7 +156,7 @@ def main() -> None:
             continue
 
         selected_result = None
-        for value, selected in candidates[:8]:
+        for value, selected in candidates[:10]:
             path = str(selected["path"])
             repo_name = os.getenv("GITHUB_REPOSITORY", "Jyozaa/orbdev-shorts")
             encoded = urllib.parse.quote(path, safe="/")
@@ -148,14 +166,14 @@ def main() -> None:
                 request = urllib.request.Request(raw_url, headers={"User-Agent":"orbdev-renderer"})
                 with urllib.request.urlopen(request, timeout=60) as response:
                     temp.write_bytes(response.read())
-                max_duration = float(
-                    intent.get("maxDurationSeconds")
-                    or (1.0 if selected["mediaType"] == "audio" else 1.5)
-                )
+
+                presentation = infer_presentation(intent, str(selected["mediaType"]))
+                default_duration = 0.85 if selected["mediaType"] == "audio" else (1.7 if presentation == "cutaway" else 1.1)
+                max_duration = float(intent.get("maxDurationSeconds") or default_duration)
                 src, normalized_duration = normalize_asset(
                     temp, str(selected["mediaType"]), index, max_duration
                 )
-                selected_result = (value, selected, path, src, normalized_duration)
+                selected_result = (value, selected, path, src, normalized_duration, presentation)
                 break
             except Exception as exc:
                 print(f"Beat {index}: candidate failed: {path}: {exc}")
@@ -165,7 +183,7 @@ def main() -> None:
         if selected_result is None:
             continue
 
-        value, selected, path, src, normalized_duration = selected_result
+        value, selected, path, src, normalized_duration, presentation = selected_result
         chosen_ids.add(str(selected["id"]))
         selections[str(index)] = {
             "id": selected["id"],
@@ -174,9 +192,10 @@ def main() -> None:
             "mediaType": selected["mediaType"],
             "src": src,
             "durationSeconds": round(normalized_duration, 3),
-            "volume": 0.60 if selected["mediaType"] == "audio" else 0.44,
+            "volume": 0.64 if selected["mediaType"] == "audio" else (0.78 if presentation == "cutaway" else 0.44),
+            "presentation": presentation,
         }
-        print(f"Beat {index}: selected {path} ({value:.1f})")
+        print(f"Beat {index}: selected {path} ({value:.1f}, {presentation})")
 
     SELECTION.parent.mkdir(parents=True, exist_ok=True)
     SELECTION.write_text(json.dumps(selections, indent=2), encoding="utf-8")

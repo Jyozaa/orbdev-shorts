@@ -1,5 +1,5 @@
 {
-  "version": 7,
+  "version": 8,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -9,9 +9,11 @@
     "wordsMin": 70,
     "wordsMax": 105,
     "durationSecondsMin": 24,
-    "durationSecondsMax": 36,
+    "durationSecondsMax": 40,
     "beatsMin": 12,
-    "beatsMax": 22
+    "beatsMax": 22,
+    "memeMomentsTarget": 3,
+    "memeMomentsMax": 4
   },
   "scoring": {
     "significance": 4,
@@ -33,7 +35,8 @@
     "Prefer source imagery, screenshots, metrics, symbols, diagrams, comparisons and memes over explanatory on-screen copy.",
     "Do not put paragraphs on screen.",
     "When using company-reported benchmarks, explicitly attribute them in narration.",
-    "Use memes as punctuation, not as filler."
+    "Use memes as editorial punctuation, not random filler.",
+    "Use full-screen cutaways for standalone visual punchlines; cutaways pause narration and hide captions automatically."
   ],
   "visualRules": {
     "background": "#000000",
@@ -41,6 +44,7 @@
     "cornerLogo": false,
     "preferredBeatSeconds": "1.2-2.0",
     "maxTextVisualWords": 3,
+    "responsiveDiagramBoxes": true,
     "sourceVisualsPreferred": true,
     "diagramsOverParagraphs": true,
     "phraseCaptions": true
@@ -70,7 +74,8 @@
     "nvidia.com",
     "huggingface.co",
     "github.blog",
-    "arxiv.org"
+    "arxiv.org",
+    "blog.playstation.com"
   ],
   "excludedTopics": [
     "hiring announcements",
@@ -102,16 +107,22 @@
     "inference infrastructure",
     "multimodal systems",
     "computer use",
-    "agent systems"
+    "agent systems",
+    "graphics technology"
   ],
   "memeSelection": {
     "source": "local",
     "strategy": "intent-tag retrieval",
-    "defaultMaxUsesPerShort": 2,
+    "defaultTargetUsesPerShort": 3,
+    "maxUsesPerShort": 4,
     "allowedMedia": [
       "audio",
       "image",
       "video"
+    ],
+    "presentations": [
+      "overlay",
+      "cutaway"
     ],
     "excludeGreenScreen": true
   }

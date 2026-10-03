@@ -16,7 +16,8 @@ const defaultProps: StoryProps = {
       end: 6
     }
   ],
-  captions: []
+  captions: [],
+  cutaways: []
 };
 
 const calculateMetadata: CalculateMetadataFunction<StoryProps> = ({props}) => ({

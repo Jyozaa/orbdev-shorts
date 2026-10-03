@@ -9,6 +9,7 @@ BUILD_DIR = Path("build")
 CAPTIONS_PATH = Path("public/captions.json")
 MEME_SELECTION_PATH = BUILD_DIR / "meme-selection.json"
 SOURCE_ASSETS_PATH = BUILD_DIR / "source-assets.json"
+CUTAWAYS_PATH = BUILD_DIR / "cutaways.json"
 
 
 def norm(token: str) -> str:
@@ -21,7 +22,7 @@ def beat_tokens(text: str) -> list[str]:
 
 def find_sequence(words: list[dict[str, object]], expected: list[str], cursor: int) -> tuple[int, int]:
     normalized = [norm(str(word["text"])) for word in words]
-    for start in range(cursor, min(len(words), cursor + 8)):
+    for start in range(cursor, min(len(words), cursor + 10)):
         end = start + len(expected)
         if normalized[start:end] == expected:
             return start, end - 1
@@ -36,17 +37,12 @@ def main() -> None:
     story = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     timing = json.loads(CAPTIONS_PATH.read_text(encoding="utf-8"))
     words = timing["words"]
-    audio_duration = float(timing["durationSeconds"])
-    final_duration = max(1.0, audio_duration + 0.10)
+    final_duration = max(1.0, float(timing["durationSeconds"]) + 0.10)
 
-    selections = (
-        json.loads(MEME_SELECTION_PATH.read_text(encoding="utf-8"))
-        if MEME_SELECTION_PATH.exists() else {}
-    )
-    source_assets = (
-        json.loads(SOURCE_ASSETS_PATH.read_text(encoding="utf-8"))
-        if SOURCE_ASSETS_PATH.exists() else {}
-    )
+    selections = json.loads(MEME_SELECTION_PATH.read_text(encoding="utf-8")) if MEME_SELECTION_PATH.exists() else {}
+    source_assets = json.loads(SOURCE_ASSETS_PATH.read_text(encoding="utf-8")) if SOURCE_ASSETS_PATH.exists() else {}
+    cutaways = json.loads(CUTAWAYS_PATH.read_text(encoding="utf-8")) if CUTAWAYS_PATH.exists() else []
+    cutaway_by_beat = {int(item["beatIndex"]): item for item in cutaways}
 
     prepared = []
     cursor = 0
@@ -70,7 +66,7 @@ def main() -> None:
                 adjusted["visual"]["src"] = source_assets[source_index]
 
         selected = selections.get(str(index))
-        if selected:
+        if selected and selected.get("presentation") != "cutaway":
             adjusted["meme"] = dict(selected)
 
         prepared.append(adjusted)
@@ -78,28 +74,39 @@ def main() -> None:
     if prepared:
         prepared[0]["start"] = 0.0
         for index in range(len(prepared) - 1):
-            prepared[index]["end"] = prepared[index + 1]["start"]
-        prepared[-1]["end"] = final_duration
+            if index in cutaway_by_beat:
+                prepared[index]["end"] = float(cutaway_by_beat[index]["start"])
+            else:
+                prepared[index]["end"] = prepared[index + 1]["start"]
+
+        last_index = len(prepared) - 1
+        if last_index in cutaway_by_beat:
+            prepared[last_index]["end"] = float(cutaway_by_beat[last_index]["start"])
+        else:
+            prepared[last_index]["end"] = final_duration
 
         for beat in prepared:
-            if "meme" in beat:
-                beat_duration = float(beat["end"]) - float(beat["start"])
-                meme = beat["meme"]
-                meme_duration = min(float(meme["durationSeconds"]), max(0.25, beat_duration - 0.08))
-                meme["durationSeconds"] = round(meme_duration, 3)
-                meme["offsetSeconds"] = round(
-                    max(0.03, beat_duration - meme_duration - 0.04), 3
-                )
+            if "meme" not in beat:
+                continue
+            beat_duration = float(beat["end"]) - float(beat["start"])
+            meme = beat["meme"]
+            meme_duration = min(float(meme["durationSeconds"]), max(0.20, beat_duration - 0.05))
+            meme["durationSeconds"] = round(meme_duration, 3)
+            meme["offsetSeconds"] = round(max(0.02, beat_duration - meme_duration - 0.03), 3)
 
     props = dict(story)
     props["durationSeconds"] = final_duration
     props["beats"] = prepared
     props["captions"] = words
+    props["cutaways"] = cutaways
 
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
     output = BUILD_DIR / "render-props.json"
     output.write_text(json.dumps(props, indent=2), encoding="utf-8")
-    print(f"Render props ready: {len(prepared)} voice-timed beats, {final_duration:.2f}s")
+    print(
+        f"Render props ready: {len(prepared)} voice-timed beats, "
+        f"{len(cutaways)} cutaways, {final_duration:.2f}s"
+    )
 
 
 if __name__ == "__main__":

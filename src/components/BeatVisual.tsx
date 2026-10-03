@@ -10,6 +10,12 @@ import {
 } from 'remotion';
 import {Beat} from '../types';
 
+const fittedFontSize = (value: string, boxWidth: number, max: number, min: number) => {
+  const normalized = Math.max(1, value.trim().length);
+  const estimated = Math.floor((boxWidth * 1.45) / normalized);
+  return Math.max(min, Math.min(max, estimated));
+};
+
 export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
@@ -79,16 +85,21 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
   }
 
   if (beat.visual.type === 'metric') {
+    const fontSize = fittedFontSize(beat.visual.value, 860, 260, 132);
     return (
       <AbsoluteFill style={shell}>
         <div
           style={{
-            fontSize: beat.visual.value.length > 7 ? 170 : 260,
-            lineHeight: 0.82,
+            maxWidth: 900,
+            padding: '0 32px',
+            boxSizing: 'border-box',
+            fontSize,
+            lineHeight: 0.86,
             fontWeight: 950,
-            letterSpacing: -14,
+            letterSpacing: -10,
             transform: `scale(${scale})`,
-            textAlign: 'center'
+            textAlign: 'center',
+            whiteSpace: 'nowrap'
           }}
         >
           {beat.visual.value}
@@ -99,79 +110,127 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
 
   if (beat.visual.type === 'diagram') {
     const symbols = beat.visual.symbols;
+    const count = Math.max(1, symbols.length);
+    const arrowWidth = count > 1 ? 58 * (count - 1) : 0;
+    const gapWidth = 20 * (count * 2 - 2);
+    const nodeWidth = Math.max(150, Math.min(230, Math.floor((920 - arrowWidth - gapWidth) / count)));
+
     return (
       <AbsoluteFill style={shell}>
-        <div style={{display: 'flex', alignItems: 'center', gap: 26}}>
-          {symbols.map((symbol, index) => (
-            <React.Fragment key={`${symbol}-${index}`}>
-              <div
-                style={{
-                  width: 210,
-                  height: 210,
-                  border: '3px solid rgba(255,255,255,0.78)',
-                  borderRadius: 32,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: symbol.length > 5 ? 48 : 76,
-                  fontWeight: 950,
-                  transform: `scale(${0.9 + enter * 0.1})`
-                }}
-              >
-                {symbol}
-              </div>
-              {index < symbols.length - 1 ? (
-                <div style={{fontSize: 84, fontWeight: 900}}>→</div>
-              ) : null}
-            </React.Fragment>
-          ))}
+        <div
+          style={{
+            width: 940,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: 20
+          }}
+        >
+          {symbols.map((symbol, index) => {
+            const fontSize = fittedFontSize(symbol, nodeWidth - 34, 72, 34);
+            return (
+              <React.Fragment key={`${symbol}-${index}`}>
+                <div
+                  style={{
+                    width: nodeWidth,
+                    minWidth: nodeWidth,
+                    height: 200,
+                    border: '3px solid rgba(255,255,255,0.78)',
+                    borderRadius: 30,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '18px 14px',
+                    boxSizing: 'border-box',
+                    overflow: 'hidden',
+                    fontSize,
+                    lineHeight: 0.95,
+                    fontWeight: 950,
+                    textAlign: 'center',
+                    whiteSpace: 'nowrap',
+                    transform: `scale(${0.9 + enter * 0.1})`
+                  }}
+                >
+                  {symbol}
+                </div>
+                {index < symbols.length - 1 ? (
+                  <div
+                    style={{
+                      width: 58,
+                      minWidth: 58,
+                      textAlign: 'center',
+                      fontSize: 66,
+                      lineHeight: 1,
+                      fontWeight: 900
+                    }}
+                  >
+                    →
+                  </div>
+                ) : null}
+              </React.Fragment>
+            );
+          })}
         </div>
       </AbsoluteFill>
     );
   }
 
   if (beat.visual.type === 'comparison') {
+    const values = [beat.visual.left, beat.visual.right];
     return (
       <AbsoluteFill style={shell}>
-        <div style={{display: 'flex', alignItems: 'center', gap: 38}}>
-          {[beat.visual.left, beat.visual.right].map((value, index) => (
-            <React.Fragment key={value}>
-              <div
-                style={{
-                  width: 360,
-                  height: 360,
-                  border: '3px solid rgba(255,255,255,0.78)',
-                  borderRadius: 38,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: value.length > 8 ? 48 : 72,
-                  fontWeight: 950,
-                  textAlign: 'center',
-                  padding: 28,
-                  boxSizing: 'border-box',
-                  transform: `translateY(${index === 0 ? -1 : 1} * ${(1 - enter) * 24}px)`
-                }}
-              >
-                {value}
-              </div>
-              {index === 0 ? <div style={{fontSize: 90, fontWeight: 900}}>→</div> : null}
-            </React.Fragment>
-          ))}
+        <div style={{width: 940, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 28}}>
+          {values.map((value, index) => {
+            const boxWidth = 370;
+            const fontSize = fittedFontSize(value, boxWidth - 56, 70, 34);
+            const y = (index === 0 ? -1 : 1) * (1 - enter) * 24;
+            return (
+              <React.Fragment key={`${value}-${index}`}>
+                <div
+                  style={{
+                    width: boxWidth,
+                    height: 330,
+                    border: '3px solid rgba(255,255,255,0.78)',
+                    borderRadius: 36,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    fontSize,
+                    fontWeight: 950,
+                    textAlign: 'center',
+                    padding: 28,
+                    boxSizing: 'border-box',
+                    overflow: 'hidden',
+                    whiteSpace: 'nowrap',
+                    transform: `translateY(${y}px)`
+                  }}
+                >
+                  {value}
+                </div>
+                {index === 0 ? <div style={{fontSize: 82, fontWeight: 900}}>→</div> : null}
+              </React.Fragment>
+            );
+          })}
         </div>
       </AbsoluteFill>
     );
   }
 
   if (beat.visual.type === 'symbol') {
+    const fontSize = fittedFontSize(beat.visual.symbol, 840, 270, 100);
     return (
       <AbsoluteFill style={shell}>
         <div
           style={{
-            fontSize: beat.visual.symbol.length > 4 ? 180 : 270,
+            maxWidth: 880,
+            padding: '0 24px',
+            boxSizing: 'border-box',
+            fontSize,
             lineHeight: 0.9,
             fontWeight: 950,
-            transform: `scale(${scale})`
+            textAlign: 'center',
+            transform: `scale(${scale})`,
+            whiteSpace: 'nowrap'
           }}
         >
           {beat.visual.symbol}
@@ -184,11 +243,13 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
     <AbsoluteFill style={shell}>
       <div
         style={{
-          fontSize: 116,
+          fontSize: fittedFontSize(beat.visual.text, 820, 116, 58),
           lineHeight: 0.9,
           fontWeight: 950,
-          letterSpacing: -7,
-          maxWidth: 900,
+          letterSpacing: -5,
+          maxWidth: 880,
+          padding: '0 24px',
+          boxSizing: 'border-box',
           textAlign: 'center',
           transform: `scale(${scale})`
         }}

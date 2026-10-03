@@ -60,7 +60,13 @@ def infer(path: str, media_type: str) -> dict[str, object]:
     if any(k in name for k in ["2000 years", "2 hours later", "few moments later", "waiting", "meanwhile"]):
         add(purposes, "waiting", "punchline")
         tones = {"deadpan", "awkward"}
-        add(tags, "waiting", "time", "delay")
+        add(tags, "waiting", "time", "delay", "later", "long time")
+        intensity = max(intensity, 2)
+
+    if any(k in name for k in ["laugh", "laughter", "haha", "hehe", "giggle"]):
+        add(purposes, "reaction", "punchline", "emphasis")
+        tones = {"positive", "chaotic", "deadpan"}
+        add(tags, "laugh", "laughter", "funny", "comedy", "joke")
         intensity = max(intensity, 2)
 
     if any(k in name for k in ["this is fine", "burnt", "wasted", "fail", "failure"]):
@@ -133,7 +139,7 @@ def main() -> None:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
-        json.dumps({"version": 3, "source": repo, "items": catalog}, indent=2),
+        json.dumps({"version": 4, "source": repo, "items": catalog}, indent=2),
         encoding="utf-8",
     )
     print(f"Cataloged {len(catalog)} meme assets from {repo}")

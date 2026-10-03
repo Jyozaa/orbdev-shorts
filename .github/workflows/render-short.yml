@@ -105,6 +105,9 @@ jobs:
       - name: Select meme assets
         run: python scripts/select_memes.py "$STORY_FILE"
 
+      - name: Insert narration-free meme cutaways
+        run: python scripts/insert_cutaway_pauses.py
+
       - name: Capture source visuals
         run: python scripts/capture_sources.py "$STORY_FILE"
 

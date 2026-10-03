@@ -1,10 +1,13 @@
 export type ReactionSfx = 'scratch' | 'impact' | 'whoosh' | 'tick' | 'none';
 
+export type MemePresentation = 'auto' | 'overlay' | 'cutaway';
+
 export type MemeIntent = {
   purpose: 'reaction' | 'punchline' | 'contrast' | 'confusion' | 'failure' | 'success' | 'waiting' | 'absurdity' | 'emphasis';
   tone: 'positive' | 'negative' | 'surprised' | 'confused' | 'awkward' | 'deadpan' | 'chaotic' | 'neutral';
   intensity: 1 | 2 | 3;
   preferredMedia?: 'audio' | 'image' | 'video' | 'any';
+  presentation?: MemePresentation;
   maxDurationSeconds?: number;
   concepts?: string[];
 };
@@ -16,6 +19,14 @@ export type SelectedMeme = {
   durationSeconds: number;
   offsetSeconds: number;
   volume?: number;
+  presentation: 'overlay' | 'cutaway';
+};
+
+export type Cutaway = {
+  beatIndex: number;
+  start: number;
+  end: number;
+  meme: SelectedMeme;
 };
 
 export type SourceVisual = {
@@ -82,4 +93,5 @@ export type StoryProps = {
   durationSeconds: number;
   beats: Beat[];
   captions: CaptionWord[];
+  cutaways: Cutaway[];
 };

@@ -10,21 +10,15 @@ Orbdev covers concrete technical changes: models, capabilities, developer tools,
 
 ## Voice-first production
 
-Write the narration first. Then split the *exact narration text* into short sequential `beats`. Beat text must reproduce the narration exactly, word-for-word and in order. Do not invent timestamps. The renderer derives every beat's start/end time from the narration's word timestamps.
+Write narration first. Then split the exact narration into short sequential `beats`. Beat text must reproduce narration exactly, word-for-word and in order. Do not invent timestamps. The renderer derives beat timing from narration word boundaries.
 
-Aim for 12-22 beats in a normal Short. Most beats should contain roughly 3-9 spoken words and should visually change every ~1.2-2.0 seconds.
+Aim for 12-22 beats in a normal Short. Most beats should contain roughly 3-9 spoken words and visually change every ~1.2-2.0 seconds.
 
-The narration should be:
-- concise, dry, conversational and technically accurate
-- roughly 70-105 words
-- written to sound natural when spoken quickly
-- free of filler intros and generic conclusions
-- explicit when a benchmark is company-reported
-- built around setup → technical delta → implication → caveat/punchline
+Narration should be concise, dry, conversational, technically accurate, roughly 70-105 words, free of filler intros, and explicit when benchmarks are company-reported.
 
 ## Visual vocabulary
 
-Use real/source imagery when useful and simple abstract visuals everywhere else. Supported visuals:
+Supported visuals:
 
 ```json
 {"type":"source","sourceIndex":0}
@@ -36,74 +30,67 @@ Use real/source imagery when useful and simple abstract visuals everywhere else.
 ```
 
 Rules:
-- `source` uses the referenced primary-source page's OpenGraph image or page screenshot.
+- Prefer real/source imagery, metrics, symbols, diagrams, screenshots and memes over explanatory text.
+- Keep diagram symbols short; the renderer fits them automatically inside responsive boxes.
 - `text` is rare and must be at most three words.
-- Prefer real source visuals, screenshots, numbers, symbols, arrows, diagrams and memes over explanatory text.
-- Do not put paragraphs on screen.
-- Change visual composition frequently.
-- Use at least one source visual when a primary source is available.
-- Use no more than two meme moments in a normal Short.
-- A meme should punctuate a joke, success, failure, contradiction, confusion or caveat—not replace the explanation.
+- Use at least one source visual when available.
+- For a 25-40 second Short, target about 3 meme/reaction moments when the story provides natural opportunities; use 2-4 total and never force an irrelevant meme.
+- Mix quick audio/visual overlays with at least one stronger visual reaction when appropriate.
+- Memes should punctuate setup, payoff, contradiction, absurdity, waiting, success, or failure.
 
 Neutral motion SFX: `scratch`, `impact`, `whoosh`, `tick`, or `none`.
 
-For meme moments, describe semantic intent rather than a filename:
+## Meme presentation
+
+A meme intent may set `presentation` to `overlay`, `cutaway`, or `auto`.
+
+`overlay`:
+- narration continues
+- subtitles remain
+- best for quick sounds, small reaction images, short punch-ins
+
+`cutaway`:
+- full-screen takeover
+- narration automatically pauses
+- subtitles disappear
+- meme audio/video plays
+- narration resumes afterward
+- best for standalone punchlines such as "2000 Years Later", reaction clips, facepalms, or a deliberate comedy beat
+
+`auto`:
+- selector chooses based on media type, purpose and intensity
+- strong visual memes usually become cutaways; audio reactions usually remain overlays
+
+Example cutaway:
 
 ```json
 {
-  "purpose":"reaction",
-  "tone":"negative",
+  "purpose":"waiting",
+  "tone":"deadpan",
+  "intensity":2,
+  "preferredMedia":"video",
+  "presentation":"cutaway",
+  "maxDurationSeconds":1.7,
+  "concepts":["waiting","later","long time"]
+}
+```
+
+Example laughter/audio reaction:
+
+```json
+{
+  "purpose":"punchline",
+  "tone":"chaotic",
   "intensity":2,
   "preferredMedia":"audio",
-  "maxDurationSeconds":1.0,
-  "concepts":["bruh","disbelief","bad news"]
+  "presentation":"overlay",
+  "maxDurationSeconds":0.8,
+  "concepts":["laugh","laughter","comedy"]
 }
 ```
 
-The local meme selector chooses the actual asset.
+The local meme selector chooses the actual file.
 
-## Story shape
-
-```json
-{
-  "slug":"short-kebab-slug",
-  "title":"Internal factual title",
-  "narration":"Complete narration.",
-  "beats":[
-    {
-      "text":"Exact first narration phrase.",
-      "visual":{"type":"source","sourceIndex":0},
-      "sfx":"whoosh"
-    },
-    {
-      "text":"Exact next narration phrase.",
-      "visual":{"type":"metric","value":"50%"}
-    }
-  ],
-  "editorial":{
-    "storyKey":"stable-story-key",
-    "selectedAt":"ISO-8601",
-    "score":8.6,
-    "sources":[
-      {
-        "title":"Primary source",
-        "publisher":"Publisher",
-        "url":"https://example.com",
-        "publishedAt":"ISO-8601 or date",
-        "primary":true
-      }
-    ]
-  },
-  "publish":{
-    "youtubeTitle":"Short factual title",
-    "description":"Short description plus source link",
-    "tags":["AI","technology"],
-    "category":"SCIENCE_TECHNOLOGY",
-    "madeForKids":false
-  }
-}
-```
-
-Do not manually provide start/end times. The renderer synchronizes visuals to the generated voice.
+Do not manually provide start/end times. The timeline compiler inserts cutaway pauses into narration and keeps captions/visual beats synchronized automatically.
 
 After successfully queuing a story, report only its headline, score, and primary source. If nothing qualifies, make no repository changes and produce no notification.

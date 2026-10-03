@@ -13,7 +13,7 @@ import {MemeTrack} from './components/MemeTrack';
 import {SfxTrack} from './components/SfxTrack';
 import {StoryProps} from './types';
 
-export const OrbdevShort: React.FC<StoryProps> = ({beats, captions}) => {
+export const OrbdevShort: React.FC<StoryProps> = ({beats, captions, cutaways}) => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
   const progress = Math.min(1, frame / Math.max(1, durationInFrames - 1));
@@ -31,15 +31,15 @@ export const OrbdevShort: React.FC<StoryProps> = ({beats, captions}) => {
         );
       })}
 
-      <MemeTrack beats={beats} />
-      <CaptionStrip captions={captions} />
+      <MemeTrack beats={beats} cutaways={cutaways} />
+      <CaptionStrip captions={captions} cutaways={cutaways} />
       <SfxTrack beats={beats} />
       <Audio src={staticFile('voice.mp3')} volume={1} />
 
       <div
         style={{
           position: 'absolute',
-          zIndex: 60,
+          zIndex: 100,
           left: 0,
           bottom: 0,
           width: `${progress * 100}%`,
