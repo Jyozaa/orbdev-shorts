@@ -1,64 +1,103 @@
 {
-  "slug": "gpt-6-sol-luna",
-  "title": "OpenAI launches GPT-6 Sol and Luna",
-  "narration": "OpenAI just released GPT-6 Sol and Luna, and the biggest change may be cost. Sol now costs two dollars per million input tokens and ten dollars for output, while Luna drops to ten cents input and fifty cents output. OpenAI says Sol reaches 68.8 percent on DeepSWE, within 1.1 points of Claude Fable 5's best result, at roughly 80 percent lower cost per task. GPT-6 also improves prompt caching, with cached input reads discounted by 90 percent. Astra is still OpenAI's top model, but Sol and Luna make advanced coding and agent workloads much cheaper.",
-  "plannedDurationSeconds": 40,
+  "slug": "gpt-6-1-sol",
+  "title": "OpenAI launches GPT-6.1 Sol",
+  "narration": "OpenAI just released GPT-6.1 Sol. The pitch is simple: near-Astra capability for much less money. OpenAI says it matches Astra on DeepSWE at roughly one-fifth the cost, while beating GPT-6 Sol by 6.4 percentage points. Cached input is now ten cents per million tokens, a 95 percent discount from standard input pricing. It also improves computer use, professional workflows, and scientific tasks. The catch is that Astra still leads on the hardest research workloads, so 6.1 Sol is the cheaper middle ground, not the absolute top model.",
+  "plannedDurationSeconds": 38,
   "scenes": [
     {
       "type": "hook",
       "start": 0,
-      "end": 4.5,
-      "kicker": "OPENAI",
-      "title": "GPT-6 just got much cheaper"
+      "end": 4.2,
+      "title": "GPT-6.1 SOL IS HERE",
+      "sfx": "whoosh"
     },
     {
       "type": "metric",
-      "start": 4.5,
-      "end": 9.5,
-      "kicker": "API PRICING",
-      "title": "50%",
-      "body": "lower than GPT-5.6 promotional pricing"
+      "start": 4.2,
+      "end": 8.5,
+      "title": "1/5",
+      "body": "ASTRA PRICE",
+      "sfx": "yay"
+    },
+    {
+      "type": "diagram",
+      "start": 8.5,
+      "end": 14.5,
+      "title": "model jump",
+      "nodes": [
+        {
+          "symbol": "6.0",
+          "label": "SOL"
+        },
+        {
+          "symbol": "→",
+          "label": "upgrade"
+        },
+        {
+          "symbol": "6.1",
+          "label": "SOL"
+        }
+      ],
+      "sfx": "tick"
+    },
+    {
+      "type": "metric",
+      "start": 14.5,
+      "end": 20.5,
+      "title": "95%",
+      "body": "CACHE DISCOUNT",
+      "sfx": "impact"
     },
     {
       "type": "comparison",
-      "start": 9.5,
-      "end": 20,
-      "title": "New token prices",
-      "leftTitle": "GPT-6 SOL",
-      "leftBody": "$2 in / $10 out",
-      "rightTitle": "GPT-6 LUNA",
-      "rightBody": "$0.10 in / $0.50 out"
+      "start": 20.5,
+      "end": 27,
+      "title": "coding delta",
+      "leftSymbol": "6.0",
+      "leftTitle": "DEEPSWE",
+      "leftBody": "BASE",
+      "rightSymbol": "6.1",
+      "rightTitle": "DEEPSWE",
+      "rightBody": "+6.4 PTS",
+      "sfx": "whoosh"
     },
     {
-      "type": "metric",
-      "start": 20,
-      "end": 28,
-      "kicker": "DEEPSWE",
-      "title": "68.8%",
-      "body": "OpenAI-reported score for GPT-6 Sol"
-    },
-    {
-      "type": "impact",
-      "start": 28,
-      "end": 35.5,
-      "title": "90% cached-input discount",
-      "body": "Better prompt caching can cut the cost of long-running agents and repeated context."
+      "type": "diagram",
+      "start": 27,
+      "end": 33.5,
+      "title": "agent economics",
+      "nodes": [
+        {
+          "symbol": "$0.10",
+          "label": "cached"
+        },
+        {
+          "symbol": "→",
+          "label": "context"
+        },
+        {
+          "symbol": "⚙",
+          "label": "agents"
+        }
+      ],
+      "sfx": "yay"
     },
     {
       "type": "caveat",
-      "start": 35.5,
-      "end": 40,
-      "title": "Astra is still the top model",
-      "body": "Sol and Luna are the faster, cheaper tiers—not the maximum-capability option."
+      "start": 33.5,
+      "end": 38,
+      "title": "ASTRA STILL WINS",
+      "sfx": "scratch"
     }
   ],
   "editorial": {
-    "storyKey": "openai-gpt-6-sol-luna-launch",
-    "selectedAt": "2026-10-03T08:28:00+01:00",
-    "score": 9.1,
+    "storyKey": "openai-gpt-6-1-sol-launch",
+    "selectedAt": "2026-10-03T08:53:00+01:00",
+    "score": 9.3,
     "topics": [
       "models",
       "coding agents",
+      "computer use",
       "API pricing",
       "prompt caching"
     ],
@@ -67,22 +106,22 @@
     ],
     "sources": [
       {
-        "title": "Introducing GPT-6 Sol and Luna",
+        "title": "Introducing GPT-6.1 Sol",
         "publisher": "OpenAI",
-        "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
-        "publishedAt": "2026-10-03",
+        "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+        "publishedAt": "2026-09-30",
         "primary": true
       }
     ]
   },
   "publish": {
-    "youtubeTitle": "GPT-6 Sol and Luna just made AI much cheaper",
-    "description": "OpenAI launched GPT-6 Sol and Luna with lower API prices, stronger coding performance, and improved prompt caching.\n\nSource: https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+    "youtubeTitle": "GPT-6.1 Sol: near-Astra performance for much less",
+    "description": "OpenAI says GPT-6.1 Sol brings near-Astra performance to coding, computer use, and professional work at a much lower cost.\n\nSource: https://openai.com/index/introducing-gpt-6-1-sol/",
     "tags": [
       "AI",
       "OpenAI",
-      "GPT-6",
-      "coding",
+      "GPT-6.1",
+      "coding agents",
       "AI news"
     ],
     "category": "SCIENCE_TECHNOLOGY",
