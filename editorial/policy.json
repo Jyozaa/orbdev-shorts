@@ -1,5 +1,5 @@
 {
-  "version": 5,
+  "version": 6,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -131,7 +131,13 @@
     ]
   },
   "memeSelection": {
-    "sourceRepo": "Jyozaa/memes",
+    "source": "local",
+    "folders": [
+      "Meme Pack/Meme Sound Effects",
+      "Meme Pack/Meme Videos",
+      "Memes templates -HD-",
+      "Memes templates -HD- 2"
+    ],
     "strategy": "intent-tag retrieval",
     "defaultMaxUsesPerShort": 2,
     "defaultMaxVideoDurationSeconds": 2.5,
@@ -140,7 +146,8 @@
       "image",
       "video"
     ],
+    "excludeGreenScreen": true,
     "requireBrandSafe": true,
-    "requireRightsReview": true
+    "requireRightsReview": false
   }
 }

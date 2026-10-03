@@ -84,9 +84,7 @@ jobs:
       - name: Generate transition sound effects
         run: python scripts/generate_sfx.py
 
-      - name: Build meme catalog
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+      - name: Build local meme catalog
         run: python scripts/build_meme_catalog.py
 
       - name: Select meme assets

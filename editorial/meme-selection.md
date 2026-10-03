@@ -1,85 +1,60 @@
 # Meme selection
 
-Orbdev does not choose memes from the narration by exact filename matching.
+Orbdev uses the meme folders stored directly inside this repository:
 
-The editorial step describes the *reaction intent* for a scene. A separate selector matches that intent against a curated catalog built from `Jyozaa/memes`.
+- `Meme Pack/Meme Sound Effects/`
+- `Meme Pack/Meme Videos/`
+- `Memes templates -HD-/`
+- `Memes templates -HD- 2/`
+
+Green-screen assets are currently excluded until chroma-key compositing is implemented.
+
+The editorial step does not choose a meme by filename. It describes the reaction intent for a scene, and the local selector matches that intent against a catalog generated from the meme folders during the render.
 
 ## Selection fields
 
-Each meme catalog item should contain:
+Each catalog item contains:
 
 - `id`
 - `path`
 - `mediaType`: audio, image, or video
-- `tags`: semantic concepts such as disbelief, facepalm, success, failure, waiting, awkward, confusion
-- `tones`: positive, negative, surprised, confused, awkward, deadpan, chaotic, neutral
-- `purposes`: reaction, punchline, contrast, confusion, failure, success, waiting, absurdity, emphasis
-- `intensity`: 1-3
-- `durationSeconds`
+- `tags`
+- `tones`
+- `purposes`
+- `intensity`
 - `brandSafe`
-- `rightsStatus`: approved, review, blocked
-- `cooldown`: how recently it was used
+- `rightsStatus`
 
 ## Matching
 
-For each scene with `memeIntent`, score catalog items using:
+For each scene with `memeIntent`, candidates are scored using:
 
 - purpose match: 35%
 - tone match: 25%
 - semantic tag overlap: 20%
 - requested media type: 10%
 - intensity fit: 5%
-- freshness / repetition penalty: 5%
+- concept/name affinity: small bonus
 
-Reject an item before scoring when:
+The selector uses a confidence threshold. If no meme scores well enough, the Short renders without a meme for that moment.
 
-- it exceeds the requested duration
-- `brandSafe` is false
-- `rightsStatus` is not approved
-- it was used too recently
-- its media type does not fit the scene
+The selected source file is read directly from this repository, normalized into `public/memes/`, then inserted into the Remotion render. There is no cross-repository API lookup or asset download.
 
-The selector should prefer no meme when the best score is below a confidence threshold. This prevents forced or irrelevant jokes.
-
-## Examples
-
-"API price increased 50%" can produce:
+## Example
 
 ```json
 {
-  "purpose": "reaction",
-  "tone": "negative",
-  "intensity": 3,
-  "preferredMedia": "audio"
+  "memeIntent": {
+    "purpose": "reaction",
+    "tone": "negative",
+    "intensity": 2,
+    "preferredMedia": "audio",
+    "maxDurationSeconds": 1.0,
+    "concepts": ["bruh", "disbelief", "bad news"]
+  }
 }
 ```
 
-Potential catalog matches could include a brief "BRUH", wrong-answer buzzer, facepalm clip, or another approved frustration asset.
+The editor describes the meaning of the reaction. The selector decides which local meme asset best expresses it.
 
-"A model is 5x faster" can produce:
-
-```json
-{
-  "purpose": "success",
-  "tone": "positive",
-  "intensity": 2,
-  "preferredMedia": "video"
-}
-```
-
-Potential matches could include an approved celebration clip.
-
-"This benchmark has one weird caveat" can produce:
-
-```json
-{
-  "purpose": "confusion",
-  "tone": "confused",
-  "intensity": 2,
-  "preferredMedia": "image"
-}
-```
-
-Potential matches could include an approved confused reaction image.
-
-The catalog should be curated once and then reused by every scheduled run. The scheduled editor never needs to inspect thousands of binary meme files.
+Normal Shorts should use no more than two meme moments so the memes remain punchlines rather than becoming the whole video.

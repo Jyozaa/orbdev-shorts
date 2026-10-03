@@ -1,19 +1,16 @@
 from __future__ import annotations
 
 import json
-import math
-import os
 import re
 import subprocess
 import sys
-import urllib.parse
-import urllib.request
 from pathlib import Path
 
 BUILD = Path("build")
 PUBLIC = Path("public/memes")
 CATALOG = BUILD / "meme-catalog.json"
 SELECTION = BUILD / "meme-selection.json"
+
 
 def tokens(values: list[str] | None) -> set[str]:
     if not values:
@@ -22,6 +19,7 @@ def tokens(values: list[str] | None) -> set[str]:
     for value in values:
         output.update(re.sub(r"[^a-z0-9]+", " ", value.lower()).split())
     return output
+
 
 def score(item: dict[str, object], intent: dict[str, object]) -> float:
     purposes = set(item.get("purposes", []))
@@ -58,10 +56,6 @@ def score(item: dict[str, object], intent: dict[str, object]) -> float:
 
     return result
 
-def download(url: str, target: Path) -> None:
-    request = urllib.request.Request(url, headers={"User-Agent": "orbdev-renderer"})
-    with urllib.request.urlopen(request, timeout=60) as response:
-        target.write_bytes(response.read())
 
 def duration(path: Path) -> float:
     try:
@@ -75,6 +69,7 @@ def duration(path: Path) -> float:
         return float(value)
     except Exception:
         return 0.0
+
 
 def normalize_asset(source: Path, media_type: str, scene_index: int, max_duration: float) -> tuple[str, float]:
     PUBLIC.mkdir(parents=True, exist_ok=True)
@@ -117,6 +112,7 @@ def normalize_asset(source: Path, media_type: str, scene_index: int, max_duratio
     )
     return f"memes/{output.name}", max_duration
 
+
 def main() -> None:
     if len(sys.argv) != 2:
         raise SystemExit("usage: select_memes.py <story.json>")
@@ -147,30 +143,36 @@ def main() -> None:
 
         selected_result = None
         for value, selected in candidates[:8]:
-            path = selected["path"]
-            encoded = urllib.parse.quote(path, safe="/")
-            raw_url = f"https://raw.githubusercontent.com/Jyozaa/memes/main/{encoded}"
+            path = str(selected["path"])
+            source = Path(path)
 
-            BUILD.mkdir(parents=True, exist_ok=True)
-            temp = BUILD / f"meme-{index}{Path(path).suffix.lower()}"
+            if not source.is_file():
+                print(f"Scene {index}: local meme missing: {path}")
+                continue
+
             try:
-                print(f"Scene {index}: trying {path} ({value:.1f})")
-                download(raw_url, temp)
-                max_duration = float(intent.get("maxDurationSeconds") or (1.2 if selected["mediaType"] == "audio" else 1.8))
-                src, normalized_duration = normalize_asset(temp, selected["mediaType"], index, max_duration)
+                print(f"Scene {index}: trying local meme {path} ({value:.1f})")
+                max_duration = float(
+                    intent.get("maxDurationSeconds")
+                    or (1.2 if selected["mediaType"] == "audio" else 1.8)
+                )
+                src, normalized_duration = normalize_asset(
+                    source,
+                    str(selected["mediaType"]),
+                    index,
+                    max_duration,
+                )
                 selected_result = (value, selected, path, src, normalized_duration)
                 break
             except Exception as exc:
                 print(f"Scene {index}: candidate failed: {path}: {exc}")
-            finally:
-                temp.unlink(missing_ok=True)
 
         if selected_result is None:
-            print(f"Scene {index}: no candidate could be normalized")
+            print(f"Scene {index}: no local candidate could be normalized")
             continue
 
         value, selected, path, src, normalized_duration = selected_result
-        chosen_ids.add(selected["id"])
+        chosen_ids.add(str(selected["id"]))
 
         scene_duration = float(scene["end"]) - float(scene["start"])
         offset = max(0.15, scene_duration - normalized_duration - 0.28)
@@ -185,10 +187,11 @@ def main() -> None:
             "offsetSeconds": round(offset, 3),
             "volume": 0.56 if selected["mediaType"] == "audio" else 0.40,
         }
-        print(f"Scene {index}: selected {path} ({value:.1f})")
+        print(f"Scene {index}: selected local meme {path} ({value:.1f})")
 
     SELECTION.parent.mkdir(parents=True, exist_ok=True)
     SELECTION.write_text(json.dumps(selections, indent=2), encoding="utf-8")
+
 
 if __name__ == "__main__":
     main()

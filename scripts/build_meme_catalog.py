@@ -1,14 +1,18 @@
 from __future__ import annotations
 
+import hashlib
 import json
-import os
 import re
-import sys
-import urllib.request
 from pathlib import Path
 
-API_URL = "https://api.github.com/repos/Jyozaa/memes/git/trees/main?recursive=1"
 OUT = Path("build/meme-catalog.json")
+
+MEME_ROOTS = (
+    Path("Meme Pack/Meme Sound Effects"),
+    Path("Meme Pack/Meme Videos"),
+    Path("Memes templates -HD-"),
+    Path("Memes templates -HD- 2"),
+)
 
 AUDIO_EXTS = {".mp3", ".wav", ".m4a", ".aac", ".ogg"}
 VIDEO_EXTS = {".mp4", ".mov", ".avi", ".wmv", ".webm", ".mkv"}
@@ -19,14 +23,29 @@ BLOCKED_TERMS = {
     "bitch", "sex", "lesbian", "porn", "knife attack", "gun shooting",
 }
 
+
 def normalize(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", " ", text.lower()).strip()
+
 
 def add(values: set[str], *items: str) -> None:
     values.update(item for item in items if item)
 
-def infer(path: str, media_type: str) -> dict[str, object]:
-    name = normalize(Path(path).stem)
+
+def media_type_for(path: Path) -> str | None:
+    ext = path.suffix.lower()
+    if ext in AUDIO_EXTS:
+        return "audio"
+    if ext in VIDEO_EXTS:
+        return "video"
+    if ext in IMAGE_EXTS:
+        return "image"
+    return None
+
+
+def infer(path: Path, media_type: str) -> dict[str, object]:
+    relative_path = path.as_posix()
+    name = normalize(path.stem)
     tags = set(name.split())
     purposes = {"reaction"}
     tones = {"neutral"}
@@ -75,10 +94,11 @@ def infer(path: str, media_type: str) -> dict[str, object]:
         intensity = max(intensity, 2)
 
     brand_safe = not any(term in name for term in BLOCKED_TERMS)
+    suffix = hashlib.sha1(relative_path.encode("utf-8")).hexdigest()[:8]
 
     return {
-        "id": re.sub(r"[^a-z0-9]+", "-", name).strip("-")[:90],
-        "path": path,
+        "id": f"{re.sub(r'[^a-z0-9]+', '-', name).strip('-')[:72]}-{suffix}",
+        "path": relative_path,
         "mediaType": media_type,
         "tags": sorted(tags),
         "purposes": sorted(purposes),
@@ -88,49 +108,36 @@ def infer(path: str, media_type: str) -> dict[str, object]:
         "rightsStatus": "approved",
     }
 
+
 def main() -> None:
-    token = os.getenv("GITHUB_TOKEN", "")
-    request = urllib.request.Request(
-        API_URL,
-        headers={
-            "Accept": "application/vnd.github+json",
-            **({"Authorization": f"Bearer {token}"} if token else {}),
-        },
-    )
-    with urllib.request.urlopen(request, timeout=45) as response:
-        tree = json.load(response)["tree"]
-
     catalog = []
-    for item in tree:
-        if item.get("type") != "blob":
-            continue
-        path = item["path"]
-        ext = Path(path).suffix.lower()
 
-        if ext in AUDIO_EXTS:
-            media_type = "audio"
-        elif ext in VIDEO_EXTS:
-            media_type = "video"
-        elif ext in IMAGE_EXTS:
-            media_type = "image"
-        else:
+    for root in MEME_ROOTS:
+        if not root.is_dir():
+            print(f"Skipping missing meme folder: {root}")
             continue
 
-        if not (
-            path.startswith("Meme Pack/Meme Sound Effects/")
-            or path.startswith("Meme Pack/Meme Videos/")
-            or path.startswith("Memes templates -HD-/")
-            or path.startswith("Memes templates -HD- 2/")
-        ):
-            continue
+        for path in root.rglob("*"):
+            if not path.is_file():
+                continue
 
-        entry = infer(path, media_type)
-        if entry["brandSafe"]:
-            catalog.append(entry)
+            media_type = media_type_for(path)
+            if media_type is None:
+                continue
+
+            entry = infer(path, media_type)
+            if entry["brandSafe"]:
+                catalog.append(entry)
+
+    catalog.sort(key=lambda item: str(item["path"]).lower())
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps({"version": 1, "items": catalog}, indent=2), encoding="utf-8")
-    print(f"Cataloged {len(catalog)} meme assets")
+    OUT.write_text(
+        json.dumps({"version": 2, "source": "local", "items": catalog}, indent=2),
+        encoding="utf-8",
+    )
+    print(f"Cataloged {len(catalog)} local meme assets")
+
 
 if __name__ == "__main__":
     main()
