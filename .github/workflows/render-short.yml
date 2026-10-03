@@ -37,8 +37,22 @@ jobs:
       ORBDEV_CAPTION_LEAD_MS: 90
 
     steps:
-      - name: Checkout
+      - name: Checkout application files
         uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github/
+            editorial/
+            history/
+            public/
+            scripts/
+            src/
+            stories/
+            package.json
+            requirements.txt
+            tsconfig.json
+            README.md
 
       - name: Resolve story
         shell: bash
@@ -83,7 +97,9 @@ jobs:
       - name: Generate transition sound effects
         run: python scripts/generate_sfx.py
 
-      - name: Build local meme catalog
+      - name: Build meme catalog from this repository
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/build_meme_catalog.py
 
       - name: Select meme assets

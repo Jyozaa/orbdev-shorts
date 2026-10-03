@@ -4,6 +4,9 @@ import json
 import re
 import subprocess
 import sys
+import os
+import urllib.parse
+import urllib.request
 from pathlib import Path
 
 BUILD = Path("build")
@@ -137,21 +140,27 @@ def main() -> None:
         selected_result = None
         for value, selected in candidates[:8]:
             path = str(selected["path"])
-            source = Path(path)
-            if not source.is_file():
-                continue
+            repo_name = os.getenv("GITHUB_REPOSITORY", "Jyozaa/orbdev-shorts")
+            encoded = urllib.parse.quote(path, safe="/")
+            raw_url = f"https://raw.githubusercontent.com/{repo_name}/main/{encoded}"
+            temp = BUILD / f"meme-{index}{Path(path).suffix.lower()}"
             try:
+                request = urllib.request.Request(raw_url, headers={"User-Agent":"orbdev-renderer"})
+                with urllib.request.urlopen(request, timeout=60) as response:
+                    temp.write_bytes(response.read())
                 max_duration = float(
                     intent.get("maxDurationSeconds")
                     or (1.0 if selected["mediaType"] == "audio" else 1.5)
                 )
                 src, normalized_duration = normalize_asset(
-                    source, str(selected["mediaType"]), index, max_duration
+                    temp, str(selected["mediaType"]), index, max_duration
                 )
                 selected_result = (value, selected, path, src, normalized_duration)
                 break
             except Exception as exc:
                 print(f"Beat {index}: candidate failed: {path}: {exc}")
+            finally:
+                temp.unlink(missing_ok=True)
 
         if selected_result is None:
             continue
