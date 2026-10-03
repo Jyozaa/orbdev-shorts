@@ -33,40 +33,28 @@ export type Cutaway = {
   meme: SelectedMeme;
 };
 
+export type SourceAnnotation = {
+  label: string;
+  x: number;
+  y: number;
+};
+
 export type SourceVisual = {
   type: 'source';
   sourceIndex: number;
-  variant?: number;
+  query: string;
   fit?: 'contain' | 'cover';
+  annotations?: SourceAnnotation[];
   src?: string;
   publisher?: string;
+  matchScore?: number;
 };
 
-export type MetricVisual = {
-  type: 'metric';
-  value: string;
-};
-
-export type DiagramVisual = {
-  type: 'diagram';
-  symbols: string[];
-};
-
-export type ComparisonVisual = {
-  type: 'comparison';
-  left: string;
-  right: string;
-};
-
-export type SymbolVisual = {
-  type: 'symbol';
-  symbol: string;
-};
-
-export type TextVisual = {
-  type: 'text';
-  text: string;
-};
+export type MetricVisual = {type: 'metric'; value: string};
+export type DiagramVisual = {type: 'diagram'; symbols: string[]};
+export type ComparisonVisual = {type: 'comparison'; left: string; right: string};
+export type SymbolVisual = {type: 'symbol'; symbol: string};
+export type TextVisual = {type: 'text'; text: string};
 
 export type LogoVisual = {
   type: 'logo';
@@ -76,51 +64,30 @@ export type LogoVisual = {
 };
 
 export type FlowNode =
-  | {
-      kind: 'logo';
-      slug: string;
-      label?: string;
-      src?: string;
-    }
-  | {
-      kind: 'symbol';
-      value: string;
-    }
-  | {
-      kind: 'text';
-      value: string;
-    };
+  | {kind: 'logo'; slug: string; label?: string; src?: string}
+  | {kind: 'symbol'; value: string}
+  | {kind: 'text'; value: string};
 
-export type FlowVisual = {
-  type: 'flow';
-  nodes: FlowNode[];
-};
+export type FlowVisual = {type: 'flow'; nodes: FlowNode[]};
 
-export type ChartBar = {
-  label: string;
-  value: string;
-  amount: number;
-};
+export type ChartBar = {label: string; value: string; amount: number};
+export type ChartVisual = {type: 'chart'; bars: ChartBar[]};
 
-export type ChartVisual = {
-  type: 'chart';
-  bars: ChartBar[];
-};
+export type TimelinePoint = {label: string; position: number};
+export type TimelineVisual = {type: 'timeline'; points: TimelinePoint[]};
 
-export type TimelinePoint = {
-  label: string;
-  position: number;
-};
+export type NetworkVisual = {type: 'network'; center: string; nodes: string[]};
 
-export type TimelineVisual = {
-  type: 'timeline';
-  points: TimelinePoint[];
-};
-
-export type NetworkVisual = {
-  type: 'network';
-  center: string;
-  nodes: string[];
+export type ExplainVisual = {
+  type: 'explain';
+  mode: 'pixel-upscale' | 'network-shrink' | 'capacity' | 'stability' | 'pipeline' | 'fanout';
+  labels?: string[];
+  stages?: string[];
+  fromLayers?: number[];
+  toLayers?: number[];
+  load?: number;
+  center?: string;
+  nodes?: string[];
 };
 
 export type BeatVisualSpec =
@@ -134,7 +101,8 @@ export type BeatVisualSpec =
   | FlowVisual
   | ChartVisual
   | TimelineVisual
-  | NetworkVisual;
+  | NetworkVisual
+  | ExplainVisual;
 
 export type Beat = {
   text: string;
@@ -146,11 +114,7 @@ export type Beat = {
   meme?: SelectedMeme;
 };
 
-export type CaptionWord = {
-  text: string;
-  startMs: number;
-  endMs: number;
-};
+export type CaptionWord = {text: string; startMs: number; endMs: number};
 
 export type StoryProps = {
   slug: string;

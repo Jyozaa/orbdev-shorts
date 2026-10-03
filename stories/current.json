@@ -6,41 +6,43 @@
     {
       "text": "Sony just gave",
       "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "variant": 0,
-        "fit": "cover"
+        "type": "logo",
+        "slug": "playstation",
+        "label": "PlayStation"
       },
       "sfx": "whoosh"
     },
     {
       "text": "the regular PS5",
       "visual": {
-        "type": "logo",
-        "slug": "playstation",
-        "label": "PS5"
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "PlayStation 5 console PS5 hardware",
+        "fit": "contain"
       }
     },
     {
       "text": "an AI graphics upgrade.",
       "visual": {
-        "type": "network",
-        "center": "AI",
-        "nodes": [
-          "PIXELS",
-          "DETAIL",
-          "PS5",
-          "4K"
+        "type": "explain",
+        "mode": "pixel-upscale",
+        "labels": [
+          "LOW RES",
+          "AI UPSCALED"
         ]
       }
     },
     {
       "text": "Until now, PlayStation's PSSR upscaler",
       "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "variant": 1,
-        "fit": "cover"
+        "type": "explain",
+        "mode": "pipeline",
+        "stages": [
+          "IMAGE",
+          "PSSR",
+          "PS5 PRO",
+          "4K"
+        ]
       }
     },
     {
@@ -66,18 +68,11 @@
     {
       "text": "because it was too heavy",
       "visual": {
-        "type": "chart",
-        "bars": [
-          {
-            "label": "COMPUTE",
-            "value": "HIGH",
-            "amount": 100
-          },
-          {
-            "label": "BASE PS5",
-            "value": "LOWER",
-            "amount": 48
-          }
+        "type": "explain",
+        "mode": "capacity",
+        "load": 98,
+        "labels": [
+          "GPU LOAD"
         ]
       },
       "memeIntent": {
@@ -89,7 +84,7 @@
         "concepts": [
           "bruh",
           "pain",
-          "expensive",
+          "overload",
           "disbelief"
         ]
       }
@@ -97,10 +92,9 @@
     {
       "text": "for the base console.",
       "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "variant": 2,
-        "fit": "contain"
+        "type": "logo",
+        "slug": "playstation",
+        "label": "BASE PS5"
       }
     },
     {
@@ -115,38 +109,49 @@
     {
       "text": "a smaller neural network,",
       "visual": {
-        "type": "network",
-        "center": "NN",
-        "nodes": [
-          "○○○",
-          "○○",
-          "○"
+        "type": "explain",
+        "mode": "network-shrink",
+        "fromLayers": [
+          5,
+          4,
+          4,
+          3
+        ],
+        "toLayers": [
+          3,
+          3,
+          2
+        ],
+        "labels": [
+          "PSSR",
+          "QSSR"
         ]
       }
     },
     {
       "text": "hand-tuned for the original PS5.",
       "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "variant": 3,
-        "fit": "cover"
+        "type": "explain",
+        "mode": "pipeline",
+        "stages": [
+          "QSSR",
+          "TUNE",
+          "PS5"
+        ]
       }
     },
     {
       "text": "It should sharpen detail",
       "visual": {
-        "type": "chart",
-        "bars": [
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "QSSR PSSR image quality detail comparison",
+        "fit": "contain",
+        "annotations": [
           {
-            "label": "INPUT",
-            "value": "SOFT",
-            "amount": 48
-          },
-          {
-            "label": "QSSR",
-            "value": "SHARP",
-            "amount": 100
+            "label": "detail",
+            "x": 72,
+            "y": 38
           }
         ]
       }
@@ -154,9 +159,12 @@
     {
       "text": "and reduce image shimmer,",
       "visual": {
-        "type": "comparison",
-        "left": "~~~~",
-        "right": "———"
+        "type": "explain",
+        "mode": "stability",
+        "labels": [
+          "SHIMMER",
+          "STABLE"
+        ]
       }
     },
     {
@@ -164,7 +172,7 @@
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "variant": 4,
+        "query": "Marvel Wolverine gameplay image",
         "fit": "cover"
       }
     },
@@ -173,7 +181,7 @@
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "variant": 2,
+        "query": "Ghost of Yotei game image",
         "fit": "cover"
       }
     },

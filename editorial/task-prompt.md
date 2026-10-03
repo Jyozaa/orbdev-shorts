@@ -2,125 +2,73 @@
 
 Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
-Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json` before selecting anything.
+Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json` first. Search current public sources for significant AI/developer-technology developments inside the configured lookback window and verify every selected story with a primary source.
 
-Search current public sources for significant AI and developer-technology developments inside the configured lookback window. Every selected story must have at least one primary source.
+## Narration
 
-Orbdev covers concrete technical changes: models, capabilities, developer tools, research, discoveries, robotics, hardware, security, infrastructure, graphics technology, and meaningful open-source releases. Ignore hiring, training cohorts, staffing announcements, routine partnerships, and generic business news unless a substantial technology is the actual story.
+Write spoken editorial copy, not a press-release summary. Use a concrete hook, explain what changed technically, show why it matters, then give the catch/limitation and a concise implication or punchline. Keep it conversational, precise and dry/playful. Aim for 75-105 words.
 
-## Narration comes first
+Write narration first, then split it exactly into 12-22 semantic beats. Beat text must reproduce narration word-for-word. Do not manually time beats.
 
-Write narration as an edited internet-video script, not a press-release summary.
+## Visual-director rule
 
-The voice should sound:
-- conversational
-- confident
-- dry/playful rather than hyperactive
-- technically precise
-- written for a human to say out loud
+For every beat, ask: **what relationship should the viewer understand without the narration?**
 
-Use this shape when the story supports it:
-1. immediate hook / concrete change
-2. what used to be true
-3. what changed technically
-4. why that matters
-5. a reaction or contrast beat
-6. the catch / limitation
-7. a short final punchline or implication
-
-Prefer short sentences and contractions. Use punctuation for natural speech rhythm. Avoid corporate phrases like “the company announced”, “this represents”, “the pitch is”, or generic conclusions like “only time will tell”.
-
-Include at least one line with personality when it fits the facts, e.g. “here’s the catch”, “that sounds wild”, “which is slightly ridiculous”, or a dry final observation. Do not invent facts for the joke.
-
-Aim for roughly 75-105 words. Write the finished narration first, then split that exact narration into 12-22 semantic beats. Beat text must reproduce narration word-for-word and in order.
-
-The renderer groups neighboring semantic beats into calmer visual windows of roughly 1.8-3.2 seconds, so do not write unnaturally long beat text just to slow down the edit.
-
-## Real imagery first
-
-Whenever the primary source contains useful official images, use them throughout the Short rather than showing abstract diagrams for everything.
-
-Source visuals can request different official images from the same article:
+Prefer visual explanations over labelled boxes. Use `explain` for relationships:
 
 ```json
-{"type":"source","sourceIndex":0,"variant":0,"fit":"cover"}
-{"type":"source","sourceIndex":0,"variant":1,"fit":"contain"}
-{"type":"source","sourceIndex":0,"variant":2,"fit":"cover"}
+{"type":"explain","mode":"pixel-upscale","labels":["LOW RES","UPSCALED"]}
+{"type":"explain","mode":"network-shrink","fromLayers":[5,4,4,3],"toLayers":[3,3,2],"labels":["LARGE NETWORK","SMALLER NETWORK"]}
+{"type":"explain","mode":"capacity","load":98,"labels":["GPU"]}
+{"type":"explain","mode":"stability","labels":["SHIMMER","STABLE"]}
+{"type":"explain","mode":"pipeline","stages":["IMAGE","QSSR","PS5","4K"]}
+{"type":"explain","mode":"fanout","center":"MODEL","nodes":["CODE","WEB","FILES","TOOLS"]}
 ```
 
-The source pipeline discovers and downloads up to several official article/hero/content images automatically. If fewer images are available, variants safely wrap around.
+These animations build the explanation over time and use most of the frame. In a technical 25-40s Short, include at least two genuine `explain` beats when the story supports them.
 
-Target roughly 25-40% image/source-based visual windows when the source has enough useful imagery. In product/game/hardware stories, prefer official images for the product, demo, UI, game or hardware before replacing them with text boxes.
+Generic `flow`, `diagram`, and `network` are fallbacks, not defaults. Do not turn nouns into rounded boxes just because it is easy.
 
-## Other visual treatments
+## Source imagery
 
-Use animated graphical explanation where it genuinely helps:
+Use official imagery only when it is semantically relevant to that exact beat. Every source visual MUST include a query describing the image you actually want:
 
 ```json
-{"type":"logo","slug":"playstation","label":"PlayStation"}
-{"type":"network","center":"AI","nodes":["GPU","PIXELS","PS5","QSSR"]}
-{"type":"chart","bars":[
-  {"label":"OLD","value":"100","amount":100},
-  {"label":"NEW","value":"55","amount":55}
-]}
-{"type":"timeline","points":[
-  {"label":"2020","position":0},
-  {"label":"PS5 PRO","position":55},
-  {"label":"2026","position":100}
-]}
-{"type":"comparison","left":"6.0","right":"6.1"}
-{"type":"flow","nodes":[
-  {"kind":"logo","slug":"playstation","label":"PS5"},
-  {"kind":"symbol","value":"AI"},
-  {"kind":"symbol","value":"↑"}
+{"type":"source","sourceIndex":0,"query":"Marvel Wolverine gameplay","fit":"cover"}
+{"type":"source","sourceIndex":0,"query":"PSSR image quality comparison","fit":"contain","annotations":[
+  {"label":"fine detail","x":72,"y":36}
 ]}
 ```
 
-Rules:
-- Do not default to rows of labelled boxes.
-- A diagram must explain a relationship that an image cannot show as clearly.
-- Use at least four treatment families in a normal Short.
-- Never use the exact same visual type three beats in a row.
-- Keep generic flow/diagram beats below ~35%.
-- Keep text-only beats below ~25%.
-- At least ~55% of beats should be rich visuals.
+The source pipeline ranks article images using alt text, nearby page context, URL text, and the query. If no candidate reaches the relevance threshold, the image is rejected and another visual wins. Never request generic queries such as "article image" or "PS5 news".
 
-## Meme opportunities
+Use real imagery for recognizable products, demos, UI, games, hardware and research figures. A good explanatory animation is better than an irrelevant source image.
 
-Target 3-4 meme/reaction moments when natural. Keep that frequency even when more official imagery is used.
+## Composition and motion
 
-Explicitly consider reaction memes for narration such as:
-- “the headline sounds wild”
-- “this is wild”
-- “here’s the catch”
-- “not so fast”
-- “this gets weird”
-- “sounds great”
-- “kind of insane”
+- Use most of the usable frame; avoid tiny diagrams floating in black space.
+- Animation must explain construction/transformation, not merely fade a finished diagram in.
+- Mix camera-scale/pan motion with object motion.
+- Logos can participate inside explanations rather than requiring a separate logo scene.
+- Charts/timelines/comparisons remain useful where they actually fit.
+- Avoid the same treatment family consecutively when alternatives exist.
+- Keep generic flow/diagram treatments below ~25%.
 
-The selector also detects common reaction-cue phrases automatically.
+## Memes
 
-### Meme presentation
+Target 3-4 meme/reaction moments when natural.
 
-**overlay**
-- narration continues
-- subtitles remain
-- silent images/videos float directly over the main visual
-- no card, no border, no framed box
-- audio memes play over the main visual
+Automatic reaction cues are for genuine reaction language such as:
+- "the headline sounds wild"
+- "this is wild"
+- "kind of insane"
+- "this gets weird"
+- "sounds great"
 
-**cutaway**
-- only for a video meme that actually has useful audio
-- takes over the full screen
-- pauses narration
-- hides subtitles
-- plays to a natural end when short enough
-- narration resumes afterward
+Do NOT automatically meme structural transitions such as "here's the catch". Those should normally use editorial SFX (for example scratch) unless the script explicitly describes a reaction.
 
-Silent meme images/videos must never be standalone cutaways.
+Silent image/video memes are overlays only: no border, no card, narration continues. A full-screen cutaway requires a short video meme with useful audio. Short audio reactions must finish naturally.
 
-Short meme-audio reactions must finish naturally; do not intentionally trim a laugh/BRUH to fit a tiny semantic beat.
+The renderer groups semantic beats into ~1.8-3.35s visual windows, choosing the strongest and most varied visual rather than blindly preferring source images.
 
-Do not manually provide start/end times. The timeline compiler handles narration, cutaways, subtitles, visuals and SFX.
-
-After successfully queuing a story, report only its headline, score, and primary source. If nothing qualifies, make no repository changes and produce no notification.
+After queueing a story, report only headline, score and primary source. If nothing qualifies, make no repository changes.

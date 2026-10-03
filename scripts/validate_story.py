@@ -9,7 +9,7 @@ from urllib.parse import urlparse
 
 ALLOWED_VISUALS = {
     "source", "metric", "diagram", "comparison", "symbol", "text",
-    "logo", "flow", "chart", "timeline", "network"
+    "logo", "flow", "chart", "timeline", "network", "explain"
 }
 ALLOWED_SFX = {"scratch", "impact", "whoosh", "tick", "none"}
 ALLOWED_PURPOSES = {"reaction", "punchline", "contrast", "confusion", "failure", "success", "waiting", "absurdity", "emphasis"}
@@ -148,12 +148,22 @@ def main() -> None:
         if kind == "source":
             if not isinstance(visual.get("sourceIndex"), int) or visual["sourceIndex"] < 0:
                 fail(f"beat {index} source visual needs sourceIndex")
-            if visual.get("variant") is not None and (
-                not isinstance(visual.get("variant"), int) or visual["variant"] < 0
-            ):
-                fail(f"beat {index} source variant must be a non-negative integer")
+            query = visual.get("query")
+            if not isinstance(query, str) or len(query.strip()) < 3:
+                fail(f"beat {index} source visual needs a semantic query")
             if visual.get("fit") is not None and visual.get("fit") not in {"contain", "cover"}:
                 fail(f"beat {index} source fit must be contain or cover")
+            annotations = visual.get("annotations", [])
+            if annotations is not None:
+                if not isinstance(annotations, list) or len(annotations) > 3:
+                    fail(f"beat {index} source annotations must contain at most 3 items")
+                for annotation in annotations:
+                    if not isinstance(annotation, dict) or not isinstance(annotation.get("label"), str):
+                        fail(f"beat {index} source annotations need labels")
+                    if not isinstance(annotation.get("x"), (int, float)) or not 0 <= annotation["x"] <= 100:
+                        fail(f"beat {index} source annotation x must be 0-100")
+                    if not isinstance(annotation.get("y"), (int, float)) or not 0 <= annotation["y"] <= 100:
+                        fail(f"beat {index} source annotation y must be 0-100")
             rich_visual_count += 1
         elif kind == "metric":
             if not isinstance(visual.get("value"), str) or not visual["value"].strip():
@@ -221,6 +231,28 @@ def main() -> None:
             if any(not isinstance(node, str) or not node.strip() or len(node) > 12 for node in nodes):
                 fail(f"beat {index} network nodes must be short strings")
             rich_visual_count += 1
+        elif kind == "explain":
+            mode = visual.get("mode")
+            if mode not in {"pixel-upscale","network-shrink","capacity","stability","pipeline","fanout"}:
+                fail(f"beat {index} has invalid explain mode")
+            if mode == "network-shrink":
+                for key in ("fromLayers","toLayers"):
+                    layers = visual.get(key)
+                    if not isinstance(layers, list) or not 2 <= len(layers) <= 5 or any(not isinstance(v, int) or not 1 <= v <= 7 for v in layers):
+                        fail(f"beat {index} {key} needs 2-5 layer sizes from 1-7")
+            if mode == "capacity":
+                load = visual.get("load")
+                if not isinstance(load, (int,float)) or not 0 <= load <= 100:
+                    fail(f"beat {index} capacity load must be 0-100")
+            if mode == "pipeline":
+                stages = visual.get("stages")
+                if not isinstance(stages, list) or not 2 <= len(stages) <= 5:
+                    fail(f"beat {index} pipeline needs 2-5 stages")
+            if mode == "fanout":
+                nodes = visual.get("nodes")
+                if not isinstance(nodes, list) or not 2 <= len(nodes) <= 6:
+                    fail(f"beat {index} fanout needs 2-6 nodes")
+            rich_visual_count += 1
 
         if beat.get("sfx") is not None and beat.get("sfx") not in ALLOWED_SFX:
             fail(f"beat {index} has unsupported sfx")
@@ -252,8 +284,8 @@ def main() -> None:
     if generic_flow_count > math.ceil(len(beats) * 0.35):
         fail("too many generic flow/diagram beats; use charts, timelines, networks, logos, source visuals or comparisons")
 
-    if len(beats) >= 14 and not any(kind in {"chart", "timeline", "network"} for kind in visual_types):
-        fail("long Shorts need at least one chart, timeline, or network treatment")
+    if len(beats) >= 14 and visual_types.count("explain") < 2:
+        fail("long technical Shorts need at least two explanatory animation beats")
 
     if path.name == "current.json":
         validate_editorial(data)

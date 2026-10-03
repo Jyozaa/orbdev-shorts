@@ -9,6 +9,7 @@ import {
   useVideoConfig
 } from 'remotion';
 import {Beat, FlowNode} from '../types';
+import {ExplainVisual} from './ExplainVisual';
 
 const fittedFontSize = (value: string, boxWidth: number, max: number, min: number) => {
   const normalized = Math.max(1, value.trim().length);
@@ -219,6 +220,10 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
     opacity
   };
 
+  if (beat.visual.type === 'explain') {
+    return <ExplainVisual visual={beat.visual} />;
+  }
+
   if (beat.visual.type === 'source') {
     if (!beat.visual.src) {
       return (
@@ -253,6 +258,35 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
             opacity: enter
           }}
         />
+        {(beat.visual.annotations ?? []).map((annotation, index) => {
+          const reveal = spring({frame, fps, delay: 7 + index * 5, config: {damping: 18, stiffness: 180}});
+          return (
+            <React.Fragment key={`annotation-${index}`}>
+              <div style={{
+                position: 'absolute',
+                left: `${annotation.x}%`,
+                top: `${annotation.y}%`,
+                width: 18,
+                height: 18,
+                borderRadius: '50%',
+                background: '#ffffff',
+                transform: `translate(-50%,-50%) scale(${reveal})`,
+                boxShadow: '0 0 0 8px rgba(255,255,255,.15)'
+              }} />
+              <div style={{
+                position: 'absolute',
+                left: `calc(${annotation.x}% + 18px)`,
+                top: `calc(${annotation.y}% - 42px)`,
+                padding: '10px 14px',
+                background: 'rgba(0,0,0,.76)',
+                fontSize: 28,
+                fontWeight: 900,
+                opacity: reveal,
+                transform: `translateY(${(1-reveal)*12}px)`
+              }}>{annotation.label}</div>
+            </React.Fragment>
+          );
+        })}
       </AbsoluteFill>
     );
   }

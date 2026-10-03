@@ -32,7 +32,7 @@ jobs:
     env:
       ORBDEV_VOICE: en-US-AndrewNeural
       ORBDEV_VOICE_FALLBACK: en-GB-RyanNeural
-      ORBDEV_RATE: +12%
+      ORBDEV_RATE: +14%
       ORBDEV_PITCH: -1Hz
       ORBDEV_CAPTION_LEAD_MS: 80
 
