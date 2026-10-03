@@ -10,6 +10,16 @@
       "sourceUrls": [
         "https://www.anthropic.com/news/claude-frontier-academy"
       ]
+    },
+    {
+      "storyKey": "openai-gpt-6-sol-luna-launch",
+      "slug": "gpt-6-sol-luna",
+      "headline": "OpenAI launches GPT-6 Sol and Luna",
+      "selectedAt": "2026-10-03T08:28:00+01:00",
+      "score": 9.1,
+      "sourceUrls": [
+        "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
+      ]
     }
   ]
 }
