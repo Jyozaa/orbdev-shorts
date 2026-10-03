@@ -20,6 +20,16 @@
       "sourceUrls": [
         "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
       ]
+    },
+    {
+      "storyKey": "openai-gpt-6-1-sol-launch",
+      "slug": "gpt-6-1-sol",
+      "headline": "OpenAI launches GPT-6.1 Sol",
+      "selectedAt": "2026-10-03T08:53:00+01:00",
+      "score": 9.3,
+      "sourceUrls": [
+        "https://openai.com/index/introducing-gpt-6-1-sol/"
+      ]
     }
   ]
 }
