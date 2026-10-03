@@ -61,7 +61,11 @@ def main() -> None:
         adjusted["end"] = round(float(words[end_index]["endMs"]) / 1000.0, 4)
 
         if adjusted["visual"].get("type") == "source":
-            source_index = str(adjusted["visual"].get("sourceIndex", 0))
+            raw_source_index = int(adjusted["visual"].get("sourceIndex", 0))
+            source_index = str(raw_source_index)
+            sources = story.get("editorial", {}).get("sources", [])
+            if 0 <= raw_source_index < len(sources):
+                adjusted["visual"]["publisher"] = sources[raw_source_index].get("publisher", "SOURCE")
             if source_index in source_assets:
                 adjusted["visual"]["src"] = source_assets[source_index]
 

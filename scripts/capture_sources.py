@@ -113,8 +113,10 @@ def main() -> None:
         target = PUBLIC / f"source-{index}.jpg"
         temp = BUILD / f"source-{index}.asset"
 
+        page_fetch_succeeded = False
         try:
             page_bytes, content_type = fetch(url)
+            page_fetch_succeeded = True
             if "text/html" in content_type or page_bytes.lstrip().startswith(b"<"):
                 page_text = page_bytes.decode("utf-8", errors="ignore")
                 image_url = og_image(page_text, url)
@@ -145,12 +147,14 @@ def main() -> None:
         finally:
             temp.unlink(missing_ok=True)
 
-        screenshot = PUBLIC / f"source-{index}.png"
-        if chrome_screenshot(url, screenshot):
-            report[str(index)] = f"sources/{screenshot.name}"
-            print(f"Source {index}: captured page screenshot")
-        else:
-            print(f"Source {index}: no visual asset available")
+        if page_fetch_succeeded:
+            screenshot = PUBLIC / f"source-{index}.png"
+            if chrome_screenshot(url, screenshot):
+                report[str(index)] = f"sources/{screenshot.name}"
+                print(f"Source {index}: captured page screenshot")
+                continue
+
+        print(f"Source {index}: no usable visual asset; renderer will use publisher identity")
 
     REPORT.write_text(json.dumps(report, indent=2), encoding="utf-8")
 

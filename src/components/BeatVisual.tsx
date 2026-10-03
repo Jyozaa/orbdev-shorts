@@ -47,7 +47,18 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
     if (!beat.visual.src) {
       return (
         <AbsoluteFill style={shell}>
-          <div style={{fontSize: 86, fontWeight: 950, letterSpacing: -5}}>SOURCE</div>
+          <div
+            style={{
+              fontSize: 128,
+              fontWeight: 950,
+              letterSpacing: -8,
+              textTransform: 'uppercase',
+              textAlign: 'center',
+              maxWidth: 900
+            }}
+          >
+            {beat.visual.publisher ?? 'SOURCE'}
+          </div>
         </AbsoluteFill>
       );
     }

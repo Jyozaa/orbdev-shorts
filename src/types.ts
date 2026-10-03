@@ -22,6 +22,7 @@ export type SourceVisual = {
   type: 'source';
   sourceIndex: number;
   src?: string;
+  publisher?: string;
 };
 
 export type MetricVisual = {
