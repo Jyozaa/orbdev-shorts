@@ -1,0 +1,89 @@
+{
+  "slug": "anthropic-frontier-academy",
+  "title": "Anthropic commits $100M to train 10,000 AI engineers",
+  "narration": "Anthropic just committed one hundred million dollars to train ten thousand engineers through its new Claude Frontier Academy. This is not a normal online certification. Nominated software engineers start with an in-person deployment simulation, then spend twelve weeks leading a real Claude project inside their own company. The first cohorts include engineers from Accenture, Bain, Deloitte, McKinsey, Morgan Stanley and Novo Nordisk. The bigger idea is that enterprise AI may be bottlenecked less by model access, and more by people who can safely turn these systems into production workflows. For now, participation is company-nominated, not open enrollment.",
+  "plannedDurationSeconds": 38,
+  "scenes": [
+    {
+      "type": "hook",
+      "start": 0,
+      "end": 5,
+      "kicker": "ANTHROPIC",
+      "title": "$100M to train AI engineers"
+    },
+    {
+      "type": "explain",
+      "start": 5,
+      "end": 12,
+      "kicker": "THE PLAN",
+      "title": "10,000 engineers by the end of 2027",
+      "body": "Claude Frontier Academy is aimed at hands-on enterprise deployment."
+    },
+    {
+      "type": "comparison",
+      "start": 12,
+      "end": 21,
+      "title": "Not a normal certification",
+      "leftTitle": "TYPICAL COURSE",
+      "leftBody": "Learn → test → badge",
+      "rightTitle": "ANTHROPIC",
+      "rightBody": "Simulate → deploy → 12-week residency"
+    },
+    {
+      "type": "impact",
+      "start": 21,
+      "end": 30,
+      "title": "The bottleneck may be people",
+      "body": "Anthropic is betting enterprise AI needs engineers who can take projects from idea to secure production."
+    },
+    {
+      "type": "caveat",
+      "start": 30,
+      "end": 35,
+      "title": "You can't just sign up",
+      "body": "The first program is company-nominated and aimed at experienced software engineers."
+    },
+    {
+      "type": "outro",
+      "start": 35,
+      "end": 38,
+      "title": "orbdev",
+      "body": "AI news, explained quickly."
+    }
+  ],
+  "editorial": {
+    "storyKey": "anthropic-claude-frontier-academy-100m-10000-fdes",
+    "selectedAt": "2026-10-03T08:16:00+01:00",
+    "score": 8.1,
+    "topics": [
+      "enterprise AI",
+      "developer education",
+      "Claude"
+    ],
+    "companies": [
+      "Anthropic"
+    ],
+    "sources": [
+      {
+        "title": "Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/news/claude-frontier-academy",
+        "publishedAt": "2026-10-02",
+        "primary": true
+      }
+    ]
+  },
+  "publish": {
+    "youtubeTitle": "Anthropic is spending $100M to train 10,000 AI engineers",
+    "description": "Anthropic launched Claude Frontier Academy, a $100M program aiming to train 10,000 Frontier Deployed Engineers by the end of 2027.\n\nSource: https://www.anthropic.com/news/claude-frontier-academy",
+    "tags": [
+      "AI",
+      "Anthropic",
+      "Claude",
+      "AI news",
+      "software engineering"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false
+  }
+}
