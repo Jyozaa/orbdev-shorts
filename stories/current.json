@@ -1,80 +1,89 @@
 {
-  "slug": "anthropic-frontier-academy",
-  "title": "Anthropic commits $100M to train 10,000 AI engineers",
-  "narration": "Anthropic just committed one hundred million dollars to train ten thousand engineers through its new Claude Frontier Academy. This is not a normal online certification. Nominated software engineers start with an in-person deployment simulation, then spend twelve weeks leading a real Claude project inside their own company. The first cohorts include engineers from Accenture, Bain, Deloitte, McKinsey, Morgan Stanley and Novo Nordisk. The bigger idea is that enterprise AI may be bottlenecked less by model access, and more by people who can safely turn these systems into production workflows. For now, participation is company-nominated, not open enrollment.",
-  "plannedDurationSeconds": 39,
+  "slug": "gpt-6-sol-luna",
+  "title": "OpenAI launches GPT-6 Sol and Luna",
+  "narration": "OpenAI just released GPT-6 Sol and Luna, and the biggest change may be cost. Sol now costs two dollars per million input tokens and ten dollars for output, while Luna drops to ten cents input and fifty cents output. OpenAI says Sol reaches 68.8 percent on DeepSWE, within 1.1 points of Claude Fable 5's best result, at roughly 80 percent lower cost per task. GPT-6 also improves prompt caching, with cached input reads discounted by 90 percent. Astra is still OpenAI's top model, but Sol and Luna make advanced coding and agent workloads much cheaper.",
+  "plannedDurationSeconds": 40,
   "scenes": [
     {
       "type": "hook",
       "start": 0,
-      "end": 7.5,
-      "kicker": "ANTHROPIC",
-      "title": "$100M to train 10,000 AI engineers"
+      "end": 4.5,
+      "kicker": "OPENAI",
+      "title": "GPT-6 just got much cheaper"
+    },
+    {
+      "type": "metric",
+      "start": 4.5,
+      "end": 9.5,
+      "kicker": "API PRICING",
+      "title": "50%",
+      "body": "lower than GPT-5.6 promotional pricing"
     },
     {
       "type": "comparison",
-      "start": 7.5,
-      "end": 20.5,
-      "title": "Not a normal certification",
-      "leftTitle": "TYPICAL COURSE",
-      "leftBody": "Learn → test → badge",
-      "rightTitle": "ANTHROPIC",
-      "rightBody": "Simulate → deploy → 12-week residency"
+      "start": 9.5,
+      "end": 20,
+      "title": "New token prices",
+      "leftTitle": "GPT-6 SOL",
+      "leftBody": "$2 in / $10 out",
+      "rightTitle": "GPT-6 LUNA",
+      "rightBody": "$0.10 in / $0.50 out"
     },
     {
-      "type": "explain",
-      "start": 20.5,
-      "end": 25.5,
-      "kicker": "FIRST COHORTS",
-      "title": "Major firms are already in",
-      "body": "Accenture, Bain, Deloitte, McKinsey, Morgan Stanley and Novo Nordisk."
+      "type": "metric",
+      "start": 20,
+      "end": 28,
+      "kicker": "DEEPSWE",
+      "title": "68.8%",
+      "body": "OpenAI-reported score for GPT-6 Sol"
     },
     {
       "type": "impact",
-      "start": 25.5,
+      "start": 28,
       "end": 35.5,
-      "title": "The bottleneck may be people",
-      "body": "Anthropic is betting enterprise AI needs engineers who can take projects from idea to secure production."
+      "title": "90% cached-input discount",
+      "body": "Better prompt caching can cut the cost of long-running agents and repeated context."
     },
     {
       "type": "caveat",
       "start": 35.5,
-      "end": 39,
-      "title": "You can't just sign up",
-      "body": "The program is company-nominated and aimed at experienced software engineers."
+      "end": 40,
+      "title": "Astra is still the top model",
+      "body": "Sol and Luna are the faster, cheaper tiers—not the maximum-capability option."
     }
   ],
   "editorial": {
-    "storyKey": "anthropic-claude-frontier-academy-100m-10000-fdes",
-    "selectedAt": "2026-10-03T08:16:00+01:00",
-    "score": 8.1,
+    "storyKey": "openai-gpt-6-sol-luna-launch",
+    "selectedAt": "2026-10-03T08:28:00+01:00",
+    "score": 9.1,
     "topics": [
-      "enterprise AI",
-      "developer education",
-      "Claude"
+      "models",
+      "coding agents",
+      "API pricing",
+      "prompt caching"
     ],
     "companies": [
-      "Anthropic"
+      "OpenAI"
     ],
     "sources": [
       {
-        "title": "Anthropic invests $100 million to train 10,000 engineers and tackle the enterprise AI talent gap",
-        "publisher": "Anthropic",
-        "url": "https://www.anthropic.com/news/claude-frontier-academy",
-        "publishedAt": "2026-10-02",
+        "title": "Introducing GPT-6 Sol and Luna",
+        "publisher": "OpenAI",
+        "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+        "publishedAt": "2026-10-03",
         "primary": true
       }
     ]
   },
   "publish": {
-    "youtubeTitle": "Anthropic is spending $100M to train 10,000 AI engineers",
-    "description": "Anthropic launched Claude Frontier Academy, a $100M program aiming to train 10,000 Frontier Deployed Engineers by the end of 2027.\n\nSource: https://www.anthropic.com/news/claude-frontier-academy",
+    "youtubeTitle": "GPT-6 Sol and Luna just made AI much cheaper",
+    "description": "OpenAI launched GPT-6 Sol and Luna with lower API prices, stronger coding performance, and improved prompt caching.\n\nSource: https://openai.com/index/introducing-gpt-6-sol-and-luna/",
     "tags": [
       "AI",
-      "Anthropic",
-      "Claude",
-      "AI news",
-      "software engineering"
+      "OpenAI",
+      "GPT-6",
+      "coding",
+      "AI news"
     ],
     "category": "SCIENCE_TECHNOLOGY",
     "madeForKids": false
