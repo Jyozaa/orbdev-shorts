@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 9,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -12,8 +12,9 @@
     "durationSecondsMax": 40,
     "beatsMin": 12,
     "beatsMax": 22,
-    "memeMomentsTarget": 3,
-    "memeMomentsMax": 4
+    "memeMomentsMax": 4,
+    "memeMomentsTargetMin": 3,
+    "memeMomentsTargetMax": 4
   },
   "scoring": {
     "significance": 4,
@@ -47,7 +48,8 @@
     "responsiveDiagramBoxes": true,
     "sourceVisualsPreferred": true,
     "diagramsOverParagraphs": true,
-    "phraseCaptions": true
+    "phraseCaptions": true,
+    "diagramConnectorsAutomatic": true
   },
   "narration": {
     "preferredVoice": "en-US-AndrewNeural",

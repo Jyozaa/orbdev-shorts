@@ -109,7 +109,9 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
   }
 
   if (beat.visual.type === 'diagram') {
-    const symbols = beat.visual.symbols;
+    const symbols = beat.visual.symbols.filter(
+      (symbol) => !['→', '->', '=>', '←', '<-', '↔'].includes(symbol.trim())
+    );
     const count = Math.max(1, symbols.length);
     const arrowWidth = count > 1 ? 58 * (count - 1) : 0;
     const gapWidth = 20 * (count * 2 - 2);

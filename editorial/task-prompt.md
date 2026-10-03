@@ -23,7 +23,7 @@ Supported visuals:
 ```json
 {"type":"source","sourceIndex":0}
 {"type":"metric","value":"95%"}
-{"type":"diagram","symbols":["$","→","↓"]}
+{"type":"diagram","symbols":["$","↓"]}
 {"type":"comparison","left":"6.0","right":"6.1"}
 {"type":"symbol","symbol":"</>"}
 {"type":"text","text":"NOT #1"}
@@ -32,9 +32,10 @@ Supported visuals:
 Rules:
 - Prefer real/source imagery, metrics, symbols, diagrams, screenshots and memes over explanatory text.
 - Keep diagram symbols short; the renderer fits them automatically inside responsive boxes.
+- Diagram arrays contain nodes only. Do not put arrows such as `→` in the array; the renderer draws connectors automatically.
 - `text` is rare and must be at most three words.
 - Use at least one source visual when available.
-- For a 25-40 second Short, target about 3 meme/reaction moments when the story provides natural opportunities; use 2-4 total and never force an irrelevant meme.
+- For a 25-40 second Short, target 3-4 meme/reaction moments when the story provides natural opportunities; never force an irrelevant meme.
 - Mix quick audio/visual overlays with at least one stronger visual reaction when appropriate.
 - Memes should punctuate setup, payoff, contradiction, absurdity, waiting, success, or failure.
 

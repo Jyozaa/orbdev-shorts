@@ -115,6 +115,9 @@ def main() -> None:
                 fail(f"beat {index} diagram needs 2-4 symbols")
             if any(not isinstance(symbol, str) or not symbol.strip() or len(symbol) > 10 for symbol in symbols):
                 fail(f"beat {index} diagram symbols must be short strings")
+            connectors = {"→", "->", "=>", "←", "<-", "↔"}
+            if any(symbol.strip() in connectors for symbol in symbols):
+                fail(f"beat {index} diagram should contain nodes only; arrows are added automatically")
         elif kind == "comparison":
             if not isinstance(visual.get("left"), str) or not isinstance(visual.get("right"), str):
                 fail(f"beat {index} comparison needs left and right")

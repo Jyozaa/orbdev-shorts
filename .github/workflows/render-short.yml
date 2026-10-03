@@ -141,6 +141,7 @@ jobs:
           name: render-selection-${{ env.STORY_SLUG }}
           path: |
             build/meme-selection.json
+            build/cutaways.json
             build/source-assets.json
           if-no-files-found: ignore
           retention-days: 30
