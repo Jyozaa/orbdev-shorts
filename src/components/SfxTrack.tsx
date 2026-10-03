@@ -16,8 +16,6 @@ const fallbackFor = (scene: Scene): ReactionSfx => {
 };
 
 const fileFor: Record<Exclude<ReactionSfx, 'none'>, string> = {
-  yay: 'sfx/yay.mp3',
-  rage: 'sfx/rage.mp3',
   scratch: 'sfx/scratch.wav',
   impact: 'sfx/impact.wav',
   whoosh: 'sfx/whoosh.wav',
@@ -25,8 +23,6 @@ const fileFor: Record<Exclude<ReactionSfx, 'none'>, string> = {
 };
 
 const volumeFor: Record<Exclude<ReactionSfx, 'none'>, number> = {
-  yay: 0.58,
-  rage: 0.58,
   scratch: 0.42,
   impact: 0.44,
   whoosh: 0.34,
@@ -43,7 +39,7 @@ export const SfxTrack: React.FC<Props> = ({scenes}) => {
         if (selected === 'none') return null;
 
         const from = Math.max(0, Math.round(scene.start * fps));
-        const duration = Math.max(1, Math.round(fps * (selected === 'rage' || selected === 'yay' ? 1.8 : 0.75)));
+        const duration = Math.max(1, Math.round(fps * 0.75));
 
         return (
           <Sequence key={`sfx-${index}-${selected}`} from={from} durationInFrames={duration}>

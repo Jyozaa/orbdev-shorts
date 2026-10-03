@@ -16,7 +16,7 @@
       "start": 3.5,
       "end": 7.5,
       "title": "1/5",
-      "sfx": "yay"
+      "sfx": "impact"
     },
     {
       "type": "diagram",
@@ -60,7 +60,7 @@
       "start": 20,
       "end": 24,
       "title": "95%",
-      "sfx": "yay"
+      "sfx": "impact"
     },
     {
       "type": "diagram",
@@ -85,7 +85,7 @@
       "start": 30.5,
       "end": 36,
       "title": "6.1 < ASTRA",
-      "sfx": "rage"
+      "sfx": "scratch"
     }
   ],
   "editorial": {

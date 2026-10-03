@@ -32,6 +32,7 @@ jobs:
     env:
       ORBDEV_VOICE: en-GB-RyanNeural
       ORBDEV_RATE: +10%
+      ORBDEV_CAPTION_LEAD_MS: 180
 
     steps:
       - name: Checkout

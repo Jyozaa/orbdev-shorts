@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -32,8 +32,8 @@
     "Do not exaggerate the source or introduce claims the source does not support.",
     "Use clear, fast language for a technical but broad audience.",
     "Avoid paragraph-style on-screen copy. The narration carries detail; visuals should communicate with diagrams, arrows, symbols and short labels.",
-    "Use reaction sound effects sparingly and contextually: yay for genuinely positive developments, rage for frustrating negative changes, scratch for reversals/catches, impact for important numbers, whoosh for transitions.",
-    "Outside subtitles, prefer numbers, arrows, mathematical operators and symbols over words. Use words only when a symbol would be ambiguous."
+    "Outside subtitles, prefer numbers, arrows, mathematical operators and symbols over words. Use words only when a symbol would be ambiguous.",
+    "Do not synthesize vocal reaction sounds. Use the curated meme library for comedic reactions."
   ],
   "visualRules": {
     "background": "#000000",
@@ -48,8 +48,6 @@
     "maxNonSubtitleWordsPerScene": 3
   },
   "reactionSfx": [
-    "yay",
-    "rage",
     "scratch",
     "impact",
     "whoosh",
@@ -131,5 +129,18 @@
       "impact",
       "caveat"
     ]
+  },
+  "memeSelection": {
+    "sourceRepo": "Jyozaa/memes",
+    "strategy": "intent-tag retrieval",
+    "defaultMaxUsesPerShort": 2,
+    "defaultMaxVideoDurationSeconds": 2.5,
+    "allowedMedia": [
+      "audio",
+      "image",
+      "video"
+    ],
+    "requireBrandSafe": true,
+    "requireRightsReview": true
   }
 }

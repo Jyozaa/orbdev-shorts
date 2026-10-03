@@ -13,6 +13,7 @@ import edge_tts
 PUBLIC_DIR = Path("public")
 AUDIO_PATH = PUBLIC_DIR / "voice.mp3"
 CAPTIONS_PATH = PUBLIC_DIR / "captions.json"
+CAPTION_LEAD_MS = int(os.getenv("ORBDEV_CAPTION_LEAD_MS", "180"))
 
 
 def audio_duration_seconds(path: Path) -> float:
@@ -123,6 +124,16 @@ async def main() -> None:
     duration = audio_duration_seconds(AUDIO_PATH)
     if not captions:
         captions = approximate_words(text, duration)
+
+    if CAPTION_LEAD_MS > 0:
+        captions = [
+            {
+                **caption,
+                "startMs": max(0, int(caption["startMs"]) - CAPTION_LEAD_MS),
+                "endMs": max(1, int(caption["endMs"]) - CAPTION_LEAD_MS),
+            }
+            for caption in captions
+        ]
 
     CAPTIONS_PATH.write_text(
         json.dumps({"durationSeconds": duration, "words": captions}, indent=2),
