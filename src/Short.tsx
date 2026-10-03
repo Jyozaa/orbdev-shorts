@@ -3,6 +3,7 @@ import {Audio} from '@remotion/media';
 import {
   AbsoluteFill,
   Sequence,
+  staticFile,
   useCurrentFrame,
   useVideoConfig
 } from 'remotion';
@@ -36,7 +37,7 @@ export const OrbdevShort: React.FC<StoryProps> = ({scenes, captions}) => {
 
       <CaptionStrip captions={captions} />
       <SfxTrack scenes={scenes} />
-      <Audio src={'voice.mp3'} volume={1} />
+      <Audio src={staticFile('voice.mp3')} volume={1} />
 
       <div
         style={{
