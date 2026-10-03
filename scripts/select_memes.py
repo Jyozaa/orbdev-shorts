@@ -97,7 +97,7 @@ def normalize_asset(source: Path, media_type: str, scene_index: int, max_duratio
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
                 "-t", str(max_duration),
-                "-vf", "scale=840:-2:force_original_aspect_ratio=decrease,fps=30",
+                "-vf", "scale=840:-2,fps=30",
                 "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
                 "-c:a", "aac", "-b:a", "128k", "-movflags", "+faststart",
                 str(output)
@@ -110,7 +110,7 @@ def normalize_asset(source: Path, media_type: str, scene_index: int, max_duratio
     subprocess.run(
         [
             "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-            "-vf", "scale=840:-2:force_original_aspect_ratio=decrease",
+            "-vf", "scale=840:-2",
             "-frames:v", "1", str(output)
         ],
         check=True,
@@ -145,19 +145,32 @@ def main() -> None:
             print(f"Scene {index}: no meme passed confidence threshold")
             continue
 
-        value, selected = candidates[0]
+        selected_result = None
+        for value, selected in candidates[:8]:
+            path = selected["path"]
+            encoded = urllib.parse.quote(path, safe="/")
+            raw_url = f"https://raw.githubusercontent.com/Jyozaa/memes/main/{encoded}"
+
+            BUILD.mkdir(parents=True, exist_ok=True)
+            temp = BUILD / f"meme-{index}{Path(path).suffix.lower()}"
+            try:
+                print(f"Scene {index}: trying {path} ({value:.1f})")
+                download(raw_url, temp)
+                max_duration = float(intent.get("maxDurationSeconds") or (1.2 if selected["mediaType"] == "audio" else 1.8))
+                src, normalized_duration = normalize_asset(temp, selected["mediaType"], index, max_duration)
+                selected_result = (value, selected, path, src, normalized_duration)
+                break
+            except Exception as exc:
+                print(f"Scene {index}: candidate failed: {path}: {exc}")
+            finally:
+                temp.unlink(missing_ok=True)
+
+        if selected_result is None:
+            print(f"Scene {index}: no candidate could be normalized")
+            continue
+
+        value, selected, path, src, normalized_duration = selected_result
         chosen_ids.add(selected["id"])
-        path = selected["path"]
-        encoded = urllib.parse.quote(path, safe="/")
-        raw_url = f"https://raw.githubusercontent.com/Jyozaa/memes/main/{encoded}"
-
-        BUILD.mkdir(parents=True, exist_ok=True)
-        temp = BUILD / f"meme-{index}{Path(path).suffix.lower()}"
-        download(raw_url, temp)
-
-        max_duration = float(intent.get("maxDurationSeconds") or (1.2 if selected["mediaType"] == "audio" else 1.8))
-        src, normalized_duration = normalize_asset(temp, selected["mediaType"], index, max_duration)
-        temp.unlink(missing_ok=True)
 
         scene_duration = float(scene["end"]) - float(scene["start"])
         offset = max(0.15, scene_duration - normalized_duration - 0.28)
