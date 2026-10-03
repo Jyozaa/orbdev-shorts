@@ -18,7 +18,10 @@
         "type": "source",
         "sourceIndex": 0,
         "query": "PlayStation 5 console PS5 hardware",
-        "fit": "contain"
+        "fit": "contain",
+        "mustMatch": [
+          "ps5"
+        ]
       }
     },
     {
@@ -143,16 +146,11 @@
     {
       "text": "It should sharpen detail",
       "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "query": "QSSR PSSR image quality detail comparison",
-        "fit": "contain",
-        "annotations": [
-          {
-            "label": "detail",
-            "x": 72,
-            "y": 38
-          }
+        "type": "explain",
+        "mode": "pixel-upscale",
+        "labels": [
+          "SOFT",
+          "SHARPER"
         ]
       }
     },
@@ -173,7 +171,10 @@
         "type": "source",
         "sourceIndex": 0,
         "query": "Marvel Wolverine gameplay image",
-        "fit": "cover"
+        "fit": "cover",
+        "mustMatch": [
+          "wolverine"
+        ]
       }
     },
     {
@@ -182,7 +183,10 @@
         "type": "source",
         "sourceIndex": 0,
         "query": "Ghost of Yotei game image",
-        "fit": "cover"
+        "fit": "cover",
+        "mustMatch": [
+          "yotei"
+        ]
       }
     },
     {

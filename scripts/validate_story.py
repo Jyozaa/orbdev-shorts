@@ -91,6 +91,8 @@ def validate_flow(nodes: object, beat_index: int) -> None:
 
 
 def family(kind: str) -> str:
+    if kind == "explain":
+        return "explain"
     if kind in {"source", "logo"}:
         return "brand-source"
     if kind in {"flow", "diagram", "network"}:
@@ -151,6 +153,14 @@ def main() -> None:
             query = visual.get("query")
             if not isinstance(query, str) or len(query.strip()) < 3:
                 fail(f"beat {index} source visual needs a semantic query")
+            must_match = visual.get("mustMatch", [])
+            if must_match is not None:
+                if not isinstance(must_match, list) or len(must_match) > 3:
+                    fail(f"beat {index} source mustMatch must contain at most 3 terms")
+                if any(not isinstance(term, str) or not term.strip() or len(term) > 32 for term in must_match):
+                    fail(f"beat {index} source mustMatch terms must be short strings")
+            if visual.get("allowReuse") is not None and not isinstance(visual.get("allowReuse"), bool):
+                fail(f"beat {index} source allowReuse must be boolean")
             if visual.get("fit") is not None and visual.get("fit") not in {"contain", "cover"}:
                 fail(f"beat {index} source fit must be contain or cover")
             annotations = visual.get("annotations", [])

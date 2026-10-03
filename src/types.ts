@@ -43,6 +43,8 @@ export type SourceVisual = {
   type: 'source';
   sourceIndex: number;
   query: string;
+  mustMatch?: string[];
+  allowReuse?: boolean;
   fit?: 'contain' | 'cover';
   annotations?: SourceAnnotation[];
   src?: string;

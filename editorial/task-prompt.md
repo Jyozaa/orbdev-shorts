@@ -34,13 +34,13 @@ Generic `flow`, `diagram`, and `network` are fallbacks, not defaults. Do not tur
 Use official imagery only when it is semantically relevant to that exact beat. Every source visual MUST include a query describing the image you actually want:
 
 ```json
-{"type":"source","sourceIndex":0,"query":"Marvel Wolverine gameplay","fit":"cover"}
-{"type":"source","sourceIndex":0,"query":"PSSR image quality comparison","fit":"contain","annotations":[
+{"type":"source","sourceIndex":0,"query":"Marvel Wolverine gameplay","mustMatch":["wolverine"],"fit":"cover"}
+{"type":"source","sourceIndex":0,"query":"PSSR image quality comparison","mustMatch":["pssr"],"fit":"contain","annotations":[
   {"label":"fine detail","x":72,"y":36}
 ]}
 ```
 
-The source pipeline ranks article images using alt text, nearby page context, URL text, and the query. If no candidate reaches the relevance threshold, the image is rejected and another visual wins. Never request generic queries such as "article image" or "PS5 news".
+The source pipeline ranks article images using asset-local alt text, nearby page context, URL text, and the query. For named games/products/features, add `mustMatch` with the identifying term(s). Every required term must exist in the asset's own metadata or URL. Source assets are not reused across unrelated beats unless `allowReuse:true` is explicitly justified. If no candidate passes, reject the image and let an explanatory visual win. Never request generic queries such as "article image" or "PS5 news".
 
 Use real imagery for recognizable products, demos, UI, games, hardware and research figures. A good explanatory animation is better than an irrelevant source image.
 

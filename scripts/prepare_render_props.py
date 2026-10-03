@@ -40,12 +40,24 @@ def source_match(asset:dict,query:str)->float:
     precision=overlap/max(1,min(len(a),8))
     return round(min(1.0,.82*coverage+.18*precision),3)
 
-def choose_source(entry:object,query:str):
-    if isinstance(entry,str):return entry,0.35
+def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool):
+    if isinstance(entry,str):
+        if used and not allow_reuse and entry in used:return None,0.0
+        return entry,0.35
     if not isinstance(entry,dict):return None,0.0
     assets=entry.get("assets",[])
     if not isinstance(assets,list):return None,0.0
-    scored=[(source_match(a,query),int(a.get("baseScore",0)),a) for a in assets if isinstance(a,dict)]
+    required=[norm(v) for v in must_match if isinstance(v,str) and norm(v)]
+    scored=[]
+    for asset in assets:
+        if not isinstance(asset,dict):continue
+        src=str(asset.get("src",""))
+        if not src:continue
+        if src in used and not allow_reuse:continue
+        searchable=norm(f'{asset.get("text","")} {asset.get("url","")}')
+        if required and not all(term in searchable for term in required):
+            continue
+        scored.append((source_match(asset,query),int(asset.get("baseScore",0)),asset))
     scored.sort(key=lambda x:(x[0],x[1]),reverse=True)
     if not scored or scored[0][0]<SOURCE_MIN_MATCH:return None,(scored[0][0] if scored else 0.0)
     return scored[0][2].get("src"),scored[0][0]
@@ -116,7 +128,7 @@ def main():
     logos=json.loads(LOGO_ASSETS_PATH.read_text(encoding="utf-8")) if LOGO_ASSETS_PATH.exists() else {}
     cutaways=json.loads(CUTAWAYS_PATH.read_text(encoding="utf-8")) if CUTAWAYS_PATH.exists() else []
     cutaway_by_beat={int(x["beatIndex"]):x for x in cutaways}
-    prepared=[];cursor=0
+    prepared=[];cursor=0;used_source_assets:set[str]=set()
     for index,beat in enumerate(story["beats"]):
         expected=beat_tokens(beat["text"]);si,ei=find_sequence(words,expected,cursor);cursor=ei+1
         adjusted=dict(beat);adjusted["visual"]=json.loads(json.dumps(beat["visual"]))
@@ -125,10 +137,16 @@ def main():
         if v.get("type")=="source":
             source_index=int(v.get("sourceIndex",0));key=str(source_index);sources=story.get("editorial",{}).get("sources",[])
             if 0<=source_index<len(sources):v["publisher"]=sources[source_index].get("publisher","SOURCE")
-            query=str(v.get("query") or beat["text"]);src,score=choose_source(source_assets.get(key),query)
+            query=str(v.get("query") or beat["text"])
+            must_match=v.get("mustMatch",[])
+            if not isinstance(must_match,list):must_match=[]
+            allow_reuse=bool(v.get("allowReuse",False))
+            src,score=choose_source(source_assets.get(key),query,must_match,used_source_assets,allow_reuse)
             v["matchScore"]=score
-            if src:v["src"]=src
-            print(f'Source beat {index}: query="{query}" match={score:.3f} src={src or "REJECTED"}')
+            if src:
+                v["src"]=src
+                if not allow_reuse:used_source_assets.add(src)
+            print(f'Source beat {index}: query="{query}" required={must_match} match={score:.3f} src={src or "REJECTED"}')
         attach_logos(v,logos)
         selected=selections.get(str(index))
         if selected and selected.get("presentation")!="cutaway":adjusted["meme"]=dict(selected)
