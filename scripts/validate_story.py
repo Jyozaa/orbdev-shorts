@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
-ALLOWED_TYPES = {"hook", "explain", "comparison", "impact", "caveat", "outro"}
+ALLOWED_TYPES = {"hook", "explain", "metric", "comparison", "impact", "caveat", "outro"}
 
 
 def fail(message: str) -> None:

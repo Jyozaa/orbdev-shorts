@@ -31,7 +31,7 @@ jobs:
     timeout-minutes: 20
     env:
       ORBDEV_VOICE: en-GB-RyanNeural
-      ORBDEV_RATE: +8%
+      ORBDEV_RATE: +10%
 
     steps:
       - name: Checkout
@@ -79,6 +79,9 @@ jobs:
 
       - name: Generate narration
         run: python scripts/generate_narration.py "$STORY_FILE"
+
+      - name: Generate sound effects
+        run: python scripts/generate_sfx.py
 
       - name: Prepare render
         run: python scripts/prepare_render_props.py "$STORY_FILE"

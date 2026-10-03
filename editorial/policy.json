@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -23,11 +23,14 @@
     "Use the original announcement or release time for recency. A refreshed page, crawler date, repost, or later page update does not make an older story new.",
     "Do not cover a story already present in history or the current story file.",
     "Do not publish rumours, leaks, predictions, or unverified benchmark claims.",
-    "Prefer concrete product, model, developer-tool, research, infrastructure, and major company announcements.",
-    "Exclude routine partnerships, minor enterprise customer announcements, and vague executive commentary unless there is a substantial technical development.",
+    "The core of every story must be a new technology, model, capability, developer tool, hardware release, research result, scientific discovery, benchmark-relevant technical advance, robotics advance, infrastructure change, security finding, or meaningful open-source release.",
+    "Do not select hiring, recruitment, fellowships, training academies, educational cohorts, job programs, grants, workforce-reskilling initiatives, or company staffing announcements unless the actual news is a substantial new technology or research result.",
+    "Exclude routine partnerships, funding announcements, customer wins, executive commentary, and generic business expansion unless they reveal a concrete technical development.",
+    "Prefer stories with a clear technical delta that can be shown visually: before versus after, a measurable result, a new workflow, a new capability, or a discovery.",
     "Explain what changed, why it matters, and any material limitation.",
+    "When citing company-reported benchmarks, make the attribution clear and avoid presenting them as independent verification.",
     "Do not exaggerate the source or introduce claims the source does not support.",
-    "Use clear language for a technical but broad audience."
+    "Use clear, fast language for a technical but broad audience."
   ],
   "primarySources": [
     "openai.com",
@@ -43,16 +46,41 @@
     "arxiv.org"
   ],
   "excludedTopics": [
+    "hiring announcements",
+    "job applications",
+    "recruitment drives",
+    "training academies",
+    "fellowships",
+    "education cohorts",
+    "workforce programs",
+    "routine funding news",
+    "routine partnerships",
     "election coverage",
     "partisan political commentary",
     "celebrity use of technology",
     "unconfirmed leaks",
     "price rumours"
   ],
+  "preferredTopics": [
+    "new AI models",
+    "model capability updates",
+    "developer tools",
+    "coding agents",
+    "robotics",
+    "AI hardware",
+    "research breakthroughs",
+    "scientific discoveries",
+    "open-source releases",
+    "security research",
+    "inference infrastructure",
+    "multimodal systems",
+    "computer use",
+    "agent systems"
+  ],
   "sceneGuidance": {
     "modelOrProductLaunch": [
       "hook",
-      "explain",
+      "metric",
       "comparison",
       "impact",
       "caveat",
@@ -61,6 +89,7 @@
     "research": [
       "hook",
       "explain",
+      "metric",
       "impact",
       "caveat",
       "outro"
@@ -69,11 +98,13 @@
       "hook",
       "explain",
       "comparison",
+      "metric",
       "impact",
       "outro"
     ],
     "infrastructure": [
       "hook",
+      "metric",
       "explain",
       "impact",
       "caveat",

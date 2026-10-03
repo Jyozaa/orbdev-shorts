@@ -1,6 +1,7 @@
 export type SceneType =
   | 'hook'
   | 'explain'
+  | 'metric'
   | 'comparison'
   | 'impact'
   | 'caveat'
