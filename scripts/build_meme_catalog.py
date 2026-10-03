@@ -119,7 +119,6 @@ def main() -> None:
         if not (
             path.startswith("Meme Pack/Meme Sound Effects/")
             or path.startswith("Meme Pack/Meme Videos/")
-            or path.startswith("Meme Pack/Green Screen/")
             or path.startswith("Memes templates -HD-/")
             or path.startswith("Memes templates -HD- 2/")
         ):
