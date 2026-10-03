@@ -147,5 +147,6 @@ jobs:
             build/cutaways.json
             build/source-assets.json
             build/logo-assets.json
+            build/render-props.json
           if-no-files-found: ignore
           retention-days: 30

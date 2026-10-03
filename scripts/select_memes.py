@@ -14,6 +14,7 @@ PUBLIC = Path("public/memes")
 CATALOG = BUILD / "meme-catalog.json"
 SELECTION = BUILD / "meme-selection.json"
 MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS = 3.4
+MAX_COMPLETE_AUDIO_OVERLAY_SECONDS = 2.2
 MAX_MEME_MOMENTS = 4
 
 REACTION_CUES = (
@@ -123,8 +124,16 @@ def normalize_asset(
     source_has_audio = media_type == "audio" or (media_type == "video" and has_audio_stream(source))
 
     if media_type == "audio":
+        if source_duration <= 0:
+            raise ValueError("audio duration could not be measured")
+        if source_duration > MAX_COMPLETE_AUDIO_OVERLAY_SECONDS:
+            raise ValueError(
+                f"audio reaction is {source_duration:.2f}s; exceeds complete-audio budget "
+                f"of {MAX_COMPLETE_AUDIO_OVERLAY_SECONDS:.2f}s"
+            )
+
         output = PUBLIC / f"beat-{beat_index}.mp3"
-        render_duration = min(requested_duration, source_duration) if source_duration > 0 else requested_duration
+        render_duration = source_duration
         subprocess.run(
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
@@ -134,7 +143,7 @@ def normalize_asset(
             check=True,
         )
         actual = duration(output) or render_duration
-        complete = actual >= source_duration - 0.08 if source_duration > 0 else False
+        complete = actual >= source_duration - 0.08
         return f"memes/{output.name}", actual, source_duration, complete, True
 
     if media_type == "video":

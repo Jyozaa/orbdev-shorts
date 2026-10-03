@@ -16,6 +16,14 @@ const defaultProps: StoryProps = {
       end: 6
     }
   ],
+  visualBeats: [
+    {
+      text: 'A compact technology update.',
+      visual: {type: 'text', text: 'TECH UPDATE'},
+      start: 0,
+      end: 6
+    }
+  ],
   captions: [],
   cutaways: []
 };

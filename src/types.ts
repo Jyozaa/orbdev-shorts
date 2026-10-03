@@ -156,6 +156,7 @@ export type StoryProps = {
   narration: string;
   durationSeconds: number;
   beats: Beat[];
+  visualBeats: Beat[];
   captions: CaptionWord[];
   cutaways: Cutaway[];
 };

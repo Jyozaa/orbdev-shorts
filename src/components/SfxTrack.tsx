@@ -25,11 +25,11 @@ export const SfxTrack: React.FC<{beats: Beat[]}> = ({beats}) => {
       {beats.map((beat, index) => {
         const selected = beat.sfx ?? 'none';
         if (selected === 'none' || beat.start === undefined) return null;
+
         return (
           <Sequence
             key={`sfx-${index}-${selected}`}
             from={Math.max(0, Math.round(beat.start * fps))}
-            durationInFrames={Math.round(fps * 0.75)}
           >
             <Audio src={staticFile(fileFor[selected])} volume={volumeFor[selected]} />
           </Sequence>

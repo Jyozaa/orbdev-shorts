@@ -12,7 +12,7 @@ Orbdev covers concrete technical changes: models, capabilities, developer tools,
 
 Write narration first. Then split the exact narration into short sequential `beats`. Beat text must reproduce narration exactly, word-for-word and in order. Do not invent timestamps. The renderer derives beat timing from narration word boundaries.
 
-Aim for 12-22 beats in a normal Short. Most beats should contain roughly 3-9 spoken words and visually change every ~1.2-2.0 seconds.
+Aim for 12-22 semantic beats in a normal Short. Most beats should contain roughly 3-9 spoken words. Do not expect every semantic beat to become a new cut: the renderer groups neighboring beats into calmer visual windows of roughly 1.8-3.2 seconds.
 
 Narration should be concise, dry, conversational, technically accurate, roughly 70-105 words, free of filler intros, and explicit when benchmarks are company-reported.
 
@@ -100,5 +100,7 @@ A silent image or silent video must NEVER be a standalone full-screen cutaway. I
 If a requested visual cutaway has no audio, the selector automatically downgrades it to overlay.
 
 Do not manually provide start/end times. The timeline compiler keeps narration, cutaways, captions and visuals synchronized automatically.
+
+Short sound effects and meme-audio reactions must finish naturally. Do not use an intentionally tiny duration to chop an audio punchline; the selector rejects overly long audio and preserves short reactions to their natural end.
 
 After successfully queuing a story, report only its headline, score, and primary source. If nothing qualifies, make no repository changes and produce no notification.

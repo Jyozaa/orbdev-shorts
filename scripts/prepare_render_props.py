@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 import re
 import sys
@@ -11,6 +12,17 @@ MEME_SELECTION_PATH = BUILD_DIR / "meme-selection.json"
 SOURCE_ASSETS_PATH = BUILD_DIR / "source-assets.json"
 LOGO_ASSETS_PATH = BUILD_DIR / "logo-assets.json"
 CUTAWAYS_PATH = BUILD_DIR / "cutaways.json"
+
+MIN_VISUAL_SECONDS = 1.80
+TARGET_VISUAL_SECONDS = 2.25
+MAX_VISUAL_SECONDS = 3.20
+
+SFX_DURATIONS = {
+    "whoosh": 0.34,
+    "impact": 0.42,
+    "scratch": 0.48,
+    "tick": 0.10,
+}
 
 
 def norm(token: str) -> str:
@@ -48,6 +60,97 @@ def attach_logos(visual: dict[str, object], logo_assets: dict[str, str]) -> None
                 node["src"] = logo_assets[slug]
 
 
+def visual_weight(beat: dict[str, object]) -> int:
+    kind = str(beat.get("visual", {}).get("type", "text"))
+    return {
+        "source": 10,
+        "network": 9,
+        "chart": 9,
+        "timeline": 9,
+        "logo": 8,
+        "comparison": 8,
+        "flow": 7,
+        "diagram": 7,
+        "metric": 5,
+        "symbol": 4,
+        "text": 2,
+    }.get(kind, 1)
+
+
+def build_visual_windows(
+    beats: list[dict[str, object]],
+    cutaway_by_beat: dict[int, dict[str, object]],
+    final_duration: float,
+) -> list[dict[str, object]]:
+    windows: list[dict[str, object]] = []
+    index = 0
+
+    while index < len(beats):
+        start_index = index
+        end_index = index
+        start = float(beats[index]["start"])
+        end = float(beats[index]["end"])
+
+        while end_index + 1 < len(beats):
+            if end_index in cutaway_by_beat:
+                break
+
+            current_duration = end - start
+            if current_duration >= TARGET_VISUAL_SECONDS:
+                break
+
+            next_end = float(beats[end_index + 1]["end"])
+            proposed = next_end - start
+
+            if proposed > MAX_VISUAL_SECONDS and current_duration >= MIN_VISUAL_SECONDS:
+                break
+
+            end_index += 1
+            end = next_end
+
+            if end_index in cutaway_by_beat:
+                break
+            if end - start >= TARGET_VISUAL_SECONDS:
+                break
+
+        candidates = list(range(start_index, end_index + 1))
+        chosen_index = max(
+            candidates,
+            key=lambda candidate: (
+                visual_weight(beats[candidate]),
+                float(beats[candidate]["end"]) - float(beats[candidate]["start"]),
+                -candidate,
+            ),
+        )
+
+        visual_beat = copy.deepcopy(beats[chosen_index])
+        visual_beat["start"] = round(start, 4)
+        visual_beat["end"] = round(end, 4)
+        visual_beat.pop("meme", None)
+        visual_beat.pop("memeIntent", None)
+        visual_beat.pop("sfx", None)
+        windows.append(visual_beat)
+
+        index = end_index + 1
+
+    if len(windows) >= 2:
+        last = windows[-1]
+        previous = windows[-2]
+        last_duration = float(last["end"]) - float(last["start"])
+        combined = float(last["end"]) - float(previous["start"])
+        if last_duration < MIN_VISUAL_SECONDS and combined <= MAX_VISUAL_SECONDS + 0.35:
+            previous["end"] = last["end"]
+            if visual_weight(last) > visual_weight(previous):
+                previous["visual"] = copy.deepcopy(last["visual"])
+                previous["text"] = last["text"]
+            windows.pop()
+
+    if windows and float(windows[-1]["end"]) < final_duration:
+        windows[-1]["end"] = round(final_duration, 4)
+
+    return windows
+
+
 def main() -> None:
     if len(sys.argv) != 2:
         raise SystemExit("usage: prepare_render_props.py <story.json>")
@@ -63,8 +166,9 @@ def main() -> None:
     cutaways = json.loads(CUTAWAYS_PATH.read_text(encoding="utf-8")) if CUTAWAYS_PATH.exists() else []
     cutaway_by_beat = {int(item["beatIndex"]): item for item in cutaways}
 
-    prepared = []
+    prepared: list[dict[str, object]] = []
     cursor = 0
+
     for index, beat in enumerate(story["beats"]):
         expected = beat_tokens(beat["text"])
         start_index, end_index = find_sequence(words, expected, cursor)
@@ -107,27 +211,64 @@ def main() -> None:
             prepared[last_index]["end"] = final_duration
 
         for beat in prepared:
+            start = float(beat["start"])
+            end = float(beat["end"])
+            beat_duration = max(0.01, end - start)
+
+            sfx = beat.get("sfx")
+            if isinstance(sfx, str) and sfx in SFX_DURATIONS:
+                final_duration = max(
+                    final_duration,
+                    start + SFX_DURATIONS[sfx] + 0.08,
+                )
+
             if "meme" not in beat:
                 continue
-            beat_duration = float(beat["end"]) - float(beat["start"])
+
             meme = beat["meme"]
-            meme_duration = min(float(meme["durationSeconds"]), max(0.20, beat_duration - 0.05))
-            meme["durationSeconds"] = round(meme_duration, 3)
-            meme["offsetSeconds"] = round(max(0.02, beat_duration - meme_duration - 0.03), 3)
+            selected_duration = float(meme["durationSeconds"])
+            media_type = str(meme.get("mediaType", ""))
+
+            if media_type == "audio":
+                # Preserve the entire short audio reaction. It may naturally
+                # spill into the next visual instead of being chopped to this beat.
+                meme["durationSeconds"] = round(selected_duration, 3)
+                meme["offsetSeconds"] = round(max(0.02, beat_duration - 0.16), 3)
+                final_duration = max(
+                    final_duration,
+                    start + float(meme["offsetSeconds"]) + selected_duration + 0.08,
+                )
+            else:
+                meme_duration = min(selected_duration, max(0.35, beat_duration - 0.05))
+                meme["durationSeconds"] = round(meme_duration, 3)
+                meme["offsetSeconds"] = round(max(0.02, beat_duration - meme_duration - 0.03), 3)
+
+        if last_index not in cutaway_by_beat:
+            prepared[last_index]["end"] = round(final_duration, 4)
+
+    visual_beats = build_visual_windows(prepared, cutaway_by_beat, final_duration)
 
     props = dict(story)
-    props["durationSeconds"] = final_duration
+    props["durationSeconds"] = round(final_duration, 4)
     props["beats"] = prepared
+    props["visualBeats"] = visual_beats
     props["captions"] = words
     props["cutaways"] = cutaways
 
     BUILD_DIR.mkdir(parents=True, exist_ok=True)
     output = BUILD_DIR / "render-props.json"
     output.write_text(json.dumps(props, indent=2), encoding="utf-8")
+
+    visual_durations = [
+        round(float(beat["end"]) - float(beat["start"]), 2)
+        for beat in visual_beats
+    ]
     print(
-        f"Render props ready: {len(prepared)} voice-timed beats, "
-        f"{len(cutaways)} cutaways, {final_duration:.2f}s"
+        f"Render props ready: {len(prepared)} semantic beats -> "
+        f"{len(visual_beats)} visual windows, {len(cutaways)} cutaways, "
+        f"{final_duration:.2f}s total"
     )
+    print(f"Visual hold durations: {visual_durations}")
 
 
 if __name__ == "__main__":

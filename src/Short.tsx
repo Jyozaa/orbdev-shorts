@@ -13,14 +13,14 @@ import {MemeTrack} from './components/MemeTrack';
 import {SfxTrack} from './components/SfxTrack';
 import {StoryProps} from './types';
 
-export const OrbdevShort: React.FC<StoryProps> = ({beats, captions, cutaways}) => {
+export const OrbdevShort: React.FC<StoryProps> = ({beats, visualBeats, captions, cutaways}) => {
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
   const progress = Math.min(1, frame / Math.max(1, durationInFrames - 1));
 
   return (
     <AbsoluteFill style={{backgroundColor: '#000000', color: '#ffffff', overflow: 'hidden'}}>
-      {beats.map((beat, index) => {
+      {visualBeats.map((beat, index) => {
         if (beat.start === undefined || beat.end === undefined) return null;
         const from = Math.max(0, Math.round(beat.start * fps));
         const duration = Math.max(1, Math.round((beat.end - beat.start) * fps));

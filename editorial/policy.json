@@ -1,5 +1,5 @@
 {
-  "version": 11,
+  "version": 12,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -42,13 +42,15 @@
     "Short visual meme cutaways must play to a natural end; reject long cutaway videos instead of hard-trimming them.",
     "Silent meme images and silent meme videos must never appear as standalone full-screen cutaways; composite them alongside the main visual instead.",
     "Use at least four visual treatment families and avoid repeating the same composition across consecutive beats.",
-    "Editorial reaction-cue phrases such as 'the headline sounds wild' should be considered meme opportunities."
+    "Editorial reaction-cue phrases such as 'the headline sounds wild' should be considered meme opportunities.",
+    "Do not cut visuals on every narration fragment; the renderer should group semantic beats into readable visual windows.",
+    "Short sound effects and meme-audio reactions must play to their natural end rather than being clipped to the current narration beat."
   ],
   "visualRules": {
     "background": "#000000",
     "subtitles": "pure white",
     "cornerLogo": false,
-    "preferredBeatSeconds": "1.2-2.0",
+    "preferredBeatSeconds": "semantic only; not every beat is a cut",
     "maxTextVisualWords": 3,
     "responsiveDiagramBoxes": true,
     "sourceVisualsPreferred": true,
@@ -65,7 +67,10 @@
     "maximumIdenticalVisualsInARow": 2,
     "animatedCharts": true,
     "animatedTimelines": true,
-    "animatedNetworks": true
+    "animatedNetworks": true,
+    "preferredVisualHoldSeconds": "1.8-3.2",
+    "minimumVisualHoldSeconds": 1.8,
+    "maximumVisualHoldSeconds": 3.2
   },
   "narration": {
     "preferredVoice": "en-US-AndrewNeural",
@@ -156,6 +161,8 @@
       "this gets weird",
       "sounds great",
       "kind of insane"
-    ]
+    ],
+    "completeAudioOverlayMaxSeconds": 2.2,
+    "preserveShortAudioToNaturalEnd": true
   }
 }
