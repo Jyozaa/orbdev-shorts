@@ -48,8 +48,8 @@ def approximate_words(text: str, duration_seconds: float) -> list[dict[str, obje
 
 
 async def render_with_voice(text: str, voice: str) -> list[dict[str, object]]:
-    rate = os.getenv("ORBDEV_RATE", "+12%")
-    pitch = os.getenv("ORBDEV_PITCH", "-1Hz")
+    rate = os.getenv("ORBDEV_RATE", "+8%")
+    pitch = os.getenv("ORBDEV_PITCH", "+0Hz")
     communicator = edge_tts.Communicate(
         text=text,
         voice=voice,
@@ -76,15 +76,16 @@ async def render_with_voice(text: str, voice: str) -> list[dict[str, object]]:
 
 
 def process_voice(source: Path) -> None:
+    # Preserve the neural voice's natural dynamics. Previous heavier compression
+    # and pitch shifting made speech noticeably more synthetic.
     filters = ",".join([
-        "highpass=f=65",
-        "lowpass=f=15500",
-        "equalizer=f=160:t=q:w=1.0:g=0.8",
-        "equalizer=f=2800:t=q:w=1.0:g=1.2",
-        "equalizer=f=6500:t=q:w=1.2:g=0.7",
-        "acompressor=threshold=-20dB:ratio=2.35:attack=8:release=120:makeup=2.2dB",
-        "alimiter=limit=0.94:attack=5:release=50",
-        "loudnorm=I=-14.5:TP=-1.2:LRA=4",
+        "highpass=f=58",
+        "lowpass=f=16500",
+        "equalizer=f=180:t=q:w=1.0:g=0.4",
+        "equalizer=f=3200:t=q:w=1.2:g=0.6",
+        "acompressor=threshold=-18dB:ratio=1.55:attack=12:release=180:makeup=1.0dB",
+        "alimiter=limit=0.96:attack=5:release=70",
+        "loudnorm=I=-15.5:TP=-1.5:LRA=7",
     ])
     subprocess.run(
         [
@@ -115,11 +116,17 @@ async def main() -> None:
     text = story["narration"].strip()
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
 
-    preferred = os.getenv("ORBDEV_VOICE", "en-US-AndrewNeural")
-    fallback_voice = os.getenv("ORBDEV_VOICE_FALLBACK", "en-GB-RyanNeural")
+    preferred = os.getenv("ORBDEV_VOICE", "en-US-BrianMultilingualNeural")
+    fallback_voice = os.getenv("ORBDEV_VOICE_FALLBACK", "en-US-AndrewMultilingualNeural")
+    tertiary_voice = os.getenv("ORBDEV_VOICE_TERTIARY", "en-US-AndrewNeural")
     captions: list[dict[str, object]] = []
 
-    for voice in (preferred, fallback_voice):
+    ordered_voices = []
+    for voice in (preferred, fallback_voice, tertiary_voice):
+        if voice and voice not in ordered_voices:
+            ordered_voices.append(voice)
+
+    for voice in ordered_voices:
         try:
             captions = await render_with_voice(text, voice)
             process_voice(RAW_AUDIO_PATH)

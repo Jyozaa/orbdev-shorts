@@ -1,5 +1,5 @@
 {
-  "version": 16,
+  "version": 17,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -54,7 +54,10 @@
     "Do not let page-global metadata make unrelated source images appear semantically relevant.",
     "Do not collapse distinct adjacent explanatory animations merely to maximize treatment-family diversity.",
     "Source visuals about a named product, game, model, person, or feature must require identifying asset-local terms via mustMatch.",
-    "Do not reuse the same source image for unrelated beats unless reuse is explicitly justified."
+    "Do not reuse the same source image for unrelated beats unless reuse is explicitly justified.",
+    "Explanatory animations must not occupy consecutive visual windows when a valid source, logo, comparison, chart, timeline, metric, or other treatment is available.",
+    "Keep explanatory-animation windows to roughly one third of the finished Short; variety is more important than maximizing diagram usage.",
+    "Narration should use the multilingual neural voice path first and avoid artificial pitch shifting or heavy compression."
   ],
   "visualRules": {
     "background": "#000000",
@@ -96,19 +99,24 @@
       "fanout"
     ],
     "minimumExplainBeatsForLongTechnicalShort": 2,
-    "visualWindowSelection": "semantic relevance + explanatory strength + treatment diversity",
+    "visualWindowSelection": "semantic relevance + editorial variety; explain is never allowed to dominate consecutive windows",
     "sourceCandidateMetadata": "asset-local alt/title/context only; page title/description only for hero metadata",
     "preserveAdjacentExplanationBeats": true,
     "sourceNamedEntityMustMatch": true,
-    "sourceReuseDefault": false
+    "sourceReuseDefault": false,
+    "maxExplainWindowFraction": 0.35,
+    "noBackToBackExplainWhenAlternative": true,
+    "maxSameExplainModeInARow": 1,
+    "explainWindowBudget": "roughly 2-4 per 25-40s Short, depending on duration"
   },
   "narration": {
-    "preferredVoice": "en-US-AndrewNeural",
-    "fallbackVoice": "en-GB-RyanNeural",
-    "rate": "+14%",
-    "pitch": "-1Hz",
-    "processing": "light broadcast EQ, moderate compression, limiter, loudness normalization",
-    "style": "conversational, concise, dry/playful, human-sounding, setup-change-implication-catch-punchline"
+    "preferredVoice": "en-US-BrianMultilingualNeural",
+    "fallbackVoice": "en-US-AndrewMultilingualNeural",
+    "rate": "+8%",
+    "pitch": "+0Hz",
+    "processing": "minimal EQ, light compression, limiter, natural-dynamics loudness normalization",
+    "style": "conversational, concise, dry/playful, human-sounding, setup-change-implication-catch-punchline",
+    "tertiaryVoice": "en-US-AndrewNeural"
   },
   "reactionSfx": [
     "scratch",

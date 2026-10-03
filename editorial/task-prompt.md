@@ -25,7 +25,7 @@ Prefer visual explanations over labelled boxes. Use `explain` for relationships:
 {"type":"explain","mode":"fanout","center":"MODEL","nodes":["CODE","WEB","FILES","TOOLS"]}
 ```
 
-These animations build the explanation over time and use most of the frame. In a technical 25-40s Short, include at least two genuine `explain` beats when the story supports them.
+These animations build the explanation over time and use most of the frame. In a technical 25-40s Short, usually use 2-4 genuine `explain` beats when the story supports them—but do not let them dominate the edit. The finished video should have at most roughly one-third explanatory-animation windows.
 
 Generic `flow`, `diagram`, and `network` are fallbacks, not defaults. Do not turn nouns into rounded boxes just because it is easy.
 
@@ -51,6 +51,7 @@ Use real imagery for recognizable products, demos, UI, games, hardware and resea
 - Mix camera-scale/pan motion with object motion.
 - Logos can participate inside explanations rather than requiring a separate logo scene.
 - Charts/timelines/comparisons remain useful where they actually fit.
+- Never place explanatory-animation windows back-to-back when a valid source, logo, chart, comparison, timeline, metric, meme-backed composition, or other treatment can carry one of those moments.
 - Avoid the same treatment family consecutively when alternatives exist.
 - Keep generic flow/diagram treatments below ~25%.
 

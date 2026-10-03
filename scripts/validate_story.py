@@ -305,6 +305,9 @@ def main() -> None:
     if len(beats) >= 14 and visual_types.count("explain") < 2:
         fail("long technical Shorts need at least two explanatory animation beats")
 
+    if visual_types.count("explain") > math.ceil(len(beats) * 0.30):
+        fail("too many explanatory animation beats; mix in source, brand, data, timeline, comparison and reaction treatments")
+
     if path.name == "current.json":
         validate_editorial(data)
 
