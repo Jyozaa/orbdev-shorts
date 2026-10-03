@@ -87,10 +87,11 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
   }
 
   if (beat.visual.type === 'diagram') {
+    const symbols = beat.visual.symbols;
     return (
       <AbsoluteFill style={shell}>
         <div style={{display: 'flex', alignItems: 'center', gap: 26}}>
-          {beat.visual.symbols.map((symbol, index) => (
+          {symbols.map((symbol, index) => (
             <React.Fragment key={`${symbol}-${index}`}>
               <div
                 style={{
@@ -108,7 +109,7 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
               >
                 {symbol}
               </div>
-              {index < beat.visual.symbols.length - 1 ? (
+              {index < symbols.length - 1 ? (
                 <div style={{fontSize: 84, fontWeight: 900}}>→</div>
               ) : null}
             </React.Fragment>
