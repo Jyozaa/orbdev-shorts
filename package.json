@@ -1,0 +1,22 @@
+{
+  "name": "orbdev-shorts",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "render:test": "python3 scripts/validate_story.py stories/test.json && python3 scripts/generate_narration.py stories/test.json && python3 scripts/prepare_render_props.py stories/test.json && remotion render src/index.ts OrbdevShort out/orbdev-test.mp4 --props=build/render-props.json --codec=h264 --pixel-format=yuv420p --concurrency=2"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.532",
+    "@remotion/media": "4.0.532",
+    "react": "19.1.1",
+    "react-dom": "19.1.1",
+    "remotion": "4.0.532"
+  },
+  "devDependencies": {
+    "@types/react": "19.1.16",
+    "@types/react-dom": "19.1.9",
+    "typescript": "5.9.3"
+  }
+}

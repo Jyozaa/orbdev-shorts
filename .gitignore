@@ -1,0 +1,7 @@
+node_modules/
+out/
+build/
+public/voice.mp3
+public/captions.json
+public/voice-fallback.wav
+.DS_Store

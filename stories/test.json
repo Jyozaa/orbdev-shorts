@@ -1,0 +1,47 @@
+{
+  "slug": "pipeline-test",
+  "title": "orbdev pipeline test",
+  "narration": "This is an orbdev pipeline test. A story file becomes narration, captions, motion graphics, and a finished vertical video in the cloud. The renderer keeps the visual style simple, readable, and fast. Once this test passes, new stories can use the same pipeline automatically.",
+  "plannedDurationSeconds": 34,
+  "scenes": [
+    {
+      "type": "hook",
+      "start": 0,
+      "end": 6,
+      "kicker": "ORBDEV",
+      "title": "One story file. One finished Short."
+    },
+    {
+      "type": "explain",
+      "start": 6,
+      "end": 15,
+      "kicker": "THE PIPELINE",
+      "title": "Narration, captions and motion graphics",
+      "body": "The render is assembled automatically from structured story data."
+    },
+    {
+      "type": "comparison",
+      "start": 15,
+      "end": 24,
+      "title": "Designed for automation",
+      "leftTitle": "INPUT",
+      "leftBody": "Story JSON",
+      "rightTitle": "OUTPUT",
+      "rightBody": "1080 × 1920 MP4"
+    },
+    {
+      "type": "impact",
+      "start": 24,
+      "end": 31,
+      "title": "No laptop rendering required",
+      "body": "The job runs on a hosted GitHub runner and stores the result as an artifact."
+    },
+    {
+      "type": "outro",
+      "start": 31,
+      "end": 34,
+      "title": "orbdev",
+      "body": "Technology, explained quickly."
+    }
+  ]
+}
