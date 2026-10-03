@@ -1,4 +1,15 @@
 {
   "version": 1,
-  "stories": []
+  "stories": [
+    {
+      "storyKey": "anthropic-claude-frontier-academy-100m-10000-fdes",
+      "slug": "anthropic-frontier-academy",
+      "headline": "Anthropic commits $100M to train 10,000 AI engineers",
+      "selectedAt": "2026-10-03T08:16:00+01:00",
+      "score": 8.1,
+      "sourceUrls": [
+        "https://www.anthropic.com/news/claude-frontier-academy"
+      ]
+    }
+  ]
 }
