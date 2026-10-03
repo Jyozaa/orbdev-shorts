@@ -1,10 +1,10 @@
 {
-  "slug": "robots-can-do-most-physical-tasks",
-  "title": "Anthropic measures robot exposure across US work",
-  "narration": "Anthropic just measured how much physical work robots can actually do today. The headline sounds wild: robots can perform 74 percent of physical tasks in the US, covering 34 percent of working hours. Add LLMs, and about 80 percent of job tasks are exposed to one or the other. But here’s the catch: robots are only cheaper than humans for 0.3 percent of tasks. At historical price declines, reaching 10 percent cost competitiveness could take around 40 years. Driving and warehouse jobs look highly exposed; nursing and repair work much less so.",
+  "slug": "ps5-ai-upscaling-qssr",
+  "title": "Sony brings AI upscaling to the regular PS5",
+  "narration": "Sony just brought AI upscaling to the regular PS5. Until now, PlayStation Spectral Super Resolution was a PS5 Pro feature because it was too computationally expensive. The new version is called QSSR: a smaller neural network, hand-tuned to run on base PS5 hardware. Sony says it improves detail and image stability, with Marvel’s Wolverine and Ghost of Yōtei getting support first. But PSSR on PS5 Pro is still the higher-quality option. So your five-year-old console just got a little Pro-ish, without actually becoming a Pro.",
   "beats": [
     {
-      "text": "Anthropic just measured",
+      "text": "Sony just brought",
       "visual": {
         "type": "source",
         "sourceIndex": 0
@@ -12,185 +12,241 @@
       "sfx": "whoosh"
     },
     {
-      "text": "how much physical work robots can actually do today.",
+      "text": "AI upscaling",
       "visual": {
-        "type": "text",
-        "text": "ROBOTS TODAY"
+        "type": "symbol",
+        "symbol": "AI ↑"
       }
     },
     {
-      "text": "The headline sounds wild:",
-      "visual": {
-        "type": "text",
-        "text": "SOUNDS WILD"
-      },
-      "sfx": "impact"
-    },
-    {
-      "text": "robots can perform 74 percent of physical tasks in the US,",
-      "visual": {
-        "type": "metric",
-        "value": "74%"
-      }
-    },
-    {
-      "text": "covering 34 percent of working hours.",
-      "visual": {
-        "type": "metric",
-        "value": "34%"
-      },
-      "sfx": "tick"
-    },
-    {
-      "text": "Add LLMs,",
+      "text": "to the regular PS5.",
       "visual": {
         "type": "comparison",
-        "left": "LLM",
-        "right": "ROBOT"
-      }
-    },
-    {
-      "text": "and about 80 percent of job tasks",
-      "visual": {
-        "type": "metric",
-        "value": "80%"
+        "left": "PRO",
+        "right": "PS5"
       },
-      "sfx": "impact"
-    },
-    {
-      "text": "are exposed to one or the other.",
-      "visual": {
-        "type": "diagram",
-        "symbols": [
-          "LLM",
-          "BOT",
-          "WORK"
+      "memeIntent": {
+        "purpose": "success",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "cutaway",
+        "maxDurationSeconds": 1.2,
+        "concepts": [
+          "celebration",
+          "upgrade",
+          "win",
+          "good news"
         ]
       }
     },
     {
-      "text": "But here’s the catch:",
+      "text": "Until now, PlayStation Spectral Super Resolution",
       "visual": {
         "type": "text",
-        "text": "THE CATCH"
-      },
-      "sfx": "scratch"
-    },
-    {
-      "text": "robots are only cheaper than humans",
-      "visual": {
-        "type": "comparison",
-        "left": "HUMAN",
-        "right": "ROBOT"
+        "text": "PSSR"
       }
     },
     {
-      "text": "for 0.3 percent of tasks.",
+      "text": "was a PS5 Pro feature",
       "visual": {
-        "type": "metric",
-        "value": "0.3%"
+        "type": "comparison",
+        "left": "PS5",
+        "right": "PRO"
+      }
+    },
+    {
+      "text": "because it was too computationally expensive.",
+      "visual": {
+        "type": "diagram",
+        "symbols": [
+          "AI",
+          "GPU",
+          "$$$"
+        ]
       },
       "memeIntent": {
         "purpose": "reaction",
         "tone": "negative",
         "intensity": 2,
         "preferredMedia": "audio",
-        "maxDurationSeconds": 0.9,
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.75,
         "concepts": [
           "bruh",
           "disbelief",
-          "disappointment"
+          "expensive",
+          "pain"
         ]
       }
     },
     {
-      "text": "At historical price declines,",
+      "text": "The new version is called QSSR:",
       "visual": {
-        "type": "symbol",
-        "symbol": "$↓"
-      }
-    },
-    {
-      "text": "reaching 10 percent cost competitiveness",
-      "visual": {
-        "type": "metric",
-        "value": "10%"
-      }
-    },
-    {
-      "text": "could take around 40 years.",
-      "visual": {
-        "type": "metric",
-        "value": "40 YRS"
+        "type": "text",
+        "text": "QSSR"
       },
-      "memeIntent": {
-        "purpose": "waiting",
-        "tone": "deadpan",
-        "intensity": 2,
-        "preferredMedia": "video",
-        "maxDurationSeconds": 1.2,
-        "concepts": [
-          "waiting",
-          "time",
-          "later",
-          "long time"
-        ]
-      }
+      "sfx": "impact"
     },
     {
-      "text": "Driving and warehouse jobs look highly exposed;",
+      "text": "a smaller neural network,",
       "visual": {
         "type": "diagram",
         "symbols": [
-          "CAR",
-          "BOX",
+          "NN",
+          "→",
+          "SMALL"
+        ]
+      }
+    },
+    {
+      "text": "hand-tuned to run",
+      "visual": {
+        "type": "symbol",
+        "symbol": "⚙"
+      }
+    },
+    {
+      "text": "on base PS5 hardware.",
+      "visual": {
+        "type": "symbol",
+        "symbol": "PS5"
+      }
+    },
+    {
+      "text": "Sony says it improves detail",
+      "visual": {
+        "type": "diagram",
+        "symbols": [
+          "PIXEL",
+          "→",
           "↑"
         ]
       }
     },
     {
-      "text": "nursing and repair work much less so.",
+      "text": "and image stability,",
       "visual": {
         "type": "diagram",
         "symbols": [
-          "NURSE",
-          "REPAIR",
-          "↓"
+          "~",
+          "→",
+          "—"
+        ]
+      }
+    },
+    {
+      "text": "with Marvel’s Wolverine",
+      "visual": {
+        "type": "text",
+        "text": "WOLVERINE"
+      }
+    },
+    {
+      "text": "and Ghost of Yōtei getting support first.",
+      "visual": {
+        "type": "text",
+        "text": "YŌTEI FIRST"
+      }
+    },
+    {
+      "text": "But PSSR on PS5 Pro",
+      "visual": {
+        "type": "comparison",
+        "left": "QSSR",
+        "right": "PSSR"
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "is still the higher-quality option.",
+      "visual": {
+        "type": "text",
+        "text": "PRO WINS"
+      }
+    },
+    {
+      "text": "So your five-year-old console",
+      "visual": {
+        "type": "comparison",
+        "left": "2020",
+        "right": "2026"
+      }
+    },
+    {
+      "text": "just got a little Pro-ish,",
+      "visual": {
+        "type": "symbol",
+        "symbol": "STONKS"
+      },
+      "memeIntent": {
+        "purpose": "success",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "cutaway",
+        "maxDurationSeconds": 1.25,
+        "concepts": [
+          "stonks",
+          "upgrade",
+          "profit",
+          "win"
+        ]
+      }
+    },
+    {
+      "text": "without actually becoming a Pro.",
+      "visual": {
+        "type": "text",
+        "text": "NOT PRO"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "chaotic",
+        "intensity": 2,
+        "preferredMedia": "audio",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "laugh",
+          "laughter",
+          "comedy",
+          "funny"
         ]
       }
     }
   ],
   "editorial": {
-    "storyKey": "anthropic-robot-exposure-index-2026",
+    "storyKey": "sony-ps5-qssr-ai-upscaling-2026",
     "selectedAt": "2026-10-03T11:08:00+01:00",
-    "score": 8.7,
+    "score": 8.5,
     "topics": [
-      "robotics",
-      "automation",
-      "labor economics",
-      "AI"
+      "AI upscaling",
+      "graphics",
+      "PlayStation",
+      "gaming hardware"
     ],
     "companies": [
-      "Anthropic"
+      "Sony Interactive Entertainment"
     ],
     "sources": [
       {
-        "title": "What work can robots do?",
-        "publisher": "Anthropic",
-        "url": "https://www.anthropic.com/research/what-work-can-robots-do",
-        "publishedAt": "2026-09-30",
+        "title": "AI upscaling is coming to PS5",
+        "publisher": "PlayStation",
+        "url": "https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/",
+        "publishedAt": "2026-10-01",
         "primary": true
       }
     ]
   },
   "publish": {
-    "youtubeTitle": "Robots can already do 74% of physical tasks — but there’s a catch",
-    "description": "Anthropic’s new robot exposure index finds that robots can perform 74% of physical tasks in the US in some settings, but are cost-competitive with human labor for only 0.3% of tasks.\n\nSource: https://www.anthropic.com/research/what-work-can-robots-do",
+    "youtubeTitle": "AI upscaling just came to the regular PS5",
+    "description": "Sony is bringing QSSR, a new AI-guided upscaling library, to the base PS5. Marvel’s Wolverine and Ghost of Yōtei are the first supported games.\n\nSource: https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/",
     "tags": [
       "AI",
-      "robotics",
-      "automation",
-      "Anthropic",
+      "PS5",
+      "PlayStation",
+      "gaming",
       "tech news"
     ],
     "category": "SCIENCE_TECHNOLOGY",
