@@ -1,10 +1,10 @@
 {
-  "slug": "gpt-6-1-sol",
-  "title": "OpenAI launches GPT-6.1 Sol",
-  "narration": "OpenAI just released GPT-6.1 Sol. The pitch is simple: near-Astra capability for much less money. OpenAI says it matches Astra on DeepSWE at roughly one-fifth the cost, while beating GPT-6 Sol by 6.4 percentage points. Cached input is now ten cents per million tokens, a 95 percent discount from standard input pricing. It also improves computer use, professional workflows, and scientific tasks. The catch is that Astra still leads on the hardest research workloads, so 6.1 Sol is the cheaper middle ground, not the absolute top model.",
+  "slug": "robots-can-do-most-physical-tasks",
+  "title": "Anthropic measures robot exposure across US work",
+  "narration": "Anthropic just measured how much physical work robots can actually do today. The headline sounds wild: robots can perform 74 percent of physical tasks in the US, covering 34 percent of working hours. Add LLMs, and about 80 percent of job tasks are exposed to one or the other. But here’s the catch: robots are only cheaper than humans for 0.3 percent of tasks. At historical price declines, reaching 10 percent cost competitiveness could take around 40 years. Driving and warehouse jobs look highly exposed; nursing and repair work much less so.",
   "beats": [
     {
-      "text": "OpenAI just released GPT-6.1 Sol.",
+      "text": "Anthropic just measured",
       "visual": {
         "type": "source",
         "sourceIndex": 0
@@ -12,147 +12,83 @@
       "sfx": "whoosh"
     },
     {
-      "text": "The pitch is simple:",
+      "text": "how much physical work robots can actually do today.",
       "visual": {
         "type": "text",
-        "text": "SIMPLE"
+        "text": "ROBOTS TODAY"
       }
     },
     {
-      "text": "near-Astra capability for much less money.",
+      "text": "The headline sounds wild:",
       "visual": {
-        "type": "comparison",
-        "left": "ASTRA",
-        "right": "6.1"
+        "type": "text",
+        "text": "SOUNDS WILD"
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "robots can perform 74 percent of physical tasks in the US,",
+      "visual": {
+        "type": "metric",
+        "value": "74%"
       }
     },
     {
-      "text": "OpenAI says it matches Astra on DeepSWE",
+      "text": "covering 34 percent of working hours.",
       "visual": {
-        "type": "symbol",
-        "symbol": "</>"
+        "type": "metric",
+        "value": "34%"
       },
       "sfx": "tick"
     },
     {
-      "text": "at roughly one-fifth the cost,",
+      "text": "Add LLMs,",
       "visual": {
-        "type": "metric",
-        "value": "1/5"
-      },
-      "sfx": "impact",
-      "memeIntent": {
-        "purpose": "success",
-        "tone": "positive",
-        "intensity": 2,
-        "preferredMedia": "video",
-        "maxDurationSeconds": 1.2,
-        "concepts": [
-          "celebration",
-          "win",
-          "good news"
-        ]
+        "type": "comparison",
+        "left": "LLM",
+        "right": "ROBOT"
       }
     },
     {
-      "text": "while beating GPT-6 Sol",
-      "visual": {
-        "type": "diagram",
-        "symbols": [
-          "6.0",
-          "6.1"
-        ]
-      }
-    },
-    {
-      "text": "by 6.4 percentage points.",
+      "text": "and about 80 percent of job tasks",
       "visual": {
         "type": "metric",
-        "value": "+6.4"
+        "value": "80%"
       },
       "sfx": "impact"
     },
     {
-      "text": "Cached input is now ten cents",
-      "visual": {
-        "type": "metric",
-        "value": "$0.10"
-      }
-    },
-    {
-      "text": "per million tokens,",
-      "visual": {
-        "type": "symbol",
-        "symbol": "1M"
-      }
-    },
-    {
-      "text": "a 95 percent discount",
-      "visual": {
-        "type": "metric",
-        "value": "95%"
-      },
-      "sfx": "impact"
-    },
-    {
-      "text": "from standard input pricing.",
+      "text": "are exposed to one or the other.",
       "visual": {
         "type": "diagram",
         "symbols": [
-          "$",
-          "↓"
+          "LLM",
+          "BOT",
+          "WORK"
         ]
       }
     },
     {
-      "text": "It also improves computer use,",
+      "text": "But here’s the catch:",
       "visual": {
-        "type": "symbol",
-        "symbol": "⌨"
-      }
-    },
-    {
-      "text": "professional workflows,",
-      "visual": {
-        "type": "symbol",
-        "symbol": "⚙"
-      }
-    },
-    {
-      "text": "and scientific tasks.",
-      "visual": {
-        "type": "symbol",
-        "symbol": "∑"
-      }
-    },
-    {
-      "text": "The catch is that Astra still leads",
-      "visual": {
-        "type": "source",
-        "sourceIndex": 0
+        "type": "text",
+        "text": "THE CATCH"
       },
       "sfx": "scratch"
     },
     {
-      "text": "on the hardest research workloads,",
-      "visual": {
-        "type": "symbol",
-        "symbol": "↑"
-      }
-    },
-    {
-      "text": "so 6.1 Sol is the cheaper middle ground,",
+      "text": "robots are only cheaper than humans",
       "visual": {
         "type": "comparison",
-        "left": "6.1",
-        "right": "ASTRA"
+        "left": "HUMAN",
+        "right": "ROBOT"
       }
     },
     {
-      "text": "not the absolute top model.",
+      "text": "for 0.3 percent of tasks.",
       "visual": {
-        "type": "text",
-        "text": "NOT #1"
+        "type": "metric",
+        "value": "0.3%"
       },
       "memeIntent": {
         "purpose": "reaction",
@@ -166,41 +102,96 @@
           "disappointment"
         ]
       }
+    },
+    {
+      "text": "At historical price declines,",
+      "visual": {
+        "type": "symbol",
+        "symbol": "$↓"
+      }
+    },
+    {
+      "text": "reaching 10 percent cost competitiveness",
+      "visual": {
+        "type": "metric",
+        "value": "10%"
+      }
+    },
+    {
+      "text": "could take around 40 years.",
+      "visual": {
+        "type": "metric",
+        "value": "40 YRS"
+      },
+      "memeIntent": {
+        "purpose": "waiting",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "maxDurationSeconds": 1.2,
+        "concepts": [
+          "waiting",
+          "time",
+          "later",
+          "long time"
+        ]
+      }
+    },
+    {
+      "text": "Driving and warehouse jobs look highly exposed;",
+      "visual": {
+        "type": "diagram",
+        "symbols": [
+          "CAR",
+          "BOX",
+          "↑"
+        ]
+      }
+    },
+    {
+      "text": "nursing and repair work much less so.",
+      "visual": {
+        "type": "diagram",
+        "symbols": [
+          "NURSE",
+          "REPAIR",
+          "↓"
+        ]
+      }
     }
   ],
   "editorial": {
-    "storyKey": "openai-gpt-6-1-sol-launch",
-    "selectedAt": "2026-10-03T08:53:00+01:00",
-    "score": 9.3,
+    "storyKey": "anthropic-robot-exposure-index-2026",
+    "selectedAt": "2026-10-03T11:08:00+01:00",
+    "score": 8.7,
     "topics": [
-      "models",
-      "coding agents",
-      "computer use",
-      "API pricing",
-      "prompt caching"
+      "robotics",
+      "automation",
+      "labor economics",
+      "AI"
     ],
     "companies": [
-      "OpenAI"
+      "Anthropic"
     ],
     "sources": [
       {
-        "title": "Introducing GPT-6.1 Sol",
-        "publisher": "OpenAI",
-        "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+        "title": "What work can robots do?",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/research/what-work-can-robots-do",
         "publishedAt": "2026-09-30",
         "primary": true
       }
     ]
   },
   "publish": {
-    "youtubeTitle": "GPT-6.1 Sol: near-Astra performance for much less",
-    "description": "OpenAI says GPT-6.1 Sol brings near-Astra performance to coding, computer use, and professional work at a much lower cost.\\n\\nSource: https://openai.com/index/introducing-gpt-6-1-sol/",
+    "youtubeTitle": "Robots can already do 74% of physical tasks — but there’s a catch",
+    "description": "Anthropic’s new robot exposure index finds that robots can perform 74% of physical tasks in the US in some settings, but are cost-competitive with human labor for only 0.3% of tasks.\n\nSource: https://www.anthropic.com/research/what-work-can-robots-do",
     "tags": [
       "AI",
-      "OpenAI",
-      "GPT-6.1",
-      "coding agents",
-      "AI news"
+      "robotics",
+      "automation",
+      "Anthropic",
+      "tech news"
     ],
     "category": "SCIENCE_TECHNOLOGY",
     "madeForKids": false
