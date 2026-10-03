@@ -15,14 +15,14 @@ PUBLIC = Path("public/sources")
 REPORT = BUILD / "source-assets.json"
 
 
-def fetch(url: str, timeout: int = 30) -> tuple[bytes, str]:
-    request = urllib.request.Request(
-        url,
-        headers={
-            "User-Agent": "Mozilla/5.0 orbdev-renderer",
-            "Accept": "text/html,application/xhtml+xml,image/avif,image/webp,image/*,*/*;q=0.8",
-        },
-    )
+def fetch(url: str, timeout: int = 30, referer: str | None = None) -> tuple[bytes, str]:
+    headers = {
+        "User-Agent": "Mozilla/5.0 orbdev-renderer",
+        "Accept": "text/html,application/xhtml+xml,image/avif,image/webp,image/*,*/*;q=0.8",
+    }
+    if referer:
+        headers["Referer"] = referer
+    request = urllib.request.Request(url, headers=headers)
     with urllib.request.urlopen(request, timeout=timeout) as response:
         return response.read(), response.headers.get("Content-Type", "")
 
@@ -119,11 +119,20 @@ def main() -> None:
                 page_text = page_bytes.decode("utf-8", errors="ignore")
                 image_url = og_image(page_text, url)
                 if image_url:
-                    image_bytes, _ = fetch(image_url)
-                    temp.write_bytes(image_bytes)
-                    if normalize_image(temp, target):
-                        report[str(index)] = f"sources/{target.name}"
-                        print(f"Source {index}: captured OpenGraph image")
+                    try:
+                        image_bytes, _ = fetch(image_url, referer=url)
+                        temp.write_bytes(image_bytes)
+                        if normalize_image(temp, target):
+                            report[str(index)] = f"sources/{target.name}"
+                            print(f"Source {index}: captured OpenGraph image")
+                            continue
+                    except Exception as image_exc:
+                        print(f"Source {index}: direct OpenGraph fetch failed: {image_exc}")
+
+                    og_screenshot = PUBLIC / f"source-{index}-og.png"
+                    if chrome_screenshot(image_url, og_screenshot):
+                        report[str(index)] = f"sources/{og_screenshot.name}"
+                        print(f"Source {index}: captured OpenGraph image in browser")
                         continue
             else:
                 temp.write_bytes(page_bytes)
