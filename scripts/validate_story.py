@@ -129,6 +129,7 @@ def main() -> None:
     text_visual_count = 0
     rich_visual_count = 0
     visual_types: list[str] = []
+    visual_signatures: list[str] = []
     families: set[str] = set()
 
     for index, beat in enumerate(beats):
@@ -145,6 +146,9 @@ def main() -> None:
             fail(f"beat {index} has an invalid visual")
         kind = str(visual["type"])
         visual_types.append(kind)
+        visual_signatures.append(
+            f"explain:{visual.get('mode')}" if kind == "explain" else kind
+        )
         families.add(family(kind))
 
         if kind == "source":
@@ -286,8 +290,12 @@ def main() -> None:
     if len(families) < 4:
         fail("visual treatment is too repetitive; use at least four visual families in a normal Short")
 
-    for index in range(len(visual_types) - 2):
-        if visual_types[index] == visual_types[index + 1] == visual_types[index + 2]:
+    for index in range(len(visual_signatures) - 2):
+        if (
+            visual_signatures[index]
+            == visual_signatures[index + 1]
+            == visual_signatures[index + 2]
+        ):
             fail(f"visual treatment repeats three times starting at beat {index}")
 
     generic_flow_count = sum(1 for kind in visual_types if kind in {"flow", "diagram"})
