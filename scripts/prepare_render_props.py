@@ -182,11 +182,18 @@ def main() -> None:
         if adjusted["visual"].get("type") == "source":
             raw_source_index = int(adjusted["visual"].get("sourceIndex", 0))
             source_index = str(raw_source_index)
+            variant = max(0, int(adjusted["visual"].get("variant", 0)))
             sources = story.get("editorial", {}).get("sources", [])
             if 0 <= raw_source_index < len(sources):
                 adjusted["visual"]["publisher"] = sources[raw_source_index].get("publisher", "SOURCE")
-            if source_index in source_assets:
-                adjusted["visual"]["src"] = source_assets[source_index]
+
+            entry = source_assets.get(source_index)
+            if isinstance(entry, str):
+                adjusted["visual"]["src"] = entry
+            elif isinstance(entry, dict):
+                assets = entry.get("assets", [])
+                if isinstance(assets, list) and assets:
+                    adjusted["visual"]["src"] = assets[variant % len(assets)]
 
         attach_logos(adjusted["visual"], logo_assets)
 

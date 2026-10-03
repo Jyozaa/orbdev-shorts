@@ -36,6 +36,8 @@ export type Cutaway = {
 export type SourceVisual = {
   type: 'source';
   sourceIndex: number;
+  variant?: number;
+  fit?: 'contain' | 'cover';
   src?: string;
   publisher?: string;
 };

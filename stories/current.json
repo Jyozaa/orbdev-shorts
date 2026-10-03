@@ -1,60 +1,50 @@
 {
   "slug": "ps5-ai-upscaling-qssr",
   "title": "Sony brings AI upscaling to the regular PS5",
-  "narration": "Sony just brought AI upscaling to the regular PS5. Until now, PlayStation Spectral Super Resolution was a PS5 Pro feature because it was too computationally expensive. The new version is called QSSR: a smaller neural network, hand-tuned to run on base PS5 hardware. Sony says it improves detail and image stability, with Marvel’s Wolverine and Ghost of Yōtei getting support first. But PSSR on PS5 Pro is still the higher-quality option. So your five-year-old console just got a little Pro-ish, without actually becoming a Pro.",
+  "narration": "Sony just gave the regular PS5 an AI graphics upgrade. Until now, PlayStation's PSSR upscaler was locked to PS5 Pro because it was too heavy for the base console. Sony's workaround is QSSR — a smaller neural network, hand-tuned for the original PS5. It should sharpen detail and reduce image shimmer, with Marvel's Wolverine and Ghost of Yōtei among the first games getting it. Here's the catch: PSSR on PS5 Pro still looks better. So your five-year-old console just learned a new trick. It still isn't a Pro, but it's definitely trying.",
   "beats": [
     {
-      "text": "Sony just brought",
+      "text": "Sony just gave",
       "visual": {
-        "type": "logo",
-        "slug": "playstation",
-        "label": "PlayStation"
+        "type": "source",
+        "sourceIndex": 0,
+        "variant": 0,
+        "fit": "cover"
       },
       "sfx": "whoosh"
     },
     {
-      "text": "AI upscaling",
+      "text": "the regular PS5",
+      "visual": {
+        "type": "logo",
+        "slug": "playstation",
+        "label": "PS5"
+      }
+    },
+    {
+      "text": "an AI graphics upgrade.",
       "visual": {
         "type": "network",
         "center": "AI",
         "nodes": [
           "PIXELS",
-          "PS5",
           "DETAIL",
+          "PS5",
           "4K"
         ]
       }
     },
     {
-      "text": "to the regular PS5.",
-      "visual": {
-        "type": "comparison",
-        "left": "PS5 PRO",
-        "right": "PS5"
-      },
-      "memeIntent": {
-        "purpose": "success",
-        "tone": "positive",
-        "intensity": 2,
-        "preferredMedia": "video",
-        "presentation": "cutaway",
-        "concepts": [
-          "celebration",
-          "upgrade",
-          "win",
-          "good news"
-        ]
-      }
-    },
-    {
-      "text": "Until now, PlayStation Spectral Super Resolution",
+      "text": "Until now, PlayStation's PSSR upscaler",
       "visual": {
         "type": "source",
-        "sourceIndex": 0
+        "sourceIndex": 0,
+        "variant": 1,
+        "fit": "cover"
       }
     },
     {
-      "text": "was a PS5 Pro feature",
+      "text": "was locked to PS5 Pro",
       "visual": {
         "type": "timeline",
         "points": [
@@ -64,7 +54,7 @@
           },
           {
             "label": "PS5 PRO",
-            "position": 60
+            "position": 70
           },
           {
             "label": "NOW",
@@ -74,19 +64,19 @@
       }
     },
     {
-      "text": "because it was too computationally expensive.",
+      "text": "because it was too heavy",
       "visual": {
         "type": "chart",
         "bars": [
           {
-            "label": "GPU",
-            "value": "100%",
+            "label": "COMPUTE",
+            "value": "HIGH",
             "amount": 100
           },
           {
-            "label": "BUDGET",
-            "value": "35%",
-            "amount": 35
+            "label": "BASE PS5",
+            "value": "LOWER",
+            "amount": 48
           }
         ]
       },
@@ -96,17 +86,25 @@
         "intensity": 2,
         "preferredMedia": "audio",
         "presentation": "overlay",
-        "maxDurationSeconds": 0.75,
         "concepts": [
           "bruh",
-          "disbelief",
+          "pain",
           "expensive",
-          "pain"
+          "disbelief"
         ]
       }
     },
     {
-      "text": "The new version is called QSSR:",
+      "text": "for the base console.",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "variant": 2,
+        "fit": "contain"
+      }
+    },
+    {
+      "text": "Sony's workaround is QSSR —",
       "visual": {
         "type": "comparison",
         "left": "PSSR",
@@ -127,43 +125,34 @@
       }
     },
     {
-      "text": "hand-tuned to run",
+      "text": "hand-tuned for the original PS5.",
       "visual": {
-        "type": "diagram",
-        "symbols": [
-          "⚙",
-          "✓"
-        ]
+        "type": "source",
+        "sourceIndex": 0,
+        "variant": 3,
+        "fit": "cover"
       }
     },
     {
-      "text": "on base PS5 hardware.",
-      "visual": {
-        "type": "logo",
-        "slug": "playstation",
-        "label": "PS5"
-      }
-    },
-    {
-      "text": "Sony says it improves detail",
+      "text": "It should sharpen detail",
       "visual": {
         "type": "chart",
         "bars": [
           {
             "label": "INPUT",
-            "value": "720p",
-            "amount": 45
+            "value": "SOFT",
+            "amount": 48
           },
           {
-            "label": "OUTPUT",
-            "value": "4K",
+            "label": "QSSR",
+            "value": "SHARP",
             "amount": 100
           }
         ]
       }
     },
     {
-      "text": "and image stability,",
+      "text": "and reduce image shimmer,",
       "visual": {
         "type": "comparison",
         "left": "~~~~",
@@ -171,24 +160,35 @@
       }
     },
     {
-      "text": "with Marvel’s Wolverine",
+      "text": "with Marvel's Wolverine",
       "visual": {
         "type": "source",
-        "sourceIndex": 0
+        "sourceIndex": 0,
+        "variant": 4,
+        "fit": "cover"
       }
     },
     {
-      "text": "and Ghost of Yōtei getting support first.",
+      "text": "and Ghost of Yōtei",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "variant": 2,
+        "fit": "cover"
+      }
+    },
+    {
+      "text": "among the first games getting it.",
       "visual": {
         "type": "timeline",
         "points": [
           {
             "label": "WOLVERINE",
-            "position": 20
+            "position": 25
           },
           {
             "label": "YŌTEI",
-            "position": 55
+            "position": 60
           },
           {
             "label": "MORE",
@@ -198,35 +198,22 @@
       }
     },
     {
-      "text": "But PSSR on PS5 Pro",
+      "text": "Here's the catch:",
       "visual": {
-        "type": "flow",
-        "nodes": [
-          {
-            "kind": "text",
-            "value": "QSSR"
-          },
-          {
-            "kind": "text",
-            "value": "PSSR"
-          },
-          {
-            "kind": "text",
-            "value": "PRO"
-          }
-        ]
+        "type": "text",
+        "text": "THE CATCH"
       },
       "sfx": "scratch"
     },
     {
-      "text": "is still the higher-quality option.",
+      "text": "PSSR on PS5 Pro still looks better.",
       "visual": {
         "type": "chart",
         "bars": [
           {
             "label": "QSSR",
             "value": "GOOD",
-            "amount": 72
+            "amount": 74
           },
           {
             "label": "PSSR",
@@ -257,7 +244,7 @@
       }
     },
     {
-      "text": "just got a little Pro-ish,",
+      "text": "just learned a new trick.",
       "visual": {
         "type": "logo",
         "slug": "playstation",
@@ -273,17 +260,25 @@
         "concepts": [
           "stonks",
           "upgrade",
-          "profit",
-          "win"
+          "win",
+          "profit"
         ]
       }
     },
     {
-      "text": "without actually becoming a Pro.",
+      "text": "It still isn't a Pro,",
       "visual": {
         "type": "comparison",
         "left": "PS5",
         "right": "≠ PRO"
+      }
+    },
+    {
+      "text": "but it's definitely trying.",
+      "visual": {
+        "type": "logo",
+        "slug": "playstation",
+        "label": "TRYING"
       },
       "memeIntent": {
         "purpose": "punchline",
@@ -291,7 +286,6 @@
         "intensity": 2,
         "preferredMedia": "audio",
         "presentation": "overlay",
-        "maxDurationSeconds": 0.8,
         "concepts": [
           "laugh",
           "laughter",
@@ -326,7 +320,7 @@
   },
   "publish": {
     "youtubeTitle": "AI upscaling just came to the regular PS5",
-    "description": "Sony is bringing QSSR, a new AI-guided upscaling library, to the base PS5. Marvel’s Wolverine and Ghost of Yōtei are the first supported games.\n\nSource: https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/",
+    "description": "Sony is bringing QSSR, a new AI-guided upscaling library, to the base PS5. Marvel's Wolverine and Ghost of Yōtei are among the first supported games.\\n\\nSource: https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/",
     "tags": [
       "AI",
       "PS5",

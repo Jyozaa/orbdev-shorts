@@ -148,6 +148,12 @@ def main() -> None:
         if kind == "source":
             if not isinstance(visual.get("sourceIndex"), int) or visual["sourceIndex"] < 0:
                 fail(f"beat {index} source visual needs sourceIndex")
+            if visual.get("variant") is not None and (
+                not isinstance(visual.get("variant"), int) or visual["variant"] < 0
+            ):
+                fail(f"beat {index} source variant must be a non-negative integer")
+            if visual.get("fit") is not None and visual.get("fit") not in {"contain", "cover"}:
+                fail(f"beat {index} source fit must be contain or cover")
             rich_visual_count += 1
         elif kind == "metric":
             if not isinstance(visual.get("value"), str) or not visual["value"].strip():

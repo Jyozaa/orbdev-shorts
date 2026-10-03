@@ -1,12 +1,12 @@
 {
-  "version": 12,
+  "version": 13,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
   "maxStoriesPerDay": 2,
   "minimumScore": 7.2,
   "target": {
-    "wordsMin": 70,
+    "wordsMin": 75,
     "wordsMax": 105,
     "durationSecondsMin": 24,
     "durationSecondsMax": 40,
@@ -44,7 +44,10 @@
     "Use at least four visual treatment families and avoid repeating the same composition across consecutive beats.",
     "Editorial reaction-cue phrases such as 'the headline sounds wild' should be considered meme opportunities.",
     "Do not cut visuals on every narration fragment; the renderer should group semantic beats into readable visual windows.",
-    "Short sound effects and meme-audio reactions must play to their natural end rather than being clipped to the current narration beat."
+    "Short sound effects and meme-audio reactions must play to their natural end rather than being clipped to the current narration beat.",
+    "When useful official imagery exists, reuse multiple distinct source images across the Short instead of replacing everything with diagrams.",
+    "Meme overlays should float directly over the main visual without a default card, border, or framed box.",
+    "Narration must read like spoken editorial copy with a hook, concrete technical explanation, a limitation/catch, and a concise implication or punchline when appropriate."
   ],
   "visualRules": {
     "background": "#000000",
@@ -70,14 +73,19 @@
     "animatedNetworks": true,
     "preferredVisualHoldSeconds": "1.8-3.2",
     "minimumVisualHoldSeconds": 1.8,
-    "maximumVisualHoldSeconds": 3.2
+    "maximumVisualHoldSeconds": 3.2,
+    "sourceImageTargetFraction": "0.25-0.40 when useful official imagery exists",
+    "multipleSourceImages": true,
+    "sourceImagesPerSourceMax": 5,
+    "memeOverlayBorder": false
   },
   "narration": {
     "preferredVoice": "en-US-AndrewNeural",
     "fallbackVoice": "en-GB-RyanNeural",
-    "rate": "+18%",
-    "pitch": "-2Hz",
-    "processing": "broadcast EQ, compression, loudness normalization"
+    "rate": "+12%",
+    "pitch": "-1Hz",
+    "processing": "light broadcast EQ, moderate compression, limiter, loudness normalization",
+    "style": "conversational, concise, dry/playful, human-sounding, setup-change-implication-catch-punchline"
   },
   "reactionSfx": [
     "scratch",

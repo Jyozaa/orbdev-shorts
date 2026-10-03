@@ -29,38 +29,43 @@ const OverlayMeme: React.FC<{meme: SelectedMeme; side: 'left' | 'right'}> = ({me
     return <Audio src={staticFile(meme.src)} volume={meme.volume ?? 0.60} />;
   }
 
-  const x = (1 - enter) * (side === 'right' ? 120 : -120);
+  const x = (1 - enter) * (side === 'right' ? 150 : -150);
+  const rotation = side === 'right' ? -3.5 : 3.5;
 
   return (
     <AbsoluteFill style={{zIndex: 35, pointerEvents: 'none', opacity}}>
       <div
         style={{
           position: 'absolute',
-          top: 430,
-          [side]: 54,
-          width: 430,
-          height: 430,
+          top: 390,
+          [side]: 24,
+          width: 500,
+          height: 500,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#000000',
-          border: '3px solid rgba(255,255,255,0.65)',
-          borderRadius: 28,
-          overflow: 'hidden',
-          transform: `translateX(${x}px) rotate(${side === 'right' ? -2 : 2}deg) scale(${0.84 + enter * 0.16})`,
-          boxShadow: '0 18px 70px rgba(0,0,0,0.7)'
+          transform: `translateX(${x}px) rotate(${rotation}deg) scale(${0.80 + enter * 0.20})`,
+          filter: 'drop-shadow(0 18px 24px rgba(0,0,0,0.72))'
         }}
       >
         {meme.mediaType === 'image' ? (
           <Img
             src={staticFile(meme.src)}
-            style={{width: '100%', height: '100%', objectFit: 'contain'}}
+            style={{
+              maxWidth: '100%',
+              maxHeight: '100%',
+              objectFit: 'contain'
+            }}
           />
         ) : (
           <OffthreadVideo
             src={staticFile(meme.src)}
             volume={meme.hasAudio ? (meme.volume ?? 0.44) : 0}
-            style={{width: '100%', height: '100%', objectFit: 'contain'}}
+            style={{
+              maxWidth: '100%',
+              maxHeight: '100%',
+              objectFit: 'contain'
+            }}
           />
         )}
       </div>

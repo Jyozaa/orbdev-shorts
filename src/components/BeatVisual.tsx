@@ -245,10 +245,11 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
         <Img
           src={staticFile(beat.visual.src)}
           style={{
-            width: 980,
-            height: 1280,
-            objectFit: 'contain',
-            transform: `translateX(${(1 - enter) * 50}px) scale(${0.98 + progress * 0.055})`,
+            width: beat.visual.fit === 'cover' ? 1080 : 980,
+            height: beat.visual.fit === 'cover' ? 1500 : 1280,
+            objectFit: beat.visual.fit ?? 'contain',
+            objectPosition: 'center',
+            transform: `translateX(${(1 - enter) * 42}px) translateY(${progress * -18}px) scale(${0.98 + progress * 0.06})`,
             opacity: enter
           }}
         />

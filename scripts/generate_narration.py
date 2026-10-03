@@ -14,7 +14,7 @@ PUBLIC_DIR = Path("public")
 RAW_AUDIO_PATH = PUBLIC_DIR / "voice-raw.mp3"
 AUDIO_PATH = PUBLIC_DIR / "voice.mp3"
 CAPTIONS_PATH = PUBLIC_DIR / "captions.json"
-CAPTION_LEAD_MS = int(os.getenv("ORBDEV_CAPTION_LEAD_MS", "90"))
+CAPTION_LEAD_MS = int(os.getenv("ORBDEV_CAPTION_LEAD_MS", "80"))
 
 
 def audio_duration_seconds(path: Path) -> float:
@@ -48,8 +48,8 @@ def approximate_words(text: str, duration_seconds: float) -> list[dict[str, obje
 
 
 async def render_with_voice(text: str, voice: str) -> list[dict[str, object]]:
-    rate = os.getenv("ORBDEV_RATE", "+18%")
-    pitch = os.getenv("ORBDEV_PITCH", "-2Hz")
+    rate = os.getenv("ORBDEV_RATE", "+12%")
+    pitch = os.getenv("ORBDEV_PITCH", "-1Hz")
     communicator = edge_tts.Communicate(
         text=text,
         voice=voice,
@@ -77,12 +77,14 @@ async def render_with_voice(text: str, voice: str) -> list[dict[str, object]]:
 
 def process_voice(source: Path) -> None:
     filters = ",".join([
-        "highpass=f=70",
-        "lowpass=f=15000",
-        "equalizer=f=180:t=q:w=1.0:g=1.2",
-        "equalizer=f=3200:t=q:w=1.1:g=1.8",
-        "acompressor=threshold=-18dB:ratio=3:attack=5:release=80:makeup=3dB",
-        "loudnorm=I=-14:TP=-1.5:LRA=3",
+        "highpass=f=65",
+        "lowpass=f=15500",
+        "equalizer=f=160:t=q:w=1.0:g=0.8",
+        "equalizer=f=2800:t=q:w=1.0:g=1.2",
+        "equalizer=f=6500:t=q:w=1.2:g=0.7",
+        "acompressor=threshold=-20dB:ratio=2.35:attack=8:release=120:makeup=2.2dB",
+        "alimiter=limit=0.94:attack=5:release=50",
+        "loudnorm=I=-14.5:TP=-1.2:LRA=4",
     ])
     subprocess.run(
         [
@@ -96,7 +98,7 @@ def process_voice(source: Path) -> None:
 def render_fallback(text: str) -> None:
     wav_path = PUBLIC_DIR / "voice-fallback.wav"
     subprocess.run(
-        ["espeak-ng", "-s", "205", "-w", str(wav_path), text],
+        ["espeak-ng", "-s", "195", "-w", str(wav_path), text],
         check=True,
         stdout=subprocess.DEVNULL,
         stderr=subprocess.DEVNULL,
