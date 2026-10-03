@@ -1,5 +1,5 @@
 {
-  "version": 9,
+  "version": 10,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -37,7 +37,9 @@
     "Do not put paragraphs on screen.",
     "When using company-reported benchmarks, explicitly attribute them in narration.",
     "Use memes as editorial punctuation, not random filler.",
-    "Use full-screen cutaways for standalone visual punchlines; cutaways pause narration and hide captions automatically."
+    "Use full-screen cutaways for standalone visual punchlines; cutaways pause narration and hide captions automatically.",
+    "Prefer animated logos, flows, diagrams and source imagery over text-only visuals.",
+    "Short visual meme cutaways must play to a natural end; reject long cutaway videos instead of hard-trimming them."
   ],
   "visualRules": {
     "background": "#000000",
@@ -49,7 +51,12 @@
     "sourceVisualsPreferred": true,
     "diagramsOverParagraphs": true,
     "phraseCaptions": true,
-    "diagramConnectorsAutomatic": true
+    "diagramConnectorsAutomatic": true,
+    "richVisualMinimumFraction": 0.45,
+    "textVisualMaximumFraction": 0.3,
+    "animatedLogos": true,
+    "animatedFlows": true,
+    "animatedDiagrams": true
   },
   "narration": {
     "preferredVoice": "en-US-AndrewNeural",
@@ -126,6 +133,7 @@
       "overlay",
       "cutaway"
     ],
-    "excludeGreenScreen": true
+    "excludeGreenScreen": true,
+    "completeCutawayVideoMaxSeconds": 3.4
   }
 }

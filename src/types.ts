@@ -20,6 +20,8 @@ export type SelectedMeme = {
   offsetSeconds: number;
   volume?: number;
   presentation: 'overlay' | 'cutaway';
+  sourceDurationSeconds?: number;
+  completeClip?: boolean;
 };
 
 export type Cutaway = {
@@ -62,13 +64,43 @@ export type TextVisual = {
   text: string;
 };
 
+export type LogoVisual = {
+  type: 'logo';
+  slug: string;
+  label?: string;
+  src?: string;
+};
+
+export type FlowNode =
+  | {
+      kind: 'logo';
+      slug: string;
+      label?: string;
+      src?: string;
+    }
+  | {
+      kind: 'symbol';
+      value: string;
+    }
+  | {
+      kind: 'text';
+      value: string;
+    };
+
+export type FlowVisual = {
+  type: 'flow';
+  nodes: FlowNode[];
+};
+
 export type BeatVisualSpec =
   | SourceVisual
   | MetricVisual
   | DiagramVisual
   | ComparisonVisual
   | SymbolVisual
-  | TextVisual;
+  | TextVisual
+  | LogoVisual
+  | FlowVisual;
 
 export type Beat = {
   text: string;

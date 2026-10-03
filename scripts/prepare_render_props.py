@@ -9,6 +9,7 @@ BUILD_DIR = Path("build")
 CAPTIONS_PATH = Path("public/captions.json")
 MEME_SELECTION_PATH = BUILD_DIR / "meme-selection.json"
 SOURCE_ASSETS_PATH = BUILD_DIR / "source-assets.json"
+LOGO_ASSETS_PATH = BUILD_DIR / "logo-assets.json"
 CUTAWAYS_PATH = BUILD_DIR / "cutaways.json"
 
 
@@ -30,6 +31,23 @@ def find_sequence(words: list[dict[str, object]], expected: list[str], cursor: i
     return cursor, end
 
 
+def attach_logos(visual: dict[str, object], logo_assets: dict[str, str]) -> None:
+    if visual.get("type") == "logo":
+        slug = str(visual.get("slug", "")).lower()
+        if slug in logo_assets:
+            visual["src"] = logo_assets[slug]
+    elif visual.get("type") == "flow":
+        nodes = visual.get("nodes", [])
+        if not isinstance(nodes, list):
+            return
+        for node in nodes:
+            if not isinstance(node, dict) or node.get("kind") != "logo":
+                continue
+            slug = str(node.get("slug", "")).lower()
+            if slug in logo_assets:
+                node["src"] = logo_assets[slug]
+
+
 def main() -> None:
     if len(sys.argv) != 2:
         raise SystemExit("usage: prepare_render_props.py <story.json>")
@@ -41,6 +59,7 @@ def main() -> None:
 
     selections = json.loads(MEME_SELECTION_PATH.read_text(encoding="utf-8")) if MEME_SELECTION_PATH.exists() else {}
     source_assets = json.loads(SOURCE_ASSETS_PATH.read_text(encoding="utf-8")) if SOURCE_ASSETS_PATH.exists() else {}
+    logo_assets = json.loads(LOGO_ASSETS_PATH.read_text(encoding="utf-8")) if LOGO_ASSETS_PATH.exists() else {}
     cutaways = json.loads(CUTAWAYS_PATH.read_text(encoding="utf-8")) if CUTAWAYS_PATH.exists() else []
     cutaway_by_beat = {int(item["beatIndex"]): item for item in cutaways}
 
@@ -52,7 +71,7 @@ def main() -> None:
         cursor = end_index + 1
 
         adjusted = dict(beat)
-        adjusted["visual"] = dict(beat["visual"])
+        adjusted["visual"] = json.loads(json.dumps(beat["visual"]))
         adjusted["start"] = round(float(words[start_index]["startMs"]) / 1000.0, 4)
         adjusted["end"] = round(float(words[end_index]["endMs"]) / 1000.0, 4)
 
@@ -64,6 +83,8 @@ def main() -> None:
                 adjusted["visual"]["publisher"] = sources[raw_source_index].get("publisher", "SOURCE")
             if source_index in source_assets:
                 adjusted["visual"]["src"] = source_assets[source_index]
+
+        attach_logos(adjusted["visual"], logo_assets)
 
         selected = selections.get(str(index))
         if selected and selected.get("presentation") != "cutaway":

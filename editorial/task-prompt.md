@@ -6,7 +6,7 @@ Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json`
 
 Search current public sources for significant AI and developer-technology developments inside the configured lookback window. Every selected story must have at least one primary source.
 
-Orbdev covers concrete technical changes: models, capabilities, developer tools, research, discoveries, robotics, hardware, security, infrastructure, and meaningful open-source releases. Ignore hiring, training cohorts, staffing announcements, routine partnerships, and generic business news unless a substantial technology is the actual story.
+Orbdev covers concrete technical changes: models, capabilities, developer tools, research, discoveries, robotics, hardware, security, infrastructure, graphics technology, and meaningful open-source releases. Ignore hiring, training cohorts, staffing announcements, routine partnerships, and generic business news unless a substantial technology is the actual story.
 
 ## Voice-first production
 
@@ -18,28 +18,36 @@ Narration should be concise, dry, conversational, technically accurate, roughly 
 
 ## Visual vocabulary
 
+Prefer animated graphical explanation over words on a black canvas.
+
 Supported visuals:
 
 ```json
 {"type":"source","sourceIndex":0}
+{"type":"logo","slug":"playstation","label":"PlayStation"}
+{"type":"flow","nodes":[
+  {"kind":"logo","slug":"playstation","label":"PS5"},
+  {"kind":"symbol","value":"AI"},
+  {"kind":"symbol","value":"↑"}
+]}
 {"type":"metric","value":"95%"}
-{"type":"diagram","symbols":["$","↓"]}
+{"type":"diagram","symbols":["GPU","AI","$$$"]}
 {"type":"comparison","left":"6.0","right":"6.1"}
 {"type":"symbol","symbol":"</>"}
 {"type":"text","text":"NOT #1"}
 ```
 
 Rules:
-- Prefer real/source imagery, metrics, symbols, diagrams, screenshots and memes over explanatory text.
-- Keep diagram symbols short; the renderer fits them automatically inside responsive boxes.
-- Diagram arrays contain nodes only. Do not put arrows such as `→` in the array; the renderer draws connectors automatically.
-- `text` is rare and must be at most three words.
+- Logos, flows, diagrams, comparisons and source imagery are preferred over text-only scenes.
+- Use a real brand logo when the beat is about a recognizable company/platform/product family and a Simple Icons slug is available.
+- `logo`, `flow`, `diagram`, and `comparison` are animated automatically. Do not design static slides.
+- `flow` is preferred for explaining a process or relationship. It supports logo, symbol and short-text nodes.
+- Diagram arrays contain nodes only; connectors are drawn and animated automatically.
+- `text` is a fallback and must be at most three words.
+- Keep text-only beats below roughly 30% of the Short.
+- At least ~45% of beats should be rich visuals: source, logo, flow, diagram, or comparison.
 - Use at least one source visual when available.
 - For a 25-40 second Short, target 3-4 meme/reaction moments when the story provides natural opportunities; never force an irrelevant meme.
-- Mix quick audio/visual overlays with at least one stronger visual reaction when appropriate.
-- Memes should punctuate setup, payoff, contradiction, absurdity, waiting, success, or failure.
-
-Neutral motion SFX: `scratch`, `impact`, `whoosh`, `tick`, or `none`.
 
 ## Meme presentation
 
@@ -48,45 +56,28 @@ A meme intent may set `presentation` to `overlay`, `cutaway`, or `auto`.
 `overlay`:
 - narration continues
 - subtitles remain
-- best for quick sounds, small reaction images, short punch-ins
+- best for quick sounds or small reactions
 
 `cutaway`:
 - full-screen takeover
-- narration automatically pauses
+- narration pauses
 - subtitles disappear
-- meme audio/video plays
+- meme plays to a natural end when it is a short video
 - narration resumes afterward
-- best for standalone punchlines such as "2000 Years Later", reaction clips, facepalms, or a deliberate comedy beat
+- the selector rejects overly long video memes instead of chopping them mid-reaction
 
-`auto`:
-- selector chooses based on media type, purpose and intensity
-- strong visual memes usually become cutaways; audio reactions usually remain overlays
+For cutaway videos, `maxDurationSeconds` is not a hard trim point. Short clips up to the cutaway budget are preserved to their natural end. Use `maxDurationSeconds` mainly for images or overlays.
 
-Example cutaway:
+Example:
 
 ```json
 {
-  "purpose":"waiting",
-  "tone":"deadpan",
+  "purpose":"success",
+  "tone":"positive",
   "intensity":2,
   "preferredMedia":"video",
   "presentation":"cutaway",
-  "maxDurationSeconds":1.7,
-  "concepts":["waiting","later","long time"]
-}
-```
-
-Example laughter/audio reaction:
-
-```json
-{
-  "purpose":"punchline",
-  "tone":"chaotic",
-  "intensity":2,
-  "preferredMedia":"audio",
-  "presentation":"overlay",
-  "maxDurationSeconds":0.8,
-  "concepts":["laugh","laughter","comedy"]
+  "concepts":["celebration","upgrade","win"]
 }
 ```
 

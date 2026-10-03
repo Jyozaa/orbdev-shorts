@@ -111,6 +111,9 @@ jobs:
       - name: Capture source visuals
         run: python scripts/capture_sources.py "$STORY_FILE"
 
+      - name: Capture animated logo assets
+        run: python scripts/capture_logos.py "$STORY_FILE"
+
       - name: Prepare voice-timed render
         run: python scripts/prepare_render_props.py "$STORY_FILE"
 
@@ -143,5 +146,6 @@ jobs:
             build/meme-selection.json
             build/cutaways.json
             build/source-assets.json
+            build/logo-assets.json
           if-no-files-found: ignore
           retention-days: 30

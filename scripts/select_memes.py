@@ -13,6 +13,7 @@ BUILD = Path("build")
 PUBLIC = Path("public/memes")
 CATALOG = BUILD / "meme-catalog.json"
 SELECTION = BUILD / "meme-selection.json"
+MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS = 3.4
 
 
 def tokens(values: list[str] | None) -> set[str]:
@@ -75,33 +76,60 @@ def duration(path: Path) -> float:
         return 0.0
 
 
-def normalize_asset(source: Path, media_type: str, beat_index: int, max_duration: float) -> tuple[str, float]:
+def normalize_asset(
+    source: Path,
+    media_type: str,
+    beat_index: int,
+    requested_duration: float,
+    preserve_complete_video: bool,
+) -> tuple[str, float, float, bool]:
     PUBLIC.mkdir(parents=True, exist_ok=True)
+    source_duration = duration(source)
 
     if media_type == "audio":
         output = PUBLIC / f"beat-{beat_index}.mp3"
+        render_duration = requested_duration
+        if source_duration > 0:
+            render_duration = min(render_duration, source_duration)
         subprocess.run(
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-                "-t", str(max_duration), "-af", "loudnorm=I=-15:TP=-1.5:LRA=6",
+                "-t", str(render_duration), "-af", "loudnorm=I=-15:TP=-1.5:LRA=6",
                 "-codec:a", "libmp3lame", "-q:a", "3", str(output)
             ],
             check=True,
         )
-        return f"memes/{output.name}", min(max_duration, duration(output) or max_duration)
+        actual = duration(output) or render_duration
+        return f"memes/{output.name}", actual, source_duration, actual >= source_duration - 0.08 if source_duration > 0 else False
 
     if media_type == "video":
+        if preserve_complete_video:
+            if source_duration <= 0:
+                raise ValueError("video duration could not be measured")
+            if source_duration > MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS:
+                raise ValueError(
+                    f"cutaway video is {source_duration:.2f}s; exceeds complete-clip budget "
+                    f"of {MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS:.2f}s"
+                )
+            render_duration = source_duration
+        else:
+            render_duration = requested_duration
+            if source_duration > 0:
+                render_duration = min(render_duration, source_duration)
+
         output = PUBLIC / f"beat-{beat_index}.mp4"
         subprocess.run(
             [
                 "ffmpeg", "-y", "-loglevel", "error", "-i", str(source),
-                "-t", str(max_duration), "-vf", "scale=1080:-2,fps=30",
+                "-t", str(render_duration), "-vf", "scale=1080:-2,fps=30",
                 "-c:v", "libx264", "-preset", "veryfast", "-pix_fmt", "yuv420p",
                 "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", str(output)
             ],
             check=True,
         )
-        return f"memes/{output.name}", min(max_duration, duration(output) or max_duration)
+        actual = duration(output) or render_duration
+        complete = source_duration > 0 and actual >= source_duration - 0.08
+        return f"memes/{output.name}", actual, source_duration, complete
 
     output = PUBLIC / f"beat-{beat_index}.png"
     subprocess.run(
@@ -111,7 +139,7 @@ def normalize_asset(source: Path, media_type: str, beat_index: int, max_duration
         ],
         check=True,
     )
-    return f"memes/{output.name}", max_duration
+    return f"memes/{output.name}", requested_duration, source_duration, True
 
 
 def infer_presentation(intent: dict[str, object], media_type: str) -> str:
@@ -156,7 +184,7 @@ def main() -> None:
             continue
 
         selected_result = None
-        for value, selected in candidates[:10]:
+        for value, selected in candidates[:12]:
             path = str(selected["path"])
             repo_name = os.getenv("GITHUB_REPOSITORY", "Jyozaa/orbdev-shorts")
             encoded = urllib.parse.quote(path, safe="/")
@@ -167,13 +195,28 @@ def main() -> None:
                 with urllib.request.urlopen(request, timeout=60) as response:
                     temp.write_bytes(response.read())
 
-                presentation = infer_presentation(intent, str(selected["mediaType"]))
-                default_duration = 0.85 if selected["mediaType"] == "audio" else (1.7 if presentation == "cutaway" else 1.1)
-                max_duration = float(intent.get("maxDurationSeconds") or default_duration)
-                src, normalized_duration = normalize_asset(
-                    temp, str(selected["mediaType"]), index, max_duration
+                media_type = str(selected["mediaType"])
+                presentation = infer_presentation(intent, media_type)
+                default_duration = 0.85 if media_type == "audio" else (1.35 if presentation == "cutaway" else 1.1)
+                requested_duration = float(intent.get("maxDurationSeconds") or default_duration)
+
+                src, normalized_duration, source_duration, complete = normalize_asset(
+                    temp,
+                    media_type,
+                    index,
+                    requested_duration,
+                    preserve_complete_video=presentation == "cutaway" and media_type == "video",
                 )
-                selected_result = (value, selected, path, src, normalized_duration, presentation)
+                selected_result = (
+                    value,
+                    selected,
+                    path,
+                    src,
+                    normalized_duration,
+                    presentation,
+                    source_duration,
+                    complete,
+                )
                 break
             except Exception as exc:
                 print(f"Beat {index}: candidate failed: {path}: {exc}")
@@ -183,7 +226,16 @@ def main() -> None:
         if selected_result is None:
             continue
 
-        value, selected, path, src, normalized_duration, presentation = selected_result
+        (
+            value,
+            selected,
+            path,
+            src,
+            normalized_duration,
+            presentation,
+            source_duration,
+            complete,
+        ) = selected_result
         chosen_ids.add(str(selected["id"]))
         selections[str(index)] = {
             "id": selected["id"],
@@ -192,10 +244,15 @@ def main() -> None:
             "mediaType": selected["mediaType"],
             "src": src,
             "durationSeconds": round(normalized_duration, 3),
+            "sourceDurationSeconds": round(float(source_duration), 3) if source_duration else None,
+            "completeClip": bool(complete),
             "volume": 0.64 if selected["mediaType"] == "audio" else (0.78 if presentation == "cutaway" else 0.44),
             "presentation": presentation,
         }
-        print(f"Beat {index}: selected {path} ({value:.1f}, {presentation})")
+        print(
+            f"Beat {index}: selected {path} "
+            f"({value:.1f}, {presentation}, complete={bool(complete)})"
+        )
 
     SELECTION.parent.mkdir(parents=True, exist_ok=True)
     SELECTION.write_text(json.dumps(selections, indent=2), encoding="utf-8")
