@@ -5,7 +5,8 @@ import sys
 from pathlib import Path
 from urllib.parse import urlparse
 
-ALLOWED_TYPES = {"hook", "explain", "metric", "comparison", "impact", "caveat", "outro"}
+ALLOWED_TYPES = {"hook", "explain", "metric", "diagram", "comparison", "impact", "caveat", "outro"}
+ALLOWED_SFX = {"yay", "rage", "scratch", "impact", "whoosh", "tick", "none"}
 
 
 def fail(message: str) -> None:
@@ -91,6 +92,16 @@ def main() -> None:
             fail(f"scene {index} has an unsupported type")
         if not isinstance(scene.get("title"), str) or not scene["title"].strip():
             fail(f"scene {index} needs a title")
+        if scene.get("sfx") is not None and scene.get("sfx") not in ALLOWED_SFX:
+            fail(f"scene {index} has an unsupported sfx")
+
+        if scene.get("type") == "diagram":
+            nodes = scene.get("nodes")
+            if not isinstance(nodes, list) or len(nodes) < 2 or len(nodes) > 4:
+                fail(f"diagram scene {index} needs 2 to 4 nodes")
+            for node_index, node in enumerate(nodes):
+                if not isinstance(node, dict) or not isinstance(node.get("symbol"), str) or not node["symbol"].strip():
+                    fail(f"diagram scene {index} node {node_index} needs a symbol")
 
         start = scene.get("start")
         end = scene.get("end")

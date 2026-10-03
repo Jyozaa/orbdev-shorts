@@ -11,9 +11,7 @@ export const CaptionStrip: React.FC<Props> = ({captions}) => {
   const {fps} = useVideoConfig();
   const nowMs = (frame / fps) * 1000;
 
-  if (captions.length === 0) {
-    return null;
-  }
+  if (captions.length === 0) return null;
 
   let activeIndex = captions.findIndex(
     (caption) => nowMs >= caption.startMs && nowMs < caption.endMs
@@ -28,12 +26,10 @@ export const CaptionStrip: React.FC<Props> = ({captions}) => {
     }
   }
 
-  if (activeIndex < 0) {
-    return null;
-  }
+  if (activeIndex < 0) return null;
 
-  const groupStart = Math.floor(activeIndex / 5) * 5;
-  const group = captions.slice(groupStart, groupStart + 5);
+  const groupStart = Math.floor(activeIndex / 4) * 4;
+  const group = captions.slice(groupStart, groupStart + 4);
   const active = captions[activeIndex];
   const progress = interpolate(
     nowMs,
@@ -46,20 +42,21 @@ export const CaptionStrip: React.FC<Props> = ({captions}) => {
     <div
       style={{
         position: 'absolute',
-        left: 70,
-        right: 70,
-        bottom: 150,
+        left: 76,
+        right: 76,
+        bottom: 142,
         display: 'flex',
         justifyContent: 'center',
         flexWrap: 'wrap',
-        gap: '12px 16px',
+        gap: '9px 15px',
         fontFamily: 'Arial, Helvetica, sans-serif',
-        fontSize: 54,
-        lineHeight: 1.05,
+        fontSize: 53,
+        lineHeight: 1.04,
         fontWeight: 800,
-        letterSpacing: -1.5,
+        letterSpacing: -1.6,
         textAlign: 'center',
-        textShadow: '0 6px 28px rgba(0,0,0,0.55)'
+        color: '#ffffff',
+        textShadow: '0 4px 18px rgba(0,0,0,0.95)'
       }}
     >
       {group.map((caption, index) => {
@@ -69,10 +66,13 @@ export const CaptionStrip: React.FC<Props> = ({captions}) => {
           <span
             key={`${caption.startMs}-${caption.text}`}
             style={{
-              color: isActive ? '#a9c7ff' : '#f4f7fb',
-              opacity: isActive ? 1 : 0.78,
-              transform: isActive ? `scale(${1.03 + progress * 0.015})` : 'scale(1)',
-              display: 'inline-block'
+              color: '#ffffff',
+              opacity: isActive ? 1 : 0.82,
+              fontWeight: isActive ? 950 : 800,
+              transform: isActive ? `scale(${1.045 + progress * 0.01})` : 'scale(1)',
+              display: 'inline-block',
+              borderBottom: isActive ? '5px solid #ffffff' : '5px solid transparent',
+              paddingBottom: 4
             }}
           >
             {caption.text}

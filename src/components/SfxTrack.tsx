@@ -1,22 +1,36 @@
 import React from 'react';
 import {Audio} from '@remotion/media';
 import {Sequence, staticFile, useVideoConfig} from 'remotion';
-import {Scene} from '../types';
+import {ReactionSfx, Scene} from '../types';
 
 type Props = {
   scenes: Scene[];
 };
 
-const soundFor = (type: Scene['type']) => {
-  if (type === 'hook' || type === 'impact') return 'sfx/whoosh.wav';
-  if (type === 'metric' || type === 'comparison') return 'sfx/drop.wav';
-  return 'sfx/tick.wav';
+const fallbackFor = (scene: Scene): ReactionSfx => {
+  if (scene.type === 'metric') return 'impact';
+  if (scene.type === 'comparison') return 'whoosh';
+  if (scene.type === 'caveat') return 'scratch';
+  if (scene.type === 'diagram') return 'tick';
+  return 'none';
 };
 
-const volumeFor = (type: Scene['type']) => {
-  if (type === 'hook') return 0.09;
-  if (type === 'metric') return 0.075;
-  return 0.055;
+const fileFor: Record<Exclude<ReactionSfx, 'none'>, string> = {
+  yay: 'sfx/yay.mp3',
+  rage: 'sfx/rage.mp3',
+  scratch: 'sfx/scratch.wav',
+  impact: 'sfx/impact.wav',
+  whoosh: 'sfx/whoosh.wav',
+  tick: 'sfx/tick.wav'
+};
+
+const volumeFor: Record<Exclude<ReactionSfx, 'none'>, number> = {
+  yay: 0.34,
+  rage: 0.30,
+  scratch: 0.26,
+  impact: 0.28,
+  whoosh: 0.22,
+  tick: 0.18
 };
 
 export const SfxTrack: React.FC<Props> = ({scenes}) => {
@@ -25,11 +39,15 @@ export const SfxTrack: React.FC<Props> = ({scenes}) => {
   return (
     <>
       {scenes.map((scene, index) => {
-        if (index === 0) return null;
+        const selected = scene.sfx ?? fallbackFor(scene);
+        if (selected === 'none') return null;
+
         const from = Math.max(0, Math.round(scene.start * fps));
+        const duration = Math.max(1, Math.round(fps * (selected === 'rage' || selected === 'yay' ? 1.8 : 0.75)));
+
         return (
-          <Sequence key={`sfx-${index}`} from={from} durationInFrames={Math.round(fps * 0.4)}>
-            <Audio src={staticFile(soundFor(scene.type))} volume={volumeFor(scene.type)} />
+          <Sequence key={`sfx-${index}-${selected}`} from={from} durationInFrames={duration}>
+            <Audio src={staticFile(fileFor[selected])} volume={volumeFor[selected]} />
           </Sequence>
         );
       })}

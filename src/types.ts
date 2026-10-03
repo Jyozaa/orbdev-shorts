@@ -2,10 +2,25 @@ export type SceneType =
   | 'hook'
   | 'explain'
   | 'metric'
+  | 'diagram'
   | 'comparison'
   | 'impact'
   | 'caveat'
   | 'outro';
+
+export type ReactionSfx =
+  | 'yay'
+  | 'rage'
+  | 'scratch'
+  | 'impact'
+  | 'whoosh'
+  | 'tick'
+  | 'none';
+
+export type DiagramNode = {
+  symbol: string;
+  label?: string;
+};
 
 export type Scene = {
   type: SceneType;
@@ -16,8 +31,12 @@ export type Scene = {
   body?: string;
   leftTitle?: string;
   leftBody?: string;
+  leftSymbol?: string;
   rightTitle?: string;
   rightBody?: string;
+  rightSymbol?: string;
+  nodes?: DiagramNode[];
+  sfx?: ReactionSfx;
 };
 
 export type CaptionWord = {

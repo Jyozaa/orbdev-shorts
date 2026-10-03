@@ -1,15 +1,15 @@
 {
-  "version": 2,
+  "version": 3,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
   "maxStoriesPerDay": 2,
   "minimumScore": 7.2,
   "target": {
-    "wordsMin": 70,
-    "wordsMax": 105,
-    "durationSecondsMin": 25,
-    "durationSecondsMax": 42
+    "wordsMin": 65,
+    "wordsMax": 100,
+    "durationSecondsMin": 24,
+    "durationSecondsMax": 40
   },
   "scoring": {
     "significance": 4,
@@ -23,14 +23,35 @@
     "Use the original announcement or release time for recency. A refreshed page, crawler date, repost, or later page update does not make an older story new.",
     "Do not cover a story already present in history or the current story file.",
     "Do not publish rumours, leaks, predictions, or unverified benchmark claims.",
-    "The core of every story must be a new technology, model, capability, developer tool, hardware release, research result, scientific discovery, benchmark-relevant technical advance, robotics advance, infrastructure change, security finding, or meaningful open-source release.",
+    "The core of every story must be a new technology, model, capability, developer tool, hardware release, research result, scientific discovery, robotics advance, infrastructure change, security finding, or meaningful open-source release.",
     "Do not select hiring, recruitment, fellowships, training academies, educational cohorts, job programs, grants, workforce-reskilling initiatives, or company staffing announcements unless the actual news is a substantial new technology or research result.",
     "Exclude routine partnerships, funding announcements, customer wins, executive commentary, and generic business expansion unless they reveal a concrete technical development.",
-    "Prefer stories with a clear technical delta that can be shown visually: before versus after, a measurable result, a new workflow, a new capability, or a discovery.",
+    "Prefer stories with a clear technical delta that can be shown visually using symbols, arrows, numbers, nodes, or a before-versus-after diagram.",
     "Explain what changed, why it matters, and any material limitation.",
     "When citing company-reported benchmarks, make the attribution clear and avoid presenting them as independent verification.",
     "Do not exaggerate the source or introduce claims the source does not support.",
-    "Use clear, fast language for a technical but broad audience."
+    "Use clear, fast language for a technical but broad audience.",
+    "Avoid paragraph-style on-screen copy. The narration carries detail; visuals should communicate with diagrams, arrows, symbols and short labels.",
+    "Use reaction sound effects sparingly and contextually: yay for genuinely positive developments, rage for frustrating negative changes, scratch for reversals/catches, impact for important numbers, whoosh for transitions."
+  ],
+  "visualRules": {
+    "background": "#000000",
+    "subtitles": "pure white",
+    "cornerLogo": false,
+    "maxHookWords": 6,
+    "maxMetricLabelWords": 4,
+    "maxDiagramLabelWords": 3,
+    "preferredBeatSeconds": "2-3",
+    "diagramsOverParagraphs": true
+  },
+  "reactionSfx": [
+    "yay",
+    "rage",
+    "scratch",
+    "impact",
+    "whoosh",
+    "tick",
+    "none"
   ],
   "primarySources": [
     "openai.com",
@@ -81,34 +102,31 @@
     "modelOrProductLaunch": [
       "hook",
       "metric",
+      "diagram",
       "comparison",
       "impact",
-      "caveat",
-      "outro"
+      "caveat"
     ],
     "research": [
       "hook",
-      "explain",
+      "diagram",
       "metric",
       "impact",
-      "caveat",
-      "outro"
+      "caveat"
     ],
     "developerTool": [
       "hook",
-      "explain",
+      "diagram",
       "comparison",
       "metric",
-      "impact",
-      "outro"
+      "impact"
     ],
     "infrastructure": [
       "hook",
       "metric",
-      "explain",
+      "diagram",
       "impact",
-      "caveat",
-      "outro"
+      "caveat"
     ]
   }
 }

@@ -19,23 +19,44 @@ If a story qualifies:
 1. Verify factual claims against the primary source.
 2. Write a concise, fast script within the configured word and duration targets.
 3. Structure it around the technical delta: what changed, one or two concrete numbers/capabilities, why it matters, and a real limitation where relevant.
-4. Prefer visually useful scene types. Supported types are `hook`, `explain`, `metric`, `comparison`, `impact`, `caveat`, and `outro`.
-5. Keep on-screen text short. Use `metric` scenes for one strong number rather than paragraphs.
-6. When using company benchmarks, write the narration so the attribution is clear, for example "OpenAI says..." or "According to Google's benchmark...".
-7. Create a stable lowercase kebab-case `storyKey`.
-8. Write `stories/current.json`.
-9. Append the story to `history/covered.json` after the current story has been written successfully.
+4. Prefer visual scenes that communicate with diagrams, arrows, nodes, symbols and numbers. Supported scene types are `hook`, `explain`, `metric`, `diagram`, `comparison`, `impact`, `caveat`, and `outro`.
+5. Do not put paragraphs on screen. Narration carries the explanation.
+6. Hook text should normally be 6 words or fewer. Metric labels should normally be 4 words or fewer. Diagram node labels should normally be 3 words or fewer.
+7. For a diagram scene, use 2-4 nodes. Each node may contain a symbol and a tiny label. The renderer draws arrows between nodes automatically.
+8. Add an optional `sfx` to scenes. Choose only from `yay`, `rage`, `scratch`, `impact`, `whoosh`, `tick`, or `none`. Use reactions intentionally, not on every scene.
+9. Examples: a meaningful price cut may use `yay`; a painful price increase may use `rage`; a catch/reversal may use `scratch`; a major benchmark number may use `impact`.
+10. When using company benchmarks, make attribution clear in narration, e.g. "OpenAI says..." or "According to Google's benchmark...".
+11. Create a stable lowercase kebab-case `storyKey`.
+12. Write `stories/current.json`.
+13. Append the story to `history/covered.json` after the current story has been written successfully.
 
-A metric scene may include:
+Example diagram scene:
+
+```json
+{
+  "type": "diagram",
+  "start": 8,
+  "end": 14,
+  "title": "cost flow",
+  "sfx": "whoosh",
+  "nodes": [
+    {"symbol": "PROMPT", "label": "input"},
+    {"symbol": "→", "label": "cache"},
+    {"symbol": "90%", "label": "discount"}
+  ]
+}
+```
+
+Example negative-news reaction:
 
 ```json
 {
   "type": "metric",
-  "start": 5,
-  "end": 10,
-  "kicker": "API PRICE",
-  "title": "50%",
-  "body": "lower than the previous promotional price"
+  "start": 4,
+  "end": 8,
+  "title": "+50%",
+  "body": "subscription price",
+  "sfx": "rage"
 }
 ```
 
