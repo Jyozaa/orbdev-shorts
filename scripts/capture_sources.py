@@ -70,7 +70,7 @@ def extract_image_candidates(html_text: str, base_url: str) -> list[str]:
         score = 50
         if any(term in lowered for term in ("hero", "featured", "article", "content", "media", "gallery")):
             score += 35
-        if any(term in lowered for term in ("width="1200", "width='1200", "width="1920", "width='1920")):
+        if any(term in lowered for term in ('width="1200', "width='1200", 'width="1920', "width='1920")):
             score += 15
 
         for attr in ("src", "data-src", "data-lazy-src", "data-original"):
