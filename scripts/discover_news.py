@@ -128,6 +128,7 @@ def make_candidate(
     primary_urls: list[str] | None = None,
     primary_verified: bool = False,
     signals: list[str] | None = None,
+    related_urls: list[str] | None = None,
 ) -> dict[str, Any]:
     title = clean_text(title)[:240]
     return {
@@ -143,6 +144,7 @@ def make_candidate(
         "creator": creator,
         "primaryUrls": primary_urls or [],
         "primaryVerified": primary_verified,
+        "relatedUrls": related_urls or [],
         "signals": signals or [],
     }
 
@@ -542,9 +544,10 @@ def creator_candidates(config: dict[str, Any], now: datetime) -> tuple[list[dict
                             "videoTitle": video["title"],
                             "videoUrl": video["url"],
                         },
-                        primary_urls=primary_links,
+                        primary_urls=[],
                         primary_verified=False,
                         signals=["creator-radar", creator["category"], "creator-mention"],
+                        related_urls=primary_links,
                     )
                 )
     return out, seen_videos
@@ -602,29 +605,52 @@ def raw_score(candidate: dict[str, Any], now: datetime) -> float:
     return min(10.0, 4.0 + fresh)
 
 
+def canonical_urls(candidate: dict[str, Any]) -> set[str]:
+    urls = {str(candidate.get("url", "")).split("#", 1)[0].rstrip("/")}
+    urls.update(str(url).split("#", 1)[0].rstrip("/") for url in candidate.get("primaryUrls", []) if url)
+    return {url for url in urls if url and "youtube.com/watch" not in url and "news.google.com/" not in url}
+
+
+def title_terms(candidate: dict[str, Any]) -> set[str]:
+    return tokens(str(candidate.get("title", "")))
+
+
 def similarity(a: dict[str, Any], b: dict[str, Any]) -> float:
-    title_a = tokens(a.get("title", ""))
-    title_b = tokens(b.get("title", ""))
-    ta = title_a | tokens(a.get("summary", "")[:260])
-    tb = title_b | tokens(b.get("summary", "")[:260])
+    # Exact underlying targets are the strongest cross-lane dedupe signal.
+    if canonical_urls(a) & canonical_urls(b):
+        return 1.0
+
+    ta = title_terms(a)
+    tb = title_terms(b)
     if not ta or not tb:
         return 0.0
+
     common = ta & tb
-    base = (len(common) / min(len(ta), len(tb))) if common else 0.0
-    title_common = title_a & title_b
-    strong = {
-        token for token in title_common
-        if token not in WEAK_CLUSTER_TOKENS
-        and (len(token) >= 6 or any(ch.isdigit() for ch in token))
-    }
-    # Only title-level distinctive entities can bypass normal similarity. This
-    # joins differently-worded coverage of the same named model/repo without
-    # collapsing unrelated articles that merely share summary vocabulary.
-    if strong:
-        return max(base, 0.58)
-    if len(common) < 2:
+    if not common:
         return 0.0
-    return base
+    base = len(common) / min(len(ta), len(tb))
+
+    generic = WEAK_CLUSTER_TOKENS | {
+        "hardware","software","platform","local","opensource","open-weight","openweight",
+        "coding","runtime","inference","framework","launches","launch","unveils","adds",
+        "ships","gets","using","better","faster","free","major","best","powerful","latest",
+        "public","available","support","supports","serverless","preview","links"
+    }
+    distinctive = {token for token in common if token not in generic and len(token) >= 4}
+    version_like = {
+        token for token in distinctive
+        if any(ch.isdigit() for ch in token) or "-" in token or "." in token
+    }
+
+    # Require either substantial title overlap, a shared version/model identifier,
+    # or at least two distinctive named terms. One generic/company term is not enough.
+    if base >= 0.62:
+        return base
+    if version_like:
+        return max(base, 0.72)
+    if len(distinctive) >= 2:
+        return max(base, 0.68)
+    return 0.0
 
 
 def cluster_candidates(candidates: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
@@ -638,7 +664,7 @@ def cluster_candidates(candidates: list[dict[str, Any]]) -> list[list[dict[str, 
             if score > best_score:
                 best_score = score
                 best_index = i
-        if best_index >= 0 and best_score >= 0.52:
+        if best_index >= 0 and best_score >= 0.62:
             clusters[best_index].append(candidate)
         else:
             clusters.append([candidate])
@@ -703,6 +729,7 @@ def summarize_cluster(
     score = round(min(10.0, score), 2)
     covered = already_covered(cluster, covered_fps)
     primary_urls = sorted({u for c in cluster for u in c.get("primaryUrls", []) if u})
+    related_urls = sorted({u for c in cluster for u in c.get("relatedUrls", []) if u})
     primary_verified = any(bool(c.get("primaryVerified")) for c in cluster)
     qualifies = score >= float(config["qualificationScore"]) and not covered
     return {
@@ -720,6 +747,7 @@ def summarize_cluster(
         "creators": creators,
         "sourceNames": sources,
         "primaryUrls": primary_urls,
+        "relatedUrls": related_urls,
         "signals": sorted({s for c in cluster for s in c.get("signals", [])}),
         "bestCandidate": best,
         "evidence": sorted(cluster, key=lambda x: float(x.get("rawScore", 0)), reverse=True),
