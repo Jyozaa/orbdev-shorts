@@ -45,11 +45,14 @@ WEAK_CLUSTER_TOKENS = STOPWORDS | {
     "agent","agents","developer","developers","tool","tools","research","release","open-source","opensource",
     "system","cloud","video","image","voice","world","benchmark","benchmarks"
 }
+LOW_SIGNAL_NEWS_SOURCES = {
+    "tradingview", "stocktwits", "aol.co.uk", "finance.biggo.com"
+}
 HARD_EXCLUDE_RE = re.compile(
     r"\b(?:quits?|resigns?|hiring|recruit(?:ing|ment)?|fellowships?|funding round|"
     r"partnership|partners with|election|celebrity|lawsuit|culture is|wiping out humanity|"
     r"executive order|religious scholars|stock(?:s)?|shares|jpmorgan|investors?|market cap|"
-    r"medicare fraud|medicaid providers?)\b",
+    r"medicare fraud|medicaid providers?|ipo|wall street|consumer tech roundup)\b",
     re.I,
 )
 
@@ -559,6 +562,9 @@ def technical_core(candidate: dict[str, Any]) -> bool:
         return True
     text = f"{candidate.get('title','')} {candidate.get('summary','')}"
     if HARD_EXCLUDE_RE.search(text):
+        return False
+    source_name = str(candidate.get("sourceName", "")).lower()
+    if candidate.get("sourceKind") == "news_search" and any(bad in source_name for bad in LOW_SIGNAL_NEWS_SOURCES):
         return False
     if candidate.get("sourceKind") in {"news_search", "hacker_news"} and str(candidate.get("title", "")).count(";") >= 2:
         return False

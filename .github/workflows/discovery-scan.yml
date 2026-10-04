@@ -43,6 +43,9 @@ jobs:
       - name: Install discovery dependencies
         run: python -m pip install -r requirements-discovery.txt
 
+      - name: Test discovery logic
+        run: python scripts/test_discovery_logic.py
+
       - name: Run all discovery lanes
         env:
           GITHUB_TOKEN: ${{ github.token }}
