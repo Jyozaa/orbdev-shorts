@@ -1,5 +1,5 @@
 {
-  "version": 23,
+  "version": 24,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -176,7 +176,7 @@
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": 1.26,
+    "speed": 1.24,
     "fallback": "Edge BrianMultilingualNeural",
     "targetEffectiveWpm": "roughly 180-195 for normal high-density Shorts; prioritize natural articulation over maximum speed",
     "postTempo": 1.04,

@@ -48,7 +48,8 @@ WEAK_CLUSTER_TOKENS = STOPWORDS | {
 HARD_EXCLUDE_RE = re.compile(
     r"\b(?:quits?|resigns?|hiring|recruit(?:ing|ment)?|fellowships?|funding round|"
     r"partnership|partners with|election|celebrity|lawsuit|culture is|wiping out humanity|"
-    r"executive order|religious scholars)\b",
+    r"executive order|religious scholars|stock(?:s)?|shares|jpmorgan|investors?|market cap|"
+    r"medicare fraud|medicaid providers?)\b",
     re.I,
 )
 
@@ -395,7 +396,7 @@ def fetch_transcript(video_id: str) -> list[dict[str, Any]]:
                 out.append({"text": clean_text(text), "start": start, "duration": duration})
         return out
     except Exception as exc:
-        print(f"transcript unavailable for {video_id}: {exc}", file=sys.stderr)
+        print(f"transcript unavailable for {video_id}: {type(exc).__name__}", file=sys.stderr)
         return []
 
 
@@ -556,6 +557,8 @@ def technical_core(candidate: dict[str, Any]) -> bool:
     text = f"{candidate.get('title','')} {candidate.get('summary','')}"
     if HARD_EXCLUDE_RE.search(text):
         return False
+    if candidate.get("sourceKind") in {"news_search", "hacker_news"} and str(candidate.get("title", "")).count(";") >= 2:
+        return False
     ts = tokens(text)
     if ts & TECHNICAL_CUES:
         return True
@@ -600,19 +603,23 @@ def raw_score(candidate: dict[str, Any], now: datetime) -> float:
 
 
 def similarity(a: dict[str, Any], b: dict[str, Any]) -> float:
-    ta = tokens(a.get("title", "") + " " + a.get("summary", "")[:260])
-    tb = tokens(b.get("title", "") + " " + b.get("summary", "")[:260])
+    title_a = tokens(a.get("title", ""))
+    title_b = tokens(b.get("title", ""))
+    ta = title_a | tokens(a.get("summary", "")[:260])
+    tb = title_b | tokens(b.get("summary", "")[:260])
     if not ta or not tb:
         return 0.0
     common = ta & tb
     base = (len(common) / min(len(ta), len(tb))) if common else 0.0
+    title_common = title_a & title_b
     strong = {
-        token for token in common
+        token for token in title_common
         if token not in WEAK_CLUSTER_TOKENS
         and (len(token) >= 6 or any(ch.isdigit() for ch in token))
     }
-    # A distinctive shared entity/model name is enough to connect evidence from
-    # differently-worded sources (e.g. news title vs. Hugging Face model id).
+    # Only title-level distinctive entities can bypass normal similarity. This
+    # joins differently-worded coverage of the same named model/repo without
+    # collapsing unrelated articles that merely share summary vocabulary.
     if strong:
         return max(base, 0.58)
     if len(common) < 2:
@@ -703,8 +710,10 @@ def summarize_cluster(
         "title": best["title"],
         "score": score,
         "qualifiesForEditorial": qualifies,
-        "publishReady": qualifies and primary_verified,
+        "publishReady": False,
+        "primarySourceAvailable": bool(primary_urls) or primary_verified,
         "needsPrimaryVerification": qualifies and not primary_verified,
+        "needsEditorialVerification": qualifies,
         "alreadyCovered": covered,
         "lanes": lanes,
         "creatorCategories": creator_categories,
@@ -741,7 +750,7 @@ def write_report(path: Path, result: dict[str, Any]) -> None:
     if not result["qualified"]:
         lines.append("No topic cleared the quality threshold in this scan.")
     for item in result["qualified"]:
-        suffix = "primary-ready" if item["publishReady"] else "needs primary verification"
+        suffix = "primary source found" if item.get("primarySourceAvailable") else "needs primary verification"
         lines.append(
             f"- {item['score']:.2f} — {item['title']} "
             f"[{', '.join(item['lanes'])}; {suffix}]"
@@ -847,7 +856,7 @@ def main() -> None:
     for lane, counts in lane_summary.items():
         print(f"  {lane}: {counts['raw']} raw / {counts['qualified']} qualifying")
     for item in qualified[:20]:
-        status = "primary-ready" if item["publishReady"] else "verify-primary"
+        status = "primary-found" if item.get("primarySourceAvailable") else "verify-primary"
         print(f"  {item['score']:.2f} {status}: {item['title']}")
 
 

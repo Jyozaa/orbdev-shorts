@@ -14,6 +14,8 @@ on:
       - 'stories/current.json'
       - 'src/**'
       - 'scripts/**'
+      - '!scripts/discover_news.py'
+      - '!scripts/publish_youtube.py'
       - 'package.json'
       - 'requirements.txt'
       - '.github/workflows/render-short.yml'
@@ -31,7 +33,7 @@ jobs:
     timeout-minutes: 25
     env:
       ORBDEV_KOKORO_VOICE: am_michael
-      ORBDEV_KOKORO_SPEED: '1.26'
+      ORBDEV_KOKORO_SPEED: '1.24'
       ORBDEV_VOICE_FALLBACK: en-US-BrianMultilingualNeural
       ORBDEV_VOICE_TERTIARY: en-US-AndrewMultilingualNeural
       ORBDEV_EDGE_RATE: +12%
