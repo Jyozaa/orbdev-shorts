@@ -1,0 +1,301 @@
+{
+  "slug": "strata-qwen38-local-gaming-pc",
+  "title": "A 125B AI model is running on gaming PCs",
+  "narration": "Someone just got a 125-billion-parameter AI model running on a normal gaming PC. Strata runs Qwen3.8-Flash-Next using your GPU, system RAM, and even SSD together. The trick is mixture-of-experts: Qwen has 125 billion parameters, but only about 6 billion activate per token. Strata keeps hot experts on the GPU and spills the rest into RAM. On an RTX 5070, the project reports up to 94 tokens per second. The catch? You still want at least 12GB of VRAM, 32GB RAM, and roughly 80GB free storage. So yes, local giant models are getting weirdly practical.",
+  "beats": [
+    {
+      "text": "Someone just got",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Strata local AI gaming PC",
+        "mustMatch": [
+          "strata"
+        ]
+      },
+      "sfx": "whoosh"
+    },
+    {
+      "text": "a 125-billion-parameter AI model",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "125B PARAMS"
+      }
+    },
+    {
+      "text": "running on a normal gaming PC.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Strata gaming PC local model",
+        "mustMatch": [
+          "strata"
+        ],
+        "allowReuse": true
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "gaming pc",
+          "surprised",
+          "wait what",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "Strata runs Qwen3.8-Flash-Next",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Strata Qwen3.8 Flash Next",
+        "mustMatch": [
+          "qwen3.8",
+          "strata"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "using your GPU, system RAM,",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "fanout",
+        "nodes": [
+          "GPU",
+          "RAM",
+          "SSD"
+        ]
+      }
+    },
+    {
+      "text": "and even SSD together.",
+      "editorialRole": "analogy",
+      "visual": {
+        "type": "kinetic",
+        "text": "THE WHOLE PC HELPS",
+        "emphasis": "WHOLE"
+      },
+      "memeIntent": {
+        "purpose": "absurdity",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "teamwork",
+          "all hands",
+          "computer",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "The trick is mixture-of-experts:",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "Qwen3.8 Flash Next mixture of experts model card",
+        "mustMatch": [
+          "qwen3.8"
+        ]
+      }
+    },
+    {
+      "text": "Qwen has 125 billion parameters,",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "125B TOTAL"
+      }
+    },
+    {
+      "text": "but only about 6 billion activate per token.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "Qwen3.8 Flash Next 6B activated parameters",
+        "mustMatch": [
+          "qwen3.8"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Strata keeps hot experts on the GPU",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "pipeline",
+        "stages": [
+          "HOT EXPERTS",
+          "GPU",
+          "FAST PATH"
+        ]
+      }
+    },
+    {
+      "text": "and spills the rest into RAM.",
+      "editorialRole": "analogy",
+      "visual": {
+        "type": "kinetic",
+        "text": "THE REST WAITS IN RAM",
+        "emphasis": "RAM"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "waiting room",
+          "queue",
+          "ram",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "On an RTX 5070,",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Strata RTX 5070 benchmark",
+        "mustMatch": [
+          "strata"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "the project reports up to 94 tokens per second.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "94 TOK/S"
+      }
+    },
+    {
+      "text": "The catch?",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "THE CATCH",
+        "emphasis": "CATCH"
+      },
+      "sfx": "scratch",
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "awkward",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "catch",
+          "uh oh",
+          "awkward",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "You still want at least 12GB of VRAM, 32GB RAM, and roughly 80GB free storage.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Strata system requirements 12GB VRAM 32GB RAM 80GB",
+        "mustMatch": [
+          "strata"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "So yes, local giant models are getting weirdly practical.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "kinetic",
+        "text": "GIANT MODELS. NORMAL PCS.",
+        "emphasis": "NORMAL"
+      },
+      "memeIntent": {
+        "purpose": "success",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "success",
+          "future",
+          "local ai",
+          "nice"
+        ]
+      }
+    }
+  ],
+  "editorial": {
+    "storyKey": "strata-qwen38-flash-next-local-gaming-pc-2026",
+    "selectedAt": "2026-10-04T19:35:00+01:00",
+    "score": 9,
+    "topics": [
+      "local AI",
+      "open source",
+      "inference",
+      "Qwen",
+      "consumer hardware"
+    ],
+    "companies": [
+      "Qwen"
+    ],
+    "sources": [
+      {
+        "title": "Strata — Qwen3.8-Flash-Next on consumer hardware",
+        "publisher": "Niko1221 / GitHub",
+        "url": "https://github.com/Niko1221/Strata",
+        "publishedAt": "2026-10-04",
+        "primary": true
+      },
+      {
+        "title": "Qwen3.8-Flash-Next model card",
+        "publisher": "Qwen / Hugging Face",
+        "url": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+        "publishedAt": "2026-09-30",
+        "primary": true
+      }
+    ]
+  },
+  "publish": {
+    "youtubeTitle": "A 125B AI model is running on gaming PCs",
+    "description": "Strata runs Qwen3.8-Flash-Next locally by spreading work across GPU VRAM, system RAM and storage. The project reports up to 94 tokens/s on an RTX 5070, while Qwen's model card lists 125B total parameters with about 6B activated per token.\n\nSources:\nhttps://github.com/Niko1221/Strata\nhttps://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+    "tags": [
+      "AI",
+      "local AI",
+      "Qwen",
+      "open source",
+      "GPU",
+      "LLM",
+      "tech news"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false
+  }
+}
