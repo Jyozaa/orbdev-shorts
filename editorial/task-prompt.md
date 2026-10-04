@@ -90,3 +90,15 @@ Before committing a story, audit the first 5 seconds and every humor beat:
 - Make callbacks intentional: reuse a phrase, premise, visual concept or reaction category near the ending instead of treating every beat as unrelated.
 - Do not crop screenshots or source art for vertical framing. The foreground is always contained inside the subtitle-safe region; visual energy comes from blurred background fill, motion, layered labels and overlays.
 - Keep technical trust intact: jokes can be aggressive, but facts, quotes, benchmark attribution and limitations must remain accurate.
+
+
+## Pacing target
+
+Aim for a compressed broadcast cadence rather than a conventional explainer cadence. Narration should generally land around 180-195 effective WPM when the wording remains intelligible. Write shorter clauses and remove filler instead of relying only on TTS speed.
+
+Visual pacing follows editorial meaning:
+- factual/source visuals usually hold around 1.1-2.5 seconds;
+- jokes, reactions, analogies, punchlines and callbacks should normally get their own visual beat;
+- the first five seconds should change major visual ideas roughly every 0.9-1.6 seconds when readable;
+- use sub-second meme/reaction overlays for extra energy rather than making every source image unreadably brief;
+- long source visuals may remain on screen if overlays, zooms, highlights or reaction events create internal motion.

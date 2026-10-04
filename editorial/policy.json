@@ -1,5 +1,5 @@
 {
-  "version": 21,
+  "version": 22,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -68,7 +68,9 @@
     "The first five seconds need a concrete hook, relevant real media, motion, and a strong editorial turn.",
     "Never crop the foreground copy of a source image; only the blurred atmospheric background may use cover.",
     "When a long entertainment-heavy Short has too few visible reactions, backfill unused joke, punchline, reaction, callback or analogy beats with approved image/video meme overlays.",
-    "Duck narration under audible meme overlays so reaction audio reads as punctuation instead of competing with the voice."
+    "Duck narration under audible meme overlays so reaction audio reads as punctuation instead of competing with the voice.",
+    "Pacing should feel compressed and editorial: remove dead air, keep narration roughly 180-195 effective WPM when natural, and reserve the fastest visual punctuation for jokes, reactions, analogies, punchlines and callbacks.",
+    "Do not merge humor/reaction beats into neighboring visual windows; they should normally receive their own visual punctuation."
   ],
   "visualRules": {
     "background": "#000000",
@@ -92,9 +94,9 @@
     "animatedCharts": true,
     "animatedTimelines": true,
     "animatedNetworks": true,
-    "preferredVisualHoldSeconds": "1.55-3.15, meaning-driven",
-    "minimumVisualHoldSeconds": 1.55,
-    "maximumVisualHoldSeconds": 3.15,
+    "preferredVisualHoldSeconds": "1.05-2.45 base holds; humor/reaction accents may be sub-second",
+    "minimumVisualHoldSeconds": 1.05,
+    "maximumVisualHoldSeconds": 2.45,
     "sourceImageTargetFraction": "quality-driven, typically 0.35-0.55 when enough relevant official media exists",
     "multipleSourceImages": true,
     "sourceImagesPerSourceMax": 5,
@@ -144,7 +146,15 @@
     "visibleMemeBackfill": true,
     "visibleMemeMinimumForLongEntertainmentShort": 3,
     "pureLogoPreferredRole": "brand reveal only",
-    "editingRhythm": "meaning-driven base holds with sub-second meme/reaction accents; do not globally speed every scene"
+    "editingRhythm": "meaning-driven base holds with sub-second meme/reaction accents; do not globally speed every scene",
+    "fastEditorialRoles": [
+      "analogy",
+      "joke",
+      "reaction",
+      "punchline",
+      "callback"
+    ],
+    "firstFiveSecondsCutDensity": "roughly 0.85-1.6s per major visual idea when readable"
   },
   "narration": {
     "preferredVoice": "en-US-BrianMultilingualNeural",
@@ -156,9 +166,11 @@
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": 1.08,
+    "speed": 1.22,
     "fallback": "Edge BrianMultilingualNeural",
-    "targetEffectiveWpm": "energetic human delivery; typically 165-190 when writing supports it"
+    "targetEffectiveWpm": "roughly 180-195 for normal high-density Shorts; prioritize natural articulation over maximum speed",
+    "postTempo": 1.1,
+    "sentencePauseMs": 28
   },
   "reactionSfx": [
     "scratch",

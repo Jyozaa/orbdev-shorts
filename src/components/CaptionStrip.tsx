@@ -25,7 +25,7 @@ const buildPhrases = (words: CaptionWord[]): Phrase[] => {
   for (const word of words) {
     group.push(word);
     const punctuationBreak = /[.!?,:;]$/.test(word.text);
-    if (group.length >= 5 || (group.length >= 3 && punctuationBreak)) flush();
+    if (group.length >= 4 || (group.length >= 2 && punctuationBreak)) flush();
   }
   flush();
   return phrases;

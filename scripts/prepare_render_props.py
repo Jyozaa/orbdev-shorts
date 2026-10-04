@@ -4,7 +4,8 @@ from pathlib import Path
 
 BUILD_DIR=Path("build"); CAPTIONS_PATH=Path("public/captions.json"); MEME_SELECTION_PATH=BUILD_DIR/"meme-selection.json"
 SOURCE_ASSETS_PATH=BUILD_DIR/"source-assets.json"; LOGO_ASSETS_PATH=BUILD_DIR/"logo-assets.json"; CUTAWAYS_PATH=BUILD_DIR/"cutaways.json"
-MIN_VISUAL_SECONDS=1.55; TARGET_VISUAL_SECONDS=2.10; MAX_VISUAL_SECONDS=3.15
+MIN_VISUAL_SECONDS=1.05; TARGET_VISUAL_SECONDS=1.55; MAX_VISUAL_SECONDS=2.45
+RHYTHM_BREAK_ROLES={"analogy","joke","reaction","punchline","callback"}
 SOURCE_MIN_MATCH=0.34
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
@@ -157,6 +158,12 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
         while end_index+1<len(beats):
             if end_index in cutaway_by_beat:break
             current=end-start
+            current_role=str(beats[end_index].get("editorialRole","")).lower()
+            next_role=str(beats[end_index+1].get("editorialRole","")).lower()
+            # Fireship-like rhythm: jokes/reactions get their own visual punctuation,
+            # and the first five seconds establish energy with denser cuts.
+            if current_role in RHYTHM_BREAK_ROLES or next_role in RHYTHM_BREAK_ROLES:break
+            if start<5.0 and current>=0.85:break
             if current>=TARGET_VISUAL_SECONDS:break
             next_end=float(beats[end_index+1]["end"])
             if next_end-start>MAX_VISUAL_SECONDS and current>=MIN_VISUAL_SECONDS:break

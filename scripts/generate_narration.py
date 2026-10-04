@@ -5,6 +5,8 @@ import edge_tts
 
 PUBLIC_DIR=Path("public"); RAW_AUDIO_PATH=PUBLIC_DIR/"voice-raw.mp3"; RAW_WAV_PATH=PUBLIC_DIR/"voice-kokoro.wav"; AUDIO_PATH=PUBLIC_DIR/"voice.mp3"; CAPTIONS_PATH=PUBLIC_DIR/"captions.json"
 CAPTION_LEAD_MS=int(os.getenv("ORBDEV_CAPTION_LEAD_MS","70"))
+VOICE_TEMPO=float(os.getenv("ORBDEV_VOICE_TEMPO","1.10"))
+SENTENCE_PAUSE_MS=int(os.getenv("ORBDEV_SENTENCE_PAUSE_MS","28"))
 
 def audio_duration_seconds(path:Path)->float:
     return float(subprocess.check_output(["ffprobe","-v","error","-show_entries","format=duration","-of","default=noprint_wrappers=1:nokey=1",str(path)],text=True).strip())
@@ -19,6 +21,20 @@ def weighted_word_timings(text:str,start:float,duration:float)->list[dict[str,ob
         cursor+=width
     return out
 
+def trim_edge_silence(arr, sr:int):
+    import numpy as np
+    if arr.size==0:return arr
+    threshold=float(os.getenv("ORBDEV_SILENCE_THRESHOLD","0.0035"))
+    active=np.flatnonzero(np.abs(arr)>=threshold)
+    if active.size==0:return arr
+    pad=max(1,int(sr*.012))
+    start=max(0,int(active[0])-pad);end=min(arr.size,int(active[-1])+pad+1)
+    return arr[start:end]
+
+def scale_timings(captions:list[dict[str,object]],tempo:float)->list[dict[str,object]]:
+    if tempo<=0:return captions
+    return [{**c,"startMs":round(float(c["startMs"])/tempo),"endMs":round(float(c["endMs"])/tempo)} for c in captions]
+
 def render_kokoro(text:str)->list[dict[str,object]]:
     import numpy as np
     import soundfile as sf
@@ -32,11 +48,12 @@ def render_kokoro(text:str)->list[dict[str,object]]:
         if audio is None:continue
         arr=np.asarray(audio,dtype=np.float32).reshape(-1)
         if arr.size==0:continue
+        arr=trim_edge_silence(arr,sr)
         spoken=str(graphemes).strip(); dur=arr.size/sr
         if spoken:captions.extend(weighted_word_timings(spoken,cursor,dur))
         chunks.append(arr);cursor+=dur
-        if spoken.endswith((".","!","?")):
-            pause=np.zeros(int(sr*.055),dtype=np.float32);chunks.append(pause);cursor+=pause.size/sr
+        if spoken.endswith((".","!","?")) and SENTENCE_PAUSE_MS>0:
+            pause=np.zeros(int(sr*(SENTENCE_PAUSE_MS/1000.0)),dtype=np.float32);chunks.append(pause);cursor+=pause.size/sr
     if not chunks:raise RuntimeError("Kokoro produced no audio")
     sf.write(RAW_WAV_PATH,np.concatenate(chunks),sr)
     print(f"Narration engine: Kokoro-82M / {voice} @ {speed:.2f}x")
@@ -53,7 +70,7 @@ async def render_edge(text:str,voice:str)->list[dict[str,object]]:
     return captions
 
 def process_voice(source:Path)->None:
-    filters="highpass=f=52,acompressor=threshold=-15dB:ratio=1.25:attack=18:release=220:makeup=0.4dB,alimiter=limit=0.97:attack=5:release=80,loudnorm=I=-16:TP=-1.5:LRA=9"
+    filters=f"atempo={VOICE_TEMPO:.4f},highpass=f=52,acompressor=threshold=-15dB:ratio=1.25:attack=18:release=220:makeup=0.4dB,alimiter=limit=0.97:attack=5:release=80,loudnorm=I=-16:TP=-1.5:LRA=9"
     subprocess.run(["ffmpeg","-y","-loglevel","error","-i",str(source),"-af",filters,"-codec:a","libmp3lame","-q:a","2",str(AUDIO_PATH)],check=True)
 
 def render_espeak(text:str)->None:
@@ -64,12 +81,12 @@ async def main()->None:
     text=json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))["narration"].strip();PUBLIC_DIR.mkdir(parents=True,exist_ok=True);AUDIO_PATH.unlink(missing_ok=True)
     captions=[]
     try:
-        captions=render_kokoro(text);process_voice(RAW_WAV_PATH)
+        captions=render_kokoro(text);process_voice(RAW_WAV_PATH);captions=scale_timings(captions,VOICE_TEMPO)
     except Exception as exc:
         print(f"Kokoro unavailable: {exc}")
         for voice in (os.getenv("ORBDEV_VOICE_FALLBACK","en-US-BrianMultilingualNeural"),os.getenv("ORBDEV_VOICE_TERTIARY","en-US-AndrewMultilingualNeural")):
             try:
-                captions=await render_edge(text,voice);process_voice(RAW_AUDIO_PATH);print(f"Narration engine fallback: Edge / {voice}");break
+                captions=await render_edge(text,voice);process_voice(RAW_AUDIO_PATH);captions=scale_timings(captions,VOICE_TEMPO);print(f"Narration engine fallback: Edge / {voice}");break
             except Exception as e:print(f"Edge voice unavailable ({voice}): {e}");captions=[]
     if not AUDIO_PATH.exists():render_espeak(text)
     duration=audio_duration_seconds(AUDIO_PATH); expected=len(re.findall(r"\S+",text))
@@ -77,6 +94,7 @@ async def main()->None:
     if CAPTION_LEAD_MS>0:
         captions=[{**c,"startMs":max(0,int(c["startMs"])-CAPTION_LEAD_MS),"endMs":max(1,int(c["endMs"])-CAPTION_LEAD_MS)} for c in captions]
     CAPTIONS_PATH.write_text(json.dumps({"durationSeconds":duration,"words":captions},indent=2),encoding="utf-8")
-    RAW_AUDIO_PATH.unlink(missing_ok=True);RAW_WAV_PATH.unlink(missing_ok=True);print(f"Narration ready: {duration:.2f}s, {len(captions)} timed words")
+    word_count=len(re.findall(r"\S+",text));wpm=(word_count/max(duration,0.01))*60
+    RAW_AUDIO_PATH.unlink(missing_ok=True);RAW_WAV_PATH.unlink(missing_ok=True);print(f"Narration ready: {duration:.2f}s, {len(captions)} timed words, {wpm:.0f} effective WPM")
 
 if __name__=="__main__":asyncio.run(main())
