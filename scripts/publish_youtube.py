@@ -81,7 +81,12 @@ def main() -> None:
             print(f"YouTube upload progress: {int(status.progress() * 100)}%")
 
     video_id = response.get("id")
-    print(f"YouTube upload complete: https://youtu.be/{video_id}")
+    url = f"https://youtu.be/{video_id}"
+    result_path = os.getenv("YOUTUBE_RESULT_PATH", "").strip()
+    if result_path:
+        Path(result_path).parent.mkdir(parents=True, exist_ok=True)
+        Path(result_path).write_text(json.dumps({"videoId": video_id, "url": url}, indent=2), encoding="utf-8")
+    print(f"YouTube upload complete: {url}")
 
 
 if __name__ == "__main__":

@@ -2,6 +2,11 @@ name: Render queued stories
 
 on:
   workflow_dispatch:
+    inputs:
+      files:
+        description: JSON array of exact queue files; [] renders all queue files
+        required: false
+        default: '[]'
   push:
     branches:
       - main
@@ -9,7 +14,7 @@ on:
       - 'stories/queue/*.json'
 
 permissions:
-  contents: read
+  contents: write
 
 concurrency:
   group: orbdev-render-queue-${{ github.ref }}
@@ -22,46 +27,36 @@ jobs:
       matrix: ${{ steps.queue.outputs.matrix }}
       count: ${{ steps.queue.outputs.count }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 2
-
       - name: Resolve queued stories
         id: queue
-        shell: bash
         env:
           EVENT_NAME: ${{ github.event_name }}
           BEFORE_SHA: ${{ github.event.before }}
           AFTER_SHA: ${{ github.sha }}
+          REQUESTED_FILES: ${{ inputs.files || '[]' }}
+        shell: bash
         run: |
           python - <<'PY'
-          import glob, json, os, subprocess
-
-          event = os.environ.get("EVENT_NAME")
-          before = os.environ.get("BEFORE_SHA", "")
-          after = os.environ.get("AFTER_SHA", "")
-          files = []
-
-          if event == "push" and before and set(before) != {"0"}:
-              try:
-                  changed = subprocess.check_output(
-                      ["git", "diff", "--name-only", before, after, "--", "stories/queue"],
-                      text=True,
-                  ).splitlines()
-                  files = [path for path in changed if path.startswith("stories/queue/") and path.endswith(".json")]
-              except subprocess.CalledProcessError:
-                  files = []
-          if event != "push":
-              files = sorted(glob.glob("stories/queue/*.json"))
-
-          files = sorted({path for path in files if os.path.isfile(path)})
-          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
-              output.write("matrix=" + json.dumps(files, separators=(",", ":")) + "\n")
-              output.write("count=" + str(len(files)) + "\n")
-          print(f"Queued stories selected: {len(files)}")
-          for path in files:
-              print(" -", path)
+          import glob,json,os,subprocess
+          event=os.environ.get("EVENT_NAME");files=[]
+          if event=="workflow_dispatch":
+              try:req=json.loads(os.environ.get("REQUESTED_FILES") or "[]")
+              except json.JSONDecodeError:req=[]
+              files=[str(p) for p in req] if req else sorted(glob.glob("stories/queue/*.json"))
+          else:
+              before=os.environ.get("BEFORE_SHA","");after=os.environ.get("AFTER_SHA","")
+              if before and set(before)!={"0"}:
+                  try:
+                      changed=subprocess.check_output(["git","diff","--name-only",before,after,"--","stories/queue"],text=True).splitlines()
+                      files=[p for p in changed if p.startswith("stories/queue/") and p.endswith(".json")]
+                  except subprocess.CalledProcessError:pass
+          files=sorted({p for p in files if os.path.isfile(p)})
+          with open(os.environ["GITHUB_OUTPUT"],"a") as out:
+              out.write("matrix="+json.dumps(files,separators=(",",":"))+"\n");out.write("count="+str(len(files))+"\n")
+          print("Queued stories selected:",len(files));[print(" -",p) for p in files]
           PY
 
   render:
@@ -83,94 +78,47 @@ jobs:
       ORBDEV_CAPTION_LEAD_MS: 45
       ORBDEV_VOICE_TEMPO: '1.04'
       ORBDEV_SENTENCE_PAUSE_MS: 18
-
     steps:
-      - name: Checkout application files
-        uses: actions/checkout@v4
-
+      - uses: actions/checkout@v4
       - name: Resolve story metadata
-        shell: bash
         env:
           STORY: ${{ matrix.story }}
         run: |
-          slug="$(python -c 'import json,os; print(json.load(open(os.environ["STORY"], encoding="utf-8"))["slug"])')"
-          echo "STORY_FILE=$STORY" >> "$GITHUB_ENV"
-          echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
-
-      - name: Set up Node
-        uses: actions/setup-node@v4
+          slug="$(python -c 'import json,os;print(json.load(open(os.environ["STORY"],encoding="utf-8"))["slug"])')"
+          echo "STORY_FILE=$STORY" >> "$GITHUB_ENV";echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
+      - uses: actions/setup-node@v4
         with:
           node-version: '22'
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
           cache: pip
-
-      - name: Install system packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg espeak-ng
-
-      - name: Install Node packages
-        run: npm install
-
-      - name: Install Python packages
-        run: python -m pip install -r requirements.txt
-
-      - name: Validate story
-        run: python scripts/validate_story.py "$STORY_FILE"
-
-      - name: Generate narration
-        run: python scripts/generate_narration.py "$STORY_FILE"
-
-      - name: Generate transition sound effects
-        run: python scripts/generate_sfx.py
-
-      - name: Build meme catalog
-        env:
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg espeak-ng
+      - run: npm install
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/validate_story.py "$STORY_FILE"
+      - run: python scripts/generate_narration.py "$STORY_FILE"
+      - run: python scripts/generate_sfx.py
+      - env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/build_meme_catalog.py
-
-      - name: Select meme assets
-        run: python scripts/select_memes.py "$STORY_FILE"
-
-      - name: Insert narration-free meme cutaways
-        run: python scripts/insert_cutaway_pauses.py
-
-      - name: Capture source visuals
-        run: python scripts/capture_sources.py "$STORY_FILE"
-
-      - name: Capture animated logo assets
-        run: python scripts/capture_logos.py "$STORY_FILE"
-
-      - name: Prepare voice-timed render
-        run: python scripts/prepare_render_props.py "$STORY_FILE"
-
-      - name: Type check
-        run: npm run typecheck
-
+      - run: python scripts/select_memes.py "$STORY_FILE"
+      - run: python scripts/insert_cutaway_pauses.py
+      - run: python scripts/capture_sources.py "$STORY_FILE"
+      - run: python scripts/capture_logos.py "$STORY_FILE"
+      - run: python scripts/prepare_render_props.py "$STORY_FILE"
+      - run: npm run typecheck
       - name: Render video
         run: |
           mkdir -p out
-          npx remotion render src/index.ts OrbdevShort "out/${STORY_SLUG}.mp4" \
-            --props=build/render-props.json \
-            --codec=h264 \
-            --pixel-format=yuv420p \
-            --concurrency=2 \
-            --log=info
-
-      - name: Upload video artifact
-        uses: actions/upload-artifact@v4
+          npx remotion render src/index.ts OrbdevShort "out/${STORY_SLUG}.mp4" --props=build/render-props.json --codec=h264 --pixel-format=yuv420p --concurrency=2 --log=info
+      - uses: actions/upload-artifact@v4
         with:
           name: orbdev-${{ env.STORY_SLUG }}
           path: out/${{ env.STORY_SLUG }}.mp4
           if-no-files-found: error
           retention-days: 30
-
-      - name: Upload selection report
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v4
         with:
           name: render-selection-${{ env.STORY_SLUG }}
           path: |
@@ -181,15 +129,56 @@ jobs:
             build/render-props.json
           if-no-files-found: ignore
           retention-days: 30
-
-      - name: Install YouTube publishing dependencies
-        if: ${{ vars.ORBDEV_AUTO_PUBLISH == 'true' }}
+      - if: ${{ vars.ORBDEV_AUTO_PUBLISH == 'true' }}
         run: python -m pip install -r requirements-publish.txt
-
       - name: Publish to YouTube
         if: ${{ vars.ORBDEV_AUTO_PUBLISH == 'true' }}
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_RESULT_PATH: build/youtube-result.json
         run: python scripts/publish_youtube.py "$STORY_FILE" "out/${STORY_SLUG}.mp4"
+      - name: Write render receipt
+        env:
+          STORY_PATH: ${{ matrix.story }}
+        run: |
+          mkdir -p build/receipt
+          python - <<'PY'
+          import json,os
+          from datetime import datetime,timezone
+          s=json.load(open(os.environ["STORY_PATH"],encoding="utf-8"));e=s["editorial"];yt={}
+          try:yt=json.load(open("build/youtube-result.json"))
+          except Exception:pass
+          r={"storyKey":e["storyKey"],"slug":s["slug"],"headline":s["title"],"selectedAt":e["selectedAt"],"score":e["score"],"sourceUrls":[x["url"] for x in e["sources"] if x.get("primary")],"renderedAt":datetime.now(timezone.utc).isoformat(),"youtubeUrl":yt.get("url")}
+          json.dump(r,open(f"build/receipt/{s['slug']}.json","w"),indent=2)
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: render-receipt-${{ env.STORY_SLUG }}
+          path: build/receipt/${{ env.STORY_SLUG }}.json
+          if-no-files-found: error
+          retention-days: 7
+
+  finalize:
+    needs: [prepare, render]
+    if: always() && needs.prepare.outputs.count != '0'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          pattern: render-receipt-*
+          path: build/receipts
+          merge-multiple: true
+      - run: python scripts/mark_covered.py --receipts-dir build/receipts --covered history/covered.json --output /tmp/covered.json
+      - name: Persist successful stories
+        run: |
+          git fetch origin main && git reset --hard origin/main
+          cp /tmp/covered.json history/covered.json
+          git config user.name "orbdev-render[bot]";git config user.email "orbdev-render[bot]@users.noreply.github.com"
+          git add history/covered.json
+          if ! git diff --cached --quiet; then git commit -m "Mark rendered Orbdev stories covered";git push origin HEAD:main; fi

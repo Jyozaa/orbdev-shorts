@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "scanCadenceHours": 12,
   "candidateLookbackHours": 36,
   "exceptionLookbackHours": 72,
@@ -187,5 +187,12 @@
     "hackerNewsStandaloneMinPoints": 55,
     "hackerNewsStandaloneMinComments": 18,
     "githubTrendingMinStarsPerDay": 25
+  },
+  "editorialRecheckHours": 24,
+  "editorialRecheckScoreDelta": 0.6,
+  "minimumBaseEditorialScore": 6,
+  "editorialModels": {
+    "triage": "gpt-6-luna",
+    "final": "gpt-6.1-sol"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "version": 24,
+  "version": 25,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -22,7 +22,7 @@
     "novelty": 2,
     "sourceConfidence": 1,
     "visualClarity": 1,
-    "heatBonus": "up to +2 after base editorial scoring; cross-lane momentum may raise priority but never substitute for verification"
+    "heatBonus": "0-2 points after the 10-point base rubric; final score capped at 10; primary verification and base editorial score >= 6.0 are mandatory"
   },
   "hardRules": [
     "Use at least one primary source.",
@@ -80,7 +80,10 @@
     "Merge the same development across lanes into one candidate and use convergence as a heat signal rather than publishing duplicates.",
     "For Hot / Emerging stories, recent momentum can make an older project fresh; repository creation date is not the only freshness signal.",
     "Narration synthesis should vary subtly by editorialRole instead of reading every beat with identical speed and pause timing.",
-    "Do not clone or imitate the literal voice of a creator; use original narration with high-density, conversational, dry technical delivery."
+    "Do not clone or imitate the literal voice of a creator; use original narration with high-density, conversational, dry technical delivery.",
+    "Scheduled editorial batches must independently verify every accepted candidate with at least one primary source before a story is queued.",
+    "Heat and creator/community convergence may increase priority but cannot rescue an unverified or substantively weak story.",
+    "A discovery scan may queue zero, one, or many independently qualifying Shorts; there is no fixed per-day publishing quota."
   ],
   "visualRules": {
     "background": "#000000",

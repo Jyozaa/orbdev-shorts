@@ -15,3 +15,6 @@ Each file uses the same schema as `stories/current.json`.
 On push, `.github/workflows/render-queue.yml` renders only the queue JSON files added or changed by that push. Multiple files render in parallel.
 
 When repository variable `ORBDEV_AUTO_PUBLISH` is set to `true` and the YouTube OAuth secrets are configured, each successful render is uploaded immediately after rendering. There are no fixed posting time blocks.
+
+
+Editorial bot commits do not rely on the resulting push event to start rendering. The editorial workflow explicitly dispatches render-queue.yml with a JSON array of the exact files created in that batch. Successful render receipts later update covered history.

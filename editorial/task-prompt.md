@@ -163,3 +163,12 @@ A single scan may therefore add several queue JSON files. The queue render workf
 Keep `stories/current.json` as the manual/single-story inspection target; scheduled editorial batches should use `stories/queue/`.
 
 When auto-publishing is enabled, the story's `publish` block controls YouTube metadata. Use a factual title, source-linked description, appropriate tags, Science & Technology category unless another category is clearly better, and `madeForKids: false` for normal Orbdev content.
+
+
+## Automated verification contract
+
+Discovery qualification is not publication approval. Scheduled automation performs a cheap triage pass, then live-web primary-source verification and script generation only for promising candidates. At least one primary source must be backed by discovery evidence or live web-search evidence.
+
+A candidate needs a base editorial score of at least 6.0 before heat is applied. The final score may receive up to +2 heat from current momentum/cross-lane convergence, capped at 10, but the normal minimum publication score still applies.
+
+Do not add a story to covered history merely because it was queued. Covered history is updated from successful render receipts so failed jobs remain retryable.

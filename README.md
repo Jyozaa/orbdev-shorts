@@ -106,3 +106,12 @@ When enabled, each successful queued render is uploaded immediately using the st
 - `editorial/discovery.json` configures discovery lanes, Creator Radar and heat signals.
 - `editorial/discovery-worker.md` defines verification and deduplication behavior.
 - `editorial/task-prompt.md` defines story writing, explanation, humor, visual planning and queue behavior.
+
+
+## Autonomous editorial handoff
+
+After each 12-hour scan, .github/workflows/editorial-batch.yml can turn the high-recall discovery inbox into verified story files. It uses a cheap triage pass, then live-web primary-source verification and final scripting for candidates worth deeper review.
+
+Configure repository secret OPENAI_API_KEY to activate this stage. Without it, the workflow performs a safe dry-run and queues nothing. Defaults are gpt-6-luna for triage and gpt-6.1-sol for final verification/writing; repository variables ORBDEV_TRIAGE_MODEL and ORBDEV_EDITORIAL_MODEL can override them.
+
+Accepted stories are dispatched to the renderer by exact queue filename. A story is added to history/covered.json only after its render (and YouTube upload, when auto-publishing is enabled) succeeds.

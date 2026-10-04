@@ -1,0 +1,98 @@
+name: Editorial batch
+on:
+  workflow_dispatch:
+    inputs:
+      expected_generated_at:
+        description: Discovery inbox timestamp
+        required: false
+        default: ''
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: orbdev-editorial
+  cancel-in-progress: false
+jobs:
+  editorial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      PYTHONUNBUFFERED: '1'
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ORBDEV_TRIAGE_MODEL: ${{ vars.ORBDEV_TRIAGE_MODEL || 'gpt-6-luna' }}
+      ORBDEV_EDITORIAL_MODEL: ${{ vars.ORBDEV_EDITORIAL_MODEL || 'gpt-6.1-sol' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements-editorial.txt
+      - run: python scripts/test_editorial_logic.py
+      - name: Resolve editorial mode
+        id: mode
+        shell: bash
+        run: |
+          if [ -n "$OPENAI_API_KEY" ]; then echo "active=true" >> "$GITHUB_OUTPUT"; else echo "active=false" >> "$GITHUB_OUTPUT"; echo "::warning::OPENAI_API_KEY missing; dry-run only."; fi
+      - name: Run verified editorial batch
+        if: steps.mode.outputs.active == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/editorialize_discovery.py --expected-generated-at "${{ inputs.expected_generated_at }}" --output build/editorial
+      - name: Run editorial dry-run
+        if: steps.mode.outputs.active != 'true'
+        run: python scripts/editorialize_discovery.py --expected-generated-at "${{ inputs.expected_generated_at }}" --output build/editorial --dry-run
+      - name: Validate generated stories
+        if: steps.mode.outputs.active == 'true'
+        shell: bash
+        run: |
+          shopt -s nullglob
+          for story in build/editorial/stories/*.json; do python scripts/validate_story.py "$story"; done
+      - name: Commit editorial state and queue
+        id: commit
+        if: steps.mode.outputs.active == 'true'
+        shell: bash
+        run: |
+          cp build/editorial/editorial-state-next.json /tmp/editorial-state.json
+          cp build/editorial/manifest.json /tmp/manifest.json
+          rm -rf /tmp/editorial-stories && mkdir -p /tmp/editorial-stories
+          cp build/editorial/stories/*.json /tmp/editorial-stories/ 2>/dev/null || true
+          git fetch origin main && git reset --hard origin/main
+          mkdir -p history stories/queue
+          cp /tmp/editorial-state.json history/editorial-state.json
+          python - <<'PY'
+          import json,pathlib,shutil
+          m=json.load(open('/tmp/manifest.json'))
+          for q in m.get('queueFiles',[]):
+              n=pathlib.Path(q).name;s=pathlib.Path('/tmp/editorial-stories')/n
+              if s.exists():shutil.copy2(s,pathlib.Path('stories/queue')/n)
+          PY
+          git config user.name "orbdev-editorial[bot]"
+          git config user.email "orbdev-editorial[bot]@users.noreply.github.com"
+          git add history/editorial-state.json stories/queue
+          if ! git diff --cached --quiet; then git commit -m "Queue verified Orbdev stories"; git push origin HEAD:main; fi
+          files="$(python -c 'import json;print(json.dumps(json.load(open("/tmp/manifest.json"))["queueFiles"],separators=(",",":")))' )"
+          echo "queue_files=$files" >> "$GITHUB_OUTPUT"
+      - name: Dispatch exact render batch
+        if: steps.mode.outputs.active == 'true' && steps.commit.outputs.queue_files != '[]'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          QUEUE_FILES: ${{ steps.commit.outputs.queue_files }}
+        run: |
+          python - <<'PY' >/tmp/render.json
+          import json,os
+          print(json.dumps({"ref":"main","inputs":{"files":os.environ["QUEUE_FILES"]}}))
+          PY
+          gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/render-queue.yml/dispatches" --input /tmp/render.json
+      - run: cat build/editorial/report.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: orbdev-editorial-${{ github.run_id }}
+          path: |
+            build/editorial/manifest.json
+            build/editorial/report.md
+            build/editorial/stories/
+          if-no-files-found: error
+          retention-days: 30

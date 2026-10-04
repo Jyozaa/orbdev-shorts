@@ -332,8 +332,14 @@ def main() -> None:
     if visual_types.count("explain") > max(2, math.floor(len(beats) * 0.20)):
         fail("too many explanatory animation beats; use source imagery, branding, metrics, kinetic visuals and reactions")
 
-    if path.name == "current.json":
+    is_editorial_story = path.name == "current.json" or path.parent.name == "queue"
+    if is_editorial_story:
         validate_editorial(data)
+        word_count = len(re.findall(r"\S+", narration))
+        if not 80 <= word_count <= 105:
+            fail(f"editorial narration must contain 80-105 words; got {word_count}")
+        if not 12 <= len(beats) <= 22:
+            fail("editorial stories must contain 12-22 semantic beats")
 
     print(
         f"Validated {path}: {len(beats)} beats, {meme_count} explicit memes, "

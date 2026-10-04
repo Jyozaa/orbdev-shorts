@@ -88,3 +88,18 @@ Never merge several unrelated creator-roundup topics into one generic news recap
 Creator videos are processed once per discovery state. A successful scan records the video ID in `history/discovery-state.json`; later 12-hour scans skip that same upload instead of repeatedly re-segmenting it. New videos are still scanned immediately on the next run.
 
 Creator channels can set their own segment budget. High-recall roundup channels such as AI Search and Matt Wolfe are allowed more topic segments than single-topic channels, so one long roundup can legitimately yield several independent Short candidates.
+
+
+## Autonomous editorial batch
+
+After each successful discovery scan, GitHub explicitly dispatches the editorial workflow with the exact inbox timestamp. This avoids relying on push-trigger chaining from bot commits.
+
+Editorial is two-stage:
+1. GPT-6 Luna performs low-cost topic triage over the full candidate set.
+2. Promising candidates are independently verified with live web search by GPT-6.1 Sol and scored with the full editorial rubric.
+
+The final reviewer must back at least one primary source. Base editorial quality must score at least 6.0/10 before heat is applied; the total publication threshold remains configured in policy. Heat can prioritize a strong niche/open-source story, but cannot make an unverified story publishable.
+
+Accepted topics become separate queue files. Rejected clusters are remembered for 24 hours and reconsidered early only if their discovery score rises materially.
+
+Queue commits are followed by an explicit workflow dispatch containing the exact new files. Successful render receipts, rather than editorial acceptance alone, add a story to history/covered.json.
