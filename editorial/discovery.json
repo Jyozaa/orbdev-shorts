@@ -1,0 +1,127 @@
+{
+  "version": 1,
+  "scanCadenceHours": 12,
+  "candidateLookbackHours": 36,
+  "exceptionLookbackHours": 72,
+  "qualificationScore": 7.2,
+  "laneSoftTargetPerScan": 1,
+  "forceLaneQuota": false,
+  "maxQualifiedPerScan": null,
+  "majorNews": {
+    "queries": [
+      "AI model release OR launch OR update",
+      "AI agent release OR developer tool launch",
+      "AI robotics research breakthrough",
+      "AI hardware inference release",
+      "open source AI model release"
+    ],
+    "primaryDomains": [
+      "openai.com",
+      "anthropic.com",
+      "deepmind.google",
+      "blog.google",
+      "ai.meta.com",
+      "microsoft.com",
+      "azure.microsoft.com",
+      "nvidia.com",
+      "huggingface.co",
+      "github.com",
+      "github.blog",
+      "arxiv.org"
+    ]
+  },
+  "hotEmerging": {
+    "githubQueries": [
+      "llm in:name,description,readme",
+      "agent in:name,description,readme",
+      "mcp in:name,description,readme",
+      "inference in:name,description,readme",
+      "developer tool in:name,description,readme",
+      "ai coding in:name,description,readme"
+    ],
+    "githubCreatedWithinDays": 10,
+    "githubMinStars": 25,
+    "hackerNewsQueries": [
+      "AI",
+      "LLM",
+      "open source",
+      "GitHub",
+      "developer tool",
+      "coding agent"
+    ],
+    "hackerNewsMinPoints": 20,
+    "huggingFaceLimit": 50
+  },
+  "creatorRadar": {
+    "videoLookbackHours": 48,
+    "maxVideosPerCreator": 3,
+    "maxSegmentsPerVideo": 14,
+    "creators": [
+      {
+        "name": "Fireship",
+        "handle": "@Fireship",
+        "url": "https://www.youtube.com/@Fireship",
+        "category": "developer_zeitgeist",
+        "discoveryWeight": 1.3
+      },
+      {
+        "name": "AI Search",
+        "handle": "@theAIsearch",
+        "url": "https://www.youtube.com/@theAIsearch",
+        "category": "ai_news_high_recall",
+        "discoveryWeight": 1.3
+      },
+      {
+        "name": "Two Minute Papers",
+        "handle": "@TwoMinutePapers",
+        "url": "https://www.youtube.com/@TwoMinutePapers",
+        "category": "research",
+        "discoveryWeight": 1.2
+      },
+      {
+        "name": "AI Explained",
+        "handle": "@aiexplained-official",
+        "url": "https://www.youtube.com/@aiexplained-official",
+        "category": "frontier_ai_analysis",
+        "discoveryWeight": 1.2
+      },
+      {
+        "name": "Matt Wolfe",
+        "handle": "@mreflow",
+        "url": "https://www.youtube.com/@mreflow",
+        "category": "ai_news_high_recall",
+        "discoveryWeight": 1.3
+      },
+      {
+        "name": "ThePrimeTime",
+        "handle": "@ThePrimeTimeagen",
+        "url": "https://www.youtube.com/@ThePrimeTimeagen",
+        "category": "developer_zeitgeist",
+        "discoveryWeight": 1.3
+      },
+      {
+        "name": "Matthew Berman",
+        "handle": "@matthew_berman",
+        "url": "https://www.youtube.com/@matthew_berman",
+        "category": "frontier_ai_analysis",
+        "discoveryWeight": 1.15
+      },
+      {
+        "name": "All About AI",
+        "handle": "@AllAboutAI",
+        "url": "https://www.youtube.com/@AllAboutAI/videos",
+        "category": "practical_ai_tools",
+        "discoveryWeight": 1.1
+      }
+    ]
+  },
+  "heatSignals": {
+    "additionalLane": 0.65,
+    "additionalIndependentSource": 0.18,
+    "additionalCreatorCategory": 0.3,
+    "githubTrending": 0.55,
+    "hackerNews": 0.45,
+    "huggingFaceTrending": 0.4,
+    "creatorMention": 0.35
+  }
+}

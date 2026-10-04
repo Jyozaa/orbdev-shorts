@@ -2,7 +2,7 @@
 
 Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
-Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json` first. Search current public sources for significant AI/developer-technology developments inside the configured lookback window and verify every selected story with a primary source.
+Read `editorial/policy.json`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.
 
 ## Voice-first writing
 
@@ -76,7 +76,7 @@ Do not automatically meme structural phrases like "here's the catch" unless the 
 
 Kokoro-82M is primary. Write punctuation for natural breathing and emphasis. The target is energetic but human; do not compensate for weak writing by unnaturally speeding up the voice or pitch shifting it.
 
-After queueing a story, report only headline, score and primary source. If nothing qualifies, make no repository changes.
+Process every independently qualifying topic from the scan, not only the single highest-scoring topic. One creator roundup may therefore produce several separate Shorts. Do not force representation from an empty/weak lane. For each accepted topic, create a separate story JSON and report headline, lane(s), final score and primary source. If nothing qualifies, make no story changes.
 
 
 ## Authored-chaos checklist
@@ -102,3 +102,64 @@ Visual pacing follows editorial meaning:
 - the first five seconds should change major visual ideas roughly every 0.9-1.6 seconds when readable;
 - use sub-second meme/reaction overlays for extra energy rather than making every source image unreadably brief;
 - long source visuals may remain on screen if overlays, zooms, highlights or reaction events create internal motion.
+
+
+## Discovery batch behavior
+
+The scan is not a posting calendar. There are no fixed upload slots.
+
+Every 12 hours:
+1. inspect all three discovery lanes;
+2. cluster duplicates across lanes;
+3. use creator/community convergence as a heat signal;
+4. independently verify candidate facts;
+5. publish/render every topic that still clears the editorial threshold.
+
+Aim to find at least one worthwhile topic from each lane, but this is a soft discovery goal only. A lane with no strong topic contributes zero stories.
+
+Hot / Emerging topics should include niche technical developments, not only mainstream AI headlines. Explicitly consider fast-growing GitHub projects, open-source models, developer tools, coding agents, CLIs, runtimes, MCP tooling, local-AI projects, Hacker News momentum and Hugging Face momentum.
+
+Creator Radar videos must be decomposed at topic level. A 30-minute roundup can generate multiple Shorts if several topics independently qualify. Never publish one generic recap merely because the topics came from the same creator upload.
+
+When the same topic appears in Major News, Hot / Emerging and/or Creator Radar, merge it into one story candidate and record the convergence as heat.
+
+## Explanation quality
+
+Use Creator Radar to learn what questions are worth answering, not to copy wording. Strong scripts should normally make clear:
+- what changed;
+- what the thing actually is;
+- why it matters in practice;
+- how it compares with the obvious alternative;
+- price/access/availability when material;
+- the important caveat or limitation;
+- the concise implication/payoff.
+
+This combines high information density with enough explanation that a viewer can understand why the headline matters.
+
+## Role-aware narration
+
+The renderer now synthesizes semantic beats with subtle editorial-role prosody. Write roles intentionally:
+- `fact` / `setup`: brisk;
+- `explanation`: clear and even;
+- `analogy` / `joke`: slightly more relaxed;
+- `reaction` / `punchline`: allow a tiny setup pause and deadpan delivery;
+- `callback`: brief setup pause;
+- `transition`: fast connective delivery.
+
+Do not compensate for a weak script by writing excessive punctuation or forcing every beat to sound dramatic.
+
+
+## Queue contract for multiple Shorts
+
+For each candidate that survives primary-source verification and final editorial scoring:
+
+- write one file to `stories/queue/<yyyy-mm-dd>-<slug>.json`;
+- use the same story schema and validation rules as `stories/current.json`;
+- append its `storyKey`, headline, selected time, score and primary source URLs to `history/covered.json` in the same editorial commit;
+- never combine unrelated qualifying topics just to reduce the number of queue files.
+
+A single scan may therefore add several queue JSON files. The queue render workflow will fan them out into independent render jobs.
+
+Keep `stories/current.json` as the manual/single-story inspection target; scheduled editorial batches should use `stories/queue/`.
+
+When auto-publishing is enabled, the story's `publish` block controls YouTube metadata. Use a factual title, source-linked description, appropriate tags, Science & Technology category unless another category is clearly better, and `madeForKids: false` for normal Orbdev content.

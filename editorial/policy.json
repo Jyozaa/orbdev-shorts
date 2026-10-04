@@ -1,9 +1,9 @@
 {
-  "version": 22,
+  "version": 23,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
-  "maxStoriesPerDay": 2,
+  "maxStoriesPerDay": null,
   "minimumScore": 7.2,
   "target": {
     "wordsMin": 80,
@@ -21,7 +21,8 @@
     "practicalImpact": 2,
     "novelty": 2,
     "sourceConfidence": 1,
-    "visualClarity": 1
+    "visualClarity": 1,
+    "heatBonus": "up to +2 after base editorial scoring; cross-lane momentum may raise priority but never substitute for verification"
   },
   "hardRules": [
     "Use at least one primary source.",
@@ -70,7 +71,16 @@
     "When a long entertainment-heavy Short has too few visible reactions, backfill unused joke, punchline, reaction, callback or analogy beats with approved image/video meme overlays.",
     "Duck narration under audible meme overlays so reaction audio reads as punctuation instead of competing with the voice.",
     "Pacing should feel compressed and editorial: remove dead air, keep narration roughly 180-195 effective WPM when natural, and reserve the fastest visual punctuation for jokes, reactions, analogies, punchlines and callbacks.",
-    "Do not merge humor/reaction beats into neighboring visual windows; they should normally receive their own visual punctuation."
+    "Do not merge humor/reaction beats into neighboring visual windows; they should normally receive their own visual punctuation.",
+    "Run discovery every 12 hours rather than using fixed posting time blocks.",
+    "Search all three discovery lanes on every scan, but never lower the quality threshold to satisfy lane diversity.",
+    "There is no fixed daily story cap: zero, one, or many independently qualifying topics may be produced from a scan.",
+    "A single creator roundup may yield multiple Shorts when its topics independently qualify; decompose topics before scoring.",
+    "Creator Radar is a discovery, heat, context and explanation signal only; creator claims must be verified against primary sources before publication.",
+    "Merge the same development across lanes into one candidate and use convergence as a heat signal rather than publishing duplicates.",
+    "For Hot / Emerging stories, recent momentum can make an older project fresh; repository creation date is not the only freshness signal.",
+    "Narration synthesis should vary subtly by editorialRole instead of reading every beat with identical speed and pause timing.",
+    "Do not clone or imitate the literal voice of a creator; use original narration with high-density, conversational, dry technical delivery."
   ],
   "visualRules": {
     "background": "#000000",
@@ -162,15 +172,27 @@
     "rate": "+8%",
     "pitch": "+0Hz",
     "processing": "high-pass + very light compression + limiter + loudness normalization",
-    "style": "conversational, concise, dry/playful, human-sounding, setup-change-implication-catch-punchline",
+    "style": "original high-density technical editorial voice: conversational, concise, dry/playful, clear explanation, varied micro-prosody; do not imitate or clone any named creator's voice",
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": 1.22,
+    "speed": 1.26,
     "fallback": "Edge BrianMultilingualNeural",
     "targetEffectiveWpm": "roughly 180-195 for normal high-density Shorts; prioritize natural articulation over maximum speed",
-    "postTempo": 1.1,
-    "sentencePauseMs": 28
+    "postTempo": 1.04,
+    "sentencePauseMs": 18,
+    "roleAware": true,
+    "roleProfiles": {
+      "fact": "brisk/neutral",
+      "setup": "slightly brisker",
+      "explanation": "clear and even",
+      "analogy": "slightly relaxed",
+      "joke": "small pre-pause and dry delivery",
+      "reaction": "small pre-pause and lower urgency",
+      "punchline": "largest micro-pause and slightly slower delivery",
+      "callback": "brief setup pause",
+      "transition": "fastest connective delivery"
+    }
   },
   "reactionSfx": [
     "scratch",
@@ -266,5 +288,36 @@
       "analogy"
     ],
     "audioDuckingUnderReaction": true
+  },
+  "scanCadenceHours": 12,
+  "publishing": {
+    "fixedTimeSlots": false,
+    "scanCadenceHours": 12,
+    "laneSoftTargetPerScan": 1,
+    "forceLaneQuota": false,
+    "allowMultipleStoriesPerLane": true,
+    "allowMultipleStoriesPerCreatorVideo": true,
+    "skipEmptyLanes": true,
+    "maxStoriesPerScan": null,
+    "maxStoriesPerDay": null,
+    "publishTiming": "render/publish qualifying stories as soon as the scan/editorial pass completes; no fixed posting blocks"
+  },
+  "discovery": {
+    "config": "editorial/discovery.json",
+    "inbox": "editorial/inbox/latest.json",
+    "lanes": [
+      "major_news",
+      "hot_emerging",
+      "creator_radar"
+    ],
+    "laneRules": {
+      "major_news": "major technical announcements and high-impact primary-source developments",
+      "hot_emerging": "GitHub, Hugging Face, Hacker News, open-source projects, developer tools, coding agents and fast-rising technical momentum",
+      "creator_radar": "topic-level discovery from configured creator channels; creator commentary is a lead/context signal, never ground truth"
+    },
+    "creatorTopicDecomposition": true,
+    "crossLaneDeduplication": true,
+    "creatorClaimsRequirePrimaryVerification": true,
+    "hotEmergingFreshness": "use momentum age as well as creation/publication age"
   }
 }

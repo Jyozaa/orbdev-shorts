@@ -1,34 +1,79 @@
-name: Render short
+name: Render queued stories
 
 on:
   workflow_dispatch:
-    inputs:
-      story:
-        description: Story JSON path
-        required: false
-        default: stories/current.json
   push:
     branches:
       - main
     paths:
-      - 'stories/current.json'
-      - 'src/**'
-      - 'scripts/**'
-      - 'package.json'
-      - 'requirements.txt'
-      - '.github/workflows/render-short.yml'
+      - 'stories/queue/*.json'
 
 permissions:
   contents: read
 
 concurrency:
-  group: orbdev-render
+  group: orbdev-render-queue-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
-  render:
+  prepare:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    outputs:
+      matrix: ${{ steps.queue.outputs.matrix }}
+      count: ${{ steps.queue.outputs.count }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Resolve queued stories
+        id: queue
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          AFTER_SHA: ${{ github.sha }}
+        run: |
+          python - <<'PY'
+          import glob, json, os, subprocess
+
+          event = os.environ.get("EVENT_NAME")
+          before = os.environ.get("BEFORE_SHA", "")
+          after = os.environ.get("AFTER_SHA", "")
+          files = []
+
+          if event == "push" and before and set(before) != {"0"}:
+              try:
+                  changed = subprocess.check_output(
+                      ["git", "diff", "--name-only", before, after, "--", "stories/queue"],
+                      text=True,
+                  ).splitlines()
+                  files = [path for path in changed if path.startswith("stories/queue/") and path.endswith(".json")]
+              except subprocess.CalledProcessError:
+                  files = []
+          if event != "push":
+              files = sorted(glob.glob("stories/queue/*.json"))
+
+          files = sorted({path for path in files if os.path.isfile(path)})
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write("matrix=" + json.dumps(files, separators=(",", ":")) + "\n")
+              output.write("count=" + str(len(files)) + "\n")
+          print(f"Queued stories selected: {len(files)}")
+          for path in files:
+              print(" -", path)
+          PY
+
+  render:
+    needs: prepare
+    if: needs.prepare.outputs.count != '0'
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        story: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
     env:
       ORBDEV_KOKORO_VOICE: am_michael
       ORBDEV_KOKORO_SPEED: '1.26'
@@ -42,31 +87,14 @@ jobs:
     steps:
       - name: Checkout application files
         uses: actions/checkout@v4
-        with:
-          sparse-checkout-cone-mode: false
-          sparse-checkout: |
-            .github/
-            editorial/
-            history/
-            public/
-            scripts/
-            src/
-            stories/
-            package.json
-            requirements.txt
-            tsconfig.json
-            README.md
 
-      - name: Resolve story
+      - name: Resolve story metadata
         shell: bash
+        env:
+          STORY: ${{ matrix.story }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            story="${{ inputs.story }}"
-          else
-            story="stories/current.json"
-          fi
-          slug="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["slug"])' "$story")"
-          echo "STORY_FILE=$story" >> "$GITHUB_ENV"
+          slug="$(python -c 'import json,os; print(json.load(open(os.environ["STORY"], encoding="utf-8"))["slug"])')"
+          echo "STORY_FILE=$STORY" >> "$GITHUB_ENV"
           echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
 
       - name: Set up Node
@@ -100,7 +128,7 @@ jobs:
       - name: Generate transition sound effects
         run: python scripts/generate_sfx.py
 
-      - name: Build meme catalog from this repository
+      - name: Build meme catalog
         env:
           GITHUB_TOKEN: ${{ github.token }}
         run: python scripts/build_meme_catalog.py
@@ -133,7 +161,7 @@ jobs:
             --concurrency=2 \
             --log=info
 
-      - name: Upload video
+      - name: Upload video artifact
         uses: actions/upload-artifact@v4
         with:
           name: orbdev-${{ env.STORY_SLUG }}
@@ -153,3 +181,15 @@ jobs:
             build/render-props.json
           if-no-files-found: ignore
           retention-days: 30
+
+      - name: Install YouTube publishing dependencies
+        if: ${{ vars.ORBDEV_AUTO_PUBLISH == 'true' }}
+        run: python -m pip install -r requirements-publish.txt
+
+      - name: Publish to YouTube
+        if: ${{ vars.ORBDEV_AUTO_PUBLISH == 'true' }}
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: python scripts/publish_youtube.py "$STORY_FILE" "out/${STORY_SLUG}.mp4"
