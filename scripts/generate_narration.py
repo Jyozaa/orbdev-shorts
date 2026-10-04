@@ -242,6 +242,7 @@ def render_kokoro(
     story: dict[str, object],
     profile: dict[str, Any],
     base_speed: float,
+    pipeline: Any | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, Any]]]:
     import numpy as np
     import soundfile as sf
@@ -249,7 +250,8 @@ def render_kokoro(
 
     voice = str(profile.get("voice") or "am_michael")
     lang_code = str(profile.get("langCode") or ("b" if voice.startswith("b") else "a"))
-    pipeline = KPipeline(lang_code=lang_code)
+    if pipeline is None:
+        pipeline = KPipeline(lang_code=lang_code)
     speech_chunks = plan_speech_chunks(story, profile)
 
     chunks = []
@@ -420,7 +422,12 @@ async def main() -> None:
     raw_wpm = 0.0
 
     try:
-        captions, chunk_report = render_kokoro(story, profile, base_speed)
+        from kokoro import KPipeline
+
+        voice = str(profile.get("voice") or "am_michael")
+        lang_code = str(profile.get("langCode") or ("b" if voice.startswith("b") else "a"))
+        kokoro_pipeline = KPipeline(lang_code=lang_code)
+        captions, chunk_report = render_kokoro(story, profile, base_speed, kokoro_pipeline)
         native_passes = 1
         raw_duration = audio_duration_seconds(RAW_WAV_PATH)
         raw_wpm = (word_count / max(raw_duration, 0.01)) * 60
@@ -432,7 +439,7 @@ async def main() -> None:
                 f"{base_speed:.3f}x -> {adjusted_speed:.3f}x"
             )
             base_speed = adjusted_speed
-            captions, chunk_report = render_kokoro(story, profile, base_speed)
+            captions, chunk_report = render_kokoro(story, profile, base_speed, kokoro_pipeline)
             native_passes = 2
             raw_duration = audio_duration_seconds(RAW_WAV_PATH)
             raw_wpm = (word_count / max(raw_duration, 0.01)) * 60
