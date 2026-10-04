@@ -1,5 +1,5 @@
 from __future__ import annotations
-import copy,json,math,re,sys
+import copy,json,math,re,sys,unicodedata
 from pathlib import Path
 
 BUILD_DIR=Path("build"); CAPTIONS_PATH=Path("public/captions.json"); MEME_SELECTION_PATH=BUILD_DIR/"meme-selection.json"
@@ -9,9 +9,12 @@ SOURCE_MIN_MATCH=0.34
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
 
-def norm(t:str)->str:return re.sub(r"[^a-z0-9]+","",t.lower())
+def fold_ascii(t:str)->str:
+    return unicodedata.normalize("NFKD",t).encode("ascii","ignore").decode("ascii")
+
+def norm(t:str)->str:return re.sub(r"[^a-z0-9]+","",fold_ascii(t).lower())
 def tokens(t:str)->set[str]:
-    return {x for x in re.sub(r"[^a-z0-9]+"," ",t.lower()).split() if len(x)>1 and x not in STOP}
+    return {x for x in re.sub(r"[^a-z0-9]+"," ",fold_ascii(t).lower()).split() if len(x)>1 and x not in STOP}
 def beat_tokens(t:str)->list[str]:return [x for x in (norm(v) for v in re.findall(r"\S+",t)) if x]
 
 def find_sequence(words,expected,cursor):
@@ -98,7 +101,9 @@ def candidate_score(beat,prev_family=None,prev_explain_mode=None)->float:
     v=beat.get("visual",{});kind=str(v.get("type","text"));fam=family(kind)
     score=base_visual_weight(beat)
     if prev_family:
-        score += 1.4 if fam!=prev_family else -3.0
+        if fam!=prev_family:score+=1.0
+        elif fam=="source":score-=0.5
+        else:score-=3.0
     if kind=="explain":
         mode=str(v.get("mode",""))
         if prev_explain_mode and mode==prev_explain_mode:

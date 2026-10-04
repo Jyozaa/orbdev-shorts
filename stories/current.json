@@ -147,7 +147,7 @@
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "PlayStation 5 console base PS5",
+        "query": "PS5 AI upscaling source page",
         "mustMatch": [
           "ps5"
         ]
@@ -159,10 +159,11 @@
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "AI upscaling PS5 image quality",
+        "query": "AI upscaling PS5 video image quality",
         "mustMatch": [
-          "ps5"
-        ]
+          "ytimg"
+        ],
+        "allowReuse": true
       }
     },
     {

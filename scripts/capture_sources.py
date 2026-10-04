@@ -44,8 +44,11 @@ def extract_image_candidates(page:str,base_url:str)->list[dict[str,object]]:
 
     for m in re.finditer(r"<img\b[^>]*>",page,flags=re.I):
         tag=m.group(0); low=tag.lower(); score=45
+        raw_context=page[max(0,m.start()-360):min(len(page),m.end()+360)]
+        surrounding=(tag+" "+raw_context).lower()
+        if any(x in surrounding for x in ("post-sidebar","post-card","related-post","recommended","footer","author-card","more-stories")):continue
         if any(x in low for x in ("hero","featured","article","content","media","gallery")): score+=20
-        context=clean_text(page[max(0,m.start()-260):min(len(page),m.end()+260)])
+        context=clean_text(raw_context)
         semantic=" ".join(x for x in (attr(tag,"alt"),attr(tag,"title"),context) if x)
         src=""
         for name in ("src","data-src","data-lazy-src","data-original"):
