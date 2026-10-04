@@ -32,6 +32,25 @@ TRANSITION_RE = re.compile(
 CHAPTER_RE = re.compile(r"(?m)^\s*((?:\d{1,2}:)?\d{1,2}:\d{2})\s+(.+?)\s*$")
 URL_RE = re.compile(r"https?://[^\s<>()\[\]{}]+")
 SKIP_CHAPTER_WORDS = {"intro","sponsor","sponsored","final thoughts","outro","newsletter","giveaway","ad break"}
+TECHNICAL_CUES = {
+    "api","sdk","model","models","benchmark","benchmarks","repo","repository","open-source","opensource",
+    "open-weight","weights","framework","runtime","compiler","database","gpu","chip","chips","inference",
+    "agent","agents","coding","developer","developers","architecture","research","paper","robot","robotics",
+    "multimodal","video","image","voice","tts","context","security","vulnerability","exploit","browser",
+    "tool","tools","library","protocol","mcp","training","reasoning","token","tokens","operating","cloud",
+    "qwen","claude","gemini","deepseek","llama","mistral","flux","ideogram","world-model","world"
+}
+WEAK_CLUSTER_TOKENS = STOPWORDS | {
+    "openai","anthropic","google","microsoft","meta","nvidia","github","huggingface","model","models",
+    "agent","agents","developer","developers","tool","tools","research","release","open-source","opensource",
+    "system","cloud","video","image","voice","world","benchmark","benchmarks"
+}
+HARD_EXCLUDE_RE = re.compile(
+    r"\b(?:quits?|resigns?|hiring|recruit(?:ing|ment)?|fellowships?|funding round|"
+    r"partnership|partners with|election|celebrity|lawsuit|culture is|wiping out humanity|"
+    r"executive order|religious scholars)\b",
+    re.I,
+)
 
 
 def now_utc() -> datetime:
@@ -530,6 +549,22 @@ def creator_candidates(config: dict[str, Any], now: datetime) -> tuple[list[dict
     return out, seen_videos
 
 
+def technical_core(candidate: dict[str, Any]) -> bool:
+    kind = candidate.get("sourceKind")
+    if kind in {"github_repo", "huggingface_model"}:
+        return True
+    text = f"{candidate.get('title','')} {candidate.get('summary','')}"
+    if HARD_EXCLUDE_RE.search(text):
+        return False
+    ts = tokens(text)
+    if ts & TECHNICAL_CUES:
+        return True
+    # Distinct model/version tokens are technical even if a generic cue is absent.
+    if any(any(ch.isdigit() for ch in token) and len(token) >= 4 for token in ts):
+        return True
+    return False
+
+
 def raw_score(candidate: dict[str, Any], now: datetime) -> float:
     kind = candidate["sourceKind"]
     fresh = freshness_points(candidate, now)
@@ -570,9 +605,19 @@ def similarity(a: dict[str, Any], b: dict[str, Any]) -> float:
     if not ta or not tb:
         return 0.0
     common = ta & tb
+    base = (len(common) / min(len(ta), len(tb))) if common else 0.0
+    strong = {
+        token for token in common
+        if token not in WEAK_CLUSTER_TOKENS
+        and (len(token) >= 6 or any(ch.isdigit() for ch in token))
+    }
+    # A distinctive shared entity/model name is enough to connect evidence from
+    # differently-worded sources (e.g. news title vs. Hugging Face model id).
+    if strong:
+        return max(base, 0.58)
     if len(common) < 2:
         return 0.0
-    return len(common) / min(len(ta), len(tb))
+    return base
 
 
 def cluster_candidates(candidates: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
@@ -731,6 +776,11 @@ def main() -> None:
     candidates.extend(huggingface_candidates(config, now))
     creator_items, seen_videos = creator_candidates(config, now)
     candidates.extend(creator_items)
+
+    technical_rejected = [candidate for candidate in candidates if not technical_core(candidate)]
+    candidates = [candidate for candidate in candidates if technical_core(candidate)]
+    if technical_rejected:
+        print(f"Technical-core filter rejected {len(technical_rejected)} non-technical candidates")
 
     unique: dict[str, dict[str, Any]] = {}
     for candidate in candidates:
