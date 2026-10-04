@@ -30,6 +30,19 @@
       "sourceUrls": [
         "https://openai.com/index/introducing-gpt-6-1-sol/"
       ]
+    },
+    {
+      "storyKey": "strata-qwen38-flash-next-local-gaming-pc-2026",
+      "slug": "strata-qwen38-local-gaming-pc",
+      "headline": "A 125B AI model is running on gaming PCs",
+      "selectedAt": "2026-10-04T19:35:00+01:00",
+      "score": 9,
+      "sourceUrls": [
+        "https://github.com/Niko1221/Strata",
+        "https://huggingface.co/Qwen/Qwen3.8-Flash-Next"
+      ],
+      "renderedAt": "2026-10-04T18:54:42.651752+00:00",
+      "youtubeUrl": null
     }
   ]
 }
