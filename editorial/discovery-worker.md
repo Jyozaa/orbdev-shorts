@@ -9,13 +9,13 @@ Searches for significant technical announcements across frontier AI labs, develo
 
 ### Hot / Emerging
 Actively hunts for developer-interest signals that normal press search can miss:
-- fast-growing GitHub repositories
+- fast-growing GitHub repositories, including GitHub Trending even when the repository itself is older
 - new open-source developer tools and coding agents
 - Hacker News momentum
 - trending Hugging Face models
 - infrastructure, runtimes, libraries, MCP tooling and local-AI projects
 
-For this lane, momentum age matters more than creation age. An older project that suddenly explodes today can still be fresh.
+For this lane, momentum age matters more than creation age. The scan combines newly-created repository searches with daily/weekly GitHub Trending signals, so an older project that suddenly explodes today can still be fresh. Low-star repositories do not qualify merely because they are new: standalone GitHub/Hugging Face/Hacker News candidates must clear evidence-quality gates unless independent lanes converge on the same topic.
 
 ### Creator Radar
 Scans the configured Creator Radar channels and decomposes long roundup videos into separate candidate topics when chapters or transcript transitions allow it.
@@ -81,3 +81,10 @@ For each candidate marked `qualifiesForEditorial`:
 8. Multiple candidates from one scan may all become Shorts.
 
 Never merge several unrelated creator-roundup topics into one generic news recap merely because they came from the same video.
+
+
+## Scan-state rules
+
+Creator videos are processed once per discovery state. A successful scan records the video ID in `history/discovery-state.json`; later 12-hour scans skip that same upload instead of repeatedly re-segmenting it. New videos are still scanned immediately on the next run.
+
+Creator channels can set their own segment budget. High-recall roundup channels such as AI Search and Matt Wolfe are allowed more topic segments than single-topic channels, so one long roundup can legitimately yield several independent Short candidates.

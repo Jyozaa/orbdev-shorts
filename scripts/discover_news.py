@@ -169,6 +169,11 @@ def is_primary_domain(url: str, primary_domains: list[str]) -> bool:
 def google_news_candidates(config: dict[str, Any], now: datetime) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     lookback = int(config["candidateLookbackHours"])
+    primary_domains = config["majorNews"]["primaryDomains"]
+    publisher_bonuses = {
+        str(k).lower(): float(v)
+        for k, v in (config["majorNews"].get("publisherBonuses") or {}).items()
+    }
     for query in config["majorNews"]["queries"]:
         q = f"({query}) when:2d"
         url = (
@@ -190,6 +195,12 @@ def google_news_candidates(config: dict[str, Any], now: datetime) -> list[dict[s
                 continue
             source_el = item.find("source")
             source_name = clean_text(source_el.text if source_el is not None and source_el.text else "Google News")
+            source_home = clean_text(source_el.attrib.get("url", "")) if source_el is not None else ""
+            source_is_primary = bool(source_home and is_primary_domain(source_home, primary_domains))
+            source_bonus = publisher_bonuses.get(source_name.lower(), 0.0)
+            signals = ["major-news-search"]
+            if source_is_primary:
+                signals.append("primary-publisher")
             out.append(
                 make_candidate(
                     "major_news",
@@ -198,11 +209,15 @@ def google_news_candidates(config: dict[str, Any], now: datetime) -> list[dict[s
                     link,
                     iso(parse_dt(pub) or now),
                     source_name,
-                    signals=["major-news-search"],
+                    metrics={
+                        "publisherBonus": source_bonus,
+                        "publisherUrl": source_home,
+                        "primaryPublisher": source_is_primary,
+                    },
+                    signals=signals,
                 )
             )
     return out
-
 
 def github_candidates(config: dict[str, Any], now: datetime) -> list[dict[str, Any]]:
     token = os.getenv("GITHUB_TOKEN", "")
@@ -250,6 +265,83 @@ def github_candidates(config: dict[str, Any], now: datetime) -> list[dict[str, A
             )
     return out
 
+
+def github_trending_candidates(config: dict[str, Any], now: datetime) -> list[dict[str, Any]]:
+    hot = config["hotEmerging"]
+    windows = hot.get("githubTrendingWindows", ["daily", "weekly"])
+    per_window = int(hot.get("githubTrendingLimit", 18))
+    token = os.getenv("GITHUB_TOKEN", "")
+    api_headers = {"Accept": "application/vnd.github+json"}
+    if token:
+        api_headers["Authorization"] = f"Bearer {token}"
+
+    discovered: dict[str, dict[str, Any]] = {}
+    for window in windows:
+        url = "https://github.com/trending?" + urllib.parse.urlencode({"since": window})
+        try:
+            page, _ = fetch_text(url)
+        except Exception as exc:
+            print(f"github trending failed ({window}): {exc}", file=sys.stderr)
+            continue
+
+        articles = re.findall(r'<article[^>]*class="[^"]*Box-row[^"]*"[^>]*>(.*?)</article>', page, re.S | re.I)
+        for article in articles[:per_window]:
+            repo_match = re.search(r'href="/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)"', article)
+            if not repo_match:
+                continue
+            slug = repo_match.group(1)
+            clean_article = clean_text(article)
+            recent_match = re.search(r'([\d,]+)\s+stars?\s+(today|this week)', clean_article, re.I)
+            stars_recent = int(recent_match.group(1).replace(",", "")) if recent_match else 0
+            key = slug.lower()
+            old = discovered.get(key)
+            if old and int(old["starsRecent"]) >= stars_recent:
+                continue
+            discovered[key] = {
+                "slug": slug,
+                "window": window,
+                "starsRecent": stars_recent,
+            }
+
+    out: list[dict[str, Any]] = []
+    for row in discovered.values():
+        slug = row["slug"]
+        repo_url = f"https://github.com/{slug}"
+        repo: dict[str, Any] = {}
+        try:
+            repo = fetch_json(f"https://api.github.com/repos/{slug}", headers=api_headers)
+        except Exception as exc:
+            print(f"github trending repo metadata failed ({slug}): {exc}", file=sys.stderr)
+
+        created = repo.get("created_at")
+        pushed = repo.get("pushed_at")
+        stars = int(repo.get("stargazers_count") or 0)
+        forks = int(repo.get("forks_count") or 0)
+        stars_recent = int(row["starsRecent"])
+        description = repo.get("description") or ""
+        out.append(
+            make_candidate(
+                "hot_emerging",
+                "github_trending",
+                repo.get("full_name") or slug,
+                repo.get("html_url") or repo_url,
+                iso(now),
+                "GitHub Trending",
+                description,
+                {
+                    "stars": stars,
+                    "forks": forks,
+                    "starsRecent": stars_recent,
+                    "trendingWindow": row["window"],
+                    "repoCreatedAt": created,
+                    "repoPushedAt": pushed,
+                },
+                primary_urls=[repo.get("html_url") or repo_url],
+                primary_verified=True,
+                signals=["github", "github-trending", "open-source", "momentum"],
+            )
+        )
+    return out
 
 def hacker_news_candidates(config: dict[str, Any], now: datetime) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
@@ -478,14 +570,20 @@ def transition_segments(transcript: list[dict[str, Any]], max_segments: int) -> 
     return segments[:max_segments]
 
 
-def creator_candidates(config: dict[str, Any], now: datetime) -> tuple[list[dict[str, Any]], list[str]]:
+def creator_candidates(
+    config: dict[str, Any],
+    now: datetime,
+    seen_video_ids: set[str] | None = None,
+) -> tuple[list[dict[str, Any]], list[str]]:
     radar = config["creatorRadar"]
     lookback = int(radar["videoLookbackHours"])
     max_videos = int(radar["maxVideosPerCreator"])
-    max_segments = int(radar["maxSegmentsPerVideo"])
+    default_max_segments = int(radar["maxSegmentsPerVideo"])
     primary_domains = config["majorNews"]["primaryDomains"]
+    already_seen = seen_video_ids or set()
     out: list[dict[str, Any]] = []
-    seen_videos: list[str] = []
+    processed_videos: list[str] = []
+
     for creator in radar["creators"]:
         channel_id = resolve_youtube_channel_id(creator["url"])
         if not channel_id:
@@ -496,17 +594,28 @@ def creator_candidates(config: dict[str, Any], now: datetime) -> tuple[list[dict
         except Exception as exc:
             print(f"creator feed failed: {creator['name']}: {exc}", file=sys.stderr)
             continue
-        recent = [v for v in videos if age_hours(v.get("publishedAt"), now) <= lookback][:max_videos]
+
+        recent = [
+            v for v in videos
+            if v.get("videoId")
+            and v["videoId"] not in already_seen
+            and age_hours(v.get("publishedAt"), now) <= lookback
+        ][:max_videos]
+
+        creator_max_segments = int(creator.get("maxSegmentsPerVideo", default_max_segments))
         for video in recent:
-            seen_videos.append(video["videoId"])
+            processed_videos.append(video["videoId"])
             transcript = fetch_transcript(video["videoId"])
             description = video.get("description") or ""
             all_links = [u.rstrip(".,)") for u in URL_RE.findall(description)]
             primary_links = [u for u in all_links if is_primary_domain(u, primary_domains)]
             chapters = chapters_from_description(description)
             segments: list[dict[str, Any]] = []
+            segment_method = "whole_video"
+
             if len(chapters) >= 2:
-                for i, chapter in enumerate(chapters[:max_segments]):
+                segment_method = "chapters"
+                for i, chapter in enumerate(chapters[:creator_max_segments]):
                     next_start = chapters[i + 1]["start"] if i + 1 < len(chapters) else None
                     segments.append(
                         {
@@ -515,10 +624,19 @@ def creator_candidates(config: dict[str, Any], now: datetime) -> tuple[list[dict
                             "text": transcript_excerpt(transcript, chapter["start"], next_start),
                         }
                     )
+
             if not segments:
-                segments = transition_segments(transcript, max_segments)
+                transition_based = transition_segments(transcript, creator_max_segments)
+                if transition_based:
+                    segment_method = "transcript_transitions"
+                    segments = transition_based
+
             if not segments:
-                segments = [{"start": 0, "title": video["title"], "text": transcript_excerpt(transcript, 0, None)}]
+                segments = [{
+                    "start": 0,
+                    "title": video["title"],
+                    "text": transcript_excerpt(transcript, 0, None),
+                }]
 
             for index, segment in enumerate(segments):
                 title = segment["title"]
@@ -538,7 +656,9 @@ def creator_candidates(config: dict[str, Any], now: datetime) -> tuple[list[dict
                             "videoId": video["videoId"],
                             "segmentIndex": index,
                             "segmentStartSeconds": segment["start"],
+                            "segmentMethod": segment_method,
                             "discoveryWeight": creator["discoveryWeight"],
+                            "primaryLinksInDescription": len(primary_links),
                         },
                         creator={
                             "name": creator["name"],
@@ -553,8 +673,7 @@ def creator_candidates(config: dict[str, Any], now: datetime) -> tuple[list[dict
                         related_urls=primary_links,
                     )
                 )
-    return out, seen_videos
-
+    return out, processed_videos
 
 def technical_core(candidate: dict[str, Any]) -> bool:
     kind = candidate.get("sourceKind")
@@ -581,35 +700,53 @@ def raw_score(candidate: dict[str, Any], now: datetime) -> float:
     kind = candidate["sourceKind"]
     fresh = freshness_points(candidate, now)
     metrics = candidate.get("metrics") or {}
+
     if kind == "news_search":
-        return min(10.0, 5.4 + fresh)
+        publisher_bonus = float(metrics.get("publisherBonus", 0))
+        primary_bonus = 0.35 if metrics.get("primaryPublisher") else 0.0
+        return min(10.0, 5.0 + fresh + publisher_bonus + primary_bonus)
+
     if kind == "github_repo":
         stars = float(metrics.get("stars", 0))
         velocity = float(metrics.get("starsPerHour", 0))
-        momentum = min(2.5, math.log10(stars + 1) * 0.75)
-        velocity_score = min(1.8, math.log10(velocity + 1) * 0.9)
-        return min(10.0, 3.2 + fresh * 0.55 + momentum + velocity_score)
+        momentum = min(2.35, math.log10(stars + 1) * 0.68)
+        velocity_score = min(1.65, math.log10(velocity + 1) * 0.82)
+        return min(10.0, 3.0 + fresh * 0.5 + momentum + velocity_score)
+
+    if kind == "github_trending":
+        stars = float(metrics.get("stars", 0))
+        recent = float(metrics.get("starsRecent", 0))
+        recent_score = min(2.7, math.log10(recent + 1) * 1.05)
+        total_score = min(1.1, math.log10(stars + 1) * 0.28)
+        weekly_penalty = 0.15 if metrics.get("trendingWindow") == "weekly" else 0.0
+        return min(10.0, 4.0 + fresh * 0.55 + recent_score + total_score - weekly_penalty)
+
     if kind == "hacker_news":
         points = float(metrics.get("points", 0))
         comments = float(metrics.get("comments", 0))
         return min(10.0, 3.6 + fresh * 0.6 + min(points / 80, 2.2) + min(comments / 80, 1.2))
+
     if kind == "huggingface_model":
         likes = float(metrics.get("likes", 0))
         downloads = float(metrics.get("downloads", 0))
         trending = float(metrics.get("trendingScore", 0))
         return min(
             10.0,
-            3.7
-            + fresh * 0.6
+            3.6
+            + fresh * 0.55
             + min(math.log10(likes + 1) * 0.65, 1.5)
             + min(math.log10(downloads + 1) * 0.35, 1.5)
             + min(trending / 20, 1.0),
         )
+
     if kind == "creator_video_topic":
         weight = float(metrics.get("discoveryWeight", 1.0))
-        return min(10.0, 4.9 + fresh * 0.8 + (weight - 1.0) * 2.0)
-    return min(10.0, 4.0 + fresh)
+        method = str(metrics.get("segmentMethod", "whole_video"))
+        segmentation_bonus = 0.22 if method == "chapters" else (0.08 if method == "transcript_transitions" else -0.18)
+        source_link_bonus = 0.10 if int(metrics.get("primaryLinksInDescription", 0)) > 0 else 0.0
+        return min(10.0, 5.05 + fresh * 0.8 + (weight - 1.0) * 2.0 + segmentation_bonus + source_link_bonus)
 
+    return min(10.0, 4.0 + fresh)
 
 def canonical_urls(candidate: dict[str, Any]) -> set[str]:
     urls = {str(candidate.get("url", "")).split("#", 1)[0].rstrip("/")}
@@ -697,6 +834,74 @@ def already_covered(cluster: list[dict[str, Any]], fingerprints: list[set[str]])
     return False
 
 
+def cluster_quality_gate(cluster: list[dict[str, Any]], config: dict[str, Any]) -> tuple[bool, str]:
+    if not cluster:
+        return False, "empty"
+
+    lanes = {c.get("lane") for c in cluster}
+    sources = {c.get("sourceName") for c in cluster if c.get("sourceName")}
+    kinds = {c.get("sourceKind") for c in cluster}
+
+    # Independent convergence is strong enough to let niche stories through even
+    # when no single metric is huge.
+    if len(lanes) >= 2 or len(sources) >= 2:
+        return True, "independent-convergence"
+
+    gates = config.get("qualificationGates") or {}
+    best = max(cluster, key=lambda c: float(c.get("rawScore", 0)))
+    kind = best.get("sourceKind")
+    metrics = best.get("metrics") or {}
+
+    if kind == "github_repo":
+        stars = float(metrics.get("stars", 0))
+        velocity = float(metrics.get("starsPerHour", 0))
+        min_stars = float(gates.get("githubStandaloneMinStars", 120))
+        min_velocity = float(gates.get("githubStandaloneMinStarsPerHour", 8))
+        passed = stars >= min_stars or velocity >= min_velocity
+        return passed, f"github-stars={int(stars)}-velocity={velocity:.1f}"
+
+    if kind == "github_trending":
+        recent = float(metrics.get("starsRecent", 0))
+        stars = float(metrics.get("stars", 0))
+        min_recent = float(gates.get("githubTrendingMinRecentStars", 40))
+        min_total = float(gates.get("githubTrendingMinTotalStars", 250))
+        passed = recent >= min_recent or stars >= min_total
+        return passed, f"github-trending-recent={int(recent)}-total={int(stars)}"
+
+    if kind == "huggingface_model":
+        likes = float(metrics.get("likes", 0))
+        downloads = float(metrics.get("downloads", 0))
+        trending = float(metrics.get("trendingScore", 0))
+        passed = (
+            likes >= float(gates.get("huggingFaceStandaloneMinLikes", 20))
+            or downloads >= float(gates.get("huggingFaceStandaloneMinDownloads", 5000))
+            or trending >= float(gates.get("huggingFaceStandaloneMinTrendingScore", 10))
+        )
+        return passed, f"hf-likes={int(likes)}-downloads={int(downloads)}-trend={trending:.1f}"
+
+    if kind == "creator_video_topic":
+        weight = float(metrics.get("discoveryWeight", 1.0))
+        method = str(metrics.get("segmentMethod", "whole_video"))
+        min_weight = float(gates.get("creatorStandaloneMinWeight", 1.2))
+        specific = len(title_terms(best)) >= int(gates.get("creatorStandaloneMinTitleTerms", 1))
+        passed = weight >= min_weight and specific and method != "whole_video"
+        return passed, f"creator-weight={weight:.2f}-method={method}"
+
+    if kind == "hacker_news":
+        points = float(metrics.get("points", 0))
+        comments = float(metrics.get("comments", 0))
+        min_points = float(gates.get("hackerNewsStandaloneMinPoints", 55))
+        min_comments = float(gates.get("hackerNewsStandaloneMinComments", 18))
+        passed = points >= min_points or comments >= min_comments
+        return passed, f"hn-points={int(points)}-comments={int(comments)}"
+
+    if kind == "news_search":
+        # Major-news candidates already need to clear the stricter score. Trusted
+        # publishers and primary-publisher signals receive score bonuses upstream.
+        return True, "major-news-score-gate"
+
+    return len(kinds) > 1, "mixed-evidence"
+
 def summarize_cluster(
     cluster: list[dict[str, Any]],
     config: dict[str, Any],
@@ -724,20 +929,34 @@ def summarize_cluster(
     score += max(0, len(lanes) - 1) * float(heat["additionalLane"])
     score += max(0, len(sources) - 1) * float(heat["additionalIndependentSource"])
     score += max(0, len(creator_categories) - 1) * float(heat["additionalCreatorCategory"])
-    if any(c["sourceKind"] == "github_repo" for c in cluster):
+
+    if any(c["sourceKind"] == "github_trending" for c in cluster):
         score += float(heat["githubTrending"])
+    elif any(
+        c["sourceKind"] == "github_repo" and float((c.get("metrics") or {}).get("starsPerHour", 0)) >= 8
+        for c in cluster
+    ):
+        score += float(heat["githubMomentum"])
+
     if any(c["sourceKind"] == "hacker_news" for c in cluster):
         score += float(heat["hackerNews"])
     if any(c["sourceKind"] == "huggingface_model" for c in cluster):
         score += float(heat["huggingFaceTrending"])
     if creators:
         score += float(heat["creatorMention"])
+
     score = round(min(10.0, score), 2)
     covered = already_covered(cluster, covered_fps)
     primary_urls = sorted({u for c in cluster for u in c.get("primaryUrls", []) if u})
     related_urls = sorted({u for c in cluster for u in c.get("relatedUrls", []) if u})
     primary_verified = any(bool(c.get("primaryVerified")) for c in cluster)
-    qualifies = score >= float(config["qualificationScore"]) and not covered
+    quality_gate_passed, quality_gate = cluster_quality_gate(cluster, config)
+    qualifies = (
+        score >= float(config["qualificationScore"])
+        and not covered
+        and quality_gate_passed
+    )
+
     return {
         "clusterId": hashlib.sha1("|".join(sorted(c["id"] for c in cluster)).encode()).hexdigest()[:16],
         "title": best["title"],
@@ -747,6 +966,8 @@ def summarize_cluster(
         "primarySourceAvailable": bool(primary_urls) or primary_verified,
         "needsPrimaryVerification": qualifies and not primary_verified,
         "needsEditorialVerification": qualifies,
+        "qualityGatePassed": quality_gate_passed,
+        "qualityGate": quality_gate,
         "alreadyCovered": covered,
         "lanes": lanes,
         "creatorCategories": creator_categories,
@@ -758,7 +979,6 @@ def summarize_cluster(
         "bestCandidate": best,
         "evidence": sorted(cluster, key=lambda x: float(x.get("rawScore", 0)), reverse=True),
     }
-
 
 def load_json(path: Path, fallback: Any) -> Any:
     if not path.exists():
@@ -815,9 +1035,11 @@ def main() -> None:
     candidates: list[dict[str, Any]] = []
     candidates.extend(google_news_candidates(config, now))
     candidates.extend(github_candidates(config, now))
+    candidates.extend(github_trending_candidates(config, now))
     candidates.extend(hacker_news_candidates(config, now))
     candidates.extend(huggingface_candidates(config, now))
-    creator_items, seen_videos = creator_candidates(config, now)
+    seen_creator_videos = set(old_state.get("seenCreatorVideos") or [])
+    creator_items, seen_videos = creator_candidates(config, now, seen_creator_videos)
     candidates.extend(creator_items)
 
     technical_rejected = [candidate for candidate in candidates if not technical_core(candidate)]

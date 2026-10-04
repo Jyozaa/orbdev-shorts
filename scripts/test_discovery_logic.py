@@ -47,6 +47,58 @@ def main() -> None:
     )
     assert d.technical_core(technical), "open-source developer tools must survive"
 
+    low_repo = c(
+        "hot_emerging",
+        "github_repo",
+        "example/tiny-new-tool",
+        "https://github.com/example/tiny-new-tool",
+        "Open-source developer CLI",
+        source="GitHub",
+    )
+    low_repo["metrics"] = {"stars": 45, "starsPerHour": 2.0}
+    low_repo["rawScore"] = 7.8
+    gate, _ = d.cluster_quality_gate([low_repo], {
+        "qualificationGates": {
+            "githubStandaloneMinStars": 120,
+            "githubStandaloneMinStarsPerHour": 8,
+        }
+    })
+    assert not gate, "small standalone repos must not qualify on freshness alone"
+
+    hot_repo = c(
+        "hot_emerging",
+        "github_trending",
+        "example/hot-tool",
+        "https://github.com/example/hot-tool",
+        "Developer runtime",
+        source="GitHub Trending",
+    )
+    hot_repo["metrics"] = {"stars": 900, "starsRecent": 170, "trendingWindow": "daily"}
+    gate, _ = d.cluster_quality_gate([hot_repo], {
+        "qualificationGates": {
+            "githubTrendingMinRecentStars": 40,
+            "githubTrendingMinTotalStars": 250,
+        }
+    })
+    assert gate, "GitHub Trending must support older projects with fresh momentum"
+
+    creator = c(
+        "creator_radar",
+        "creator_video_topic",
+        "Interesting Agent Runtime",
+        "https://youtube.com/watch?v=new",
+        "New agent runtime explanation",
+        source="Fireship",
+    )
+    creator["metrics"] = {"discoveryWeight": 1.3, "segmentMethod": "chapters"}
+    gate, _ = d.cluster_quality_gate([creator], {
+        "qualificationGates": {
+            "creatorStandaloneMinWeight": 1.2,
+            "creatorStandaloneMinTitleTerms": 1,
+        }
+    })
+    assert gate, "high-signal creator chapters can qualify independently"
+
     print("Discovery logic regression checks passed")
 
 

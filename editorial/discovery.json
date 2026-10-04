@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "scanCadenceHours": 12,
   "candidateLookbackHours": 36,
   "exceptionLookbackHours": 72,
@@ -9,11 +9,16 @@
   "maxQualifiedPerScan": null,
   "majorNews": {
     "queries": [
-      "AI model release OR launch OR update",
-      "AI agent release OR developer tool launch",
-      "AI robotics research breakthrough",
-      "AI hardware inference release",
-      "open source AI model release"
+      "AI model release OR launch OR capability update",
+      "AI agent release OR coding agent OR developer tool launch",
+      "robotics AI research breakthrough OR autonomous robot",
+      "AI hardware inference GPU accelerator release",
+      "open source AI model OR open weights release",
+      "developer runtime OR compiler OR database OR CLI launch",
+      "open source developer tool OR GitHub project launch",
+      "programming framework OR package manager OR browser automation release",
+      "security research vulnerability developer infrastructure",
+      "graphics rendering GPU technology release"
     ],
     "primaryDomains": [
       "openai.com",
@@ -28,7 +33,25 @@
       "github.com",
       "github.blog",
       "arxiv.org"
-    ]
+    ],
+    "publisherBonuses": {
+      "OpenAI": 0.55,
+      "Anthropic": 0.55,
+      "Google": 0.5,
+      "Google DeepMind": 0.55,
+      "Meta": 0.45,
+      "Microsoft": 0.45,
+      "NVIDIA": 0.5,
+      "GitHub": 0.45,
+      "Hugging Face": 0.45,
+      "Reuters": 0.4,
+      "TechCrunch": 0.32,
+      "Ars Technica": 0.32,
+      "The Verge": 0.25,
+      "MIT Technology Review": 0.32,
+      "IEEE Spectrum": 0.32,
+      "Tom's Hardware": 0.22
+    }
   },
   "hotEmerging": {
     "githubQueries": [
@@ -37,81 +60,109 @@
       "mcp in:name,description,readme",
       "inference in:name,description,readme",
       "developer tool in:name,description,readme",
-      "ai coding in:name,description,readme"
+      "ai coding in:name,description,readme",
+      "cli in:name,description",
+      "runtime in:name,description",
+      "database in:name,description",
+      "compiler in:name,description",
+      "terminal in:name,description",
+      "devtool in:name,description",
+      "browser automation in:name,description",
+      "observability in:name,description"
     ],
-    "githubCreatedWithinDays": 10,
-    "githubMinStars": 25,
+    "githubCreatedWithinDays": 14,
+    "githubMinStars": 40,
     "hackerNewsQueries": [
       "AI",
       "LLM",
       "open source",
       "GitHub",
       "developer tool",
-      "coding agent"
+      "coding agent",
+      "Show HN",
+      "CLI",
+      "runtime",
+      "database",
+      "compiler",
+      "devtools",
+      "browser automation"
     ],
     "hackerNewsMinPoints": 20,
-    "huggingFaceLimit": 50
+    "huggingFaceLimit": 60,
+    "githubTrendingWindows": [
+      "daily",
+      "weekly"
+    ],
+    "githubTrendingLimit": 18
   },
   "creatorRadar": {
-    "videoLookbackHours": 48,
+    "videoLookbackHours": 60,
     "maxVideosPerCreator": 3,
-    "maxSegmentsPerVideo": 14,
+    "maxSegmentsPerVideo": 16,
     "creators": [
       {
         "name": "Fireship",
         "handle": "@Fireship",
         "url": "https://www.youtube.com/@Fireship",
         "category": "developer_zeitgeist",
-        "discoveryWeight": 1.3
+        "discoveryWeight": 1.3,
+        "maxSegmentsPerVideo": 10
       },
       {
         "name": "AI Search",
         "handle": "@theAIsearch",
         "url": "https://www.youtube.com/@theAIsearch",
         "category": "ai_news_high_recall",
-        "discoveryWeight": 1.3
+        "discoveryWeight": 1.3,
+        "maxSegmentsPerVideo": 24
       },
       {
         "name": "Two Minute Papers",
         "handle": "@TwoMinutePapers",
         "url": "https://www.youtube.com/@TwoMinutePapers",
         "category": "research",
-        "discoveryWeight": 1.2
+        "discoveryWeight": 1.2,
+        "maxSegmentsPerVideo": 10
       },
       {
         "name": "AI Explained",
         "handle": "@aiexplained-official",
         "url": "https://www.youtube.com/@aiexplained-official",
         "category": "frontier_ai_analysis",
-        "discoveryWeight": 1.2
+        "discoveryWeight": 1.2,
+        "maxSegmentsPerVideo": 14
       },
       {
         "name": "Matt Wolfe",
         "handle": "@mreflow",
         "url": "https://www.youtube.com/@mreflow",
         "category": "ai_news_high_recall",
-        "discoveryWeight": 1.3
+        "discoveryWeight": 1.3,
+        "maxSegmentsPerVideo": 24
       },
       {
         "name": "ThePrimeTime",
         "handle": "@ThePrimeTimeagen",
         "url": "https://www.youtube.com/@ThePrimeTimeagen",
         "category": "developer_zeitgeist",
-        "discoveryWeight": 1.3
+        "discoveryWeight": 1.3,
+        "maxSegmentsPerVideo": 14
       },
       {
         "name": "Matthew Berman",
         "handle": "@matthew_berman",
         "url": "https://www.youtube.com/@matthew_berman",
         "category": "frontier_ai_analysis",
-        "discoveryWeight": 1.15
+        "discoveryWeight": 1.15,
+        "maxSegmentsPerVideo": 14
       },
       {
         "name": "All About AI",
         "handle": "@AllAboutAI",
         "url": "https://www.youtube.com/@AllAboutAI/videos",
         "category": "practical_ai_tools",
-        "discoveryWeight": 1.1
+        "discoveryWeight": 1.1,
+        "maxSegmentsPerVideo": 14
       }
     ]
   },
@@ -122,6 +173,20 @@
     "githubTrending": 0.55,
     "hackerNews": 0.45,
     "huggingFaceTrending": 0.4,
-    "creatorMention": 0.35
+    "creatorMention": 0.35,
+    "githubMomentum": 0.35
+  },
+  "qualificationGates": {
+    "githubStandaloneMinStars": 120,
+    "githubStandaloneMinStarsPerHour": 8,
+    "githubTrendingMinRecentStars": 40,
+    "githubTrendingMinTotalStars": 250,
+    "huggingFaceStandaloneMinLikes": 20,
+    "huggingFaceStandaloneMinDownloads": 5000,
+    "huggingFaceStandaloneMinTrendingScore": 10,
+    "creatorStandaloneMinWeight": 1.2,
+    "creatorStandaloneMinTitleTerms": 1,
+    "hackerNewsStandaloneMinPoints": 55,
+    "hackerNewsStandaloneMinComments": 18
   }
 }

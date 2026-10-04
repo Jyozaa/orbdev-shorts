@@ -25,11 +25,11 @@ There are no fixed posting time blocks and no fixed daily story cap. A scan may 
 
 **Major News** searches significant AI, developer, robotics, research, hardware and infrastructure announcements.
 
-**Hot / Emerging** actively hunts fast-rising GitHub repositories, open-source developer tools, coding agents, Hacker News momentum and trending Hugging Face models. Momentum age can matter more than repository creation age.
+**Hot / Emerging** actively hunts fast-rising GitHub repositories, GitHub Trending, open-source developer tools, runtimes/CLIs/databases/compilers, coding agents, Hacker News momentum and trending Hugging Face models. Momentum age can matter more than repository creation age, and low-signal new repos must clear standalone evidence gates unless another lane independently confirms the topic.
 
 **Creator Radar** monitors the configured channels in `editorial/discovery.json`. Long roundup videos are split into chapter/transcript topics when possible. Creator commentary is used for discovery, context and heat only; factual claims still require primary-source verification.
 
-The current Creator Radar includes Fireship, AI Search, Two Minute Papers, AI Explained, Matt Wolfe, ThePrimeTime, Matthew Berman and All About AI.
+The current Creator Radar includes Fireship, AI Search, Two Minute Papers, AI Explained, Matt Wolfe, ThePrimeTime, Matthew Berman and All About AI. Creator uploads are processed once per discovery state, and high-recall roundup channels receive larger per-video topic budgets so a single roundup can generate multiple independent candidates.
 
 The scheduled scan is defined in `.github/workflows/discovery-scan.yml`. It writes its latest editorial candidate set to `editorial/inbox/latest.json` and uploads a full scan report as a workflow artifact.
 
