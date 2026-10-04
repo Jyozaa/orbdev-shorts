@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-04T16:03:27.407909Z",
+  "generatedAt": "2026-10-04T17:07:21.612615Z",
   "scanCadenceHours": 12,
   "qualified": [
     {
@@ -13,7 +13,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=345.0-total=52886",
+      "qualityGate": "github-trending-stars-per-day=270.0-total=52909",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -40,13 +40,13 @@
         "title": "coreyhaines31/marketingskills",
         "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
         "url": "https://github.com/coreyhaines31/marketingskills",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 52886,
+          "stars": 52909,
           "forks": 7914,
-          "starsRecent": 345,
-          "starsPerDay": 345.0,
+          "starsRecent": 270,
+          "starsPerDay": 270.0,
           "trendingWindow": "daily",
           "repoCreatedAt": "2026-01-15T19:45:23Z",
           "repoPushedAt": "2026-10-03T01:51:50Z"
@@ -73,13 +73,13 @@
           "title": "coreyhaines31/marketingskills",
           "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
           "url": "https://github.com/coreyhaines31/marketingskills",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 52886,
+            "stars": 52909,
             "forks": 7914,
-            "starsRecent": 345,
-            "starsPerDay": 345.0,
+            "starsRecent": 270,
+            "starsPerDay": 270.0,
             "trendingWindow": "daily",
             "repoCreatedAt": "2026-01-15T19:45:23Z",
             "repoPushedAt": "2026-10-03T01:51:50Z"
@@ -110,7 +110,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1894.0-total=154435",
+      "qualityGate": "github-trending-stars-per-day=1894.0-total=154495",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -137,11 +137,11 @@
         "title": "DietrichGebert/ponytail",
         "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "url": "https://github.com/DietrichGebert/ponytail",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 154435,
-          "forks": 8307,
+          "stars": 154495,
+          "forks": 8313,
           "starsRecent": 1894,
           "starsPerDay": 1894.0,
           "trendingWindow": "daily",
@@ -170,11 +170,11 @@
           "title": "DietrichGebert/ponytail",
           "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
           "url": "https://github.com/DietrichGebert/ponytail",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 154435,
-            "forks": 8307,
+            "stars": 154495,
+            "forks": 8313,
             "starsRecent": 1894,
             "starsPerDay": 1894.0,
             "trendingWindow": "daily",
@@ -207,7 +207,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=979.0-total=90543",
+      "qualityGate": "github-trending-stars-per-day=979.0-total=90587",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -234,11 +234,11 @@
         "title": "Panniantong/Agent-Reach",
         "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
         "url": "https://github.com/Panniantong/Agent-Reach",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 90543,
-          "forks": 7959,
+          "stars": 90587,
+          "forks": 7961,
           "starsRecent": 979,
           "starsPerDay": 979.0,
           "trendingWindow": "daily",
@@ -267,11 +267,11 @@
           "title": "Panniantong/Agent-Reach",
           "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
           "url": "https://github.com/Panniantong/Agent-Reach",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 90543,
-            "forks": 7959,
+            "stars": 90587,
+            "forks": 7961,
             "starsRecent": 979,
             "starsPerDay": 979.0,
             "trendingWindow": "daily",
@@ -304,7 +304,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=292.0-total=62970",
+      "qualityGate": "github-trending-stars-per-day=361.0-total=62999",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -331,13 +331,13 @@
         "title": "calesthio/OpenMontage",
         "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
         "url": "https://github.com/calesthio/OpenMontage",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 62970,
-          "forks": 8035,
-          "starsRecent": 292,
-          "starsPerDay": 292.0,
+          "stars": 62999,
+          "forks": 8039,
+          "starsRecent": 361,
+          "starsPerDay": 361.0,
           "trendingWindow": "daily",
           "repoCreatedAt": "2026-03-29T15:23:22Z",
           "repoPushedAt": "2026-10-03T16:28:55Z"
@@ -364,13 +364,13 @@
           "title": "calesthio/OpenMontage",
           "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
           "url": "https://github.com/calesthio/OpenMontage",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 62970,
-            "forks": 8035,
-            "starsRecent": 292,
-            "starsPerDay": 292.0,
+            "stars": 62999,
+            "forks": 8039,
+            "starsRecent": 361,
+            "starsPerDay": 361.0,
             "trendingWindow": "daily",
             "repoCreatedAt": "2026-03-29T15:23:22Z",
             "repoPushedAt": "2026-10-03T16:28:55Z"
@@ -401,7 +401,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=492.0-total=25008",
+      "qualityGate": "github-trending-stars-per-day=492.0-total=25025",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -428,16 +428,16 @@
         "title": "pingdotgg/t3code",
         "summary": "",
         "url": "https://github.com/pingdotgg/t3code",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 25008,
-          "forks": 6485,
+          "stars": 25025,
+          "forks": 6490,
           "starsRecent": 492,
           "starsPerDay": 492.0,
           "trendingWindow": "daily",
           "repoCreatedAt": "2026-02-08T23:46:22Z",
-          "repoPushedAt": "2026-10-04T12:20:05Z"
+          "repoPushedAt": "2026-10-04T16:54:00Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -461,16 +461,16 @@
           "title": "pingdotgg/t3code",
           "summary": "",
           "url": "https://github.com/pingdotgg/t3code",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 25008,
-            "forks": 6485,
+            "stars": 25025,
+            "forks": 6490,
             "starsRecent": 492,
             "starsPerDay": 492.0,
             "trendingWindow": "daily",
             "repoCreatedAt": "2026-02-08T23:46:22Z",
-            "repoPushedAt": "2026-10-04T12:20:05Z"
+            "repoPushedAt": "2026-10-04T16:54:00Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -498,7 +498,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=336.0-total=101074",
+      "qualityGate": "github-trending-stars-per-day=336.0-total=101101",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -525,10 +525,10 @@
         "title": "addyosmani/agent-skills",
         "summary": "Production-grade engineering skills for AI coding agents.",
         "url": "https://github.com/addyosmani/agent-skills",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 101074,
+          "stars": 101101,
           "forks": 10612,
           "starsRecent": 336,
           "starsPerDay": 336.0,
@@ -558,10 +558,10 @@
           "title": "addyosmani/agent-skills",
           "summary": "Production-grade engineering skills for AI coding agents.",
           "url": "https://github.com/addyosmani/agent-skills",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 101074,
+            "stars": 101101,
             "forks": 10612,
             "starsRecent": 336,
             "starsPerDay": 336.0,
@@ -595,7 +595,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=627.0-total=95949",
+      "qualityGate": "github-trending-stars-per-day=627.0-total=95977",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -622,11 +622,11 @@
         "title": "thedotmack/claude-mem",
         "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "url": "https://github.com/thedotmack/claude-mem",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 95949,
-          "forks": 8475,
+          "stars": 95977,
+          "forks": 8477,
           "starsRecent": 627,
           "starsPerDay": 627.0,
           "trendingWindow": "daily",
@@ -655,11 +655,11 @@
           "title": "thedotmack/claude-mem",
           "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
           "url": "https://github.com/thedotmack/claude-mem",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 95949,
-            "forks": 8475,
+            "stars": 95977,
+            "forks": 8477,
             "starsRecent": 627,
             "starsPerDay": 627.0,
             "trendingWindow": "daily",
@@ -692,7 +692,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=512.0-total=91932",
+      "qualityGate": "github-trending-stars-per-day=512.0-total=91961",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -719,11 +719,11 @@
         "title": "OpenCut-app/OpenCut",
         "summary": "The open-source CapCut alternative",
         "url": "https://github.com/OpenCut-app/OpenCut",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 91932,
-          "forks": 9077,
+          "stars": 91961,
+          "forks": 9076,
           "starsRecent": 512,
           "starsPerDay": 512.0,
           "trendingWindow": "daily",
@@ -752,11 +752,11 @@
           "title": "OpenCut-app/OpenCut",
           "summary": "The open-source CapCut alternative",
           "url": "https://github.com/OpenCut-app/OpenCut",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 91932,
-            "forks": 9077,
+            "stars": 91961,
+            "forks": 9076,
             "starsRecent": 512,
             "starsPerDay": 512.0,
             "trendingWindow": "daily",
@@ -789,7 +789,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1531.7-total=97028",
+      "qualityGate": "github-trending-stars-per-day=1531.7-total=97050",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -816,16 +816,16 @@
         "title": "paperclipai/paperclip",
         "summary": "The open-source app everyone uses to manage agents at work",
         "url": "https://github.com/paperclipai/paperclip",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 97028,
-          "forks": 16415,
+          "stars": 97050,
+          "forks": 16423,
           "starsRecent": 10722,
           "starsPerDay": 1531.71,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-03-02T15:01:51Z",
-          "repoPushedAt": "2026-10-04T11:33:43Z"
+          "repoPushedAt": "2026-10-04T17:03:54Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -849,16 +849,16 @@
           "title": "paperclipai/paperclip",
           "summary": "The open-source app everyone uses to manage agents at work",
           "url": "https://github.com/paperclipai/paperclip",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 97028,
-            "forks": 16415,
+            "stars": 97050,
+            "forks": 16423,
             "starsRecent": 10722,
             "starsPerDay": 1531.71,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-03-02T15:01:51Z",
-            "repoPushedAt": "2026-10-04T11:33:43Z"
+            "repoPushedAt": "2026-10-04T17:03:54Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -886,7 +886,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=2072.4-total=45375",
+      "qualityGate": "github-trending-stars-per-day=2072.4-total=45398",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -913,10 +913,10 @@
         "title": "vectorize-io/hindsight",
         "summary": "Hindsight: Agent Memory That Learns",
         "url": "https://github.com/vectorize-io/hindsight",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 45375,
+          "stars": 45398,
           "forks": 5906,
           "starsRecent": 14507,
           "starsPerDay": 2072.43,
@@ -946,10 +946,10 @@
           "title": "vectorize-io/hindsight",
           "summary": "Hindsight: Agent Memory That Learns",
           "url": "https://github.com/vectorize-io/hindsight",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 45375,
+            "stars": 45398,
             "forks": 5906,
             "starsRecent": 14507,
             "starsPerDay": 2072.43,
@@ -983,7 +983,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=2396.4-total=52985",
+      "qualityGate": "github-trending-stars-per-day=2396.4-total=53007",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1010,16 +1010,16 @@
         "title": "debpalash/VoiceStudio",
         "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "url": "https://github.com/debpalash/VoiceStudio",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 52985,
-          "forks": 5905,
+          "stars": 53007,
+          "forks": 5907,
           "starsRecent": 16775,
           "starsPerDay": 2396.43,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-04-09T21:40:26Z",
-          "repoPushedAt": "2026-10-04T15:43:38Z"
+          "repoPushedAt": "2026-10-04T17:03:00Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -1043,16 +1043,16 @@
           "title": "debpalash/VoiceStudio",
           "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
           "url": "https://github.com/debpalash/VoiceStudio",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 52985,
-            "forks": 5905,
+            "stars": 53007,
+            "forks": 5907,
             "starsRecent": 16775,
             "starsPerDay": 2396.43,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-04-09T21:40:26Z",
-            "repoPushedAt": "2026-10-04T15:43:38Z"
+            "repoPushedAt": "2026-10-04T17:03:00Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -1080,7 +1080,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=722.7-total=63667",
+      "qualityGate": "github-trending-stars-per-day=722.7-total=63716",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1107,11 +1107,11 @@
         "title": "rohitg00/ai-engineering-from-scratch",
         "summary": "Learn it. Build it. Ship it for others.",
         "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 63667,
-          "forks": 10892,
+          "stars": 63716,
+          "forks": 10901,
           "starsRecent": 5059,
           "starsPerDay": 722.71,
           "trendingWindow": "weekly",
@@ -1140,11 +1140,11 @@
           "title": "rohitg00/ai-engineering-from-scratch",
           "summary": "Learn it. Build it. Ship it for others.",
           "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 63667,
-            "forks": 10892,
+            "stars": 63716,
+            "forks": 10901,
             "starsRecent": 5059,
             "starsPerDay": 722.71,
             "trendingWindow": "weekly",
@@ -1177,7 +1177,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=332.0-total=128398",
+      "qualityGate": "github-trending-stars-per-day=332.0-total=128406",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1204,11 +1204,11 @@
         "title": "harry0703/MoneyPrinterTurbo",
         "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
         "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 128398,
-          "forks": 20082,
+          "stars": 128406,
+          "forks": 20081,
           "starsRecent": 2324,
           "starsPerDay": 332.0,
           "trendingWindow": "weekly",
@@ -1237,11 +1237,11 @@
           "title": "harry0703/MoneyPrinterTurbo",
           "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
           "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 128398,
-            "forks": 20082,
+            "stars": 128406,
+            "forks": 20081,
             "starsRecent": 2324,
             "starsPerDay": 332.0,
             "trendingWindow": "weekly",
@@ -1274,7 +1274,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=836.3-total=14785",
+      "qualityGate": "github-trending-stars-per-day=836.3-total=14796",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1301,10 +1301,10 @@
         "title": "NVIDIA/OpenShell",
         "summary": "OpenShell is the safe, private runtime for autonomous AI agents.",
         "url": "https://github.com/NVIDIA/OpenShell",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 14785,
+          "stars": 14796,
           "forks": 1691,
           "starsRecent": 5854,
           "starsPerDay": 836.29,
@@ -1334,10 +1334,10 @@
           "title": "NVIDIA/OpenShell",
           "summary": "OpenShell is the safe, private runtime for autonomous AI agents.",
           "url": "https://github.com/NVIDIA/OpenShell",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 14785,
+            "stars": 14796,
             "forks": 1691,
             "starsRecent": 5854,
             "starsPerDay": 836.29,
@@ -1371,7 +1371,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=211.0-total=23333",
+      "qualityGate": "github-trending-stars-per-day=211.0-total=23348",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1398,11 +1398,11 @@
         "title": "antirez/ds4",
         "summary": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
         "url": "https://github.com/antirez/ds4",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 23333,
-          "forks": 2241,
+          "stars": 23348,
+          "forks": 2245,
           "starsRecent": 211,
           "starsPerDay": 211.0,
           "trendingWindow": "daily",
@@ -1431,11 +1431,11 @@
           "title": "antirez/ds4",
           "summary": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
           "url": "https://github.com/antirez/ds4",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 23333,
-            "forks": 2241,
+            "stars": 23348,
+            "forks": 2245,
             "starsRecent": 211,
             "starsPerDay": 211.0,
             "trendingWindow": "daily",
@@ -1459,6 +1459,293 @@
       ]
     },
     {
+      "clusterId": "99ff2d4c2fb8720a",
+      "title": "Getting the most out of Opus 5.5 in Claude and Claude Code",
+      "score": 9.27,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging",
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Hacker News",
+        "Pandaily",
+        "Startup Fortune",
+        "trendingtopics.eu"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "developer-discussion",
+        "hacker-news",
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "cf8a32adbfece5ca",
+        "lane": "hot_emerging",
+        "sourceKind": "hacker_news",
+        "title": "Getting the most out of Opus 5.5 in Claude and Claude Code",
+        "summary": "",
+        "url": "https://claude.dev/blog/getting-the-most-out-of-opus-5-5/",
+        "publishedAt": "2026-10-03T18:29:30Z",
+        "sourceName": "Hacker News",
+        "metrics": {
+          "points": 226,
+          "comments": 154
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "hacker-news",
+          "developer-discussion"
+        ],
+        "rawScore": 7.63
+      },
+      "evidence": [
+        {
+          "id": "cf8a32adbfece5ca",
+          "lane": "hot_emerging",
+          "sourceKind": "hacker_news",
+          "title": "Getting the most out of Opus 5.5 in Claude and Claude Code",
+          "summary": "",
+          "url": "https://claude.dev/blog/getting-the-most-out-of-opus-5-5/",
+          "publishedAt": "2026-10-03T18:29:30Z",
+          "sourceName": "Hacker News",
+          "metrics": {
+            "points": 226,
+            "comments": 154
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "hacker-news",
+            "developer-discussion"
+          ],
+          "rawScore": 7.63
+        },
+        {
+          "id": "10b8984fe8a6df0f",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "DeepSeek Harness v0.2.1-alpha.1 Adds Experimental Claude Code Mods Compatibility Layer - Pandaily",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPcGdoZzFOdXpJNmlkNnlrQ2FONUltaTc2aHVNbEZVdlNyNHM1MkNVT011S1lGaHVnT2lvOUx1Mm1jSkZWWWdzT3NxeEV4WlVLZHRmYnY4ZENtYmFTc1RoQ1NmU0VhTERSeUpva1djdUROc1hMOGxiRzFEY3BXNjBiaEVNbFRoNkVaTWNCc3U5VjNYejA?oc=5",
+          "publishedAt": "2026-10-04T10:38:16Z",
+          "sourceName": "Pandaily",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://pandaily.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.73
+        },
+        {
+          "id": "05b639bd787f0e66",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Claude Opus 5.5 is beating OpenAI's Astra on coding benchmarks and price - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPa2tYTFMzQW5pbWhMSkF3MTNEUGNMSDB2TUhVMnZlV3FlVUQ3THdBZUc1ellaSjl6VkVKckNBVC1BNU5XN1dEdEdQM29KRi1Mdnl0VmFOS2ZNbUd5Q2FYRjl3TUR0U3pPYl92bTFFcnlDaGNjWERncDJ2OEZtWUp3SFFYSGNzTGhwekhPaVdKZnNaek9IbFpZanBXQi0wTVU?oc=5",
+          "publishedAt": "2026-10-03T21:55:49Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://startupfortune.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.2
+        },
+        {
+          "id": "d3040f79e75351ee",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Run Claude Code, Codex, Hermes And OpenClaw For 95% Less: Agent37 Founder Vishnu Krishnaprasad On The Affordable Agent Sandbox - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNVE1tR2ZtMTNfNVp3ejZ4eThJSEZBRUdwcklwMkhPbkhXX1dxUnNqdXg5a3E5eUxfdEwwa3JSRER1U3h5TC1UZGp6SGRUTGtjZEhWZmVWelBWN0VaS0RUNEpUOGpmaE9YNHlrZkpOeldNaWpFUFNqMGZ4TzFvQWNHa3RqTlloMW5abmZrTW44d2RCdTFFTnZDb0VST29nUUptc2hLVkFpcEJmZ08zRXFjRVlEbzV3WnBnanZpTWtCWlg2OFVvS1pPMFlIaFQ4ekhSWld2YnRDdkZ1SlNjWExkSVNub3U?oc=5",
+          "publishedAt": "2026-10-03T17:19:35Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://startupfortune.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.01
+        },
+        {
+          "id": "a34f12d0009322ef",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Aleph Alpha puts Kolibri's full weights on Hugging Face under Apache 2.0 - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPZXh4alFvdjVtRnR1NGE5R2lwaXdjOGxuVWZ4Z0h0b0xMN3RkUUZldzhUcjVTTzUzNEU3bjVtbG1SQXJxekt3dl9ER2xUb2pZcHlyRDlCdEFNUlFLNDdvcGlGUmhxV1ZTdERNZmRvMlFjYlJYTjdOaXU0VXdtOHpILW8tVHp4X1VZRXFXNmlWalRkdE1MWlUwSkR0aHp5NXc?oc=5",
+          "publishedAt": "2026-10-03T15:16:15Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://startupfortune.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.92
+        },
+        {
+          "id": "e9a9362f81325f52",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Aleph Alpha\u2019s Sovereign A.I. Model Kolibri Is No Match for the Open-Weight Leaders - trendingtopics.eu",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9kbnVPTVppV0JDS192NzZ0cG4tUW5TOEpoek9IZHVjZ0ZVbUdmNDZaQTFPVVFPX0xjdWYzYUVsbUkxNlI3V0NJRmJGT2l0cXhDUXRXeW5XZFJMcHhZZEtsVm9DVzM1SGZUVDVRRHc4OA?oc=5",
+          "publishedAt": "2026-10-03T14:06:31Z",
+          "sourceName": "trendingtopics.eu",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.trendingtopics.eu",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.87
+        },
+        {
+          "id": "013934b62da0d704",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Manus gave its AI agents phone numbers and wallets days after Nvidia caged them - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQV1dIU2lBSE1abjVYVjNKZ2p4WVVHbVNma1p3Y3EwVXZ2Umt0cmtjX2I4Ynl2akFGc0lXWWFYbS1OMDdIN2VSekVnb0Y5a3E3ZkVSemtVY0piSWQ5QjNRX0tCV1VZVmFERnZsMUtrcjZoQVRiZGZ0ZE5XdjFfN21PTFM1NTE5STBpN2Nha1NSSFpVLVVBUnJ0V1k2bG1PZ19TTFpzQllYRXBneHc?oc=5",
+          "publishedAt": "2026-10-03T11:57:46Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://startupfortune.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.79
+        },
+        {
+          "id": "1c28f37f4cb20a97",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Aleph Alpha launches Kolibri, a sovereign German AI model for government use - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPdHFKay1xU3FEdVV5dGdTZEZHczBlb1hPdjZtTVg5bkZXY0lIMldkOFRqRllRRzBiS0JwaDJmdWt3MW15Nm1mQ3B0MXNPbWMyaGJNdjU5Yi1BR0lIRFhiNXJlYVJORFJDUEwtc3RFeEgxSDJ1VVVZSlZnQ19UUkV5SjQ5M1YxVjBWTXV1eE94SjM1OTVQNjZhR0V2X1dtMGVqREYxTnlB?oc=5",
+          "publishedAt": "2026-10-03T10:37:14Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://startupfortune.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.73
+        },
+        {
+          "id": "109aa8d68bf5c335",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PewDiePie Says OpenAI Banned Him Twice Over the AI Model He Just Released - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOMFh1b3dOUl9DckpJZ0VPSExRQ1ZObndPRmFxMmxyVEJrQ3lDYVBCdWpha0tfQ2o3NGlPeXJFbThmSVJoTnJqWUlYc0llWkFJSFRfQjVPNzAwYkZyckhjSWJjTHlhQ3NZLXpIUDZKeUJ6am5vRk1LeWhTallTanhmQjhCU09jM3hMb0tYb2xoYjBKZk0wcUk0ejV3a0d1dlJNOFVz?oc=5",
+          "publishedAt": "2026-10-03T09:58:34Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://startupfortune.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.7
+        },
+        {
+          "id": "490f2a6d27df789d",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Supabase Raises $150 Million and Buys Turso for A.I. Agents - trendingtopics.eu",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1JVjRMZ2k0NG0zMm5odlhIVXlLWGllTVczcEtENk1FQXpFTkdpSzZ3azJ6ak1IN094cEE2STQ0bEQ4NEpmaTZZc2RxU0R6U1dJcEZOM2pTanVadnl4X191ZXFrLUcxT0Ja?oc=5",
+          "publishedAt": "2026-10-03T07:31:35Z",
+          "sourceName": "trendingtopics.eu",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.trendingtopics.eu",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.6
+        }
+      ]
+    },
+    {
       "clusterId": "545af91e7b05b18a",
       "title": "mvschwarz/openrig",
       "score": 9.24,
@@ -1468,7 +1755,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=606.4-total=4878",
+      "qualityGate": "github-trending-stars-per-day=606.4-total=4895",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1495,16 +1782,16 @@
         "title": "mvschwarz/openrig",
         "summary": "Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.",
         "url": "https://github.com/mvschwarz/openrig",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 4878,
-          "forks": 350,
+          "stars": 4895,
+          "forks": 352,
           "starsRecent": 4245,
           "starsPerDay": 606.43,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-04-01T06:22:40Z",
-          "repoPushedAt": "2026-10-04T16:02:22Z"
+          "repoPushedAt": "2026-10-04T16:57:18Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -1528,16 +1815,16 @@
           "title": "mvschwarz/openrig",
           "summary": "Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.",
           "url": "https://github.com/mvschwarz/openrig",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 4878,
-            "forks": 350,
+            "stars": 4895,
+            "forks": 352,
             "starsRecent": 4245,
             "starsPerDay": 606.43,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-04-01T06:22:40Z",
-            "repoPushedAt": "2026-10-04T16:02:22Z"
+            "repoPushedAt": "2026-10-04T16:57:18Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -1565,7 +1852,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=232.1-total=3663",
+      "qualityGate": "github-trending-stars-per-day=232.1-total=3667",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1592,10 +1879,10 @@
         "title": "cs341-illinois/coursebook",
         "summary": "Open Source Introductory Systems Programming Textbook for the University of Illinois",
         "url": "https://github.com/cs341-illinois/coursebook",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 3663,
+          "stars": 3667,
           "forks": 307,
           "starsRecent": 1625,
           "starsPerDay": 232.14,
@@ -1625,10 +1912,10 @@
           "title": "cs341-illinois/coursebook",
           "summary": "Open Source Introductory Systems Programming Textbook for the University of Illinois",
           "url": "https://github.com/cs341-illinois/coursebook",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 3663,
+            "stars": 3667,
             "forks": 307,
             "starsRecent": 1625,
             "starsPerDay": 232.14,
@@ -1655,14 +1942,14 @@
     {
       "clusterId": "1db4d8ef6d147751",
       "title": "tester-army/e2e",
-      "score": 9.17,
+      "score": 9.18,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": true,
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=344.0-total=2662",
+      "qualityGate": "github-trending-stars-per-day=344.0-total=2738",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1689,11 +1976,11 @@
         "title": "tester-army/e2e",
         "summary": "Next generation e2e testing framework for web and mobile apps.",
         "url": "https://github.com/tester-army/e2e",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 2662,
-          "forks": 102,
+          "stars": 2738,
+          "forks": 105,
           "starsRecent": 344,
           "starsPerDay": 344.0,
           "trendingWindow": "daily",
@@ -1712,7 +1999,7 @@
           "open-source",
           "momentum"
         ],
-        "rawScore": 8.62
+        "rawScore": 8.63
       },
       "evidence": [
         {
@@ -1722,11 +2009,11 @@
           "title": "tester-army/e2e",
           "summary": "Next generation e2e testing framework for web and mobile apps.",
           "url": "https://github.com/tester-army/e2e",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 2662,
-            "forks": 102,
+            "stars": 2738,
+            "forks": 105,
             "starsRecent": 344,
             "starsPerDay": 344.0,
             "trendingWindow": "daily",
@@ -1745,155 +2032,7 @@
             "open-source",
             "momentum"
           ],
-          "rawScore": 8.62
-        }
-      ]
-    },
-    {
-      "clusterId": "9974a156685f1b4b",
-      "title": "Getting the most out of Opus 5.5 in Claude and Claude Code",
-      "score": 9.12,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": false,
-      "needsPrimaryVerification": true,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "independent-convergence",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging",
-        "major_news"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "Hacker News",
-        "Pandaily",
-        "Pasquale Pillitteri"
-      ],
-      "primaryUrls": [],
-      "relatedUrls": [],
-      "signals": [
-        "developer-discussion",
-        "hacker-news",
-        "major-news-search"
-      ],
-      "bestCandidate": {
-        "id": "cf8a32adbfece5ca",
-        "lane": "hot_emerging",
-        "sourceKind": "hacker_news",
-        "title": "Getting the most out of Opus 5.5 in Claude and Claude Code",
-        "summary": "",
-        "url": "https://claude.dev/blog/getting-the-most-out-of-opus-5-5/",
-        "publishedAt": "2026-10-03T18:29:30Z",
-        "sourceName": "Hacker News",
-        "metrics": {
-          "points": 225,
-          "comments": 154
-        },
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "relatedUrls": [],
-        "signals": [
-          "hacker-news",
-          "developer-discussion"
-        ],
-        "rawScore": 7.66
-      },
-      "evidence": [
-        {
-          "id": "cf8a32adbfece5ca",
-          "lane": "hot_emerging",
-          "sourceKind": "hacker_news",
-          "title": "Getting the most out of Opus 5.5 in Claude and Claude Code",
-          "summary": "",
-          "url": "https://claude.dev/blog/getting-the-most-out-of-opus-5-5/",
-          "publishedAt": "2026-10-03T18:29:30Z",
-          "sourceName": "Hacker News",
-          "metrics": {
-            "points": 225,
-            "comments": 154
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "hacker-news",
-            "developer-discussion"
-          ],
-          "rawScore": 7.66
-        },
-        {
-          "id": "10b8984fe8a6df0f",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "DeepSeek Harness v0.2.1-alpha.1 Adds Experimental Claude Code Mods Compatibility Layer - Pandaily",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPcGdoZzFOdXpJNmlkNnlrQ2FONUltaTc2aHVNbEZVdlNyNHM1MkNVT011S1lGaHVnT2lvOUx1Mm1jSkZWWWdzT3NxeEV4WlVLZHRmYnY4ZENtYmFTc1RoQ1NmU0VhTERSeUpva1djdUROc1hMOGxiRzFEY3BXNjBiaEVNbFRoNkVaTWNCc3U5VjNYejA?oc=5",
-          "publishedAt": "2026-10-04T10:38:16Z",
-          "sourceName": "Pandaily",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://pandaily.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.77
-        },
-        {
-          "id": "2575d8fd845a5131",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Claude Opus 5.5 arrives on Antigravity, but only for Pro and Ultra - Pasquale Pillitteri",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNdUxjNlV3bDZ5MVNqb0VhdDNtVzhBdVZRNTBHUFVURHNsVG1HRW10NmV3RkN1TDZVTy1EbllqcXFFZUR1LUJWMGVRSENYTzdFcW9sTXVlaDY2d1d5OTdDSWVGbGljN1ZqaEdkanRrX2VibEFNUGlseGF5eTYxdmFMSVRFdTFjN1pYRW9fR2lrZzBubVN3NGxFb1gxd3pNQQ?oc=5",
-          "publishedAt": "2026-10-03T11:58:32Z",
-          "sourceName": "Pasquale Pillitteri",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://pasqualepillitteri.it",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.83
-        },
-        {
-          "id": "c512ea1b91e85bf3",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Meta Announces Muse Gadgets, an Open Source ESP32 Firmware - Pasquale Pillitteri",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQkxYXy1OanVZSTczckFMU3o0VmxQOWliT0g5VUg1NVJDU25tOEtXSjJLeTVrM3hCMEFPdlBDYWxQaDc4b253QVpWSTVjOHJHSDZTbjZfTU9DcXZmVjBuNGxpWVMyMEZNSVhfbVhtenhLY3FtblhxbVhVeDZBUVlFVlZocFlqaHdBR0Vpdm9KUQ?oc=5",
-          "publishedAt": "2026-10-03T06:55:21Z",
-          "sourceName": "Pasquale Pillitteri",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://pasqualepillitteri.it",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.62
+          "rawScore": 8.63
         }
       ]
     },
@@ -1907,7 +2046,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=135.4-total=27568",
+      "qualityGate": "github-trending-stars-per-day=135.4-total=27572",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1934,10 +2073,10 @@
         "title": "alirezarezvani/claude-skills",
         "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
         "url": "https://github.com/alirezarezvani/claude-skills",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 27568,
+          "stars": 27572,
           "forks": 3884,
           "starsRecent": 948,
           "starsPerDay": 135.43,
@@ -1967,10 +2106,10 @@
           "title": "alirezarezvani/claude-skills",
           "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
           "url": "https://github.com/alirezarezvani/claude-skills",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 27568,
+            "stars": 27572,
             "forks": 3884,
             "starsRecent": 948,
             "starsPerDay": 135.43,
@@ -1997,7 +2136,7 @@
     {
       "clusterId": "5bf364cd7d3c71b5",
       "title": "Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s",
-      "score": 9.1,
+      "score": 9.07,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": true,
@@ -2036,8 +2175,8 @@
         "publishedAt": "2026-10-04T12:51:53Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 228,
-          "comments": 112
+          "points": 292,
+          "comments": 153
         },
         "creator": null,
         "primaryUrls": [
@@ -2049,7 +2188,7 @@
           "hacker-news",
           "developer-discussion"
         ],
-        "rawScore": 8.12
+        "rawScore": 8.09
       },
       "evidence": [
         {
@@ -2062,8 +2201,8 @@
           "publishedAt": "2026-10-04T12:51:53Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 228,
-            "comments": 112
+            "points": 292,
+            "comments": 153
           },
           "creator": null,
           "primaryUrls": [
@@ -2075,7 +2214,7 @@
             "hacker-news",
             "developer-discussion"
           ],
-          "rawScore": 8.12
+          "rawScore": 8.09
         },
         {
           "id": "d5d79de727aaeb33",
@@ -2087,10 +2226,10 @@
           "publishedAt": "2026-09-24T16:40:20Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 9909,
-            "forks": 881,
-            "ageHours": 239.39,
-            "starsPerHour": 41.39
+            "stars": 10106,
+            "forks": 895,
+            "ageHours": 240.45,
+            "starsPerHour": 42.03
           },
           "creator": null,
           "primaryUrls": [
@@ -2103,7 +2242,7 @@
             "open-source",
             "momentum"
           ],
-          "rawScore": 6.68
+          "rawScore": 6.69
         }
       ]
     },
@@ -2117,7 +2256,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=121.0-total=135055",
+      "qualityGate": "github-trending-stars-per-day=121.0-total=135073",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2144,11 +2283,11 @@
         "title": "garrytan/gstack",
         "summary": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
         "url": "https://github.com/garrytan/gstack",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 135055,
-          "forks": 20086,
+          "stars": 135073,
+          "forks": 20087,
           "starsRecent": 121,
           "starsPerDay": 121.0,
           "trendingWindow": "daily",
@@ -2177,11 +2316,11 @@
           "title": "garrytan/gstack",
           "summary": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
           "url": "https://github.com/garrytan/gstack",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 135055,
-            "forks": 20086,
+            "stars": 135073,
+            "forks": 20087,
             "starsRecent": 121,
             "starsPerDay": 121.0,
             "trendingWindow": "daily",
@@ -2214,7 +2353,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=114.3-total=8320",
+      "qualityGate": "github-trending-stars-per-day=114.3-total=8329",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2241,10 +2380,10 @@
         "title": "tile-ai/tilelang",
         "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
         "url": "https://github.com/tile-ai/tilelang",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 8320,
+          "stars": 8329,
           "forks": 838,
           "starsRecent": 800,
           "starsPerDay": 114.29,
@@ -2274,10 +2413,10 @@
           "title": "tile-ai/tilelang",
           "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
           "url": "https://github.com/tile-ai/tilelang",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 8320,
+            "stars": 8329,
             "forks": 838,
             "starsRecent": 800,
             "starsPerDay": 114.29,
@@ -2311,7 +2450,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=96.9-total=143153",
+      "qualityGate": "github-trending-stars-per-day=96.9-total=143154",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2338,16 +2477,16 @@
         "title": "vercel/next.js",
         "summary": "The React Framework",
         "url": "https://github.com/vercel/next.js",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 143153,
-          "forks": 33895,
+          "stars": 143154,
+          "forks": 33896,
           "starsRecent": 678,
           "starsPerDay": 96.86,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2016-10-05T23:32:51Z",
-          "repoPushedAt": "2026-10-04T16:00:32Z"
+          "repoPushedAt": "2026-10-04T16:51:42Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -2371,16 +2510,16 @@
           "title": "vercel/next.js",
           "summary": "The React Framework",
           "url": "https://github.com/vercel/next.js",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 143153,
-            "forks": 33895,
+            "stars": 143154,
+            "forks": 33896,
             "starsRecent": 678,
             "starsPerDay": 96.86,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2016-10-05T23:32:51Z",
-            "repoPushedAt": "2026-10-04T16:00:32Z"
+            "repoPushedAt": "2026-10-04T16:51:42Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -2408,7 +2547,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=75.0-total=16728",
+      "qualityGate": "github-trending-stars-per-day=75.0-total=16743",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2435,16 +2574,16 @@
         "title": "earthtojake/text-to-cad",
         "summary": "Give your agent CAD superpowers.",
         "url": "https://github.com/earthtojake/text-to-cad",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 16728,
-          "forks": 1733,
+          "stars": 16743,
+          "forks": 1735,
           "starsRecent": 75,
           "starsPerDay": 75.0,
           "trendingWindow": "daily",
           "repoCreatedAt": "2026-04-22T01:09:45Z",
-          "repoPushedAt": "2026-10-04T15:47:53Z"
+          "repoPushedAt": "2026-10-04T16:21:06Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -2468,16 +2607,16 @@
           "title": "earthtojake/text-to-cad",
           "summary": "Give your agent CAD superpowers.",
           "url": "https://github.com/earthtojake/text-to-cad",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 16728,
-            "forks": 1733,
+            "stars": 16743,
+            "forks": 1735,
             "starsRecent": 75,
             "starsPerDay": 75.0,
             "trendingWindow": "daily",
             "repoCreatedAt": "2026-04-22T01:09:45Z",
-            "repoPushedAt": "2026-10-04T15:47:53Z"
+            "repoPushedAt": "2026-10-04T16:21:06Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -2496,9 +2635,9 @@
       ]
     },
     {
-      "clusterId": "c9d1b4c76aea5bba",
+      "clusterId": "70bd8cea324749c1",
       "title": "Aleph-Alpha/Kolibri-1",
-      "score": 8.76,
+      "score": 8.58,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": true,
@@ -2515,9 +2654,8 @@
       "creators": [],
       "sourceNames": [
         "Hugging Face",
-        "Pasquale Pillitteri",
         "news.lavx.hu",
-        "trendingtopics.eu"
+        "pasqualepillitteri.it"
       ],
       "primaryUrls": [
         "https://huggingface.co/Aleph-Alpha/Kolibri-1"
@@ -2539,9 +2677,9 @@
         "publishedAt": "2026-10-02T05:54:02.000Z",
         "sourceName": "Hugging Face",
         "metrics": {
-          "likes": 343,
+          "likes": 350,
           "downloads": 1135,
-          "trendingScore": 336.0
+          "trendingScore": 343.0
         },
         "creator": null,
         "primaryUrls": [
@@ -2567,9 +2705,9 @@
           "publishedAt": "2026-10-02T05:54:02.000Z",
           "sourceName": "Hugging Face",
           "metrics": {
-            "likes": 343,
+            "likes": 350,
             "downloads": 1135,
-            "trendingScore": 336.0
+            "trendingScore": 343.0
           },
           "creator": null,
           "primaryUrls": [
@@ -2585,14 +2723,14 @@
           "rawScore": 7.17
         },
         {
-          "id": "84b193835e1642bc",
+          "id": "1ef801980a667c21",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Aleph Alpha Releases Kolibri-1, a 78B Open-Weight Model With 1M Context - Pasquale Pillitteri",
+          "title": "Aleph Alpha Releases Kolibri-1, a 78B Open-Weight Model With 1M Context - pasqualepillitteri.it",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNSXAtX2lxZ2ppOUtaNHYwUmx5aGtoQlozN1dESU1mbVk3dW8xMGs5alNYOEVrMU95Q1FzaWNoVVNlNlhOcDdtTTB6YkFuWGZvNkpmYWlzNzU2cmdMZmNNUUltdF9QaWdwTUNTMHZiZEQzaTQzLUF5UHotNGdYZlNZVHU0M1VKWXBzN0tYZndnSmw0NDFHc2RFcFZocTRBTEhPWFhN?oc=5",
           "publishedAt": "2026-10-04T07:07:20Z",
-          "sourceName": "Pasquale Pillitteri",
+          "sourceName": "pasqualepillitteri.it",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://pasqualepillitteri.it",
@@ -2605,17 +2743,17 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.63
+          "rawScore": 6.58
         },
         {
-          "id": "38bf7b172b091166",
+          "id": "2451ceeafd5f3a8d",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Free Open Source dots Arrives as OpenDots, but the Model Costs Money - Pasquale Pillitteri",
+          "title": "Free Open Source dots Arrives as OpenDots, but the Model Costs Money - pasqualepillitteri.it",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQm51UUVwdFFCY1VUaDhYNElqdG1rNkowYTNrbFJmMXpsRkVzekZFUUZlZGRWY0lINC15MlF5QzJ5Y2M2bE83b1FvbS00U2g2YzJBazRxR3hvZnBLTW5feVBvRV91MVpHV0RITXVuZUVTSWx4QVpLeWVVX0xTcS0yTGFYSTVfOS0yQnpCX2Zyamo?oc=5",
           "publishedAt": "2026-10-04T06:27:40Z",
-          "sourceName": "Pasquale Pillitteri",
+          "sourceName": "pasqualepillitteri.it",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://pasqualepillitteri.it",
@@ -2628,20 +2766,20 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.6
+          "rawScore": 6.56
         },
         {
-          "id": "e9a9362f81325f52",
+          "id": "afed696c5abf54df",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Aleph Alpha\u2019s Sovereign A.I. Model Kolibri Is No Match for the Open-Weight Leaders - trendingtopics.eu",
+          "title": "Claude Opus 5.5 arrives on Antigravity, but only for Pro and Ultra - pasqualepillitteri.it",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9kbnVPTVppV0JDS192NzZ0cG4tUW5TOEpoek9IZHVjZ0ZVbUdmNDZaQTFPVVFPX0xjdWYzYUVsbUkxNlI3V0NJRmJGT2l0cXhDUXRXeW5XZFJMcHhZZEtsVm9DVzM1SGZUVDVRRHc4OA?oc=5",
-          "publishedAt": "2026-10-03T14:06:31Z",
-          "sourceName": "trendingtopics.eu",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNdUxjNlV3bDZ5MVNqb0VhdDNtVzhBdVZRNTBHUFVURHNsVG1HRW10NmV3RkN1TDZVTy1EbllqcXFFZUR1LUJWMGVRSENYTzdFcW9sTXVlaDY2d1d5OTdDSWVGbGljN1ZqaEdkanRrX2VibEFNUGlseGF5eTYxdmFMSVRFdTFjN1pYRW9fR2lrZzBubVN3NGxFb1gxd3pNQQ?oc=5",
+          "publishedAt": "2026-10-03T11:58:32Z",
+          "sourceName": "pasqualepillitteri.it",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://www.trendingtopics.eu",
+            "publisherUrl": "https://pasqualepillitteri.it",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2651,7 +2789,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 5.92
+          "rawScore": 5.79
         },
         {
           "id": "75c2154f9289d3f1",
@@ -2674,7 +2812,30 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 5.69
+          "rawScore": 5.65
+        },
+        {
+          "id": "dac9159bae8bbec7",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Meta Announces Muse Gadgets, an Open Source ESP32 Firmware - pasqualepillitteri.it",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPQkxYXy1OanVZSTczckFMU3o0VmxQOWliT0g5VUg1NVJDU25tOEtXSjJLeTVrM3hCMEFPdlBDYWxQaDc4b253QVpWSTVjOHJHSDZTbjZfTU9DcXZmVjBuNGxpWVMyMEZNSVhfbVhtenhLY3FtblhxbVhVeDZBUVlFVlZocFlqaHdBR0Vpdm9KUQ?oc=5",
+          "publishedAt": "2026-10-03T06:55:21Z",
+          "sourceName": "pasqualepillitteri.it",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://pasqualepillitteri.it",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.57
         }
       ]
     },
@@ -2688,7 +2849,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=31.0-total=76378",
+      "qualityGate": "github-trending-stars-per-day=31.0-total=76409",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2715,16 +2876,16 @@
         "title": "caddyserver/caddy",
         "summary": "Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS",
         "url": "https://github.com/caddyserver/caddy",
-        "publishedAt": "2026-10-04T16:03:27.407909Z",
+        "publishedAt": "2026-10-04T17:07:21.612615Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 76378,
-          "forks": 5037,
+          "stars": 76409,
+          "forks": 5039,
           "starsRecent": 31,
           "starsPerDay": 31.0,
           "trendingWindow": "daily",
           "repoCreatedAt": "2015-01-13T19:45:03Z",
-          "repoPushedAt": "2026-10-04T16:01:49Z"
+          "repoPushedAt": "2026-10-04T16:46:37Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -2748,16 +2909,16 @@
           "title": "caddyserver/caddy",
           "summary": "Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS",
           "url": "https://github.com/caddyserver/caddy",
-          "publishedAt": "2026-10-04T16:03:27.407909Z",
+          "publishedAt": "2026-10-04T17:07:21.612615Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 76378,
-            "forks": 5037,
+            "stars": 76409,
+            "forks": 5039,
             "starsRecent": 31,
             "starsPerDay": 31.0,
             "trendingWindow": "daily",
             "repoCreatedAt": "2015-01-13T19:45:03Z",
-            "repoPushedAt": "2026-10-04T16:01:49Z"
+            "repoPushedAt": "2026-10-04T16:46:37Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -2778,14 +2939,14 @@
     {
       "clusterId": "e87a610659dcb885",
       "title": "Agents don't need memory, they need documentation",
-      "score": 8.08,
+      "score": 8.05,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
       "needsPrimaryVerification": true,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "hn-points=279-comments=159",
+      "qualityGate": "hn-points=290-comments=165",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2811,8 +2972,8 @@
         "publishedAt": "2026-10-03T17:03:37Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 279,
-          "comments": 159
+          "points": 290,
+          "comments": 165
         },
         "creator": null,
         "primaryUrls": [],
@@ -2822,7 +2983,7 @@
           "hacker-news",
           "developer-discussion"
         ],
-        "rawScore": 7.63
+        "rawScore": 7.6
       },
       "evidence": [
         {
@@ -2835,8 +2996,8 @@
           "publishedAt": "2026-10-03T17:03:37Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 279,
-            "comments": 159
+            "points": 290,
+            "comments": 165
           },
           "creator": null,
           "primaryUrls": [],
@@ -2846,454 +3007,7 @@
             "hacker-news",
             "developer-discussion"
           ],
-          "rawScore": 7.63
-        }
-      ]
-    },
-    {
-      "clusterId": "c52e82ed905206a4",
-      "title": "Apple\u2019s M5 Ultra Brings 36 Cores, 1.2TB/s Bandwidth [2026] - shattered.io",
-      "score": 7.79,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": false,
-      "needsPrimaryVerification": true,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "independent-convergence",
-      "alreadyCovered": false,
-      "lanes": [
-        "major_news"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "Business Upturn",
-        "RS Web Solutions",
-        "TechJuice",
-        "remio",
-        "shattered.io",
-        "tech-insider.org"
-      ],
-      "primaryUrls": [],
-      "relatedUrls": [],
-      "signals": [
-        "major-news-search"
-      ],
-      "bestCandidate": {
-        "id": "cbcb41c0804d152a",
-        "lane": "major_news",
-        "sourceKind": "news_search",
-        "title": "Apple\u2019s M5 Ultra Brings 36 Cores, 1.2TB/s Bandwidth [2026] - shattered.io",
-        "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Ea0NrQUNsMjNGM0hhaExqcUtqektBMGZoMkFIY2VabWtJYlk0MDRGRDcwSjIzTXdFSmtfYzBBVm9UWVNEbENMU1AxY3pEV0lWSmx1U1JIN203eWMxVzhKX202amZLNXE5RUMya3JuczZRVDQ?oc=5",
-        "publishedAt": "2026-10-04T13:28:11Z",
-        "sourceName": "shattered.io",
-        "metrics": {
-          "publisherBonus": 0.0,
-          "publisherUrl": "https://shattered.io",
-          "primaryPublisher": false
-        },
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "relatedUrls": [],
-        "signals": [
-          "major-news-search"
-        ],
-        "rawScore": 6.89
-      },
-      "evidence": [
-        {
-          "id": "cbcb41c0804d152a",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Apple\u2019s M5 Ultra Brings 36 Cores, 1.2TB/s Bandwidth [2026] - shattered.io",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Ea0NrQUNsMjNGM0hhaExqcUtqektBMGZoMkFIY2VabWtJYlk0MDRGRDcwSjIzTXdFSmtfYzBBVm9UWVNEbENMU1AxY3pEV0lWSmx1U1JIN203eWMxVzhKX202amZLNXE5RUMya3JuczZRVDQ?oc=5",
-          "publishedAt": "2026-10-04T13:28:11Z",
-          "sourceName": "shattered.io",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://shattered.io",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.89
-        },
-        {
-          "id": "4a8545d319dcf5f1",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "GIGABYTE AI TOP ATOM 64GB Targets 200B AI Models [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5DZTZCTVhoVjQxbTJxNjNjd0Ywd09tR01uajZXY3o4UGhVekhjUGtOb2pDbndDakpkR1llYVkxUXkyTGFxMC12aFBvcG9EVG9mc003amg4c3RQTy1uclB5NlhFbHdkRGYtNzJjamtBZzRGTnVCTEtpaQ?oc=5",
-          "publishedAt": "2026-10-04T12:31:55Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.85
-        },
-        {
-          "id": "84a70b65603e8836",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "PS5 Gets Free AI Upscaling: QSSR Ships in 2 Games [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBoSDFSeF93WUNkai10MndWX0ZPUDZlZzlnNm02RENZRG9LM0xSamI3R3htSGxiMFctbjFMMmd5dnVPajdMYWJIWVU0bzBpblhFWGxjcnB3UGpZV3hRWUV1MGhYRDFGN1FmejBWNlo1UHBpa2I2dWFZ?oc=5",
-          "publishedAt": "2026-10-04T10:39:09Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.77
-        },
-        {
-          "id": "506ee894fad90f71",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Meta Muse Glimmer 30B Setup: 13 Steps, 24GB VRAM [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5IN2pvMXRsWUk1S3pyaDZYemNWMWVhT1BiYmpMX0Zwc05zeEFLa3BxZFZDVkZyaTRHSWJIY0w1ZlZSbTRBTWpVV0JmMklKUGhHdlBsME94TkI2MkZLaTJzYm1WN1hWSjdBc29Z?oc=5",
-          "publishedAt": "2026-10-04T10:10:58Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.76
-        },
-        {
-          "id": "9499f36793f97691",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Nvidia GPU Smuggling Case: $300M, 4 Chips Named [2026] - shattered.io",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1JMkF0SjQwQ2ZYRm9fNTNRZm45Q2lWd3dZd0tkNTItZ3BjZFpRVTZ3eUMtSWNsLXg1VGMwaEE3ZDhrUXA2Sm92bjhuY1dkMWU4dndvdzV5eDM1bHAwR2pXc2l5M1ZPeFZVcjFnWnY1QTJCQQ?oc=5",
-          "publishedAt": "2026-10-04T09:23:09Z",
-          "sourceName": "shattered.io",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://shattered.io",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.72
-        },
-        {
-          "id": "4bd13733606e2b54",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "How to Set Up Velociraptor DFIR: 13 Steps, 90 Min [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA2ZFM3YTktRThTQUVJV0Qtc3B0UzZXWlVzcGxTblhQWGpxaE9kcFk3X1pLazFWaG1heDVqNy1ZVGRHU3dtOUtoUDBTblNDcnVXa2ZEX0s2THF0V01yaUZoNGlwQjE?oc=5",
-          "publishedAt": "2026-10-04T08:12:35Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.67
-        },
-        {
-          "id": "492b8e43a174dea0",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Azahar vs Panda3DS vs Lime3DS: 8.3K Star Gap [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1tX1puNmpkSzQ2NGgwd1h4dFYtYVBwdHp5ekt2T0dRWEZYTVMxQTcxakFCQ29lTDNVb2VfTkU3aXFKSGUxdEhHcUR0RFJUR2ZrQlM2enNuU1FLWnVKaF9keHkyLThwc2ZDRk10SmVOQjQ?oc=5",
-          "publishedAt": "2026-10-04T01:36:41Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.4
-        },
-        {
-          "id": "34437333571581c2",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "AWS Strands Decider 2B: Open-Source AI Agent Model [2026] - shattered.io",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMllmMFFqWVpScS1uaTJDV3h2NzZGc095Nkx2aVZaZW5pa2RHeEF5VkhDR0ZSa3E5TlhpZzRzX2xCb1N0cG0yVVBiVGk0MTRqZUhnR3ZJYXltRm5jMlcwdXVKN0Nrd3loOEZBVlRWSVRuekxkSW85YUF4ODNpRlV5NXl3?oc=5",
-          "publishedAt": "2026-10-03T20:02:32Z",
-          "sourceName": "shattered.io",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://shattered.io",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.17
-        },
-        {
-          "id": "9c8f1e74aa7031ac",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "From Vector Search to AI Agents: Free Managed Vector Databases in 2026 - Business Upturn",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPWGVBMjNiVWU1MGVIbzNWVXhXa0Eyd0hnWjFUYnhDUDQ3SmwtS1JnR0x0X3hrMEFsM1lERUY0NjZkR19UYWFjY2t6QW1vY0FaZ1oycmFBZkc2cl94eHNEWUNUMm0xTkRSVVlYZEhCMnJhVXBPWnlPMTFmb2tuZ3lJWFRDNEhQSVpxbWpQeEFDazZTLWk5ZjltY2x1U3k4WnhldWFJVzFnZGJwbGhn?oc=5",
-          "publishedAt": "2026-10-03T20:04:40Z",
-          "sourceName": "Business Upturn",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://businessupturn.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.17
-        },
-        {
-          "id": "2aab1ea22c8f991e",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Amazon Strands Decider 2B: Open Agent AI Model [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSVplMVpFNVcyQ1RfcjNDZ3lVUXQyWFVJSzRzVWs4Y0dJaXRpeW5xVVNHSjJNT1lSdEZxYTBBUVZVQTRZZ2pIa08tZ2gtNnlUdFU2a1pScWpnM1JyVXJJZy1XMkZ3UGVkZG1IZFY3MUNBVkk4bGpzX0RyQkhWQ3hzVFFQd0x4VDQ?oc=5",
-          "publishedAt": "2026-10-03T19:21:54Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.14
-        },
-        {
-          "id": "788c63e1e6fef1bf",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Amazon's 2B-Parameter AI Can't Write a Sentence [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1QWWlEcllPVEhROW1xaGVCM0pnOEN1TlJJRTFxUzRwWmowVjY3cWgzRGdWSkhqaTc2Zk1qYW4zdVdNbWRxZFNqZlRpVDZvMzF4dld6c3F6VDdDdkNhRVZYR1MtZUNwdw?oc=5",
-          "publishedAt": "2026-10-03T19:23:22Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.14
-        },
-        {
-          "id": "aae1bf4bbd486055",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "GORM vs sqlc vs Ent: 87K vs 4K Go Imports [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1uV1dIMWZWWGIwOGgxWUdCaDJ3ckptWmY0UHpfNDRFZ25mbHpHREhkM2IxRFJkY2pKWTgwSkFRcVhfOFBHNzdrSndnUHYzMzU2RlA1MENZM09ndHA0NkZn?oc=5",
-          "publishedAt": "2026-10-03T14:45:10Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.95
-        },
-        {
-          "id": "1713d103b54e4616",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "NVIDIA Launches DGX Spark AI 64GB - Affordable Local AI Supercomputer - RS Web Solutions",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONUo2alBQMG52dG53bjBQQ1FYQThiTEFzXzJGUnVFeENSb3JKb0ZKOWxTUVQwaXdDbFl6U1ZvaHgtQU1uMWk4a1gyWWdjWmY2VXN2ejdPcTF5eWdJLTMyOUthenJ0RC1aZlFPU0Z3eVAzWXVKUXBYb0FRTDFaZ3BDdFAxM2pQZVdoa0NFUTVVX1ZEbHkwNHVIOXFPRHA3cDJMQ1hvdUhyNHJ6NE0?oc=5",
-          "publishedAt": "2026-10-03T12:00:00Z",
-          "sourceName": "RS Web Solutions",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.rswebsols.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.83
-        },
-        {
-          "id": "6d8dc52d4dd0d7e6",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "PewDiePie Launches Ajax: 9B AI Model, 2 OpenAI Bans [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE81Y2JzNTBKSHZyUVVSalBVTnk4R2dIMS1sQVdpS2l0X3ZQZkRrM3Z1aDFjMFVBZkl4cHlZdWlucWRLT3lyLUJ4VU84RFNyOUt2ejZqUTNBanVKb1BWcHFjYjZBdlJQODV6TWowSk1RREo0bzd1?oc=5",
-          "publishedAt": "2026-10-03T09:47:45Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.74
-        },
-        {
-          "id": "51affea6264cce0d",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Inside the Indus RAS Expo 2026: Everything Pakistan Showed Off - TechJuice",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxORlFMQjhFRmNQSzdZXy04bmQ1VFFaYjg3LVpvZ2ZyQmpaaDg5RVFQME1UQ3ctdE1nZnhSMVRiU3VocW1tN25FZGNkSmN4aDFyNnNjOVZIVTZDNDlKZnFlekcwbGxBTWttUHhLSkcyWGlmbVZ6bU9mRHZkUk5TRmdOMkprZkE2WGJ4Y2FkdEtaVk56Zw?oc=5",
-          "publishedAt": "2026-10-03T07:42:10Z",
-          "sourceName": "TechJuice",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.techjuice.pk",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.65
-        },
-        {
-          "id": "b23cd4e8a57152aa",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "AppleWin vs Virtual II vs GSplus: Apple II Emulator 2026 - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9rdG5wcTZZd1VPX2VPZ2tvQ01nOTdVRmlqLW5HZ1JkZEZ3UGhXYkY5YWtKbjFWd19KUmxMREFMYVI3YmFZR2ZWU1pjNUFBRU1wY1lPY2lKcFJ2elZ5dXg0aWhITmdlbWFUVnI5RkY5Uzg?oc=5",
-          "publishedAt": "2026-10-03T06:12:45Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.59
-        },
-        {
-          "id": "7b683a1f2e2df466",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "NVIDIA DGX Spark 64GB Expands Local AI, but Memory Becomes the New Boundary - remio",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQckpVQlhSeUJaOThJVzRVQVRER1RuVUp2UlFMZlVGSTV5cGQxQVh2QnBOOXN0LVI0dGhNQXc4NHFKTUI2bzJKTmx6R0ZvQTREbXl3a19JRTZKUFFtdVBLWVM4cnJQbm95a3hidVQ5djhSbk55Mkg0RHJOaFEzQlY4X0Utclh2NWRxcXFQMTFnMTZ1cEJPLVJoVmljTjhQWC1uZGc?oc=5",
-          "publishedAt": "2026-10-03T04:48:41Z",
-          "sourceName": "remio",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.remio.ai",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.53
+          "rawScore": 7.6
         }
       ]
     },
@@ -3307,7 +3021,7 @@
       "needsPrimaryVerification": true,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "hn-points=154-comments=147",
+      "qualityGate": "hn-points=156-comments=149",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -3333,8 +3047,8 @@
         "publishedAt": "2026-10-03T15:52:07Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 154,
-          "comments": 147
+          "points": 156,
+          "comments": 149
         },
         "creator": null,
         "primaryUrls": [],
@@ -3357,8 +3071,8 @@
           "publishedAt": "2026-10-03T15:52:07Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 154,
-            "comments": 147
+            "points": 156,
+            "comments": 149
           },
           "creator": null,
           "primaryUrls": [],
@@ -3375,14 +3089,14 @@
     {
       "clusterId": "9bbb3941a89bc850",
       "title": "FTL: A new operating system for clouds",
-      "score": 7.75,
+      "score": 7.72,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
       "needsPrimaryVerification": true,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "hn-points=190-comments=74",
+      "qualityGate": "hn-points=191-comments=74",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -3408,7 +3122,7 @@
         "publishedAt": "2026-10-03T15:02:36Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 190,
+          "points": 191,
           "comments": 74
         },
         "creator": null,
@@ -3419,7 +3133,7 @@
           "hacker-news",
           "developer-discussion"
         ],
-        "rawScore": 7.3
+        "rawScore": 7.27
       },
       "evidence": [
         {
@@ -3432,7 +3146,7 @@
           "publishedAt": "2026-10-03T15:02:36Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 190,
+            "points": 191,
             "comments": 74
           },
           "creator": null,
@@ -3443,7 +3157,430 @@
             "hacker-news",
             "developer-discussion"
           ],
-          "rawScore": 7.3
+          "rawScore": 7.27
+        }
+      ]
+    },
+    {
+      "clusterId": "e34cf0ae7f517346",
+      "title": "Apple\u2019s M5 Ultra Brings 36 Cores, 1.2TB/s Bandwidth [2026] - shattered.io",
+      "score": 7.65,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Business Upturn",
+        "RS Web Solutions",
+        "TechJuice",
+        "shattered.io",
+        "tech-insider.org"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "cbcb41c0804d152a",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "Apple\u2019s M5 Ultra Brings 36 Cores, 1.2TB/s Bandwidth [2026] - shattered.io",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Ea0NrQUNsMjNGM0hhaExqcUtqektBMGZoMkFIY2VabWtJYlk0MDRGRDcwSjIzTXdFSmtfYzBBVm9UWVNEbENMU1AxY3pEV0lWSmx1U1JIN203eWMxVzhKX202amZLNXE5RUMya3JuczZRVDQ?oc=5",
+        "publishedAt": "2026-10-04T15:33:11Z",
+        "sourceName": "shattered.io",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://shattered.io",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 6.93
+      },
+      "evidence": [
+        {
+          "id": "cbcb41c0804d152a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Apple\u2019s M5 Ultra Brings 36 Cores, 1.2TB/s Bandwidth [2026] - shattered.io",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5Ea0NrQUNsMjNGM0hhaExqcUtqektBMGZoMkFIY2VabWtJYlk0MDRGRDcwSjIzTXdFSmtfYzBBVm9UWVNEbENMU1AxY3pEV0lWSmx1U1JIN203eWMxVzhKX202amZLNXE5RUMya3JuczZRVDQ?oc=5",
+          "publishedAt": "2026-10-04T15:33:11Z",
+          "sourceName": "shattered.io",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://shattered.io",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.93
+        },
+        {
+          "id": "4a8545d319dcf5f1",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "GIGABYTE AI TOP ATOM 64GB Targets 200B AI Models [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5DZTZCTVhoVjQxbTJxNjNjd0Ywd09tR01uajZXY3o4UGhVekhjUGtOb2pDbndDakpkR1llYVkxUXkyTGFxMC12aFBvcG9EVG9mc003amg4c3RQTy1uclB5NlhFbHdkRGYtNzJjamtBZzRGTnVCTEtpaQ?oc=5",
+          "publishedAt": "2026-10-04T12:31:55Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.81
+        },
+        {
+          "id": "84a70b65603e8836",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PS5 Gets Free AI Upscaling: QSSR Ships in 2 Games [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBoSDFSeF93WUNkai10MndWX0ZPUDZlZzlnNm02RENZRG9LM0xSamI3R3htSGxiMFctbjFMMmd5dnVPajdMYWJIWVU0bzBpblhFWGxjcnB3UGpZV3hRWUV1MGhYRDFGN1FmejBWNlo1UHBpa2I2dWFZ?oc=5",
+          "publishedAt": "2026-10-04T10:39:09Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.73
+        },
+        {
+          "id": "506ee894fad90f71",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Meta Muse Glimmer 30B Setup: 13 Steps, 24GB VRAM [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5IN2pvMXRsWUk1S3pyaDZYemNWMWVhT1BiYmpMX0Zwc05zeEFLa3BxZFZDVkZyaTRHSWJIY0w1ZlZSbTRBTWpVV0JmMklKUGhHdlBsME94TkI2MkZLaTJzYm1WN1hWSjdBc29Z?oc=5",
+          "publishedAt": "2026-10-04T10:10:58Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.71
+        },
+        {
+          "id": "9499f36793f97691",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Nvidia GPU Smuggling Case: $300M, 4 Chips Named [2026] - shattered.io",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1JMkF0SjQwQ2ZYRm9fNTNRZm45Q2lWd3dZd0tkNTItZ3BjZFpRVTZ3eUMtSWNsLXg1VGMwaEE3ZDhrUXA2Sm92bjhuY1dkMWU4dndvdzV5eDM1bHAwR2pXc2l5M1ZPeFZVcjFnWnY1QTJCQQ?oc=5",
+          "publishedAt": "2026-10-04T09:23:09Z",
+          "sourceName": "shattered.io",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://shattered.io",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.68
+        },
+        {
+          "id": "4bd13733606e2b54",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "How to Set Up Velociraptor DFIR: 13 Steps, 90 Min [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA2ZFM3YTktRThTQUVJV0Qtc3B0UzZXWlVzcGxTblhQWGpxaE9kcFk3X1pLazFWaG1heDVqNy1ZVGRHU3dtOUtoUDBTblNDcnVXa2ZEX0s2THF0V01yaUZoNGlwQjE?oc=5",
+          "publishedAt": "2026-10-04T08:12:35Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.63
+        },
+        {
+          "id": "492b8e43a174dea0",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Azahar vs Panda3DS vs Lime3DS: 8.3K Star Gap [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1tX1puNmpkSzQ2NGgwd1h4dFYtYVBwdHp5ekt2T0dRWEZYTVMxQTcxakFCQ29lTDNVb2VfTkU3aXFKSGUxdEhHcUR0RFJUR2ZrQlM2enNuU1FLWnVKaF9keHkyLThwc2ZDRk10SmVOQjQ?oc=5",
+          "publishedAt": "2026-10-04T01:36:41Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.35
+        },
+        {
+          "id": "34437333571581c2",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "AWS Strands Decider 2B: Open-Source AI Agent Model [2026] - shattered.io",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMllmMFFqWVpScS1uaTJDV3h2NzZGc095Nkx2aVZaZW5pa2RHeEF5VkhDR0ZSa3E5TlhpZzRzX2xCb1N0cG0yVVBiVGk0MTRqZUhnR3ZJYXltRm5jMlcwdXVKN0Nrd3loOEZBVlRWSVRuekxkSW85YUF4ODNpRlV5NXl3?oc=5",
+          "publishedAt": "2026-10-03T20:02:32Z",
+          "sourceName": "shattered.io",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://shattered.io",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.12
+        },
+        {
+          "id": "9c8f1e74aa7031ac",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "From Vector Search to AI Agents: Free Managed Vector Databases in 2026 - Business Upturn",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPWGVBMjNiVWU1MGVIbzNWVXhXa0Eyd0hnWjFUYnhDUDQ3SmwtS1JnR0x0X3hrMEFsM1lERUY0NjZkR19UYWFjY2t6QW1vY0FaZ1oycmFBZkc2cl94eHNEWUNUMm0xTkRSVVlYZEhCMnJhVXBPWnlPMTFmb2tuZ3lJWFRDNEhQSVpxbWpQeEFDazZTLWk5ZjltY2x1U3k4WnhldWFJVzFnZGJwbGhn?oc=5",
+          "publishedAt": "2026-10-03T20:04:40Z",
+          "sourceName": "Business Upturn",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://businessupturn.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.12
+        },
+        {
+          "id": "2aab1ea22c8f991e",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Amazon Strands Decider 2B: Open Agent AI Model [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPSVplMVpFNVcyQ1RfcjNDZ3lVUXQyWFVJSzRzVWs4Y0dJaXRpeW5xVVNHSjJNT1lSdEZxYTBBUVZVQTRZZ2pIa08tZ2gtNnlUdFU2a1pScWpnM1JyVXJJZy1XMkZ3UGVkZG1IZFY3MUNBVkk4bGpzX0RyQkhWQ3hzVFFQd0x4VDQ?oc=5",
+          "publishedAt": "2026-10-03T19:21:54Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.09
+        },
+        {
+          "id": "788c63e1e6fef1bf",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Amazon's 2B-Parameter AI Can't Write a Sentence [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1QWWlEcllPVEhROW1xaGVCM0pnOEN1TlJJRTFxUzRwWmowVjY3cWgzRGdWSkhqaTc2Zk1qYW4zdVdNbWRxZFNqZlRpVDZvMzF4dld6c3F6VDdDdkNhRVZYR1MtZUNwdw?oc=5",
+          "publishedAt": "2026-10-03T19:23:22Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.09
+        },
+        {
+          "id": "aae1bf4bbd486055",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "GORM vs sqlc vs Ent: 87K vs 4K Go Imports [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1uV1dIMWZWWGIwOGgxWUdCaDJ3ckptWmY0UHpfNDRFZ25mbHpHREhkM2IxRFJkY2pKWTgwSkFRcVhfOFBHNzdrSndnUHYzMzU2RlA1MENZM09ndHA0NkZn?oc=5",
+          "publishedAt": "2026-10-03T14:45:10Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.9
+        },
+        {
+          "id": "1713d103b54e4616",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "NVIDIA Launches DGX Spark AI 64GB - Affordable Local AI Supercomputer - RS Web Solutions",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONUo2alBQMG52dG53bjBQQ1FYQThiTEFzXzJGUnVFeENSb3JKb0ZKOWxTUVQwaXdDbFl6U1ZvaHgtQU1uMWk4a1gyWWdjWmY2VXN2ejdPcTF5eWdJLTMyOUthenJ0RC1aZlFPU0Z3eVAzWXVKUXBYb0FRTDFaZ3BDdFAxM2pQZVdoa0NFUTVVX1ZEbHkwNHVIOXFPRHA3cDJMQ1hvdUhyNHJ6NE0?oc=5",
+          "publishedAt": "2026-10-03T12:00:00Z",
+          "sourceName": "RS Web Solutions",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.rswebsols.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.79
+        },
+        {
+          "id": "6d8dc52d4dd0d7e6",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PewDiePie Launches Ajax: 9B AI Model, 2 OpenAI Bans [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE81Y2JzNTBKSHZyUVVSalBVTnk4R2dIMS1sQVdpS2l0X3ZQZkRrM3Z1aDFjMFVBZkl4cHlZdWlucWRLT3lyLUJ4VU84RFNyOUt2ejZqUTNBanVKb1BWcHFjYjZBdlJQODV6TWowSk1RREo0bzd1?oc=5",
+          "publishedAt": "2026-10-03T09:47:45Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.69
+        },
+        {
+          "id": "51affea6264cce0d",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Inside the Indus RAS Expo 2026: Everything Pakistan Showed Off - TechJuice",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxORlFMQjhFRmNQSzdZXy04bmQ1VFFaYjg3LVpvZ2ZyQmpaaDg5RVFQME1UQ3ctdE1nZnhSMVRiU3VocW1tN25FZGNkSmN4aDFyNnNjOVZIVTZDNDlKZnFlekcwbGxBTWttUHhLSkcyWGlmbVZ6bU9mRHZkUk5TRmdOMkprZkE2WGJ4Y2FkdEtaVk56Zw?oc=5",
+          "publishedAt": "2026-10-03T07:42:10Z",
+          "sourceName": "TechJuice",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.techjuice.pk",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.61
+        },
+        {
+          "id": "b23cd4e8a57152aa",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "AppleWin vs Virtual II vs GSplus: Apple II Emulator 2026 - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE9rdG5wcTZZd1VPX2VPZ2tvQ01nOTdVRmlqLW5HZ1JkZEZ3UGhXYkY5YWtKbjFWd19KUmxMREFMYVI3YmFZR2ZWU1pjNUFBRU1wY1lPY2lKcFJ2elZ5dXg0aWhITmdlbWFUVnI5RkY5Uzg?oc=5",
+          "publishedAt": "2026-10-03T06:12:45Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.55
         }
       ]
     },
@@ -3534,49 +3671,46 @@
       ]
     },
     {
-      "clusterId": "3dbd971015842ca1",
-      "title": "Cloudflare Adds Email-Protected Preview Links for Coding Agents - Kingy AI",
-      "score": 7.21,
+      "clusterId": "9d4636355061f526",
+      "title": "China\u2019s RoboParty unveils RP1 humanoid robot for developers - Tech in Asia",
+      "score": 7.22,
       "qualifiesForEditorial": true,
       "publishReady": false,
-      "primarySourceAvailable": true,
-      "needsPrimaryVerification": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
       "qualityGate": "independent-convergence",
       "alreadyCovered": false,
       "lanes": [
-        "hot_emerging",
         "major_news"
       ],
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "GitHub",
-        "Kingy AI"
+        "IEEE Spectrum",
+        "PR Newswire",
+        "StreetInsider",
+        "Tech in Asia",
+        "The Malaysian Reserve"
       ],
-      "primaryUrls": [
-        "https://github.com/cloudflare/cf"
-      ],
+      "primaryUrls": [],
       "relatedUrls": [],
       "signals": [
-        "github",
-        "major-news-search",
-        "momentum",
-        "open-source"
+        "major-news-search"
       ],
       "bestCandidate": {
-        "id": "84a8947f9908d2dd",
+        "id": "34e4fae006de7b3c",
         "lane": "major_news",
         "sourceKind": "news_search",
-        "title": "Cloudflare Adds Email-Protected Preview Links for Coding Agents - Kingy AI",
+        "title": "China\u2019s RoboParty unveils RP1 humanoid robot for developers - Tech in Asia",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBFbHVKazNXZUhxZHdjMW15dmNwcGplTUxBRzh4OU0zLUEtVG5pSmh4RTJNT2U1clNwQnBQU2c2NGFJSG1TQmFMcFVHVF8yYnl0RHViYmpBX3pYcGs0RXFZQWxmVlVERmpITG5pSS1LeVZSOVV0ZkpBLQ?oc=5",
-        "publishedAt": "2026-10-04T01:12:21Z",
-        "sourceName": "Kingy AI",
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNktCakwzOUpscXBic3A0T09QTkdvNjh1WXB5ck9UYlBhRGltX3FWZ2Q1UnhOdTBtb3hka2xVUzN0R1hhd1BIMmZBUndZLUpzZV9mX0J1MHFxVUgybTc2cXdEZ09RcHBGQ0lTUV9TdUoxd0JVNHBzR29NMzBhSzFTQ3V1Qk1UQU95NmlldnlKZw?oc=5",
+        "publishedAt": "2026-10-04T05:05:00Z",
+        "sourceName": "Tech in Asia",
         "metrics": {
           "publisherBonus": 0.0,
-          "publisherUrl": "https://kingy.ai",
+          "publisherUrl": "https://www.techinasia.com",
           "primaryPublisher": false
         },
         "creator": null,
@@ -3586,21 +3720,21 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 6.38
+        "rawScore": 6.5
       },
       "evidence": [
         {
-          "id": "84a8947f9908d2dd",
+          "id": "34e4fae006de7b3c",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Cloudflare Adds Email-Protected Preview Links for Coding Agents - Kingy AI",
+          "title": "China\u2019s RoboParty unveils RP1 humanoid robot for developers - Tech in Asia",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBFbHVKazNXZUhxZHdjMW15dmNwcGplTUxBRzh4OU0zLUEtVG5pSmh4RTJNT2U1clNwQnBQU2c2NGFJSG1TQmFMcFVHVF8yYnl0RHViYmpBX3pYcGs0RXFZQWxmVlVERmpITG5pSS1LeVZSOVV0ZkpBLQ?oc=5",
-          "publishedAt": "2026-10-04T01:12:21Z",
-          "sourceName": "Kingy AI",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPNktCakwzOUpscXBic3A0T09QTkdvNjh1WXB5ck9UYlBhRGltX3FWZ2Q1UnhOdTBtb3hka2xVUzN0R1hhd1BIMmZBUndZLUpzZV9mX0J1MHFxVUgybTc2cXdEZ09RcHBGQ0lTUV9TdUoxd0JVNHBzR29NMzBhSzFTQ3V1Qk1UQU95NmlldnlKZw?oc=5",
+          "publishedAt": "2026-10-04T05:05:00Z",
+          "sourceName": "Tech in Asia",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://kingy.ai",
+            "publisherUrl": "https://www.techinasia.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -3610,42 +3744,129 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.38
+          "rawScore": 6.5
         },
         {
-          "id": "06980de3e5aa59e4",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "cloudflare/cf",
-          "summary": "The agentic CLI for the entire Cloudflare API",
-          "url": "https://github.com/cloudflare/cf",
-          "publishedAt": "2026-09-21T15:16:36Z",
-          "sourceName": "GitHub",
+          "id": "f5132ce84835e949",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "RoboParty Unveils RP1, a High-Performance Full-Stack Open-Source Humanoid Robot at IROS - StreetInsider",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOaG9xUzNkYV9PM1FJSWt4TGNBZTZsamQteDFXa1NPS1FvMHIxcVRGWUlHSzBKN2diS3cwMTl5YXp6QTR3ZkpkOWpzbmtYYnRkdGx5Y1VkTW5MQUQwMmx6anVNanYzVG9hcUxMZzZFRGw1c0dlaW1uQVM4RzI1dVR4TUY3Rk1rakhIYzA0dE02MFRMTmpubGtnOFYwSjBaRUstblFnMnlfZVluMUt2a3Y1eGpGeUppM0tXZ2NBWFFHTWE4RzZMVHZwaUxxWEtSNHZmTnBnMXpNZldHd0pn?oc=5",
+          "publishedAt": "2026-10-04T03:24:46Z",
+          "sourceName": "StreetInsider",
           "metrics": {
-            "stars": 754,
-            "forks": 28,
-            "ageHours": 312.78,
-            "starsPerHour": 2.41
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.streetinsider.com",
+            "primaryPublisher": false
           },
           "creator": null,
-          "primaryUrls": [
-            "https://github.com/cloudflare/cf"
-          ],
-          "primaryVerified": true,
+          "primaryUrls": [],
+          "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "github",
-            "open-source",
-            "momentum"
+            "major-news-search"
           ],
-          "rawScore": 5.39
+          "rawScore": 6.43
+        },
+        {
+          "id": "88b8d6682be81796",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "RoboParty Unveils RP1, a High-Performance Full-Stack Open-Source Humanoid Robot at IROS - The Malaysian Reserve",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxOY3p6MmxFMXl1Z0xnakY3emNnVm1wRHJDU211ems1MDJZVkdULXJMOWc3ZDhTa3NHdy1YWllac2FQZDVSRXVJYUVabUxhUW54alBiRVNLWjk0TEVpa0NDa3g5eF9NVFZZazhWNnNvcGMxNGhjU0NiRHpQRHRabjM4SG9YaXctMEk2bWRsXzJPR0RtUmRUUHMxMHlieVhFV3B1Z0J0dlB0UlhvaGpUaVZILVc0ekJSSjBVeHhELW15d3NadmhXdUVSRXVGNV91eFNib3c?oc=5",
+          "publishedAt": "2026-10-03T17:33:02Z",
+          "sourceName": "The Malaysian Reserve",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://themalaysianreserve.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.02
+        },
+        {
+          "id": "9af06ae4c3ff25a5",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "How Stanford Built a Humanoid Submarine Robot to Explore a 17th-Century Shipwreck - IEEE Spectrum",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9zelBaUERsUF83TS1ZaDN4VGZRWno5c1FZS0o4cHBEOXF4OUhKNlh4QzRyYjZ2bGJ5dUJtNlVGVHBWZHI5dHN2YnFQcFlnMlNJS0hmcHQ1eXJTMUFoUFpaQ2dxTDVmdHluUGRvaUd5V05FZ3pZX2tZeGR3?oc=5",
+          "publishedAt": "2026-10-03T09:26:15Z",
+          "sourceName": "IEEE Spectrum",
+          "metrics": {
+            "publisherBonus": 0.32,
+            "publisherUrl": "https://spectrum.ieee.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.0
+        },
+        {
+          "id": "e601d972a4e8c2b4",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "RoboParty Unveils RP1, a High-Performance Full-Stack Open-Source Humanoid Robot at IROS - PR Newswire",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxQQ0VVeWlqTEd3SlJEb0FiTFBOUVVrUFBlN1FSNXFFQ3ppZmZhQmFYUjdIVGlKcEhCMzIxQlVrNjdtTWxtSHR3SjhyLWtxRHVITDFXZEt6dVVGY2hNZVlJankwYl9ESHNrUWRHamFMd0tta25lNW9Ga0pRRFNtZVRGVE5UczA4QlNDaHpzYkV5LWN3UHJsZVVtZ2poV3Z4aGRRYWdyM0drTmtRZVVFZHl4WGR0SjRpSkNDYjA5Q2ZDeGtYV1RhOGdkOS1PY1RSdGpsZV9WemtZS2o2UQ?oc=5",
+          "publishedAt": "2026-10-03T16:53:00Z",
+          "sourceName": "PR Newswire",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.prnewswire.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.99
+        },
+        {
+          "id": "00e00f335dfda259",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "RoboParty Unveils RP1, a High-Performance Full-Stack Open-Source Humanoid Robot at IROS - PR Newswire",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOeXJEQmZsdGZYT18zVVktSFpIblRrN1NZdkRCR1RUcThhLVRlLTdlcjB4U21PTWk0eThOSTBWbTNocVUzQWFVM2NpOGVyWEZGdmRPUzFoRmhZWFJNYnVuY05XY25jaFA1XzhHOE43blNNSktIVXZHUFNyNS1YVHgyb3pTZjVITldxOHBEQWVocDZ6M1FxYVFQV3JVV0JLNDMzYTR3cEIxOHlQZW5nRVRScDZzVWxDZlYxYlpZTnBwWndIOGxEOUVucXFUOXFLclAtd0x3ZkU1Q0tvdw?oc=5",
+          "publishedAt": "2026-10-03T15:59:00Z",
+          "sourceName": "PR Newswire",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.prnewswire.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.95
         }
       ]
     }
   ],
   "laneSummary": {
     "major_news": 4,
-    "hot_emerging": 32,
+    "hot_emerging": 31,
     "creator_radar": 0
   }
 }
