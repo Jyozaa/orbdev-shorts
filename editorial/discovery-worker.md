@@ -89,17 +89,19 @@ Creator videos are processed once per discovery state. A successful scan records
 
 Creator channels can set their own segment budget. High-recall roundup channels such as AI Search and Matt Wolfe are allowed more topic segments than single-topic channels, so one long roundup can legitimately yield several independent Short candidates.
 
+## Scheduled ChatGPT editorial handoff
 
-## Autonomous editorial batch
+GitHub discovery stops after writing `editorial/inbox/latest.json` and `history/discovery-state.json`. It does not call an LLM API and does not dispatch a GitHub editorial workflow.
 
-After each successful discovery scan, GitHub explicitly dispatches the editorial workflow with the exact inbox timestamp. This avoids relying on push-trigger chaining from bot commits.
+The scheduled ChatGPT automation is the editorial runner. It executes after the discovery scans, reads the repository files as authoritative instructions, and performs live-web research, primary-source verification, final scoring, narration/visual planning, and queue creation.
 
-Editorial is two-stage:
-1. GPT-6 Luna performs low-cost topic triage over the full candidate set.
-2. Promising candidates are independently verified with live web search by GPT-6.1 Sol and scored with the full editorial rubric.
+The quality gate remains unchanged:
+- at least one backed primary source is mandatory;
+- base editorial score must be at least 6.0/10 before heat is applied;
+- heat/momentum can contribute at most +2, capped at 10 overall;
+- the normal publication threshold remains 7.2;
+- creator/community convergence is a heat signal, never factual proof.
 
-The final reviewer must back at least one primary source. Base editorial quality must score at least 6.0/10 before heat is applied; the total publication threshold remains configured in policy. Heat can prioritize a strong niche/open-source story, but cannot make an unverified story publishable.
+The ChatGPT automation may queue zero, one, or many independently qualifying stories. A creator roundup may produce multiple separate queue files when several topics independently qualify.
 
-Accepted topics become separate queue files. Rejected clusters are remembered for 24 hours and reconsidered early only if their discovery score rises materially.
-
-Queue commits are followed by an explicit workflow dispatch containing the exact new files. Successful render receipts, rather than editorial acceptance alone, add a story to history/covered.json.
+The editorial commit must write accepted stories only to `stories/queue/`. It must **not** add them to `history/covered.json`. The render queue creates success receipts, and only the successful-render finalizer updates covered history. This keeps failed renders retryable.

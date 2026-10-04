@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 concurrency:
   group: orbdev-discovery
@@ -93,16 +92,3 @@ jobs:
             build/discovery/scan-report.md
           if-no-files-found: error
           retention-days: 30
-
-      - name: Dispatch editorial batch
-        if: success()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          generated="$(python -c 'import json; print(json.load(open("build/discovery/qualified.json",encoding="utf-8"))["generatedAt"])')"
-          python - "$generated" <<'PY' >/tmp/editorial-dispatch.json
-          import json,sys
-          print(json.dumps({"ref":"main","inputs":{"expected_generated_at":sys.argv[1]}}))
-          PY
-          gh api --method POST "repos/${GITHUB_REPOSITORY}/actions/workflows/editorial-batch.yml/dispatches" --input /tmp/editorial-dispatch.json

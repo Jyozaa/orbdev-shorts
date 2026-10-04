@@ -155,7 +155,7 @@ For each candidate that survives primary-source verification and final editorial
 
 - write one file to `stories/queue/<yyyy-mm-dd>-<slug>.json`;
 - use the same story schema and validation rules as `stories/current.json`;
-- append its `storyKey`, headline, selected time, score and primary source URLs to `history/covered.json` in the same editorial commit;
+- do **not** modify `history/covered.json` when queueing; successful render receipts update covered history later;
 - never combine unrelated qualifying topics just to reduce the number of queue files.
 
 A single scan may therefore add several queue JSON files. The queue render workflow will fan them out into independent render jobs.
@@ -165,13 +165,15 @@ Keep `stories/current.json` as the manual/single-story inspection target; schedu
 When auto-publishing is enabled, the story's `publish` block controls YouTube metadata. Use a factual title, source-linked description, appropriate tags, Science & Technology category unless another category is clearly better, and `madeForKids: false` for normal Orbdev content.
 
 
-## Automated verification contract
+## Scheduled ChatGPT editorial contract
 
-Discovery qualification is not publication approval. Scheduled automation performs a cheap triage pass, then live-web primary-source verification and script generation only for promising candidates. At least one primary source must be backed by discovery evidence or live web-search evidence.
+Discovery qualification is not publication approval. The scheduled ChatGPT automation is the only autonomous editorial runner. GitHub Actions performs discovery, rendering and optional publishing, but does not call an LLM API.
+
+For each promising lead, use live web research and independently verify the underlying development. At least one primary source must be backed by discovery evidence or live research before accepting a story.
 
 A candidate needs a base editorial score of at least 6.0 before heat is applied. The final score may receive up to +2 heat from current momentum/cross-lane convergence, capped at 10, but the normal minimum publication score still applies.
 
-Do not add a story to covered history merely because it was queued. Covered history is updated from successful render receipts so failed jobs remain retryable.
+Queue accepted stories in one GitHub commit when practical. Do not add a story to covered history merely because it was queued. Covered history is updated from successful render receipts so failed jobs remain retryable.
 
 
 ## Speech-chunk authoring

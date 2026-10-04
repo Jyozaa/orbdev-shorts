@@ -13,7 +13,7 @@ Orbdev separates discovery from verification and rendering:
   -> Creator Radar
   -> cross-lane clustering + heat scoring
   -> editorial inbox
-  -> primary-source verification
+  -> scheduled ChatGPT research + primary-source verification
   -> one story JSON per qualifying topic
   -> parallel Remotion renders
   -> optional immediate YouTube upload
@@ -108,13 +108,15 @@ When enabled, each successful queued render is uploaded immediately using the st
 - `editorial/task-prompt.md` defines story writing, explanation, humor, visual planning and queue behavior.
 
 
-## Autonomous editorial handoff
+## Scheduled editorial handoff
 
-After each 12-hour scan, .github/workflows/editorial-batch.yml can turn the high-recall discovery inbox into verified story files. It uses a cheap triage pass, then live-web primary-source verification and final scripting for candidates worth deeper review.
+GitHub Actions owns deterministic discovery, rendering and optional YouTube publishing. The repository does **not** require an OpenAI API key for autonomous editorial work.
 
-Configure repository secret OPENAI_API_KEY to activate this stage. Without it, the workflow performs a safe dry-run and queues nothing. Defaults are gpt-6-luna for triage and gpt-6.1-sol for final verification/writing; repository variables ORBDEV_TRIAGE_MODEL and ORBDEV_EDITORIAL_MODEL can override them.
+The scheduled ChatGPT automation reads `editorial/inbox/latest.json` after the twice-daily discovery scans, performs live-web research and primary-source verification, applies the editorial quality/heat thresholds, and writes one validated `stories/queue/*.json` file per accepted topic through the connected GitHub repository.
 
-Accepted stories are dispatched to the renderer by exact queue filename. A story is added to history/covered.json only after its render (and YouTube upload, when auto-publishing is enabled) succeeds.
+Queue-file pushes trigger `.github/workflows/render-queue.yml`. Successful render receipts—not editorial acceptance—add stories to `history/covered.json`, so failed renders remain retryable.
+
+This keeps the three discovery lanes, Creator Radar, heat scoring, narration, rendering and publishing logic inside the repo while using the existing ChatGPT scheduled automation as the sole editorial reasoning layer.
 
 
 ## Narration profiles

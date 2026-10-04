@@ -17,8 +17,6 @@ on:
       - '!scripts/discover_news.py'
       - '!scripts/publish_youtube.py'
       - '!scripts/mark_covered.py'
-      - '!scripts/test_editorial_logic.py'
-      - '!scripts/editorialize_discovery.py'
       - 'package.json'
       - 'requirements.txt'
       - '.github/workflows/render-short.yml'

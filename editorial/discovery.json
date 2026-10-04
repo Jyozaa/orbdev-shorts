@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "scanCadenceHours": 12,
   "candidateLookbackHours": 36,
   "exceptionLookbackHours": 72,
@@ -188,11 +188,12 @@
     "hackerNewsStandaloneMinComments": 18,
     "githubTrendingMinStarsPerDay": 25
   },
-  "editorialRecheckHours": 24,
-  "editorialRecheckScoreDelta": 0.6,
-  "minimumBaseEditorialScore": 6,
-  "editorialModels": {
-    "triage": "gpt-6-luna",
-    "final": "gpt-6.1-sol"
+  "editorialQualification": {
+    "runner": "chatgpt_scheduled_automation",
+    "minimumBaseScore": 6,
+    "maximumHeatBonus": 2,
+    "minimumFinalScore": 7.2,
+    "primarySourceRequired": true,
+    "markCoveredOnlyAfterSuccessfulRender": true
   }
 }

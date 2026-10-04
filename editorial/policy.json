@@ -1,5 +1,5 @@
 {
-  "version": 26,
+  "version": 27,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -86,7 +86,9 @@
     "A discovery scan may queue zero, one, or many independently qualifying Shorts; there is no fixed per-day publishing quota.",
     "Visual beat boundaries must not automatically become TTS boundaries; narration should synthesize natural thought-groups across compatible visual beats.",
     "Reach the target narration cadence primarily by native TTS speed and script density; post-tempo correction must stay subtle.",
-    "Punchlines, reactions and jokes may receive their own speech chunk and micro-pause, while ordinary factual beats should flow continuously when they belong to the same sentence."
+    "Punchlines, reactions and jokes may receive their own speech chunk and micro-pause, while ordinary factual beats should flow continuously when they belong to the same sentence.",
+    "Use the scheduled ChatGPT automation as the sole autonomous editorial reasoning layer; GitHub Actions handles discovery, rendering and publishing without an LLM API key.",
+    "Editorial acceptance writes queue files only; history/covered.json is updated exclusively from successful render receipts."
   ],
   "visualRules": {
     "background": "#000000",
@@ -329,5 +331,16 @@
     "crossLaneDeduplication": true,
     "creatorClaimsRequirePrimaryVerification": true,
     "hotEmergingFreshness": "use momentum age as well as creation/publication age"
+  },
+  "editorialExecution": {
+    "runner": "ChatGPT scheduled automation",
+    "openAIApiKeyRequired": false,
+    "githubActionsCallsLlm": false,
+    "minimumBaseScore": 6,
+    "maximumHeatBonus": 2,
+    "minimumFinalScore": 7.2,
+    "primarySourceRequired": true,
+    "queueOnlyBeforeRender": true,
+    "coveredHistorySource": "successful render receipts"
   }
 }
