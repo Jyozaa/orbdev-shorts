@@ -226,126 +226,31 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
 
   if (beat.visual.type === 'source') {
     if (!beat.visual.src) {
-      return (
-        <AbsoluteFill style={shell}>
-          <div
-            style={{
-              fontSize: 128,
-              fontWeight: 950,
-              letterSpacing: -8,
-              textTransform: 'uppercase',
-              textAlign: 'center',
-              maxWidth: 900,
-              transform: `scale(${0.88 + enter * 0.12})`
-            }}
-          >
-            {beat.visual.publisher ?? 'SOURCE'}
-          </div>
-        </AbsoluteFill>
-      );
+      return <AbsoluteFill style={shell}><div style={{fontSize:118,fontWeight:950,letterSpacing:-7,textTransform:'uppercase',textAlign:'center',maxWidth:900,transform:`scale(${0.88 + enter * 0.12})`}}>{beat.visual.publisher ?? 'SOURCE'}</div></AbsoluteFill>;
     }
-
+    const layout=beat.visual.layout ?? 'unknown';const landscape=layout==='landscape';const portrait=layout==='portrait';
+    const frameWidth=landscape?1000:portrait?900:960;const frameHeight=landscape?1050:portrait?1380:1160;
+    const driftX=(progress-.5)*(landscape?-18:10);const driftY=(progress-.5)*(portrait?-16:10);
     return (
       <AbsoluteFill style={shell}>
-        <Img
-          src={staticFile(beat.visual.src)}
-          style={{
-            width: beat.visual.fit === 'cover' ? 1080 : 980,
-            height: beat.visual.fit === 'cover' ? 1500 : 1280,
-            objectFit: beat.visual.fit ?? 'contain',
-            objectPosition: 'center',
-            transform: `translateX(${(1 - enter) * 42}px) translateY(${progress * -18}px) scale(${0.98 + progress * 0.06})`,
-            opacity: enter
-          }}
-        />
-        {(beat.visual.annotations ?? []).map((annotation, index) => {
-          const reveal = spring({frame, fps, delay: 7 + index * 5, config: {damping: 18, stiffness: 180}});
-          return (
-            <React.Fragment key={`annotation-${index}`}>
-              <div style={{
-                position: 'absolute',
-                left: `${annotation.x}%`,
-                top: `${annotation.y}%`,
-                width: 18,
-                height: 18,
-                borderRadius: '50%',
-                background: '#ffffff',
-                transform: `translate(-50%,-50%) scale(${reveal})`,
-                boxShadow: '0 0 0 8px rgba(255,255,255,.15)'
-              }} />
-              <div style={{
-                position: 'absolute',
-                left: `calc(${annotation.x}% + 18px)`,
-                top: `calc(${annotation.y}% - 42px)`,
-                padding: '10px 14px',
-                background: 'rgba(0,0,0,.76)',
-                fontSize: 28,
-                fontWeight: 900,
-                opacity: reveal,
-                transform: `translateY(${(1-reveal)*12}px)`
-              }}>{annotation.label}</div>
-            </React.Fragment>
-          );
-        })}
+        <Img src={staticFile(beat.visual.src)} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',filter:'blur(38px) brightness(0.28) saturate(0.82)',transform:`scale(${1.13 + progress * 0.035}) translateX(${driftX * 0.25}px)`,opacity:.92}} />
+        <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg, rgba(0,0,0,.26) 0%, rgba(0,0,0,.04) 42%, rgba(0,0,0,.42) 100%)'}} />
+        <div style={{position:'relative',width:frameWidth,height:frameHeight,display:'flex',alignItems:'center',justifyContent:'center',transform:`translate(${driftX}px,${driftY}px) scale(${0.965 + enter * 0.035 + progress * 0.018})`,opacity:enter}}>
+          <Img src={staticFile(beat.visual.src)} style={{width:'100%',height:'100%',objectFit:'contain',objectPosition:'center',filter:'drop-shadow(0 24px 44px rgba(0,0,0,.72))'}} />
+          {(beat.visual.annotations ?? []).map((annotation,index)=>{const reveal=spring({frame,fps,delay:7+index*5,config:{damping:18,stiffness:180}});return <React.Fragment key={`annotation-${index}`}><div style={{position:'absolute',left:`${annotation.x}%`,top:`${annotation.y}%`,width:18,height:18,borderRadius:'50%',background:'#fff',transform:`translate(-50%,-50%) scale(${reveal})`,boxShadow:'0 0 0 8px rgba(255,255,255,.15)'}}/><div style={{position:'absolute',left:`calc(${annotation.x}% + 18px)`,top:`calc(${annotation.y}% - 42px)`,padding:'10px 14px',background:'rgba(0,0,0,.76)',fontSize:28,fontWeight:900,opacity:reveal,transform:`translateY(${(1-reveal)*12}px)`}}>{annotation.label}</div></React.Fragment>;})}
+        </div>
+        <div style={{position:'absolute',top:106,left:50,padding:'10px 16px',borderRadius:999,background:'rgba(0,0,0,.54)',backdropFilter:'blur(10px)',fontSize:22,fontWeight:900,letterSpacing:1.2,textTransform:'uppercase',opacity:.86}}>{beat.visual.publisher ?? 'SOURCE'}</div>
       </AbsoluteFill>
     );
   }
 
   if (beat.visual.type === 'logo') {
-    const bob = Math.sin((frame / fps) * Math.PI * 2 * 0.8) * 8;
-    const ring = interpolate(progress, [0, 0.55, 1], [0.7, 1.04, 1.18]);
+    const bob=Math.sin((frame/fps)*Math.PI*2*.8)*7;
     return (
       <AbsoluteFill style={shell}>
-        <div
-          style={{
-            position: 'absolute',
-            width: 420,
-            height: 420,
-            borderRadius: '50%',
-            border: '3px solid rgba(255,255,255,0.16)',
-            transform: `scale(${ring})`,
-            opacity: 0.7 - progress * 0.35
-          }}
-        />
-        <div
-          style={{
-            width: 360,
-            height: 360,
-            borderRadius: 56,
-            border: '3px solid rgba(255,255,255,0.72)',
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            justifyContent: 'center',
-            transform: `translateY(${bob}px) scale(${0.72 + enter * 0.28}) rotate(${(1 - enter) * -9}deg)`
-          }}
-        >
-          {beat.visual.src ? (
-            <Img
-              src={staticFile(beat.visual.src)}
-              style={{
-                width: 190,
-                height: 190,
-                objectFit: 'contain',
-                filter: 'brightness(0) invert(1)'
-              }}
-            />
-          ) : (
-            <div style={{fontSize: 110, fontWeight: 950}}>◎</div>
-          )}
-          {beat.visual.label ? (
-            <div
-              style={{
-                marginTop: 20,
-                fontSize: fittedFontSize(beat.visual.label, 300, 38, 22),
-                fontWeight: 900,
-                textAlign: 'center'
-              }}
-            >
-              {beat.visual.label}
-            </div>
-          ) : null}
-        </div>
+        <div style={{position:'absolute',width:760,height:760,borderRadius:'50%',background:'radial-gradient(circle, rgba(255,255,255,.10) 0%, rgba(255,255,255,0) 68%)',transform:`scale(${0.86 + progress * 0.18})`}} />
+        {beat.visual.src?<Img src={staticFile(beat.visual.src)} style={{width:270,height:270,objectFit:'contain',filter:'brightness(0) invert(1) drop-shadow(0 18px 34px rgba(0,0,0,.6))',transform:`translateY(${bob-80}px) scale(${0.78 + enter * 0.22})`}}/>:<div style={{fontSize:130,fontWeight:950,transform:`translateY(${bob-80}px)`}}>◎</div>}
+        {beat.visual.label?<div style={{position:'absolute',top:1040,left:90,right:90,fontSize:fittedFontSize(beat.visual.label,900,76,42),fontWeight:950,letterSpacing:-3,textAlign:'center',textTransform:'uppercase',transform:`translateY(${(1-enter)*28}px)`,opacity:enter}}>{beat.visual.label}</div>:null}
       </AbsoluteFill>
     );
   }

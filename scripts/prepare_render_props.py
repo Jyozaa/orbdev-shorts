@@ -4,7 +4,7 @@ from pathlib import Path
 
 BUILD_DIR=Path("build"); CAPTIONS_PATH=Path("public/captions.json"); MEME_SELECTION_PATH=BUILD_DIR/"meme-selection.json"
 SOURCE_ASSETS_PATH=BUILD_DIR/"source-assets.json"; LOGO_ASSETS_PATH=BUILD_DIR/"logo-assets.json"; CUTAWAYS_PATH=BUILD_DIR/"cutaways.json"
-MIN_VISUAL_SECONDS=1.8; TARGET_VISUAL_SECONDS=2.35; MAX_VISUAL_SECONDS=3.35
+MIN_VISUAL_SECONDS=1.55; TARGET_VISUAL_SECONDS=2.10; MAX_VISUAL_SECONDS=3.15
 SOURCE_MIN_MATCH=0.34
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
@@ -43,7 +43,7 @@ def source_match(asset:dict,query:str)->float:
 def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool):
     if isinstance(entry,str):
         if used and not allow_reuse and entry in used:return None,0.0
-        return entry,0.35
+        return {"src":entry},0.35
     if not isinstance(entry,dict):return None,0.0
     assets=entry.get("assets",[])
     if not isinstance(assets,list):return None,0.0
@@ -55,12 +55,11 @@ def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allo
         if not src:continue
         if src in used and not allow_reuse:continue
         searchable=norm(f'{asset.get("text","")} {asset.get("url","")}')
-        if required and not all(term in searchable for term in required):
-            continue
+        if required and not all(term in searchable for term in required):continue
         scored.append((source_match(asset,query),int(asset.get("baseScore",0)),asset))
     scored.sort(key=lambda x:(x[0],x[1]),reverse=True)
     if not scored or scored[0][0]<SOURCE_MIN_MATCH:return None,(scored[0][0] if scored else 0.0)
-    return scored[0][2].get("src"),scored[0][0]
+    return scored[0][2],scored[0][0]
 
 ABSTRACT_TYPES={"explain","chart","timeline","comparison","flow","diagram","network"}
 
@@ -75,17 +74,17 @@ def family(kind:str)->str:
 def base_visual_weight(beat)->float:
     v=beat.get("visual",{}); kind=str(v.get("type","text"))
     base={
-        "explain":9.2,
-        "source":9.0,
-        "comparison":8.8,
-        "chart":8.6,
-        "timeline":8.5,
-        "logo":8.3,
-        "metric":6.8,
+        "explain":9.0,
+        "source":10.6,
+        "comparison":8.4,
+        "chart":8.1,
+        "timeline":7.9,
+        "logo":5.8,
+        "metric":7.1,
         "network":6.0,
         "flow":5.6,
         "diagram":5.4,
-        "kinetic":7.5,
+        "kinetic":8.0,
         "symbol":4.8,
         "text":3.2,
     }.get(kind,1.0)
@@ -110,82 +109,44 @@ def kinetic_from_beat(beat):
     words=re.findall(r"[A-Za-z0-9'’.-]+",str(beat.get("text","")))
     return {"type":"kinetic","text":" ".join(words[:6]).strip() or "TECH UPDATE","emphasis":words[-1] if words else "UPDATE"}
 
-def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes):
+def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo):
     viable=[i for i in candidates if base_visual_weight(beats[i])>=0]
     if not viable:
-        # Never render a rejected/missing source asset just because it is the only
-        # candidate in a timing window. Fall back to kinetic typography instead.
         chosen=max(candidates,key=lambda i:(float(beats[i]["end"])-float(beats[i]["start"]),-i))
         return chosen,True
-
     non_abstract=[i for i in viable if str(beats[i].get("visual",{}).get("type","")) not in ABSTRACT_TYPES]
-    non_explain=[i for i in viable if str(beats[i].get("visual",{}).get("type",""))!="explain"]
-
-    # Hard rule: abstract-tech scenes never run back-to-back. If the semantic
-    # window has a valid source/logo/metric/text/etc. use it; otherwise the
-    # renderer synthesizes a kinetic reset.
     hard_no_abstract=prev_family=="abstract-tech" or abstract_count>=max_abstract
-    if hard_no_abstract and non_abstract:
-        viable=non_abstract
-
-    # Explanations are capped independently from the broader abstract family.
+    if hard_no_abstract and non_abstract:viable=non_abstract
+    hard_no_logo=prev_family=="brand" or logo_count>=max_logo
+    if hard_no_logo:
+        allowed=[i for i in viable if str(beats[i].get("visual",{}).get("type",""))!="logo"]
+        if allowed:viable=allowed
     if explain_count>=max_explain:
         allowed=[i for i in viable if str(beats[i].get("visual",{}).get("type",""))!="explain"]
         if allowed:viable=allowed
-
-    # Repeating the exact same explain grammar in one Short reads as a template.
-    # Prefer any other valid treatment; if none exists, kinetic is the reset.
     if used_explain_modes:
-        fresh=[
-            i for i in viable
-            if not (
-                str(beats[i].get("visual",{}).get("type",""))=="explain"
-                and str(beats[i].get("visual",{}).get("mode","")) in used_explain_modes
-            )
-        ]
+        fresh=[i for i in viable if not(str(beats[i].get("visual",{}).get("type",""))=="explain" and str(beats[i].get("visual",{}).get("mode","")) in used_explain_modes)]
         if fresh:viable=fresh
-
-    chosen=max(
-        viable,
-        key=lambda i:(
-            candidate_score(beats[i],prev_family,prev_explain_mode),
-            float(beats[i]["end"])-float(beats[i]["start"]),
-            -i,
-        ),
-    )
-    chosen_visual=beats[chosen].get("visual",{})
-    chosen_kind=str(chosen_visual.get("type",""))
-    chosen_mode=str(chosen_visual.get("mode","")) if chosen_kind=="explain" else ""
-
-    force_kinetic=(
-        (chosen_kind in ABSTRACT_TYPES and hard_no_abstract)
-        or (chosen_kind=="explain" and explain_count>=max_explain)
-        or (chosen_kind=="explain" and chosen_mode in used_explain_modes)
-    )
+    chosen=max(viable,key=lambda i:(candidate_score(beats[i],prev_family,prev_explain_mode),float(beats[i]["end"])-float(beats[i]["start"]),-i))
+    chosen_visual=beats[chosen].get("visual",{});chosen_kind=str(chosen_visual.get("type",""));chosen_mode=str(chosen_visual.get("mode","")) if chosen_kind=="explain" else ""
+    force_kinetic=((chosen_kind in ABSTRACT_TYPES and hard_no_abstract) or (chosen_kind=="explain" and explain_count>=max_explain) or (chosen_kind=="explain" and chosen_mode in used_explain_modes) or (chosen_kind=="logo" and hard_no_logo))
     return chosen,force_kinetic
 
-def assert_visual_window_diversity(windows,max_explain,max_abstract):
+def assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo):
     kinds=[str(w.get("visual",{}).get("type","")) for w in windows]
-    abstract=sum(1 for kind in kinds if kind in ABSTRACT_TYPES)
-    explains=[w for w in windows if str(w.get("visual",{}).get("type",""))=="explain"]
-    modes=[str(w.get("visual",{}).get("mode","")) for w in explains]
-
-    if abstract>max_abstract:
-        raise RuntimeError(f"abstract-tech hard cap exceeded: {abstract}>{max_abstract}")
-    if len(explains)>max_explain:
-        raise RuntimeError(f"explain hard cap exceeded: {len(explains)}>{max_explain}")
-    if len(modes)!=len(set(modes)):
-        raise RuntimeError(f"repeated explain mode survived selection: {modes}")
+    abstract=sum(1 for kind in kinds if kind in ABSTRACT_TYPES);logos=kinds.count("logo")
+    explains=[w for w in windows if str(w.get("visual",{}).get("type",""))=="explain"];modes=[str(w.get("visual",{}).get("mode","")) for w in explains]
+    if abstract>max_abstract:raise RuntimeError(f"abstract-tech hard cap exceeded: {abstract}>{max_abstract}")
+    if logos>max_logo:raise RuntimeError(f"pure-logo hard cap exceeded: {logos}>{max_logo}")
+    if len(explains)>max_explain:raise RuntimeError(f"explain hard cap exceeded: {len(explains)}>{max_explain}")
+    if len(modes)!=len(set(modes)):raise RuntimeError(f"repeated explain mode survived selection: {modes}")
     for i in range(len(kinds)-1):
-        if kinds[i] in ABSTRACT_TYPES and kinds[i+1] in ABSTRACT_TYPES:
-            raise RuntimeError(f"back-to-back abstract-tech windows survived selection at {i}/{i+1}")
+        if kinds[i] in ABSTRACT_TYPES and kinds[i+1] in ABSTRACT_TYPES:raise RuntimeError(f"back-to-back abstract-tech windows survived selection at {i}/{i+1}")
+        if kinds[i]=="logo" and kinds[i+1]=="logo":raise RuntimeError(f"back-to-back pure-logo windows survived selection at {i}/{i+1}")
 
 def build_visual_windows(beats,cutaway_by_beat,final_duration):
-    windows=[];index=0;prev_family=None;prev_explain_mode=None;explain_count=0;abstract_count=0;used_explain_modes:set[str]=set()
-    # Hard budgets target roughly one-third abstract-tech coverage while keeping
-    # enough room for source imagery, branding, memes, metrics and kinetic resets.
-    max_explain=max(2,min(3,math.floor(final_duration/12.0)))
-    max_abstract=max(3,min(4,math.floor(final_duration/10.0)))
+    windows=[];index=0;prev_family=None;prev_explain_mode=None;explain_count=0;abstract_count=0;logo_count=0;used_explain_modes:set[str]=set()
+    max_explain=max(2,min(3,math.floor(final_duration/12.0)));max_abstract=max(3,min(4,math.floor(final_duration/10.0)));max_logo=max(1,min(2,math.ceil(final_duration/20.0)))
     while index<len(beats):
         start_index=index;end_index=index;start=float(beats[index]["start"]);end=float(beats[index]["end"])
         while end_index+1<len(beats):
@@ -197,26 +158,18 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
             end_index+=1;end=next_end
             if end_index in cutaway_by_beat or end-start>=TARGET_VISUAL_SECONDS:break
         candidates=list(range(start_index,end_index+1))
-        chosen,force_kinetic=choose_window_candidate(
-            beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,
-            abstract_count,max_abstract,used_explain_modes
-        )
+        chosen,force_kinetic=choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo)
         vb=copy.deepcopy(beats[chosen]);vb["start"]=round(start,4);vb["end"]=round(end,4);vb.pop("meme",None);vb.pop("memeIntent",None);vb.pop("sfx",None)
         if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen])
-        windows.append(vb)
-
-        kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind)
+        windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind)
         if kind in ABSTRACT_TYPES:abstract_count+=1
+        if kind=="logo":logo_count+=1
         if kind=="explain":
-            explain_count+=1
-            prev_explain_mode=str(vb.get("visual",{}).get("mode",""))
-            used_explain_modes.add(prev_explain_mode)
-        else:
-            prev_explain_mode=None
+            explain_count+=1;prev_explain_mode=str(vb.get("visual",{}).get("mode",""));used_explain_modes.add(prev_explain_mode)
+        else:prev_explain_mode=None
         index=end_index+1
-
     if windows and float(windows[-1]["end"])<final_duration:windows[-1]["end"]=round(final_duration,4)
-    assert_visual_window_diversity(windows,max_explain,max_abstract)
+    assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo)
     return windows
 
 def main():
@@ -241,12 +194,16 @@ def main():
             must_match=v.get("mustMatch",[])
             if not isinstance(must_match,list):must_match=[]
             allow_reuse=bool(v.get("allowReuse",False))
-            src,score=choose_source(source_assets.get(key),query,must_match,used_source_assets,allow_reuse)
+            asset,score=choose_source(source_assets.get(key),query,must_match,used_source_assets,allow_reuse)
             v["matchScore"]=score
+            src=str(asset.get("src","")) if isinstance(asset,dict) else ""
             if src:
-                v["src"]=src
+                v["src"]=src;width=int(asset.get("width",0) or 0);height=int(asset.get("height",0) or 0)
+                if width>0 and height>0:
+                    ratio=width/height;v["assetWidth"]=width;v["assetHeight"]=height;v["layout"]="landscape" if ratio>=1.15 else ("portrait" if ratio<=0.78 else "square")
+                else:v["layout"]="unknown"
                 if not allow_reuse:used_source_assets.add(src)
-            print(f'Source beat {index}: query="{query}" required={must_match} match={score:.3f} src={src or "REJECTED"}')
+            print(f'Source beat {index}: query="{query}" required={must_match} match={score:.3f} src={src or "REJECTED"} layout={v.get("layout","none")}')
         attach_logos(v,logos)
         selected=selections.get(str(index))
         if selected and selected.get("presentation")!="cutaway":adjusted["meme"]=dict(selected)
@@ -279,6 +236,8 @@ def main():
     print("Explain modes:",[b["visual"].get("mode") for b in visual_beats if b["visual"]["type"]=="explain"])
     abstract=sum(1 for kind in treatments if kind in ABSTRACT_TYPES)
     print(f"Abstract-tech windows: {abstract}/{len(treatments)} ({abstract/max(1,len(treatments)):.0%})")
+    source_count=treatments.count("source");logo_count=treatments.count("logo")
+    print(f"Real-source windows: {source_count}/{len(treatments)} ({source_count/max(1,len(treatments)):.0%}); pure logos: {logo_count}")
     print("Visual holds:",[round(float(b["end"])-float(b["start"]),2) for b in visual_beats])
 
 if __name__=="__main__":main()

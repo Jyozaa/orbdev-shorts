@@ -50,6 +50,9 @@ export type SourceVisual = {
   src?: string;
   publisher?: string;
   matchScore?: number;
+  assetWidth?: number;
+  assetHeight?: number;
+  layout?: 'landscape' | 'portrait' | 'square' | 'unknown';
 };
 
 export type MetricVisual = {type: 'metric'; value: string};
@@ -113,9 +116,13 @@ export type BeatVisualSpec =
   | NetworkVisual
   | ExplainVisual;
 
+export type EditorialRole = 'fact' | 'setup' | 'explanation' | 'analogy' | 'joke' | 'reaction' | 'punchline' | 'callback' | 'transition';
+
 export type Beat = {
   text: string;
   visual: BeatVisualSpec;
+  editorialRole?: EditorialRole;
+  callbackKey?: string;
   sfx?: ReactionSfx;
   memeIntent?: MemeIntent;
   start?: number;

@@ -59,15 +59,18 @@ def extract_image_candidates(page:str,base_url:str)->list[dict[str,object]]:
 
     return sorted(candidates,key=lambda x:int(x["baseScore"]),reverse=True)
 
-def normalize_image(source:Path,target:Path)->bool:
+def normalize_image(source:Path,target:Path)->tuple[int,int]|None:
     try:
         subprocess.run(["ffmpeg","-y","-loglevel","error","-i",str(source),"-vf","scale='min(1400,iw)':-2","-frames:v","1","-q:v","2",str(target)],check=True)
         dims=subprocess.check_output(["ffprobe","-v","error","-select_streams","v:0","-show_entries","stream=width,height","-of","csv=p=0:s=x",str(target)],text=True).strip()
         w,h=[int(v) for v in dims.split("x")]
-        if w<480 or h<260: target.unlink(missing_ok=True); return False
-        return True
+        if w<480 or h<260:
+            target.unlink(missing_ok=True)
+            return None
+        return w,h
     except Exception:
-        target.unlink(missing_ok=True); return False
+        target.unlink(missing_ok=True)
+        return None
 
 def chrome_screenshot(url:str,target:Path)->bool:
     chrome=next((x for x in (shutil.which("google-chrome"),shutil.which("google-chrome-stable"),shutil.which("chromium"),shutil.which("chromium-browser")) if x),None)
@@ -83,8 +86,10 @@ def capture(candidate:dict[str,object],referer:str,index:int,variant:int)->dict[
         data,ctype=fetch(str(candidate["url"]),referer=referer)
         if "text/html" in ctype:return None
         temp.write_bytes(data)
-        if not normalize_image(temp,target):return None
-        return {"src":f"sources/{target.name}","url":candidate["url"],"text":candidate.get("text",""),"baseScore":candidate.get("baseScore",0)}
+        dims=normalize_image(temp,target)
+        if not dims:return None
+        w,h=dims
+        return {"src":f"sources/{target.name}","url":candidate["url"],"text":candidate.get("text",""),"baseScore":candidate.get("baseScore",0),"width":w,"height":h,"aspectRatio":round(w/max(1,h),4)}
     except Exception as e:
         print(f"Source {index} image {variant} failed: {e}"); return None
     finally: temp.unlink(missing_ok=True)
@@ -110,9 +115,11 @@ def main():
                     item=capture(cand,url,index,len(assets))
                     if item:assets.append(item)
         except Exception as e: print(f"Source {index}: discovery failed: {e}")
-        if not assets:
+        if len(assets)<MAX_IMAGES_PER_SOURCE:
             shot=PUBLIC/f"source-{index}-page.png"
-            if chrome_screenshot(url,shot): assets.append({"src":f"sources/{shot.name}","url":url,"text":"page screenshot","baseScore":10})
+            if chrome_screenshot(url,shot):
+                title=str(sources[index].get("title",""))
+                assets.append({"src":f"sources/{shot.name}","url":url,"text":f"official source page screenshot {title}","baseScore":34,"width":1080,"height":1400,"aspectRatio":round(1080/1400,4)})
         report[str(index)]={"assets":assets,"count":len(assets)}
         print(f"Source {index}: captured {len(assets)} candidate assets with semantic metadata")
     REPORT.write_text(json.dumps(report,indent=2),encoding="utf-8")

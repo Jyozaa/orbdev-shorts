@@ -12,7 +12,7 @@ import {
 } from 'remotion';
 import {Beat, Cutaway, SelectedMeme} from '../types';
 
-const OverlayMeme: React.FC<{meme: SelectedMeme; side: 'left' | 'right'}> = ({meme, side}) => {
+const OverlayMeme: React.FC<{meme: SelectedMeme; side: 'left' | 'right'; variant: number}> = ({meme, side, variant}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const enter = spring({
@@ -29,18 +29,22 @@ const OverlayMeme: React.FC<{meme: SelectedMeme; side: 'left' | 'right'}> = ({me
     return <Audio src={staticFile(meme.src)} volume={meme.volume ?? 0.60} />;
   }
 
-  const x = (1 - enter) * (side === 'right' ? 150 : -150);
-  const rotation = side === 'right' ? -3.5 : 3.5;
+  const x = (1 - enter) * (side === 'right' ? 170 : -170);
+  const rotation = (side === 'right' ? -1 : 1) * (2.5 + (variant % 3) * 1.2);
+  const sizes = [540, 620, 500];
+  const tops = [280, 500, 365];
+  const size = sizes[variant % sizes.length];
+  const top = tops[variant % tops.length];
 
   return (
     <AbsoluteFill style={{zIndex: 35, pointerEvents: 'none', opacity}}>
       <div
         style={{
           position: 'absolute',
-          top: 390,
-          [side]: 24,
-          width: 500,
-          height: 500,
+          top,
+          [side]: 18,
+          width: size,
+          height: size,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -106,7 +110,7 @@ export const MemeTrack: React.FC<{beats: Beat[]; cutaways: Cutaway[]}> = ({beats
         const durationInFrames = Math.max(1, Math.round(meme.durationSeconds * fps));
         return (
           <Sequence key={`overlay-${index}-${meme.id}`} from={from} durationInFrames={durationInFrames}>
-            <OverlayMeme meme={meme} side={index % 2 === 0 ? 'right' : 'left'} />
+            <OverlayMeme meme={meme} side={index % 2 === 0 ? 'right' : 'left'} variant={index} />
           </Sequence>
         );
       })}

@@ -18,6 +18,7 @@ ALLOWED_TONES = {"positive", "negative", "surprised", "confused", "awkward", "de
 ALLOWED_MEDIA = {"audio", "image", "video", "any"}
 ALLOWED_PRESENTATIONS = {"auto", "overlay", "cutaway"}
 ALLOWED_FLOW_KINDS = {"logo", "symbol", "text"}
+ALLOWED_EDITORIAL_ROLES = {"fact","setup","explanation","analogy","joke","reaction","punchline","callback","transition"}
 
 
 def fail(message: str) -> None:
@@ -94,8 +95,10 @@ def validate_flow(nodes: object, beat_index: int) -> None:
 def family(kind: str) -> str:
     if kind in ABSTRACT_TYPES:
         return "abstract-tech"
-    if kind in {"source", "logo"}:
-        return "brand-source"
+    if kind == "source":
+        return "source"
+    if kind == "logo":
+        return "brand"
     if kind == "metric":
         return "data"
     if kind == "kinetic":
@@ -137,6 +140,9 @@ def main() -> None:
             fail(f"beat {index} needs exact narration text")
         if len(re.findall(r"\S+", text)) > 12:
             fail(f"beat {index} is too long; split it into a faster visual beat")
+        role=beat.get("editorialRole")
+        if role is not None and role not in ALLOWED_EDITORIAL_ROLES:
+            fail(f"beat {index} has invalid editorialRole")
 
         visual = beat.get("visual")
         if not isinstance(visual, dict) or visual.get("type") not in ALLOWED_VISUALS:
@@ -284,8 +290,8 @@ def main() -> None:
     if reconstructed != normalized_space(narration):
         fail("beat text must reproduce the narration exactly and in order")
 
-    if meme_count > 4:
-        fail("normal Shorts may contain at most four explicit meme moments")
+    if meme_count > 6:
+        fail("normal Shorts may contain at most six explicit meme moments")
 
     if text_visual_count > max(2, math.ceil(len(beats) * 0.25)):
         fail("too many text-only visuals; use logos, diagrams, networks, charts, timelines, source visuals or comparisons")
@@ -303,6 +309,10 @@ def main() -> None:
             == visual_signatures[index + 2]
         ):
             fail(f"visual treatment repeats three times starting at beat {index}")
+
+    logo_count=visual_types.count("logo")
+    if logo_count > max(2, math.ceil(len(beats) * 0.18)):
+        fail("too many standalone logo beats; logos should normally be layered into real imagery or other compositions")
 
     generic_flow_count = sum(1 for kind in visual_types if kind in {"flow", "diagram"})
     if generic_flow_count > math.ceil(len(beats) * 0.25):

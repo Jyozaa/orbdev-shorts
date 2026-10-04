@@ -1,20 +1,20 @@
 {
-  "version": 19,
+  "version": 20,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
   "maxStoriesPerDay": 2,
   "minimumScore": 7.2,
   "target": {
-    "wordsMin": 75,
+    "wordsMin": 80,
     "wordsMax": 105,
     "durationSecondsMin": 24,
     "durationSecondsMax": 40,
     "beatsMin": 12,
     "beatsMax": 22,
-    "memeMomentsMax": 4,
-    "memeMomentsTargetMin": 3,
-    "memeMomentsTargetMax": 4
+    "memeMomentsMax": 6,
+    "memeMomentsTargetMin": 4,
+    "memeMomentsTargetMax": 6
   },
   "scoring": {
     "significance": 4,
@@ -38,7 +38,6 @@
     "When using company-reported benchmarks, explicitly attribute them in narration.",
     "Use memes as editorial punctuation, not random filler.",
     "Use full-screen cutaways for standalone visual punchlines; cutaways pause narration and hide captions automatically.",
-    "Prefer animated logos, flows, diagrams and source imagery over text-only visuals.",
     "Short visual meme cutaways must play to a natural end; reject long cutaway videos instead of hard-trimming them.",
     "Silent meme images and silent meme videos must never appear as standalone full-screen cutaways; composite them alongside the main visual instead.",
     "Use at least four visual treatment families and avoid repeating the same composition across consecutive beats.",
@@ -60,7 +59,13 @@
     "Use Kokoro-82M as the primary narration path; Edge neural voices are fallback only, with no artificial pitch shifting or heavy compression.",
     "Treat explain, charts, timelines, comparisons, flows, diagrams and networks as one abstract-tech family; together they should occupy no more than roughly one third of final visual windows.",
     "Never show two abstract-tech visual windows consecutively; use source imagery, branding, memes, metrics, text/symbol moments or kinetic typography as a visual reset.",
-    "Use Kokoro-82M as the primary narration engine; Edge neural voices are fallback only."
+    "Use Kokoro-82M as the primary narration engine; Edge neural voices are fallback only.",
+    "Write humor into the narration itself using dry observations, analogies, reactions, punchlines and callbacks; memes amplify written beats rather than rescue dry copy.",
+    "Prefer real/source media over standalone branding whenever a semantically valid source asset exists.",
+    "Standalone logo windows are rare, never consecutive, and capped at two in a normal 25-40 second Short.",
+    "Source imagery must preserve meaningful edge content; landscape media should be contained over an aspect-aware blurred/darkened background instead of destructively cropped to 9:16.",
+    "Entertainment-heavy Shorts should normally include 4-6 meme/reaction moments, with visible image/video reactions preferred over an audio-only meme mix.",
+    "The first five seconds need a concrete hook, relevant real media, motion, and a strong editorial turn."
   ],
   "visualRules": {
     "background": "#000000",
@@ -84,10 +89,10 @@
     "animatedCharts": true,
     "animatedTimelines": true,
     "animatedNetworks": true,
-    "preferredVisualHoldSeconds": "1.8-3.2",
-    "minimumVisualHoldSeconds": 1.8,
-    "maximumVisualHoldSeconds": 3.2,
-    "sourceImageTargetFraction": "quality-driven, typically 0.15-0.30; never quota-driven",
+    "preferredVisualHoldSeconds": "1.55-3.15, meaning-driven",
+    "minimumVisualHoldSeconds": 1.55,
+    "maximumVisualHoldSeconds": 3.15,
+    "sourceImageTargetFraction": "quality-driven, typically 0.35-0.55 when enough relevant official media exists",
     "multipleSourceImages": true,
     "sourceImagesPerSourceMax": 5,
     "memeOverlayBorder": false,
@@ -116,7 +121,15 @@
     "kineticResetWhenAbstractBudgetExceeded": true,
     "noBackToBackAbstractTech": true,
     "hardAbstractTechWindowBudget": true,
-    "allowRepeatedExplainModeInFinalWindows": false
+    "allowRepeatedExplainModeInFinalWindows": false,
+    "maxPureLogoWindows": 2,
+    "maxPureLogoBeatFraction": 0.18,
+    "noBackToBackPureLogos": true,
+    "sourceAspectAwareComposition": true,
+    "sourceForegroundFit": "contain",
+    "sourceBackgroundFill": "blurred/darkened duplicate",
+    "sourceEdgeSafe": true,
+    "layeredCompositionsPreferred": true
   },
   "narration": {
     "preferredVoice": "en-US-BrianMultilingualNeural",
@@ -128,8 +141,9 @@
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": 1.05,
-    "fallback": "Edge BrianMultilingualNeural"
+    "speed": 1.08,
+    "fallback": "Edge BrianMultilingualNeural",
+    "targetEffectiveWpm": "energetic human delivery; typically 165-190 when writing supports it"
   },
   "reactionSfx": [
     "scratch",
@@ -188,8 +202,8 @@
   "memeSelection": {
     "source": "local",
     "strategy": "intent-tag retrieval",
-    "defaultTargetUsesPerShort": 3,
-    "maxUsesPerShort": 4,
+    "defaultTargetUsesPerShort": 5,
+    "maxUsesPerShort": 6,
     "allowedMedia": [
       "audio",
       "image",
@@ -213,6 +227,9 @@
       "kind of insane"
     ],
     "completeAudioOverlayMaxSeconds": 2.2,
-    "preserveShortAudioToNaturalEnd": true
+    "preserveShortAudioToNaturalEnd": true,
+    "visibleTargetMin": 3,
+    "visibleTargetMax": 5,
+    "preferVisibleWhenMediaAny": true
   }
 }

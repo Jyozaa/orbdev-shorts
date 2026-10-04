@@ -4,80 +4,76 @@ Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
 Read `editorial/policy.json`, `history/covered.json`, and `stories/current.json` first. Search current public sources for significant AI/developer-technology developments inside the configured lookback window and verify every selected story with a primary source.
 
-## Narration
+## Voice-first writing
 
-Write spoken editorial copy, not a press-release summary. Use a concrete hook, explain what changed technically, show why it matters, then give the catch/limitation and a concise implication or punchline. Keep it conversational, precise and dry/playful. Aim for 75-105 words.
+Write narration before choosing visuals. Aim for an original high-density technical-comedy cadence: concise facts, dry observations, occasional absurd analogies, and a clear payoff. Do not copy another creator's exact wording or recurring catchphrases.
 
-Write narration first, then split it exactly into 12-22 semantic beats. Beat text must reproduce narration word-for-word. Do not manually time beats.
+A strong short often alternates:
+**fact -> interpretation/joke -> fact -> analogy/reaction -> fact -> payoff/callback**.
 
-## Visual-director rule
+The joke must live in the narration itself. Do not write dry press-release copy and expect a meme to make it entertaining later.
 
-For every beat, ask: **what relationship should the viewer understand without the narration?**
+Aim for 80-105 words. Remove filler transitions. Prefer short spoken sentences and contractions. Hooks should make the technical change concrete in the first sentence.
 
-Prefer visual explanations over labelled boxes. Use `explain` for relationships:
+Split narration exactly into 12-22 semantic beats. Beat text must reproduce narration word-for-word. Do not manually time beats.
+
+Add an `editorialRole` when useful:
+`fact`, `setup`, `explanation`, `analogy`, `joke`, `reaction`, `punchline`, `callback`, or `transition`.
+
+Use `callbackKey` when a later beat intentionally pays off an earlier joke or visual premise.
+
+## Visual hierarchy
+
+Default hierarchy:
+1. Relevant official/source image, UI, demo, product, person, game, hardware, chart or research figure.
+2. Layered composition using source media plus small branding/highlights.
+3. Genuine explanatory animation when motion explains a relationship.
+4. Metric, kinetic typography, symbol or comparison.
+5. Standalone logo only when the brand reveal itself is the point.
+
+Pure logo scenes are rare: normally no more than two in a 25-40 second Short, and never consecutively.
+
+When enough relevant media exists, target roughly 35-55% real/source visual windows. Capture several distinct assets from the primary source rather than showing one hero image repeatedly.
+
+## Source imagery and safe framing
+
+Every source visual needs a semantic `query`; named products/games/features need `mustMatch`.
 
 ```json
-{"type":"explain","mode":"pixel-upscale","labels":["LOW RES","UPSCALED"]}
-{"type":"explain","mode":"network-shrink","fromLayers":[5,4,4,3],"toLayers":[3,3,2],"labels":["LARGE NETWORK","SMALLER NETWORK"]}
-{"type":"explain","mode":"capacity","load":98,"labels":["GPU"]}
-{"type":"explain","mode":"stability","labels":["SHIMMER","STABLE"]}
-{"type":"explain","mode":"pipeline","stages":["IMAGE","QSSR","PS5","4K"]}
-{"type":"explain","mode":"fanout","center":"MODEL","nodes":["CODE","WEB","FILES","TOOLS"]}
+{"type":"source","sourceIndex":0,"query":"Marvel Wolverine gameplay PS5","mustMatch":["wolverine"]}
+{"type":"source","sourceIndex":0,"query":"QSSR sharper detail comparison PS5","mustMatch":["qssr"]}
 ```
 
-These animations build the explanation over time and use most of the frame. In a technical 25-40s Short, usually use 2-4 genuine `explain` beats when the story supports them—but do not let them dominate the edit. The finished video should have at most roughly one-third explanatory-animation windows.
+Do not force destructive 9:16 crops. The renderer uses asset dimensions and preserves the full meaningful image over a blurred/darkened background. Text, faces, logos and UI near the edge must remain visible.
 
-Generic `flow`, `diagram`, and `network` are fallbacks, not defaults. Do not turn nouns into rounded boxes just because it is easy.
+Reject weak source matches instead of showing the wrong image.
 
-## Source imagery
+## Explanatory animation
 
-Use official imagery only when it is semantically relevant to that exact beat. Every source visual MUST include a query describing the image you actually want:
+Use `explain` only when motion genuinely helps explain transformation, capacity, causality, hierarchy or movement.
 
-```json
-{"type":"source","sourceIndex":0,"query":"Marvel Wolverine gameplay","mustMatch":["wolverine"],"fit":"cover"}
-{"type":"source","sourceIndex":0,"query":"PSSR image quality comparison","mustMatch":["pssr"],"fit":"contain","annotations":[
-  {"label":"fine detail","x":72,"y":36}
-]}
-```
+Keep all abstract-tech treatments (`explain/chart/timeline/comparison/flow/diagram/network`) to roughly one third of final windows or less. Never place two abstract-tech windows consecutively. Repeating the same explanation grammar in one Short is prohibited.
 
-The source pipeline ranks article images using asset-local alt text, nearby page context, URL text, and the query. For named games/products/features, add `mustMatch` with the identifying term(s). Every required term must exist in the asset's own metadata or URL. Source assets are not reused across unrelated beats unless `allowReuse:true` is explicitly justified. If no candidate passes, reject the image and let an explanatory visual win. Never request generic queries such as "article image" or "PS5 news".
+## Editing rhythm
 
-Use real imagery for recognizable products, demos, UI, games, hardware and research figures. A good explanatory animation is better than an irrelevant source image.
+Main visual holds are usually about 1.5-3.1 seconds, but timing follows meaning rather than a metronome. A useful source image can breathe; a punchline may receive several very quick overlay events.
 
-## Composition and motion
+The first five seconds deserve disproportionate visual effort: relevant real media immediately, a clear hook, motion, and ideally one amusing turn.
 
-- Use most of the usable frame; avoid tiny diagrams floating in black space.
-- Animation must explain construction/transformation, not merely fade a finished diagram in.
-- Mix camera-scale/pan motion with object motion.
-- Logos can participate inside explanations rather than requiring a separate logo scene.
-- Charts/timelines/comparisons remain useful where they actually fit.
-- Never place explanatory-animation windows back-to-back when a valid source, logo, chart, comparison, timeline, metric, meme-backed composition, or other treatment can carry one of those moments.
-- Treat explain/chart/timeline/comparison/flow/diagram/network as one abstract-tech family.
-- Keep that entire family to roughly half or less of final visual windows.
-- Never plan more than two abstract-tech moments consecutively; reset with real imagery, a large unboxed logo/brand composition, meme-backed imagery, a metric, or kinetic typography.
-- Avoid the same treatment family consecutively when alternatives exist.
-- Keep generic flow/diagram treatments below ~25%.
+Avoid large unused black areas. Prefer layered compositions and foreground/background depth.
 
-## Memes
+## Memes and reactions
 
-Target 3-4 meme/reaction moments when natural.
+Target 4-6 meme/reaction moments when natural, with roughly 3-5 visibly appearing as image/video reactions in a 35-40 second entertainment-heavy Short.
 
-Automatic reaction cues are for genuine reaction language such as:
-- "the headline sounds wild"
-- "this is wild"
-- "kind of insane"
-- "this gets weird"
-- "sounds great"
+Memes are punctuation, not wallpaper. Attach them to `joke`, `analogy`, `reaction`, `punchline`, and `callback` beats. Use audio reactions more sparingly than visible memes.
 
-Do NOT automatically meme structural transitions such as "here's the catch". Those should normally use editorial SFX (for example scratch) unless the script explicitly describes a reaction.
+Silent meme images/videos are unboxed overlays: no card, border, or frame. Short video cutaways with useful audio may briefly interrupt narration when the gag warrants it.
 
-Silent image/video memes are overlays only: no border, no card, narration continues. A full-screen cutaway requires a short video meme with useful audio. Short audio reactions must finish naturally.
-
-The renderer groups semantic beats into ~1.8-3.35s visual windows, choosing the strongest and most varied visual rather than blindly preferring source images.
-
-After queueing a story, report only headline, score and primary source. If nothing qualifies, make no repository changes.
-
+Do not automatically meme structural phrases like "here's the catch" unless the wording itself contains a joke/reaction.
 
 ## Narration rendering
 
-The production renderer uses Kokoro-82M with a natural US male voice as the primary TTS engine. Write punctuation for natural speech: short sentences, commas where a human would breathe, and contractions where appropriate. Edge neural TTS is fallback only.
+Kokoro-82M is primary. Write punctuation for natural breathing and emphasis. The target is energetic but human; do not compensate for weak writing by unnaturally speeding up the voice or pitch shifting it.
+
+After queueing a story, report only headline, score and primary source. If nothing qualifies, make no repository changes.

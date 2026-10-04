@@ -1,60 +1,37 @@
 # Meme selection
 
-Orbdev uses the meme folders stored directly inside this repository:
+Orbdev uses approved meme assets stored directly in this repository.
 
-- `Meme Pack/Meme Sound Effects/`
-- `Meme Pack/Meme Videos/`
-- `Memes templates -HD-/`
-- `Memes templates -HD- 2/`
+The editorial layer describes the meaning of a reaction. The selector chooses the local asset. Memes should feel like a coworker dropping the perfect reaction image into the conversation, not like decorative stickers.
 
-Green-screen assets are currently excluded until chroma-key compositing is implemented.
+## Target density
 
-The editorial step does not choose a meme by filename. It describes the reaction intent for a scene, and the local selector matches that intent against a catalog generated from the meme folders during the render.
+For an entertainment-heavy 35-40 second Short:
+- target 4-6 total meme/reaction moments when natural;
+- aim for roughly 3-5 visible image/video reactions;
+- use audio-only reactions more sparingly;
+- do not repeat the same asset in one Short.
 
-## Selection fields
-
-Each catalog item contains:
-
-- `id`
-- `path`
-- `mediaType`: audio, image, or video
-- `tags`
-- `tones`
-- `purposes`
-- `intensity`
-- `brandSafe`
-- `rightsStatus`
+Visible memes are normally borderless overlays and may be intentionally brief. Full-screen cutaways require a short video with useful audio and must play to a natural end.
 
 ## Matching
 
-For each scene with `memeIntent`, candidates are scored using:
+Candidates are ranked by purpose, tone, semantic concepts, requested media, intensity, and tag/name affinity. When `preferredMedia` is `any`, the selector slightly favors image/video so the edit does not silently become audio-only.
 
-- purpose match: 35%
-- tone match: 25%
-- semantic tag overlap: 20%
-- requested media type: 10%
-- intensity fit: 5%
-- concept/name affinity: small bonus
-
-The selector uses a confidence threshold. If no meme scores well enough, the Short renders without a meme for that moment.
-
-The selected source file is read directly from this repository, normalized into `public/memes/`, then inserted into the Remotion render. There is no cross-repository API lookup or asset download.
+The editorial roles `joke`, `reaction`, `analogy`, `punchline`, and `callback` can generate automatic meme opportunities when explicit `memeIntent` is absent.
 
 ## Example
 
 ```json
 {
+  "editorialRole": "punchline",
   "memeIntent": {
-    "purpose": "reaction",
-    "tone": "negative",
+    "purpose": "punchline",
+    "tone": "deadpan",
     "intensity": 2,
-    "preferredMedia": "audio",
-    "maxDurationSeconds": 1.0,
-    "concepts": ["bruh", "disbelief", "bad news"]
+    "preferredMedia": "image",
+    "presentation": "overlay",
+    "concepts": ["nope", "disbelief", "reaction"]
   }
 }
 ```
-
-The editor describes the meaning of the reaction. The selector decides which local meme asset best expresses it.
-
-Normal Shorts should use no more than two meme moments so the memes remain punchlines rather than becoming the whole video.

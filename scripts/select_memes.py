@@ -15,7 +15,7 @@ CATALOG = BUILD / "meme-catalog.json"
 SELECTION = BUILD / "meme-selection.json"
 MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS = 3.4
 MAX_COMPLETE_AUDIO_OVERLAY_SECONDS = 2.2
-MAX_MEME_MOMENTS = 4
+MAX_MEME_MOMENTS = 6
 
 REACTION_CUES = (
     (r"\b(headline )?sounds? wild\b|\bthis is wild\b|\bkind of insane\b|\bpretty insane\b|\bsounds? insane\b",
@@ -39,11 +39,19 @@ def tokens(values: list[str] | None) -> set[str]:
     return output
 
 
-def automatic_intent(text: str) -> dict[str, object] | None:
-    lowered = text.lower().replace("’", "'")
-    for pattern, intent in REACTION_CUES:
-        if re.search(pattern, lowered, flags=re.I):
-            return dict(intent)
+def automatic_intent(text: str, editorial_role: str = "") -> dict[str, object] | None:
+    role=editorial_role.strip().lower()
+    role_intents={
+        "joke":{"purpose":"punchline","tone":"deadpan","intensity":2,"preferredMedia":"image","presentation":"overlay","concepts":["reaction","laugh","disbelief","funny"]},
+        "reaction":{"purpose":"reaction","tone":"surprised","intensity":2,"preferredMedia":"image","presentation":"overlay","concepts":["reaction","wow","disbelief"]},
+        "analogy":{"purpose":"contrast","tone":"surprised","intensity":1,"preferredMedia":"image","presentation":"overlay","concepts":["comparison","reaction","confused"]},
+        "punchline":{"purpose":"punchline","tone":"chaotic","intensity":2,"preferredMedia":"any","presentation":"overlay","concepts":["laugh","reaction","funny","win"]},
+        "callback":{"purpose":"punchline","tone":"positive","intensity":2,"preferredMedia":"image","presentation":"overlay","concepts":["reaction","win","laugh"]},
+    }
+    if role in role_intents:return dict(role_intents[role])
+    lowered=text.lower().replace("’", "'")
+    for pattern,intent in REACTION_CUES:
+        if re.search(pattern,lowered,flags=re.I):return dict(intent)
     return None
 
 
@@ -63,7 +71,7 @@ def score(item: dict[str, object], intent: dict[str, object]) -> float:
 
     preferred = intent.get("preferredMedia", "any")
     if preferred == "any":
-        result += 5
+        result += 9 if item.get("mediaType") in {"image","video"} else 2
     elif item.get("mediaType") == preferred:
         result += 10
     else:
@@ -220,7 +228,7 @@ def main() -> None:
         intent = explicit
 
         if not intent and auto_slots > 0 and index - last_auto_index >= 2:
-            inferred = automatic_intent(str(beat.get("text", "")))
+            inferred = automatic_intent(str(beat.get("text", "")), str(beat.get("editorialRole", "")))
             if inferred:
                 intent = inferred
                 intent_source = "auto-cue"
@@ -259,7 +267,7 @@ def main() -> None:
                 if media_type == "video" and presentation == "cutaway" and not has_audio_stream(temp):
                     presentation = "overlay"
 
-                default_duration = 0.85 if media_type == "audio" else (1.35 if presentation == "cutaway" else 1.1)
+                default_duration = 0.75 if media_type == "audio" else (1.25 if presentation == "cutaway" else 1.0)
                 requested_duration = float(intent.get("maxDurationSeconds") or default_duration)
 
                 src, normalized_duration, source_duration, complete, has_audio = normalize_asset(
@@ -318,6 +326,9 @@ def main() -> None:
 
     SELECTION.parent.mkdir(parents=True, exist_ok=True)
     SELECTION.write_text(json.dumps(selections, indent=2), encoding="utf-8")
+    visible=sum(1 for item in selections.values() if item.get("mediaType")!="audio")
+    audio=sum(1 for item in selections.values() if item.get("mediaType")=="audio")
+    print(f"Meme mix: {visible} visible overlays/cutaways + {audio} audio reactions")
 
 
 if __name__ == "__main__":
