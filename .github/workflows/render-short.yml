@@ -35,14 +35,10 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      ORBDEV_KOKORO_VOICE: am_michael
-      ORBDEV_KOKORO_SPEED: '1.24'
+      ORBDEV_NARRATION_PROFILE: orbdev-dry
       ORBDEV_VOICE_FALLBACK: en-US-BrianMultilingualNeural
       ORBDEV_VOICE_TERTIARY: en-US-AndrewMultilingualNeural
-      ORBDEV_EDGE_RATE: +12%
       ORBDEV_CAPTION_LEAD_MS: 45
-      ORBDEV_VOICE_TEMPO: '1.04'
-      ORBDEV_SENTENCE_PAUSE_MS: 18
 
     steps:
       - name: Checkout application files
@@ -98,6 +94,9 @@ jobs:
 
       - name: Validate story
         run: python scripts/validate_story.py "$STORY_FILE"
+
+      - name: Test narration logic
+        run: python scripts/test_narration_logic.py
 
       - name: Generate narration
         run: python scripts/generate_narration.py "$STORY_FILE"
@@ -156,5 +155,6 @@ jobs:
             build/source-assets.json
             build/logo-assets.json
             build/render-props.json
+            build/narration-report.json
           if-no-files-found: ignore
           retention-days: 30

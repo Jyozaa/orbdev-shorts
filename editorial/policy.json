@@ -1,5 +1,5 @@
 {
-  "version": 25,
+  "version": 26,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -83,7 +83,10 @@
     "Do not clone or imitate the literal voice of a creator; use original narration with high-density, conversational, dry technical delivery.",
     "Scheduled editorial batches must independently verify every accepted candidate with at least one primary source before a story is queued.",
     "Heat and creator/community convergence may increase priority but cannot rescue an unverified or substantively weak story.",
-    "A discovery scan may queue zero, one, or many independently qualifying Shorts; there is no fixed per-day publishing quota."
+    "A discovery scan may queue zero, one, or many independently qualifying Shorts; there is no fixed per-day publishing quota.",
+    "Visual beat boundaries must not automatically become TTS boundaries; narration should synthesize natural thought-groups across compatible visual beats.",
+    "Reach the target narration cadence primarily by native TTS speed and script density; post-tempo correction must stay subtle.",
+    "Punchlines, reactions and jokes may receive their own speech chunk and micro-pause, while ordinary factual beats should flow continuously when they belong to the same sentence."
   ],
   "visualRules": {
     "background": "#000000",
@@ -179,10 +182,10 @@
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": 1.24,
+    "speed": "native retargeting around ~1.18x; do not rely on a large global atempo pass",
     "fallback": "Edge BrianMultilingualNeural",
-    "targetEffectiveWpm": "roughly 180-195 for normal high-density Shorts; prioritize natural articulation over maximum speed",
-    "postTempo": 1.04,
+    "targetEffectiveWpm": "188 WPM center target; preferred final band 175-200",
+    "postTempo": "dynamic and tightly capped to 0.985-1.025x after native-speed retargeting",
     "sentencePauseMs": 18,
     "roleAware": true,
     "roleProfiles": {
@@ -195,7 +198,11 @@
       "punchline": "largest micro-pause and slightly slower delivery",
       "callback": "brief setup pause",
       "transition": "fastest connective delivery"
-    }
+    },
+    "profile": "orbdev-dry",
+    "speechChunking": "visual beats are decoupled from TTS chunks; synthesize natural 8-16 word thought-groups and break hard for jokes/reactions/punchlines",
+    "nativeRetargeting": true,
+    "voiceAuditionWorkflow": ".github/workflows/narration-audition.yml"
   },
   "reactionSfx": [
     "scratch",

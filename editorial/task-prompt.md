@@ -172,3 +172,18 @@ Discovery qualification is not publication approval. Scheduled automation perfor
 A candidate needs a base editorial score of at least 6.0 before heat is applied. The final score may receive up to +2 heat from current momentum/cross-lane convergence, capped at 10, but the normal minimum publication score still applies.
 
 Do not add a story to covered history merely because it was queued. Covered history is updated from successful render receipts so failed jobs remain retryable.
+
+
+## Speech-chunk authoring
+
+Visual beats and spoken chunks are intentionally decoupled. Do not add punctuation merely to force every visual beat to sound separate.
+
+The narrator groups compatible visual beats into roughly 8-16 word thought-groups. Factual/setup/explanation beats that form one spoken sentence should flow together. Jokes, reactions, punchlines and callbacks are allowed to break into their own speech chunk for deadpan timing.
+
+The production profile targets about 188 effective WPM. The engine first adjusts Kokoro's native synthesis speed toward that target and only allows a very small final tempo correction. This is meant to preserve natural articulation rather than mechanically speeding a slower performance.
+
+Use punctuation as a real speaker would:
+- periods/questions for genuine sentence boundaries;
+- commas for clauses;
+- a colon or dash when a setup genuinely needs a payoff;
+- avoid ellipses unless an audible hesitation is actually intended.

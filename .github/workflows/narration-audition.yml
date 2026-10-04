@@ -1,0 +1,60 @@
+name: Narration audition
+
+on:
+  workflow_dispatch:
+    inputs:
+      story:
+        description: Story JSON path
+        required: false
+        default: stories/current.json
+      voices:
+        description: Comma-separated Kokoro voices
+        required: false
+        default: am_michael,am_fenrir,bm_george,bm_daniel
+      profile:
+        description: Narration profile
+        required: false
+        default: orbdev-dry
+
+permissions:
+  contents: read
+
+jobs:
+  audition:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg espeak-ng
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/test_narration_logic.py
+      - name: Render voice variants
+        env:
+          STORY: ${{ inputs.story }}
+          VOICES: ${{ inputs.voices }}
+          ORBDEV_NARRATION_PROFILE: ${{ inputs.profile }}
+        shell: bash
+        run: |
+          mkdir -p out/audition
+          IFS=',' read -ra voice_array <<< "$VOICES"
+          for voice in "${voice_array[@]}"; do
+            voice="$(echo "$voice" | xargs)"
+            [ -z "$voice" ] && continue
+            echo "Rendering $voice"
+            if ORBDEV_KOKORO_VOICE="$voice" python scripts/generate_narration.py "$STORY"; then
+              cp public/voice.mp3 "out/audition/${voice}.mp3"
+              cp build/narration-report.json "out/audition/${voice}.json"
+            else
+              echo "::warning::Voice $voice failed"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: orbdev-narration-audition-${{ github.run_id }}
+          path: out/audition/
+          if-no-files-found: error
+          retention-days: 14

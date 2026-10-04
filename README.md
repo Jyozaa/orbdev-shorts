@@ -115,3 +115,12 @@ After each 12-hour scan, .github/workflows/editorial-batch.yml can turn the high
 Configure repository secret OPENAI_API_KEY to activate this stage. Without it, the workflow performs a safe dry-run and queues nothing. Defaults are gpt-6-luna for triage and gpt-6.1-sol for final verification/writing; repository variables ORBDEV_TRIAGE_MODEL and ORBDEV_EDITORIAL_MODEL can override them.
 
 Accepted stories are dispatched to the renderer by exact queue filename. A story is added to history/covered.json only after its render (and YouTube upload, when auto-publishing is enabled) succeeds.
+
+
+## Narration profiles
+
+Production narration uses `editorial/narration-profiles.json`. The default `orbdev-dry` profile targets roughly 188 WPM with role-aware Kokoro synthesis.
+
+Visual beats are not treated as mandatory speech cuts. The narration planner groups compatible beats into natural thought-groups, then gives jokes/reactions/punchlines their own micro-timing when useful. If the first native pass misses the WPM target, the script is re-synthesized at a slightly adjusted Kokoro speed before any post-processing. Final `atempo` correction is tightly limited so the voice does not sound artificially sped up.
+
+Every render writes `build/narration-report.json` with speech chunks, native speed, raw/final WPM and applied tempo. The manual `Narration audition` workflow can render several Kokoro voices against the same story without changing production defaults.

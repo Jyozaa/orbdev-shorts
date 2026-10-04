@@ -1,0 +1,134 @@
+{
+  "version": 1,
+  "defaultProfile": "orbdev-dry",
+  "profiles": {
+    "orbdev-dry": {
+      "voice": "am_michael",
+      "langCode": "a",
+      "baseSpeed": 1.18,
+      "targetWpm": 188,
+      "nativeRetargetToleranceWpm": 6,
+      "nativeRetargetMinMultiplier": 0.94,
+      "nativeRetargetMaxMultiplier": 1.07,
+      "postTempoMin": 0.985,
+      "postTempoMax": 1.025,
+      "chunkTargetWords": 11,
+      "chunkMaxWords": 16,
+      "chunkMinWords": 5,
+      "sentencePauseMs": 18,
+      "silenceThreshold": 0.0035,
+      "edgeRate": "+10%",
+      "roles": {
+        "fact": {
+          "speed": 1.04,
+          "preMs": 0,
+          "postMs": 4
+        },
+        "setup": {
+          "speed": 1.05,
+          "preMs": 0,
+          "postMs": 4
+        },
+        "explanation": {
+          "speed": 1,
+          "preMs": 0,
+          "postMs": 7
+        },
+        "analogy": {
+          "speed": 0.985,
+          "preMs": 10,
+          "postMs": 10
+        },
+        "joke": {
+          "speed": 0.975,
+          "preMs": 24,
+          "postMs": 14
+        },
+        "reaction": {
+          "speed": 0.965,
+          "preMs": 30,
+          "postMs": 14
+        },
+        "punchline": {
+          "speed": 0.95,
+          "preMs": 48,
+          "postMs": 22
+        },
+        "callback": {
+          "speed": 0.975,
+          "preMs": 24,
+          "postMs": 16
+        },
+        "transition": {
+          "speed": 1.06,
+          "preMs": 0,
+          "postMs": 2
+        }
+      }
+    },
+    "orbdev-brisk": {
+      "voice": "am_michael",
+      "langCode": "a",
+      "baseSpeed": 1.21,
+      "targetWpm": 194,
+      "nativeRetargetToleranceWpm": 6,
+      "nativeRetargetMinMultiplier": 0.94,
+      "nativeRetargetMaxMultiplier": 1.07,
+      "postTempoMin": 0.99,
+      "postTempoMax": 1.025,
+      "chunkTargetWords": 11,
+      "chunkMaxWords": 16,
+      "chunkMinWords": 5,
+      "sentencePauseMs": 15,
+      "silenceThreshold": 0.0035,
+      "edgeRate": "+13%",
+      "roles": {
+        "fact": {
+          "speed": 1.05,
+          "preMs": 0,
+          "postMs": 3
+        },
+        "setup": {
+          "speed": 1.06,
+          "preMs": 0,
+          "postMs": 3
+        },
+        "explanation": {
+          "speed": 1.01,
+          "preMs": 0,
+          "postMs": 5
+        },
+        "analogy": {
+          "speed": 0.99,
+          "preMs": 8,
+          "postMs": 8
+        },
+        "joke": {
+          "speed": 0.98,
+          "preMs": 20,
+          "postMs": 12
+        },
+        "reaction": {
+          "speed": 0.97,
+          "preMs": 26,
+          "postMs": 12
+        },
+        "punchline": {
+          "speed": 0.955,
+          "preMs": 42,
+          "postMs": 18
+        },
+        "callback": {
+          "speed": 0.98,
+          "preMs": 20,
+          "postMs": 12
+        },
+        "transition": {
+          "speed": 1.07,
+          "preMs": 0,
+          "postMs": 2
+        }
+      }
+    }
+  }
+}
