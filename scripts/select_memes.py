@@ -16,6 +16,7 @@ SELECTION = BUILD / "meme-selection.json"
 MAX_COMPLETE_CUTAWAY_VIDEO_SECONDS = 3.4
 MAX_COMPLETE_AUDIO_OVERLAY_SECONDS = 2.2
 MAX_MEME_MOMENTS = 6
+VISIBLE_MEME_TARGET_MIN = 4
 
 REACTION_CUES = (
     (r"\b(headline )?sounds? wild\b|\bthis is wild\b|\bkind of insane\b|\bpretty insane\b|\bsounds? insane\b",
@@ -209,20 +210,99 @@ def desired_presentation(intent: dict[str, object], media_type: str) -> str:
     return "overlay"
 
 
+def materialize_selection(
+    index: int,
+    intent: dict[str, object],
+    catalog: list[dict[str, object]],
+    chosen_ids: set[str],
+    *,
+    force_visible: bool = False,
+    intent_source: str = "explicit",
+) -> dict[str, object] | None:
+    candidates = []
+    for item in catalog:
+        if not item.get("brandSafe", False) or item.get("rightsStatus") != "approved":
+            continue
+        if item.get("id") in chosen_ids:
+            continue
+        if force_visible and item.get("mediaType") not in {"image", "video"}:
+            continue
+        value = score(item, intent)
+        if force_visible and item.get("mediaType") in {"image", "video"}:
+            value += 14
+        candidates.append((value, item))
+
+    candidates.sort(key=lambda pair: pair[0], reverse=True)
+    threshold = 46 if force_visible else 50
+    if not candidates or candidates[0][0] < threshold:
+        return None
+
+    for value, selected in candidates[:16]:
+        path = str(selected["path"])
+        repo_name = os.getenv("GITHUB_REPOSITORY", "Jyozaa/orbdev-shorts")
+        encoded = urllib.parse.quote(path, safe="/")
+        raw_url = f"https://raw.githubusercontent.com/{repo_name}/main/{encoded}"
+        temp = BUILD / f"meme-{index}{Path(path).suffix.lower()}"
+        try:
+            request = urllib.request.Request(raw_url, headers={"User-Agent":"orbdev-renderer"})
+            with urllib.request.urlopen(request, timeout=60) as response:
+                temp.write_bytes(response.read())
+
+            media_type = str(selected["mediaType"])
+            presentation = "overlay" if force_visible else desired_presentation(intent, media_type)
+            if media_type == "video" and presentation == "cutaway" and not has_audio_stream(temp):
+                presentation = "overlay"
+
+            default_duration = 0.72 if media_type == "audio" else (1.20 if presentation == "cutaway" else 0.92)
+            requested_duration = float(intent.get("maxDurationSeconds") or default_duration)
+
+            src, normalized_duration, source_duration, complete, has_audio = normalize_asset(
+                temp,
+                media_type,
+                index,
+                requested_duration,
+                preserve_complete_video=presentation == "cutaway",
+            )
+            if presentation == "cutaway" and not (media_type == "video" and has_audio):
+                presentation = "overlay"
+
+            return {
+                "id": selected["id"],
+                "sourcePath": path,
+                "score": round(value, 2),
+                "mediaType": media_type,
+                "src": src,
+                "durationSeconds": round(normalized_duration, 3),
+                "sourceDurationSeconds": round(float(source_duration), 3) if source_duration else None,
+                "completeClip": bool(complete),
+                "hasAudio": bool(has_audio),
+                "volume": 0.62 if media_type == "audio" else (0.78 if presentation == "cutaway" else 0.42),
+                "presentation": presentation,
+                "intentSource": intent_source,
+            }
+        except Exception as exc:
+            print(f"Beat {index}: candidate failed: {path}: {exc}")
+        finally:
+            temp.unlink(missing_ok=True)
+
+    return None
+
+
 def main() -> None:
     if len(sys.argv) != 2:
         raise SystemExit("usage: select_memes.py <story.json>")
 
     story = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    beats = story.get("beats", [])
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))["items"]
     chosen_ids: set[str] = set()
     selections: dict[str, object] = {}
 
-    explicit_count = sum(1 for beat in story.get("beats", []) if beat.get("memeIntent"))
+    explicit_count = sum(1 for beat in beats if beat.get("memeIntent"))
     auto_slots = max(0, MAX_MEME_MOMENTS - explicit_count)
     last_auto_index = -99
 
-    for index, beat in enumerate(story.get("beats", [])):
+    for index, beat in enumerate(beats):
         explicit = beat.get("memeIntent")
         intent_source = "explicit"
         intent = explicit
@@ -236,99 +316,67 @@ def main() -> None:
         if not intent:
             continue
 
-        candidates = []
-        for item in catalog:
-            if not item.get("brandSafe", False) or item.get("rightsStatus") != "approved":
-                continue
-            if item.get("id") in chosen_ids:
-                continue
-            candidates.append((score(item, intent), item))
-
-        candidates.sort(key=lambda pair: pair[0], reverse=True)
-        if not candidates or candidates[0][0] < 50:
+        selected = materialize_selection(
+            index, intent, catalog, chosen_ids,
+            force_visible=False, intent_source=intent_source,
+        )
+        if selected is None:
             print(f"Beat {index}: no meme passed confidence threshold")
             continue
 
-        selected_result = None
-        for value, selected in candidates[:14]:
-            path = str(selected["path"])
-            repo_name = os.getenv("GITHUB_REPOSITORY", "Jyozaa/orbdev-shorts")
-            encoded = urllib.parse.quote(path, safe="/")
-            raw_url = f"https://raw.githubusercontent.com/{repo_name}/main/{encoded}"
-            temp = BUILD / f"meme-{index}{Path(path).suffix.lower()}"
-            try:
-                request = urllib.request.Request(raw_url, headers={"User-Agent":"orbdev-renderer"})
-                with urllib.request.urlopen(request, timeout=60) as response:
-                    temp.write_bytes(response.read())
-
-                media_type = str(selected["mediaType"])
-                presentation = desired_presentation(intent, media_type)
-
-                if media_type == "video" and presentation == "cutaway" and not has_audio_stream(temp):
-                    presentation = "overlay"
-
-                default_duration = 0.75 if media_type == "audio" else (1.25 if presentation == "cutaway" else 1.0)
-                requested_duration = float(intent.get("maxDurationSeconds") or default_duration)
-
-                src, normalized_duration, source_duration, complete, has_audio = normalize_asset(
-                    temp,
-                    media_type,
-                    index,
-                    requested_duration,
-                    preserve_complete_video=presentation == "cutaway",
-                )
-                selected_result = (
-                    value, selected, path, src, normalized_duration,
-                    presentation, source_duration, complete, has_audio
-                )
-                break
-            except Exception as exc:
-                print(f"Beat {index}: candidate failed: {path}: {exc}")
-            finally:
-                temp.unlink(missing_ok=True)
-
-        if selected_result is None:
-            continue
-
-        (
-            value, selected, path, src, normalized_duration,
-            presentation, source_duration, complete, has_audio
-        ) = selected_result
-
-        if presentation == "cutaway" and not (selected["mediaType"] == "video" and has_audio):
-            presentation = "overlay"
-
+        selections[str(index)] = selected
         chosen_ids.add(str(selected["id"]))
-        selections[str(index)] = {
-            "id": selected["id"],
-            "sourcePath": path,
-            "score": round(value, 2),
-            "mediaType": selected["mediaType"],
-            "src": src,
-            "durationSeconds": round(normalized_duration, 3),
-            "sourceDurationSeconds": round(float(source_duration), 3) if source_duration else None,
-            "completeClip": bool(complete),
-            "hasAudio": bool(has_audio),
-            "volume": 0.64 if selected["mediaType"] == "audio" else (0.78 if presentation == "cutaway" else 0.40),
-            "presentation": presentation,
-            "intentSource": intent_source,
-        }
-        chosen_ids.add(str(selected["id"]))
-
         if intent_source == "auto-cue":
             auto_slots -= 1
             last_auto_index = index
 
         print(
-            f"Beat {index}: selected {path} "
-            f"({value:.1f}, {presentation}, audio={bool(has_audio)}, intent={intent_source})"
+            f"Beat {index}: selected {selected['sourcePath']} "
+            f"({selected['score']:.1f}, {selected['presentation']}, "
+            f"audio={bool(selected['hasAudio'])}, intent={intent_source})"
         )
+
+    # Entertainment-heavy shorts should not accidentally become an audio-only meme edit.
+    # Backfill unused joke/analogy/reaction/callback beats with short visible reactions.
+    visible = sum(1 for item in selections.values() if item.get("mediaType") != "audio")
+    target_visible = min(VISIBLE_MEME_TARGET_MIN, MAX_MEME_MOMENTS)
+    if visible < target_visible and len(selections) < MAX_MEME_MOMENTS:
+        priority_roles = ("punchline", "joke", "reaction", "callback", "analogy")
+        for role in priority_roles:
+            for index, beat in enumerate(beats):
+                if visible >= target_visible or len(selections) >= MAX_MEME_MOMENTS:
+                    break
+                if str(index) in selections or str(beat.get("editorialRole", "")).lower() != role:
+                    continue
+                intent = automatic_intent(str(beat.get("text", "")), role)
+                if not intent:
+                    continue
+                intent["preferredMedia"] = "image"
+                intent["presentation"] = "overlay"
+                intent["maxDurationSeconds"] = min(float(intent.get("maxDurationSeconds") or 0.9), 1.05)
+                selected = materialize_selection(
+                    index, intent, catalog, chosen_ids,
+                    force_visible=True, intent_source="auto-density",
+                )
+                if selected is None:
+                    continue
+                selections[str(index)] = selected
+                chosen_ids.add(str(selected["id"]))
+                visible += 1
+                print(
+                    f"Beat {index}: visible-density backfill {selected['sourcePath']} "
+                    f"({selected['score']:.1f}, role={role})"
+                )
+            if visible >= target_visible or len(selections) >= MAX_MEME_MOMENTS:
+                break
 
     SELECTION.parent.mkdir(parents=True, exist_ok=True)
     SELECTION.write_text(json.dumps(selections, indent=2), encoding="utf-8")
     visible=sum(1 for item in selections.values() if item.get("mediaType")!="audio")
     audio=sum(1 for item in selections.values() if item.get("mediaType")=="audio")
     print(f"Meme mix: {visible} visible overlays/cutaways + {audio} audio reactions")
+    if len(beats) >= 14 and visible < 3:
+        print("WARNING: visible meme density is below the preferred minimum of 3")
 
 
 if __name__ == "__main__":

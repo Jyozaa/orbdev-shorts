@@ -31,8 +31,9 @@ const OverlayMeme: React.FC<{meme: SelectedMeme; side: 'left' | 'right'; variant
 
   const x = (1 - enter) * (side === 'right' ? 170 : -170);
   const rotation = (side === 'right' ? -1 : 1) * (2.5 + (variant % 3) * 1.2);
-  const sizes = [540, 620, 500];
-  const tops = [280, 500, 365];
+  // Keep reactions visually loud without covering subtitles or swallowing the main subject.
+  const sizes = [470, 560, 430, 520];
+  const tops = [250, 430, 320, 560];
   const size = sizes[variant % sizes.length];
   const top = tops[variant % tops.length];
 
@@ -42,14 +43,14 @@ const OverlayMeme: React.FC<{meme: SelectedMeme; side: 'left' | 'right'; variant
         style={{
           position: 'absolute',
           top,
-          [side]: 18,
+          [side]: 24,
           width: size,
           height: size,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           transform: `translateX(${x}px) rotate(${rotation}deg) scale(${0.80 + enter * 0.20})`,
-          filter: 'drop-shadow(0 18px 24px rgba(0,0,0,0.72))'
+          filter: 'drop-shadow(0 18px 24px rgba(0,0,0,0.78))'
         }}
       >
         {meme.mediaType === 'image' ? (

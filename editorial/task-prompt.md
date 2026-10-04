@@ -77,3 +77,16 @@ Do not automatically meme structural phrases like "here's the catch" unless the 
 Kokoro-82M is primary. Write punctuation for natural breathing and emphasis. The target is energetic but human; do not compensate for weak writing by unnaturally speeding up the voice or pitch shifting it.
 
 After queueing a story, report only headline, score and primary source. If nothing qualifies, make no repository changes.
+
+
+## Authored-chaos checklist
+
+Before committing a story, audit the first 5 seconds and every humor beat:
+
+- Do not rely on a fixed cut-every-two-seconds rhythm. Keep the base visual readable, then create energy with quick meme/reaction overlays, highlights, zooms and sound punctuation.
+- Prefer a real screenshot/demo/photo as the visual substrate; logos should usually be a small layer, not the whole frame.
+- For each `joke`, `analogy`, `reaction`, `punchline` or `callback`, ask what the visual punchline is. If a meme is appropriate, give it an explicit `memeIntent`.
+- In a normal 35-40 second entertainment-heavy story, plan at least three clearly visible meme/image/video reactions when the catalog can support them.
+- Make callbacks intentional: reuse a phrase, premise, visual concept or reaction category near the ending instead of treating every beat as unrelated.
+- Do not crop screenshots or source art for vertical framing. The foreground is always contained inside the subtitle-safe region; visual energy comes from blurred background fill, motion, layered labels and overlays.
+- Keep technical trust intact: jokes can be aggressive, but facts, quotes, benchmark attribution and limitations must remain accurate.

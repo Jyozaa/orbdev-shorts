@@ -23,7 +23,7 @@ export type SelectedMeme = {
   sourceDurationSeconds?: number;
   completeClip?: boolean;
   hasAudio?: boolean;
-  intentSource?: 'explicit' | 'auto-cue';
+  intentSource?: 'explicit' | 'auto-cue' | 'auto-density';
 };
 
 export type Cutaway = {

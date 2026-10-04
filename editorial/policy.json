@@ -1,5 +1,5 @@
 {
-  "version": 20,
+  "version": 21,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -65,7 +65,10 @@
     "Standalone logo windows are rare, never consecutive, and capped at two in a normal 25-40 second Short.",
     "Source imagery must preserve meaningful edge content; landscape media should be contained over an aspect-aware blurred/darkened background instead of destructively cropped to 9:16.",
     "Entertainment-heavy Shorts should normally include 4-6 meme/reaction moments, with visible image/video reactions preferred over an audio-only meme mix.",
-    "The first five seconds need a concrete hook, relevant real media, motion, and a strong editorial turn."
+    "The first five seconds need a concrete hook, relevant real media, motion, and a strong editorial turn.",
+    "Never crop the foreground copy of a source image; only the blurred atmospheric background may use cover.",
+    "When a long entertainment-heavy Short has too few visible reactions, backfill unused joke, punchline, reaction, callback or analogy beats with approved image/video meme overlays.",
+    "Duck narration under audible meme overlays so reaction audio reads as punctuation instead of competing with the voice."
   ],
   "visualRules": {
     "background": "#000000",
@@ -129,7 +132,19 @@
     "sourceForegroundFit": "contain",
     "sourceBackgroundFill": "blurred/darkened duplicate",
     "sourceEdgeSafe": true,
-    "layeredCompositionsPreferred": true
+    "layeredCompositionsPreferred": true,
+    "sourceSafeInsets": {
+      "top": 116,
+      "bottom": 330,
+      "left": 34,
+      "right": 34
+    },
+    "sourceForegroundAlwaysContained": true,
+    "sourceBackgroundMayCrop": true,
+    "visibleMemeBackfill": true,
+    "visibleMemeMinimumForLongEntertainmentShort": 3,
+    "pureLogoPreferredRole": "brand reveal only",
+    "editingRhythm": "meaning-driven base holds with sub-second meme/reaction accents; do not globally speed every scene"
   },
   "narration": {
     "preferredVoice": "en-US-BrianMultilingualNeural",
@@ -228,8 +243,16 @@
     ],
     "completeAudioOverlayMaxSeconds": 2.2,
     "preserveShortAudioToNaturalEnd": true,
-    "visibleTargetMin": 3,
+    "visibleTargetMin": 4,
     "visibleTargetMax": 5,
-    "preferVisibleWhenMediaAny": true
+    "preferVisibleWhenMediaAny": true,
+    "visibleBackfillRoles": [
+      "punchline",
+      "joke",
+      "reaction",
+      "callback",
+      "analogy"
+    ],
+    "audioDuckingUnderReaction": true
   }
 }

@@ -17,6 +17,15 @@ export const OrbdevShort: React.FC<StoryProps> = ({beats, visualBeats, captions,
   const frame = useCurrentFrame();
   const {fps, durationInFrames} = useVideoConfig();
   const progress = Math.min(1, frame / Math.max(1, durationInFrames - 1));
+  const nowSeconds = frame / fps;
+  const overlayReactionActive = beats.some((beat) => {
+    const meme = beat.meme;
+    if (!meme || beat.start === undefined || meme.presentation !== 'overlay' || !meme.hasAudio) return false;
+    const start = beat.start + meme.offsetSeconds;
+    return nowSeconds >= start && nowSeconds < start + meme.durationSeconds;
+  });
+  const cutawayActive = cutaways.some((cutaway) => nowSeconds >= cutaway.start && nowSeconds < cutaway.end);
+  const voiceVolume = cutawayActive ? 0.02 : overlayReactionActive ? 0.52 : 1;
 
   return (
     <AbsoluteFill style={{backgroundColor: '#000000', color: '#ffffff', overflow: 'hidden'}}>
@@ -34,7 +43,7 @@ export const OrbdevShort: React.FC<StoryProps> = ({beats, visualBeats, captions,
       <MemeTrack beats={beats} cutaways={cutaways} />
       <CaptionStrip captions={captions} cutaways={cutaways} />
       <SfxTrack beats={beats} />
-      <Audio src={staticFile('voice.mp3')} volume={1} />
+      <Audio src={staticFile('voice.mp3')} volume={voiceVolume} />
 
       <div
         style={{

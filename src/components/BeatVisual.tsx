@@ -228,18 +228,79 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
     if (!beat.visual.src) {
       return <AbsoluteFill style={shell}><div style={{fontSize:118,fontWeight:950,letterSpacing:-7,textTransform:'uppercase',textAlign:'center',maxWidth:900,transform:`scale(${0.88 + enter * 0.12})`}}>{beat.visual.publisher ?? 'SOURCE'}</div></AbsoluteFill>;
     }
-    const layout=beat.visual.layout ?? 'unknown';const landscape=layout==='landscape';const portrait=layout==='portrait';
-    const frameWidth=landscape?1000:portrait?900:960;const frameHeight=landscape?1050:portrait?1380:1160;
-    const driftX=(progress-.5)*(landscape?-18:10);const driftY=(progress-.5)*(portrait?-16:10);
+
+    const layout = beat.visual.layout ?? 'unknown';
+    const landscape = layout === 'landscape';
+    const portrait = layout === 'portrait';
+    // Keep meaningful source content away from the subtitle zone and screen edges.
+    // Background may crop for atmosphere; the foreground source never does.
+    const safeTop = 116;
+    const safeBottom = 330;
+    const maxForegroundWidth = landscape ? 1000 : portrait ? 900 : 950;
+    const maxForegroundHeight = landscape ? 850 : portrait ? 1260 : 1050;
+    const driftX = (progress - 0.5) * (landscape ? 12 : 8);
+    const driftY = (progress - 0.5) * (portrait ? -10 : 6);
+
     return (
       <AbsoluteFill style={shell}>
-        <Img src={staticFile(beat.visual.src)} style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover',filter:'blur(38px) brightness(0.28) saturate(0.82)',transform:`scale(${1.13 + progress * 0.035}) translateX(${driftX * 0.25}px)`,opacity:.92}} />
-        <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg, rgba(0,0,0,.26) 0%, rgba(0,0,0,.04) 42%, rgba(0,0,0,.42) 100%)'}} />
-        <div style={{position:'relative',width:frameWidth,height:frameHeight,display:'flex',alignItems:'center',justifyContent:'center',transform:`translate(${driftX}px,${driftY}px) scale(${0.965 + enter * 0.035 + progress * 0.018})`,opacity:enter}}>
-          <Img src={staticFile(beat.visual.src)} style={{width:'100%',height:'100%',objectFit:'contain',objectPosition:'center',filter:'drop-shadow(0 24px 44px rgba(0,0,0,.72))'}} />
-          {(beat.visual.annotations ?? []).map((annotation,index)=>{const reveal=spring({frame,fps,delay:7+index*5,config:{damping:18,stiffness:180}});return <React.Fragment key={`annotation-${index}`}><div style={{position:'absolute',left:`${annotation.x}%`,top:`${annotation.y}%`,width:18,height:18,borderRadius:'50%',background:'#fff',transform:`translate(-50%,-50%) scale(${reveal})`,boxShadow:'0 0 0 8px rgba(255,255,255,.15)'}}/><div style={{position:'absolute',left:`calc(${annotation.x}% + 18px)`,top:`calc(${annotation.y}% - 42px)`,padding:'10px 14px',background:'rgba(0,0,0,.76)',fontSize:28,fontWeight:900,opacity:reveal,transform:`translateY(${(1-reveal)*12}px)`}}>{annotation.label}</div></React.Fragment>;})}
+        <Img
+          src={staticFile(beat.visual.src)}
+          style={{
+            position:'absolute',
+            inset:0,
+            width:'100%',
+            height:'100%',
+            objectFit:'cover',
+            filter:'blur(42px) brightness(0.24) saturate(0.86)',
+            transform:`scale(${1.16 + progress * 0.025})`,
+            opacity:.92
+          }}
+        />
+        <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg, rgba(0,0,0,.34) 0%, rgba(0,0,0,.05) 38%, rgba(0,0,0,.50) 100%)'}} />
+        <div
+          style={{
+            position:'absolute',
+            top:safeTop,
+            bottom:safeBottom,
+            left:34,
+            right:34,
+            display:'flex',
+            alignItems:'center',
+            justifyContent:'center',
+            overflow:'visible'
+          }}
+        >
+          <div
+            style={{
+              position:'relative',
+              width:'100%',
+              height:'100%',
+              display:'flex',
+              alignItems:'center',
+              justifyContent:'center',
+              transform:`translate(${driftX}px,${driftY}px) scale(${0.965 + enter * 0.035 + progress * 0.012})`,
+              opacity:enter
+            }}
+          >
+            <Img
+              src={staticFile(beat.visual.src)}
+              style={{
+                width:'auto',
+                height:'auto',
+                maxWidth:maxForegroundWidth,
+                maxHeight:maxForegroundHeight,
+                objectFit:'contain',
+                objectPosition:'center',
+                filter:'drop-shadow(0 24px 46px rgba(0,0,0,.76))'
+              }}
+            />
+            {(beat.visual.annotations ?? []).map((annotation,index)=>{
+              const reveal=spring({frame,fps,delay:7+index*5,config:{damping:18,stiffness:180}});
+              return <React.Fragment key={`annotation-${index}`}><div style={{position:'absolute',left:`${annotation.x}%`,top:`${annotation.y}%`,width:18,height:18,borderRadius:'50%',background:'#fff',transform:`translate(-50%,-50%) scale(${reveal})`,boxShadow:'0 0 0 8px rgba(255,255,255,.15)'}}/><div style={{position:'absolute',left:`calc(${annotation.x}% + 18px)`,top:`calc(${annotation.y}% - 42px)`,padding:'10px 14px',background:'rgba(0,0,0,.76)',fontSize:28,fontWeight:900,opacity:reveal,transform:`translateY(${(1-reveal)*12}px)`}}>{annotation.label}</div></React.Fragment>;
+            })}
+          </div>
         </div>
-        <div style={{position:'absolute',top:106,left:50,padding:'10px 16px',borderRadius:999,background:'rgba(0,0,0,.54)',backdropFilter:'blur(10px)',fontSize:22,fontWeight:900,letterSpacing:1.2,textTransform:'uppercase',opacity:.86}}>{beat.visual.publisher ?? 'SOURCE'}</div>
+        <div style={{position:'absolute',top:76,left:46,padding:'9px 15px',borderRadius:999,background:'rgba(0,0,0,.48)',backdropFilter:'blur(10px)',fontSize:21,fontWeight:900,letterSpacing:1.1,textTransform:'uppercase',opacity:.82}}>{beat.visual.publisher ?? 'SOURCE'}</div>
       </AbsoluteFill>
     );
   }
