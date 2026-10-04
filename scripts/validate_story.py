@@ -8,9 +8,10 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 ALLOWED_VISUALS = {
-    "source", "metric", "diagram", "comparison", "symbol", "text",
+    "source", "metric", "diagram", "comparison", "symbol", "text", "kinetic",
     "logo", "flow", "chart", "timeline", "network", "explain"
 }
+ABSTRACT_TYPES = {"explain", "chart", "timeline", "comparison", "flow", "diagram", "network"}
 ALLOWED_SFX = {"scratch", "impact", "whoosh", "tick", "none"}
 ALLOWED_PURPOSES = {"reaction", "punchline", "contrast", "confusion", "failure", "success", "waiting", "absurdity", "emphasis"}
 ALLOWED_TONES = {"positive", "negative", "surprised", "confused", "awkward", "deadpan", "chaotic", "neutral"}
@@ -91,18 +92,14 @@ def validate_flow(nodes: object, beat_index: int) -> None:
 
 
 def family(kind: str) -> str:
-    if kind == "explain":
-        return "explain"
+    if kind in ABSTRACT_TYPES:
+        return "abstract-tech"
     if kind in {"source", "logo"}:
         return "brand-source"
-    if kind in {"flow", "diagram", "network"}:
-        return "diagram"
-    if kind in {"chart", "metric"}:
+    if kind == "metric":
         return "data"
-    if kind in {"timeline"}:
-        return "timeline"
-    if kind in {"comparison"}:
-        return "comparison"
+    if kind == "kinetic":
+        return "kinetic"
     return "minimal"
 
 
@@ -203,6 +200,15 @@ def main() -> None:
             if len(value.split()) > 3:
                 fail(f"beat {index} text visual must be at most 3 words")
             text_visual_count += 1
+        elif kind == "kinetic":
+            value = visual.get("text")
+            if not isinstance(value, str) or not value.strip():
+                fail(f"beat {index} kinetic visual needs text")
+            if len(value.split()) > 6:
+                fail(f"beat {index} kinetic visual must be at most 6 words")
+            if visual.get("emphasis") is not None and not isinstance(visual.get("emphasis"), str):
+                fail(f"beat {index} kinetic emphasis must be text")
+            rich_visual_count += 1
         elif kind == "logo":
             slug = visual.get("slug")
             if not isinstance(slug, str) or not slug.strip():
@@ -299,14 +305,22 @@ def main() -> None:
             fail(f"visual treatment repeats three times starting at beat {index}")
 
     generic_flow_count = sum(1 for kind in visual_types if kind in {"flow", "diagram"})
-    if generic_flow_count > math.ceil(len(beats) * 0.35):
-        fail("too many generic flow/diagram beats; use charts, timelines, networks, logos, source visuals or comparisons")
+    if generic_flow_count > math.ceil(len(beats) * 0.25):
+        fail("too many generic flow/diagram beats; use source imagery, branding, metrics, kinetic visuals or a different treatment")
+
+    abstract_count = sum(1 for kind in visual_types if kind in ABSTRACT_TYPES)
+    if abstract_count > max(3, math.floor(len(beats) * 0.35)):
+        fail("too many abstract-tech beats; keep explain/chart/timeline/comparison/flow/diagram/network to roughly one third")
+
+    for index in range(len(visual_types) - 1):
+        if visual_types[index] in ABSTRACT_TYPES and visual_types[index + 1] in ABSTRACT_TYPES:
+            fail(f"abstract-tech beats must be separated by a visual reset (beats {index}/{index + 1})")
 
     if len(beats) >= 14 and visual_types.count("explain") < 2:
         fail("long technical Shorts need at least two explanatory animation beats")
 
-    if visual_types.count("explain") > math.ceil(len(beats) * 0.30):
-        fail("too many explanatory animation beats; mix in source, brand, data, timeline, comparison and reaction treatments")
+    if visual_types.count("explain") > max(2, math.floor(len(beats) * 0.20)):
+        fail("too many explanatory animation beats; use source imagery, branding, metrics, kinetic visuals and reactions")
 
     if path.name == "current.json":
         validate_editorial(data)

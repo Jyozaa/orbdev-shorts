@@ -15,13 +15,9 @@
     {
       "text": "the regular PS5",
       "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "query": "PlayStation 5 console PS5 hardware",
-        "fit": "contain",
-        "mustMatch": [
-          "ps5"
-        ]
+        "type": "logo",
+        "slug": "playstation",
+        "label": "REGULAR PS5"
       }
     },
     {
@@ -38,39 +34,28 @@
     {
       "text": "Until now, PlayStation's PSSR upscaler",
       "visual": {
-        "type": "text",
-        "text": "PSSR"
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "AI upscaling PS5 video",
+        "fit": "cover",
+        "mustMatch": [
+          "ytimg"
+        ]
       }
     },
     {
       "text": "was locked to PS5 Pro",
       "visual": {
-        "type": "timeline",
-        "points": [
-          {
-            "label": "PS5",
-            "position": 0
-          },
-          {
-            "label": "PS5 PRO",
-            "position": 70
-          },
-          {
-            "label": "NOW",
-            "position": 100
-          }
-        ]
+        "type": "logo",
+        "slug": "playstation",
+        "label": "PS5 PRO ONLY"
       }
     },
     {
       "text": "because it was too heavy",
       "visual": {
-        "type": "explain",
-        "mode": "capacity",
-        "load": 98,
-        "labels": [
-          "GPU LOAD"
-        ]
+        "type": "symbol",
+        "symbol": "⚠"
       },
       "memeIntent": {
         "purpose": "reaction",
@@ -97,9 +82,8 @@
     {
       "text": "Sony's workaround is QSSR —",
       "visual": {
-        "type": "comparison",
-        "left": "PSSR",
-        "right": "QSSR"
+        "type": "text",
+        "text": "PSSR → QSSR"
       },
       "sfx": "impact"
     },
@@ -136,23 +120,20 @@
     {
       "text": "It should sharpen detail",
       "visual": {
-        "type": "explain",
-        "mode": "pixel-upscale",
-        "labels": [
-          "SOFT",
-          "SHARPER"
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "QSSR sharper detail PS5 AI upscaling video",
+        "fit": "cover",
+        "mustMatch": [
+          "ytimg"
         ]
       }
     },
     {
       "text": "and reduce image shimmer,",
       "visual": {
-        "type": "explain",
-        "mode": "stability",
-        "labels": [
-          "SHIMMER",
-          "STABLE"
-        ]
+        "type": "text",
+        "text": "LESS SHIMMER"
       }
     },
     {
@@ -160,43 +141,27 @@
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "Marvel Wolverine gameplay image",
+        "query": "Marvel Wolverine Ghost of Yotei QSSR first titles",
         "fit": "cover",
         "mustMatch": [
-          "wolverine"
+          "wolverine",
+          "yotei"
         ]
       }
     },
     {
       "text": "and Ghost of Yōtei",
       "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "query": "Ghost of Yotei game image",
-        "fit": "cover",
-        "mustMatch": [
-          "yotei"
-        ]
+        "type": "text",
+        "text": "GHOST OF YŌTEI"
       }
     },
     {
       "text": "among the first games getting it.",
       "visual": {
-        "type": "timeline",
-        "points": [
-          {
-            "label": "WOLVERINE",
-            "position": 25
-          },
-          {
-            "label": "YŌTEI",
-            "position": 60
-          },
-          {
-            "label": "MORE",
-            "position": 100
-          }
-        ]
+        "type": "logo",
+        "slug": "playstation",
+        "label": "FIRST GAMES"
       }
     },
     {
@@ -210,39 +175,16 @@
     {
       "text": "PSSR on PS5 Pro still looks better.",
       "visual": {
-        "type": "chart",
-        "bars": [
-          {
-            "label": "QSSR",
-            "value": "GOOD",
-            "amount": 74
-          },
-          {
-            "label": "PSSR",
-            "value": "BEST",
-            "amount": 100
-          }
-        ]
+        "type": "logo",
+        "slug": "playstation",
+        "label": "PRO STILL WINS"
       }
     },
     {
       "text": "So your five-year-old console",
       "visual": {
-        "type": "timeline",
-        "points": [
-          {
-            "label": "2020",
-            "position": 0
-          },
-          {
-            "label": "PS5",
-            "position": 35
-          },
-          {
-            "label": "2026",
-            "position": 100
-          }
-        ]
+        "type": "metric",
+        "value": "5 YEARS"
       }
     },
     {

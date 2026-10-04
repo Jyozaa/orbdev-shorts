@@ -1,5 +1,5 @@
 {
-  "version": 18,
+  "version": 19,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -57,9 +57,9 @@
     "Do not reuse the same source image for unrelated beats unless reuse is explicitly justified.",
     "Explanatory animations must not occupy consecutive visual windows when a valid source, logo, comparison, chart, timeline, metric, or other treatment is available.",
     "Keep explanatory-animation windows to roughly one third of the finished Short; variety is more important than maximizing diagram usage.",
-    "Narration should use the multilingual neural voice path first and avoid artificial pitch shifting or heavy compression.",
-    "Treat explain, charts, timelines, comparisons, flows, diagrams and networks as one abstract-tech family; together they should occupy no more than about half of final visual windows.",
-    "Never show more than two abstract-tech visual windows consecutively; use source imagery, branding, memes, metrics or kinetic typography as a visual reset.",
+    "Use Kokoro-82M as the primary narration path; Edge neural voices are fallback only, with no artificial pitch shifting or heavy compression.",
+    "Treat explain, charts, timelines, comparisons, flows, diagrams and networks as one abstract-tech family; together they should occupy no more than roughly one third of final visual windows.",
+    "Never show two abstract-tech visual windows consecutively; use source imagery, branding, memes, metrics, text/symbol moments or kinetic typography as a visual reset.",
     "Use Kokoro-82M as the primary narration engine; Edge neural voices are fallback only."
   ],
   "visualRules": {
@@ -104,16 +104,19 @@
     "minimumExplainBeatsForLongTechnicalShort": 2,
     "visualWindowSelection": "semantic relevance + editorial variety; explain is never allowed to dominate consecutive windows",
     "sourceCandidateMetadata": "asset-local alt/title/context only; page title/description only for hero metadata",
-    "preserveAdjacentExplanationBeats": true,
+    "preserveAdjacentExplanationBeats": false,
     "sourceNamedEntityMustMatch": true,
     "sourceReuseDefault": false,
-    "maxExplainWindowFraction": 0.35,
-    "noBackToBackExplainWhenAlternative": true,
+    "maxExplainWindowFraction": 0.25,
+    "noBackToBackExplainWhenAlternative": false,
     "maxSameExplainModeInARow": 1,
-    "explainWindowBudget": "roughly 2-4 per 25-40s Short, depending on duration",
-    "maxAbstractTechWindowFraction": 0.5,
-    "maxConsecutiveAbstractTechWindows": 2,
-    "kineticResetWhenAbstractBudgetExceeded": true
+    "explainWindowBudget": "roughly 2-3 per 25-40s Short, depending on duration",
+    "maxAbstractTechWindowFraction": 0.34,
+    "maxConsecutiveAbstractTechWindows": 1,
+    "kineticResetWhenAbstractBudgetExceeded": true,
+    "noBackToBackAbstractTech": true,
+    "hardAbstractTechWindowBudget": true,
+    "allowRepeatedExplainModeInFinalWindows": false
   },
   "narration": {
     "preferredVoice": "en-US-BrianMultilingualNeural",

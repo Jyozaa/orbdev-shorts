@@ -110,30 +110,82 @@ def kinetic_from_beat(beat):
     words=re.findall(r"[A-Za-z0-9'’.-]+",str(beat.get("text","")))
     return {"type":"kinetic","text":" ".join(words[:6]).strip() or "TECH UPDATE","emphasis":words[-1] if words else "UPDATE"}
 
-def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,abstract_streak):
-    viable=[i for i in candidates if base_visual_weight(beats[i])>=0] or list(candidates)
+def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes):
+    viable=[i for i in candidates if base_visual_weight(beats[i])>=0]
+    if not viable:
+        # Never render a rejected/missing source asset just because it is the only
+        # candidate in a timing window. Fall back to kinetic typography instead.
+        chosen=max(candidates,key=lambda i:(float(beats[i]["end"])-float(beats[i]["start"]),-i))
+        return chosen,True
+
     non_abstract=[i for i in viable if str(beats[i].get("visual",{}).get("type","")) not in ABSTRACT_TYPES]
     non_explain=[i for i in viable if str(beats[i].get("visual",{}).get("type",""))!="explain"]
 
-    if (abstract_streak>=2 or abstract_count>=max_abstract) and non_abstract:
+    # Hard rule: abstract-tech scenes never run back-to-back. If the semantic
+    # window has a valid source/logo/metric/text/etc. use it; otherwise the
+    # renderer synthesizes a kinetic reset.
+    hard_no_abstract=prev_family=="abstract-tech" or abstract_count>=max_abstract
+    if hard_no_abstract and non_abstract:
         viable=non_abstract
-    elif prev_family=="abstract-tech" and non_abstract:
-        best_non=max(non_abstract,key=lambda i:base_visual_weight(beats[i]));best_all=max(viable,key=lambda i:base_visual_weight(beats[i]))
-        if base_visual_weight(beats[best_non])>=base_visual_weight(beats[best_all])-1.25:viable=non_abstract
 
-    if explain_count>=max_explain and non_explain:viable=non_explain
-    if prev_explain_mode:
-        different=[i for i in viable if not(str(beats[i].get("visual",{}).get("type",""))=="explain" and str(beats[i].get("visual",{}).get("mode",""))==prev_explain_mode)]
-        if different:viable=different
+    # Explanations are capped independently from the broader abstract family.
+    if explain_count>=max_explain:
+        allowed=[i for i in viable if str(beats[i].get("visual",{}).get("type",""))!="explain"]
+        if allowed:viable=allowed
 
-    chosen=max(viable,key=lambda i:(candidate_score(beats[i],prev_family,prev_explain_mode),float(beats[i]["end"])-float(beats[i]["start"]),-i))
-    chosen_kind=str(beats[chosen].get("visual",{}).get("type",""))
-    force_kinetic=chosen_kind in ABSTRACT_TYPES and (abstract_count>=max_abstract or abstract_streak>=2) and not non_abstract
+    # Repeating the exact same explain grammar in one Short reads as a template.
+    # Prefer any other valid treatment; if none exists, kinetic is the reset.
+    if used_explain_modes:
+        fresh=[
+            i for i in viable
+            if not (
+                str(beats[i].get("visual",{}).get("type",""))=="explain"
+                and str(beats[i].get("visual",{}).get("mode","")) in used_explain_modes
+            )
+        ]
+        if fresh:viable=fresh
+
+    chosen=max(
+        viable,
+        key=lambda i:(
+            candidate_score(beats[i],prev_family,prev_explain_mode),
+            float(beats[i]["end"])-float(beats[i]["start"]),
+            -i,
+        ),
+    )
+    chosen_visual=beats[chosen].get("visual",{})
+    chosen_kind=str(chosen_visual.get("type",""))
+    chosen_mode=str(chosen_visual.get("mode","")) if chosen_kind=="explain" else ""
+
+    force_kinetic=(
+        (chosen_kind in ABSTRACT_TYPES and hard_no_abstract)
+        or (chosen_kind=="explain" and explain_count>=max_explain)
+        or (chosen_kind=="explain" and chosen_mode in used_explain_modes)
+    )
     return chosen,force_kinetic
 
+def assert_visual_window_diversity(windows,max_explain,max_abstract):
+    kinds=[str(w.get("visual",{}).get("type","")) for w in windows]
+    abstract=sum(1 for kind in kinds if kind in ABSTRACT_TYPES)
+    explains=[w for w in windows if str(w.get("visual",{}).get("type",""))=="explain"]
+    modes=[str(w.get("visual",{}).get("mode","")) for w in explains]
+
+    if abstract>max_abstract:
+        raise RuntimeError(f"abstract-tech hard cap exceeded: {abstract}>{max_abstract}")
+    if len(explains)>max_explain:
+        raise RuntimeError(f"explain hard cap exceeded: {len(explains)}>{max_explain}")
+    if len(modes)!=len(set(modes)):
+        raise RuntimeError(f"repeated explain mode survived selection: {modes}")
+    for i in range(len(kinds)-1):
+        if kinds[i] in ABSTRACT_TYPES and kinds[i+1] in ABSTRACT_TYPES:
+            raise RuntimeError(f"back-to-back abstract-tech windows survived selection at {i}/{i+1}")
+
 def build_visual_windows(beats,cutaway_by_beat,final_duration):
-    windows=[];index=0;prev_family=None;prev_explain_mode=None;explain_count=0;abstract_count=0;abstract_streak=0
-    max_explain=max(2,min(3,math.floor(final_duration/11.0)));expected=max(8,round(final_duration/TARGET_VISUAL_SECONDS));max_abstract=max(4,math.floor(expected*.50))
+    windows=[];index=0;prev_family=None;prev_explain_mode=None;explain_count=0;abstract_count=0;used_explain_modes:set[str]=set()
+    # Hard budgets target roughly one-third abstract-tech coverage while keeping
+    # enough room for source imagery, branding, memes, metrics and kinetic resets.
+    max_explain=max(2,min(3,math.floor(final_duration/12.0)))
+    max_abstract=max(3,min(4,math.floor(final_duration/10.0)))
     while index<len(beats):
         start_index=index;end_index=index;start=float(beats[index]["start"]);end=float(beats[index]["end"])
         while end_index+1<len(beats):
@@ -145,16 +197,26 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
             end_index+=1;end=next_end
             if end_index in cutaway_by_beat or end-start>=TARGET_VISUAL_SECONDS:break
         candidates=list(range(start_index,end_index+1))
-        chosen,force_kinetic=choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,abstract_streak)
+        chosen,force_kinetic=choose_window_candidate(
+            beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,
+            abstract_count,max_abstract,used_explain_modes
+        )
         vb=copy.deepcopy(beats[chosen]);vb["start"]=round(start,4);vb["end"]=round(end,4);vb.pop("meme",None);vb.pop("memeIntent",None);vb.pop("sfx",None)
         if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen])
-        windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind)
-        if kind in ABSTRACT_TYPES:abstract_count+=1;abstract_streak+=1
-        else:abstract_streak=0
-        if kind=="explain":explain_count+=1;prev_explain_mode=str(vb.get("visual",{}).get("mode",""))
-        else:prev_explain_mode=None
+        windows.append(vb)
+
+        kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind)
+        if kind in ABSTRACT_TYPES:abstract_count+=1
+        if kind=="explain":
+            explain_count+=1
+            prev_explain_mode=str(vb.get("visual",{}).get("mode",""))
+            used_explain_modes.add(prev_explain_mode)
+        else:
+            prev_explain_mode=None
         index=end_index+1
+
     if windows and float(windows[-1]["end"])<final_duration:windows[-1]["end"]=round(final_duration,4)
+    assert_visual_window_diversity(windows,max_explain,max_abstract)
     return windows
 
 def main():
