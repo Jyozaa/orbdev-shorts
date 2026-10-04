@@ -43,6 +43,21 @@
       ],
       "renderedAt": "2026-10-04T18:54:42.651752+00:00",
       "youtubeUrl": null
+    },
+    {
+      "storyKey": "nvidia-openshell-agent-runtime-2026",
+      "slug": "nvidia-openshell-agent-safety",
+      "headline": "NVIDIA built a sandbox for AI agents",
+      "selectedAt": "2026-10-04T23:08:00+01:00",
+      "score": 9.2,
+      "sourceUrls": [
+        "https://www.nvidia.com/en-us/ai/openshell/",
+        "https://github.com/NVIDIA/OpenShell",
+        "https://developer.nvidia.com/blog/?p=122891",
+        "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Open-Agent-Safety-Platform-to-Secure-Agents-From-Testing-to-Deployment/default.aspx"
+      ],
+      "renderedAt": "2026-10-04T22:17:27.958377+00:00",
+      "youtubeUrl": null
     }
   ]
 }
