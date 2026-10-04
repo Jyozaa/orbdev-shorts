@@ -216,16 +216,24 @@
       }
     },
     {
-      "text": "You still want at least 12GB of VRAM, 32GB RAM, and roughly 80GB free storage.",
+      "text": "You still want at least 12GB of VRAM, 32GB RAM,",
       "editorialRole": "fact",
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "Strata system requirements 12GB VRAM 32GB RAM 80GB",
+        "query": "Strata system requirements 12GB VRAM 32GB RAM",
         "mustMatch": [
           "strata"
         ],
         "allowReuse": true
+      }
+    },
+    {
+      "text": "and roughly 80GB free storage.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "≈80GB DISK"
       }
     },
     {
