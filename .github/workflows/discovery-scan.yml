@@ -4,6 +4,15 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '17 */12 * * *'
+  push:
+    branches:
+      - main
+    paths:
+      - 'scripts/discover_news.py'
+      - 'editorial/discovery.json'
+      - 'editorial/policy.json'
+      - 'requirements.txt'
+      - '.github/workflows/discovery-scan.yml'
 
 permissions:
   contents: write
