@@ -115,10 +115,22 @@ def known_context(i:dict[str,Any])->tuple[list[str],str]:
 def source_backed(url:str,known:list[str],cited:set[str],domains:list[str])->bool:
     u=norm_url(url)
     if not u:return False
-    if u in {norm_url(x) for x in known}:return True
+    known_norm={norm_url(x) for x in known if norm_url(x)}
+    if u in known_norm:return True
+    cited_norm={norm_url(x) for x in cited if norm_url(x)}
+    if u in cited_norm:return True
+    # Allow only a tightly related citation URL on the same primary host/path family.
+    # A prestigious domain by itself is never sufficient evidence.
     h=host(u)
-    if h in {"github.com","huggingface.co","arxiv.org"} or any(h==d or h.endswith("."+d) for d in domains):return True
-    return any(u==c or same_host(u,c) for c in cited)
+    primary_host=(h in {"github.com","huggingface.co","arxiv.org"} or any(h==d or h.endswith("."+d) for d in domains))
+    if not primary_host:return False
+    path=urllib.parse.urlparse(u).path.rstrip("/")
+    for c in cited_norm:
+        if host(c)!=h:continue
+        cp=urllib.parse.urlparse(c).path.rstrip("/")
+        if path and cp and (path==cp or path.startswith(cp+"/") or cp.startswith(path+"/")):
+            return True
+    return False
 def base_score(r:dict[str,Any])->float:
     limits={"significance":4,"practicalImpact":2,"novelty":2,"sourceConfidence":1,"visualClarity":1}
     return round(sum(max(0,min(hi,float(r.get(k) or 0))) for k,hi in limits.items()),2)
