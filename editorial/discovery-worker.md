@@ -15,7 +15,7 @@ Actively hunts for developer-interest signals that normal press search can miss:
 - trending Hugging Face models
 - infrastructure, runtimes, libraries, MCP tooling and local-AI projects
 
-For this lane, momentum age matters more than creation age. The scan combines newly-created repository searches with daily/weekly GitHub Trending signals, so an older project that suddenly explodes today can still be fresh. Low-star repositories do not qualify merely because they are new: standalone GitHub/Hugging Face/Hacker News candidates must clear evidence-quality gates unless independent lanes converge on the same topic.
+For this lane, momentum age matters more than creation age. The scan combines newly-created repository searches with daily/weekly GitHub Trending signals, normalizing weekly stars into an approximate stars-per-day velocity, so an older project that suddenly explodes today can still be fresh. Low-star repositories do not qualify merely because they are new: standalone GitHub/Hugging Face/Hacker News candidates must clear evidence-quality gates unless independent lanes converge on the same topic.
 
 ### Creator Radar
 Scans the configured Creator Radar channels and decomposes long roundup videos into separate candidate topics when chapters or transcript transitions allow it.

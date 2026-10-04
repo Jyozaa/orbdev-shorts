@@ -179,14 +179,13 @@
   "qualificationGates": {
     "githubStandaloneMinStars": 120,
     "githubStandaloneMinStarsPerHour": 8,
-    "githubTrendingMinRecentStars": 40,
-    "githubTrendingMinTotalStars": 250,
     "huggingFaceStandaloneMinLikes": 20,
     "huggingFaceStandaloneMinDownloads": 5000,
     "huggingFaceStandaloneMinTrendingScore": 10,
     "creatorStandaloneMinWeight": 1.2,
     "creatorStandaloneMinTitleTerms": 1,
     "hackerNewsStandaloneMinPoints": 55,
-    "hackerNewsStandaloneMinComments": 18
+    "hackerNewsStandaloneMinComments": 18,
+    "githubTrendingMinStarsPerDay": 25
   }
 }

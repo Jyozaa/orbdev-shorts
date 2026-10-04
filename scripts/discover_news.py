@@ -286,21 +286,32 @@ def github_trending_candidates(config: dict[str, Any], now: datetime) -> list[di
 
         articles = re.findall(r'<article[^>]*class="[^"]*Box-row[^"]*"[^>]*>(.*?)</article>', page, re.S | re.I)
         for article in articles[:per_window]:
-            repo_match = re.search(r'href="/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)"', article)
+            repo_match = re.search(
+                r'<h2[^>]*>.*?href="/([A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+)"',
+                article,
+                re.S | re.I,
+            )
             if not repo_match:
                 continue
             slug = repo_match.group(1)
+            owner = slug.split("/", 1)[0].lower()
+            if owner in {"sponsors", "topics", "collections", "marketplace"}:
+                continue
+
             clean_article = clean_text(article)
             recent_match = re.search(r'([\d,]+)\s+stars?\s+(today|this week)', clean_article, re.I)
             stars_recent = int(recent_match.group(1).replace(",", "")) if recent_match else 0
+            days = 7.0 if window == "weekly" else 1.0
+            stars_per_day = stars_recent / days
             key = slug.lower()
             old = discovered.get(key)
-            if old and int(old["starsRecent"]) >= stars_recent:
+            if old and float(old["starsPerDay"]) >= stars_per_day:
                 continue
             discovered[key] = {
                 "slug": slug,
                 "window": window,
                 "starsRecent": stars_recent,
+                "starsPerDay": round(stars_per_day, 2),
             }
 
     out: list[dict[str, Any]] = []
@@ -318,6 +329,7 @@ def github_trending_candidates(config: dict[str, Any], now: datetime) -> list[di
         stars = int(repo.get("stargazers_count") or 0)
         forks = int(repo.get("forks_count") or 0)
         stars_recent = int(row["starsRecent"])
+        stars_per_day = float(row["starsPerDay"])
         description = repo.get("description") or ""
         out.append(
             make_candidate(
@@ -332,6 +344,7 @@ def github_trending_candidates(config: dict[str, Any], now: datetime) -> list[di
                     "stars": stars,
                     "forks": forks,
                     "starsRecent": stars_recent,
+                    "starsPerDay": stars_per_day,
                     "trendingWindow": row["window"],
                     "repoCreatedAt": created,
                     "repoPushedAt": pushed,
@@ -715,11 +728,10 @@ def raw_score(candidate: dict[str, Any], now: datetime) -> float:
 
     if kind == "github_trending":
         stars = float(metrics.get("stars", 0))
-        recent = float(metrics.get("starsRecent", 0))
-        recent_score = min(2.7, math.log10(recent + 1) * 1.05)
-        total_score = min(1.1, math.log10(stars + 1) * 0.28)
-        weekly_penalty = 0.15 if metrics.get("trendingWindow") == "weekly" else 0.0
-        return min(10.0, 4.0 + fresh * 0.55 + recent_score + total_score - weekly_penalty)
+        per_day = float(metrics.get("starsPerDay", metrics.get("starsRecent", 0)))
+        recent_score = min(2.7, math.log10(per_day + 1) * 1.15)
+        total_score = min(1.0, math.log10(stars + 1) * 0.24)
+        return min(10.0, 4.0 + fresh * 0.55 + recent_score + total_score)
 
     if kind == "hacker_news":
         points = float(metrics.get("points", 0))
@@ -861,12 +873,11 @@ def cluster_quality_gate(cluster: list[dict[str, Any]], config: dict[str, Any]) 
         return passed, f"github-stars={int(stars)}-velocity={velocity:.1f}"
 
     if kind == "github_trending":
-        recent = float(metrics.get("starsRecent", 0))
+        per_day = float(metrics.get("starsPerDay", metrics.get("starsRecent", 0)))
         stars = float(metrics.get("stars", 0))
-        min_recent = float(gates.get("githubTrendingMinRecentStars", 40))
-        min_total = float(gates.get("githubTrendingMinTotalStars", 250))
-        passed = recent >= min_recent or stars >= min_total
-        return passed, f"github-trending-recent={int(recent)}-total={int(stars)}"
+        min_per_day = float(gates.get("githubTrendingMinStarsPerDay", 25))
+        passed = per_day >= min_per_day
+        return passed, f"github-trending-stars-per-day={per_day:.1f}-total={int(stars)}"
 
     if kind == "huggingface_model":
         likes = float(metrics.get("likes", 0))

@@ -73,14 +73,29 @@ def main() -> None:
         "Developer runtime",
         source="GitHub Trending",
     )
-    hot_repo["metrics"] = {"stars": 900, "starsRecent": 170, "trendingWindow": "daily"}
+    hot_repo["metrics"] = {"stars": 900, "starsRecent": 170, "starsPerDay": 170, "trendingWindow": "daily"}
     gate, _ = d.cluster_quality_gate([hot_repo], {
         "qualificationGates": {
-            "githubTrendingMinRecentStars": 40,
-            "githubTrendingMinTotalStars": 250,
+            "githubTrendingMinStarsPerDay": 25,
         }
     })
     assert gate, "GitHub Trending must support older projects with fresh momentum"
+
+    stale_famous = c(
+        "hot_emerging",
+        "github_trending",
+        "example/famous-but-slow",
+        "https://github.com/example/famous-but-slow",
+        "Popular developer tool",
+        source="GitHub Trending",
+    )
+    stale_famous["metrics"] = {"stars": 100000, "starsRecent": 70, "starsPerDay": 10, "trendingWindow": "weekly"}
+    gate, _ = d.cluster_quality_gate([stale_famous], {
+        "qualificationGates": {
+            "githubTrendingMinStarsPerDay": 25,
+        }
+    })
+    assert not gate, "lifetime popularity must not substitute for current momentum"
 
     creator = c(
         "creator_radar",
