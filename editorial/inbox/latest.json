@@ -1,687 +1,17 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-04T13:19:58.326621Z",
+  "generatedAt": "2026-10-04T13:24:23.926318Z",
   "scanCadenceHours": 12,
   "qualified": [
     {
-      "clusterId": "5cfbf11d2434e795",
-      "title": "Niko1221/Strata",
-      "score": 9.25,
-      "qualifiesForEditorial": true,
-      "publishReady": true,
-      "needsPrimaryVerification": false,
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging",
-        "major_news"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "Carroll County Mirror-Democrat",
-        "GitHub",
-        "Startup Fortune",
-        "Wccftech",
-        "remio",
-        "techbarrista.com"
-      ],
-      "primaryUrls": [
-        "https://github.com/KODAMA-TECHNOLOGY/Chat_UI",
-        "https://github.com/MCG-NJU/OneStreamer",
-        "https://github.com/Niko1221/Strata",
-        "https://github.com/amirmushichge/unreal-home-wizard",
-        "https://github.com/whirlchat/whirl",
-        "https://github.com/zouyuxuan122/dsh-our-free-model",
-        "https://github.com/zzzz7788990213-ops/EvoVLM"
-      ],
-      "signals": [
-        "github",
-        "major-news-search",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "d5d79de727aaeb33",
-        "lane": "hot_emerging",
-        "sourceKind": "github_repo",
-        "title": "Niko1221/Strata",
-        "summary": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
-        "url": "https://github.com/Niko1221/Strata",
-        "publishedAt": "2026-09-24T16:40:20Z",
-        "sourceName": "GitHub",
-        "metrics": {
-          "stars": 9329,
-          "forks": 844,
-          "ageHours": 236.66,
-          "starsPerHour": 39.42
-        },
-        "creator": null,
-        "primaryUrls": [
-          "https://github.com/Niko1221/Strata"
-        ],
-        "primaryVerified": true,
-        "signals": [
-          "github",
-          "open-source",
-          "momentum"
-        ],
-        "rawScore": 7.15
-      },
-      "evidence": [
-        {
-          "id": "d5d79de727aaeb33",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "Niko1221/Strata",
-          "summary": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
-          "url": "https://github.com/Niko1221/Strata",
-          "publishedAt": "2026-09-24T16:40:20Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 9329,
-            "forks": 844,
-            "ageHours": 236.66,
-            "starsPerHour": 39.42
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/Niko1221/Strata"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 7.15
-        },
-        {
-          "id": "20e019b887c3f0a7",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "A wave of narrow AI inference engines is beating vLLM and llama.cpp at their own game - Startup Fortune",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNcldseERzcm8xTG1qLXBicmpQa2dYZVp0YWZZSmlJdWp6SkNMWGpXTFoyUURZMkRtUV92WGM3bWNybUd5ZldGOTdyaW03aXFmQ0NCeFhoYzlaZndLWXI1OV9CTFJ6b3VYMGRzMEFXbGRTQlhjTlVoeHJnY0h5NjJGUWtuWU9jaEdvMmZvak9IeFgtSkY1OTZGYXA0Y0FjbUpkd3otVUtqakZUYWV3QWtET0ln?oc=5",
-          "publishedAt": "2026-10-04T04:37:45Z",
-          "sourceName": "Startup Fortune",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 7.04
-        },
-        {
-          "id": "4ec62be48a618785",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "GIGABYTE AI TOP 100 B850 Doubles RTX 5090\u2019s VRAM With Dual Radeon AI PRO R9700 GPUs, Handling 235B-Parameter Inference - Wccftech",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB0NVZsbzJOZ2lsRGM4cUZUeWN1SDRheC12MmxCWWpjU0VyWmNkY1JHbWx3ZXNGeVlhSjBTZFh5YWgta0oxUEhoU3RxLU5MT3JzMVMybzR6WkJFRWFYUmJ0WHhCU0NDcGNDbmNXRU1jcTHSAXZBVV95cUxNR2lEamx5UmxQU0R4T0JVcW11UmtTaG0zWDJ2RFp2U2hoOXd2RC0wcW9mb3FNdEZUeVhOSjRhSmRuMy1RTHJfRXhkRzI2SVFVNU9sQk00UWIzRU0tZ0VOTVlHb3IyQjNyT3FReVFRR3dPT1NUU2NB?oc=5",
-          "publishedAt": "2026-10-03T12:01:53Z",
-          "sourceName": "Wccftech",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.35
-        },
-        {
-          "id": "e3b1fe991c8ea0bc",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Gigabyte AI TOP ATOM Line Expands With 64GB Variant - techbarrista.com",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA1YUdJRDF1VC0tN3UwSDJPeWJOMlVkemVvY0RPWl8taXN5NTZ6eG1qelVxVVN0N01iUHhkSXZmUjJwd3FiZkdhZnVzMWlnVHJLb2Itby1iMWhqOTRSeFplejVXb2ItQQ?oc=5",
-          "publishedAt": "2026-10-03T07:04:43Z",
-          "sourceName": "techbarrista.com",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.14
-        },
-        {
-          "id": "3179e317c84b7277",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "zouyuxuan122/dsh-our-free-model",
-          "summary": "\u5728 dsh \u91cc\u88c5\u4e0a\u8fd9\u4e2a\u63d2\u4ef6\u5373\u53ef\uff0c\u65e0\u9700\u767b\u5f55\u3001\u6ce8\u518c\u6216\u586b API Key\uff0c\u5c31\u80fd\u4f7f\u7528\u5305\u62ec Muse Spark 1.3\u3001MiMo V2.6 \u5728\u5185\u7684\u524d\u6cbf\u6a21\u578b\u2014\u2014\u5b8c\u5168\u514d\u8d39\uff0c\u4e0d\u9650\u91cf\u3002 All you do is install this plugin in dsh: no login, no sign-up, no API key \u2014 the frontier models are just there, Muse Spark 1.3 and MiMo V2.6 among them. Completely free, with no usage cap.",
-          "url": "https://github.com/zouyuxuan122/dsh-our-free-model",
-          "publishedAt": "2026-09-24T16:17:19Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 983,
-            "forks": 33,
-            "ageHours": 237.04,
-            "starsPerHour": 4.15
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/zouyuxuan122/dsh-our-free-model"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 6.09
-        },
-        {
-          "id": "7b683a1f2e2df466",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "NVIDIA DGX Spark 64GB Expands Local AI, but Memory Becomes the New Boundary - remio",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQckpVQlhSeUJaOThJVzRVQVRER1RuVUp2UlFMZlVGSTV5cGQxQVh2QnBOOXN0LVI0dGhNQXc4NHFKTUI2bzJKTmx6R0ZvQTREbXl3a19JRTZKUFFtdVBLWVM4cnJQbm95a3hidVQ5djhSbk55Mkg0RHJOaFEzQlY4X0Utclh2NWRxcXFQMTFnMTZ1cEJPLVJoVmljTjhQWC1uZGc?oc=5",
-          "publishedAt": "2026-10-03T04:48:41Z",
-          "sourceName": "remio",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.04
-        },
-        {
-          "id": "c6948c7427231724",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "whirlchat/whirl",
-          "summary": "The AI chat app that sweats the details. Every top model, real memory, living documents, and your own tools.",
-          "url": "https://github.com/whirlchat/whirl",
-          "publishedAt": "2026-10-02T13:50:42Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 399,
-            "forks": 35,
-            "ageHours": 47.49,
-            "starsPerHour": 8.4
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/whirlchat/whirl"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 6.04
-        },
-        {
-          "id": "39f77f45c2312a59",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "The First AI Copilot for Unreal Engine 5 Returns With V2: Ultimate Engine CoPilot Turns Unreal Into an AI Game Studio With 1,655 Native Tools - Carroll County Mirror-Democrat",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPc3k3R0FLRXYwTnpOM3RlNWloSmxfRVp4X1MxWGtrQm5jNGRuNF9obG8tMGFjWUVpTkxIaTlRbmNSRllzZlNsVldSOWpvWUVSWXhMSFpsbnZzWGVHRkVjZ3NQWE5hT01fUVhUa1VaS0dVaTZMbnRjWldjajA0WnZBT1A1VnVXczhpS1BOc3RWU2Y1SFlsQ09uNVpJejhGRnZhMy1GVDNGRmRfcmZVLXVPdHhzc01qdDg?oc=5",
-          "publishedAt": "2026-10-03T04:20:02Z",
-          "sourceName": "Carroll County Mirror-Democrat",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.03
-        },
-        {
-          "id": "ad0acd05a60e4bdf",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "zzzz7788990213-ops/EvoVLM",
-          "summary": "Evolving Multimodal Inference Programs: LLM-guided evolutionary search for accurate and efficient vision-language inference.",
-          "url": "https://github.com/zzzz7788990213-ops/EvoVLM",
-          "publishedAt": "2026-10-02T01:03:55Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 226,
-            "forks": 3,
-            "ageHours": 60.27,
-            "starsPerHour": 3.75
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/zzzz7788990213-ops/EvoVLM"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.58
-        },
-        {
-          "id": "a72c4785e9124160",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "amirmushichge/unreal-home-wizard",
-          "summary": "Turn room and home photographs into reviewable, walkable Unreal Engine projects with Codex.",
-          "url": "https://github.com/amirmushichge/unreal-home-wizard",
-          "publishedAt": "2026-09-24T06:39:38Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 277,
-            "forks": 38,
-            "ageHours": 246.67,
-            "starsPerHour": 1.12
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/amirmushichge/unreal-home-wizard"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.33
-        },
-        {
-          "id": "78a2dfe833dab5da",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "KODAMA-TECHNOLOGY/Chat_UI",
-          "summary": "The fastest and litest LLM chating ui with 2 fields, less than 100 kb and completely no dependent.",
-          "url": "https://github.com/KODAMA-TECHNOLOGY/Chat_UI",
-          "publishedAt": "2026-10-02T15:31:16Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 109,
-            "forks": 15,
-            "ageHours": 45.81,
-            "starsPerHour": 2.38
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/KODAMA-TECHNOLOGY/Chat_UI"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.26
-        },
-        {
-          "id": "198bd58b46912e58",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "MCG-NJU/OneStreamer",
-          "summary": "OneStreamer: Unifying Perception, Memory, and Proactive Response in Streaming Video Interaction",
-          "url": "https://github.com/MCG-NJU/OneStreamer",
-          "publishedAt": "2026-09-30T12:33:00Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 104,
-            "forks": 2,
-            "ageHours": 96.78,
-            "starsPerHour": 1.07
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/MCG-NJU/OneStreamer"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.0
-        }
-      ]
-    },
-    {
-      "clusterId": "a53d3d52f58002fb",
-      "title": "NASA and IBM's open source lunar model turns 17 years of orbiter data into a foundation for lunar science - the-decoder.com",
-      "score": 9.19,
-      "qualifiesForEditorial": true,
-      "publishReady": true,
-      "needsPrimaryVerification": false,
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging",
-        "major_news"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub",
-        "Startup Fortune",
-        "konsulteer.com",
-        "tech-insider.org",
-        "the-decoder.com"
-      ],
-      "primaryUrls": [
-        "https://github.com/AFK-surf/Comma",
-        "https://github.com/BootLoops-ai/bootloops",
-        "https://github.com/ESPARGOS/esp-sdr",
-        "https://github.com/elliotttate/Wind-Waker-Recomp",
-        "https://github.com/facebookincubator/muse-gadget-sdk",
-        "https://github.com/kuratlielia/arc-library"
-      ],
-      "signals": [
-        "github",
-        "major-news-search",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "f79cdbb68d573e45",
-        "lane": "major_news",
-        "sourceKind": "news_search",
-        "title": "NASA and IBM's open source lunar model turns 17 years of orbiter data into a foundation for lunar science - the-decoder.com",
-        "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNd2JYTHB4TzVReFRIMERCVWptMmdLeHViWXRXUjg0dXV0T1Z4anFkOGcyS2xlbnN6Vk9SanUyVm9hY0lQLUNScld2YUFiU2c1QU16QXVPaVQxWFQ3VmVlZDVzM1ZuQ3ZiX3hSZ3o1akhZNWF1OVNnNFFDc0tiWUpadnFFaVpYODN2RTVObFhIVzFvSVoxelFmRzdfMGpuMGJtb0h6c2dHYldNOHNObm5PTldPS01sTkJZOWlkZFZpNWQ4ZEJQazVqeg?oc=5",
-        "publishedAt": "2026-10-04T10:12:56Z",
-        "sourceName": "the-decoder.com",
-        "metrics": {},
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "signals": [
-          "major-news-search"
-        ],
-        "rawScore": 7.27
-      },
-      "evidence": [
-        {
-          "id": "f79cdbb68d573e45",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "NASA and IBM's open source lunar model turns 17 years of orbiter data into a foundation for lunar science - the-decoder.com",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNd2JYTHB4TzVReFRIMERCVWptMmdLeHViWXRXUjg0dXV0T1Z4anFkOGcyS2xlbnN6Vk9SanUyVm9hY0lQLUNScld2YUFiU2c1QU16QXVPaVQxWFQ3VmVlZDVzM1ZuQ3ZiX3hSZ3o1akhZNWF1OVNnNFFDc0tiWUpadnFFaVpYODN2RTVObFhIVzFvSVoxelFmRzdfMGpuMGJtb0h6c2dHYldNOHNObm5PTldPS01sTkJZOWlkZFZpNWQ4ZEJQazVqeg?oc=5",
-          "publishedAt": "2026-10-04T10:12:56Z",
-          "sourceName": "the-decoder.com",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 7.27
-        },
-        {
-          "id": "5c42ea0280e8fb45",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "facebookincubator/muse-gadget-sdk",
-          "summary": "Open source SDK to build Muse gadgets",
-          "url": "https://github.com/facebookincubator/muse-gadget-sdk",
-          "publishedAt": "2026-10-02T18:21:23Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 1036,
-            "forks": 172,
-            "ageHours": 42.98,
-            "starsPerHour": 24.11
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/facebookincubator/muse-gadget-sdk"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 6.84
-        },
-        {
-          "id": "7527562cef71d934",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Broadcom Launches TrueSource to Strengthen Open Source Software Security - konsulteer.com",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNdmRQWDhwV3FRaEhSTl9TZjlaVEpyZG9OTy1UTEQ1Q3R3RW9yOGxFOS1tWUoxU3RMNWk0V010clFpVHFRamd1Q2J2a0RiQlhzem9QTEtraEE5bmxhcDlTeWZzZW1adndCdkpGRk83QzdXMGc4MmU4dDlhMjlhZjZ5WlhwZU8zeG1FR2tpUGdqZWR4T2cydnQ3TGZWRXp0b3Vha3M2a2dpdld3dkE?oc=5",
-          "publishedAt": "2026-10-03T11:47:36Z",
-          "sourceName": "konsulteer.com",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.34
-        },
-        {
-          "id": "1c28f37f4cb20a97",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Aleph Alpha launches Kolibri, a sovereign German AI model for government use - Startup Fortune",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPdHFKay1xU3FEdVV5dGdTZEZHczBlb1hPdjZtTVg5bkZXY0lIMldkOFRqRllRRzBiS0JwaDJmdWt3MW15Nm1mQ3B0MXNPbWMyaGJNdjU5Yi1BR0lIRFhiNXJlYVJORFJDUEwtc3RFeEgxSDJ1VVVZSlZnQ19UUkV5SjQ5M1YxVjBWTXV1eE94SjM1OTVQNjZhR0V2X1dtMGVqREYxTnlB?oc=5",
-          "publishedAt": "2026-10-03T10:37:14Z",
-          "sourceName": "Startup Fortune",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.29
-        },
-        {
-          "id": "109aa8d68bf5c335",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "PewDiePie Says OpenAI Banned Him Twice Over the AI Model He Just Released - Startup Fortune",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOMFh1b3dOUl9DckpJZ0VPSExRQ1ZObndPRmFxMmxyVEJrQ3lDYVBCdWpha0tfQ2o3NGlPeXJFbThmSVJoTnJqWUlYc0llWkFJSFRfQjVPNzAwYkZyckhjSWJjTHlhQ3NZLXpIUDZKeUJ6am5vRk1LeWhTallTanhmQjhCU09jM3hMb0tYb2xoYjBKZk0wcUk0ejV3a0d1dlJNOFVz?oc=5",
-          "publishedAt": "2026-10-03T09:58:34Z",
-          "sourceName": "Startup Fortune",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.26
-        },
-        {
-          "id": "6d8dc52d4dd0d7e6",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "PewDiePie Launches Ajax: 9B AI Model, 2 OpenAI Bans [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE81Y2JzNTBKSHZyUVVSalBVTnk4R2dIMS1sQVdpS2l0X3ZQZkRrM3Z1aDFjMFVBZkl4cHlZdWlucWRLT3lyLUJ4VU84RFNyOUt2ejZqUTNBanVKb1BWcHFjYjZBdlJQODV6TWowSk1RREo0bzd1?oc=5",
-          "publishedAt": "2026-10-03T09:47:45Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.25
-        },
-        {
-          "id": "574fac9577fa5064",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Nvidia's new 64GB DGX Spark costs more per gigabyte than the model it replaces - Startup Fortune",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOT1k2eFNQbU5jNFRyb2J6MndmZ1Vybk5HRG14a0Q3bWRpNWwtVTFKblY3a3lITzQxRDFISnlBOXJUTFZTUl9mQ0c3OWxmSXg5THdsMExOQUgwMjBnQjM5T01HZVdtOERrbHZxX3pWdGZoWWpETVpQOWlnS2pqSFFfWG93d25CTGpSYVl2ODctemlRbE8zQUtfS05fTXRkRVA3SWl4eW0xM0w?oc=5",
-          "publishedAt": "2026-10-03T04:37:28Z",
-          "sourceName": "Startup Fortune",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.04
-        },
-        {
-          "id": "9ba21a98342a5fa5",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "ESPARGOS/esp-sdr",
-          "summary": "ESP-SDR uses the undocumented raw I/Q capture functionality of ESP32 family chips to turn them into (low-duty-cycle) Software Defined Radios",
-          "url": "https://github.com/ESPARGOS/esp-sdr",
-          "publishedAt": "2026-09-28T08:50:16Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 513,
-            "forks": 59,
-            "ageHours": 148.5,
-            "starsPerHour": 3.45
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/ESPARGOS/esp-sdr"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.82
-        },
-        {
-          "id": "23194d6c6f2d59d6",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "elliotttate/Wind-Waker-Recomp",
-          "summary": "Personal source fork of BlueWake for The Wind Waker on iPhone and iPad",
-          "url": "https://github.com/elliotttate/Wind-Waker-Recomp",
-          "publishedAt": "2026-09-28T21:28:48Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 462,
-            "forks": 23,
-            "ageHours": 135.85,
-            "starsPerHour": 3.4
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/elliotttate/Wind-Waker-Recomp"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.78
-        },
-        {
-          "id": "836eeb802e62fe92",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "BootLoops-ai/bootloops",
-          "summary": "BootLoops 1.0: certified computational tools and house engines for exact and high-precision physics and quantitative science, built to be driven by LLM agents. MIT; docs CC BY 4.0.",
-          "url": "https://github.com/BootLoops-ai/bootloops",
-          "publishedAt": "2026-10-01T15:29:28Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 228,
-            "forks": 46,
-            "ageHours": 69.84,
-            "starsPerHour": 3.26
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/BootLoops-ai/bootloops"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.54
-        },
-        {
-          "id": "1cf7215ecfffc355",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "kuratlielia/arc-library",
-          "summary": "Arc Library: free, open source React components with calm motion. Copy the code or install with the shadcn CLI.",
-          "url": "https://github.com/kuratlielia/arc-library",
-          "publishedAt": "2026-09-24T11:29:16Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 255,
-            "forks": 11,
-            "ageHours": 241.85,
-            "starsPerHour": 1.05
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/kuratlielia/arc-library"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.29
-        },
-        {
-          "id": "c25d2f8b2a6ba568",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "AFK-surf/Comma",
-          "summary": "The sessionless, relentless personal agent. Open source alternative to Muse, Dots, Instinct and Town.",
-          "url": "https://github.com/AFK-surf/Comma",
-          "publishedAt": "2026-09-30T08:39:30Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 167,
-            "forks": 12,
-            "ageHours": 100.67,
-            "starsPerHour": 1.66
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/AFK-surf/Comma"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.25
-        }
-      ]
-    },
-    {
-      "clusterId": "89dbeac38a3c090e",
+      "clusterId": "1395d647d07cbabe",
       "title": "OpenAI's GPT-6 Astra clears World of Warcraft starting zone in 40 minutes with zero deaths - news.lavx.hu",
-      "score": 9.12,
+      "score": 9.75,
       "qualifiesForEditorial": true,
-      "publishReady": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
       "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging",
@@ -692,18 +22,19 @@
       "sourceNames": [
         "ET Enterprise AI",
         "GitHub",
+        "Hacker News",
         "India Today",
         "Tom's Hardware",
         "news.lavx.hu"
       ],
       "primaryUrls": [
-        "https://github.com/Akun-python/autumn-recruitment",
         "https://github.com/LuwuDynamics/xgoduck_hardware",
-        "https://github.com/StayLameBro/backburner",
-        "https://github.com/wildminder/awesome-qwen-image"
+        "https://github.com/Niko1221/Strata"
       ],
       "signals": [
+        "developer-discussion",
         "github",
+        "hacker-news",
         "major-news-search",
         "momentum",
         "open-source"
@@ -800,33 +131,6 @@
           "rawScore": 6.06
         },
         {
-          "id": "a2840c13100ea6c8",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "StayLameBro/backburner",
-          "summary": "Your iPhone helps your Mac run a 27B model: faster prompt reading and more context over a USB-C cable",
-          "url": "https://github.com/StayLameBro/backburner",
-          "publishedAt": "2026-10-01T20:59:56Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 265,
-            "forks": 24,
-            "ageHours": 64.33,
-            "starsPerHour": 4.12
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/StayLameBro/backburner"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.66
-        },
-        {
           "id": "0a1b81dc5e2dcf06",
           "lane": "hot_emerging",
           "sourceKind": "github_repo",
@@ -838,7 +142,7 @@
           "metrics": {
             "stars": 466,
             "forks": 66,
-            "ageHours": 244.67,
+            "ageHours": 244.74,
             "starsPerHour": 1.9
           },
           "creator": null,
@@ -854,99 +158,75 @@
           "rawScore": 5.62
         },
         {
-          "id": "9a631fdacd8c47df",
+          "id": "62b7e5a6bd4a799c",
           "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "Akun-python/autumn-recruitment",
-          "summary": "Autumn recruitment preparation for algorithm position. Contains categorized LeetCode solutions, enterprise written exam codes, interview experience and CS fundamentals notes including CN, OS and DB.",
-          "url": "https://github.com/Akun-python/autumn-recruitment",
-          "publishedAt": "2026-09-29T08:00:33Z",
-          "sourceName": "GitHub",
+          "sourceKind": "hacker_news",
+          "title": "Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s",
+          "summary": "",
+          "url": "https://github.com/Niko1221/Strata",
+          "publishedAt": "2026-10-04T12:51:53Z",
+          "sourceName": "Hacker News",
           "metrics": {
-            "stars": 148,
-            "forks": 17,
-            "ageHours": 125.32,
-            "starsPerHour": 1.18
+            "points": 25,
+            "comments": 6
           },
           "creator": null,
           "primaryUrls": [
-            "https://github.com/Akun-python/autumn-recruitment"
+            "https://github.com/Niko1221/Strata"
           ],
           "primaryVerified": true,
           "signals": [
-            "github",
-            "open-source",
-            "momentum"
+            "hacker-news",
+            "developer-discussion"
           ],
-          "rawScore": 5.13
-        },
-        {
-          "id": "4017cf52e7346581",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "wildminder/awesome-qwen-image",
-          "summary": "Qwen-Image 2.1. Checkpoints, quants, prompt engines, LoRAs, and tooling",
-          "url": "https://github.com/wildminder/awesome-qwen-image",
-          "publishedAt": "2026-09-24T10:15:43Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 117,
-            "forks": 12,
-            "ageHours": 243.07,
-            "starsPerHour": 0.48
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/wildminder/awesome-qwen-image"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 4.91
+          "rawScore": 5.17
         }
       ]
     },
     {
-      "clusterId": "400cfb9e4b12e7d2",
-      "title": "Germany Unveils Open AI Model for Public Sector - ForkLog",
-      "score": 8.88,
+      "clusterId": "f3f63156569a48b2",
+      "title": "DeepSeek Harness Tests Claude Code Mods Compatibility Layer, Denies \"Copying Homework\" Allegations - finance.biggo.com",
+      "score": 9.68,
       "qualifiesForEditorial": true,
-      "publishReady": true,
-      "needsPrimaryVerification": false,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
-        "hot_emerging",
         "major_news"
       ],
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
+        "36 Kr",
         "ForkLog",
-        "GitHub",
+        "Interesting Engineering",
+        "MarkTechPost",
+        "PR Newswire",
+        "RS Web Solutions",
+        "Startup Fortune",
+        "Stocktwits",
         "The420.in",
-        "nst.com.my"
+        "finance.biggo.com",
+        "konsulteer.com",
+        "nst.com.my",
+        "tech-insider.org",
+        "the-decoder.com"
       ],
-      "primaryUrls": [
-        "https://github.com/wuyoscar/AISafetyHot-Hub"
-      ],
+      "primaryUrls": [],
       "signals": [
-        "github",
-        "major-news-search",
-        "momentum",
-        "open-source"
+        "major-news-search"
       ],
       "bestCandidate": {
-        "id": "3ee392ae5a55ff41",
+        "id": "68523f09949fc05e",
         "lane": "major_news",
         "sourceKind": "news_search",
-        "title": "Germany Unveils Open AI Model for Public Sector - ForkLog",
+        "title": "DeepSeek Harness Tests Claude Code Mods Compatibility Layer, Denies \"Copying Homework\" Allegations - finance.biggo.com",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTE56b0NKb2lxbXcxc3lwdkJVN05rTlNaa0JWaUQ3eHZnTEJvZ052Ql9ZcXJsLTZKS3dtdXpfdUg4eE1lYW0zc3BTMVVMeFEyUzA1RkN2YUE1OVRFY0ExQnVwWmN3N1E2NUpCcUxsZEVHM1JjSGw2dS1NR3h1aw?oc=5",
-        "publishedAt": "2026-10-04T07:11:21Z",
-        "sourceName": "ForkLog",
+        "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5RM3Y0bXVQSFItT19XTkZWY0Y4dkdqQVlvYzNxRlFkSEdHczdnelV4VHhFZlpVMDJhS2w0UmUtdUNuMDZ1Y1Z4UWlZUlZlekdjbFpjWjdHX3l5Qng5ZldJVGhrODBydkljcEk1SHBJRDROckpFS1E?oc=5",
+        "publishedAt": "2026-10-04T12:05:00Z",
+        "sourceName": "finance.biggo.com",
         "metrics": {},
         "creator": null,
         "primaryUrls": [],
@@ -954,9 +234,45 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 7.14
+        "rawScore": 7.34
       },
       "evidence": [
+        {
+          "id": "68523f09949fc05e",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "DeepSeek Harness Tests Claude Code Mods Compatibility Layer, Denies \"Copying Homework\" Allegations - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5RM3Y0bXVQSFItT19XTkZWY0Y4dkdqQVlvYzNxRlFkSEdHczdnelV4VHhFZlpVMDJhS2w0UmUtdUNuMDZ1Y1Z4UWlZUlZlekdjbFpjWjdHX3l5Qng5ZldJVGhrODBydkljcEk1SHBJRDROckpFS1E?oc=5",
+          "publishedAt": "2026-10-04T12:05:00Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 7.34
+        },
+        {
+          "id": "a033df164acf45d0",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Cutthroat AI Competition: DeepSeek Unveils New Holiday Update, Harness Launches Latest Version Now Available - 36 Kr",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1Wcm03MC01V1pzaTlPaDQ2ckFaaFFWM25yT0ZpbDRnUnVoa1R1R0xvVURHcVBiX3lvOC1NRU1TV3NCS3doV05HX1JsdHNiOVF2a3ZB?oc=5",
+          "publishedAt": "2026-10-04T09:44:47Z",
+          "sourceName": "36 Kr",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 7.25
+        },
         {
           "id": "3ee392ae5a55ff41",
           "lane": "major_news",
@@ -974,6 +290,330 @@
             "major-news-search"
           ],
           "rawScore": 7.14
+        },
+        {
+          "id": "23bc711492250e48",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "DeepSeek Harness v0.2 Brings Official Desktop Apps to Its Open-Source Agent Harness - MarkTechPost",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxNSGoyVXozeEljajBod3VtWDcwd2JmWk9ySXhoTjlhV1RQNUtmNkJiWnBoWlF1SHFNN2ZwZjFNZkhBckxmSFBpY0JRUVYxeEJrdncxMkZMTlFmQ1lhLTZKSk9xVTU5WFRUaGtITGJIZmRTUUlieGNYVlpXV2ExbEo0MTRQSVFlelBmYWNwZkJULXNMbzF6MUM2TmFjLU1jRTUtX3ZLWVVGWmFrQWZ6WnBDdHRBM1BKbmRyZVlSeUJaLVFBWXQ3T25lVDl30gHKAUFVX3lxTE1IajJVejN4SWNqMGh3dW1YNzB3YmZaT3JJeGhOOWFXVFA1S2Y2QmJacGhaUXVIcU03ZnBmMU1mSEFyTGZIUGljQlFRVjF4Qmt2dzEyRkxOUWZDWWEtNkpKT3FVNTlYVFRoa0hMYkhmZFNRSWJ4Y1hWWldXYTFsSjQxNFBJUWV6UGZhY3BmQlQtc0xvMXoxQzZOYWMtTWNFNS1fdktZVUZaYWtBZnpacEN0dEEzUEpuZHJlWVJ5QlotUUFZdDdPbmVUOXc?oc=5",
+          "publishedAt": "2026-10-04T04:49:42Z",
+          "sourceName": "MarkTechPost",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 7.04
+        },
+        {
+          "id": "d87ff547603eb201",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Crusoe Says a Dead GPU Doesn't Have to Kill Your Training Run \u2014 and It Can Fix It in 15 Minutes - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE91Z3o3X1BJSDh2c2FGLW50aGQ1ZUZ1NnpDYTRnT3RfbTk4WWUzazZlYjF2UU1SalpHSzdERjJQd2FvVHZwb2VBMlg3SUlnWWk5NEhjd0I0Um9xWXc?oc=5",
+          "publishedAt": "2026-10-03T23:08:00Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.81
+        },
+        {
+          "id": "3b6bb9ec0608c86c",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "OpenAI Teases Over 20 Launches At Developer Event As Meta\u2019s Alexandr Wang Fires \u2018Star Wars\u2019-Inspired Jab - Stocktwits",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPREFqZEZiVmJ2Zk1ucHRWNUVNRVpZc0t6VUNKZk5EdWlxcDZQVmFUZ0t1dWV1Zl9fUnhNbmVoOFRadGdFTzROX0JjTVM0TjZBQmxoNG1zSWN0SkM1Q0ZnQURhWEZ5S1dQX2NPb3dVb0xybTB4VHo4RE13dnlfZl9XeXdleEpiU3FXNTc5ZHotUUNqWDFyblMtdE9qVFJsU3liTVdSdVZZZGMybjFwX0ZKdmk3SUFoekladnZ4MExwZUpJYXBFOWJoQU1venlzUkhtLWlEM1UwVUg3UHhSTGR5ZkZlZi02VjFhTnFxdm1aZGJaalNDUTU2RTBVaw?oc=5",
+          "publishedAt": "2026-10-03T21:53:32Z",
+          "sourceName": "Stocktwits",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.75
+        },
+        {
+          "id": "b05742851aa2383b",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Google DeepMind's Ivan Leo Says the Coding Agent Era Needs APIs That Hoard Secrets - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBkYk13TzVzclpCSW1NaWItd1puYkg3M2VoN2dmM1RJTmFlTkM1bm5TTExLblJaR1Z2S211ZG1nQWg4OUJoTTYxcGp4bXk0eE45Y01TVU5xTm8zVXc?oc=5",
+          "publishedAt": "2026-10-03T21:08:00Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.72
+        },
+        {
+          "id": "7c3660e3466841f8",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Stop Rationing Tokens: Let the Harness Pick the Model \u2014 Kimchi by Cast AI\uff5cAI Engineer - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE1pX0tXbmtaclFfNmRwNnVRemRqU3QxazNMS3JmWkNua0pjdmtCOWIwVXVxRHdNSnhpekxpaF9FWS11NXUyMm1ldmw0dnJDUHJSNTJyNHhyU2hJbVNzS01N?oc=5",
+          "publishedAt": "2026-10-03T19:44:07Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.66
+        },
+        {
+          "id": "ebfecbe6c7294d4a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PewDiePie launches AJAX AI model after an alleged ban by OpenAI - Interesting Engineering",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOcERNbHpKZXlWNWlYZEhpekFIMGxaU1NDdDNCMUtZdkZUU2V0ZUhyeWl2RmZ2VkZxNXFvZVYwRXpRTy02Ym5TZXFsV0FzSWNnZjF1R1VZOHhYVXdjRk16T0NLV0JLYmNvTmJZT3QwaEFnOUhhSFhQalRMWTVVSGtCTXlETkRHZjg0b2pMdE5lak13WEZG?oc=5",
+          "publishedAt": "2026-10-03T18:06:00Z",
+          "sourceName": "Interesting Engineering",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.6
+        },
+        {
+          "id": "0602e69304704307",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Jeremy Adams: A $35 Raspberry Pi Runs a Personal AI Agent Better Than a Mac Mini - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTFBKaXpkbFZoRVB1U2l3cTFGNkJnenZQNlVWMEphZUlHdEh0RVZscU4yeFNKanBGWVpzeExlSTZKUlNlM3M2U2VnRWZRWGFsNDB5R1JHaV9OOTVVd0E?oc=5",
+          "publishedAt": "2026-10-03T18:08:00Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.6
+        },
+        {
+          "id": "b3220581a01255a3",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PewDiePie Says OpenAI Suspended His Account Twice Over Uncensored Ajax AI Model - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBhWHpSVG5rbUo2OEFvVklacUQ5TTJPLThFTHlBUU50NGNTSjVCSHc3dnNXRkdzTndpaWVrckptdG92VWVPbjJHQVVDNHlKM1U0RnZYMm5KbmplZ05PdWNVTDBxcUNWZDNIWFp1V1NsVnFZUGhfUVE?oc=5",
+          "publishedAt": "2026-10-03T18:07:00Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.6
+        },
+        {
+          "id": "d621c3e675a5d7c7",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Meta Opens Muse AI Agent to DIY Hardware Makers With Free Smart Home Devices - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE0xN1BPSUVMVmFyS3diS0toLVY3UVBnOWZPMVBLZlRFa1djejRteUVMQzJsTW1zMi1tMUgteEVsaXN0cElZek12X09QbTRqeDVrUEpRaXhEcDV2c0pVN3NBSWFHZG85REg4aFp5Tm12U1l6azcxSkE?oc=5",
+          "publishedAt": "2026-10-03T18:05:00Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.59
+        },
+        {
+          "id": "d3040f79e75351ee",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Run Claude Code, Codex, Hermes And OpenClaw For 95% Less: Agent37 Founder Vishnu Krishnaprasad On The Affordable Agent Sandbox - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxNVE1tR2ZtMTNfNVp3ejZ4eThJSEZBRUdwcklwMkhPbkhXX1dxUnNqdXg5a3E5eUxfdEwwa3JSRER1U3h5TC1UZGp6SGRUTGtjZEhWZmVWelBWN0VaS0RUNEpUOGpmaE9YNHlrZkpOeldNaWpFUFNqMGZ4TzFvQWNHa3RqTlloMW5abmZrTW44d2RCdTFFTnZDb0VST29nUUptc2hLVkFpcEJmZ08zRXFjRVlEbzV3WnBnanZpTWtCWlg2OFVvS1pPMFlIaFQ4ekhSWld2YnRDdkZ1SlNjWExkSVNub3U?oc=5",
+          "publishedAt": "2026-10-03T17:19:35Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.56
+        },
+        {
+          "id": "8d3c4221c9498c2b",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "RoboParty Unveils RP1, a High-Performance Full-Stack Open-Source Humanoid Robot at IROS - PR Newswire",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxOTExQQjZJcWNxZ1pTclB1WXFWYl9sYU9yVWVwYXBFQU9Nakg2Vm9PMV9DbWowa3hLUF9YWElISExJQW1YdXpDR29mNWZoQ1VlNE5BOGg5THFldmtVek5CWnQ4OGl1Q1ZLYTNCVnQtR0dxV3R3WUZ5N3JDZktiS3BVT1NoTUhaV3hwUEs5ZFZfY0FjMFRSSTBwOTV6Y0UzdG5HUEVkbXc1aHh4bzYyVTQxek5KckwtQ21wR2xlaW4wUExLbzZwWWZTanB3UEJEWnhhdjE2VjZoOXUxMDZQNU12Zw?oc=5",
+          "publishedAt": "2026-10-03T16:56:00Z",
+          "sourceName": "PR Newswire",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.55
+        },
+        {
+          "id": "1713d103b54e4616",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "NVIDIA Launches DGX Spark AI 64GB - Affordable Local AI Supercomputer - RS Web Solutions",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONUo2alBQMG52dG53bjBQQ1FYQThiTEFzXzJGUnVFeENSb3JKb0ZKOWxTUVQwaXdDbFl6U1ZvaHgtQU1uMWk4a1gyWWdjWmY2VXN2ejdPcTF5eWdJLTMyOUthenJ0RC1aZlFPU0Z3eVAzWXVKUXBYb0FRTDFaZ3BDdFAxM2pQZVdoa0NFUTVVX1ZEbHkwNHVIOXFPRHA3cDJMQ1hvdUhyNHJ6NE0?oc=5",
+          "publishedAt": "2026-10-03T12:00:00Z",
+          "sourceName": "RS Web Solutions",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.34
+        },
+        {
+          "id": "7527562cef71d934",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Broadcom Launches TrueSource to Strengthen Open Source Software Security - konsulteer.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxNdmRQWDhwV3FRaEhSTl9TZjlaVEpyZG9OTy1UTEQ1Q3R3RW9yOGxFOS1tWUoxU3RMNWk0V010clFpVHFRamd1Q2J2a0RiQlhzem9QTEtraEE5bmxhcDlTeWZzZW1adndCdkpGRk83QzdXMGc4MmU4dDlhMjlhZjZ5WlhwZU8zeG1FR2tpUGdqZWR4T2cydnQ3TGZWRXp0b3Vha3M2a2dpdld3dkE?oc=5",
+          "publishedAt": "2026-10-03T11:47:36Z",
+          "sourceName": "konsulteer.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.33
+        },
+        {
+          "id": "1c28f37f4cb20a97",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Aleph Alpha launches Kolibri, a sovereign German AI model for government use - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPdHFKay1xU3FEdVV5dGdTZEZHczBlb1hPdjZtTVg5bkZXY0lIMldkOFRqRllRRzBiS0JwaDJmdWt3MW15Nm1mQ3B0MXNPbWMyaGJNdjU5Yi1BR0lIRFhiNXJlYVJORFJDUEwtc3RFeEgxSDJ1VVVZSlZnQ19UUkV5SjQ5M1YxVjBWTXV1eE94SjM1OTVQNjZhR0V2X1dtMGVqREYxTnlB?oc=5",
+          "publishedAt": "2026-10-03T10:37:14Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.28
+        },
+        {
+          "id": "54f6707cc63c0e42",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Your Coding Agent Is 6 Months Out of Date \u2014 Jakub Hojsan, Exa\uff5cAI Engineer - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE9sOWlFTVFSdEoyVDdJSjQ1S2lGallra3Q0NENFTFBVXzlGY0U3RkNsb3JTWW41bFBWdWZ1M0xFQ1hfc2JFQzBaU05kMTFOTWtZQ1VZYlJUSXk4Snc5SDFJ?oc=5",
+          "publishedAt": "2026-10-03T10:15:38Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.27
+        },
+        {
+          "id": "6d8dc52d4dd0d7e6",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PewDiePie Launches Ajax: 9B AI Model, 2 OpenAI Bans [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE81Y2JzNTBKSHZyUVVSalBVTnk4R2dIMS1sQVdpS2l0X3ZQZkRrM3Z1aDFjMFVBZkl4cHlZdWlucWRLT3lyLUJ4VU84RFNyOUt2ejZqUTNBanVKb1BWcHFjYjZBdlJQODV6TWowSk1RREo0bzd1?oc=5",
+          "publishedAt": "2026-10-03T09:47:45Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.25
+        },
+        {
+          "id": "542d610342b81d52",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Turing CEO on Super Intelligence, Open Source, Agents\uff5cSourcery - finance.biggo.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE5iMW5UVU1LWkNtVnJYYUpyWXFwMXdTZHFXeUQ3MGVsV3Y1VTRCdHlVbDNMcUNnWDRCTndUR3NteV9lSVhMVi1wX25vNnhNLXVLYUd5ZHdPMGNSc3NxS3Rn?oc=5",
+          "publishedAt": "2026-10-03T09:47:39Z",
+          "sourceName": "finance.biggo.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.25
+        },
+        {
+          "id": "93301b2c55895549",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Open-source \"BootLoops\" harness supports AI models in performing precise scientific calculations - the-decoder.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOSFJwOGdqNWVTV1hFQWU0Vm81SW5XZy1hMmFyQ0FNdUdDR0pzUm4wQU5FZE5wcWRfSW9uN2N6VUxNTzNMWGNlcUs3M0xocGIzV1lfbmYycmItZWNRT2JyZ0lNNGJTN0RydU9YZG5ONUM3V0k0c09TUjc0T0pIZ0VqMWd0S2JybllOOXFlenZVRDhUbXBVQjBjd0ZrSWZMWmZ2OHB0MVcxZFM4cDVtVG1lS0txdjNfMTNWdV8w?oc=5",
+          "publishedAt": "2026-10-03T09:22:44Z",
+          "sourceName": "the-decoder.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.23
         },
         {
           "id": "0ca7549ba6419c82",
@@ -1012,41 +652,70 @@
           "rawScore": 6.09
         },
         {
-          "id": "5a9d53013cae59b8",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "wuyoscar/AISafetyHot-Hub",
-          "summary": "\u6bcf\u5929\u7684 AI \u5b89\u5168\u7cbe\u9009\u548c\u8bba\u6587\u6e05\u5355\uff08md / bib / json\uff09\uff0c\u9644 Agent \u63a5\u5165\u8bf4\u660e \u00b7 AI Safety HOT",
-          "url": "https://github.com/wuyoscar/AISafetyHot-Hub",
-          "publishedAt": "2026-10-01T11:33:59Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 118,
-            "forks": 1,
-            "ageHours": 73.77,
-            "starsPerHour": 1.6
-          },
+          "id": "2a86decef8ffbf7a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Prime Intellect Launches Prime Inference: Serverless and Reserved Serving for Frontier Open Models - MarkTechPost",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPMEpacVZva3FJNjBvenE2RUdUd1NkRFpubkJQT09oS1RwU2NJbEFoOGZhMmQ1cUYxaUt5SXp6dWdkSVl3TGpmcjNPWHVoS29IdXQ2c0hDMld6dDk2UkpLNmxXTEdqdDdqM0gxYkJQbFVQdDJzcTVlaFJCNVNKRjc2U1pEV1F1c0JvenhrUGhpUEJVd1gyV2FNdG8wY185SE9VSHJjOUZXRWJwbmNyZGxhMzMwdWhzVFZOMndiTlpGLWpqaUtqekhMNmNvak44d284OGlTTNIB1AFBVV95cUxPMEpacVZva3FJNjBvenE2RUdUd1NkRFpubkJQT09oS1RwU2NJbEFoOGZhMmQ1cUYxaUt5SXp6dWdkSVl3TGpmcjNPWHVoS29IdXQ2c0hDMld6dDk2UkpLNmxXTEdqdDdqM0gxYkJQbFVQdDJzcTVlaFJCNVNKRjc2U1pEV1F1c0JvenhrUGhpUEJVd1gyV2FNdG8wY185SE9VSHJjOUZXRWJwbmNyZGxhMzMwdWhzVFZOMndiTlpGLWpqaUtqekhMNmNvak44d284OGlTTA?oc=5",
+          "publishedAt": "2026-10-03T05:37:18Z",
+          "sourceName": "MarkTechPost",
+          "metrics": {},
           "creator": null,
-          "primaryUrls": [
-            "https://github.com/wuyoscar/AISafetyHot-Hub"
-          ],
-          "primaryVerified": true,
+          "primaryUrls": [],
+          "primaryVerified": false,
           "signals": [
-            "github",
-            "open-source",
-            "momentum"
+            "major-news-search"
           ],
-          "rawScore": 5.13
+          "rawScore": 6.08
+        },
+        {
+          "id": "0bdd47e3fb4c0ee9",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Microsoft AI Releases MAI-Transcribe-2-Streaming: #1 Real-Time Speech-to-Text Model on Artificial Analysis - MarkTechPost",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQMHV4eFRVd1pYa1JxZy02T2FZWVYzSXZJR2FQTExRTFduTy11RU9qWklHRjlEa3JFMW5VXzR5Q3lPdld4Mms3N25GUUh0ZFBtYk5jQ1dPWWUyYkUyUENQUzVXTHF3cmJhRWFDZUVrNTJfMGFUOFdLUTBnMWhBNnFEOXpNZXk3SkI1RnJCd1hDZUZ0a1JKdlZ5OUZSTXoxdnFyV3BCandKaEpzLXpmMC05ZmJFeDZueW1iWUdFTlY5emtxZ21ob2hoU0tCT0ZKWmhRTTJ3RzdZemx6WTMzcGc?oc=5",
+          "publishedAt": "2026-10-03T05:09:53Z",
+          "sourceName": "MarkTechPost",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.06
+        },
+        {
+          "id": "5d0c81665c874f65",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Decision AI Models Explained: TypeSafe Jev vs Fastino GLiDE, GLiNER2.5-Decide and Open-Source Competitors - MarkTechPost",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOUnVKVnBDN2kzaERMSFdNTktrdkNxZl9HMjNxcGtTMndWVVBBLTFCNzMwS3NNamRQcjBmZElzQVJjczM5MGgtUDFVLWZnLU9MYmdrWVFkRlp4ejJtay1UMGxoZFVHbTVLOXo2XzU0UnI4am9ZaUFhYXRIdC1aTVNzZUVXQmg1TUotY1lTUklpMUwxX3BuRldXZm9pVGlZNEF2V05tRTVBNDhsUlRNQ2RQVWxlRUpyaTFrSnNVZDFPVlNYdWpULU5UMDdlMWltNWs3UE43S3pLV2NrM0M40gHcAUFVX3lxTE5SdUpWcEM3aTNoRExIV01OS2t2Q3FmX0cyM3Fwa1Myd1ZVUEEtMUI3MzBLc01qZFByMGZkSXNBUmNzMzkwaC1QMVUtZmctT0xiZ2tZUWRGWnh6Mm1rLVQwbGhkVUdtNUs5ejZfNTRScjhqb1lpQWFhdEh0LVpNU3NlRVdCaDVNSi1jWVNSSWkxTDFfcG5GV1dmb2lUaVk0QXZXTm1FNUE0OGxSVE1DZFBVbGVFSnJpMWtKc1VkMU9WU1h1alQtTlQwN2UxaW01azdQTjdLektXY2szQzg?oc=5",
+          "publishedAt": "2026-10-03T03:31:15Z",
+          "sourceName": "MarkTechPost",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.99
         }
       ]
     },
     {
-      "clusterId": "36dfe736c7fbfe16",
-      "title": "Huawei's openJiuwen Open-Sources X-Router to Pick the Right Model for Each Agent Request - pandaily.com",
-      "score": 8.52,
+      "clusterId": "f2029a2f8125da24",
+      "title": "Cloudflare Adds Email-Protected Preview Links for Coding Agents - Kingy AI",
+      "score": 8.35,
       "qualifiesForEditorial": true,
-      "publishReady": true,
-      "needsPrimaryVerification": false,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging",
@@ -1055,27 +724,25 @@
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "GitHub",
-        "pandaily.com"
+        "Hacker News",
+        "Kingy AI",
+        "remio"
       ],
-      "primaryUrls": [
-        "https://github.com/deepseek-ai/DeepGEMM-Ascend"
-      ],
+      "primaryUrls": [],
       "signals": [
-        "github",
-        "major-news-search",
-        "momentum",
-        "open-source"
+        "developer-discussion",
+        "hacker-news",
+        "major-news-search"
       ],
       "bestCandidate": {
-        "id": "40929796bfdb7115",
+        "id": "84a8947f9908d2dd",
         "lane": "major_news",
         "sourceKind": "news_search",
-        "title": "Huawei's openJiuwen Open-Sources X-Router to Pick the Right Model for Each Agent Request - pandaily.com",
+        "title": "Cloudflare Adds Email-Protected Preview Links for Coding Agents - Kingy AI",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVnVuN3pQaGlnWEtJbTY3OHhlZ2x0dlZudVRIb212N1NqNlh2cDN0c2FmX0ZVS0dURF9sWGNUSUFQSWExSWV0WEo4eThQWmxOQ2UtQkhfY2dRamxtWExEcFozT2FIWHgwMXRWLTBWblU1RmpWam0wNGdzWDkxTWM0elpzOV9qTHpE?oc=5",
-        "publishedAt": "2026-10-04T07:07:24Z",
-        "sourceName": "pandaily.com",
+        "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBFbHVKazNXZUhxZHdjMW15dmNwcGplTUxBRzh4OU0zLUEtVG5pSmh4RTJNT2U1clNwQnBQU2c2NGFJSG1TQmFMcFVHVF8yYnl0RHViYmpBX3pYcGs0RXFZQWxmVlVERmpITG5pSS1LeVZSOVV0ZkpBLQ?oc=5",
+        "publishedAt": "2026-10-04T01:12:21Z",
+        "sourceName": "Kingy AI",
         "metrics": {},
         "creator": null,
         "primaryUrls": [],
@@ -1083,18 +750,18 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 7.14
+        "rawScore": 6.89
       },
       "evidence": [
         {
-          "id": "40929796bfdb7115",
+          "id": "84a8947f9908d2dd",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Huawei's openJiuwen Open-Sources X-Router to Pick the Right Model for Each Agent Request - pandaily.com",
+          "title": "Cloudflare Adds Email-Protected Preview Links for Coding Agents - Kingy AI",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQVnVuN3pQaGlnWEtJbTY3OHhlZ2x0dlZudVRIb212N1NqNlh2cDN0c2FmX0ZVS0dURF9sWGNUSUFQSWExSWV0WEo4eThQWmxOQ2UtQkhfY2dRamxtWExEcFozT2FIWHgwMXRWLTBWblU1RmpWam0wNGdzWDkxTWM0elpzOV9qTHpE?oc=5",
-          "publishedAt": "2026-10-04T07:07:24Z",
-          "sourceName": "pandaily.com",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBFbHVKazNXZUhxZHdjMW15dmNwcGplTUxBRzh4OU0zLUEtVG5pSmh4RTJNT2U1clNwQnBQU2c2NGFJSG1TQmFMcFVHVF8yYnl0RHViYmpBX3pYcGs0RXFZQWxmVlVERmpITG5pSS1LeVZSOVV0ZkpBLQ?oc=5",
+          "publishedAt": "2026-10-04T01:12:21Z",
+          "sourceName": "Kingy AI",
           "metrics": {},
           "creator": null,
           "primaryUrls": [],
@@ -1102,44 +769,59 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 7.14
+          "rawScore": 6.89
         },
         {
-          "id": "b87b41b190ecdf81",
+          "id": "897e963681aac464",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Cloudflare Is Introducing Web Search API via AI Gateway, Turning Search Into Infrastructure - remio",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxOOFl3VXdQaWphUk80WDFGdFUweVExcnFxb3pucWV5bmVYbGJyRHczOGlxRDg0Tm84Nkt4WjdUS253SzQtdzcwRkstS1V4cWYwYWJaMExUUUNOMXl1ajV3ajllZnIzMDRucjhxalpKLXFtdXd6UVd3Mnl6OGptVldmTENnckFsWV9GaFVQelBtaGRkOUVWQjdpYnE5NDRlRjBONUpBeFdWRnZsZw?oc=5",
+          "publishedAt": "2026-10-03T04:48:41Z",
+          "sourceName": "remio",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.04
+        },
+        {
+          "id": "2760d15fe0dc5996",
           "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "deepseek-ai/DeepGEMM-Ascend",
-          "summary": "DeepGEMM-Ascend: clean and efficient matrix multiplication kernel library for Huawei Ascend NPUs",
-          "url": "https://github.com/deepseek-ai/DeepGEMM-Ascend",
-          "publishedAt": "2026-09-29T15:49:55Z",
-          "sourceName": "GitHub",
+          "sourceKind": "hacker_news",
+          "title": "Show HN: Offrun \u2013 manage every coding agent from one workspace",
+          "summary": "",
+          "url": "https://offrun.dev/",
+          "publishedAt": "2026-10-03T08:40:17Z",
+          "sourceName": "Hacker News",
           "metrics": {
-            "stars": 498,
-            "forks": 37,
-            "ageHours": 117.5,
-            "starsPerHour": 4.24
+            "points": 75,
+            "comments": 63
           },
           "creator": null,
-          "primaryUrls": [
-            "https://github.com/deepseek-ai/DeepGEMM-Ascend"
-          ],
-          "primaryVerified": true,
+          "primaryUrls": [],
+          "primaryVerified": false,
           "signals": [
-            "github",
-            "open-source",
-            "momentum"
+            "hacker-news",
+            "developer-discussion"
           ],
-          "rawScore": 5.87
+          "rawScore": 5.81
         }
       ]
     },
     {
-      "clusterId": "c0b2e659b1feb9b4",
-      "title": "Aleph-Alpha/Kolibri-1",
-      "score": 8.4,
+      "clusterId": "9bbb3941a89bc850",
+      "title": "FTL: A new operating system for clouds",
+      "score": 7.8,
       "qualifiesForEditorial": true,
-      "publishReady": true,
-      "needsPrimaryVerification": false,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1147,28 +829,1035 @@
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "GitHub",
-        "Hugging Face"
+        "Hacker News"
+      ],
+      "primaryUrls": [],
+      "signals": [
+        "developer-discussion",
+        "hacker-news"
+      ],
+      "bestCandidate": {
+        "id": "11f1f06768b0f76c",
+        "lane": "hot_emerging",
+        "sourceKind": "hacker_news",
+        "title": "FTL: A new operating system for clouds",
+        "summary": "",
+        "url": "https://ftl-os.org/",
+        "publishedAt": "2026-10-03T15:02:36Z",
+        "sourceName": "Hacker News",
+        "metrics": {
+          "points": 185,
+          "comments": 73
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "signals": [
+          "hacker-news",
+          "developer-discussion"
+        ],
+        "rawScore": 7.35
+      },
+      "evidence": [
+        {
+          "id": "11f1f06768b0f76c",
+          "lane": "hot_emerging",
+          "sourceKind": "hacker_news",
+          "title": "FTL: A new operating system for clouds",
+          "summary": "",
+          "url": "https://ftl-os.org/",
+          "publishedAt": "2026-10-03T15:02:36Z",
+          "sourceName": "Hacker News",
+          "metrics": {
+            "points": 185,
+            "comments": 73
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "hacker-news",
+            "developer-discussion"
+          ],
+          "rawScore": 7.35
+        }
+      ]
+    },
+    {
+      "clusterId": "cfaa1d1d6550d00f",
+      "title": "Inspatio World 1.5",
+      "score": 7.78,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "creator_radar"
+      ],
+      "creatorCategories": [
+        "ai_news_high_recall",
+        "practical_ai_tools"
+      ],
+      "creators": [
+        "AI Search",
+        "All About AI",
+        "Matt Wolfe"
+      ],
+      "sourceNames": [
+        "AI Search",
+        "All About AI",
+        "Matt Wolfe"
       ],
       "primaryUrls": [
-        "https://github.com/InternLM/Intern-Decision",
-        "https://github.com/Jiarui-0410/real-time-recommendation-analytics",
-        "https://github.com/PostHog/jeeves",
-        "https://github.com/StartLuxLabs/StartLux-Decision",
-        "https://github.com/chrissotraidis/bluewake",
-        "https://github.com/mode-io/vllm-jev",
-        "https://github.com/openJiuwen-ai/iCode",
-        "https://github.com/petershifi123-wq/solve-lite",
-        "https://github.com/rkinas/basal",
-        "https://github.com/strands-labs/strands-decider",
-        "https://huggingface.co/Aleph-Alpha/Kolibri-1"
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+        "https://github.com/Anil-matcha/Open-Dots",
+        "https://github.com/CopilotKit/OpenDots",
+        "https://github.com/IQuestLab/IQuest-Q1",
+        "https://github.com/landreman/analytic_3d_equilibria",
+        "https://github.com/lukasliehr/Grad-Conjecture",
+        "https://huggingface.co/BAAI/AREX-2",
+        "https://openai.com/index/devday-2026-recap/",
+        "https://openai.com/index/introducing-dots/",
+        "https://openai.com/index/introducing-gpt-6-1-sol/",
+        "https://www.anthropic.com/claude-sonnet-5-5"
+      ],
+      "signals": [
+        "ai_news_high_recall",
+        "creator-mention",
+        "creator-radar",
+        "practical_ai_tools"
+      ],
+      "bestCandidate": {
+        "id": "e91970a8611d0738",
+        "lane": "creator_radar",
+        "sourceKind": "creator_video_topic",
+        "title": "Inspatio World 1.5",
+        "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+        "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=50s",
+        "publishedAt": "2026-10-04T03:28:38+00:00",
+        "sourceName": "AI Search",
+        "metrics": {
+          "videoId": "lHmZoRHMZyM",
+          "segmentIndex": 0,
+          "segmentStartSeconds": 50,
+          "discoveryWeight": 1.3
+        },
+        "creator": {
+          "name": "AI Search",
+          "handle": "@theAIsearch",
+          "category": "ai_news_high_recall",
+          "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+        },
+        "primaryUrls": [
+          "https://www.anthropic.com/claude-sonnet-5-5",
+          "https://openai.com/index/introducing-dots/",
+          "https://github.com/Anil-matcha/Open-Dots",
+          "https://github.com/CopilotKit/OpenDots",
+          "https://openai.com/index/introducing-gpt-6-1-sol/",
+          "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+          "https://github.com/lukasliehr/Grad-Conjecture",
+          "https://github.com/landreman/analytic_3d_equilibria",
+          "https://github.com/IQuestLab/IQuest-Q1",
+          "https://huggingface.co/BAAI/AREX-2"
+        ],
+        "primaryVerified": false,
+        "signals": [
+          "creator-radar",
+          "ai_news_high_recall",
+          "creator-mention"
+        ],
+        "rawScore": 6.77
+      },
+      "evidence": [
+        {
+          "id": "e91970a8611d0738",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Inspatio World 1.5",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=50s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 0,
+            "segmentStartSeconds": 50,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "c9e1b1f8ddc14a28",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Sol Refiner",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=120s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 1,
+            "segmentStartSeconds": 120,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "81c4ad420a25fad5",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Whistle",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=196s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 2,
+            "segmentStartSeconds": 196,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "a2d2a521acdb50f5",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Phonon 2",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=293s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 3,
+            "segmentStartSeconds": 293,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "64bd53fb1bfb5105",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Claude Sonnet 5.5",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=340s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 4,
+            "segmentStartSeconds": 340,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "c33a1e529e044b75",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "GPT Dots",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=442s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 5,
+            "segmentStartSeconds": 442,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "c5dfef5ec988254b",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "OpenDots",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=539s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 6,
+            "segmentStartSeconds": 539,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "d1bb8c9422621543",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "GPT 6.1 Sol",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=615s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 7,
+            "segmentStartSeconds": 615,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "cfbedafe6688a0c2",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Luma",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=740s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 8,
+            "segmentStartSeconds": 740,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "93f14ad9aa5a5031",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Comfy Agent",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=829s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 9,
+            "segmentStartSeconds": 829,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "ed97cd78ae2be4f0",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "PixelUMM",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=902s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 10,
+            "segmentStartSeconds": 902,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "75d53fb5737bac23",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Ideogram 4.5",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=978s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 11,
+            "segmentStartSeconds": 978,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "d0a001af3f312460",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Flux 3",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=1054s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 12,
+            "segmentStartSeconds": 1054,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "a7b8c22120d98b1b",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Gemini 4 Argon",
+          "summary": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+          "url": "https://www.youtube.com/watch?v=lHmZoRHMZyM&t=1142s",
+          "publishedAt": "2026-10-04T03:28:38+00:00",
+          "sourceName": "AI Search",
+          "metrics": {
+            "videoId": "lHmZoRHMZyM",
+            "segmentIndex": 13,
+            "segmentStartSeconds": 1142,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "AI Search",
+            "handle": "@theAIsearch",
+            "category": "ai_news_high_recall",
+            "videoTitle": "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS",
+            "videoUrl": "https://www.youtube.com/watch?v=lHmZoRHMZyM"
+          },
+          "primaryUrls": [
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://openai.com/index/introducing-dots/",
+            "https://github.com/Anil-matcha/Open-Dots",
+            "https://github.com/CopilotKit/OpenDots",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+            "https://github.com/lukasliehr/Grad-Conjecture",
+            "https://github.com/landreman/analytic_3d_equilibria",
+            "https://github.com/IQuestLab/IQuest-Q1",
+            "https://huggingface.co/BAAI/AREX-2"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "dc76cf3c47e74e14",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Dots",
+          "summary": "AI News: Dots, GPT-6.1 Sol, Sonnet 5.5, Gemini 4, and everything you need to know",
+          "url": "https://www.youtube.com/watch?v=dDgncbBAA0c&t=27s",
+          "publishedAt": "2026-10-02T15:00:16+00:00",
+          "sourceName": "Matt Wolfe",
+          "metrics": {
+            "videoId": "dDgncbBAA0c",
+            "segmentIndex": 0,
+            "segmentStartSeconds": 27,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "Matt Wolfe",
+            "handle": "@mreflow",
+            "category": "ai_news_high_recall",
+            "videoTitle": "AI News: Dots, GPT-6.1 Sol, Sonnet 5.5, Gemini 4, and everything you need to know",
+            "videoUrl": "https://www.youtube.com/watch?v=dDgncbBAA0c"
+          },
+          "primaryUrls": [
+            "https://openai.com/index/devday-2026-recap/",
+            "https://openai.com/index/introducing-dots/",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 5.55
+        },
+        {
+          "id": "f1a37249fae08e12",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "GPT-6.1 Sol",
+          "summary": "AI News: Dots, GPT-6.1 Sol, Sonnet 5.5, Gemini 4, and everything you need to know",
+          "url": "https://www.youtube.com/watch?v=dDgncbBAA0c&t=451s",
+          "publishedAt": "2026-10-02T15:00:16+00:00",
+          "sourceName": "Matt Wolfe",
+          "metrics": {
+            "videoId": "dDgncbBAA0c",
+            "segmentIndex": 1,
+            "segmentStartSeconds": 451,
+            "discoveryWeight": 1.3
+          },
+          "creator": {
+            "name": "Matt Wolfe",
+            "handle": "@mreflow",
+            "category": "ai_news_high_recall",
+            "videoTitle": "AI News: Dots, GPT-6.1 Sol, Sonnet 5.5, Gemini 4, and everything you need to know",
+            "videoUrl": "https://www.youtube.com/watch?v=dDgncbBAA0c"
+          },
+          "primaryUrls": [
+            "https://openai.com/index/devday-2026-recap/",
+            "https://openai.com/index/introducing-dots/",
+            "https://openai.com/index/introducing-gpt-6-1-sol/",
+            "https://www.anthropic.com/claude-sonnet-5-5",
+            "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+          ],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "ai_news_high_recall",
+            "creator-mention"
+          ],
+          "rawScore": 5.55
+        },
+        {
+          "id": "bbee69cd0a9d643f",
+          "lane": "creator_radar",
+          "sourceKind": "creator_video_topic",
+          "title": "Adding an AI Trading Agent with Opus 5.5",
+          "summary": "Opus 5.5 Is INSANE: Day Trader Tycoon (with real money)",
+          "url": "https://www.youtube.com/watch?v=TD0VZSWmUoQ&t=947s",
+          "publishedAt": "2026-10-02T18:29:47+00:00",
+          "sourceName": "All About AI",
+          "metrics": {
+            "videoId": "TD0VZSWmUoQ",
+            "segmentIndex": 6,
+            "segmentStartSeconds": 947,
+            "discoveryWeight": 1.1
+          },
+          "creator": {
+            "name": "All About AI",
+            "handle": "@AllAboutAI",
+            "category": "practical_ai_tools",
+            "videoTitle": "Opus 5.5 Is INSANE: Day Trader Tycoon (with real money)",
+            "videoUrl": "https://www.youtube.com/watch?v=TD0VZSWmUoQ"
+          },
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "creator-radar",
+            "practical_ai_tools",
+            "creator-mention"
+          ],
+          "rawScore": 5.27
+        }
+      ]
+    },
+    {
+      "clusterId": "d8e19656a356f149",
+      "title": "KKKKhazix/AIHOT",
+      "score": 7.72,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub"
+      ],
+      "primaryUrls": [
+        "https://github.com/KKKKhazix/AIHOT"
       ],
       "signals": [
         "github",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "8353daab2cb68c09",
+        "lane": "hot_emerging",
+        "sourceKind": "github_repo",
+        "title": "KKKKhazix/AIHOT",
+        "summary": "\u4e00\u4e2a\u81ea\u5df1\u627e\u70ed\u70b9\u3001\u81ea\u5df1\u5199\u65e5\u62a5\u7684\u7f51\u7ad9\u6846\u67b6\u3002\u628a\u4fe1\u6e90\u548c\u7cbe\u9009\u6807\u51c6\u6362\u6210\u4f60\u7684\uff0c\u5b83\u5c31\u662f\u4f60\u7684\u884c\u4e1a\u70ed\u70b9\u7ad9\u3002",
+        "url": "https://github.com/KKKKhazix/AIHOT",
+        "publishedAt": "2026-09-28T23:40:05Z",
+        "sourceName": "GitHub",
+        "metrics": {
+          "stars": 5655,
+          "forks": 1464,
+          "ageHours": 133.74,
+          "starsPerHour": 42.28
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/KKKKhazix/AIHOT"
+        ],
+        "primaryVerified": true,
+        "signals": [
+          "github",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 7.17
+      },
+      "evidence": [
+        {
+          "id": "8353daab2cb68c09",
+          "lane": "hot_emerging",
+          "sourceKind": "github_repo",
+          "title": "KKKKhazix/AIHOT",
+          "summary": "\u4e00\u4e2a\u81ea\u5df1\u627e\u70ed\u70b9\u3001\u81ea\u5df1\u5199\u65e5\u62a5\u7684\u7f51\u7ad9\u6846\u67b6\u3002\u628a\u4fe1\u6e90\u548c\u7cbe\u9009\u6807\u51c6\u6362\u6210\u4f60\u7684\uff0c\u5b83\u5c31\u662f\u4f60\u7684\u884c\u4e1a\u70ed\u70b9\u7ad9\u3002",
+          "url": "https://github.com/KKKKhazix/AIHOT",
+          "publishedAt": "2026-09-28T23:40:05Z",
+          "sourceName": "GitHub",
+          "metrics": {
+            "stars": 5655,
+            "forks": 1464,
+            "ageHours": 133.74,
+            "starsPerHour": 42.28
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/KKKKhazix/AIHOT"
+          ],
+          "primaryVerified": true,
+          "signals": [
+            "github",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 7.17
+        }
+      ]
+    },
+    {
+      "clusterId": "09781c40c4e36436",
+      "title": "Niko1221/Strata",
+      "score": 7.7,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub"
+      ],
+      "primaryUrls": [
+        "https://github.com/Niko1221/Strata"
+      ],
+      "signals": [
+        "github",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "d5d79de727aaeb33",
+        "lane": "hot_emerging",
+        "sourceKind": "github_repo",
+        "title": "Niko1221/Strata",
+        "summary": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
+        "url": "https://github.com/Niko1221/Strata",
+        "publishedAt": "2026-09-24T16:40:20Z",
+        "sourceName": "GitHub",
+        "metrics": {
+          "stars": 9342,
+          "forks": 845,
+          "ageHours": 236.73,
+          "starsPerHour": 39.46
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/Niko1221/Strata"
+        ],
+        "primaryVerified": true,
+        "signals": [
+          "github",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 7.15
+      },
+      "evidence": [
+        {
+          "id": "d5d79de727aaeb33",
+          "lane": "hot_emerging",
+          "sourceKind": "github_repo",
+          "title": "Niko1221/Strata",
+          "summary": "Qwen3.8-Flash-Next on any consumer hardware: one-click install for Windows / Linux. Strata inference engine, OpenAI/Anthropic API on localhost, optional image input.",
+          "url": "https://github.com/Niko1221/Strata",
+          "publishedAt": "2026-09-24T16:40:20Z",
+          "sourceName": "GitHub",
+          "metrics": {
+            "stars": 9342,
+            "forks": 845,
+            "ageHours": 236.73,
+            "starsPerHour": 39.46
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/Niko1221/Strata"
+          ],
+          "primaryVerified": true,
+          "signals": [
+            "github",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 7.15
+        }
+      ]
+    },
+    {
+      "clusterId": "706b2a8a026808e7",
+      "title": "Aleph-Alpha/Kolibri-1",
+      "score": 7.67,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Hugging Face"
+      ],
+      "primaryUrls": [
+        "https://huggingface.co/Aleph-Alpha/Kolibri-1"
+      ],
+      "signals": [
         "hugging-face",
         "momentum",
-        "open-model",
-        "open-source"
+        "open-model"
       ],
       "bestCandidate": {
         "id": "844f087c0347ea2f",
@@ -1222,475 +1911,18 @@
             "momentum"
           ],
           "rawScore": 7.27
-        },
-        {
-          "id": "0a5c0993036dabaa",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "PostHog/jeeves",
-          "summary": "Jeeves \u2013 Reasoning improves Jev-like decision models",
-          "url": "https://github.com/PostHog/jeeves",
-          "publishedAt": "2026-09-29T09:56:47Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 404,
-            "forks": 20,
-            "ageHours": 123.39,
-            "starsPerHour": 3.27
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/PostHog/jeeves"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.72
-        },
-        {
-          "id": "5dacbac9203f8262",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "InternLM/Intern-Decision",
-          "summary": "Fast multi-modal decision model",
-          "url": "https://github.com/InternLM/Intern-Decision",
-          "publishedAt": "2026-09-24T23:37:44Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 518,
-            "forks": 24,
-            "ageHours": 229.7,
-            "starsPerHour": 2.26
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/InternLM/Intern-Decision"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.7
-        },
-        {
-          "id": "549a7851b882aa73",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "strands-labs/strands-decider",
-          "summary": "A small, fast decision model, or system one model, for agentic workflows. Pick between options or rate on a scale faster than an LLM, with a calibrated confidence on every decision.",
-          "url": "https://github.com/strands-labs/strands-decider",
-          "publishedAt": "2026-09-29T16:36:38Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 318,
-            "forks": 48,
-            "ageHours": 116.72,
-            "starsPerHour": 2.72
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/strands-labs/strands-decider"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.59
-        },
-        {
-          "id": "538313fba994fadb",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "openJiuwen-ai/iCode",
-          "summary": "A lightweight, extensible, fully offline development platform and agent/workflow toolkit for the AI era, with an intuitive TUI, easy deployment, and complete control over your data, agents, and workflows.",
-          "url": "https://github.com/openJiuwen-ai/iCode",
-          "publishedAt": "2026-09-28T03:35:08Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 299,
-            "forks": 50,
-            "ageHours": 153.75,
-            "starsPerHour": 1.94
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/openJiuwen-ai/iCode"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.48
-        },
-        {
-          "id": "e60b037c348d29ad",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "mode-io/vllm-jev",
-          "summary": "Native vLLM serving for Jev decision models",
-          "url": "https://github.com/mode-io/vllm-jev",
-          "publishedAt": "2026-09-24T16:11:48Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 254,
-            "forks": 8,
-            "ageHours": 237.14,
-            "starsPerHour": 1.07
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/mode-io/vllm-jev"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.29
-        },
-        {
-          "id": "81f1078445ac2ebb",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "StartLuxLabs/StartLux-Decision",
-          "summary": "Typed decision models from 0.8B to 35B-A3B, over text and images with a 256K-token context. Every question comes back with a probability for each option.",
-          "url": "https://github.com/StartLuxLabs/StartLux-Decision",
-          "publishedAt": "2026-09-29T11:53:37Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 177,
-            "forks": 16,
-            "ageHours": 121.44,
-            "starsPerHour": 1.46
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/StartLuxLabs/StartLux-Decision"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.24
-        },
-        {
-          "id": "97deaca5c7079d44",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "petershifi123-wq/solve-lite",
-          "summary": "CoreML-native local decision runtime for AI agents \u00b7 18 install profiles \u00b7 20-scenario protocol \u00b7 offline \u00b7 ~50.93 MB \u00b7 by Soulite Magic",
-          "url": "https://github.com/petershifi123-wq/solve-lite",
-          "publishedAt": "2026-09-25T03:51:33Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 147,
-            "forks": 0,
-            "ageHours": 225.47,
-            "starsPerHour": 0.65
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/petershifi123-wq/solve-lite"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.02
-        },
-        {
-          "id": "666de7cc24733a15",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "chrissotraidis/bluewake",
-          "summary": "The Legend of Zelda: The Wind Waker Recompiled. Native for iOS and Windows.",
-          "url": "https://github.com/chrissotraidis/bluewake",
-          "publishedAt": "2026-09-28T10:30:33Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 122,
-            "forks": 11,
-            "ageHours": 146.82,
-            "starsPerHour": 0.83
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/chrissotraidis/bluewake"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.0
-        },
-        {
-          "id": "702b175c77242daf",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "Jiarui-0410/real-time-recommendation-analytics",
-          "summary": "End-to-end retail analytics and recommendation platform using PySpark, Kafka, PostgreSQL, Power BI, PyTorch Two-Tower, Qdrant, FastAPI, Docker and Azure.",
-          "url": "https://github.com/Jiarui-0410/real-time-recommendation-analytics",
-          "publishedAt": "2026-09-28T17:10:08Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 109,
-            "forks": 1,
-            "ageHours": 140.16,
-            "starsPerHour": 0.78
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/Jiarui-0410/real-time-recommendation-analytics"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 4.96
-        },
-        {
-          "id": "6eacbbc4ab7f4f42",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "rkinas/basal",
-          "summary": "Inference engine for basal-1.0: fast, calibrated typed-decision models for Polish",
-          "url": "https://github.com/rkinas/basal",
-          "publishedAt": "2026-09-26T20:13:27Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 102,
-            "forks": 10,
-            "ageHours": 185.11,
-            "starsPerHour": 0.55
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/rkinas/basal"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 4.88
         }
       ]
     },
     {
-      "clusterId": "9bbb3941a89bc850",
-      "title": "FTL: A new operating system for clouds",
-      "score": 7.81,
+      "clusterId": "48a1541bd015fa1b",
+      "title": "rehan-remade/universal-modder",
+      "score": 7.55,
       "qualifiesForEditorial": true,
       "publishReady": false,
-      "needsPrimaryVerification": true,
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "Hacker News"
-      ],
-      "primaryUrls": [],
-      "signals": [
-        "developer-discussion",
-        "hacker-news"
-      ],
-      "bestCandidate": {
-        "id": "11f1f06768b0f76c",
-        "lane": "hot_emerging",
-        "sourceKind": "hacker_news",
-        "title": "FTL: A new operating system for clouds",
-        "summary": "",
-        "url": "https://ftl-os.org/",
-        "publishedAt": "2026-10-03T15:02:36Z",
-        "sourceName": "Hacker News",
-        "metrics": {
-          "points": 185,
-          "comments": 73
-        },
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "signals": [
-          "hacker-news",
-          "developer-discussion"
-        ],
-        "rawScore": 7.36
-      },
-      "evidence": [
-        {
-          "id": "11f1f06768b0f76c",
-          "lane": "hot_emerging",
-          "sourceKind": "hacker_news",
-          "title": "FTL: A new operating system for clouds",
-          "summary": "",
-          "url": "https://ftl-os.org/",
-          "publishedAt": "2026-10-03T15:02:36Z",
-          "sourceName": "Hacker News",
-          "metrics": {
-            "points": 185,
-            "comments": 73
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "hacker-news",
-            "developer-discussion"
-          ],
-          "rawScore": 7.36
-        }
-      ]
-    },
-    {
-      "clusterId": "c77c271c16396f68",
-      "title": "PewDiePie created an \u201cuncensored AI model\u201d that can be run locally on a home PC. OpenAI blocked it twice during development - dev.ua",
-      "score": 7.76,
-      "qualifiesForEditorial": true,
-      "publishReady": true,
+      "primarySourceAvailable": true,
       "needsPrimaryVerification": false,
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging",
-        "major_news"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub",
-        "dev.ua"
-      ],
-      "primaryUrls": [
-        "https://github.com/JoasASantos/Offensive-Security-AI-Models",
-        "https://github.com/amywork777/lipflow"
-      ],
-      "signals": [
-        "github",
-        "major-news-search",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "d6306e4f9ccc57a5",
-        "lane": "major_news",
-        "sourceKind": "news_search",
-        "title": "PewDiePie created an \u201cuncensored AI model\u201d that can be run locally on a home PC. OpenAI blocked it twice during development - dev.ua",
-        "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9FQVEtLTB6LWwzeXRHUTkxUUdDT1U0bnVLWTJnWTFnNWVweE85b0E0SXVkUkIxRGdhQ1kzUVNsczkwWDJROVJpZ2x6TlVPcFF3RHAxRnVWYVVWcE1SdW1uMzJnYzJRaXpv?oc=5",
-        "publishedAt": "2026-10-03T12:52:00Z",
-        "sourceName": "dev.ua",
-        "metrics": {},
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "signals": [
-          "major-news-search"
-        ],
-        "rawScore": 6.38
-      },
-      "evidence": [
-        {
-          "id": "d6306e4f9ccc57a5",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "PewDiePie created an \u201cuncensored AI model\u201d that can be run locally on a home PC. OpenAI blocked it twice during development - dev.ua",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE9FQVEtLTB6LWwzeXRHUTkxUUdDT1U0bnVLWTJnWTFnNWVweE85b0E0SXVkUkIxRGdhQ1kzUVNsczkwWDJROVJpZ2x6TlVPcFF3RHAxRnVWYVVWcE1SdW1uMzJnYzJRaXpv?oc=5",
-          "publishedAt": "2026-10-03T12:52:00Z",
-          "sourceName": "dev.ua",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.38
-        },
-        {
-          "id": "90a9d2f9a32e9f94",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "JoasASantos/Offensive-Security-AI-Models",
-          "summary": "Uncensored AI models or those fine-tuned for cybersecurity tasks.",
-          "url": "https://github.com/JoasASantos/Offensive-Security-AI-Models",
-          "publishedAt": "2026-09-27T20:36:30Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 571,
-            "forks": 62,
-            "ageHours": 160.72,
-            "starsPerHour": 3.55
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/JoasASantos/Offensive-Security-AI-Models"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.86
-        },
-        {
-          "id": "0b7cb6aa86ec0226",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "amywork777/lipflow",
-          "summary": "Wispr Flow for your lips: hold a key, silently mouth words, and they're typed at your cursor. Runs locally on your Mac.",
-          "url": "https://github.com/amywork777/lipflow",
-          "publishedAt": "2026-09-29T20:05:06Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 469,
-            "forks": 56,
-            "ageHours": 113.25,
-            "starsPerHour": 4.14
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/amywork777/lipflow"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.84
-        }
-      ]
-    },
-    {
-      "clusterId": "d8e19656a356f149",
-      "title": "KKKKhazix/AIHOT",
-      "score": 7.72,
-      "qualifiesForEditorial": true,
-      "publishReady": true,
-      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1701,7 +1933,7 @@
         "GitHub"
       ],
       "primaryUrls": [
-        "https://github.com/KKKKhazix/AIHOT"
+        "https://github.com/rehan-remade/universal-modder"
       ],
       "signals": [
         "github",
@@ -1709,23 +1941,23 @@
         "open-source"
       ],
       "bestCandidate": {
-        "id": "8353daab2cb68c09",
+        "id": "7207fdcf6ec45003",
         "lane": "hot_emerging",
         "sourceKind": "github_repo",
-        "title": "KKKKhazix/AIHOT",
-        "summary": "\u4e00\u4e2a\u81ea\u5df1\u627e\u70ed\u70b9\u3001\u81ea\u5df1\u5199\u65e5\u62a5\u7684\u7f51\u7ad9\u6846\u67b6\u3002\u628a\u4fe1\u6e90\u548c\u7cbe\u9009\u6807\u51c6\u6362\u6210\u4f60\u7684\uff0c\u5b83\u5c31\u662f\u4f60\u7684\u884c\u4e1a\u70ed\u70b9\u7ad9\u3002",
-        "url": "https://github.com/KKKKhazix/AIHOT",
-        "publishedAt": "2026-09-28T23:40:05Z",
+        "title": "rehan-remade/universal-modder",
+        "summary": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
+        "url": "https://github.com/rehan-remade/universal-modder",
+        "publishedAt": "2026-09-30T05:00:35Z",
         "sourceName": "GitHub",
         "metrics": {
-          "stars": 5654,
-          "forks": 1464,
-          "ageHours": 133.66,
-          "starsPerHour": 42.3
+          "stars": 2833,
+          "forks": 246,
+          "ageHours": 104.4,
+          "starsPerHour": 27.14
         },
         "creator": null,
         "primaryUrls": [
-          "https://github.com/KKKKhazix/AIHOT"
+          "https://github.com/rehan-remade/universal-modder"
         ],
         "primaryVerified": true,
         "signals": [
@@ -1733,27 +1965,27 @@
           "open-source",
           "momentum"
         ],
-        "rawScore": 7.17
+        "rawScore": 7.0
       },
       "evidence": [
         {
-          "id": "8353daab2cb68c09",
+          "id": "7207fdcf6ec45003",
           "lane": "hot_emerging",
           "sourceKind": "github_repo",
-          "title": "KKKKhazix/AIHOT",
-          "summary": "\u4e00\u4e2a\u81ea\u5df1\u627e\u70ed\u70b9\u3001\u81ea\u5df1\u5199\u65e5\u62a5\u7684\u7f51\u7ad9\u6846\u67b6\u3002\u628a\u4fe1\u6e90\u548c\u7cbe\u9009\u6807\u51c6\u6362\u6210\u4f60\u7684\uff0c\u5b83\u5c31\u662f\u4f60\u7684\u884c\u4e1a\u70ed\u70b9\u7ad9\u3002",
-          "url": "https://github.com/KKKKhazix/AIHOT",
-          "publishedAt": "2026-09-28T23:40:05Z",
+          "title": "rehan-remade/universal-modder",
+          "summary": "Point Claude at any game. Skills, tools and the fal MCP that let Claude Code mod almost any PC game you own: recon, reverse engineering, fal-generated art/3D/audio, in-game testing, showcase videos.",
+          "url": "https://github.com/rehan-remade/universal-modder",
+          "publishedAt": "2026-09-30T05:00:35Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 5654,
-            "forks": 1464,
-            "ageHours": 133.66,
-            "starsPerHour": 42.3
+            "stars": 2833,
+            "forks": 246,
+            "ageHours": 104.4,
+            "starsPerHour": 27.14
           },
           "creator": null,
           "primaryUrls": [
-            "https://github.com/KKKKhazix/AIHOT"
+            "https://github.com/rehan-remade/universal-modder"
           ],
           "primaryVerified": true,
           "signals": [
@@ -1761,128 +1993,19 @@
             "open-source",
             "momentum"
           ],
-          "rawScore": 7.17
+          "rawScore": 7.0
         }
       ]
     },
     {
-      "clusterId": "a3741c037b06fa90",
-      "title": "Teacher pleads guilty in $51M Medicare fraud scheme; CMS to ask states to revalidate \u201chigh-risk\u201d Medicaid providers; AI model predicts cancer survival from single-cell tumor model \u2013 Morning Medical Update - Medical Economics",
-      "score": 7.66,
-      "qualifiesForEditorial": true,
-      "publishReady": true,
-      "needsPrimaryVerification": false,
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging",
-        "major_news"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub",
-        "Medical Economics"
-      ],
-      "primaryUrls": [
-        "https://github.com/Badtheorylabs/interference-search"
-      ],
-      "signals": [
-        "github",
-        "major-news-search",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "0b02b83f96b0542a",
-        "lane": "major_news",
-        "sourceKind": "news_search",
-        "title": "Teacher pleads guilty in $51M Medicare fraud scheme; CMS to ask states to revalidate \u201chigh-risk\u201d Medicaid providers; AI model predicts cancer survival from single-cell tumor model \u2013 Morning Medical Update - Medical Economics",
-        "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxPaElaYk42ZmRfd2YtcEk1c1laYnlMcTJ3QV81SVc0SVZfd19uQm96Njd3SEh2TjhCTW5MM2l2RmxvaFZlc1lpLUtrclBMbEdWbzlzV3BDdU1YcmJDVVR4cDNXdl9CbkdmcnlnLUQ4MHdHb1R4eFloR3JsM1R6R0kycndERGxoQWxPODZuNFZwS3VTbDBYNXd6eF9xX2pVOVFVYXgzdGJWOGxWcVhCX1AtdWVjWkxUVmxIY3JnNXJHTDNlc3BvWllJTVFSdVZzODdRbF9sbVVUTGNpd3ZaVDgyazdKMGpkNU9pLW9zb09GSmxrZmp4UDVCNE9peHh6OFc5d1JQbExCVEl2ellRY3pGYklQOUtKWnFWamFTcnNNQmU5QkppQjJUV0ZMdkdGM0laYWg2dEdkaWFqLTFlY3JST2c3ZGNuYy1CYUdLZk12WktBcXFKZXc?oc=5",
-        "publishedAt": "2026-10-03T10:24:33Z",
-        "sourceName": "Medical Economics",
-        "metrics": {},
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "signals": [
-          "major-news-search"
-        ],
-        "rawScore": 6.28
-      },
-      "evidence": [
-        {
-          "id": "0b02b83f96b0542a",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Teacher pleads guilty in $51M Medicare fraud scheme; CMS to ask states to revalidate \u201chigh-risk\u201d Medicaid providers; AI model predicts cancer survival from single-cell tumor model \u2013 Morning Medical Update - Medical Economics",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi1gJBVV95cUxPaElaYk42ZmRfd2YtcEk1c1laYnlMcTJ3QV81SVc0SVZfd19uQm96Njd3SEh2TjhCTW5MM2l2RmxvaFZlc1lpLUtrclBMbEdWbzlzV3BDdU1YcmJDVVR4cDNXdl9CbkdmcnlnLUQ4MHdHb1R4eFloR3JsM1R6R0kycndERGxoQWxPODZuNFZwS3VTbDBYNXd6eF9xX2pVOVFVYXgzdGJWOGxWcVhCX1AtdWVjWkxUVmxIY3JnNXJHTDNlc3BvWllJTVFSdVZzODdRbF9sbVVUTGNpd3ZaVDgyazdKMGpkNU9pLW9zb09GSmxrZmp4UDVCNE9peHh6OFc5d1JQbExCVEl2ellRY3pGYklQOUtKWnFWamFTcnNNQmU5QkppQjJUV0ZMdkdGM0laYWg2dEdkaWFqLTFlY3JST2c3ZGNuYy1CYUdLZk12WktBcXFKZXc?oc=5",
-          "publishedAt": "2026-10-03T10:24:33Z",
-          "sourceName": "Medical Economics",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.28
-        },
-        {
-          "id": "9d3c702a8bc2b741",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Pharma executives sentenced in $92M black-market HIV drug scheme; Trump reveals Rep. Neal Dunn\u2019s serious heart diagnosis; AI model improves accuracy of cardiac ultrasound diagnoses \u2013 Morning Medical Update - Medical Economics",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi2AJBVV95cUxNMjhieTg0enZ5UjMzSk9WSURkcTdnZ3ZhY2c1NElFMTZEY29DUWQxMVpWUkhfY0Jlay1tS0d2UlNMc0w4VFkzamtjX01Jb1hXRDVqaWw2aVBfQjhxazdsNFNyRlJZRGEwa0lfc0d6TzBjRDBkeFB2N2h5QzU4XzBiSkJFenpFYWR2OWFrVmNVUWJ3TVJidFVBa1lVMlBYNGNYRVJKRHE5TW5ib2pyM0lqODBlSjZkbVVCaE1ZcW9VcE5tZ01LLWg5NUdrNE5iT1pmbVgxMi1fTjI2LVlFamxMcFFWZlVSYy0xSGY0QncxMGMzdU4xV3A3ak5NeXAzX1A2bXc1UEgxUW5zNjFzVDNHTHdzNy1qN0x6ell6T2hPb0RXbzhEXzktVGhGZDhBWkZBRDcyUHI0NjE3RE44Q1VRYmhFWGlCdkNHVnJYNnZ0SXRCNHFWSjEteg?oc=5",
-          "publishedAt": "2026-10-03T02:44:28Z",
-          "sourceName": "Medical Economics",
-          "metrics": {},
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.96
-        },
-        {
-          "id": "0176e8a0545688bd",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "Badtheorylabs/interference-search",
-          "summary": "Reason over explicit states, many branches at once: merge duplicates, cancel dead ends, advance together.",
-          "url": "https://github.com/Badtheorylabs/interference-search",
-          "publishedAt": "2026-09-25T15:25:38Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 177,
-            "forks": 11,
-            "ageHours": 213.91,
-            "starsPerHour": 0.83
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/Badtheorylabs/interference-search"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.12
-        }
-      ]
-    },
-    {
-      "clusterId": "eef9153c8102215a",
+      "clusterId": "53ec676498038cfa",
       "title": "CopilotKit/OpenDots",
       "score": 7.53,
       "qualifiesForEditorial": true,
-      "publishReady": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
       "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1893,9 +2016,7 @@
         "GitHub"
       ],
       "primaryUrls": [
-        "https://github.com/CopilotKit/OpenDots",
-        "https://github.com/OpSafari/hypoarena",
-        "https://github.com/firelex/jeff"
+        "https://github.com/CopilotKit/OpenDots"
       ],
       "signals": [
         "github",
@@ -1912,9 +2033,9 @@
         "publishedAt": "2026-09-29T17:13:58Z",
         "sourceName": "GitHub",
         "metrics": {
-          "stars": 2948,
+          "stars": 2950,
           "forks": 378,
-          "ageHours": 116.1,
+          "ageHours": 116.17,
           "starsPerHour": 25.39
         },
         "creator": null,
@@ -1940,9 +2061,9 @@
           "publishedAt": "2026-09-29T17:13:58Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 2948,
+            "stars": 2950,
             "forks": 378,
-            "ageHours": 116.1,
+            "ageHours": 116.17,
             "starsPerHour": 25.39
           },
           "creator": null,
@@ -1956,60 +2077,6 @@
             "momentum"
           ],
           "rawScore": 6.98
-        },
-        {
-          "id": "5ab1102e89ea3c4f",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "firelex/jeff",
-          "summary": "Millisecond decisions, any domain: a 0.8B open \"System 1\" model that picks between your options with calibrated probabilities. One base, swappable LoRA adapters, on your own hardware.",
-          "url": "https://github.com/firelex/jeff",
-          "publishedAt": "2026-09-28T16:18:39Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 1359,
-            "forks": 64,
-            "ageHours": 141.02,
-            "starsPerHour": 9.64
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/firelex/jeff"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 6.47
-        },
-        {
-          "id": "3ebd6b92f5df6eae",
-          "lane": "hot_emerging",
-          "sourceKind": "github_repo",
-          "title": "OpSafari/hypoarena",
-          "summary": "Scientific hypothesis-discovery workbench: grounded hypothesis-evidence graphs, synthetic literature with planted causal chains, generate-debate-evolve loops over pluggable offline adapters, Elo tournaments recovering planted skill order, paraphrase dedup, Bayesian evidence accumulation, reproducible reports. NumPy core, CPU-only torch extra.",
-          "url": "https://github.com/OpSafari/hypoarena",
-          "publishedAt": "2026-09-30T03:35:45Z",
-          "sourceName": "GitHub",
-          "metrics": {
-            "stars": 560,
-            "forks": 29,
-            "ageHours": 105.74,
-            "starsPerHour": 5.3
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/OpSafari/hypoarena"
-          ],
-          "primaryVerified": true,
-          "signals": [
-            "github",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 5.98
         }
       ]
     },
@@ -2019,7 +2086,9 @@
       "score": 7.51,
       "qualifiesForEditorial": true,
       "publishReady": false,
+      "primarySourceAvailable": false,
       "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "major_news"
@@ -2106,17 +2175,19 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 7.14
+          "rawScore": 7.13
         }
       ]
     },
     {
-      "clusterId": "8aff8906e9626c44",
+      "clusterId": "078ec4ac94cc5117",
       "title": "feder-cr/dots",
       "score": 7.5,
       "qualifiesForEditorial": true,
-      "publishReady": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
       "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2127,7 +2198,6 @@
         "GitHub"
       ],
       "primaryUrls": [
-        "https://github.com/SecFathy/xss-specialist",
         "https://github.com/feder-cr/dots"
       ],
       "signals": [
@@ -2147,8 +2217,8 @@
         "metrics": {
           "stars": 2590,
           "forks": 437,
-          "ageHours": 110.23,
-          "starsPerHour": 23.5
+          "ageHours": 110.31,
+          "starsPerHour": 23.48
         },
         "creator": null,
         "primaryUrls": [
@@ -2175,8 +2245,8 @@
           "metrics": {
             "stars": 2590,
             "forks": 437,
-            "ageHours": 110.23,
-            "starsPerHour": 23.5
+            "ageHours": 110.31,
+            "starsPerHour": 23.48
           },
           "creator": null,
           "primaryUrls": [
@@ -2189,25 +2259,81 @@
             "momentum"
           ],
           "rawScore": 6.95
+        }
+      ]
+    },
+    {
+      "clusterId": "71666df2e1c0c383",
+      "title": "Louis-CFM/coucou",
+      "score": 7.46,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub"
+      ],
+      "primaryUrls": [
+        "https://github.com/Louis-CFM/coucou"
+      ],
+      "signals": [
+        "github",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "9fe506734c94df85",
+        "lane": "hot_emerging",
+        "sourceKind": "github_repo",
+        "title": "Louis-CFM/coucou",
+        "summary": "A tiny friend that lives in your notch (macOS) or at the top of your screen (Windows, Linux) and keeps an eye on your coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more.",
+        "url": "https://github.com/Louis-CFM/coucou",
+        "publishedAt": "2026-09-27T21:54:12Z",
+        "sourceName": "GitHub",
+        "metrics": {
+          "stars": 3331,
+          "forks": 519,
+          "ageHours": 159.5,
+          "starsPerHour": 20.88
         },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/Louis-CFM/coucou"
+        ],
+        "primaryVerified": true,
+        "signals": [
+          "github",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 6.91
+      },
+      "evidence": [
         {
-          "id": "9aaa4686fade69d7",
+          "id": "9fe506734c94df85",
           "lane": "hot_emerging",
           "sourceKind": "github_repo",
-          "title": "SecFathy/xss-specialist",
-          "summary": "KEV-gated continual-learning XSS specialist with execution-authoritative browser verification",
-          "url": "https://github.com/SecFathy/xss-specialist",
-          "publishedAt": "2026-09-27T19:11:33Z",
+          "title": "Louis-CFM/coucou",
+          "summary": "A tiny friend that lives in your notch (macOS) or at the top of your screen (Windows, Linux) and keeps an eye on your coding agents: Claude Code, Codex, Cursor, Gemini CLI, Antigravity and more.",
+          "url": "https://github.com/Louis-CFM/coucou",
+          "publishedAt": "2026-09-27T21:54:12Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 155,
-            "forks": 10,
-            "ageHours": 162.14,
-            "starsPerHour": 0.96
+            "stars": 3331,
+            "forks": 519,
+            "ageHours": 159.5,
+            "starsPerHour": 20.88
           },
           "creator": null,
           "primaryUrls": [
-            "https://github.com/SecFathy/xss-specialist"
+            "https://github.com/Louis-CFM/coucou"
           ],
           "primaryVerified": true,
           "signals": [
@@ -2215,17 +2341,19 @@
             "open-source",
             "momentum"
           ],
-          "rawScore": 5.11
+          "rawScore": 6.91
         }
       ]
     },
     {
-      "clusterId": "632d9be21a9d8dfe",
-      "title": "GOOGL Stock Rises After Gemini 4 Argon Launch, But JPMorgan Says Google Must Reclaim AI Leadership - Stocktwits",
-      "score": 7.38,
+      "clusterId": "830707e3b2caf155",
+      "title": "CoreWeave Ships Forge \u2014 GPU Compute Landlord Becomes Agent Platform Provider - forkast.news",
+      "score": 7.43,
       "qualifiesForEditorial": true,
       "publishReady": false,
+      "primarySourceAvailable": false,
       "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
       "alreadyCovered": false,
       "lanes": [
         "major_news"
@@ -2233,23 +2361,23 @@
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "DD News",
-        "RS Web Solutions",
-        "Stocktwits"
+        "Startup Fortune",
+        "forkast.news",
+        "remio"
       ],
       "primaryUrls": [],
       "signals": [
         "major-news-search"
       ],
       "bestCandidate": {
-        "id": "cddfa9861dd50ac5",
+        "id": "be0bcc0610499f58",
         "lane": "major_news",
         "sourceKind": "news_search",
-        "title": "GOOGL Stock Rises After Gemini 4 Argon Launch, But JPMorgan Says Google Must Reclaim AI Leadership - Stocktwits",
+        "title": "CoreWeave Ships Forge \u2014 GPU Compute Landlord Becomes Agent Platform Provider - forkast.news",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNcjJSRG9ZOEhRSERuWlJZSUFBNTZnaEVMNlBmMDJjemhZMFRaNkk5TUwyZG9FXzY2MmZFRXQ3QmhuTU1xV05lYUYwSjZOUURIZkYwUm1MbGMwOG9iMl9FSnVqdzVUZjUtQjMteW91VW9VTjIwQnZ2Nlg4Z3FvSmhSUERuSVNIZF9ENS0yNXlyU2Q2MXFiQ3A0SlFraUpFZEpFM1Iwb3U1SWNwSDluTjc2NHVXMktWMHM?oc=5",
-        "publishedAt": "2026-10-04T04:12:30Z",
-        "sourceName": "Stocktwits",
+        "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQWlFSWw4M0NQY0tad3Zpc1llZ096cEp1U19tWmp6MjljMXFLbTZweFVJWXU5RTh2cXFscmVvYWZoLTBxMGM2MkFJSDdaY1hSdU5GT09ha2dGM24tZGFzTEhWajJjTzJPYm5idUprdGJPeHdsbXZpeC00eDUwcmZfX01uN01jUFc3V3RMcTJaaVctVzNTNm5MclVhVjQ?oc=5",
+        "publishedAt": "2026-10-04T05:31:00Z",
+        "sourceName": "forkast.news",
         "metrics": {},
         "creator": null,
         "primaryUrls": [],
@@ -2257,18 +2385,18 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 7.02
+        "rawScore": 7.07
       },
       "evidence": [
         {
-          "id": "cddfa9861dd50ac5",
+          "id": "be0bcc0610499f58",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "GOOGL Stock Rises After Gemini 4 Argon Launch, But JPMorgan Says Google Must Reclaim AI Leadership - Stocktwits",
+          "title": "CoreWeave Ships Forge \u2014 GPU Compute Landlord Becomes Agent Platform Provider - forkast.news",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNcjJSRG9ZOEhRSERuWlJZSUFBNTZnaEVMNlBmMDJjemhZMFRaNkk5TUwyZG9FXzY2MmZFRXQ3QmhuTU1xV05lYUYwSjZOUURIZkYwUm1MbGMwOG9iMl9FSnVqdzVUZjUtQjMteW91VW9VTjIwQnZ2Nlg4Z3FvSmhSUERuSVNIZF9ENS0yNXlyU2Q2MXFiQ3A0SlFraUpFZEpFM1Iwb3U1SWNwSDluTjc2NHVXMktWMHM?oc=5",
-          "publishedAt": "2026-10-04T04:12:30Z",
-          "sourceName": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMinAFBVV95cUxOQWlFSWw4M0NQY0tad3Zpc1llZ096cEp1U19tWmp6MjljMXFLbTZweFVJWXU5RTh2cXFscmVvYWZoLTBxMGM2MkFJSDdaY1hSdU5GT09ha2dGM24tZGFzTEhWajJjTzJPYm5idUprdGJPeHdsbXZpeC00eDUwcmZfX01uN01jUFc3V3RMcTJaaVctVzNTNm5MclVhVjQ?oc=5",
+          "publishedAt": "2026-10-04T05:31:00Z",
+          "sourceName": "forkast.news",
           "metrics": {},
           "creator": null,
           "primaryUrls": [],
@@ -2276,17 +2404,17 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 7.02
+          "rawScore": 7.07
         },
         {
-          "id": "3fa287f932bc192b",
+          "id": "c5eeeb619c1d4053",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Google announces Gemini 4 flagship AI model after months of delays - DD News",
+          "title": "Apple\u2019s New macOS Controls Are the First OS-Level Move Specifically Targeting AI Agent Risks - forkast.news",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOLUs2Q2JnR3E0NUQxRmVnSGxNUXh1UnNVTExaQ085Y1dxNml3Q2JBN0ZocDNQZkRYZkFJc09hTzAxYWVSQ3FEWTRDdE5Md0xkaE5aeDYtTWJ2enNWVWtoRXEtNGsxbFlPSnlJWDQzcUE4dUlKRDJfdlJpYTJ1eXFOWGpxSkZINm1hNUtQUTBYZGl2OVFROE93?oc=5",
-          "publishedAt": "2026-10-04T03:30:01Z",
-          "sourceName": "DD News",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxNWEFGaU9wUEotaWI1d2xiQnMtUzluc1RWejUtZ1NaM2lFREpqbG96dldobmthajMyemZzNlFzV25qYjZNb3JveGg1M0p0UWdRenZYV19RRy1mdGFjNE9WcVBuTFBVanRyR3NpLW5NV0Q3VUxTdzBQb0ZxczdTaFdyWXRVQ0NtOUhkQ3A2OXdpRXJqR0hSYWkwek5HQ2NYeFIxUk9JZUprWDktNVJMczdiMEFOYw?oc=5",
+          "publishedAt": "2026-10-04T01:55:00Z",
+          "sourceName": "forkast.news",
           "metrics": {},
           "creator": null,
           "primaryUrls": [],
@@ -2294,17 +2422,17 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.99
+          "rawScore": 6.92
         },
         {
-          "id": "3b6bb9ec0608c86c",
+          "id": "d21fb1e507af0993",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "OpenAI Teases Over 20 Launches At Developer Event As Meta\u2019s Alexandr Wang Fires \u2018Star Wars\u2019-Inspired Jab - Stocktwits",
+          "title": "Kubernetes Agent Sandbox Is Becoming the Unit of Agent Deployment - forkast.news",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPREFqZEZiVmJ2Zk1ucHRWNUVNRVpZc0t6VUNKZk5EdWlxcDZQVmFUZ0t1dWV1Zl9fUnhNbmVoOFRadGdFTzROX0JjTVM0TjZBQmxoNG1zSWN0SkM1Q0ZnQURhWEZ5S1dQX2NPb3dVb0xybTB4VHo4RE13dnlfZl9XeXdleEpiU3FXNTc5ZHotUUNqWDFyblMtdE9qVFJsU3liTVdSdVZZZGMybjFwX0ZKdmk3SUFoekladnZ4MExwZUpJYXBFOWJoQU1venlzUkhtLWlEM1UwVUg3UHhSTGR5ZkZlZi02VjFhTnFxdm1aZGJaalNDUTU2RTBVaw?oc=5",
-          "publishedAt": "2026-10-03T21:53:32Z",
-          "sourceName": "Stocktwits",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPeDhPVTRDZzhzVFpuVUxOd3diV1NjM2RDNFVzOGJma3RTcFBCcENOMFRNLWVZcWMtNG5uSlQ4eE5JcmY0Rzl6Q2sxTG42b0N3d0hZZHB4UmJtdHU1NU1SR1pucGNkZkhUdjlmc2kzTk1zZ3ZycnlDc2dKcVc4ODZBNWdnS0I5Z2IzQkJNVTlEWmE?oc=5",
+          "publishedAt": "2026-10-03T15:49:00Z",
+          "sourceName": "forkast.news",
           "metrics": {},
           "creator": null,
           "primaryUrls": [],
@@ -2312,17 +2440,116 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.76
+          "rawScore": 6.5
         },
         {
-          "id": "1713d103b54e4616",
+          "id": "7b683a1f2e2df466",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "NVIDIA Launches DGX Spark AI 64GB - Affordable Local AI Supercomputer - RS Web Solutions",
+          "title": "NVIDIA DGX Spark 64GB Expands Local AI, but Memory Becomes the New Boundary - remio",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxONUo2alBQMG52dG53bjBQQ1FYQThiTEFzXzJGUnVFeENSb3JKb0ZKOWxTUVQwaXdDbFl6U1ZvaHgtQU1uMWk4a1gyWWdjWmY2VXN2ejdPcTF5eWdJLTMyOUthenJ0RC1aZlFPU0Z3eVAzWXVKUXBYb0FRTDFaZ3BDdFAxM2pQZVdoa0NFUTVVX1ZEbHkwNHVIOXFPRHA3cDJMQ1hvdUhyNHJ6NE0?oc=5",
-          "publishedAt": "2026-10-03T12:00:00Z",
-          "sourceName": "RS Web Solutions",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQckpVQlhSeUJaOThJVzRVQVRER1RuVUp2UlFMZlVGSTV5cGQxQVh2QnBOOXN0LVI0dGhNQXc4NHFKTUI2bzJKTmx6R0ZvQTREbXl3a19JRTZKUFFtdVBLWVM4cnJQbm95a3hidVQ5djhSbk55Mkg0RHJOaFEzQlY4X0Utclh2NWRxcXFQMTFnMTZ1cEJPLVJoVmljTjhQWC1uZGc?oc=5",
+          "publishedAt": "2026-10-03T04:48:41Z",
+          "sourceName": "remio",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.04
+        },
+        {
+          "id": "574fac9577fa5064",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Nvidia's new 64GB DGX Spark costs more per gigabyte than the model it replaces - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOT1k2eFNQbU5jNFRyb2J6MndmZ1Vybk5HRG14a0Q3bWRpNWwtVTFKblY3a3lITzQxRDFISnlBOXJUTFZTUl9mQ0c3OWxmSXg5THdsMExOQUgwMjBnQjM5T01HZVdtOERrbHZxX3pWdGZoWWpETVpQOWlnS2pqSFFfWG93d25CTGpSYVl2ODctemlRbE8zQUtfS05fTXRkRVA3SWl4eW0xM0w?oc=5",
+          "publishedAt": "2026-10-03T04:37:28Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.03
+        }
+      ]
+    },
+    {
+      "clusterId": "07fa7603d09742d1",
+      "title": "A wave of narrow AI inference engines is beating vLLM and llama.cpp at their own game - Startup Fortune",
+      "score": 7.39,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Startup Fortune",
+        "Wccftech",
+        "techbarrista.com"
+      ],
+      "primaryUrls": [],
+      "signals": [
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "20e019b887c3f0a7",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "A wave of narrow AI inference engines is beating vLLM and llama.cpp at their own game - Startup Fortune",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNcldseERzcm8xTG1qLXBicmpQa2dYZVp0YWZZSmlJdWp6SkNMWGpXTFoyUURZMkRtUV92WGM3bWNybUd5ZldGOTdyaW03aXFmQ0NCeFhoYzlaZndLWXI1OV9CTFJ6b3VYMGRzMEFXbGRTQlhjTlVoeHJnY0h5NjJGUWtuWU9jaEdvMmZvak9IeFgtSkY1OTZGYXA0Y0FjbUpkd3otVUtqakZUYWV3QWtET0ln?oc=5",
+        "publishedAt": "2026-10-04T04:37:45Z",
+        "sourceName": "Startup Fortune",
+        "metrics": {},
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 7.03
+      },
+      "evidence": [
+        {
+          "id": "20e019b887c3f0a7",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "A wave of narrow AI inference engines is beating vLLM and llama.cpp at their own game - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxNcldseERzcm8xTG1qLXBicmpQa2dYZVp0YWZZSmlJdWp6SkNMWGpXTFoyUURZMkRtUV92WGM3bWNybUd5ZldGOTdyaW03aXFmQ0NCeFhoYzlaZndLWXI1OV9CTFJ6b3VYMGRzMEFXbGRTQlhjTlVoeHJnY0h5NjJGUWtuWU9jaEdvMmZvak9IeFgtSkY1OTZGYXA0Y0FjbUpkd3otVUtqakZUYWV3QWtET0ln?oc=5",
+          "publishedAt": "2026-10-04T04:37:45Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 7.03
+        },
+        {
+          "id": "4ec62be48a618785",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "GIGABYTE AI TOP 100 B850 Doubles RTX 5090\u2019s VRAM With Dual Radeon AI PRO R9700 GPUs, Handling 235B-Parameter Inference - Wccftech",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFB0NVZsbzJOZ2lsRGM4cUZUeWN1SDRheC12MmxCWWpjU0VyWmNkY1JHbWx3ZXNGeVlhSjBTZFh5YWgta0oxUEhoU3RxLU5MT3JzMVMybzR6WkJFRWFYUmJ0WHhCU0NDcGNDbmNXRU1jcTHSAXZBVV95cUxNR2lEamx5UmxQU0R4T0JVcW11UmtTaG0zWDJ2RFp2U2hoOXd2RC0wcW9mb3FNdEZUeVhOSjRhSmRuMy1RTHJfRXhkRzI2SVFVNU9sQk00UWIzRU0tZ0VOTVlHb3IyQjNyT3FReVFRR3dPT1NUU2NB?oc=5",
+          "publishedAt": "2026-10-03T12:01:53Z",
+          "sourceName": "Wccftech",
           "metrics": {},
           "creator": null,
           "primaryUrls": [],
@@ -2331,13 +2558,276 @@
             "major-news-search"
           ],
           "rawScore": 6.34
+        },
+        {
+          "id": "109aa8d68bf5c335",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PewDiePie Says OpenAI Banned Him Twice Over the AI Model He Just Released - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOMFh1b3dOUl9DckpJZ0VPSExRQ1ZObndPRmFxMmxyVEJrQ3lDYVBCdWpha0tfQ2o3NGlPeXJFbThmSVJoTnJqWUlYc0llWkFJSFRfQjVPNzAwYkZyckhjSWJjTHlhQ3NZLXpIUDZKeUJ6am5vRk1LeWhTallTanhmQjhCU09jM3hMb0tYb2xoYjBKZk0wcUk0ejV3a0d1dlJNOFVz?oc=5",
+          "publishedAt": "2026-10-03T09:58:34Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.26
+        },
+        {
+          "id": "e3b1fe991c8ea0bc",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Gigabyte AI TOP ATOM Line Expands With 64GB Variant - techbarrista.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTFA1YUdJRDF1VC0tN3UwSDJPeWJOMlVkemVvY0RPWl8taXN5NTZ6eG1qelVxVVN0N01iUHhkSXZmUjJwd3FiZkdhZnVzMWlnVHJLb2Itby1iMWhqOTRSeFplejVXb2ItQQ?oc=5",
+          "publishedAt": "2026-10-03T07:04:43Z",
+          "sourceName": "techbarrista.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.14
+        }
+      ]
+    },
+    {
+      "clusterId": "7d8a83c3e70cd48f",
+      "title": "facebookincubator/muse-gadget-sdk",
+      "score": 7.38,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub"
+      ],
+      "primaryUrls": [
+        "https://github.com/facebookincubator/muse-gadget-sdk"
+      ],
+      "signals": [
+        "github",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "5c42ea0280e8fb45",
+        "lane": "hot_emerging",
+        "sourceKind": "github_repo",
+        "title": "facebookincubator/muse-gadget-sdk",
+        "summary": "Open source SDK to build Muse gadgets",
+        "url": "https://github.com/facebookincubator/muse-gadget-sdk",
+        "publishedAt": "2026-10-02T18:21:23Z",
+        "sourceName": "GitHub",
+        "metrics": {
+          "stars": 1036,
+          "forks": 172,
+          "ageHours": 43.05,
+          "starsPerHour": 24.06
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/facebookincubator/muse-gadget-sdk"
+        ],
+        "primaryVerified": true,
+        "signals": [
+          "github",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 6.83
+      },
+      "evidence": [
+        {
+          "id": "5c42ea0280e8fb45",
+          "lane": "hot_emerging",
+          "sourceKind": "github_repo",
+          "title": "facebookincubator/muse-gadget-sdk",
+          "summary": "Open source SDK to build Muse gadgets",
+          "url": "https://github.com/facebookincubator/muse-gadget-sdk",
+          "publishedAt": "2026-10-02T18:21:23Z",
+          "sourceName": "GitHub",
+          "metrics": {
+            "stars": 1036,
+            "forks": 172,
+            "ageHours": 43.05,
+            "starsPerHour": 24.06
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/facebookincubator/muse-gadget-sdk"
+          ],
+          "primaryVerified": true,
+          "signals": [
+            "github",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 6.83
+        }
+      ]
+    },
+    {
+      "clusterId": "d45725fd83adc0fc",
+      "title": "NASA and IBM's open source lunar model turns 17 years of orbiter data into a foundation for lunar science - the-decoder.com",
+      "score": 7.27,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "the-decoder.com"
+      ],
+      "primaryUrls": [],
+      "signals": [
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "f79cdbb68d573e45",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "NASA and IBM's open source lunar model turns 17 years of orbiter data into a foundation for lunar science - the-decoder.com",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNd2JYTHB4TzVReFRIMERCVWptMmdLeHViWXRXUjg0dXV0T1Z4anFkOGcyS2xlbnN6Vk9SanUyVm9hY0lQLUNScld2YUFiU2c1QU16QXVPaVQxWFQ3VmVlZDVzM1ZuQ3ZiX3hSZ3o1akhZNWF1OVNnNFFDc0tiWUpadnFFaVpYODN2RTVObFhIVzFvSVoxelFmRzdfMGpuMGJtb0h6c2dHYldNOHNObm5PTldPS01sTkJZOWlkZFZpNWQ4ZEJQazVqeg?oc=5",
+        "publishedAt": "2026-10-04T10:12:56Z",
+        "sourceName": "the-decoder.com",
+        "metrics": {},
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 7.27
+      },
+      "evidence": [
+        {
+          "id": "f79cdbb68d573e45",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "NASA and IBM's open source lunar model turns 17 years of orbiter data into a foundation for lunar science - the-decoder.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNd2JYTHB4TzVReFRIMERCVWptMmdLeHViWXRXUjg0dXV0T1Z4anFkOGcyS2xlbnN6Vk9SanUyVm9hY0lQLUNScld2YUFiU2c1QU16QXVPaVQxWFQ3VmVlZDVzM1ZuQ3ZiX3hSZ3o1akhZNWF1OVNnNFFDc0tiWUpadnFFaVpYODN2RTVObFhIVzFvSVoxelFmRzdfMGpuMGJtb0h6c2dHYldNOHNObm5PTldPS01sTkJZOWlkZFZpNWQ4ZEJQazVqeg?oc=5",
+          "publishedAt": "2026-10-04T10:12:56Z",
+          "sourceName": "the-decoder.com",
+          "metrics": {},
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 7.27
+        }
+      ]
+    },
+    {
+      "clusterId": "fe30725ee4809928",
+      "title": "dzhng/jevgrep",
+      "score": 7.22,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub"
+      ],
+      "primaryUrls": [
+        "https://github.com/dzhng/jevgrep"
+      ],
+      "signals": [
+        "github",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "9017a948d1af3818",
+        "lane": "hot_emerging",
+        "sourceKind": "github_repo",
+        "title": "dzhng/jevgrep",
+        "summary": "Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
+        "url": "https://github.com/dzhng/jevgrep",
+        "publishedAt": "2026-09-26T04:06:56Z",
+        "sourceName": "GitHub",
+        "metrics": {
+          "stars": 2225,
+          "forks": 154,
+          "ageHours": 201.29,
+          "starsPerHour": 11.05
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/dzhng/jevgrep"
+        ],
+        "primaryVerified": true,
+        "signals": [
+          "github",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 6.67
+      },
+      "evidence": [
+        {
+          "id": "9017a948d1af3818",
+          "lane": "hot_emerging",
+          "sourceKind": "github_repo",
+          "title": "dzhng/jevgrep",
+          "summary": "Find code by asking what it does. A CLI for coding agents that uses Jev to discover relevant files and source context.",
+          "url": "https://github.com/dzhng/jevgrep",
+          "publishedAt": "2026-09-26T04:06:56Z",
+          "sourceName": "GitHub",
+          "metrics": {
+            "stars": 2225,
+            "forks": 154,
+            "ageHours": 201.29,
+            "starsPerHour": 11.05
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/dzhng/jevgrep"
+          ],
+          "primaryVerified": true,
+          "signals": [
+            "github",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 6.67
         }
       ]
     }
   ],
   "laneSummary": {
-    "major_news": 9,
+    "major_news": 7,
     "hot_emerging": 12,
-    "creator_radar": 0
+    "creator_radar": 1
   }
 }
