@@ -1,0 +1,329 @@
+{
+  "slug": "nvidia-openshell-agent-safety",
+  "title": "NVIDIA built a sandbox for AI agents",
+  "narration": "NVIDIA just built a seatbelt for AI agents. OpenShell is an open-source runtime that puts agents like Claude Code and Codex inside policy-controlled sandboxes, so they can write files, call APIs and use credentials without getting the keys to everything. The clever bit is enforcement happens outside the agent: kernel rules gate files and system calls, network requests are checked against policy, and credentials are injected only for approved destinations. NVIDIA also pairs it with Sentry, a BlueField watchdog that can quarantine agents in milliseconds. Catch: OpenShell is still 0.1.x. But autonomous agents finally have something resembling adult supervision.",
+  "beats": [
+    {
+      "text": "NVIDIA just built",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "NVIDIA OpenShell secure runtime AI agents",
+        "mustMatch": [
+          "openshell"
+        ]
+      },
+      "sfx": "whoosh"
+    },
+    {
+      "text": "a seatbelt for AI agents.",
+      "editorialRole": "analogy",
+      "visual": {
+        "type": "kinetic",
+        "text": "SEATBELT FOR AI AGENTS",
+        "emphasis": "SEATBELT"
+      },
+      "memeIntent": {
+        "purpose": "absurdity",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "seatbelt",
+          "safety",
+          "AI agent",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "OpenShell is an open-source runtime",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "NVIDIA OpenShell GitHub open source runtime",
+        "mustMatch": [
+          "openshell"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "that puts agents like Claude Code and Codex",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "OpenShell Claude Code Codex agents",
+        "mustMatch": [
+          "openshell"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "inside policy-controlled sandboxes,",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "pipeline",
+        "stages": [
+          "AGENT",
+          "SANDBOX",
+          "POLICY"
+        ]
+      }
+    },
+    {
+      "text": "so they can write files, call APIs and use credentials",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 2,
+        "query": "OpenShell files APIs credentials policy runtime",
+        "mustMatch": [
+          "openshell"
+        ]
+      }
+    },
+    {
+      "text": "without getting the keys to everything.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "NOT THE KEYS TO EVERYTHING",
+        "emphasis": "EVERYTHING"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "keys",
+          "access denied",
+          "security",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "The clever bit is enforcement happens outside the agent:",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "OpenShell enforcement outside agent process security",
+        "mustMatch": [
+          "openshell"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "kernel rules gate files and system calls,",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "fanout",
+        "nodes": [
+          "FILES",
+          "SYSCALLS",
+          "NETWORK"
+        ]
+      }
+    },
+    {
+      "text": "network requests are checked against policy,",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 2,
+        "query": "OpenShell network policy request enforcement",
+        "mustMatch": [
+          "openshell"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "and credentials are injected only for approved destinations.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 2,
+        "query": "OpenShell credentials approved endpoints",
+        "mustMatch": [
+          "credentials",
+          "openshell"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "NVIDIA also pairs it with Sentry,",
+      "editorialRole": "transition",
+      "visual": {
+        "type": "logo",
+        "slug": "nvidia",
+        "label": "SENTRY"
+      },
+      "sfx": "whoosh"
+    },
+    {
+      "text": "a BlueField watchdog",
+      "editorialRole": "analogy",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 3,
+        "query": "NVIDIA Sentry BlueField watchdog Open Agent Safety Platform",
+        "mustMatch": [
+          "sentry",
+          "bluefield"
+        ]
+      }
+    },
+    {
+      "text": "that can quarantine agents in milliseconds.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "MILLISECONDS"
+      }
+    },
+    {
+      "text": "Catch: OpenShell is still 0.1.x.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "STILL 0.1.x",
+        "emphasis": "0.1.x"
+      },
+      "sfx": "scratch",
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "awkward",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "early software",
+          "beta",
+          "uh oh",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "But autonomous agents finally have something resembling adult supervision.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "NVIDIA OpenShell autonomous AI agent safety",
+        "mustMatch": [
+          "openshell"
+        ],
+        "allowReuse": true
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "adult supervision",
+          "child supervision",
+          "AI agent",
+          "reaction"
+        ]
+      }
+    }
+  ],
+  "editorial": {
+    "storyKey": "nvidia-openshell-agent-runtime-2026",
+    "selectedAt": "2026-10-04T23:08:00+01:00",
+    "score": 9.2,
+    "topics": [
+      "AI agents",
+      "agent security",
+      "open source",
+      "sandboxing",
+      "developer tools"
+    ],
+    "companies": [
+      "NVIDIA"
+    ],
+    "sources": [
+      {
+        "title": "NVIDIA OpenShell — Open, Secure Runtime for AI Agents",
+        "publisher": "NVIDIA",
+        "url": "https://www.nvidia.com/en-us/ai/openshell/",
+        "publishedAt": "2026-09-28",
+        "primary": true
+      },
+      {
+        "title": "NVIDIA/OpenShell",
+        "publisher": "NVIDIA / GitHub",
+        "url": "https://github.com/NVIDIA/OpenShell",
+        "publishedAt": "2026-09-28",
+        "primary": true
+      },
+      {
+        "title": "Add Runtime Controls to AI Agents with NVIDIA OpenShell",
+        "publisher": "NVIDIA Technical Blog",
+        "url": "https://developer.nvidia.com/blog/?p=122891",
+        "publishedAt": "2026-09-28",
+        "primary": true
+      },
+      {
+        "title": "NVIDIA Launches Open Agent Safety Platform",
+        "publisher": "NVIDIA",
+        "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Open-Agent-Safety-Platform-to-Secure-Agents-From-Testing-to-Deployment/default.aspx",
+        "publishedAt": "2026-09-28",
+        "primary": true
+      }
+    ],
+    "discovery": {
+      "clusterId": "3cee54a17da97136",
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creators": [],
+      "signals": [
+        "github",
+        "github-trending",
+        "momentum",
+        "open-source"
+      ],
+      "discoveryScore": 9.35,
+      "qualityGate": "github-trending-stars-per-day=836.3-total=14845"
+    }
+  },
+  "publish": {
+    "youtubeTitle": "NVIDIA built a seatbelt for AI agents",
+    "description": "NVIDIA OpenShell is an open-source runtime that puts enforceable permissions around autonomous AI agents. It sandboxes agent workloads, checks network access against policy, protects credentials outside the agent process, and can pair with NVIDIA Sentry for an independent hardware watchdog.\n\nSources:\nhttps://www.nvidia.com/en-us/ai/openshell/\nhttps://github.com/NVIDIA/OpenShell\nhttps://developer.nvidia.com/blog/?p=122891\nhttps://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Launches-Open-Agent-Safety-Platform-to-Secure-Agents-From-Testing-to-Deployment/default.aspx",
+    "tags": [
+      "AI",
+      "AI agents",
+      "NVIDIA",
+      "OpenShell",
+      "Claude Code",
+      "Codex",
+      "open source",
+      "cybersecurity",
+      "tech news"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false
+  }
+}
