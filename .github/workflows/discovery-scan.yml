@@ -19,7 +19,7 @@ permissions:
 
 concurrency:
   group: orbdev-discovery
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   discover:
