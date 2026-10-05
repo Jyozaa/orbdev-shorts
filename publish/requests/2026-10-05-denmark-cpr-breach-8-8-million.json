@@ -1,0 +1,6 @@
+{
+  "sourceRunId": 37358492047,
+  "storyFile": "stories/queue/2026-10-05-denmark-cpr-breach-8-8-million.json",
+  "reason": "Retry YouTube publish using existing rendered artifact after OAuth credentials were replaced.",
+  "requestedAt": "2026-10-05T20:58:00+01:00"
+}
