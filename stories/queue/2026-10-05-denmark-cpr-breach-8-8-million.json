@@ -303,7 +303,8 @@
         "publishedAt": "2026-10-05",
         "primary": false
       }
-    ]
+    ],
+    "retryRequestedAt": "2026-10-05T20:18:00+01:00"
   },
   "publish": {
     "metadataVersion": 1,
