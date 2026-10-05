@@ -133,13 +133,13 @@
     "orbdev-deadpan": {
       "voice": "am_michael",
       "langCode": "a",
-      "baseSpeed": 1.27,
-      "targetWpm": 178,
+      "baseSpeed": 1.22,
+      "targetWpm": 180,
       "nativeRetargetToleranceWpm": 5,
-      "nativeRetargetMinMultiplier": 0.95,
-      "nativeRetargetMaxMultiplier": 1.08,
+      "nativeRetargetMinMultiplier": 0.94,
+      "nativeRetargetMaxMultiplier": 1.06,
       "postTempoMin": 0.99,
-      "postTempoMax": 1.02,
+      "postTempoMax": 1.015,
       "chunkTargetWords": 10,
       "chunkMaxWords": 14,
       "chunkMinWords": 4,
@@ -150,37 +150,37 @@
         "fact": {
           "speed": 1.025,
           "preMs": 0,
-          "postMs": 8
+          "postMs": 10
         },
         "setup": {
           "speed": 1.015,
           "preMs": 0,
-          "postMs": 12
+          "postMs": 14
         },
         "explanation": {
           "speed": 0.995,
           "preMs": 0,
-          "postMs": 16
+          "postMs": 24
         },
         "analogy": {
           "speed": 0.98,
-          "preMs": 18,
-          "postMs": 24
+          "preMs": 16,
+          "postMs": 28
         },
         "joke": {
           "speed": 0.96,
-          "preMs": 48,
-          "postMs": 34
+          "preMs": 44,
+          "postMs": 40
         },
         "reaction": {
           "speed": 0.95,
-          "preMs": 68,
-          "postMs": 40
+          "preMs": 52,
+          "postMs": 42
         },
         "punchline": {
           "speed": 0.94,
-          "preMs": 92,
-          "postMs": 64
+          "preMs": 72,
+          "postMs": 68
         },
         "callback": {
           "speed": 0.96,
@@ -192,7 +192,9 @@
           "preMs": 0,
           "postMs": 6
         }
-      }
+      },
+      "trimLeadMs": 10,
+      "trimTailMs": 60
     }
   }
 }
