@@ -11,6 +11,6 @@ def main():
             if row.get("storyKey"):receipts.append(row)
         except Exception:pass
     for r in receipts:
-        by[str(r["storyKey"])]={"storyKey":r["storyKey"],"slug":r.get("slug"),"headline":r.get("headline"),"selectedAt":r.get("selectedAt"),"score":r.get("score"),"sourceUrls":r.get("sourceUrls") or [],"renderedAt":r.get("renderedAt"),"youtubeUrl":r.get("youtubeUrl") or None}
+        by[str(r["storyKey"])]={"storyKey":r["storyKey"],"slug":r.get("slug"),"headline":r.get("headline"),"selectedAt":r.get("selectedAt"),"score":r.get("score"),"sourceUrls":r.get("sourceUrls") or [],"renderedAt":r.get("renderedAt"),"youtubeUrl":r.get("youtubeUrl") or None,"youtubeVideoId":r.get("youtubeVideoId") or None,"youtubeTitle":r.get("youtubeTitle") or None,"metadataVersion":r.get("metadataVersion"),"metadataReview":r.get("metadataReview")}
     out={"version":1,"stories":list(by.values())};Path(a.output).write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n",encoding="utf-8");print(f"Covered history: {len(receipts)} receipts merged")
 if __name__=="__main__":main()
