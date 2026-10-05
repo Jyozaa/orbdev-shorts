@@ -16,10 +16,6 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: orbdev-render-queue-${{ github.ref }}
-  cancel-in-progress: false
-
 jobs:
   prepare:
     runs-on: ubuntu-latest
@@ -30,6 +26,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 2
+          sparse-checkout: |
+            stories/queue
       - name: Resolve queued stories
         id: queue
         env:
@@ -55,8 +53,10 @@ jobs:
                   except subprocess.CalledProcessError:pass
           files=sorted({p for p in files if os.path.isfile(p)})
           with open(os.environ["GITHUB_OUTPUT"],"a") as out:
-              out.write("matrix="+json.dumps(files,separators=(",",":"))+"\n");out.write("count="+str(len(files))+"\n")
-          print("Queued stories selected:",len(files));[print(" -",p) for p in files]
+              out.write("matrix="+json.dumps(files,separators=(",",":"))+"\n")
+              out.write("count="+str(len(files))+"\n")
+          print("Queued stories selected:",len(files))
+          [print(" -",p) for p in files]
           PY
 
   render:
@@ -67,6 +67,9 @@ jobs:
       max-parallel: 4
       matrix:
         story: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    concurrency:
+      group: orbdev-render-${{ matrix.story }}
+      cancel-in-progress: true
     runs-on: ubuntu-latest
     timeout-minutes: 30
     env:
@@ -81,7 +84,8 @@ jobs:
           STORY: ${{ matrix.story }}
         run: |
           slug="$(python -c 'import json,os;print(json.load(open(os.environ["STORY"],encoding="utf-8"))["slug"])')"
-          echo "STORY_FILE=$STORY" >> "$GITHUB_ENV";echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
+          echo "STORY_FILE=$STORY" >> "$GITHUB_ENV"
+          echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -127,17 +131,8 @@ jobs:
             build/narration-report.json
           if-no-files-found: ignore
           retention-days: 30
-      - if: ${{ vars.ORBDEV_AUTO_PUBLISH == 'true' }}
-        run: python -m pip install -r requirements-publish.txt
-      - name: Publish to YouTube
-        if: ${{ vars.ORBDEV_AUTO_PUBLISH == 'true' }}
-        env:
-          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          YOUTUBE_RESULT_PATH: build/youtube-result.json
-        run: python scripts/publish_youtube.py "$STORY_FILE" "out/${STORY_SLUG}.mp4"
-      - name: Write render receipt
+      - name: Write render-only receipt
+        if: ${{ vars.ORBDEV_AUTO_PUBLISH != 'true' }}
         env:
           STORY_PATH: ${{ matrix.story }}
         run: |
@@ -145,9 +140,75 @@ jobs:
           python - <<'PY'
           import json,os
           from datetime import datetime,timezone
-          s=json.load(open(os.environ["STORY_PATH"],encoding="utf-8"));e=s["editorial"];yt={}
-          try:yt=json.load(open("build/youtube-result.json"))
-          except Exception:pass
+          s=json.load(open(os.environ["STORY_PATH"],encoding="utf-8"));e=s["editorial"]
+          r={"storyKey":e["storyKey"],"slug":s["slug"],"headline":s["title"],"selectedAt":e["selectedAt"],"score":e["score"],"sourceUrls":[x["url"] for x in e["sources"] if x.get("primary")],"renderedAt":datetime.now(timezone.utc).isoformat(),"youtubeUrl":None,"youtubeVideoId":None,"youtubeTitle":(s.get("publish") or {}).get("youtubeTitle"),"metadataVersion":(s.get("publish") or {}).get("metadataVersion"),"metadataReview":(s.get("publish") or {}).get("metadataReview")}
+          json.dump(r,open(f"build/receipt/{s['slug']}.json","w"),indent=2)
+          PY
+      - uses: actions/upload-artifact@v4
+        if: ${{ vars.ORBDEV_AUTO_PUBLISH != 'true' }}
+        with:
+          name: render-receipt-${{ env.STORY_SLUG }}
+          path: build/receipt/${{ env.STORY_SLUG }}.json
+          if-no-files-found: error
+          retention-days: 7
+
+  publish:
+    needs: [prepare, render]
+    if: needs.prepare.outputs.count != '0' && vars.ORBDEV_AUTO_PUBLISH == 'true'
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        story: ${{ fromJson(needs.prepare.outputs.matrix) }}
+    concurrency:
+      group: orbdev-publish-${{ matrix.story }}
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            stories/queue
+            scripts
+            requirements-publish.txt
+          sparse-checkout-cone-mode: false
+      - name: Resolve story metadata
+        id: story
+        env:
+          STORY: ${{ matrix.story }}
+        run: |
+          slug="$(python -c 'import json,os;print(json.load(open(os.environ["STORY"],encoding="utf-8"))["slug"])')"
+          echo "slug=$slug" >> "$GITHUB_OUTPUT"
+          echo "STORY_FILE=$STORY" >> "$GITHUB_ENV"
+          echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-publish.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: orbdev-${{ steps.story.outputs.slug }}
+          path: out
+      - run: python -m pip install -r requirements-publish.txt
+      - name: Publish to YouTube
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_RESULT_PATH: build/youtube-result.json
+        run: python scripts/publish_youtube.py "$STORY_FILE" "out/${STORY_SLUG}.mp4"
+      - name: Write publish receipt
+        env:
+          STORY_PATH: ${{ matrix.story }}
+        run: |
+          mkdir -p build/receipt
+          python - <<'PY'
+          import json,os
+          from datetime import datetime,timezone
+          s=json.load(open(os.environ["STORY_PATH"],encoding="utf-8"));e=s["editorial"]
+          yt=json.load(open("build/youtube-result.json",encoding="utf-8"))
           r={"storyKey":e["storyKey"],"slug":s["slug"],"headline":s["title"],"selectedAt":e["selectedAt"],"score":e["score"],"sourceUrls":[x["url"] for x in e["sources"] if x.get("primary")],"renderedAt":datetime.now(timezone.utc).isoformat(),"youtubeUrl":yt.get("url"),"youtubeVideoId":yt.get("videoId"),"youtubeTitle":yt.get("title") or (s.get("publish") or {}).get("youtubeTitle"),"metadataVersion":(s.get("publish") or {}).get("metadataVersion"),"metadataReview":(s.get("publish") or {}).get("metadataReview")}
           json.dump(r,open(f"build/receipt/{s['slug']}.json","w"),indent=2)
           PY
@@ -159,13 +220,17 @@ jobs:
           retention-days: 7
 
   finalize:
-    needs: [prepare, render]
+    needs: [prepare, render, publish]
     if: always() && needs.prepare.outputs.count != '0'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          sparse-checkout: |
+            history
+            scripts/mark_covered.py
+          sparse-checkout-cone-mode: false
       - uses: actions/download-artifact@v4
         continue-on-error: true
         with:
@@ -175,8 +240,13 @@ jobs:
       - run: python scripts/mark_covered.py --receipts-dir build/receipts --covered history/covered.json --output /tmp/covered.json
       - name: Persist successful stories
         run: |
-          git fetch origin main && git reset --hard origin/main
+          git fetch origin main
+          git reset --hard origin/main
           cp /tmp/covered.json history/covered.json
-          git config user.name "orbdev-render[bot]";git config user.email "orbdev-render[bot]@users.noreply.github.com"
+          git config user.name "orbdev-render[bot]"
+          git config user.email "orbdev-render[bot]@users.noreply.github.com"
           git add history/covered.json
-          if ! git diff --cached --quiet; then git commit -m "Mark rendered Orbdev stories covered";git push origin HEAD:main; fi
+          if ! git diff --cached --quiet; then
+            git commit -m "Mark rendered Orbdev stories covered"
+            git push origin HEAD:main
+          fi
