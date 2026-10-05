@@ -1,5 +1,5 @@
 {
-  "version": 31,
+  "version": 32,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -28,9 +28,9 @@
     "Use at least one primary source.",
     "Use the original announcement or release time for recency.",
     "Do not cover a story already present in history or the current story file.",
-    "Do not publish rumours, leaks, predictions, or unverified benchmark claims.",
-    "The core of every story must be a technical development, discovery, release, capability, research result, security finding, hardware change, robotics advance, infrastructure change, or meaningful open-source release.",
-    "Exclude hiring, recruitment, fellowships, training cohorts, staffing announcements, routine partnerships, funding news, customer wins, and generic company expansion unless the actual story is technical.",
+    "Do not publish rumours, unconfirmed leaks, predictions presented as fact, or unverified benchmark claims. Confirmed data/credential leaks and verified breach incidents are valid cybersecurity stories.",
+    "The core of every story must be a meaningful technical/scientific development, mathematical or research result, cybersecurity incident/finding, product/capability release, hardware/robotics/infrastructure change, meaningful open-source release, or a material market/business development involving AI companies, Big Tech, or major consulting firms.",
+    "Exclude hiring/recruitment, fellowships, training cohorts, trivial staffing news, routine partnerships, small/routine funding announcements, ordinary customer wins, and generic company expansion unless there is a material technical, strategic, cybersecurity, or market/business consequence.",
     "Write narration first, then split that exact narration into short voice-first beats.",
     "Beat text must reproduce narration exactly and in order.",
     "Do not manually time visual beats; timing comes from narration word boundaries.",
@@ -73,7 +73,7 @@
     "Pacing should feel compressed and editorial: remove dead air, keep narration roughly 180-195 effective WPM when natural, and reserve the fastest visual punctuation for jokes, reactions, analogies, punchlines and callbacks.",
     "Do not merge humor/reaction beats into neighboring visual windows; they should normally receive their own visual punctuation.",
     "Run discovery every 12 hours rather than using fixed posting time blocks.",
-    "Search all three discovery lanes on every scan, but never lower the quality threshold to satisfy lane diversity.",
+    "Search all four discovery lanes on every scan—Major News, Market / Business, Hot / Emerging, and Creator Radar—but never lower the quality threshold to satisfy lane diversity.",
     "There is no fixed daily story cap: zero, one, or many independently qualifying topics may be produced from a scan.",
     "A single creator roundup may yield multiple Shorts when its topics independently qualify; decompose topics before scoring.",
     "Creator Radar is a discovery, heat, context and explanation signal only; creator claims must be verified against primary sources before publication.",
@@ -94,7 +94,13 @@
     "Production narration must use continuous Kokoro synthesis for the full narration; visual/editorial beat boundaries must never force separate TTS calls.",
     "Do not trim trailing audio from Kokoro narration segments; preserve natural final consonants, decay and model-generated sentence endings.",
     "Editorial roles control visuals, meme intent and script structure, but production TTS pacing comes primarily from natural punctuation and one continuous performance.",
-    "Prefer a slightly slower complete spoken phrase over speeding synthesis enough to crush final consonants or natural sentence tails."
+    "Prefer a slightly slower complete spoken phrase over speeding synthesis enough to crush final consonants or natural sentence tails.",
+    "Mathematical discoveries, theorem/proof results, algorithmic theory breakthroughs, and cryptographic results may qualify when the result is genuinely new, independently verifiable, and explainable accurately in a short format.",
+    "Confirmed data breaches, credential/data leaks, ransomware, supply-chain compromises, zero-days, malware campaigns, and major cyberattacks may qualify; distinguish confirmed facts from attacker claims and speculation.",
+    "Market / Business stories must involve a concrete catalyst such as earnings/guidance, revenue or demand shifts, M&A, IPO/financing/valuation events, major capex, material contracts, restructuring, or another consequential business event involving an AI company, Big Tech firm, or major consulting firm.",
+    "A stock-price move alone is not enough for a Market / Business story; identify and verify the underlying catalyst and explain why it matters.",
+    "Market / Business coverage may include OpenAI, Anthropic, Alphabet/Google, Microsoft, Meta, Nvidia, Amazon, Apple, Oracle, IBM, AMD, Intel, Broadcom, Salesforce, ServiceNow, Palantir, Accenture, Deloitte, PwC, EY, KPMG, McKinsey, BCG, Bain, Capgemini, Cognizant, Infosys, TCS, and comparable major AI/technology/consulting firms.",
+    "For private-company valuations or financing, use primary filings/announcements where available and otherwise require strong corroboration from high-quality financial reporting; do not present reported negotiations as completed transactions."
   ],
   "visualRules": {
     "background": "#000000",
@@ -223,7 +229,29 @@
     "huggingface.co",
     "github.blog",
     "arxiv.org",
-    "blog.playstation.com"
+    "blog.playstation.com",
+    "ams.org",
+    "siam.org",
+    "nature.com",
+    "science.org",
+    "pnas.org",
+    "acm.org",
+    "cisa.gov",
+    "nist.gov",
+    "nvd.nist.gov",
+    "sec.gov",
+    "abc.xyz",
+    "amazon.com",
+    "apple.com",
+    "accenture.com",
+    "deloitte.com",
+    "pwc.com",
+    "ey.com",
+    "kpmg.com",
+    "mckinsey.com",
+    "bcg.com",
+    "bain.com",
+    "capgemini.com"
   ],
   "excludedTopics": [
     "hiring announcements",
@@ -256,7 +284,25 @@
     "multimodal systems",
     "computer use",
     "agent systems",
-    "graphics technology"
+    "graphics technology",
+    "mathematical discoveries",
+    "new theorem and proof results",
+    "algorithms and theoretical computer science",
+    "cryptography breakthroughs",
+    "data breaches",
+    "credential and data leaks",
+    "ransomware incidents",
+    "zero-day vulnerabilities",
+    "supply-chain attacks",
+    "major cyberattacks",
+    "AI company earnings and guidance",
+    "Big Tech earnings and AI capex",
+    "AI company valuations and financing",
+    "technology mergers and acquisitions",
+    "AI and Big Tech IPO developments",
+    "consulting firm AI revenue and demand",
+    "consulting firm acquisitions and material AI strategy",
+    "market-moving technology business developments"
   ],
   "memeSelection": {
     "source": "local",
@@ -317,18 +363,38 @@
     "inbox": "editorial/inbox/latest.json",
     "lanes": [
       "major_news",
+      "market_business",
       "hot_emerging",
       "creator_radar"
     ],
     "laneRules": {
       "major_news": "major technical announcements and high-impact primary-source developments",
       "hot_emerging": "GitHub, Hugging Face, Hacker News, open-source projects, developer tools, coding agents and fast-rising technical momentum",
-      "creator_radar": "topic-level discovery from configured creator channels; creator commentary is a lead/context signal, never ground truth"
+      "creator_radar": "topic-level discovery from configured creator channels; creator commentary is a lead/context signal, never ground truth",
+      "market_business": "material market/business developments involving AI companies, Big Tech and major consulting firms; require a concrete verified catalyst rather than generic price chatter"
     },
     "creatorTopicDecomposition": true,
     "crossLaneDeduplication": true,
     "creatorClaimsRequirePrimaryVerification": true,
-    "hotEmergingFreshness": "use momentum age as well as creation/publication age"
+    "hotEmergingFreshness": "use momentum age as well as creation/publication age",
+    "marketBusinessMateriality": {
+      "allowedCatalysts": [
+        "earnings",
+        "guidance",
+        "revenue/demand",
+        "M&A",
+        "IPO",
+        "financing/valuation",
+        "capex",
+        "major contract",
+        "restructuring",
+        "market-moving strategic event"
+      ],
+      "stockMoveAloneInsufficient": true,
+      "primaryOrStrongFinancialVerificationRequired": true
+    },
+    "mathCoverage": "explicit theorem/proof/mathematics/theoretical-CS/cryptography discovery queries",
+    "cyberCoverage": "explicit breach/ransomware/zero-day/supply-chain/data-leak/cyberattack discovery queries"
   },
   "editorialExecution": {
     "runner": "ChatGPT scheduled automation",
