@@ -1,5 +1,5 @@
 {
-  "version": 27,
+  "version": 28,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -88,7 +88,12 @@
     "Reach the target narration cadence primarily by native TTS speed and script density; post-tempo correction must stay subtle.",
     "Punchlines, reactions and jokes may receive their own speech chunk and micro-pause, while ordinary factual beats should flow continuously when they belong to the same sentence.",
     "Use the scheduled ChatGPT automation as the sole autonomous editorial reasoning layer; GitHub Actions handles discovery, rendering and publishing without an LLM API key.",
-    "Editorial acceptance writes queue files only; history/covered.json is updated exclusively from successful render receipts."
+    "Editorial acceptance writes queue files only; history/covered.json is updated exclusively from successful render receipts.",
+    "Every qualifying topic must pass the multi-pass narration workflow in editorial/script-review.md before visuals are planned or a queue file is written.",
+    "The scheduled editorial worker must separate writer, critic/editor, rewriter, factual re-check and production-planning stages instead of treating the first draft as final.",
+    "A narration draft may proceed only when its script-review average is at least 8.0/10, no review dimension is below 7.0/10, and factual discipline is at least 8.0/10.",
+    "If narration fails the script gate, rewrite and re-score it; after three failed iterations, reject the topic for that batch rather than queue weak copy.",
+    "After a narration passes the quality gate, re-check every material claim against primary sources before creating semantic beats or visuals."
   ],
   "visualRules": {
     "background": "#000000",
@@ -180,15 +185,15 @@
     "rate": "+8%",
     "pitch": "+0Hz",
     "processing": "high-pass + very light compression + limiter + loudness normalization",
-    "style": "original high-density technical editorial voice: conversational, concise, dry/playful, clear explanation, varied micro-prosody; do not imitate or clone any named creator's voice",
+    "style": "original high-density technical editorial voice: conversational, concise, dry/playful, clear explanation, varied sentence length and role-aware deadpan delivery; do not imitate or clone any named creator's literal voice",
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": "native retargeting around ~1.18x; do not rely on a large global atempo pass",
+    "speed": "Michael-tuned native retargeting around ~1.27x base; preserve deadpan role pauses and avoid heavy global atempo",
     "fallback": "Edge BrianMultilingualNeural",
-    "targetEffectiveWpm": "188 WPM center target; preferred final band 175-200",
-    "postTempo": "dynamic and tightly capped to 0.985-1.025x after native-speed retargeting",
-    "sentencePauseMs": 18,
+    "targetEffectiveWpm": "178 WPM center target; preferred final band roughly 175-190 when natural",
+    "postTempo": "dynamic and tightly capped to 0.99-1.02x after native-speed retargeting",
+    "sentencePauseMs": 58,
     "roleAware": true,
     "roleProfiles": {
       "fact": "brisk/neutral",
@@ -201,7 +206,7 @@
       "callback": "brief setup pause",
       "transition": "fastest connective delivery"
     },
-    "profile": "orbdev-dry",
+    "profile": "orbdev-deadpan",
     "speechChunking": "visual beats are decoupled from TTS chunks; synthesize natural 8-16 word thought-groups and break hard for jokes/reactions/punchlines",
     "nativeRetargeting": true,
     "voiceAuditionWorkflow": ".github/workflows/narration-audition.yml"
@@ -341,6 +346,36 @@
     "minimumFinalScore": 7.2,
     "primarySourceRequired": true,
     "queueOnlyBeforeRender": true,
-    "coveredHistorySource": "successful render receipts"
+    "coveredHistorySource": "successful render receipts",
+    "scriptReviewRequired": true,
+    "scriptReviewConfig": "editorial/script-review.md",
+    "scriptReviewMinimumAverage": 8,
+    "scriptReviewMinimumDimension": 7,
+    "scriptReviewMinimumFactualDiscipline": 8,
+    "scriptReviewMaxIterations": 3,
+    "factualRecheckAfterScriptApproval": true
+  },
+  "scriptQualityGate": {
+    "config": "editorial/script-review.md",
+    "required": true,
+    "evaluateNarrationWithoutVisualCredit": true,
+    "dimensions": [
+      "hook",
+      "spokenNaturalness",
+      "explanationClarity",
+      "informationSelection",
+      "humorVoice",
+      "caveatPracticalImplication",
+      "payoff",
+      "factualDiscipline"
+    ],
+    "minimumAverage": 8,
+    "minimumDimension": 7,
+    "minimumFactualDiscipline": 8,
+    "maximumWriterEditorIterations": 3,
+    "factualRecheckAfterPass": true,
+    "rejectIfStillFailing": true,
+    "storeCompactReviewMetadata": true,
+    "storeLongCritique": false
   }
 }
