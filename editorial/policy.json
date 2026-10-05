@@ -101,7 +101,15 @@
     "A stock-price move alone is not enough for a Market / Business story; identify and verify the underlying catalyst and explain why it matters.",
     "Market / Business coverage may include OpenAI, Anthropic, Alphabet/Google, Microsoft, Meta, Nvidia, Amazon, Apple, Oracle, IBM, AMD, Intel, Broadcom, Salesforce, ServiceNow, Palantir, Accenture, Deloitte, PwC, EY, KPMG, McKinsey, BCG, Bain, Capgemini, Cognizant, Infosys, TCS, and comparable major AI/technology/consulting firms.",
     "For private-company valuations or financing, use primary filings/announcements where available and otherwise require strong corroboration from high-quality financial reporting; do not present reported negotiations as completed transactions.",
-    "For Market / Business stories without a public primary source, require either two independent high-quality financial sources or one top-tier source such as Reuters, Bloomberg, Financial Times or The Wall Street Journal with direct sourcing/attribution; clearly label the event as reported, planned, discussed or under negotiation rather than completed."
+    "For Market / Business stories without a public primary source, require either two independent high-quality financial sources or one top-tier source such as Reuters, Bloomberg, Financial Times or The Wall Street Journal with direct sourcing/attribution; clearly label the event as reported, planned, discussed or under negotiation rather than completed.",
+    "Every newly queued production story must follow editorial/youtube-metadata.md and set publish.metadataVersion = 1.",
+    "YouTube metadata must be generated only after the final narration passes factual re-check.",
+    "New production metadata must include an accurate 20-100 character YouTube title, a concise description, 4-15 focused metadata tags, 3-5 visible hashtags, privacyStatus=public, madeForKids=false, and compact metadata-review scores.",
+    "Metadata must score at least 8.0/10 overall with no metadata-review dimension below 7.0 before a story is queued.",
+    "Do not put hashtags in YouTube titles, keyword-stuff descriptions, use irrelevant trending tags, or promise something stronger than the verified story supports.",
+    "The YouTube uploader appends missing primary-source URLs and visible hashtags to the final description automatically.",
+    "Metricool is a performance-feedback layer only; it must never delay uploads, lower editorial thresholds, or replace direct YouTube publishing.",
+    "If fewer than 5 Orbdev videos have usable Metricool per-video analytics, do not make performance-driven editorial changes; use 5-9 only as weak qualitative evidence and 10+ for soft repeated-pattern adjustments."
   ],
   "visualRules": {
     "background": "#000000",
@@ -357,7 +365,20 @@
     "skipEmptyLanes": true,
     "maxStoriesPerScan": null,
     "maxStoriesPerDay": null,
-    "publishTiming": "render/publish qualifying stories as soon as the scan/editorial pass completes; no fixed posting blocks"
+    "publishTiming": "render/publish qualifying stories as soon as the scan/editorial pass completes; no fixed posting blocks",
+    "autoPublishTarget": "YouTube direct via YouTube Data API",
+    "metadataContract": "editorial/youtube-metadata.md",
+    "metadataVersion": 1,
+    "metadataReviewMinimumOverall": 8,
+    "metadataReviewMinimumDimension": 7,
+    "youtubeTitleCharacters": "20-100",
+    "metadataTags": "4-15 focused tags",
+    "visibleHashtags": "3-5 relevant hashtags appended to description",
+    "privacyStatus": "public",
+    "madeForKids": false,
+    "primarySourcesAppendedByUploader": true,
+    "metricoolRole": "analytics/performance feedback only; not publisher and not a scheduling gate",
+    "immediateAfterDiscovery": true
   },
   "discovery": {
     "config": "editorial/discovery.json",
@@ -418,7 +439,11 @@
       "allowedWhenNoPublicPrimaryExists": true,
       "evidence": "two independent high-quality financial sources OR one top-tier source with direct sourcing/attribution",
       "mustLabelReportedStatus": true
-    }
+    },
+    "youtubeMetadataReviewRequired": true,
+    "youtubeMetadataContract": "editorial/youtube-metadata.md",
+    "metricoolFeedbackEnabled": true,
+    "metricoolMinimumUsableVideos": 5
   },
   "scriptQualityGate": {
     "config": "editorial/script-review.md",
@@ -442,5 +467,44 @@
     "rejectIfStillFailing": true,
     "storeCompactReviewMetadata": true,
     "storeLongCritique": false
+  },
+  "metricoolFeedback": {
+    "enabled": true,
+    "brandId": "7214999",
+    "timezone": "Europe/London",
+    "network": "youtube",
+    "lookbackDays": 30,
+    "minimumUsableVideos": 5,
+    "weakSignalUntilVideos": 10,
+    "usefulPerVideoMetrics": [
+      "title",
+      "publishedAt",
+      "views",
+      "averageViewDuration",
+      "watchMinutes",
+      "likes",
+      "comments",
+      "shares"
+    ],
+    "usefulChannelMetrics": [
+      "videoViews",
+      "subscribers",
+      "gained",
+      "lost"
+    ],
+    "mayInfluence": [
+      "qualified-topic priority",
+      "title construction",
+      "hook style",
+      "preferred duration range",
+      "topic-family emphasis"
+    ],
+    "mayNotInfluence": [
+      "factual threshold",
+      "script-review threshold",
+      "lane inclusion",
+      "verification requirements",
+      "upload timing"
+    ]
   }
 }
