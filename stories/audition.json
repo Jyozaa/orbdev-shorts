@@ -1,0 +1,63 @@
+{
+  "slug": "kolibri-deadpan-audition",
+  "title": "Kolibri-1 deadpan narration audition",
+  "narration": "Aleph Alpha released a 78-billion-parameter model, except most of it is basically off. Kolibri-1 only activates about 3.46 billion parameters for each token. It’s a mixture-of-experts model: instead of running everything, it routes each token through six experts. Great for compute. Your GPU memory does not get the same vacation. The FP8 weights still need roughly 78 gigs. It also supports a ridiculous one-million-token context window, although Aleph Alpha recommends 262K when you actually care about efficiency. So Kolibri is less “small model” and more “very large model with six employees on shift.”",
+  "beats": [
+    {
+      "text": "Aleph Alpha released a 78-billion-parameter model,",
+      "editorialRole": "setup"
+    },
+    {
+      "text": "except most of it is basically off.",
+      "editorialRole": "reaction"
+    },
+    {
+      "text": "Kolibri-1 only activates about 3.46 billion parameters for each token.",
+      "editorialRole": "explanation"
+    },
+    {
+      "text": "It’s a mixture-of-experts model:",
+      "editorialRole": "setup"
+    },
+    {
+      "text": "instead of running everything,",
+      "editorialRole": "explanation"
+    },
+    {
+      "text": "it routes each token through six experts.",
+      "editorialRole": "explanation"
+    },
+    {
+      "text": "Great for compute.",
+      "editorialRole": "fact"
+    },
+    {
+      "text": "Your GPU memory does not get the same vacation.",
+      "editorialRole": "joke"
+    },
+    {
+      "text": "The FP8 weights still need roughly 78 gigs.",
+      "editorialRole": "fact"
+    },
+    {
+      "text": "It also supports a ridiculous one-million-token context window,",
+      "editorialRole": "fact"
+    },
+    {
+      "text": "although Aleph Alpha recommends 262K",
+      "editorialRole": "fact"
+    },
+    {
+      "text": "when you actually care about efficiency.",
+      "editorialRole": "reaction"
+    },
+    {
+      "text": "So Kolibri is less “small model”",
+      "editorialRole": "setup"
+    },
+    {
+      "text": "and more “very large model with six employees on shift.”",
+      "editorialRole": "punchline"
+    }
+  ]
+}
