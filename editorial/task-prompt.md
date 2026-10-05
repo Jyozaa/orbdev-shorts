@@ -2,7 +2,7 @@
 
 Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
-Read `editorial/policy.json`, `editorial/script-review.md`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.
+Read `editorial/policy.json`, `editorial/script-review.md`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Market / Business, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.
 
 ## Voice-first writing
 
@@ -147,7 +147,7 @@ Before committing a story, audit the first 5 seconds and every humor beat:
 
 ## Pacing target
 
-Aim for a compressed broadcast cadence rather than a conventional explainer cadence. Narration should generally land around 175-190 effective WPM when the wording remains intelligible. Prefer better sentence rhythm over maximum speed. Write shorter clauses and remove filler instead of relying only on TTS acceleration.
+Aim for a compressed broadcast cadence rather than a conventional explainer cadence. Narration should generally land around 165-180 effective WPM when the wording remains intelligible. Natural articulation, complete consonants, and better sentence rhythm matter more than maximum speed. Write shorter clauses and remove filler instead of relying on TTS acceleration.
 
 Visual pacing follows editorial meaning:
 - factual/source visuals usually hold around 1.1-2.5 seconds;
@@ -162,7 +162,7 @@ Visual pacing follows editorial meaning:
 The scan is not a posting calendar. There are no fixed upload slots.
 
 Every 12 hours:
-1. inspect all three discovery lanes;
+1. inspect all four discovery lanes;
 2. cluster duplicates across lanes;
 3. use creator/community convergence as a heat signal;
 4. independently verify candidate facts;
@@ -170,11 +170,36 @@ Every 12 hours:
 
 Aim to find at least one worthwhile topic from each lane, but this is a soft discovery goal only. A lane with no strong topic contributes zero stories.
 
+Major News must also cover high-signal mathematics and cybersecurity developments, not only AI/product releases. Explicitly consider new theorem/proof results, conjecture resolutions, theoretical-CS/algorithmic breakthroughs, cryptography results, confirmed breaches, data/credential leaks, ransomware, zero-days, supply-chain attacks and major cyber incidents. For cyber stories, separate confirmed facts from attacker claims and speculative attribution.
+
+Market / Business covers material developments involving AI companies, Big Tech and major consulting firms. Look for earnings/guidance, revenue and demand shifts, AI/cloud/data-centre/chip capex, acquisitions/mergers, IPOs, significant financing/valuation events, major contracts, and consequential restructuring or strategy. A stock move alone is not a story: identify and verify the catalyst. Routine corporate PR should still be rejected.
+
 Hot / Emerging topics should include niche technical developments, not only mainstream AI headlines. Explicitly consider fast-growing GitHub projects, open-source models, developer tools, coding agents, CLIs, runtimes, MCP tooling, local-AI projects, Hacker News momentum and Hugging Face momentum.
 
 Creator Radar videos must be decomposed at topic level. A 30-minute roundup can generate multiple Shorts if several topics independently qualify. Never publish one generic recap merely because the topics came from the same creator upload.
 
-When the same topic appears in Major News, Hot / Emerging and/or Creator Radar, merge it into one story candidate and record the convergence as heat.
+When the same topic appears in Major News, Market / Business, Hot / Emerging and/or Creator Radar, merge it into one story candidate and record the convergence as heat.
+
+## Domain-specific verification
+
+For mathematical/scientific findings:
+- verify the actual paper/preprint/journal or authoritative institutional source;
+- distinguish a proved theorem/result from a conjecture, numerical experiment, preprint claim or informal announcement;
+- do not oversell significance beyond what the result establishes;
+- explain the result accurately enough that simplification does not change its meaning.
+
+For cybersecurity incidents:
+- distinguish confirmed compromise from suspected intrusion and attacker claims;
+- verify affected systems/data, timeline, exploit/CVE details, and remediation when known;
+- avoid speculative attribution;
+- confirmed data/credential leaks are valid stories, while unconfirmed leak rumours are not.
+
+For Market / Business:
+- identify the concrete catalyst behind the headline;
+- prefer filings, investor-relations releases, official company statements and reliable financial reporting;
+- distinguish completed M&A/financing from negotiations or reported talks;
+- do not turn ordinary stock-price movement into a story without a verified underlying event;
+- explain why the business event matters to AI/tech/consulting rather than merely quoting percentages.
 
 ## Explanation quality
 
