@@ -10,11 +10,17 @@ on:
       voices:
         description: Comma-separated Kokoro voices
         required: false
-        default: am_michael,am_fenrir,bm_george,bm_daniel
+        default: am_michael,am_fenrir,am_adam,am_onyx,bm_george,bm_daniel
       profile:
         description: Narration profile
         required: false
-        default: orbdev-dry
+        default: orbdev-deadpan
+
+  push:
+    branches:
+      - main
+    paths:
+      - 'stories/audition.json'
 
 permissions:
   contents: read
@@ -34,9 +40,9 @@ jobs:
       - run: python scripts/test_narration_logic.py
       - name: Render voice variants
         env:
-          STORY: ${{ inputs.story }}
-          VOICES: ${{ inputs.voices }}
-          ORBDEV_NARRATION_PROFILE: ${{ inputs.profile }}
+          STORY: ${{ github.event_name == 'workflow_dispatch' && inputs.story || 'stories/audition.json' }}
+          VOICES: ${{ github.event_name == 'workflow_dispatch' && inputs.voices || 'am_michael,am_fenrir,am_adam,am_onyx,bm_george,bm_daniel' }}
+          ORBDEV_NARRATION_PROFILE: ${{ github.event_name == 'workflow_dispatch' && inputs.profile || 'orbdev-deadpan' }}
         shell: bash
         run: |
           mkdir -p out/audition
