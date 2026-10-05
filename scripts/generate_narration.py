@@ -250,7 +250,7 @@ def role_profile(profile: dict[str, Any], role: str) -> dict[str, float]:
     }
 
 
-def render_kokoro(
+def render_kokoro_chunked(
     story: dict[str, object],
     profile: dict[str, Any],
     base_speed: float,
@@ -331,6 +331,133 @@ def render_kokoro(
 
     sf.write(RAW_WAV_PATH, np.concatenate(chunks), sr)
     return captions, chunk_report
+
+
+def trim_leading_silence(arr, sr: int, threshold: float, lead_pad_ms: int = 10):
+    import numpy as np
+
+    if arr.size == 0:
+        return arr
+    active = np.flatnonzero(np.abs(arr) >= threshold)
+    if active.size == 0:
+        return arr
+    lead_pad = max(1, int(sr * (lead_pad_ms / 1000.0)))
+    start = max(0, int(active[0]) - lead_pad)
+    return arr[start:]
+
+
+def render_kokoro_continuous(
+    story: dict[str, object],
+    profile: dict[str, Any],
+    base_speed: float,
+    pipeline: Any | None = None,
+) -> tuple[list[dict[str, object]], list[dict[str, Any]]]:
+    """Synthesize the full narration as one continuous Kokoro performance.
+
+    Visual/editorial beats intentionally do not become TTS boundaries here.
+    Kokoro receives the complete narration with its real punctuation so sentence
+    endings, consonant releases, breathing, and prosody are generated in context.
+    We never trim the trailing edge of an internal Kokoro result.
+    """
+    import numpy as np
+    import soundfile as sf
+    from kokoro import KPipeline
+
+    text = str(story.get("narration", "")).strip()
+    if not text:
+        raise RuntimeError("story narration is empty")
+
+    voice = str(profile.get("voice") or "am_michael")
+    lang_code = str(profile.get("langCode") or ("b" if voice.startswith("b") else "a"))
+    if pipeline is None:
+        pipeline = KPipeline(lang_code=lang_code)
+
+    sr = 24000
+    silence_threshold = float(profile.get("silenceThreshold", 0.0035))
+    trim_lead_ms = int(profile.get("trimLeadMs", 10))
+    split_pattern = str(profile.get("continuousSplitPattern", r"\n+"))
+
+    audio_parts = []
+    captions: list[dict[str, object]] = []
+    cursor = 0.0
+    engine_segments = 0
+
+    # One pipeline invocation for the whole narration. Kokoro may internally
+    # yield more than one result for long text, but those results are appended
+    # exactly as generated: no tail trimming and no injected digital silence.
+    for result in pipeline(text, voice=voice, speed=base_speed, split_pattern=split_pattern):
+        try:
+            graphemes, _phonemes, audio = result
+        except Exception:
+            graphemes = getattr(result, "graphemes", "")
+            audio = getattr(result, "audio", getattr(result, "output", None))
+        if audio is None:
+            continue
+
+        arr = np.asarray(audio, dtype=np.float32).reshape(-1)
+        if arr.size == 0:
+            continue
+
+        # Only the very start of the complete narration may be tightened.
+        # Never trim the end of a result or the start of later internal results.
+        if engine_segments == 0 and trim_lead_ms > 0:
+            arr = trim_leading_silence(
+                arr,
+                sr,
+                silence_threshold,
+                lead_pad_ms=trim_lead_ms,
+            )
+
+        spoken = str(graphemes).strip()
+        duration = arr.size / sr
+        if spoken:
+            captions.extend(weighted_word_timings(spoken, cursor, duration))
+
+        audio_parts.append(arr)
+        cursor += duration
+        engine_segments += 1
+
+    if not audio_parts:
+        raise RuntimeError("Kokoro produced no continuous narration audio")
+
+    sf.write(RAW_WAV_PATH, np.concatenate(audio_parts), sr)
+
+    beats = story.get("beats") if isinstance(story.get("beats"), list) else []
+    roles = [
+        str(beat.get("editorialRole", "fact")).lower()
+        for beat in beats
+        if isinstance(beat, dict)
+    ]
+    report = [
+        {
+            "text": text,
+            "role": "continuous",
+            "roles": roles,
+            "beatCount": len(beats),
+            "wordCount": len(re.findall(r"\S+", text)),
+            "index": 0,
+            "speed": round(base_speed, 4),
+            "preMs": 0,
+            "postMs": 0,
+            "startSeconds": 0.0,
+            "endSeconds": round(cursor, 3),
+            "engineSegments": engine_segments,
+            "tailTrimmed": False,
+        }
+    ]
+    return captions, report
+
+
+def render_kokoro(
+    story: dict[str, object],
+    profile: dict[str, Any],
+    base_speed: float,
+    pipeline: Any | None = None,
+) -> tuple[list[dict[str, object]], list[dict[str, Any]]]:
+    mode = str(profile.get("synthesisMode", "chunked")).strip().lower()
+    if mode == "continuous":
+        return render_kokoro_continuous(story, profile, base_speed, pipeline)
+    return render_kokoro_chunked(story, profile, base_speed, pipeline)
 
 
 async def render_edge(text: str, voice: str, rate: str) -> list[dict[str, object]]:
