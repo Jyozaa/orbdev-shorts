@@ -161,7 +161,20 @@
       }
     },
     {
-      "text": "Aleph Alpha says context can stretch to one million tokens,",
+      "text": "Aleph Alpha says context can stretch",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 context length Aleph Alpha model card",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "to one million tokens,",
       "editorialRole": "fact",
       "visual": {
         "type": "metric",
