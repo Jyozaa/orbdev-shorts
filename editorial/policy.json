@@ -1,5 +1,5 @@
 {
-  "version": 28,
+  "version": 29,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -189,10 +189,10 @@
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": "Michael-tuned native retargeting around ~1.27x base; preserve deadpan role pauses and avoid heavy global atempo",
+    "speed": "Michael-tuned native retargeting around ~1.22x base with preserved chunk tails; avoid heavy global atempo",
     "fallback": "Edge BrianMultilingualNeural",
-    "targetEffectiveWpm": "178 WPM center target; preferred final band roughly 175-190 when natural",
-    "postTempo": "dynamic and tightly capped to 0.99-1.02x after native-speed retargeting",
+    "targetEffectiveWpm": "180 WPM center target; natural output may land roughly 170-190 depending on phrasing and role pauses",
+    "postTempo": "dynamic and tightly capped to 0.99-1.015x after native-speed retargeting",
     "sentencePauseMs": 58,
     "roleAware": true,
     "roleProfiles": {
@@ -209,7 +209,8 @@
     "profile": "orbdev-deadpan",
     "speechChunking": "visual beats are decoupled from TTS chunks; synthesize natural 8-16 word thought-groups and break hard for jokes/reactions/punchlines",
     "nativeRetargeting": true,
-    "voiceAuditionWorkflow": ".github/workflows/narration-audition.yml"
+    "voiceAuditionWorkflow": ".github/workflows/narration-audition.yml",
+    "chunkTailPreservationMs": 60
   },
   "reactionSfx": [
     "scratch",
