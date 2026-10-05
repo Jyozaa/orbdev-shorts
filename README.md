@@ -9,6 +9,7 @@ Orbdev separates discovery from verification and rendering:
 ```
 12-hour discovery scan
   -> Major News
+  -> Market / Business
   -> Hot / Emerging
   -> Creator Radar
   -> cross-lane clustering + heat scoring
@@ -23,7 +24,9 @@ There are no fixed posting time blocks and no fixed daily story cap. A scan may 
 
 ## Discovery lanes
 
-**Major News** searches significant AI, developer, robotics, research, hardware and infrastructure announcements.
+**Major News** searches significant AI, developer, robotics, hardware and infrastructure announcements, plus mathematical/scientific findings and confirmed cybersecurity incidents such as breaches, ransomware, zero-days, supply-chain attacks and data/credential leaks.
+
+**Market / Business** tracks material business developments involving AI companies, Big Tech and major consulting firms: earnings/guidance, AI/cloud/chip/data-centre spending, M&A, IPO/financing/valuation events, major contracts and consequential strategic changes. Generic stock-price chatter is excluded unless there is a concrete verified catalyst.
 
 **Hot / Emerging** actively hunts fast-rising GitHub repositories, GitHub Trending, open-source developer tools, runtimes/CLIs/databases/compilers, coding agents, Hacker News momentum and trending Hugging Face models. Momentum age can matter more than repository creation age, and low-signal new repos must clear standalone evidence gates unless another lane independently confirms the topic.
 
@@ -48,17 +51,11 @@ A single commit containing several queue files triggers `.github/workflows/rende
 
 ## Narration
 
-Kokoro-82M is the primary narrator. Narration is synthesized by semantic beat rather than as one flat paragraph.
+Kokoro-82M is the primary narrator, using the Michael voice in one continuous full-script synthesis pass.
 
-The renderer uses subtle `editorialRole` prosody:
-- facts/setup stay brisk;
-- explanations stay clear and even;
-- analogies/jokes relax slightly;
-- reactions/punchlines receive small setup pauses and slightly slower deadpan delivery;
-- callbacks receive a brief setup pause;
-- transitions are faster.
+Visual/editorial beats do not create separate TTS recordings. `editorialRole` still guides visual rhythm, meme intent and callbacks, while spoken pacing comes from natural punctuation and the continuous performance.
 
-Post-tempo acceleration is deliberately light. The target remains roughly 180-195 effective WPM, but writing density and silence removal do more of the work than brute-force audio speedup.
+Trailing audio is not trimmed from Kokoro segments, preserving final consonants and sentence decay. The target is roughly 172 effective WPM, with natural articulation taking priority over exact speed.
 
 ## Rendering locally
 
@@ -116,13 +113,13 @@ The scheduled ChatGPT automation reads `editorial/inbox/latest.json` after the t
 
 Queue-file pushes trigger `.github/workflows/render-queue.yml`. Successful render receipts—not editorial acceptance—add stories to `history/covered.json`, so failed renders remain retryable.
 
-This keeps the three discovery lanes, Creator Radar, heat scoring, narration, rendering and publishing logic inside the repo while using the existing ChatGPT scheduled automation as the sole editorial reasoning layer.
+This keeps the four discovery lanes, Creator Radar, heat scoring, narration, rendering and publishing logic inside the repo while using the existing ChatGPT scheduled automation as the sole editorial reasoning layer.
 
 
 ## Narration profiles
 
-Production narration uses `editorial/narration-profiles.json`. The default `orbdev-dry` profile targets roughly 188 WPM with role-aware Kokoro synthesis.
+Production narration uses `editorial/narration-profiles.json`. The default `orbdev-deadpan` profile uses Michael with continuous Kokoro synthesis and targets roughly 172 WPM.
 
-Visual beats are not treated as mandatory speech cuts. The narration planner groups compatible beats into natural thought-groups, then gives jokes/reactions/punchlines their own micro-timing when useful. If the first native pass misses the WPM target, the script is re-synthesized at a slightly adjusted Kokoro speed before any post-processing. Final `atempo` correction is tightly limited so the voice does not sound artificially sped up.
+The complete narration is passed to Kokoro as one performance. Visual beats and editorial roles never force speech cuts. Native-speed retargeting and final `atempo` correction are deliberately conservative so word endings and prosody remain natural.
 
-Every render writes `build/narration-report.json` with speech chunks, native speed, raw/final WPM and applied tempo. The manual `Narration audition` workflow can render several Kokoro voices against the same story without changing production defaults.
+Every render writes `build/narration-report.json` with synthesis mode, native speed, raw/final WPM and applied tempo. The manual `Narration audition` workflow can render voice variants without changing production defaults.
