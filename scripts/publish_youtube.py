@@ -20,6 +20,66 @@ def required(name: str) -> str:
     return value
 
 
+def normalized_hashtags(values: object) -> list[str]:
+    if not isinstance(values, list):
+        return []
+    out: list[str] = []
+    seen: set[str] = set()
+    for value in values:
+        tag = str(value).strip()
+        if not tag:
+            continue
+        if not tag.startswith("#"):
+            tag = "#" + tag.replace(" ", "")
+        key = tag.lower()
+        if key in seen:
+            continue
+        seen.add(key)
+        out.append(tag)
+    return out[:5]
+
+
+def primary_source_urls(story: dict[str, object]) -> list[str]:
+    editorial = story.get("editorial")
+    if not isinstance(editorial, dict):
+        return []
+    sources = editorial.get("sources")
+    if not isinstance(sources, list):
+        return []
+    urls: list[str] = []
+    seen: set[str] = set()
+    for source in sources:
+        if not isinstance(source, dict) or source.get("primary") is not True:
+            continue
+        url = str(source.get("url") or "").strip()
+        if not url or url in seen:
+            continue
+        seen.add(url)
+        urls.append(url)
+    return urls
+
+
+def build_description(story: dict[str, object], publish: dict[str, object]) -> str:
+    base = str(publish.get("description") or "").strip()
+    source_urls = primary_source_urls(story)
+    hashtags = normalized_hashtags(publish.get("hashtags"))
+
+    sections: list[str] = []
+    if base:
+        sections.append(base)
+
+    missing_sources = [url for url in source_urls if url not in base]
+    if missing_sources:
+        sections.append("Sources:\n" + "\n".join(missing_sources))
+
+    if hashtags:
+        hashtag_line = " ".join(hashtags)
+        if not all(tag.lower() in base.lower() for tag in hashtags):
+            sections.append(hashtag_line)
+
+    return "\n\n".join(section for section in sections if section).strip()[:5000]
+
+
 def main() -> None:
     if len(sys.argv) != 3:
         raise SystemExit("usage: publish_youtube.py <story.json> <video.mp4>")
@@ -32,8 +92,8 @@ def main() -> None:
     story = json.loads(story_path.read_text(encoding="utf-8"))
     publish = story.get("publish") or {}
     title = str(publish.get("youtubeTitle") or story.get("title") or "").strip()
-    description = str(publish.get("description") or "").strip()
-    tags = [str(tag) for tag in (publish.get("tags") or []) if str(tag).strip()]
+    description = build_description(story, publish)
+    tags = [str(tag).strip() for tag in (publish.get("tags") or []) if str(tag).strip()]
     category = str(publish.get("category") or "SCIENCE_TECHNOLOGY")
     category_map = {
         "SCIENCE_TECHNOLOGY": "28",
@@ -85,7 +145,22 @@ def main() -> None:
     result_path = os.getenv("YOUTUBE_RESULT_PATH", "").strip()
     if result_path:
         Path(result_path).parent.mkdir(parents=True, exist_ok=True)
-        Path(result_path).write_text(json.dumps({"videoId": video_id, "url": url}, indent=2), encoding="utf-8")
+        Path(result_path).write_text(
+            json.dumps(
+                {
+                    "videoId": video_id,
+                    "url": url,
+                    "title": title[:100],
+                    "description": description,
+                    "tags": tags[:50],
+                    "hashtags": normalized_hashtags(publish.get("hashtags")),
+                    "privacyStatus": privacy,
+                },
+                indent=2,
+                ensure_ascii=False,
+            ),
+            encoding="utf-8",
+        )
     print(f"YouTube upload complete: {url}")
 
 
