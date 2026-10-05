@@ -2,7 +2,7 @@
 
 Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
-Read `editorial/policy.json`, `editorial/script-review.md`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Market / Business, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.
+Read `editorial/policy.json`, `editorial/script-review.md`, `editorial/youtube-metadata.md`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Market / Business, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.
 
 ## Voice-first writing
 
@@ -37,6 +37,8 @@ During the writer and critic passes, ignore visuals, memes, captions, SFX and ed
 A script may proceed only when it meets the thresholds in `editorial/script-review.md`: average >= 8.0/10, no category below 7.0, and factual discipline >= 8.0. If it fails, rewrite it and score it again. After three unsuccessful iterations, reject that topic for the current batch instead of queueing weak narration.
 
 After a script passes, re-check every material claim against primary sources. If factual corrections materially change the narration, re-run the critic once more.
+
+After the final narration is locked, generate and review YouTube metadata using `editorial/youtube-metadata.md`. Every newly queued production story must include `publish.metadataVersion: 1`, an optimized `youtubeTitle`, concise `description`, 4-15 metadata `tags`, 3-5 visible `hashtags`, `privacyStatus: "public"`, `madeForKids: false`, and a compact `publish.metadataReview` object. Metadata must score at least 8.0 overall with no review dimension below 7.0 before the story may be queued.
 
 For newly queued stories, include the compact `editorial.scriptReview` scores and iteration count when practical. Never store chain-of-thought or long private critique text in the repository.
 
@@ -157,6 +159,14 @@ Visual pacing follows editorial meaning:
 - long source visuals may remain on screen if overlays, zooms, highlights or reaction events create internal motion.
 
 
+## Metricool performance feedback
+
+At the start of each scheduled editorial pass, when the connected Metricool account is available, inspect recent Orbdev YouTube performance according to `editorial/youtube-metadata.md`.
+
+Use Metricool only as a soft feedback signal. If fewer than 5 videos have usable per-video analytics, do not make performance-driven editorial changes. At 5-9 videos, use only weak qualitative observations. At 10+ videos, repeated patterns may softly influence title style, hook style, topic priority, and preferred duration.
+
+Metricool must never lower factual/editorial thresholds, suppress a discovery lane based on a small sample, or delay publication. Uploads still happen as soon as the post-discovery editorial and render pipeline finishes.
+
 ## Discovery batch behavior
 
 The scan is not a posting calendar. There are no fixed upload slots.
@@ -223,6 +233,20 @@ Production narration is synthesized as one continuous Michael performance. Roles
 
 Write punctuation for how a person would actually say the line. Do not add punctuation merely to manufacture TTS pauses, and do not compensate for weak writing by making every beat dramatic.
 
+
+## YouTube metadata pass
+
+After script approval and factual re-check, but before queueing, follow `editorial/youtube-metadata.md`.
+
+Generate:
+- one accurate, compelling 20-100 character YouTube title;
+- a concise 1-3 sentence description;
+- 4-15 focused metadata tags;
+- 3-5 visible hashtags;
+- public privacy and not-made-for-kids settings;
+- compact metadata-review scores.
+
+Do not put hashtags in the title. Do not keyword-stuff the description. The uploader automatically appends missing primary-source URLs and the hashtag line to the final description.
 
 ## Queue contract for multiple Shorts
 
