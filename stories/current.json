@@ -1,307 +1,288 @@
 {
-  "slug": "ps5-ai-upscaling-qssr",
-  "title": "Sony brings AI upscaling to the regular PS5",
-  "narration": "Sony just taught the five-year-old PS5 a new AI trick. PSSR used to be a PS5 Pro exclusive because the base console basically looked at that neural network and said, absolutely not. Sony's workaround is QSSR: a smaller, hand-tuned network for the original PS5. It should sharpen detail and calm down image shimmer, with Marvel's Wolverine and Ghost of Yōtei first in line. Tiny problem: PSSR on the Pro still looks better. So no, your launch PS5 did not magically become a Pro. It just got a surprisingly competent software glow-up.",
+  "slug": "kolibri-script-quality-inspection",
+  "title": "Kolibri-1 script quality inspection",
+  "narration": "Aleph Alpha released a 78-billion-parameter model, but most of it sits idle. Kolibri-1 only activates about 3.46 billion parameters for each token. That's mixture-of-experts: each token gets routed through six specialists instead of waking the whole model. Great for compute. Your GPU memory gets no such luxury. The FP8 weights still need roughly 78 gigs. Context can stretch to a ridiculous one million tokens, although Aleph Alpha recommends 262K for efficiency. So Kolibri isn't really a small model. It's a very large model with six employees on shift.",
   "beats": [
     {
-      "text": "Sony just taught",
+      "text": "Aleph Alpha released",
       "editorialRole": "setup",
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "AI upscaling PS5 video",
+        "query": "Aleph Alpha Kolibri-1 Hugging Face model card",
         "mustMatch": [
-          "ytimg"
+          "kolibri"
         ]
       },
       "sfx": "whoosh"
     },
     {
-      "text": "the five-year-old PS5",
+      "text": "a 78-billion-parameter model,",
       "editorialRole": "fact",
       "visual": {
         "type": "metric",
-        "value": "5 YEARS"
+        "value": "78B PARAMETERS"
       }
     },
     {
-      "text": "a new AI trick.",
-      "editorialRole": "explanation",
+      "text": "but most of it sits idle.",
+      "editorialRole": "reaction",
       "visual": {
-        "type": "explain",
-        "mode": "pixel-upscale",
-        "labels": [
-          "ORIGINAL",
-          "AI UPSCALED"
-        ]
-      }
-    },
-    {
-      "text": "PSSR used to be a PS5 Pro exclusive",
-      "editorialRole": "fact",
-      "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "query": "PS5 AI upscaling PSSR video",
-        "mustMatch": [
-          "ytimg"
-        ]
-      }
-    },
-    {
-      "text": "because the base console",
-      "editorialRole": "setup",
-      "visual": {
-        "type": "logo",
-        "slug": "playstation",
-        "label": "BASE PS5"
-      }
-    },
-    {
-      "text": "basically looked at that neural network",
-      "editorialRole": "analogy",
-      "visual": {
-        "type": "explain",
-        "mode": "capacity",
-        "load": 98,
-        "labels": [
-          "BASE PS5"
-        ]
+        "type": "kinetic",
+        "text": "MOST OF IT: IDLE",
+        "emphasis": "IDLE"
       },
       "memeIntent": {
         "purpose": "reaction",
-        "tone": "negative",
-        "intensity": 2,
-        "preferredMedia": "audio",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
         "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
         "concepts": [
-          "bruh",
-          "overload",
-          "pain"
+          "sleeping",
+          "idle",
+          "reaction"
         ]
       }
     },
     {
-      "text": "and said, absolutely not.",
-      "editorialRole": "punchline",
-      "callbackKey": "base-ps5-nope",
+      "text": "Kolibri-1 only activates about 3.46 billion parameters for each token.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "capacity",
+        "load": 4.4,
+        "labels": [
+          "78B TOTAL",
+          "3.46B ACTIVE"
+        ]
+      }
+    },
+    {
+      "text": "That's mixture-of-experts:",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 mixture of experts architecture model card",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "each token gets routed through six specialists",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "network-shrink",
+        "fromLayers": [
+          6,
+          6,
+          6,
+          6
+        ],
+        "toLayers": [
+          3,
+          3
+        ],
+        "labels": [
+          "384 ROUTED",
+          "6 ACTIVE"
+        ]
+      }
+    },
+    {
+      "text": "instead of waking the whole model.",
+      "editorialRole": "analogy",
+      "visual": {
+        "type": "metric",
+        "value": "6 EXPERTS"
+      }
+    },
+    {
+      "text": "Great for compute.",
+      "editorialRole": "fact",
       "visual": {
         "type": "kinetic",
-        "text": "ABSOLUTELY NOT",
-        "emphasis": "NOT"
+        "text": "COMPUTE: WIN",
+        "emphasis": "WIN"
       },
       "memeIntent": {
+        "purpose": "success",
+        "tone": "positive",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "win",
+          "efficient",
+          "nice"
+        ]
+      }
+    },
+    {
+      "text": "Your GPU memory gets no such luxury.",
+      "editorialRole": "joke",
+      "visual": {
+        "type": "kinetic",
+        "text": "MEMORY: NO VACATION",
+        "emphasis": "NO"
+      },
+      "sfx": "scratch",
+      "memeIntent": {
         "purpose": "punchline",
-        "tone": "deadpan",
+        "tone": "awkward",
         "intensity": 2,
         "preferredMedia": "image",
         "presentation": "overlay",
         "maxDurationSeconds": 1,
         "concepts": [
           "nope",
-          "disbelief",
+          "pain",
           "reaction",
-          "bruh"
+          "gpu"
         ]
       }
     },
     {
-      "text": "Sony's workaround is QSSR:",
+      "text": "The FP8 weights",
       "editorialRole": "fact",
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "QSSR Quick Spectral Super Resolution PS5",
+        "query": "Kolibri-1 FP8 weights model size 78 GB",
         "mustMatch": [
-          "qssr"
-        ]
-      },
-      "sfx": "impact"
-    },
-    {
-      "text": "a smaller, hand-tuned network",
-      "editorialRole": "explanation",
-      "visual": {
-        "type": "explain",
-        "mode": "network-shrink",
-        "fromLayers": [
-          5,
-          4,
-          4,
-          3
-        ],
-        "toLayers": [
-          3,
-          3,
-          2
-        ],
-        "labels": [
-          "PSSR",
-          "QSSR"
-        ]
-      }
-    },
-    {
-      "text": "for the original PS5.",
-      "editorialRole": "fact",
-      "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "query": "PS5 AI upscaling source page",
-        "mustMatch": [
-          "ps5"
-        ]
-      }
-    },
-    {
-      "text": "It should sharpen detail",
-      "editorialRole": "fact",
-      "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "query": "AI upscaling PS5 video image quality",
-        "mustMatch": [
-          "ytimg"
+          "kolibri",
+          "78"
         ],
         "allowReuse": true
       }
     },
     {
-      "text": "and calm down image shimmer,",
-      "editorialRole": "explanation",
+      "text": "still need roughly 78 gigs.",
+      "editorialRole": "fact",
       "visual": {
-        "type": "kinetic",
-        "text": "LESS IMAGE SHIMMER",
-        "emphasis": "SHIMMER"
+        "type": "metric",
+        "value": "~78 GB"
       }
     },
     {
-      "text": "with Marvel's Wolverine and Ghost of Yōtei first in line.",
+      "text": "Context can stretch",
       "editorialRole": "fact",
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "Marvel Wolverine Ghost of Yotei first titles QSSR",
+        "query": "Kolibri-1 context length one million tokens model card",
         "mustMatch": [
-          "wolverine",
-          "yotei"
+          "kolibri"
         ],
         "allowReuse": true
       }
     },
     {
-      "text": "Tiny problem:",
+      "text": "to a ridiculous one million tokens,",
       "editorialRole": "reaction",
       "visual": {
-        "type": "kinetic",
-        "text": "TINY PROBLEM",
-        "emphasis": "PROBLEM"
-      },
-      "sfx": "scratch",
-      "memeIntent": {
-        "purpose": "reaction",
-        "tone": "awkward",
-        "intensity": 1,
-        "preferredMedia": "image",
-        "presentation": "overlay",
-        "maxDurationSeconds": 0.9,
-        "concepts": [
-          "awkward",
-          "uh oh",
-          "problem",
-          "reaction"
-        ]
+        "type": "metric",
+        "value": "1,048,576 TOKENS"
       }
     },
     {
-      "text": "PSSR on the Pro still looks better.",
-      "editorialRole": "fact",
+      "text": "although Aleph Alpha recommends 262K for efficiency.",
+      "editorialRole": "explanation",
       "visual": {
         "type": "comparison",
-        "left": "QSSR",
-        "right": "PSSR PRO"
+        "left": "1M MAX",
+        "right": "262K RECOMMENDED"
       }
     },
     {
-      "text": "So no, your launch PS5 did not magically become a Pro.",
-      "editorialRole": "punchline",
-      "callbackKey": "base-ps5-nope",
+      "text": "So Kolibri isn't really a small model.",
+      "editorialRole": "setup",
       "visual": {
         "type": "kinetic",
-        "text": "STILL NOT A PRO",
+        "text": "NOT A SMALL MODEL",
         "emphasis": "NOT"
+      }
+    },
+    {
+      "text": "It's a very large model with six employees on shift.",
+      "editorialRole": "punchline",
+      "callbackKey": "six-on-shift",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 Aleph Alpha model overview",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
       },
       "memeIntent": {
         "purpose": "punchline",
-        "tone": "chaotic",
+        "tone": "deadpan",
         "intensity": 2,
         "preferredMedia": "video",
         "presentation": "overlay",
         "maxDurationSeconds": 1.1,
         "concepts": [
-          "copium",
-          "denial",
-          "laugh",
-          "reaction"
-        ]
-      }
-    },
-    {
-      "text": "It just got a surprisingly competent software glow-up.",
-      "editorialRole": "callback",
-      "callbackKey": "base-ps5-nope",
-      "visual": {
-        "type": "logo",
-        "slug": "playstation",
-        "label": "SOFTWARE GLOW-UP"
-      },
-      "memeIntent": {
-        "purpose": "success",
-        "tone": "positive",
-        "intensity": 2,
-        "preferredMedia": "image",
-        "presentation": "overlay",
-        "maxDurationSeconds": 1,
-        "concepts": [
-          "stonks",
-          "upgrade",
-          "win",
-          "nice"
+          "office",
+          "workers",
+          "shift",
+          "reaction",
+          "big"
         ]
       }
     }
   ],
   "editorial": {
-    "storyKey": "sony-ps5-qssr-ai-upscaling-2026",
-    "selectedAt": "2026-10-03T11:08:00+01:00",
-    "score": 8.5,
+    "storyKey": "aleph-alpha-kolibri-1-script-quality-inspection",
+    "selectedAt": "2026-10-05T09:18:00+01:00",
+    "score": 8.9,
+    "scriptReview": {
+      "iterations": 2,
+      "average": 8.75,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 8,
+        "factualDiscipline": 9
+      }
+    },
     "topics": [
-      "AI upscaling",
-      "graphics",
-      "PlayStation",
-      "gaming hardware"
+      "open-weight AI",
+      "mixture of experts",
+      "long context"
     ],
     "companies": [
-      "Sony Interactive Entertainment"
+      "Aleph Alpha"
     ],
     "sources": [
       {
-        "title": "AI upscaling is coming to PS5",
-        "publisher": "PlayStation",
-        "url": "https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/",
-        "publishedAt": "2026-10-01",
+        "title": "Kolibri-1 model card",
+        "publisher": "Aleph Alpha",
+        "url": "https://huggingface.co/Aleph-Alpha/Kolibri-1",
+        "publishedAt": "2026-10-03",
         "primary": true
       }
     ]
   },
   "publish": {
-    "youtubeTitle": "AI upscaling just came to the regular PS5",
-    "description": "Sony is bringing QSSR, a new AI-guided upscaling library, to the base PS5. Marvel's Wolverine and Ghost of Yōtei are among the first supported games.\\n\\nSource: https://blog.playstation.com/2026/10/01/ai-upscaling-is-coming-to-ps5/",
+    "youtubeTitle": "This 78B AI model only wakes up 3.46B parameters",
+    "description": "Inspection render for Orbdev scripting quality. Source: https://huggingface.co/Aleph-Alpha/Kolibri-1",
     "tags": [
       "AI",
-      "PS5",
-      "PlayStation",
-      "gaming",
+      "LLM",
+      "Aleph Alpha",
+      "Kolibri",
       "tech news"
     ],
     "category": "SCIENCE_TECHNOLOGY",
