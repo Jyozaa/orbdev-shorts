@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "defaultProfile": "orbdev-dry",
   "profiles": {
     "orbdev-dry": {
@@ -127,6 +127,70 @@
           "speed": 1.07,
           "preMs": 0,
           "postMs": 2
+        }
+      }
+    },
+    "orbdev-deadpan": {
+      "voice": "am_michael",
+      "langCode": "a",
+      "baseSpeed": 1.16,
+      "targetWpm": 182,
+      "nativeRetargetToleranceWpm": 5,
+      "nativeRetargetMinMultiplier": 0.93,
+      "nativeRetargetMaxMultiplier": 1.05,
+      "postTempoMin": 0.99,
+      "postTempoMax": 1.018,
+      "chunkTargetWords": 10,
+      "chunkMaxWords": 14,
+      "chunkMinWords": 4,
+      "sentencePauseMs": 58,
+      "silenceThreshold": 0.0035,
+      "edgeRate": "+7%",
+      "roles": {
+        "fact": {
+          "speed": 1.025,
+          "preMs": 0,
+          "postMs": 8
+        },
+        "setup": {
+          "speed": 1.015,
+          "preMs": 0,
+          "postMs": 12
+        },
+        "explanation": {
+          "speed": 0.995,
+          "preMs": 0,
+          "postMs": 16
+        },
+        "analogy": {
+          "speed": 0.98,
+          "preMs": 18,
+          "postMs": 24
+        },
+        "joke": {
+          "speed": 0.96,
+          "preMs": 48,
+          "postMs": 34
+        },
+        "reaction": {
+          "speed": 0.95,
+          "preMs": 68,
+          "postMs": 40
+        },
+        "punchline": {
+          "speed": 0.94,
+          "preMs": 92,
+          "postMs": 64
+        },
+        "callback": {
+          "speed": 0.96,
+          "preMs": 52,
+          "postMs": 38
+        },
+        "transition": {
+          "speed": 1.035,
+          "preMs": 0,
+          "postMs": 6
         }
       }
     }
