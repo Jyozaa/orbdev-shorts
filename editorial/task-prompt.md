@@ -189,17 +189,13 @@ Use Creator Radar to learn what questions are worth answering, not to copy wordi
 
 This combines high information density with enough explanation that a viewer can understand why the headline matters.
 
-## Role-aware narration
+## Editorial roles and continuous narration
 
-The renderer now synthesizes semantic beats with subtle editorial-role prosody. Write roles intentionally:
-- `fact` / `setup`: brisk;
-- `explanation`: clear and even;
-- `analogy` / `joke`: slightly more relaxed;
-- `reaction` / `punchline`: allow a tiny setup pause and deadpan delivery;
-- `callback`: brief setup pause;
-- `transition`: fast connective delivery.
+Keep assigning `fact`, `setup`, `explanation`, `analogy`, `joke`, `reaction`, `punchline`, `callback`, and `transition` when useful, but these roles no longer create separate TTS recordings.
 
-Do not compensate for a weak script by writing excessive punctuation or forcing every beat to sound dramatic.
+Production narration is synthesized as one continuous Michael performance. Roles are metadata for visual rhythm, memes, callbacks, and story structure. Audible pacing should come from normal spoken punctuation and sentence construction.
+
+Write punctuation for how a person would actually say the line. Do not add punctuation merely to manufacture TTS pauses, and do not compensate for weak writing by making every beat dramatic.
 
 
 ## Queue contract for multiple Shorts
@@ -231,16 +227,18 @@ A candidate needs a base editorial score of at least 6.0 before heat is applied.
 Queue accepted stories in one GitHub commit when practical. Do not add a story to covered history merely because it was queued. Covered history is updated from successful render receipts so failed jobs remain retryable.
 
 
-## Speech-chunk authoring
+## Continuous-speech authoring
 
-Visual beats and spoken chunks are intentionally decoupled. Do not add punctuation merely to force every visual beat to sound separate.
+Visual beats and spoken delivery are intentionally decoupled. The production narrator receives the complete narration as one continuous Kokoro synthesis pass.
 
-The narrator groups compatible visual beats into roughly 8-16 word thought-groups. Factual/setup/explanation beats that form one spoken sentence should flow together. Jokes, reactions, punchlines and callbacks are allowed to break into their own speech chunk for deadpan timing.
+Do not design narration around TTS chunks. A sentence such as “A router sends each token through six specialists. The rest stays inactive.” should be written exactly as it should be spoken; the renderer will not split those clauses into independent voice recordings because their visual beats differ.
 
-The deadpan production target is about 180 effective WPM, but natural phrasing and complete word tails matter more than hitting an exact number. The engine first adjusts Kokoro's native synthesis speed toward the selected profile target and only allows a very small final tempo correction. This is meant to preserve natural articulation rather than mechanically speeding a slower performance.
+The production target is roughly 178 effective WPM, but complete consonants, natural sentence endings, and intelligibility take priority over hitting an exact number.
 
 Use punctuation as a real speaker would:
-- periods/questions for genuine sentence boundaries;
-- commas for clauses;
-- a colon or dash when a setup genuinely needs a payoff;
-- avoid ellipses unless an audible hesitation is actually intended.
+- periods and questions for genuine sentence boundaries;
+- commas for natural clauses;
+- colons or dashes only when the spoken setup genuinely calls for them;
+- avoid ellipses unless hesitation is actually intended.
+
+Editorial roles remain useful for visuals and meme timing, but they must not be used as instructions to chop the narration audio.
