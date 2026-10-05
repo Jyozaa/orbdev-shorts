@@ -1,5 +1,5 @@
 {
-  "version": 4,
+  "version": 5,
   "scanCadenceHours": 12,
   "candidateLookbackHours": 36,
   "exceptionLookbackHours": 72,
@@ -18,7 +18,16 @@
       "open source developer tool OR GitHub project launch",
       "programming framework OR package manager OR browser automation release",
       "security research vulnerability developer infrastructure",
-      "graphics rendering GPU technology release"
+      "graphics rendering GPU technology release",
+      "mathematics theorem proof conjecture breakthrough new result",
+      "mathematical discovery number theory geometry topology combinatorics",
+      "computer science theory algorithm complexity breakthrough proof",
+      "cryptography mathematical breakthrough paper result",
+      "cyber attack data breach ransomware incident major technology company",
+      "zero day vulnerability exploit cyberattack active exploitation",
+      "supply chain attack software compromise security incident",
+      "credential leak data leak exposed database cloud breach",
+      "malware botnet ransomware campaign cybersecurity incident"
     ],
     "primaryDomains": [
       "openai.com",
@@ -32,7 +41,21 @@
       "huggingface.co",
       "github.com",
       "github.blog",
-      "arxiv.org"
+      "arxiv.org",
+      "ams.org",
+      "siam.org",
+      "nature.com",
+      "science.org",
+      "pnas.org",
+      "acm.org",
+      "cisa.gov",
+      "nist.gov",
+      "nvd.nist.gov",
+      "cloudflare.com",
+      "crowdstrike.com",
+      "paloaltonetworks.com",
+      "mandiant.com",
+      "googleprojectzero.blogspot.com"
     ],
     "publisherBonuses": {
       "OpenAI": 0.55,
@@ -50,7 +73,13 @@
       "The Verge": 0.25,
       "MIT Technology Review": 0.32,
       "IEEE Spectrum": 0.32,
-      "Tom's Hardware": 0.22
+      "Tom's Hardware": 0.22,
+      "Quanta Magazine": 0.4,
+      "Nature": 0.45,
+      "Science": 0.45,
+      "BleepingComputer": 0.28,
+      "Krebs on Security": 0.4,
+      "The Record": 0.32
     }
   },
   "hotEmerging": {
@@ -68,7 +97,11 @@
       "terminal in:name,description",
       "devtool in:name,description",
       "browser automation in:name,description",
-      "observability in:name,description"
+      "observability in:name,description",
+      "security tool in:name,description,readme",
+      "vulnerability scanner in:name,description,readme",
+      "malware analysis in:name,description,readme",
+      "cryptography in:name,description,readme"
     ],
     "githubCreatedWithinDays": 14,
     "githubMinStars": 40,
@@ -85,7 +118,18 @@
       "database",
       "compiler",
       "devtools",
-      "browser automation"
+      "browser automation",
+      "mathematics",
+      "theorem",
+      "proof",
+      "cryptography",
+      "algorithm",
+      "security vulnerability",
+      "data breach",
+      "ransomware",
+      "zero-day",
+      "cyberattack",
+      "supply chain attack"
     ],
     "hackerNewsMinPoints": 20,
     "huggingFaceLimit": 60,
@@ -195,5 +239,64 @@
     "minimumFinalScore": 7.2,
     "primarySourceRequired": true,
     "markCoveredOnlyAfterSuccessfulRender": true
+  },
+  "marketBusiness": {
+    "queries": [
+      "(OpenAI OR Anthropic OR Google OR Alphabet OR Microsoft OR Meta OR Nvidia OR Amazon OR Apple) earnings revenue guidance AI market",
+      "(OpenAI OR Anthropic OR Google OR Alphabet OR Microsoft OR Meta OR Nvidia OR Amazon OR Apple) acquisition merger IPO valuation financing",
+      "(OpenAI OR Anthropic OR Google OR Alphabet OR Microsoft OR Meta OR Nvidia OR Amazon OR Apple) capex data center AI spending investment",
+      "(Nvidia OR AMD OR Intel OR Broadcom OR Microsoft OR Amazon OR Google OR Meta) chips AI demand revenue forecast",
+      "(Accenture OR Deloitte OR PwC OR EY OR KPMG OR McKinsey OR BCG OR Bain OR Capgemini) AI revenue market demand",
+      "(Accenture OR Deloitte OR PwC OR EY OR KPMG OR McKinsey OR BCG OR Bain OR Capgemini) acquisition investment restructuring AI",
+      "(Accenture OR Deloitte OR PwC OR EY OR KPMG OR McKinsey OR BCG OR Bain OR Capgemini) major contract deal artificial intelligence",
+      "(Salesforce OR Oracle OR IBM OR ServiceNow OR Palantir OR Cognizant OR Infosys OR TCS) AI earnings revenue guidance",
+      "big tech stock move earnings guidance AI spending data center",
+      "AI company IPO valuation funding acquisition market news"
+    ],
+    "primaryDomains": [
+      "openai.com",
+      "anthropic.com",
+      "abc.xyz",
+      "google.com",
+      "microsoft.com",
+      "meta.com",
+      "nvidia.com",
+      "amazon.com",
+      "apple.com",
+      "oracle.com",
+      "ibm.com",
+      "amd.com",
+      "intel.com",
+      "broadcom.com",
+      "salesforce.com",
+      "adobe.com",
+      "servicenow.com",
+      "palantir.com",
+      "accenture.com",
+      "deloitte.com",
+      "pwc.com",
+      "ey.com",
+      "kpmg.com",
+      "mckinsey.com",
+      "bcg.com",
+      "bain.com",
+      "capgemini.com",
+      "cognizant.com",
+      "infosys.com",
+      "tcs.com",
+      "sec.gov"
+    ],
+    "publisherBonuses": {
+      "Reuters": 0.55,
+      "Bloomberg": 0.48,
+      "Financial Times": 0.48,
+      "The Wall Street Journal": 0.42,
+      "CNBC": 0.34,
+      "The Information": 0.38,
+      "Fortune": 0.24,
+      "Business Insider": 0.18,
+      "TechCrunch": 0.28,
+      "The Verge": 0.18
+    }
   }
 }
