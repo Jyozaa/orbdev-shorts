@@ -1,0 +1,339 @@
+{
+  "slug": "denmark-cpr-breach-8-8-million",
+  "title": "Denmark CPR breach exposed data on 8.8 million people",
+  "narration": "Denmark just confirmed a breach of its national population register affecting about 8.8 million records. The access path was a Danish company with legitimate permission to query the system. Unauthorized users abused that access to obtain names, addresses and CPR numbers at scale. That distinction matters: trusted access became the attack path. Authorities have blocked the company’s connection, notified the data regulator, and police are investigating. People with name-and-address protection were excluded from that part of the exposure. The lesson is simple: centralized identity systems are only as secure as every organization allowed to query them.",
+  "beats": [
+    {
+      "text": "Denmark just confirmed a breach",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Denmark CPR official breach announcement",
+        "mustMatch": [
+          "CPR"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "of its national population register",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "Danish ministry CPR security incident",
+        "mustMatch": [
+          "CPR"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "affecting about 8.8 million records.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "metric",
+        "value": "~8.8M PEOPLE"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "surprised",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "huge number",
+          "surprised",
+          "data breach"
+        ]
+      }
+    },
+    {
+      "text": "The access path was a Danish company",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "CPR private company legitimate access",
+        "mustMatch": [
+          "CPR"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "with legitimate permission to query the system.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "pipeline",
+        "stages": [
+          "COMPANY",
+          "CPR",
+          "QUERY"
+        ]
+      }
+    },
+    {
+      "text": "Unauthorized users abused that access",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "unauthorized access Danish company CPR system",
+        "mustMatch": [
+          "CPR"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "to obtain names, addresses and CPR numbers at scale.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "kinetic",
+        "text": "NAMES ADDRESSES CPR NUMBERS",
+        "emphasis": "CPR"
+      }
+    },
+    {
+      "text": "That distinction matters:",
+      "editorialRole": "transition",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 2,
+        "query": "Denmark CPR breach access path",
+        "mustMatch": [
+          "Denmark",
+          "CPR"
+        ]
+      }
+    },
+    {
+      "text": "trusted access became the attack path.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "explain",
+        "mode": "fanout",
+        "nodes": [
+          "TRUST",
+          "ACCESS",
+          "EXPOSURE"
+        ]
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "trusted access",
+          "security failure",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "Authorities have blocked the company’s connection,",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "CPR administration stopped company access",
+        "mustMatch": [
+          "CPR"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "notified the data regulator, and police are investigating.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "timeline",
+        "points": [
+          {
+            "label": "ACCESS BLOCKED",
+            "position": 20
+          },
+          {
+            "label": "REGULATOR NOTIFIED",
+            "position": 55
+          },
+          {
+            "label": "POLICE INVESTIGATING",
+            "position": 90
+          }
+        ]
+      }
+    },
+    {
+      "text": "People with name-and-address protection",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "CPR name address protection breach exclusion",
+        "mustMatch": [
+          "CPR"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "were excluded from that part of the exposure.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "kinetic",
+        "text": "PROTECTED ADDRESSES EXCLUDED",
+        "emphasis": "EXCLUDED"
+      }
+    },
+    {
+      "text": "The lesson is simple:",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 2,
+        "query": "Denmark population registry breach cybersecurity",
+        "mustMatch": [
+          "Denmark"
+        ]
+      }
+    },
+    {
+      "text": "centralized identity systems are only as secure",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "explain",
+        "mode": "network-shrink",
+        "fromLayers": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "toLayers": [
+          2,
+          2
+        ],
+        "labels": [
+          "IDENTITY SYSTEM",
+          "TRUST PATHS"
+        ]
+      }
+    },
+    {
+      "text": "as every organization allowed to query them.",
+      "editorialRole": "payoff",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "private companies access CPR registry",
+        "mustMatch": [
+          "CPR"
+        ],
+        "allowReuse": true
+      }
+    }
+  ],
+  "editorial": {
+    "storyKey": "denmark-cpr-breach-8-8m-2026-10-05",
+    "selectedAt": "2026-10-05T19:36:00+01:00",
+    "score": 9.2,
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "cybersecurity",
+      "data breach",
+      "national identity systems",
+      "third-party access"
+    ],
+    "companies": [],
+    "discovery": {
+      "clusterId": "d8745465fca7e8ee",
+      "lanes": [
+        "hot_emerging",
+        "major_news"
+      ],
+      "creators": [],
+      "signals": [
+        "developer-discussion",
+        "hacker-news",
+        "major-news-search"
+      ],
+      "discoveryScore": 9.73,
+      "qualityGate": "independent-convergence"
+    },
+    "sources": [
+      {
+        "title": "Omfattende uautoriseret adgang til borgeres CPR-oplysninger",
+        "publisher": "CPR-administrationen",
+        "url": "https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger",
+        "publishedAt": "2026-10-05",
+        "primary": true
+      },
+      {
+        "title": "Omfattende uautoriseret adgang til borgeres CPR-oplysninger",
+        "publisher": "Forsknings-, Uddannelses- og Digitaliseringsministeriet",
+        "url": "https://ufm.dk/aktuelt/pressemeddelelser/2026/oktober/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger/",
+        "publishedAt": "2026-10-05",
+        "primary": true
+      },
+      {
+        "title": "Denmark population registry data breach affects 8.8 million people",
+        "publisher": "BleepingComputer",
+        "url": "https://www.bleepingcomputer.com/news/security/denmark-population-registry-data-breach-affects-88-million-people/",
+        "publishedAt": "2026-10-05",
+        "primary": false
+      }
+    ]
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "Denmark’s CPR Breach Exposed Data on 8.8 Million People",
+    "description": "Denmark confirmed unauthorized access to its Central Person Register after a private company’s legitimate query access was abused. Names, addresses and CPR numbers tied to about 8.8 million registered people were accessed, and authorities are investigating.",
+    "tags": [
+      "cybersecurity",
+      "data breach",
+      "Denmark",
+      "CPR",
+      "Central Person Register",
+      "identity security",
+      "third-party access",
+      "cyber attack"
+    ],
+    "hashtags": [
+      "#Cybersecurity",
+      "#DataBreach",
+      "#Denmark",
+      "#CPR"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}
