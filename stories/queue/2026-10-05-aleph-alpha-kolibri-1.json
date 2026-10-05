@@ -101,12 +101,14 @@
         "type": "explain",
         "mode": "network-shrink",
         "fromLayers": [
-          12,
-          12,
-          12
+          6,
+          6,
+          6,
+          6
         ],
         "toLayers": [
-          6
+          3,
+          3
         ],
         "labels": [
           "384 ROUTED",
