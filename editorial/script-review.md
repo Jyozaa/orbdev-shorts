@@ -15,6 +15,10 @@ Requirements:
 - Explain what changed, how the important mechanism works, why it matters in practice, and the material limitation/caveat.
 - Prefer implication over feature enumeration.
 - Humor should emerge from the technical situation rather than being appended to a dry paragraph.
+- Prefer understated contrast over a constructed punchline. A clear line such as "Compute drops. Memory doesn't." is better than a metaphor that exists only to sound clever.
+- Do not force a joke into the ending. The ending may simply state the useful implication or tradeoff.
+- Use at most one explicit analogy by default, and only when it genuinely makes the mechanism easier to understand.
+- Avoid extended anthropomorphism, workplace metaphors, or "X is basically Y" jokes unless they improve explanation rather than decorate it.
 - Do not choose visuals, memes, SFX, beat boundaries, or on-screen copy yet.
 
 The writer may use verified research notes, but should not simply compress a press release, model card, benchmark table, changelog, or creator transcript.
@@ -45,6 +49,9 @@ Score each dimension from 0-10:
 5. Humor / editorial voice
    - Is the dry/playful observation earned by the facts?
    - Does humor feel integrated rather than bolted on?
+   - Would the line still be worth saying if the joke were removed?
+   - Penalize conspicuously "written" punchlines, stretched metaphors, cute personification, or endings that feel engineered only to land a joke.
+   - Prefer one understated dry contrast over several joke-shaped sentences.
    - Avoid copying any creator's wording, catchphrases, or persona.
 
 6. Caveat / practical implication
@@ -79,7 +86,9 @@ Rules:
 - Preserve verified facts, not the draft's phrasing.
 - Remove low-value details before adding new words.
 - Strengthen the central angle rather than adding more jokes.
+- When humor feels written or performative, remove it rather than searching for a replacement joke.
 - Replace generic transitions with direct cause/effect or contrast.
+- Prefer short factual contrasts and clean conclusions over elaborate final metaphors.
 - Keep the script natural for the Orbdev deadpan narrator.
 - Do not copy creator wording even when Creator Radar inspired the angle.
 
