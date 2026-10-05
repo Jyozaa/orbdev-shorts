@@ -29,6 +29,64 @@ def normalized_space(text: str) -> str:
     return " ".join(text.split())
 
 
+def validate_publish_metadata(data: dict[str, object]) -> None:
+    publish = data.get("publish")
+    if not isinstance(publish, dict):
+        fail("publish metadata is required for production stories")
+
+    # metadataVersion 1 opts a story into the strict production metadata contract.
+    # Older queued stories remain re-renderable without a migration.
+    if int(publish.get("metadataVersion") or 0) < 1:
+        return
+
+    title = publish.get("youtubeTitle")
+    if not isinstance(title, str) or not 20 <= len(title.strip()) <= 100:
+        fail("publish.youtubeTitle must be 20-100 characters")
+
+    description = publish.get("description")
+    if not isinstance(description, str) or not 40 <= len(description.strip()) <= 4200:
+        fail("publish.description must be 40-4200 characters before sources/hashtags are appended")
+
+    tags = publish.get("tags")
+    if not isinstance(tags, list) or not 4 <= len(tags) <= 15:
+        fail("publish.tags must contain 4-15 focused YouTube metadata tags")
+    cleaned_tags = [str(tag).strip() for tag in tags]
+    if any(not tag or len(tag) > 60 for tag in cleaned_tags):
+        fail("publish.tags entries must be non-empty and at most 60 characters")
+    if len({tag.lower() for tag in cleaned_tags}) != len(cleaned_tags):
+        fail("publish.tags must not contain duplicates")
+
+    hashtags = publish.get("hashtags")
+    if not isinstance(hashtags, list) or not 3 <= len(hashtags) <= 5:
+        fail("publish.hashtags must contain 3-5 visible hashtags")
+    cleaned_hashtags = [str(tag).strip() for tag in hashtags]
+    if any(not re.fullmatch(r"#[A-Za-z0-9_]{2,30}", tag) for tag in cleaned_hashtags):
+        fail("publish.hashtags must use #LettersNumbersOrUnderscores with no spaces")
+    if len({tag.lower() for tag in cleaned_hashtags}) != len(cleaned_hashtags):
+        fail("publish.hashtags must not contain duplicates")
+
+    if publish.get("privacyStatus", "public") != "public":
+        fail("production publish.privacyStatus must be public")
+
+    if publish.get("madeForKids") is not False:
+        fail("production publish.madeForKids must be false")
+
+    category = publish.get("category", "SCIENCE_TECHNOLOGY")
+    if category not in {"SCIENCE_TECHNOLOGY", "EDUCATION", "ENTERTAINMENT", "NEWS_POLITICS"}:
+        fail("publish.category is unsupported")
+
+    metadata_review = publish.get("metadataReview")
+    if not isinstance(metadata_review, dict):
+        fail("publish.metadataReview is required for metadataVersion 1")
+    score = metadata_review.get("score")
+    if not isinstance(score, (int, float)) or score < 8 or score > 10:
+        fail("publish.metadataReview.score must be between 8 and 10")
+    for key in ("hookAccuracy", "searchClarity", "descriptionQuality", "hashtagRelevance"):
+        value = metadata_review.get(key)
+        if not isinstance(value, (int, float)) or value < 7 or value > 10:
+            fail(f"publish.metadataReview.{key} must be between 7 and 10")
+
+
 def validate_editorial(data: dict[str, object]) -> None:
     editorial = data.get("editorial")
     if not isinstance(editorial, dict):
@@ -335,6 +393,7 @@ def main() -> None:
     is_editorial_story = path.name == "current.json" or path.parent.name == "queue"
     if is_editorial_story:
         validate_editorial(data)
+        validate_publish_metadata(data)
         word_count = len(re.findall(r"\S+", narration))
         if not 80 <= word_count <= 105:
             fail(f"editorial narration must contain 80-105 words; got {word_count}")
