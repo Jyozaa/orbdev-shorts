@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "defaultProfile": "orbdev-dry",
+  "defaultProfile": "orbdev-deadpan",
   "profiles": {
     "orbdev-dry": {
       "voice": "am_michael",
@@ -133,13 +133,13 @@
     "orbdev-deadpan": {
       "voice": "am_michael",
       "langCode": "a",
-      "baseSpeed": 1.16,
-      "targetWpm": 182,
+      "baseSpeed": 1.27,
+      "targetWpm": 178,
       "nativeRetargetToleranceWpm": 5,
-      "nativeRetargetMinMultiplier": 0.93,
-      "nativeRetargetMaxMultiplier": 1.05,
+      "nativeRetargetMinMultiplier": 0.95,
+      "nativeRetargetMaxMultiplier": 1.08,
       "postTempoMin": 0.99,
-      "postTempoMax": 1.018,
+      "postTempoMax": 1.02,
       "chunkTargetWords": 10,
       "chunkMaxWords": 14,
       "chunkMinWords": 4,
