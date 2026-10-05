@@ -237,7 +237,7 @@ Visual beats and spoken chunks are intentionally decoupled. Do not add punctuati
 
 The narrator groups compatible visual beats into roughly 8-16 word thought-groups. Factual/setup/explanation beats that form one spoken sentence should flow together. Jokes, reactions, punchlines and callbacks are allowed to break into their own speech chunk for deadpan timing.
 
-The deadpan production target is about 182 effective WPM. The engine first adjusts Kokoro's native synthesis speed toward the selected profile target and only allows a very small final tempo correction. This is meant to preserve natural articulation rather than mechanically speeding a slower performance.
+The deadpan production target is about 180 effective WPM, but natural phrasing and complete word tails matter more than hitting an exact number. The engine first adjusts Kokoro's native synthesis speed toward the selected profile target and only allows a very small final tempo correction. This is meant to preserve natural articulation rather than mechanically speeding a slower performance.
 
 Use punctuation as a real speaker would:
 - periods/questions for genuine sentence boundaries;
