@@ -49,7 +49,7 @@ jobs:
       - name: Render voice variants
         env:
           STORY: ${{ github.event_name == 'workflow_dispatch' && inputs.story || 'stories/audition.json' }}
-          VOICES: ${{ github.event_name == 'workflow_dispatch' && inputs.voices || 'am_michael,am_fenrir,am_adam,am_onyx,bm_george,bm_daniel' }}
+          VOICES: ${{ github.event_name == 'workflow_dispatch' && inputs.voices || 'am_michael' }}
           ORBDEV_NARRATION_PROFILE: ${{ github.event_name == 'workflow_dispatch' && inputs.profile || 'orbdev-deadpan' }}
         shell: bash
         run: |
