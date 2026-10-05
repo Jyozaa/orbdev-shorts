@@ -47,6 +47,46 @@ def main() -> None:
     )
     assert d.technical_core(technical), "open-source developer tools must survive"
 
+    math_result = c(
+        "major_news",
+        "news_search",
+        "Researchers prove new theorem in combinatorics",
+        "https://example.com/math",
+        "A new mathematical proof resolves a longstanding conjecture",
+        source="Quanta Magazine",
+    )
+    assert d.technical_core(math_result), "new mathematical findings must survive discovery"
+
+    cyber_incident = c(
+        "major_news",
+        "news_search",
+        "Major cloud provider confirms data breach after zero-day attack",
+        "https://example.com/cyber",
+        "Confirmed cybersecurity incident exposed credentials",
+        source="Reuters",
+    )
+    assert d.technical_core(cyber_incident), "confirmed cyber incidents must survive discovery"
+
+    market_story = c(
+        "market_business",
+        "news_search",
+        "Microsoft raises AI capex guidance after cloud revenue growth",
+        "https://example.com/market",
+        "Microsoft earnings show higher AI infrastructure spending and revenue guidance",
+        source="Reuters",
+    )
+    assert d.technical_core(market_story), "material Big Tech market stories must survive discovery"
+
+    generic_market = c(
+        "market_business",
+        "news_search",
+        "Regional bank shares rise after earnings",
+        "https://example.com/generic-market",
+        "Stocks gained after quarterly profit",
+        source="Reuters",
+    )
+    assert not d.technical_core(generic_market), "generic non-tech market news must stay out"
+
     low_repo = c(
         "hot_emerging",
         "github_repo",
