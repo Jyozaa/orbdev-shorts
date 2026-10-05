@@ -97,6 +97,10 @@ YOUTUBE_REFRESH_TOKEN
 
 When enabled, each successful queued render is uploaded immediately using the story's `publish` metadata. No fixed publication clock is used.
 
+New production stories use `publish.metadataVersion: 1` and must pass the YouTube metadata contract in `editorial/youtube-metadata.md`: optimized title, concise description, focused metadata tags, 3-5 visible hashtags, public privacy, and metadata-review scores. The uploader automatically appends missing primary-source URLs and the visible hashtag line to the final description.
+
+Metricool remains outside the upload path. The scheduled GPT editorial worker may read recent YouTube performance from the connected Metricool brand as a soft feedback signal, with a minimum sample threshold; Metricool never delays immediate publishing.
+
 ## Editorial policy
 
 - `editorial/policy.json` contains the hard editorial and rendering rules.
