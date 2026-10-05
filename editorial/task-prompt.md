@@ -22,6 +22,41 @@ Add an `editorialRole` when useful:
 
 Use `callbackKey` when a later beat intentionally pays off an earlier joke or visual premise.
 
+## Spoken-copy quality gate
+
+The script must sound natural before any memes, visuals or TTS are added. Treat this as a hard editorial pass, not a style preference.
+
+Prefer one central idea per Short. Every sentence should either explain that idea, sharpen its practical implication, introduce the important caveat, or pay off the premise. Do not turn a model card, changelog or press release into a spoken feature list.
+
+Avoid generic AI-news phrasing and synthetic transitions such as:
+- "X just dropped";
+- "the trick is";
+- "here's the catch";
+- "so yes";
+- "game changer";
+- "this changes everything";
+- "in other words" when a more direct sentence works.
+
+Do not use those phrases merely because they create an easy hook. A hook should expose the surprising technical contrast itself.
+
+Write for speech:
+- contractions are preferred when natural;
+- vary sentence length aggressively;
+- allow a 2-5 word sentence when it creates contrast or deadpan timing;
+- use concrete nouns and verbs instead of abstract product language;
+- explain the practical consequence of a number instead of stacking specifications;
+- keep at most 2-3 headline numbers unless additional numbers are essential to the story;
+- prefer one memorable analogy or dry observation over several separate jokes.
+
+Humor should usually emerge from the explanation. A caveat can be the joke. A comparison can be the punchline. Avoid appending a joke sentence after a dry paragraph merely to make the script feel entertaining.
+
+Before queueing, read the narration aloud mentally and reject it if it sounds like written copy being recited. Rewrite any sentence that feels like a press release, list of capabilities, or generic AI summary.
+
+A strong default structure is:
+**surprising technical contrast -> what it is -> how it works -> practical benefit -> caveat -> concise payoff**.
+
+This is a structure, not a template. Do not repeat identical hooks or punchline patterns across stories.
+
 ## Visual hierarchy
 
 Default hierarchy:
@@ -94,7 +129,7 @@ Before committing a story, audit the first 5 seconds and every humor beat:
 
 ## Pacing target
 
-Aim for a compressed broadcast cadence rather than a conventional explainer cadence. Narration should generally land around 180-195 effective WPM when the wording remains intelligible. Write shorter clauses and remove filler instead of relying only on TTS speed.
+Aim for a compressed broadcast cadence rather than a conventional explainer cadence. Narration should generally land around 175-190 effective WPM when the wording remains intelligible. Prefer better sentence rhythm over maximum speed. Write shorter clauses and remove filler instead of relying only on TTS acceleration.
 
 Visual pacing follows editorial meaning:
 - factual/source visuals usually hold around 1.1-2.5 seconds;
@@ -182,7 +217,7 @@ Visual beats and spoken chunks are intentionally decoupled. Do not add punctuati
 
 The narrator groups compatible visual beats into roughly 8-16 word thought-groups. Factual/setup/explanation beats that form one spoken sentence should flow together. Jokes, reactions, punchlines and callbacks are allowed to break into their own speech chunk for deadpan timing.
 
-The production profile targets about 188 effective WPM. The engine first adjusts Kokoro's native synthesis speed toward that target and only allows a very small final tempo correction. This is meant to preserve natural articulation rather than mechanically speeding a slower performance.
+The deadpan production target is about 182 effective WPM. The engine first adjusts Kokoro's native synthesis speed toward the selected profile target and only allows a very small final tempo correction. This is meant to preserve natural articulation rather than mechanically speeding a slower performance.
 
 Use punctuation as a real speaker would:
 - periods/questions for genuine sentence boundaries;
