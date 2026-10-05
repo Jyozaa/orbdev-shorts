@@ -6,99 +6,267 @@
     {
       "text": "Germany just dropped",
       "editorialRole": "setup",
-      "visual": {"type": "source", "sourceIndex": 0, "query": "Aleph Alpha Kolibri-1 Hugging Face model card", "mustMatch": ["kolibri"]},
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Aleph Alpha Kolibri-1 Hugging Face model card",
+        "mustMatch": [
+          "kolibri"
+        ]
+      },
       "sfx": "whoosh"
     },
     {
       "text": "a 78-billion-parameter AI model",
       "editorialRole": "fact",
-      "visual": {"type": "metric", "value": "78B PARAMETERS"}
+      "visual": {
+        "type": "metric",
+        "value": "78B PARAMETERS"
+      }
     },
     {
       "text": "that only wakes up 3.46 billion parameters per token.",
       "editorialRole": "explanation",
-      "visual": {"type": "explain", "mode": "capacity", "load": 4.4, "labels": ["78B TOTAL", "3.46B ACTIVE"]}
+      "visual": {
+        "type": "explain",
+        "mode": "capacity",
+        "load": 4.4,
+        "labels": [
+          "78B TOTAL",
+          "3.46B ACTIVE"
+        ]
+      }
     },
     {
       "text": "Kolibri-1 is Aleph Alpha's new open-weight bilingual model,",
       "editorialRole": "fact",
-      "visual": {"type": "source", "sourceIndex": 0, "query": "Kolibri-1 Aleph Alpha model overview", "mustMatch": ["kolibri", "aleph"]}
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 Aleph Alpha model overview",
+        "mustMatch": [
+          "kolibri",
+          "aleph"
+        ]
+      }
     },
     {
       "text": "built for German and English reasoning, coding, tool use, and long documents.",
       "editorialRole": "fact",
-      "visual": {"type": "kinetic", "text": "DE + EN • CODE • TOOLS • LONG CONTEXT", "emphasis": "DE + EN"}
+      "visual": {
+        "type": "kinetic",
+        "text": "DE+EN CODE TOOLS LONG-CONTEXT",
+        "emphasis": "DE+EN"
+      }
     },
     {
       "text": "The trick is mixture-of-experts:",
       "editorialRole": "setup",
-      "visual": {"type": "source", "sourceIndex": 0, "query": "Kolibri-1 mixture of experts architecture model card", "mustMatch": ["kolibri"], "allowReuse": true}
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 mixture of experts architecture model card",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
+      }
     },
     {
       "text": "most of the model stays asleep",
       "editorialRole": "analogy",
-      "visual": {"type": "kinetic", "text": "MOST EXPERTS: SLEEPING", "emphasis": "SLEEPING"},
-      "memeIntent": {"purpose": "reaction", "tone": "deadpan", "intensity": 2, "preferredMedia": "image", "presentation": "overlay", "maxDurationSeconds": 1.0, "concepts": ["sleeping", "lazy", "reaction"]}
+      "visual": {
+        "type": "kinetic",
+        "text": "MOST EXPERTS: SLEEPING",
+        "emphasis": "SLEEPING"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "sleeping",
+          "lazy",
+          "reaction"
+        ]
+      }
     },
     {
       "text": "while six routed experts work each token.",
       "editorialRole": "explanation",
-      "visual": {"type": "explain", "mode": "network-shrink", "fromLayers": [12,12,12], "toLayers": [6], "labels": ["384 ROUTED", "6 ACTIVE"]}
+      "visual": {
+        "type": "explain",
+        "mode": "network-shrink",
+        "fromLayers": [
+          12,
+          12,
+          12
+        ],
+        "toLayers": [
+          6
+        ],
+        "labels": [
+          "384 ROUTED",
+          "6 ACTIVE"
+        ]
+      }
     },
     {
       "text": "That saves compute,",
       "editorialRole": "fact",
-      "visual": {"type": "metric", "value": "3.46B ACTIVE"}
+      "visual": {
+        "type": "metric",
+        "value": "3.46B ACTIVE"
+      }
     },
     {
       "text": "not memory;",
       "editorialRole": "reaction",
-      "visual": {"type": "kinetic", "text": "NOT MEMORY", "emphasis": "NOT"},
+      "visual": {
+        "type": "kinetic",
+        "text": "NOT MEMORY",
+        "emphasis": "NOT"
+      },
       "sfx": "scratch",
-      "memeIntent": {"purpose": "reaction", "tone": "awkward", "intensity": 1, "preferredMedia": "image", "presentation": "overlay", "maxDurationSeconds": 0.9, "concepts": ["uh oh", "wait", "reaction"]}
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "awkward",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "uh oh",
+          "wait",
+          "reaction"
+        ]
+      }
     },
     {
       "text": "the FP8 weights still need about 78 gigabytes.",
       "editorialRole": "fact",
-      "visual": {"type": "source", "sourceIndex": 0, "query": "Kolibri-1 hardware requirements 78 GB FP8", "mustMatch": ["kolibri", "78"]}
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 hardware requirements 78 GB FP8",
+        "mustMatch": [
+          "kolibri",
+          "78"
+        ]
+      }
     },
     {
       "text": "Aleph Alpha says context can stretch to one million tokens,",
       "editorialRole": "fact",
-      "visual": {"type": "metric", "value": "1,048,576 TOKENS"}
+      "visual": {
+        "type": "metric",
+        "value": "1,048,576 TOKENS"
+      }
     },
     {
       "text": "though it recommends 262K for efficiency.",
       "editorialRole": "explanation",
-      "visual": {"type": "comparison", "left": "1M MAX", "right": "262K RECOMMENDED"}
+      "visual": {
+        "type": "comparison",
+        "left": "1M MAX",
+        "right": "262K RECOMMENDED"
+      }
     },
     {
       "text": "So yes,",
       "editorialRole": "reaction",
-      "visual": {"type": "source", "sourceIndex": 0, "query": "Kolibri-1 Aleph Alpha Hugging Face", "mustMatch": ["kolibri"], "allowReuse": true},
-      "memeIntent": {"purpose": "reaction", "tone": "deadpan", "intensity": 1, "preferredMedia": "image", "presentation": "overlay", "maxDurationSeconds": 0.8, "concepts": ["yes", "reaction", "nod"]}
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 Aleph Alpha Hugging Face",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "yes",
+          "reaction",
+          "nod"
+        ]
+      }
     },
     {
       "text": "the hummingbird is huge.",
       "editorialRole": "punchline",
       "callbackKey": "hummingbird",
-      "visual": {"type": "kinetic", "text": "TINY NAME. 78B MODEL.", "emphasis": "78B"},
-      "memeIntent": {"purpose": "punchline", "tone": "chaotic", "intensity": 2, "preferredMedia": "video", "presentation": "overlay", "maxDurationSeconds": 1.1, "concepts": ["big", "huge", "surprise", "reaction"]}
+      "visual": {
+        "type": "kinetic",
+        "text": "TINY NAME. 78B MODEL.",
+        "emphasis": "78B"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "chaotic",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1.1,
+        "concepts": [
+          "big",
+          "huge",
+          "surprise",
+          "reaction"
+        ]
+      }
     },
     {
       "text": "It just flaps selectively.",
       "editorialRole": "callback",
       "callbackKey": "hummingbird",
-      "visual": {"type": "source", "sourceIndex": 0, "query": "Kolibri-1 model overview mixture experts", "mustMatch": ["kolibri"], "allowReuse": true},
-      "memeIntent": {"purpose": "success", "tone": "positive", "intensity": 2, "preferredMedia": "image", "presentation": "overlay", "maxDurationSeconds": 1.0, "concepts": ["smart", "efficient", "win", "reaction"]}
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 model overview mixture experts",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
+      },
+      "memeIntent": {
+        "purpose": "success",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "smart",
+          "efficient",
+          "win",
+          "reaction"
+        ]
+      }
     }
   ],
   "editorial": {
     "storyKey": "aleph-alpha-kolibri-1-open-weight-moe-2026",
     "selectedAt": "2026-10-05T02:04:00+01:00",
     "score": 8.9,
-    "topics": ["open-weight AI", "mixture of experts", "long context", "German AI"],
-    "companies": ["Aleph Alpha"],
+    "topics": [
+      "open-weight AI",
+      "mixture of experts",
+      "long context",
+      "German AI"
+    ],
+    "companies": [
+      "Aleph Alpha"
+    ],
     "sources": [
       {
         "title": "Kolibri-1 model card",
@@ -112,7 +280,14 @@
   "publish": {
     "youtubeTitle": "This 78B AI model only uses 3.46B parameters at once",
     "description": "Aleph Alpha released Kolibri-1, an Apache-2.0 open-weight German-English mixture-of-experts model with 78B total parameters, 3.46B active parameters per token, tool calling, reasoning mode and context validated up to 1,048,576 tokens.\n\nSource: https://huggingface.co/Aleph-Alpha/Kolibri-1",
-    "tags": ["AI", "open source", "LLM", "Aleph Alpha", "Kolibri", "tech news"],
+    "tags": [
+      "AI",
+      "open source",
+      "LLM",
+      "Aleph Alpha",
+      "Kolibri",
+      "tech news"
+    ],
     "category": "SCIENCE_TECHNOLOGY",
     "madeForKids": false
   }
