@@ -233,7 +233,7 @@ Visual beats and spoken delivery are intentionally decoupled. The production nar
 
 Do not design narration around TTS chunks. A sentence such as “A router sends each token through six specialists. The rest stays inactive.” should be written exactly as it should be spoken; the renderer will not split those clauses into independent voice recordings because their visual beats differ.
 
-The production target is roughly 178 effective WPM, but complete consonants, natural sentence endings, and intelligibility take priority over hitting an exact number.
+The production target is roughly 172 effective WPM, but complete consonants, natural sentence endings, and intelligibility take priority over hitting an exact number.
 
 Use punctuation as a real speaker would:
 - periods and questions for genuine sentence boundaries;
