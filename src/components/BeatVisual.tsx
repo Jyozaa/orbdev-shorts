@@ -17,6 +17,26 @@ const fittedFontSize = (value: string, boxWidth: number, max: number, min: numbe
   return Math.max(min, Math.min(max, estimated));
 };
 
+// Metrics are intentionally large, but unlike short labels they can contain
+// long comma-separated numbers plus units. Estimate glyph widths
+// conservatively so every metric remains inside the 9:16 title-safe area.
+const fittedMetricFontSize = (
+  value: string,
+  boxWidth: number,
+  max: number,
+  min: number
+) => {
+  const glyphUnits = [...value.trim()].reduce((total, char) => {
+    if (char === ' ') return total + 0.32;
+    if (/[.,:]/.test(char)) return total + 0.28;
+    if (/[1Iil|]/.test(char)) return total + 0.36;
+    if (/[MW@%]/.test(char)) return total + 0.9;
+    return total + 0.62;
+  }, 0);
+  const estimated = Math.floor((boxWidth * 0.94) / Math.max(1, glyphUnits));
+  return Math.max(min, Math.min(max, estimated));
+};
+
 const AnimatedConnector: React.FC<{index: number; frame: number; fps: number}> = ({
   index,
   frame,
@@ -354,22 +374,26 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
   }
 
   if (beat.visual.type === 'metric') {
-    const fontSize = fittedFontSize(beat.visual.value, 860, 260, 132);
+    const metricWidth = 880;
+    const fontSize = fittedMetricFontSize(beat.visual.value, metricWidth, 220, 64);
     const pulse = 1 + Math.sin((frame / fps) * Math.PI * 2 * 1.6) * 0.012;
+    const letterSpacing = -Math.max(2, Math.round(fontSize * 0.035));
     return (
       <AbsoluteFill style={shell}>
         <div
           style={{
-            maxWidth: 900,
-            padding: '0 32px',
+            width: metricWidth,
+            maxWidth: metricWidth,
+            padding: '0 20px',
             boxSizing: 'border-box',
             fontSize,
-            lineHeight: 0.86,
+            lineHeight: 0.92,
             fontWeight: 950,
-            letterSpacing: -10,
+            letterSpacing,
             transform: `scale(${scale * pulse})`,
             textAlign: 'center',
-            whiteSpace: 'nowrap'
+            whiteSpace: 'nowrap',
+            overflow: 'visible'
           }}
         >
           {beat.visual.value}
