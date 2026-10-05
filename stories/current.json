@@ -1,6 +1,6 @@
 {
-  "slug": "kolibri-continuous-tts-inspection",
-  "title": "Kolibri-1 continuous TTS inspection",
+  "slug": "kolibri-continuous-tts-172-inspection",
+  "title": "Kolibri-1 continuous TTS 172 inspection",
   "narration": "Kolibri-1 is a 78-billion-parameter model that only activates about 3.46 billion parameters for each token. That sounds contradictory, but that's the point. It's a mixture-of-experts model. A router sends each token through six specialists. The rest stays out of the way. So compute per token drops. Memory doesn't. The FP8 weights still need roughly 78 gigs. Context can reach one million tokens, although Aleph Alpha recommends 262K for efficiency. Big model, selective compute. That's the trade: less work per token, not a smaller model.",
   "beats": [
     {
@@ -243,7 +243,7 @@
     }
   ],
   "editorial": {
-    "storyKey": "aleph-alpha-kolibri-1-continuous-tts-inspection",
+    "storyKey": "aleph-alpha-kolibri-1-continuous-tts-172-inspection",
     "selectedAt": "2026-10-05T10:45:00+01:00",
     "score": 8.9,
     "scriptReview": {
@@ -277,7 +277,7 @@
         "primary": true
       }
     ],
-    "ttsInspection": "continuous-v1"
+    "ttsInspection": "continuous-172-v1"
   },
   "publish": {
     "youtubeTitle": "Why this 78B model only uses 3.46B parameters per token",
