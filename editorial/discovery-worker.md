@@ -5,7 +5,30 @@ The repository runs a discovery scan every 12 hours. Discovery is intentionally 
 ## Discovery lanes
 
 ### Major News
-Searches for significant technical announcements across frontier AI labs, developer platforms, robotics, hardware, research, infrastructure and graphics.
+Searches for significant technical and scientific announcements across frontier AI labs, developer platforms, robotics, hardware, infrastructure, mathematics, theoretical computer science, cryptography, cybersecurity and research.
+
+This lane explicitly includes:
+- new mathematical theorems, proofs, conjecture resolutions and important algorithmic/theoretical results
+- cryptography results with clear technical significance
+- confirmed data breaches, credential/data leaks, ransomware, zero-days, supply-chain compromises and major cyberattacks
+- high-impact vulnerability disclosures and security incidents
+
+For cyber incidents, separate confirmed facts from attacker claims, rumours and speculative attribution.
+
+### Market / Business
+Tracks material business and market developments involving AI companies, Big Tech and major consulting firms.
+
+Examples include:
+- earnings, revenue, guidance and AI/cloud demand
+- AI/data-centre/chip capex and infrastructure spending
+- acquisitions, mergers, IPOs, major financing or valuation events
+- material contracts and strategic deals
+- major restructuring with a real business/technology consequence
+- consulting-firm AI revenue, demand, acquisitions and significant strategic shifts
+
+This lane is not generic stock-market coverage. A share-price move by itself is insufficient. The editorial runner must identify and verify the concrete catalyst behind the move.
+
+Target companies include major AI labs and technology firms such as OpenAI, Anthropic, Alphabet/Google, Microsoft, Meta, Nvidia, Amazon, Apple, Oracle, IBM, AMD, Intel, Broadcom, Salesforce, ServiceNow and Palantir, plus major consultancies including Accenture, Deloitte, PwC, EY, KPMG, McKinsey, BCG, Bain, Capgemini, Cognizant, Infosys and TCS.
 
 ### Hot / Emerging
 Actively hunts for developer-interest signals that normal press search can miss:
@@ -71,10 +94,10 @@ The scheduled scan writes `editorial/inbox/latest.json`.
 
 For each candidate marked `qualifiesForEditorial`:
 
-1. Determine whether it is genuinely one technical story.
-2. Find and read the primary source: official announcement, repository, paper, model page or release notes.
-3. Verify all material claims independently from creator commentary.
-4. Reject rumours, unsupported benchmark claims and misleading comparisons.
+1. Determine whether it is genuinely one coherent technical, scientific, cyber, or market/business story.
+2. Find and read the strongest available primary source: official announcement, repository, paper, journal/preprint, security advisory, breach notice, regulatory filing, investor-relations release, model page or release notes.
+3. Verify all material claims independently from creator commentary or secondary headlines.
+4. Reject rumours, unconfirmed leaks, unsupported benchmark claims and misleading comparisons. Confirmed breach/data-leak incidents are valid when the evidence is solid.
 5. Check `history/covered.json` and the current story again.
 6. Re-score using the full editorial rubric, including significance, practical impact, novelty, source confidence, visual potential and current heat.
 7. If it still clears the threshold, create one story JSON for that topic.
@@ -93,7 +116,9 @@ Creator channels can set their own segment budget. High-recall roundup channels 
 
 GitHub discovery stops after writing `editorial/inbox/latest.json` and `history/discovery-state.json`. It does not call an LLM API and does not dispatch a GitHub editorial workflow.
 
-The scheduled ChatGPT automation is the editorial runner. It executes after the discovery scans, reads the repository files as authoritative instructions, and performs live-web research, primary-source verification, final scoring, narration/visual planning, and queue creation.
+The scheduled ChatGPT automation is the editorial runner. It executes after the discovery scans, reads the repository files as authoritative instructions, and performs live-web research, primary-source verification, final scoring, multi-pass script review, narration/visual planning, and queue creation.
+
+For Market / Business candidates, use filings, investor-relations releases, official company statements and high-quality financial reporting as appropriate. For private-company financing/valuation stories, distinguish completed transactions from negotiations or reported talks.
 
 The quality gate remains unchanged:
 - at least one backed primary source is mandatory;
