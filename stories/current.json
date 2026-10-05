@@ -1,10 +1,10 @@
 {
-  "slug": "kolibri-script-quality-inspection",
-  "title": "Kolibri-1 script quality inspection",
-  "narration": "Aleph Alpha released a 78-billion-parameter model, but most of it sits idle. Kolibri-1 only activates about 3.46 billion parameters for each token. That's mixture-of-experts: each token gets routed through six specialists instead of waking the whole model. Great for compute. Your GPU memory gets no such luxury. The FP8 weights still need roughly 78 gigs. Context can stretch to a ridiculous one million tokens, although Aleph Alpha recommends 262K for efficiency. So Kolibri isn't really a small model. It's a very large model with six employees on shift.",
+  "slug": "kolibri-script-quality-inspection-v2",
+  "title": "Kolibri-1 script quality inspection v2",
+  "narration": "Kolibri-1 is a 78-billion-parameter model that only activates about 3.46 billion parameters for each token. That sounds contradictory, but that's the point. It's a mixture-of-experts model. A router sends each token through six specialists. The rest stays out of the way. So compute per token drops. Memory doesn't. The FP8 weights still need roughly 78 gigs. Context can reach one million tokens, although Aleph Alpha recommends 262K for efficiency. Big model, selective compute. That's the trade: less work per token, not a smaller model.",
   "beats": [
     {
-      "text": "Aleph Alpha released",
+      "text": "Kolibri-1 is a 78-billion-parameter model",
       "editorialRole": "setup",
       "visual": {
         "type": "source",
@@ -17,37 +17,7 @@
       "sfx": "whoosh"
     },
     {
-      "text": "a 78-billion-parameter model,",
-      "editorialRole": "fact",
-      "visual": {
-        "type": "metric",
-        "value": "78B PARAMETERS"
-      }
-    },
-    {
-      "text": "but most of it sits idle.",
-      "editorialRole": "reaction",
-      "visual": {
-        "type": "kinetic",
-        "text": "MOST OF IT: IDLE",
-        "emphasis": "IDLE"
-      },
-      "memeIntent": {
-        "purpose": "reaction",
-        "tone": "deadpan",
-        "intensity": 1,
-        "preferredMedia": "image",
-        "presentation": "overlay",
-        "maxDurationSeconds": 0.9,
-        "concepts": [
-          "sleeping",
-          "idle",
-          "reaction"
-        ]
-      }
-    },
-    {
-      "text": "Kolibri-1 only activates about 3.46 billion parameters for each token.",
+      "text": "that only activates about 3.46 billion parameters for each token.",
       "editorialRole": "explanation",
       "visual": {
         "type": "explain",
@@ -60,12 +30,34 @@
       }
     },
     {
-      "text": "That's mixture-of-experts:",
-      "editorialRole": "setup",
+      "text": "That sounds contradictory,",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "78B. ONLY 3.46B ACTIVE.",
+        "emphasis": "3.46B"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "confused",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "confused",
+          "wait",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "but that's the point.",
+      "editorialRole": "fact",
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "Kolibri-1 mixture of experts architecture model card",
+        "query": "Kolibri-1 active parameters model card",
         "mustMatch": [
           "kolibri"
         ],
@@ -73,7 +65,20 @@
       }
     },
     {
-      "text": "each token gets routed through six specialists",
+      "text": "It's a mixture-of-experts model.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 mixture of experts architecture",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "A router sends each token",
       "editorialRole": "explanation",
       "visual": {
         "type": "explain",
@@ -89,94 +94,35 @@
           3
         ],
         "labels": [
-          "384 ROUTED",
+          "ROUTER",
           "6 ACTIVE"
         ]
       }
     },
     {
-      "text": "instead of waking the whole model.",
-      "editorialRole": "analogy",
+      "text": "through six specialists.",
+      "editorialRole": "explanation",
       "visual": {
         "type": "metric",
         "value": "6 EXPERTS"
       }
     },
     {
-      "text": "Great for compute.",
-      "editorialRole": "fact",
+      "text": "The rest stays out of the way.",
+      "editorialRole": "explanation",
       "visual": {
         "type": "kinetic",
-        "text": "COMPUTE: WIN",
-        "emphasis": "WIN"
-      },
-      "memeIntent": {
-        "purpose": "success",
-        "tone": "positive",
-        "intensity": 1,
-        "preferredMedia": "image",
-        "presentation": "overlay",
-        "maxDurationSeconds": 0.8,
-        "concepts": [
-          "win",
-          "efficient",
-          "nice"
-        ]
+        "text": "MOST STAY INACTIVE",
+        "emphasis": "INACTIVE"
       }
     },
     {
-      "text": "Your GPU memory gets no such luxury.",
-      "editorialRole": "joke",
-      "visual": {
-        "type": "kinetic",
-        "text": "MEMORY: NO VACATION",
-        "emphasis": "NO"
-      },
-      "sfx": "scratch",
-      "memeIntent": {
-        "purpose": "punchline",
-        "tone": "awkward",
-        "intensity": 2,
-        "preferredMedia": "image",
-        "presentation": "overlay",
-        "maxDurationSeconds": 1,
-        "concepts": [
-          "nope",
-          "pain",
-          "reaction",
-          "gpu"
-        ]
-      }
-    },
-    {
-      "text": "The FP8 weights",
+      "text": "So compute per token drops.",
       "editorialRole": "fact",
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "Kolibri-1 FP8 weights model size 78 GB",
-        "mustMatch": [
-          "kolibri",
-          "78"
-        ],
-        "allowReuse": true
-      }
-    },
-    {
-      "text": "still need roughly 78 gigs.",
-      "editorialRole": "fact",
-      "visual": {
-        "type": "metric",
-        "value": "~78 GB"
-      }
-    },
-    {
-      "text": "Context can stretch",
-      "editorialRole": "fact",
-      "visual": {
-        "type": "source",
-        "sourceIndex": 0,
-        "query": "Kolibri-1 context length one million tokens model card",
+        "query": "Kolibri-1 active parameters efficiency",
         "mustMatch": [
           "kolibri"
         ],
@@ -184,11 +130,47 @@
       }
     },
     {
-      "text": "to a ridiculous one million tokens,",
+      "text": "Memory doesn't.",
       "editorialRole": "reaction",
       "visual": {
+        "type": "kinetic",
+        "text": "MEMORY DOESN'T",
+        "emphasis": "DOESN'T"
+      },
+      "sfx": "scratch",
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "nope",
+          "memory",
+          "reaction"
+        ]
+      }
+    },
+    {
+      "text": "The FP8 weights still need roughly 78 gigs.",
+      "editorialRole": "fact",
+      "visual": {
         "type": "metric",
-        "value": "1,048,576 TOKENS"
+        "value": "~78 GB"
+      }
+    },
+    {
+      "text": "Context can reach one million tokens,",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Kolibri-1 context length one million tokens",
+        "mustMatch": [
+          "kolibri"
+        ],
+        "allowReuse": true
       }
     },
     {
@@ -201,59 +183,80 @@
       }
     },
     {
-      "text": "So Kolibri isn't really a small model.",
-      "editorialRole": "setup",
+      "text": "Big model, selective compute.",
+      "editorialRole": "callback",
+      "callbackKey": "selective-compute",
       "visual": {
         "type": "kinetic",
-        "text": "NOT A SMALL MODEL",
-        "emphasis": "NOT"
+        "text": "BIG MODEL. SELECTIVE COMPUTE.",
+        "emphasis": "SELECTIVE"
+      },
+      "memeIntent": {
+        "purpose": "emphasis",
+        "tone": "neutral",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.8,
+        "concepts": [
+          "smart",
+          "efficient",
+          "reaction"
+        ]
       }
     },
     {
-      "text": "It's a very large model with six employees on shift.",
-      "editorialRole": "punchline",
-      "callbackKey": "six-on-shift",
+      "text": "That's the trade: less work per token,",
+      "editorialRole": "fact",
       "visual": {
         "type": "source",
         "sourceIndex": 0,
-        "query": "Kolibri-1 Aleph Alpha model overview",
+        "query": "Kolibri-1 model overview active parameters",
         "mustMatch": [
           "kolibri"
         ],
         "allowReuse": true
+      }
+    },
+    {
+      "text": "not a smaller model.",
+      "editorialRole": "punchline",
+      "callbackKey": "selective-compute",
+      "visual": {
+        "type": "kinetic",
+        "text": "NOT A SMALLER MODEL",
+        "emphasis": "NOT"
       },
       "memeIntent": {
         "purpose": "punchline",
         "tone": "deadpan",
-        "intensity": 2,
+        "intensity": 1,
         "preferredMedia": "video",
         "presentation": "overlay",
-        "maxDurationSeconds": 1.1,
+        "maxDurationSeconds": 1,
         "concepts": [
-          "office",
-          "workers",
-          "shift",
-          "reaction",
-          "big"
+          "no",
+          "deadpan",
+          "reaction"
         ]
       }
     }
   ],
   "editorial": {
-    "storyKey": "aleph-alpha-kolibri-1-script-quality-inspection",
-    "selectedAt": "2026-10-05T09:18:00+01:00",
+    "storyKey": "aleph-alpha-kolibri-1-script-quality-inspection-v2",
+    "selectedAt": "2026-10-05T10:45:00+01:00",
     "score": 8.9,
     "scriptReview": {
-      "iterations": 2,
-      "average": 8.75,
+      "iterations": 3,
+      "average": 9,
       "scores": {
         "hook": 9,
         "spokenNaturalness": 9,
         "explanationClarity": 9,
         "informationSelection": 9,
-        "humorVoice": 8,
+        "humorVoice": 9,
         "caveatPracticalImplication": 9,
-        "payoff": 8,
+        "payoff": 9,
         "factualDiscipline": 9
       }
     },
@@ -276,8 +279,8 @@
     ]
   },
   "publish": {
-    "youtubeTitle": "This 78B AI model only wakes up 3.46B parameters",
-    "description": "Inspection render for Orbdev scripting quality. Source: https://huggingface.co/Aleph-Alpha/Kolibri-1",
+    "youtubeTitle": "Why this 78B model only uses 3.46B parameters per token",
+    "description": "Inspection render for Orbdev scripting and narration quality. Source: https://huggingface.co/Aleph-Alpha/Kolibri-1",
     "tags": [
       "AI",
       "LLM",
