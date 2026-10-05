@@ -1,8 +1,204 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-05T10:47:03.680307Z",
+  "generatedAt": "2026-10-05T10:50:20.737520Z",
   "scanCadenceHours": 12,
   "qualified": [
+    {
+      "clusterId": "7c5b7e4d7817df04",
+      "title": "Denmark Data Breach Exposes 8.8M People's Personal Data",
+      "score": 9.49,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging",
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "CyberSecurityNews",
+        "Cybersecurity Insiders",
+        "Hacker News",
+        "Modern Ghana",
+        "\u041c\u0435\u0436\u0430. \u041d\u043e\u0432\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438."
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "developer-discussion",
+        "hacker-news",
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "496117e66cf8997c",
+        "lane": "hot_emerging",
+        "sourceKind": "hacker_news",
+        "title": "Denmark Data Breach Exposes 8.8M People's Personal Data",
+        "summary": "",
+        "url": "https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger",
+        "publishedAt": "2026-10-05T08:09:36Z",
+        "sourceName": "Hacker News",
+        "metrics": {
+          "points": 139,
+          "comments": 96
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "hacker-news",
+          "developer-discussion"
+        ],
+        "rawScore": 7.67
+      },
+      "evidence": [
+        {
+          "id": "496117e66cf8997c",
+          "lane": "hot_emerging",
+          "sourceKind": "hacker_news",
+          "title": "Denmark Data Breach Exposes 8.8M People's Personal Data",
+          "summary": "",
+          "url": "https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger",
+          "publishedAt": "2026-10-05T08:09:36Z",
+          "sourceName": "Hacker News",
+          "metrics": {
+            "points": 139,
+            "comments": 96
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "hacker-news",
+            "developer-discussion"
+          ],
+          "rawScore": 7.67
+        },
+        {
+          "id": "af576a4c3403741a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Cybersecurity Newsletter Bulletin \u2013 Pentagon Data Breach, Citrix, Fortimail and Apple 0-days and 20+ stories - CyberSecurityNews",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTFA3LWtLVmdScE5EYmlEbnRJdEJsWEw3ZkloVEFpdURDRHJ0SC1Ibjh5QXlCRHRPLXF6aEpkNFpYelFiQ0E4ZUtzcHRvaUdJalJjeUQyWlRjeVJvMWJ4cGJ6TDZ6blpEVENVWEJINy1mbHhOU0ZCdU5ITEFXYUnSAYIBQVVfeXFMUFJUcUhzeGktSlFlYlN6ZG9FSTJoOXY5TzloSXQwem4zYlhGMl9xOUNwMTZDazJORUFmelY3UWk2d1Q0R1RCT3FfODNhYXhhVWlKZjFST2dBRUhOZ2VpYkppVmRneTgzYktSLWRnSzhUeUhHT1J0X3huWHlmcDZyTFBwQQ?oc=5",
+          "publishedAt": "2026-10-05T01:28:08Z",
+          "sourceName": "CyberSecurityNews",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://cybersecuritynews.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.61
+        },
+        {
+          "id": "0abf1b9d24dac86b",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "South Korea Orders Probe Into Personal Data Leaks at Banks and Agencies - \u041c\u0435\u0436\u0430. \u041d\u043e\u0432\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438.",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9PMzVTWUNBc3FCOTFsUXRfWXk5MlRLQlhiZmMwWEVUb0FoMG1zbUZDeGVtU1ZtNHFMRDdBVUU3dk1tazRpYTNnOW1FVU5NQVJKbEt6MHJCWUlQVDZweVRadUotU1dyUQ?oc=5",
+          "publishedAt": "2026-10-04T18:27:20Z",
+          "sourceName": "\u041c\u0435\u0436\u0430. \u041d\u043e\u0432\u0438\u043d\u0438 \u0423\u043a\u0440\u0430\u0457\u043d\u0438.",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://mezha.net",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.32
+        },
+        {
+          "id": "5b3cacc2f3299bc0",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Proof Without Exposure: A New Security Model for Sensitive Data Collaboration - Cybersecurity Insiders",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxPcWlCZFdrV2pna01FNS1YWVpueHJXdFBBdl94UE5HdS15ajNXck9mMzNjWExKejM0V0Exb3hpVEtJLXh4SWJOTzIxbGQ1aUNNWXVfbmk3d1VubUhJbnBUZzNvRnBvSVBIZ0cwNjBNTlV6cVlrVTZmdk9GdGZ3OEVjcWFNYUUzanpjdVBRd3YtT0NacjRNc3otX0o2bnRoWFFtUWhVZXh4NFlJZDQzRDBvMDM3Y0hqWDA?oc=5",
+          "publishedAt": "2026-10-04T11:12:11Z",
+          "sourceName": "Cybersecurity Insiders",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.cybersecurity-insiders.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.02
+        },
+        {
+          "id": "f52493a9c4acb186",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "The New Academic Year\u2019s Network Security Test: How Higher-Ed IT Teams Can Prepare for More Devices, Traffic and Risk - Cybersecurity Insiders",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQUEprb3Yxb3BSU1VrcWZlXzVtbjlzaXdETEIzanBzRFMtMUFpR0lfTWN2SUdCLTEzeElTZ29tQkgzakFHcXRUWVgtT2tWQTVnSVo0V21oWm5Db3BTV1J3OVJpWFEwUWFycDVEV3hpZlJSVFpiSWRiNUF4X0xUSlN0ODlkYkJlZjBOTGpGZE8wMnd3YkpXZ0FsRmlSNENDWkpVamxvV2s1MzJraFBpVW1taUJVZ1EtaDNGZ1Zhanp6X2NGb3pIQ3VDTE9IZ2dYVVI3RkU4UzNRZzRxRlUzeDRnVzZKWDh4NG95?oc=5",
+          "publishedAt": "2026-10-04T06:25:04Z",
+          "sourceName": "Cybersecurity Insiders",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.cybersecurity-insiders.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.82
+        },
+        {
+          "id": "1b0255927858622e",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "The Next Cybersecurity Battle Will Be AI Against AI: What Ghanaian Businesses Must Prepare For. - Modern Ghana",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQOTZ2OXJDNDFpekR6ZmZWYk9icXJhUkFIamFPM3Fzdk84eGhCaWJIUWowM2V6WlJCR2JlXzY0SnV0UzIzb1czem83VjYxY2VQUzUxWnBPSk5jRzR4WGRDM1AtQl8wU3dGU1hnX3ZzSnlrM3BLTEs2RmZYczhtSEZ2TF9XTDZfemNKQnRDbElmVXA4aU9vX3NCbU5n0gGYAUFVX3lxTE5ZVDNZUG1Xd3JZY2NLY01JS20xaWg0MG5mQUFESmdIcER4THktVnJ2eGNlVVJzemJFVXB4RHRlY1REZFphdkR5ZXFTV25uRGZPdXJmTDBPQnRQTnBld01Oc2xDWkxVaVFrZlRVZGI0LXY1ZUJlUFdRckZtTXBxeTlFZkk0X0twdnhGMHJIbk9ZbHBvcjZyTk5M?oc=5",
+          "publishedAt": "2026-10-03T23:45:17Z",
+          "sourceName": "Modern Ghana",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.modernghana.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.54
+        }
+      ]
+    },
     {
       "clusterId": "7d6793c1d64429e7",
       "title": "DietrichGebert/ponytail",
@@ -13,7 +209,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1894.0-total=155463",
+      "qualityGate": "github-trending-stars-per-day=1894.0-total=155467",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -40,10 +236,10 @@
         "title": "DietrichGebert/ponytail",
         "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "url": "https://github.com/DietrichGebert/ponytail",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 155463,
+          "stars": 155467,
           "forks": 8358,
           "starsRecent": 1894,
           "starsPerDay": 1894.0,
@@ -73,10 +269,10 @@
           "title": "DietrichGebert/ponytail",
           "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
           "url": "https://github.com/DietrichGebert/ponytail",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 155463,
+            "stars": 155467,
             "forks": 8358,
             "starsRecent": 1894,
             "starsPerDay": 1894.0,
@@ -110,7 +306,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=980.0-total=91359",
+      "qualityGate": "github-trending-stars-per-day=980.0-total=91360",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -137,10 +333,10 @@
         "title": "Panniantong/Agent-Reach",
         "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
         "url": "https://github.com/Panniantong/Agent-Reach",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 91359,
+          "stars": 91360,
           "forks": 8025,
           "starsRecent": 980,
           "starsPerDay": 980.0,
@@ -170,10 +366,10 @@
           "title": "Panniantong/Agent-Reach",
           "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
           "url": "https://github.com/Panniantong/Agent-Reach",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 91359,
+            "stars": 91360,
             "forks": 8025,
             "starsRecent": 980,
             "starsPerDay": 980.0,
@@ -207,7 +403,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=245.0-total=63505",
+      "qualityGate": "github-trending-stars-per-day=245.0-total=63506",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -234,11 +430,11 @@
         "title": "calesthio/OpenMontage",
         "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
         "url": "https://github.com/calesthio/OpenMontage",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 63505,
-          "forks": 8082,
+          "stars": 63506,
+          "forks": 8083,
           "starsRecent": 245,
           "starsPerDay": 245.0,
           "trendingWindow": "daily",
@@ -267,11 +463,11 @@
           "title": "calesthio/OpenMontage",
           "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
           "url": "https://github.com/calesthio/OpenMontage",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 63505,
-            "forks": 8082,
+            "stars": 63506,
+            "forks": 8083,
             "starsRecent": 245,
             "starsPerDay": 245.0,
             "trendingWindow": "daily",
@@ -304,7 +500,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=490.0-total=25363",
+      "qualityGate": "github-trending-stars-per-day=490.0-total=25362",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -331,10 +527,10 @@
         "title": "pingdotgg/t3code",
         "summary": "",
         "url": "https://github.com/pingdotgg/t3code",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 25363,
+          "stars": 25362,
           "forks": 6549,
           "starsRecent": 490,
           "starsPerDay": 490.0,
@@ -364,10 +560,10 @@
           "title": "pingdotgg/t3code",
           "summary": "",
           "url": "https://github.com/pingdotgg/t3code",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 25363,
+            "stars": 25362,
             "forks": 6549,
             "starsRecent": 490,
             "starsPerDay": 490.0,
@@ -428,7 +624,7 @@
         "title": "addyosmani/agent-skills",
         "summary": "Production-grade engineering skills for AI coding agents.",
         "url": "https://github.com/addyosmani/agent-skills",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 101368,
@@ -461,7 +657,7 @@
           "title": "addyosmani/agent-skills",
           "summary": "Production-grade engineering skills for AI coding agents.",
           "url": "https://github.com/addyosmani/agent-skills",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 101368,
@@ -525,7 +721,7 @@
         "title": "thedotmack/claude-mem",
         "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "url": "https://github.com/thedotmack/claude-mem",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 96337,
@@ -558,7 +754,7 @@
           "title": "thedotmack/claude-mem",
           "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
           "url": "https://github.com/thedotmack/claude-mem",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 96337,
@@ -595,7 +791,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=512.0-total=92487",
+      "qualityGate": "github-trending-stars-per-day=512.0-total=92488",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -622,10 +818,10 @@
         "title": "OpenCut-app/OpenCut",
         "summary": "The open-source CapCut alternative",
         "url": "https://github.com/OpenCut-app/OpenCut",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 92487,
+          "stars": 92488,
           "forks": 9101,
           "starsRecent": 512,
           "starsPerDay": 512.0,
@@ -655,10 +851,10 @@
           "title": "OpenCut-app/OpenCut",
           "summary": "The open-source CapCut alternative",
           "url": "https://github.com/OpenCut-app/OpenCut",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 92487,
+            "stars": 92488,
             "forks": 9101,
             "starsRecent": 512,
             "starsPerDay": 512.0,
@@ -719,11 +915,11 @@
         "title": "paperclipai/paperclip",
         "summary": "The open-source app everyone uses to manage agents at work",
         "url": "https://github.com/paperclipai/paperclip",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 97352,
-          "forks": 16471,
+          "forks": 16472,
           "starsRecent": 8732,
           "starsPerDay": 1247.43,
           "trendingWindow": "weekly",
@@ -752,11 +948,11 @@
           "title": "paperclipai/paperclip",
           "summary": "The open-source app everyone uses to manage agents at work",
           "url": "https://github.com/paperclipai/paperclip",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 97352,
-            "forks": 16471,
+            "forks": 16472,
             "starsRecent": 8732,
             "starsPerDay": 1247.43,
             "trendingWindow": "weekly",
@@ -789,7 +985,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1517.6-total=45685",
+      "qualityGate": "github-trending-stars-per-day=1517.6-total=45687",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -816,10 +1012,10 @@
         "title": "vectorize-io/hindsight",
         "summary": "Hindsight: Agent Memory That Learns",
         "url": "https://github.com/vectorize-io/hindsight",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 45685,
+          "stars": 45687,
           "forks": 5921,
           "starsRecent": 10623,
           "starsPerDay": 1517.57,
@@ -849,10 +1045,10 @@
           "title": "vectorize-io/hindsight",
           "summary": "Hindsight: Agent Memory That Learns",
           "url": "https://github.com/vectorize-io/hindsight",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 45685,
+            "stars": 45687,
             "forks": 5921,
             "starsRecent": 10623,
             "starsPerDay": 1517.57,
@@ -913,7 +1109,7 @@
         "title": "debpalash/VoiceStudio",
         "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "url": "https://github.com/debpalash/VoiceStudio",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 53397,
@@ -946,7 +1142,7 @@
           "title": "debpalash/VoiceStudio",
           "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
           "url": "https://github.com/debpalash/VoiceStudio",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 53397,
@@ -983,7 +1179,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=700.6-total=64224",
+      "qualityGate": "github-trending-stars-per-day=700.6-total=64225",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1010,10 +1206,10 @@
         "title": "rohitg00/ai-engineering-from-scratch",
         "summary": "Learn it. Build it. Ship it for others.",
         "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 64224,
+          "stars": 64225,
           "forks": 11012,
           "starsRecent": 4904,
           "starsPerDay": 700.57,
@@ -1043,10 +1239,10 @@
           "title": "rohitg00/ai-engineering-from-scratch",
           "summary": "Learn it. Build it. Ship it for others.",
           "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 64224,
+            "stars": 64225,
             "forks": 11012,
             "starsRecent": 4904,
             "starsPerDay": 700.57,
@@ -1107,7 +1303,7 @@
         "title": "harry0703/MoneyPrinterTurbo",
         "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
         "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 128530,
@@ -1140,7 +1336,7 @@
           "title": "harry0703/MoneyPrinterTurbo",
           "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
           "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 128530,
@@ -1204,7 +1400,7 @@
         "title": "NVIDIA/OpenShell",
         "summary": "OpenShell is the safe, private runtime for autonomous AI agents.",
         "url": "https://github.com/NVIDIA/OpenShell",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 14931,
@@ -1213,7 +1409,7 @@
           "starsPerDay": 856.57,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-02-24T22:52:22Z",
-          "repoPushedAt": "2026-10-05T10:25:16Z"
+          "repoPushedAt": "2026-10-05T10:50:51Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -1237,7 +1433,7 @@
           "title": "NVIDIA/OpenShell",
           "summary": "OpenShell is the safe, private runtime for autonomous AI agents.",
           "url": "https://github.com/NVIDIA/OpenShell",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 14931,
@@ -1246,7 +1442,7 @@
             "starsPerDay": 856.57,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-02-24T22:52:22Z",
-            "repoPushedAt": "2026-10-05T10:25:16Z"
+            "repoPushedAt": "2026-10-05T10:50:51Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -1301,7 +1497,7 @@
         "title": "antirez/ds4",
         "summary": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
         "url": "https://github.com/antirez/ds4",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 23527,
@@ -1334,7 +1530,7 @@
           "title": "antirez/ds4",
           "summary": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
           "url": "https://github.com/antirez/ds4",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 23527,
@@ -1371,7 +1567,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=197.0-total=53293",
+      "qualityGate": "github-trending-stars-per-day=197.0-total=53294",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1398,10 +1594,10 @@
         "title": "coreyhaines31/marketingskills",
         "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
         "url": "https://github.com/coreyhaines31/marketingskills",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 53293,
+          "stars": 53294,
           "forks": 7936,
           "starsRecent": 197,
           "starsPerDay": 197.0,
@@ -1431,10 +1627,10 @@
           "title": "coreyhaines31/marketingskills",
           "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
           "url": "https://github.com/coreyhaines31/marketingskills",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 53293,
+            "stars": 53294,
             "forks": 7936,
             "starsRecent": 197,
             "starsPerDay": 197.0,
@@ -1495,7 +1691,7 @@
         "title": "mvschwarz/openrig",
         "summary": "Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.",
         "url": "https://github.com/mvschwarz/openrig",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 5065,
@@ -1528,7 +1724,7 @@
           "title": "mvschwarz/openrig",
           "summary": "Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.",
           "url": "https://github.com/mvschwarz/openrig",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 5065,
@@ -1565,7 +1761,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=345.0-total=3733",
+      "qualityGate": "github-trending-stars-per-day=345.0-total=3739",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1592,10 +1788,10 @@
         "title": "tester-army/e2e",
         "summary": "Next generation e2e testing framework for web and mobile apps.",
         "url": "https://github.com/tester-army/e2e",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 3733,
+          "stars": 3739,
           "forks": 149,
           "starsRecent": 345,
           "starsPerDay": 345.0,
@@ -1625,10 +1821,10 @@
           "title": "tester-army/e2e",
           "summary": "Next generation e2e testing framework for web and mobile apps.",
           "url": "https://github.com/tester-army/e2e",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 3733,
+            "stars": 3739,
             "forks": 149,
             "starsRecent": 345,
             "starsPerDay": 345.0,
@@ -1689,7 +1885,7 @@
         "title": "cs341-illinois/coursebook",
         "summary": "Open Source Introductory Systems Programming Textbook for the University of Illinois",
         "url": "https://github.com/cs341-illinois/coursebook",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 3717,
@@ -1722,7 +1918,7 @@
           "title": "cs341-illinois/coursebook",
           "summary": "Open Source Introductory Systems Programming Textbook for the University of Illinois",
           "url": "https://github.com/cs341-illinois/coursebook",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 3717,
@@ -1786,7 +1982,7 @@
         "title": "alirezarezvani/claude-skills",
         "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
         "url": "https://github.com/alirezarezvani/claude-skills",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 27642,
@@ -1819,7 +2015,7 @@
           "title": "alirezarezvani/claude-skills",
           "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
           "url": "https://github.com/alirezarezvani/claude-skills",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 27642,
@@ -1856,7 +2052,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=232.0-total=1274",
+      "qualityGate": "github-trending-stars-per-day=232.0-total=1275",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1883,11 +2079,11 @@
         "title": "michael-denyer/pstack-claude",
         "summary": "Claude Code, Codex, Pi, OpenCode, Gemini, and Prime Agent versions of Poteto's pstack. Rigorous agent workflows with Cursor primitives translated for other harnesses.",
         "url": "https://github.com/michael-denyer/pstack-claude",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 1274,
-          "forks": 144,
+          "stars": 1275,
+          "forks": 145,
           "starsRecent": 232,
           "starsPerDay": 232.0,
           "trendingWindow": "daily",
@@ -1916,11 +2112,11 @@
           "title": "michael-denyer/pstack-claude",
           "summary": "Claude Code, Codex, Pi, OpenCode, Gemini, and Prime Agent versions of Poteto's pstack. Rigorous agent workflows with Cursor primitives translated for other harnesses.",
           "url": "https://github.com/michael-denyer/pstack-claude",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 1274,
-            "forks": 144,
+            "stars": 1275,
+            "forks": 145,
             "starsRecent": 232,
             "starsPerDay": 232.0,
             "trendingWindow": "daily",
@@ -1953,7 +2149,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=125.0-total=135279",
+      "qualityGate": "github-trending-stars-per-day=125.0-total=135281",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1980,10 +2176,10 @@
         "title": "garrytan/gstack",
         "summary": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
         "url": "https://github.com/garrytan/gstack",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 135279,
+          "stars": 135281,
           "forks": 20100,
           "starsRecent": 125,
           "starsPerDay": 125.0,
@@ -2013,10 +2209,10 @@
           "title": "garrytan/gstack",
           "summary": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
           "url": "https://github.com/garrytan/gstack",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 135279,
+            "stars": 135281,
             "forks": 20100,
             "starsRecent": 125,
             "starsPerDay": 125.0,
@@ -2077,7 +2273,7 @@
         "title": "tile-ai/tilelang",
         "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
         "url": "https://github.com/tile-ai/tilelang",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 8394,
@@ -2110,7 +2306,7 @@
           "title": "tile-ai/tilelang",
           "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
           "url": "https://github.com/tile-ai/tilelang",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 8394,
@@ -2147,7 +2343,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=83.0-total=17070",
+      "qualityGate": "github-trending-stars-per-day=83.0-total=17071",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2174,10 +2370,10 @@
         "title": "earthtojake/text-to-cad",
         "summary": "Give your agent CAD superpowers.",
         "url": "https://github.com/earthtojake/text-to-cad",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 17070,
+          "stars": 17071,
           "forks": 1755,
           "starsRecent": 83,
           "starsPerDay": 83.0,
@@ -2207,10 +2403,10 @@
           "title": "earthtojake/text-to-cad",
           "summary": "Give your agent CAD superpowers.",
           "url": "https://github.com/earthtojake/text-to-cad",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 17070,
+            "stars": 17071,
             "forks": 1755,
             "starsRecent": 83,
             "starsPerDay": 83.0,
@@ -2244,7 +2440,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=68.1-total=143185",
+      "qualityGate": "github-trending-stars-per-day=68.1-total=143186",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2271,16 +2467,16 @@
         "title": "vercel/next.js",
         "summary": "The React Framework",
         "url": "https://github.com/vercel/next.js",
-        "publishedAt": "2026-10-05T10:47:03.680307Z",
+        "publishedAt": "2026-10-05T10:50:20.737520Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 143185,
-          "forks": 33965,
+          "stars": 143186,
+          "forks": 33966,
           "starsRecent": 477,
           "starsPerDay": 68.14,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2016-10-05T23:32:51Z",
-          "repoPushedAt": "2026-10-05T10:47:18Z"
+          "repoPushedAt": "2026-10-05T10:47:58Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -2304,16 +2500,16 @@
           "title": "vercel/next.js",
           "summary": "The React Framework",
           "url": "https://github.com/vercel/next.js",
-          "publishedAt": "2026-10-05T10:47:03.680307Z",
+          "publishedAt": "2026-10-05T10:50:20.737520Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 143185,
-            "forks": 33965,
+            "stars": 143186,
+            "forks": 33966,
             "starsRecent": 477,
             "starsPerDay": 68.14,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2016-10-05T23:32:51Z",
-            "repoPushedAt": "2026-10-05T10:47:18Z"
+            "repoPushedAt": "2026-10-05T10:47:58Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -2373,7 +2569,7 @@
         "publishedAt": "2026-10-04T12:51:53Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 815,
+          "points": 816,
           "comments": 361
         },
         "creator": null,
@@ -2399,7 +2595,7 @@
           "publishedAt": "2026-10-04T12:51:53Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 815,
+            "points": 816,
             "comments": 361
           },
           "creator": null,
@@ -2424,10 +2620,10 @@
           "publishedAt": "2026-09-24T16:40:20Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 12370,
-            "forks": 1050,
-            "ageHours": 258.11,
-            "starsPerHour": 47.92
+            "stars": 12374,
+            "forks": 1051,
+            "ageHours": 258.17,
+            "starsPerHour": 47.93
           },
           "creator": null,
           "primaryUrls": [
@@ -2541,89 +2737,14 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.85
+          "rawScore": 6.84
         }
       ]
     },
     {
-      "clusterId": "3c86a10870784015",
-      "title": "Denmark Data Breach Exposes 8.8M People's Personal Data",
-      "score": 8.08,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": false,
-      "needsPrimaryVerification": true,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "hn-points=137-comments=95",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "Hacker News"
-      ],
-      "primaryUrls": [],
-      "relatedUrls": [],
-      "signals": [
-        "developer-discussion",
-        "hacker-news"
-      ],
-      "bestCandidate": {
-        "id": "496117e66cf8997c",
-        "lane": "hot_emerging",
-        "sourceKind": "hacker_news",
-        "title": "Denmark Data Breach Exposes 8.8M People's Personal Data",
-        "summary": "",
-        "url": "https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger",
-        "publishedAt": "2026-10-05T08:09:36Z",
-        "sourceName": "Hacker News",
-        "metrics": {
-          "points": 137,
-          "comments": 95
-        },
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "relatedUrls": [],
-        "signals": [
-          "hacker-news",
-          "developer-discussion"
-        ],
-        "rawScore": 7.63
-      },
-      "evidence": [
-        {
-          "id": "496117e66cf8997c",
-          "lane": "hot_emerging",
-          "sourceKind": "hacker_news",
-          "title": "Denmark Data Breach Exposes 8.8M People's Personal Data",
-          "summary": "",
-          "url": "https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger",
-          "publishedAt": "2026-10-05T08:09:36Z",
-          "sourceName": "Hacker News",
-          "metrics": {
-            "points": 137,
-            "comments": 95
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "hacker-news",
-            "developer-discussion"
-          ],
-          "rawScore": 7.63
-        }
-      ]
-    },
-    {
-      "clusterId": "3554adcd34fcdfb3",
-      "title": "GIGABYTE AI TOP ATOM 64GB Unified Memory Version Expands Possibilities for Desktop AI Development - macaubusiness.com",
-      "score": 7.53,
+      "clusterId": "6a58c3bfd57130a1",
+      "title": "The Inventory Robots Market Size Is Projected to Reach $226.46 Billion Driven by Growing Demand - openPR.com",
+      "score": 7.99,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -2633,33 +2754,34 @@
       "qualityGate": "independent-convergence",
       "alreadyCovered": false,
       "lanes": [
-        "major_news"
+        "major_news",
+        "market_business"
       ],
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "Basic Tutorials",
-        "macaubusiness.com",
-        "shattered.io",
-        "tech-insider.org"
+        "Market.us",
+        "RS Web Solutions",
+        "openPR.com"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
       "signals": [
-        "major-news-search"
+        "major-news-search",
+        "market-business-search"
       ],
       "bestCandidate": {
-        "id": "1ec4e347ec666fd5",
+        "id": "bd7e7a6a9a7e9d7b",
         "lane": "major_news",
         "sourceKind": "news_search",
-        "title": "GIGABYTE AI TOP ATOM 64GB Unified Memory Version Expands Possibilities for Desktop AI Development - macaubusiness.com",
+        "title": "The Inventory Robots Market Size Is Projected to Reach $226.46 Billion Driven by Growing Demand - openPR.com",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOYW9fdUtNTTBfbzhxMkdiYWk2cVN4Z0hkQkRRT3QzMElnNjRJOGdxeHNXT1VmN21lbzFlYWlSOWVscEdYRE1pRU9RZ1RYRXYzaTR3ZmtKX1A4QnAxNTBxZFoyYVJvQ1pVQU56amkwUXNIeWFyd2JGcEhFT3JadkJYQlBGZTBzeFFRZDAzUFFvcTJUeUlOcEhTZ1Z1dUVQUXNqTFh0SzBzVGY0VVlhSndRZEswc0hsanNOOEh0QXItTUxzUE5J?oc=5",
-        "publishedAt": "2026-10-05T10:37:41Z",
-        "sourceName": "macaubusiness.com",
+        "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQM1VPNGdZbVQ0Tzc4QjJiaS0xb2FabE5XVmZsZVNVTndnc1hrTnNUT3c4NXdyc2xPNWd1dXdHa3JkcWRXNTktVjQ3VkJad2k5MlFwWXlSRlFSVDYyRkE0VmxwMzBBdUV1S2pJdHFsTHNHSTByamNnV19wTWxUdUtyQ3czNXY2cGdWUE5ybE1SUkhyYmo4VGFxWmlOTVZNUQ?oc=5",
+        "publishedAt": "2026-10-05T10:17:48Z",
+        "sourceName": "openPR.com",
         "metrics": {
           "publisherBonus": 0.0,
-          "publisherUrl": "https://macaubusiness.com",
+          "publisherUrl": "https://www.openpr.com",
           "primaryPublisher": false
         },
         "creator": null,
@@ -2669,21 +2791,21 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 6.99
+        "rawScore": 6.98
       },
       "evidence": [
         {
-          "id": "1ec4e347ec666fd5",
+          "id": "bd7e7a6a9a7e9d7b",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "GIGABYTE AI TOP ATOM 64GB Unified Memory Version Expands Possibilities for Desktop AI Development - macaubusiness.com",
+          "title": "The Inventory Robots Market Size Is Projected to Reach $226.46 Billion Driven by Growing Demand - openPR.com",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOYW9fdUtNTTBfbzhxMkdiYWk2cVN4Z0hkQkRRT3QzMElnNjRJOGdxeHNXT1VmN21lbzFlYWlSOWVscEdYRE1pRU9RZ1RYRXYzaTR3ZmtKX1A4QnAxNTBxZFoyYVJvQ1pVQU56amkwUXNIeWFyd2JGcEhFT3JadkJYQlBGZTBzeFFRZDAzUFFvcTJUeUlOcEhTZ1Z1dUVQUXNqTFh0SzBzVGY0VVlhSndRZEswc0hsanNOOEh0QXItTUxzUE5J?oc=5",
-          "publishedAt": "2026-10-05T10:37:41Z",
-          "sourceName": "macaubusiness.com",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQM1VPNGdZbVQ0Tzc4QjJiaS0xb2FabE5XVmZsZVNVTndnc1hrTnNUT3c4NXdyc2xPNWd1dXdHa3JkcWRXNTktVjQ3VkJad2k5MlFwWXlSRlFSVDYyRkE0VmxwMzBBdUV1S2pJdHFsTHNHSTByamNnV19wTWxUdUtyQ3czNXY2cGdWUE5ybE1SUkhyYmo4VGFxWmlOTVZNUQ?oc=5",
+          "publishedAt": "2026-10-05T10:17:48Z",
+          "sourceName": "openPR.com",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://macaubusiness.com",
+            "publisherUrl": "https://www.openpr.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2693,20 +2815,20 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.99
+          "rawScore": 6.98
         },
         {
-          "id": "3f30411caac45f99",
+          "id": "60cd0fe375808b48",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Gigabyte AI TOP 100 B850: AI Desktop with Ryzen 9 9950X and up to 128 GB of RAM - Basic Tutorials",
+          "title": "Robot as a Service Market Gains Momentum as Serve Robotics Completes $39.5 Million AI Robotics Acquisition - openPR.com",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQbGFsUjdKS3RUeFliT3BJcGwyT3V0S0JrQkZBRFN3UG56cUZfRnNHOXVsazlTbktVUVY0Z3VnTUtmYmluUmpLYkRBMXM0TDNDUE5LQjdrTk0xVVotZmNSNHJkbnBfZm91Um9ONV9QQmNMTC1iZDJ5cWppOFBlbFplOEg3SlpkaDlKWkwxc3ZEUXZJcmEwVml1NGtNR3ZFSkNfcXA4NDVxQm5UU1BJdWZPTVBR?oc=5",
-          "publishedAt": "2026-10-05T02:05:25Z",
-          "sourceName": "Basic Tutorials",
+          "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOMHJsaUUwRm92TXJLNm9fUERXWXUzaGpZTlB3RlpDRjJxWVRpcjdIamlBOURvUkFqYzFuSmlhbUZHZy1MVHpqNzlZclN0R3FubVkxcmZoMzdzUUMyNWVLM1k5RjJCLUNWd3ZfRHoxRFlGX0Nzd01ZNUh5UEhxYWZIV1FETDFtZnJvendIb0lzTXdWX2xFY2FlaVZR?oc=5",
+          "publishedAt": "2026-10-05T09:51:17Z",
+          "sourceName": "openPR.com",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://basic-tutorials.com",
+            "publisherUrl": "https://www.openpr.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2716,20 +2838,43 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.64
+          "rawScore": 6.96
         },
         {
-          "id": "4a8545d319dcf5f1",
-          "lane": "major_news",
+          "id": "acd7188ae20efadf",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "GIGABYTE AI TOP ATOM 64GB Targets 200B AI Models [2026] - tech-insider.org",
+          "title": "Agentic AI Consulting Services Market Size | CAGR of 23.7% - Market.us",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5DZTZCTVhoVjQxbTJxNjNjd0Ywd09tR01uajZXY3o4UGhVekhjUGtOb2pDbndDakpkR1llYVkxUXkyTGFxMC12aFBvcG9EVG9mc003amg4c3RQTy1uclB5NlhFbHdkRGYtNzJjamtBZzRGTnVCTEtpaQ?oc=5",
-          "publishedAt": "2026-10-04T12:31:55Z",
-          "sourceName": "tech-insider.org",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTFBQVzd1MGZzTVhQdVlOU1Y1aC15UDB2dk9xN0tpUUVSa3kyNXNJYi1qaXpHUUpqdTZsblhYajNuS3pBSXFmSlVXcnVkVFF0Ry1rWEdUS19pYmlEWk9XZ2JueFcwQkxTZnBnOXJPUHJ3X3I?oc=5",
+          "publishedAt": "2026-10-05T09:43:55Z",
+          "sourceName": "Market.us",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
+            "publisherUrl": "https://market.us",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.95
+        },
+        {
+          "id": "7f106de985609117",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Assistive Robotics Market Is Going to Boom | DIH Medical, CYBERDYNE Inc., Toyota Motor Corporation, Lifeward Ltd. - openPR.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxOdDI2djZ6akF5MmJYNUczb2pRRGlfMWFjMm93TUhoMmhXck5za2ZnZHd6Nml3dlUzb3pGVUdkZFl6eUp1VzZob0ZpSEJvU2NBaVA3enIwUE51ODRnY2NJNC1vUXUyYkJpMmFuaVFnbkVnTE5DZ0hON01xLWhRTURrRzNtZWo0a0xqdXJfcVdoQjZBTzMx?oc=5",
+          "publishedAt": "2026-10-05T06:53:08Z",
+          "sourceName": "openPR.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.openpr.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2739,20 +2884,20 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.07
+          "rawScore": 6.84
         },
         {
-          "id": "84a70b65603e8836",
+          "id": "26a25983006c4f6e",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "PS5 Gets Free AI Upscaling: QSSR Ships in 2 Games [2026] - tech-insider.org",
+          "title": "Automaker Challenges Tesla to Lead Future Robotics Market - RS Web Solutions",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBoSDFSeF93WUNkai10MndWX0ZPUDZlZzlnNm02RENZRG9LM0xSamI3R3htSGxiMFctbjFMMmd5dnVPajdMYWJIWVU0bzBpblhFWGxjcnB3UGpZV3hRWUV1MGhYRDFGN1FmejBWNlo1UHBpa2I2dWFZ?oc=5",
-          "publishedAt": "2026-10-04T10:39:09Z",
-          "sourceName": "tech-insider.org",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxQdmpOLU93aVJ4V2JsYXFFaGFNQUpWS2laQ212RUpWV2lWV1B6alRSaDlMUXd6aW96ZU9GY2owWDNINHVkVjV3V2l6b0luTU5sZG5IaWtsUzh0VjNTaTFHSmtPT3ExclJTaGFaMVJrd2M1N1JGNXpxQk9NOEZSVVcySngxMEM0RU52Ynl5YnVubFlONnBsc2tqZHZSZVdmbmFPZHFn?oc=5",
+          "publishedAt": "2026-10-04T05:00:00Z",
+          "sourceName": "RS Web Solutions",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
+            "publisherUrl": "https://www.rswebsols.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2761,21 +2906,397 @@
           "relatedUrls": [],
           "signals": [
             "major-news-search"
+          ],
+          "rawScore": 5.76
+        }
+      ]
+    },
+    {
+      "clusterId": "cc569ccbebf48693",
+      "title": "Accenture reports 6.00 percent revenue growth and Accenture stock costs EUR 177.95 - AD HOC NEWS",
+      "score": 7.5,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "AD HOC NEWS",
+        "Livemint",
+        "The Economic Times",
+        "TradingKey"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "5ac73243f1d8f4bc",
+        "lane": "market_business",
+        "sourceKind": "news_search",
+        "title": "Accenture reports 6.00 percent revenue growth and Accenture stock costs EUR 177.95 - AD HOC NEWS",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNdHNWRGFoa3NNUkpGNGdycDN5TU5fRkxuNFhPNkZjWlVYc0ZBMWZTR2Z3ZWhjSTJKNGx4SXY3UWlaOTd2Z1VGTTZ4LUFfeHQ5TGtfS2pFMGNjZGtmR0toRFRuTjlxMnROaDZjRnNtLUFpNmZpMmR3NVVfU0JOWlQyMS1RX3RCMlNoV3ZTeXBZdU1GWlhIU3M5dVJxMHVLOWhCVi1ycVZ0R2lfYk81Q0MyeDNTYkh6VERnV1pZaVV6YmtOS2ROSzlYMjNkTUhGbG8?oc=5",
+        "publishedAt": "2026-10-05T09:59:29Z",
+        "sourceName": "AD HOC NEWS",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://www.ad-hoc-news.de",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "market-business-search"
+        ],
+        "rawScore": 6.96
+      },
+      "evidence": [
+        {
+          "id": "5ac73243f1d8f4bc",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Accenture reports 6.00 percent revenue growth and Accenture stock costs EUR 177.95 - AD HOC NEWS",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNdHNWRGFoa3NNUkpGNGdycDN5TU5fRkxuNFhPNkZjWlVYc0ZBMWZTR2Z3ZWhjSTJKNGx4SXY3UWlaOTd2Z1VGTTZ4LUFfeHQ5TGtfS2pFMGNjZGtmR0toRFRuTjlxMnROaDZjRnNtLUFpNmZpMmR3NVVfU0JOWlQyMS1RX3RCMlNoV3ZTeXBZdU1GWlhIU3M5dVJxMHVLOWhCVi1ycVZ0R2lfYk81Q0MyeDNTYkh6VERnV1pZaVV6YmtOS2ROSzlYMjNkTUhGbG8?oc=5",
+          "publishedAt": "2026-10-05T09:59:29Z",
+          "sourceName": "AD HOC NEWS",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.ad-hoc-news.de",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.96
+        },
+        {
+          "id": "6822c02b9620bce1",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "TCS, Infosys and other IT stocks in focus after Accenture Q4 revenue, outlook beat estimates - The Economic Times",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi9wFBVV95cUxNQ2VicXB4RGlDaUc0S202WDRoamk4OWxPSks2V2k5WHlwMWJpMmE2TkdfS0kzekFNY21lWDdPVUgzZU52d00yM1d4Y0hCYkRyM05EQkRZWFM4SURRMjA3b2h3cHFXV2lyYl9uZjNuXzRjLUdjaDAzRXBXQklCc1JVa1llOHVEaTdkMTBsTEp2QnkzMkp4dW9HaEhhUFkzNVRuUzJHYlNieHpEMzAycC1ocURiRkdXWElYeFlHdld5ZWtHVmlnSWhQVWl2Rl9jLUZsaHlHNE5TZ2Q5T2dJU1p3aEZhckxkQm8xaDRqZEJIUVF6cE9SSG5J0gH8AUFVX3lxTE5LenotcEVCZ3FpSnFYcjJrWWZJNElza3BhS1JKZURnYjZmQ2Rvem5CV1RrWVR5Yl8tNkRYUEJMRml6akN5Y1VHc0xqdzNDcmZZaHI5NERRR1RLdmVxNUJuS1d6RTkyZElZRFc3OERzQTNmZXg2RjZ6T2FyaXdYc1BvTUZDNTg2cVowbDdFbkdvRzd2MXBWa1d4cWJpc21kRHN1aVJkOWtpZlNxZ1g4VGltaEI3bXNMNDNwWEVyRWM5d3FzWlZZUjFvS18xZExWMXRnOHJtN0d1Rm5SajNVT1NQLXM1cjU0RmNqaGRwRWUtNkZaN3pWdmEwZk9INA?oc=5",
+          "publishedAt": "2026-10-05T03:09:00Z",
+          "sourceName": "The Economic Times",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://m.economictimes.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.68
+        },
+        {
+          "id": "82ff87e15bb58a84",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Palantir (PLTR) Stock Forecast: 85% Revenue Growth, Rule of 40 at 145% - Worth $129? - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOWmZkNXhUQ25tZjBLSy1reGk5cTZIa0RtRy1QdTZtU3hSSzJlNUlYaVNWbk9UN0tiOFdoNHQtU2V0Tl9xTEZ3MkxLek1HVmdqelBXUl96WVdGVVFadnJCSC1KaUtpaVllbEhYM1laSVVFNnZXd25WWWtrVzk4bzVWVEVHTzE0czhMVEsxUDZYUFhrb19RTS14U3V1c2ZtYzhYcHMwdG9VN1djVnRPUjNEWXZDd2daRUdIamJKUWttNG5QRTJX?oc=5",
+          "publishedAt": "2026-10-04T22:45:58Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.5
+        },
+        {
+          "id": "7a69481ce3e6d8c4",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "AMD Stock Forecast: $1T Milestone Meets Helios Ramp as $617.80 Breakout Nears - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxOQTVYS3l0V1p6eUhpYVVJNHpndVNYZEJUdDIxUm9FSFUzbHh5aHRPTF9YczhRMWRXSnBSY3U5a2NnZEZ6dHo2b1Mwd19MMXNyOEhsZF9jVTlfOEtNWkRydmZ4WDBybnB6aXY0aDRRaGF5QUQydXBJWGRDVU9FUzVRcmktS2gzdllsMFY1S0tYb0FteXlxOENoRVNLTkUwNklLdWxKSV81NWNQRnFWdmJVQTRn?oc=5",
+          "publishedAt": "2026-10-04T22:25:25Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.48
+        },
+        {
+          "id": "a779c3f3a5eb3cc5",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Intel Price Forecast: Nvidia Picked Xeon 6, Invested $5B, Yet Analysts Still Trail INTC - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxPUTJ0M002eEJBWW5ocUl6ai1nTkJ1WjFMMktJRWtzekFRcktQd1d1MTFOd1RwbVFQWk9hU25UUC16RzBnbXBXdWZwcE5pS2ROeVN1YXhFZlNjVVctMWg4SWI1Y2FJazZTOTg2OVd0OWpmMGFKczk0ejdZX090Mkg2TU1Tc2Z4b2EwaUJ5MkxITm1NLWxic2JFdDVJRGZjdTBwbVNETDFURk1jMHBQN0ZQV3BhYVcyT2JDYWR2S1hLMERJNWc1bmVwODBxcUN1YUdxMlNQemdJbktvdzQxV0pmZXVIX1Zfam5N?oc=5",
+          "publishedAt": "2026-10-04T19:13:51Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.35
+        },
+        {
+          "id": "08103d441451be97",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Microsoft Has $627B in Locked-In Revenue and AI Demand Is Outrunning Supply \u2014 Can MSFT Reclaim $437? - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxOOVB3Z0NJWUhIWGUyd1V3MzlhbzNLdjZySy11a3lPdmRjV0JlOU5UZWFiS0Rhamd0OWtneVBwZmRfR1lLSlJkVXg5T25GWnpJQlAyLU5mTWIwSmFWSm9qM1JUZXJhMFRJc3lkSUJ4eEJad2dFek16OFBNZ1FiMU9zUVRzMzJVSTFOZkY4MzdVYmJ3NXo5bll6bm9ubzJnTnN2c1BCU3FmRDhzY1IyYUpGV0s4bGJLYTVHXzVSZkwyUGd3bmswSDJRM2hYTTROTER1QWpvVllQSmFfQ2haaVJ4aHQ0RQ?oc=5",
+          "publishedAt": "2026-10-04T18:11:45Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.31
+        },
+        {
+          "id": "165a0bdda406b3c5",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Infosys stock gained 4.11 percent after AI collaboration announcement - AD HOC NEWS",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxNeWZZcjBNcERsaFZPXzdnZlRxT1AxSUlGSzNzY1F6U0JlZEQtUEplTmFodTFnckl4b1UxYTNEcGNua1FMaW9aVVAwb3NNMl9mNHpQNUpsSDJidWIyRlpqSWhIT1hOcVJmcDlXTk14bHpYWE9yeVoySlZyZVlRWHZSS1BZaWlDOTNyeTNLekk0YXJVcVcwTXhUQk93a3FLTmhuZ3VibFZSY0xBaDFNWUNnMDJlcllJc1lEbnhmXzN1c3J6NWJaM2l5TmxuTmQ?oc=5",
+          "publishedAt": "2026-10-04T18:18:58Z",
+          "sourceName": "AD HOC NEWS",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.ad-hoc-news.de",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.31
+        },
+        {
+          "id": "56f8bc5906e7902d",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "NVIDIA Q1 FY2027: Revenue $81.6B Beat, Data Center +92%, but August 26 Guidance Test Will Prove Sustainability - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMimwJBVV95cUxOSmppUFVTbFJ6dEtndmF2WUUxekw4NWQxMG1NU09JSFV3bVpvVEs1VnZaU1ZucDlSSHJScHA5clJwM1RUcEUta24xVW5tZHNSN0dScTItRkViakl5UTk3NlgzRlFvM0JPTU1DRG5ybVdPdjI3VDZEeVVMN1Zjc2dCTVM2Z055UHcxZTliZ3J0aVRPeGFycG15MTFRam5BazM3aVpVeGpDRXlPSjBYUXhlRENpd1BscVF1SWViM01FYW9vdXg0ZjB5OUNIU2pOSXV2VnBfS1puSzE0aEhhZlk0N2xMRDB4eDJEV2o2UmZtangyWWVNa05vbU5ld3ctUGQ2cG9UYnlDdWxlWGhUa3J5c3Rvd1pKZHp3Ym80?oc=5",
+          "publishedAt": "2026-10-04T16:03:15Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.22
+        },
+        {
+          "id": "f7f0d4ab416f815a",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Cisco Smashes Q3 FY2026 With Record $15.8B Revenue and $2.1B in AI Orders - Is CSCO a Buy at $102? - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi_wFBVV95cUxQM1ViR0NZOXpTZ0dCYWZOZnJfWEJodDdjWFpnclVwRmNtTDNTTlVhckt4Z19BQ0x2bzFpUGFEa21XZ1J4akxRR19mRmJRT1JlSjBLaUx1S1BTZVAzejVXQ0w4YjFoVjUwWExQSVIwZmF3dk10dGFVcHBqeFlWclBVV0NkYkxLeGZOSmNZZkRNcDdsRGlmMm1ucnZxLV9SUnFPeWZfWnZLcGpudlJzdTR6eVJOWlhLYjFvY3Z5M2l2VkxRMGZ1QXVzZ3ZrZkVrWVJrdUcyc2pINlRDLUc3aVVNWE0zLTVoZXVENTlfNmo3SVpOd1lGbTB0MEswS3FzV2M?oc=5",
+          "publishedAt": "2026-10-04T13:54:43Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.13
+        },
+        {
+          "id": "1990669567cc1990",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Cisco Raised AI Orders to $9B \u2014 So Why Is the Stock Stuck Below $124.62 Resistance? - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPT2lKcWZzd0M3R2RBb05UTkUzNUVidXhRYTZQZmNVM2d1OGhBcFJ3ZkFvVmxFaF81NHVIQjYycVlnV0I2RGxMb1c5T3RYLXl4VVhEeGJGdDBHR2RmRmgwNnh1bnpqOVhuTTk4em1CbGFUMUg0MzRhNWdwNW9QaGFweW90ZDJDOHpqT2pKOUJPR29LWjJxMHc0R2JHSkJrNDdfZHNiakJrQ0xyejZMNnNlRzEwZEtpc1pESU1xUXlPdVZwbWNGN2E5OTZBWmUyd2xKSmRWcVJjS2VHd1M0ZHhOZEtBQQ?oc=5",
+          "publishedAt": "2026-10-04T13:21:20Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.1
+        },
+        {
+          "id": "a7f093114836f249",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Intel Stock Forecast: INTC Breaks $116 as AI CPU Demand Revives the Turnaround - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQVWlmWk1EZlJYOWNWbTMxNGw1aGozS2RYRERpOUtqWHJCYkFJWkFxZGo3cWNCenFxU25ObFA5NWExOXYydnlfdHE0WVVkc1RDZGtuT0NWZ2hTRGQ4RUhmNUZESlJVNkt3UGdsVkZsRVVMUXlHdnlHZFZtUVB0UGRaVUI4SlcwVWk1ZUIwbGliakRPamo0V2gzUTRWaHlTRkFnZmVVQlBLemlOdkJ3c1BPa2ctSVY?oc=5",
+          "publishedAt": "2026-10-04T13:01:51Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.09
+        },
+        {
+          "id": "9dc9442d324fe4b9",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "NVIDIA Crushed Data Center at +92% \u2014 So Why Is the Stock Still Climbing Toward $229? - TradingKey",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNQzhZNXNQanVtb2dUWEdWRXMxaUo5OGhhOEtHMjNRTFQzbUp3bVY2WnY4SlZON3RJRzI0VFpyQlM2bzRzNEt0VmUzeWtFNEt3NktwT1ZTRGFKY1h6NlIwLWFNNWhTOVpKdndFcUg3WjlTN2RMWTlCS3Rab1dMbHp2R2l6dDY2MzljMmhFcWtFd0IxcERuZ0RhWmpHY1RQRlM4SUlsSHcxNVVMa3NIdGJRWjJxUFRNSzMzQ2tlMG5NU3ZxVlFTQ21hVGpYdXJ2Mlg3ak4xUXgxcERfeFdRUEtwaEM2ZDJqR3NO?oc=5",
+          "publishedAt": "2026-10-04T12:41:20Z",
+          "sourceName": "TradingKey",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tradingkey.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.08
+        },
+        {
+          "id": "28fd1fd7f5224f4a",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Palantir stock gets a sovereign AI infrastructure deal - AD HOC NEWS",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxOalRZOEZyTkpxaUFPN1NBQXo1empZQUVqaC1wbTZIMkk2UE04dHJvYjYzdkU5VTdwOVNGaExjTWdWd19UM19rMGhJMDh1b1h3Xzg5TUxtNm14Q0wzdm1DN0tmS19NSnpBWlEzRUt6ekVCTVA4LWpxRGVTMlhiRFFobE51Q1BoYVNQNVZjZFhMa25jeFBGTndoNTNlT09yN2Rtd2RkdjZpMC1VZC1rUm9hTjZzc3pja2JH?oc=5",
+          "publishedAt": "2026-10-04T12:43:01Z",
+          "sourceName": "AD HOC NEWS",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.ad-hoc-news.de",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.08
+        },
+        {
+          "id": "1d994f6215c3a4f3",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "TCS, Tech Mahindra, Coforge, Mphasis: IT stocks picks and investment ideas after Accenture results ahead of Q2 earnings - Livemint",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMikwJBVV95cUxQVjhOa243eUJhVHlVWTg3U3AwSXhtQUJXVEEzVTdhQ2NqT1hGbXFWVzNteUlLTndnNHpyUDFXQW9zR2lxVUwtaFZ6NTg4czB3clFfR1R1cVhaRUxPbUpfVEM0UEt1ZWZ1WXhPb2Fud1BUdXhIOTQ5b2ZaNkxfSnVYRXV6Y09ZSWc5RDVBSDNKUzJSRy04Wlp1ZWZmc0Q0Tm5uY2VhZ0h4SktGbFRkSENCZklXWEhIQldPWmFDdkMwdDBUbXF1YmZhTlVSeElMaXhvRmZoS3diNHJNLVBxZ3lEdC12VWE5c2lkM3UyWGsxdmR0UVc2NlVBeVJteXZSUVA0ZVY0eTFSYkJuQ2NtcjVKRVYyQdIBmAJBVV95cUxPdUI5TjFRRE01RlRZbU90NTEyVmVPSk1FTnU2eEQ5ZUN5UUJwaVV6T1ZjMWw5bVo2aDVhTlRVd01QMnptMzFHZGxoWGcyUzBQa3dvQzI2Yld2Zi05MFpjLWxkZnZHanpIcXpHZW1sWmI5SnN0Z3lNZ3lXWUJFeGpwM2NpNU9oVHVTUmxnQXJ3NnZMU2liNmVxU1hjeHRUdC05UHJlREJyaW9BTlp0ODNSd19jUUpFc18yTjNfbHBoMFJLUEt2TlBBdi1nNW01LWhJdlNOUFdJdm80WjVLcWk3SExHajNhQk1MSnJhdW5KdVljX3hIakwtZlVZUHZBV1hqTlJaelhwNFRFMUZWNnFQc2gwMzlNcm9B?oc=5",
+          "publishedAt": "2026-10-04T10:37:16Z",
+          "sourceName": "Livemint",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.livemint.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
           ],
           "rawScore": 5.99
         },
         {
-          "id": "506ee894fad90f71",
-          "lane": "major_news",
+          "id": "82e77e35006ec77d",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Meta Muse Glimmer 30B Setup: 13 Steps, 24GB VRAM [2026] - tech-insider.org",
+          "title": "Salesforce stock closes at USD 234.69 as Q2 growth meets AI scrutiny - AD HOC NEWS",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5IN2pvMXRsWUk1S3pyaDZYemNWMWVhT1BiYmpMX0Zwc05zeEFLa3BxZFZDVkZyaTRHSWJIY0w1ZlZSbTRBTWpVV0JmMklKUGhHdlBsME94TkI2MkZLaTJzYm1WN1hWSjdBc29Z?oc=5",
-          "publishedAt": "2026-10-04T10:10:58Z",
-          "sourceName": "tech-insider.org",
+          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxOek44TWxPYTBjTWhlRWhvM0xjMjFBdGo2VWlYX0gyYzRMVWV1NWlzaXhYU0R0YTQycVJSTUFhWG8zWFZUbGh3RTJ1Vjlod0VHVDRPYUE4RWROZUQwdWxLVEJ1aDhweUVTd1J2d3F0Nnlrb0t0eUlzTnBneWh1RXk0cXFpV1NBbXNYUndiMllXYnN5TjVfVk1hc2hPX1NsU0hta1ItZnV2MzJqaGhLMlNJX2d4aGxqYzJhaW1WbHQxekdKbzJKTXB3ZnZVZw?oc=5",
+          "publishedAt": "2026-10-04T08:41:01Z",
+          "sourceName": "AD HOC NEWS",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
+            "publisherUrl": "https://www.ad-hoc-news.de",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2783,22 +3304,22 @@
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "major-news-search"
+            "market-business-search"
           ],
-          "rawScore": 5.97
+          "rawScore": 5.91
         },
         {
-          "id": "9499f36793f97691",
-          "lane": "major_news",
+          "id": "3e6f34bb0c8ced52",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Nvidia GPU Smuggling Case: $300M, 4 Chips Named [2026] - shattered.io",
+          "title": "Sandisk Q4 FY2026 Earnings Preview: $8B Revenue, 80% Margins, and a Raised Bar - TradingKey",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1JMkF0SjQwQ2ZYRm9fNTNRZm45Q2lWd3dZd0tkNTItZ3BjZFpRVTZ3eUMtSWNsLXg1VGMwaEE3ZDhrUXA2Sm92bjhuY1dkMWU4dndvdzV5eDM1bHAwR2pXc2l5M1ZPeFZVcjFnWnY1QTJCQQ?oc=5",
-          "publishedAt": "2026-10-04T09:23:09Z",
-          "sourceName": "shattered.io",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQNWxvMVg5Qkhla0hrXzBUN0FTemVGTUtic0ZrLVBWRlZNLXBWQkV4NThNLVp0N0trTVVLeHBrYWhHbm5pS0FjRGlFTmIta1pZZUk2SDlCNHBMSEZOa1NZT2M2T25mTGxnRXNfQ0E3QjQ2cWpRR1RIc253SnptTmJfb1hrZGdwME5IcmVfMnhIcWZTa0JwRnU0aWlXa2pwdE5ZaXpSR0k1LUV4ckFaNlc4T2Rodw?oc=5",
+          "publishedAt": "2026-10-04T00:21:40Z",
+          "sourceName": "TradingKey",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://shattered.io",
+            "publisherUrl": "https://www.tradingkey.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2806,22 +3327,22 @@
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "major-news-search"
+            "market-business-search"
           ],
-          "rawScore": 5.94
+          "rawScore": 5.56
         },
         {
-          "id": "53709f358999e97a",
-          "lane": "major_news",
+          "id": "0c29abb28f6dd44f",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Velociraptor DFIR Setup: 13 Steps, 90 Min [2026] - tech-insider.org",
+          "title": "Palantir Grew Revenue 85% and Raised Full-Year Guidance by 10 Points \u2014 So Why Is PLTR Down 26% YTD? - TradingKey",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA2ZFM3YTktRThTQUVJV0Qtc3B0UzZXWlVzcGxTblhQWGpxaE9kcFk3X1pLazFWaG1heDVqNy1ZVGRHU3dtOUtoUDBTblNDcnVXa2ZEX0s2THF0V01yaUZoNGlwQjE?oc=5",
-          "publishedAt": "2026-10-04T08:12:35Z",
-          "sourceName": "tech-insider.org",
+          "url": "https://news.google.com/rss/articles/CBMiiwJBVV95cUxQNmM2SURNRGVLR0RMNmJYbUJidUVteEZBTkRuejNZX2JTMHo4SG5jVnhlbFBrd0FsUFpSTmg3ZGp6RlpzalpSNTlNVElFRGVJRVdQWjJQb2N4WndtWXpHNFZMQVNlLUJrNEpRMDd1X3kyUHk3cWtIeFBLNGpOOEF1MVc0cXBkUlZHcVhjenM2MDhmQ1NRbGk5TFVPV0xTbGNxRHQ2YlRMcnNINVhrOG9aUUZWQl9wa3BWRTItVmpMcHhVNUNoZXZuLTN4dUJ0Nm5HLWp4MTEtUFo0eFQ0RWYxa1VvVkZZR1JPdVh4XzhMdFBmNGY5MUY5a3NMVmxLSjBTWjlFOHBXb01mSkk?oc=5",
+          "publishedAt": "2026-10-03T23:44:43Z",
+          "sourceName": "TradingKey",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
+            "publisherUrl": "https://www.tradingkey.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2829,78 +3350,9 @@
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "major-news-search"
+            "market-business-search"
           ],
-          "rawScore": 5.89
-        },
-        {
-          "id": "70cbb9853a5b9b12",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "AWS Opens Strands Decider 2B: Agent Model Hits 100ms [2026] - shattered.io",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMllmMFFqWVpScS1uaTJDV3h2NzZGc095Nkx2aVZaZW5pa2RHeEF5VkhDR0ZSa3E5TlhpZzRzX2xCb1N0cG0yVVBiVGk0MTRqZUhnR3ZJYXltRm5jMlcwdXVKN0Nrd3loOEZBVlRWSVRuekxkSW85YUF4ODNpRlV5NXl3?oc=5",
-          "publishedAt": "2026-10-04T07:13:09Z",
-          "sourceName": "shattered.io",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://shattered.io",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.85
-        },
-        {
-          "id": "492b8e43a174dea0",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Azahar vs Panda3DS vs Lime3DS: 8.3K Star Gap [2026] - tech-insider.org",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1tX1puNmpkSzQ2NGgwd1h4dFYtYVBwdHp5ekt2T0dRWEZYTVMxQTcxakFCQ29lTDNVb2VfTkU3aXFKSGUxdEhHcUR0RFJUR2ZrQlM2enNuU1FLWnVKaF9keHkyLThwc2ZDRk10SmVOQjQ?oc=5",
-          "publishedAt": "2026-10-04T01:36:41Z",
-          "sourceName": "tech-insider.org",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://tech-insider.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.62
-        },
-        {
-          "id": "299edf84a3d85574",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Meta's Jolly Mascot vs Clippy: 29 Years Later [2026] - shattered.io",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1XWEdYa3gtSHhmRDB3MnVUdmNFcV9IN0RzMDZ5b2QyTnMzbmtCX2RtOGlSM2ItYl91LWFtZnNISEZwbHQ2cXoyb0VOaWZQX2Q5SjdidXBRaUJ5ZElTcFZScXJRWjJLM0NlaUZsd1lLUjlqY0Uw?oc=5",
-          "publishedAt": "2026-10-03T23:23:09Z",
-          "sourceName": "shattered.io",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://shattered.io",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.53
+          "rawScore": 5.54
         }
       ]
     },
@@ -3060,7 +3512,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-stars=1186-velocity=49.7",
+      "qualityGate": "github-stars=1187-velocity=49.6",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -3089,10 +3541,10 @@
         "publishedAt": "2026-10-04T10:55:58Z",
         "sourceName": "GitHub",
         "metrics": {
-          "stars": 1186,
-          "forks": 231,
-          "ageHours": 23.85,
-          "starsPerHour": 49.72
+          "stars": 1187,
+          "forks": 232,
+          "ageHours": 23.91,
+          "starsPerHour": 49.65
         },
         "creator": null,
         "primaryUrls": [
@@ -3118,10 +3570,10 @@
           "publishedAt": "2026-10-04T10:55:58Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 1186,
-            "forks": 231,
-            "ageHours": 23.85,
-            "starsPerHour": 49.72
+            "stars": 1187,
+            "forks": 232,
+            "ageHours": 23.91,
+            "starsPerHour": 49.65
           },
           "creator": null,
           "primaryUrls": [
@@ -3137,11 +3589,714 @@
           "rawScore": 6.99
         }
       ]
+    },
+    {
+      "clusterId": "5d7a92269100df10",
+      "title": "How OCR Model Launch At Elastic (ESTC) Has Changed Its Investment Story - Simply Wall Street",
+      "score": 7.31,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news",
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Simply Wall Street"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search",
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "0a65f070f69c392b",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "How OCR Model Launch At Elastic (ESTC) Has Changed Its Investment Story - Simply Wall Street",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOemEtTXB2bjlFbU96OTdVWER4aFNFM2pKUlM5T0xCYklvZFlpOWdhNW9oOFVWV2NGRjlIVGNYT3pzakw3WHdyc3RhWjBFNmRzRVlKMTRmUUd2cW9WWXNSUk5EVkxlUEdlV08wanA0MEwxMjk2Y1ZNcnl4c20tM1VFbklJS3lKaFRtMGlnclhMcEpscm5wOTBPMXZoT1NTQmJQTmRWakpjX3BkMEdrVFFCWU5zcG1NQ05OU3NWMkNFMmxHSm5RekJV0gHHAUFVX3lxTE56YS1NcHZuOUVtT3o5N1VYRHhoU0UzakpSUzlPTEJiSW9kWWk5Z2E1b2g4VVZXY0ZGOUhUY1hPenNqTDdYd3JzdGFaMEU2ZHNFWUoxNGZRR3Zxb1ZZc1JSTkRWTGVQR2VXTzBqcDQwTDEyOTZjVk1yeXhzbS0zVUVuSUlLeUpoVG0waWdyWExwSmxybnA5ME8xdmhPU1NCYlBOZFZqSmNfcGQwR2tUUUJZTnNwbU1DTk5Tc1YyQ0UybEdKblF6QlU?oc=5",
+        "publishedAt": "2026-10-05T02:34:57Z",
+        "sourceName": "Simply Wall Street",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://simplywall.st",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 6.66
+      },
+      "evidence": [
+        {
+          "id": "0a65f070f69c392b",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "How OCR Model Launch At Elastic (ESTC) Has Changed Its Investment Story - Simply Wall Street",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOemEtTXB2bjlFbU96OTdVWER4aFNFM2pKUlM5T0xCYklvZFlpOWdhNW9oOFVWV2NGRjlIVGNYT3pzakw3WHdyc3RhWjBFNmRzRVlKMTRmUUd2cW9WWXNSUk5EVkxlUEdlV08wanA0MEwxMjk2Y1ZNcnl4c20tM1VFbklJS3lKaFRtMGlnclhMcEpscm5wOTBPMXZoT1NTQmJQTmRWakpjX3BkMEdrVFFCWU5zcG1NQ05OU3NWMkNFMmxHSm5RekJV0gHHAUFVX3lxTE56YS1NcHZuOUVtT3o5N1VYRHhoU0UzakpSUzlPTEJiSW9kWWk5Z2E1b2g4VVZXY0ZGOUhUY1hPenNqTDdYd3JzdGFaMEU2ZHNFWUoxNGZRR3Zxb1ZZc1JSTkRWTGVQR2VXTzBqcDQwTDEyOTZjVk1yeXhzbS0zVUVuSUlLeUpoVG0waWdyWExwSmxybnA5ME8xdmhPU1NCYlBOZFZqSmNfcGQwR2tUUUJZTnNwbU1DTk5Tc1YyQ0UybEdKblF6QlU?oc=5",
+          "publishedAt": "2026-10-05T02:34:57Z",
+          "sourceName": "Simply Wall Street",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://simplywall.st",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.66
+        },
+        {
+          "id": "69f07ac87a4a9a3d",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "How Investors May Respond To Oracle (ORCL) AI And Cloud Launches - Simply Wall Street",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOa0VuTWVOY1lPX1lyQnFETm1HbUJIX2JfbFRzTWphdjNnaWdWOGExSzVqaTZOS3RoVkFKZG95VG9EeG94ZjJtaDctWmE2cjdkMzBUdlNIeG8wdFprSmYtNnBEXzNZektDeExMZ19ScU0zOTJLX2xfYi1KRHFfUmNmWGhBaWZ0SzdOVW4tTk1jWTByd3B2R3JiZGpXMUpNUkkxVDdkcUs4T3Y4SHRDNHQ4WWZ3YWgyX3BtbTJpZVRJb3XSAcYBQVVfeXFMTzFLbVVmZDRWYjN3YVc3ZGh2bW1DSWtzV1pzWGxBSnJNQk9fZEdVVEJIdDBIcHA4RkpQUG9kSzJlVmZ5NnFIcDQ0Rk5rcDZJYWJfUVJCaF9XSUJjeW9wUmtvUjBmbEFpN1k5RTVQV0x6WTY0UloxMjE0dkJWV19pV0U4N2xVN0VkOWdLdlA4eDFVbjNhQlBrQVd6YVZLNEhsNzhCWmZjOHlXSjFtdlhJQ2lIaTBHVk9ZUVJ6QTdwbkUxQUphWlNn?oc=5",
+          "publishedAt": "2026-10-05T00:27:50Z",
+          "sourceName": "Simply Wall Street",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://simplywall.st",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.57
+        },
+        {
+          "id": "7c9710d7d40aab3f",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Nvidia and 3 AI Infrastructure Stocks Backed by Big R and D Spending - Simply Wall Street",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxORTFVblhHTDVEa0pNT2tqZ0F6dlQzYXZ3Y0V2RngxRmIxT3hFbGRmdmgxSGxoX0xfMzcxTEdDclRHSi1sYWVMMW51UVJ2M0JlbkpHMlVXNmZiWXg1dHVva2h4UGMtV0NUeE1WQjQxR1lEcmVWVjBzTzRmVndsdjF5amF1eWZBT1dVdURkNVZ6QUVhQ3NDYURqeFhJQUtCZG01aE84Vjd5cFo2Vm9yVVVLWERDOC1aVGRmX1hTOEtWTmgyOExzXzNyTUVwV0J1WUk0eWI1a1Z0THd0eVVkSWRYadIB4AFBVV95cUxORTFVblhHTDVEa0pNT2tqZ0F6dlQzYXZ3Y0V2RngxRmIxT3hFbGRmdmgxSGxoX0xfMzcxTEdDclRHSi1sYWVMMW51UVJ2M0JlbkpHMlVXNmZiWXg1dHVva2h4UGMtV0NUeE1WQjQxR1lEcmVWVjBzTzRmVndsdjF5amF1eWZBT1dVdURkNVZ6QUVhQ3NDYURqeFhJQUtCZG01aE84Vjd5cFo2Vm9yVVVLWERDOC1aVGRmX1hTOEtWTmgyOExzXzNyTUVwV0J1WUk0eWI1a1Z0THd0eVVkSWRYaQ?oc=5",
+          "publishedAt": "2026-10-04T14:22:06Z",
+          "sourceName": "Simply Wall Street",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://simplywall.st",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.15
+        }
+      ]
+    },
+    {
+      "clusterId": "36c05ee28fa18e0e",
+      "title": "Where Will Nvidia Stock Be in 2030? Three Scenarios for the World's Most Valuable AI Company - The Globe and Mail",
+      "score": 7.3,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "The Globe and Mail",
+        "Yahoo Finance",
+        "instagram.com"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "5284cafde562b18e",
+        "lane": "market_business",
+        "sourceKind": "news_search",
+        "title": "Where Will Nvidia Stock Be in 2030? Three Scenarios for the World's Most Valuable AI Company - The Globe and Mail",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOdnBrbnhsTW0xbzZMdEVDOXo4MWJ5cy1rcVVoTUhaamQ2ZTBDUS1XdGhHLU5EdEpNeEViSGNuM0hDTnJtakFuaEVTTXZhaXIyNU4yS0FhSXFpMG4tX1pESGxCZjNIaXdMMUFocUFObHFMTkhzcldDaDE1UHV1bDBwVXo3dlNVeVBMVnExWERhTVIwckoxcExGYUt2NnZQVHZVR3M0MnJrRUtMRExMQzFNekNOX1pIQXlsYVNyaGY2TFF2b3dkN05sRVJMNy11SFBPc0hBSkhpdG9wTmUzSGs2bW1xQ2pKR3dIdWJkT0JiOUZRRWh5YlhxRUhOVWdEN2dXY2pYUWh3?oc=5",
+        "publishedAt": "2026-10-05T09:29:58Z",
+        "sourceName": "The Globe and Mail",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://www.theglobeandmail.com",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "market-business-search"
+        ],
+        "rawScore": 6.94
+      },
+      "evidence": [
+        {
+          "id": "5284cafde562b18e",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Where Will Nvidia Stock Be in 2030? Three Scenarios for the World's Most Valuable AI Company - The Globe and Mail",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMihgJBVV95cUxOdnBrbnhsTW0xbzZMdEVDOXo4MWJ5cy1rcVVoTUhaamQ2ZTBDUS1XdGhHLU5EdEpNeEViSGNuM0hDTnJtakFuaEVTTXZhaXIyNU4yS0FhSXFpMG4tX1pESGxCZjNIaXdMMUFocUFObHFMTkhzcldDaDE1UHV1bDBwVXo3dlNVeVBMVnExWERhTVIwckoxcExGYUt2NnZQVHZVR3M0MnJrRUtMRExMQzFNekNOX1pIQXlsYVNyaGY2TFF2b3dkN05sRVJMNy11SFBPc0hBSkhpdG9wTmUzSGs2bW1xQ2pKR3dIdWJkT0JiOUZRRWh5YlhxRUhOVWdEN2dXY2pYUWh3?oc=5",
+          "publishedAt": "2026-10-05T09:29:58Z",
+          "sourceName": "The Globe and Mail",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.theglobeandmail.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.94
+        },
+        {
+          "id": "8d3cda49dd92a4bf",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "MobiKwik co-founder Upasana Taku bought 1.07 lakh shares of the company for about Rs 2.12 crore through open-market transactions, according to a stock exchange filing. Taku acquired 52,000 shares on September 28 for about Rs 1.04 crore and ",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE9fWkFCOXNqZjF6Yll6MHd3aTRwa0s3S1c1MjJmd3VsaTlpMS1pMmZnc3VZZHpyRlB5WFFPOWFSY2ZaV2VfVlBmeklOU0czazBHQnc?oc=5",
+          "publishedAt": "2026-10-05T06:32:40Z",
+          "sourceName": "instagram.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.instagram.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.82
+        },
+        {
+          "id": "f8e1716697bc8a0e",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "How HPE Stock Gained 22.3% in September - The Globe and Mail",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNcS1rYUY5bGVETloxeFdlR0tuVEFZWHRBMHhiRnpFM3lTM0dwLXhWb0hhSEtmZ3Rub2NMSkp5UmZQU1pUTGYtczBSU2NkUHZsbElVUTAxU1p2X28zaGJrbUpMS1hCYVB6eFc0NEZsM0RudlV2cDlaQ2ZDcnFaZ25oYW5xbnRpTVlaZEhBY2lOUE4yaTBOWWd2OW1GcjVVelRfOHVBTzZOMDllaFExWFNGNHl2X0ZrNlNxbzMtQ0stWQ?oc=5",
+          "publishedAt": "2026-10-05T02:27:40Z",
+          "sourceName": "The Globe and Mail",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.theglobeandmail.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.65
+        },
+        {
+          "id": "b0a5ee7b2b073a91",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Michael Burry Thinks the AI Bubble Will Burst Sooner Than Later, Including Big Drops in Micron and Nebius by Mid-2027 - The Globe and Mail",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMioAJBVV95cUxNTU1GOS0yTVRkVC1URmNMM1A5c1N4blZvS3dzRDlueDNDUUkwWGxTYTQ0Z0hUaEkwbEFXcllNcGxmNTloeUJ1aVo3Tk0tXzFpX1Z0dE1pVUdyRy1HTHpWZWR3R0RDZExQRVBUTm4zMmxyWEdyRTVpcDdkWnhTTFlWNkprMGQ3SHlEbVNuODBFc19sLXhvbndMLVV5ZTZmQUZRWnlIaTk1Qjlabk5BTHJ2NXY0Mm1UVnV6S1lDck9MOE1UaTh5c0VFQ0hRdXc1UnNMTlVXeUt6bkI0M1VLdmNyYzUwMmh3RXFzSGVCRHRWc2hFb19sYXNvYUNwSnBTNXpaWWp4bm5Xd1Jpc3F4YmQ1YWU2UDR5OWZxM1IwaUs1T0c?oc=5",
+          "publishedAt": "2026-10-04T13:07:54Z",
+          "sourceName": "The Globe and Mail",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.theglobeandmail.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.1
+        },
+        {
+          "id": "3c1d6b02f1fd5d73",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "3 No-Brainer Stocks to Buy If Data Center Expenditures Hit $3 Trillion by 2030 - Yahoo Finance",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxQWFNIREtHZWdjOW1vRDg0MUpvQlVGbG5MQldtN3Q5eDhPZ1FENUZGdElQQlJHUE83NVBfRUxxMDdYbzNjcUdld01RMXdGc2I5THEtSFM5ZzVTejVNT2Z5SXhVbUp1WHlINVU2SnlteHgwbURXREpvYlVjTktmaG9MaFdIdTdyVlU4Z1VuVWVfRzFPQQ?oc=5",
+          "publishedAt": "2026-10-04T01:20:00Z",
+          "sourceName": "Yahoo Finance",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://finance.yahoo.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 5.6
+        }
+      ]
+    },
+    {
+      "clusterId": "e6e25b66ecdbbbd2",
+      "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+      "score": 7.27,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Axios",
+        "Dealroom",
+        "The News International",
+        "news.lavx.hu"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "e93e4f42c400153c",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbGZFcjY4RVNtMWNPTldZSWpPeTd6RHFRR0tIMlFYZ1JGOEl2dUNMNHRwcmRyeEZpY0FPLXJBMmkxOWxtY21YQklRaURPQ0lraVZmcjZiYVU5VFVTZGVKWE5zaElsbEh2cEk4WTJnSW9ZSkhIaDdzQlFqWjNNaFliMHJOY2JWemg3LVhhVjM2b0lfcUpJSUFZbTczLUh0S0ZhMHNoaUNFQjAxQVVi?oc=5",
+        "publishedAt": "2026-10-05T04:24:44Z",
+        "sourceName": "news.lavx.hu",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://news.lavx.hu",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 6.73
+      },
+      "evidence": [
+        {
+          "id": "e93e4f42c400153c",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbGZFcjY4RVNtMWNPTldZSWpPeTd6RHFRR0tIMlFYZ1JGOEl2dUNMNHRwcmRyeEZpY0FPLXJBMmkxOWxtY21YQklRaURPQ0lraVZmcjZiYVU5VFVTZGVKWE5zaElsbEh2cEk4WTJnSW9ZSkhIaDdzQlFqWjNNaFliMHJOY2JWemg3LVhhVjM2b0lfcUpJSUFZbTczLUh0S0ZhMHNoaUNFQjAxQVVi?oc=5",
+          "publishedAt": "2026-10-05T04:24:44Z",
+          "sourceName": "news.lavx.hu",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://news.lavx.hu",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.73
+        },
+        {
+          "id": "f3ad017a8664f64a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Nvidia-backed Reflection AI prepares first open-weight model launch - Dealroom",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNeDdUMl9IVDhvZDZCR0RHX3NTX0dqQ1J5a3UwdEd6MjZneTB3bWZzYlJMOFZuNmJGWkFQOHJWUHlyTjNPOGN1VVlCTVYxOWNZb3hzczdmM0pLMkxUMzdfM2NwN0dZcUd6T296TTA5V1JPQ0RvaFZIQXpqM1NGUkZXcFJtUXF1eUVQM1Q3dzBJbHh3LUlFaW91U013eFlEel9OZmo0?oc=5",
+          "publishedAt": "2026-10-04T14:34:31Z",
+          "sourceName": "Dealroom",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://app.dealroom.co",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.16
+        },
+        {
+          "id": "31bd3f8e8b15d1f7",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "New Open AI model could change the global AI race: Here\u2019s how - The News International",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNFVMUFVSb1JRd0Q0XzU1UW95WmZ4czE3WENuVjJaaFdCdFpyRlg1cEdSSkVhRGNkR053elJrMzhLVG4xOXN2WXVaZFA4eWVUemg3M1BSczZHR3FjbkhqbDNZWmFpWWI1cy1NSllyWW9wRUhWRS14bXdGMUhjR01MVGN2S0JIOHZ1eGhZSWFDU3p5eFNnT05yTndiakQ3VW9oYmFB0gGfAUFVX3lxTE50UUcxbzIyQXlLejA5SGQ3cmZPX0s5RHZkZFFFVFB2OEZqYWNSakNrN2pSUEMyUmRJTFN3TU1kcV82NUtMdE1SbTA2QjVhR2Z4Uy1ZT05DRTNETVNhNlJ2bUVvSEo5a2lrcU42WTZORjJvektnLV9NdUlIekpCUXhZVFhhRjJxZFdyQWkwLW5BclAwMGJnNFpSMmpfeV8zcw?oc=5",
+          "publishedAt": "2026-10-04T14:47:00Z",
+          "sourceName": "The News International",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.thenews.com.pk",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.16
+        },
+        {
+          "id": "8629a93850428440",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Scoop: A powerful new model from startup Reflection is set to shake up the AI race - Axios",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5meUx1aTFnUHltcTFXRmNIWVhPbW9Nd0lZMXdQVlRuVFVNMW5xRG1QaFpnanA4YnpicU9VTnMwQlZuNzJ4M0lYV0haWnNsZjZGZzFnRkNfZkItbkg2a3BCZ1FEbHdqbEZHc0E?oc=5",
+          "publishedAt": "2026-10-04T13:12:12Z",
+          "sourceName": "Axios",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.axios.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.1
+        },
+        {
+          "id": "8b8d116249677e3a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "OpenAI's Jalape\u00f1o Chip Challenges Nvidia with Homogeneous Inference Design - news.lavx.hu",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQenAxUHhMQzJWR1dTcnF4Q203eWJER0tWSFhDTlRxbGNrTHRBRE9iRkhiUlJrS0FJUkx2eDQyaGswcUV4dWY3UGJWTm5ydnNPMWo0SWJ2Y0RqWWsycTNodFEyODdaaXNfeUNfd3RvaWhBUDNSWTVYQnVCWG9JTnVLZkZXZkZCaHo3OW5wckZOQ21vMVh0RmNkYUVkWVMzODZPeUdPeE1B?oc=5",
+          "publishedAt": "2026-10-04T12:05:47Z",
+          "sourceName": "news.lavx.hu",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://news.lavx.hu",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.05
+        }
+      ]
+    },
+    {
+      "clusterId": "f4e649db0973b6c3",
+      "title": "Semiconductor hits record sales as AMD tops $1 trillion and Micron earnings upcoming - equiti.com",
+      "score": 7.22,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Simply Wall Street",
+        "benzinga.com",
+        "equiti.com"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "c442261fc8761bff",
+        "lane": "market_business",
+        "sourceKind": "news_search",
+        "title": "Semiconductor hits record sales as AMD tops $1 trillion and Micron earnings upcoming - equiti.com",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQ1BNOFBsd005Z29mM2RiWGZMSHFVV2R0dWhNaDBVNldMMW5KM0haU3A5c2xEd0RMV3NoZUJpclpja0ZCSFE3d05TdTN5MFRuVFV3djE0TUF5REwzOFBSdlhQOWF2aUZzZGxHLU9TWHh5d1IxYnFPVV9RVUdfSG9PcE1HVkcxZzlHRDgtTnpEalpxVUEyajNXdzZGOXhwZGcwdkdOTGRZcjI?oc=5",
+        "publishedAt": "2026-10-05T07:29:57Z",
+        "sourceName": "equiti.com",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://www.equiti.com",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "market-business-search"
+        ],
+        "rawScore": 6.86
+      },
+      "evidence": [
+        {
+          "id": "c442261fc8761bff",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Semiconductor hits record sales as AMD tops $1 trillion and Micron earnings upcoming - equiti.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOQ1BNOFBsd005Z29mM2RiWGZMSHFVV2R0dWhNaDBVNldMMW5KM0haU3A5c2xEd0RMV3NoZUJpclpja0ZCSFE3d05TdTN5MFRuVFV3djE0TUF5REwzOFBSdlhQOWF2aUZzZGxHLU9TWHh5d1IxYnFPVV9RVUdfSG9PcE1HVkcxZzlHRDgtTnpEalpxVUEyajNXdzZGOXhwZGcwdkdOTGRZcjI?oc=5",
+          "publishedAt": "2026-10-05T07:29:57Z",
+          "sourceName": "equiti.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.equiti.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.86
+        },
+        {
+          "id": "e97037329decffa1",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Nvidia Stock Briefly Tops Key Level as Earnings Season Puts AI Spending in Focus - Advanced Micro Devices - benzinga.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNc1lfUmxzendDTTAyRFpFTkxsQ3NvWlBuUTM0dVFaX1cxQWFhV2NwOG5zVGptTnJneEFac2xINnBkdkxwekdLejdVcGwxTEE0RXlxUlhyTDc4SUszM2RLNDd4WmpaYnA3SVdLVGlMRlhOcmFVWlNPSk5JMmF3enVLTWZpWXhtTGhld0JnYlBvSnNSRVdiR0JRaW5QYkthdU11ZVdVZ3g0QXllWHhIWXBSWnc5Tjl6REFWRUVJd2FqOThzYWRwdGNWVFNzeUJkbWljLW5J?oc=5",
+          "publishedAt": "2026-10-04T18:30:39Z",
+          "sourceName": "benzinga.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.benzinga.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.32
+        },
+        {
+          "id": "12cf16e56979d131",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Marvell Stock And 2 US Industrial Policy Plays Backed By National Security Spending - Simply Wall Street",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQWkJpVGNNbm9idEo2b2doX0dING8wTXg0dll5dFFLOXNxbjAyWU1KOFdveHJxYnA2cWZvWEZRV0hnOEZTWUpuYWhrY2NnVlMySUJPMC1QSTFsdnl6dUY5SU82bVVteGV0N18yYnNhQml1R25BemVqYlREMHF0VDVHQlE2YTZTdlRneEFfVDZZNEc1TmRfWms3bjBoVGR1MkpfVWx0Yy1qZ0dFdkdzak9PZlkycUxabXJfTktzUjhRRDBxYzVMcVlPYUV6cVdfYU90R3c2NTV4T0JYemPSAeABQVVfeXFMTmtpMlVNcHk1U0JyV2Ruc3hDeXdoTVVHMGItcUdFMGZXa3pwVTVPX2xZSkhXTUtEalVHamFCNTZyWnBENDFpRms5S0RSamNrNmVwZlRPRExxS2JkZUN4dkxtZmtKc0FXS21QSFcyelA3X25NbXd0QzVraDR3NFVILVUtT3Z4Q21sLXg2M3lJOXhfZjdXQVU2OS1CdlB6VF9pMWhZdnh1dGlXbXlRN1FESU4wVFRZdW5CdnZJTnQwdFNRbFBUMGpqUnZqb0lxXzQ0SlhPb2RCOHJQb3hrUm9INEk?oc=5",
+          "publishedAt": "2026-10-04T14:22:05Z",
+          "sourceName": "Simply Wall Street",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://simplywall.st",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.15
+        }
+      ]
+    },
+    {
+      "clusterId": "03cca9b0434a35e1",
+      "title": "TCS, Wipro, Infosys, HCL, Tech Mahindra shares: Accenture Q4 strong show impact on Indian IT stocks decoded by experts - Livemint",
+      "score": 7.22,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Livemint",
+        "Univest",
+        "financialexpress.com"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "3ac58add74afd9c7",
+        "lane": "market_business",
+        "sourceKind": "news_search",
+        "title": "TCS, Wipro, Infosys, HCL, Tech Mahindra shares: Accenture Q4 strong show impact on Indian IT stocks decoded by experts - Livemint",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQdIBlgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQQ?oc=5",
+        "publishedAt": "2026-10-05T07:34:52Z",
+        "sourceName": "Livemint",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://www.livemint.com",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "market-business-search"
+        ],
+        "rawScore": 6.86
+      },
+      "evidence": [
+        {
+          "id": "3ac58add74afd9c7",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "TCS, Wipro, Infosys, HCL, Tech Mahindra shares: Accenture Q4 strong show impact on Indian IT stocks decoded by experts - Livemint",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQdIBlgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQQ?oc=5",
+          "publishedAt": "2026-10-05T07:34:52Z",
+          "sourceName": "Livemint",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.livemint.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.86
+        },
+        {
+          "id": "7f9e3948ad47b966",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "IT Stocks to Buy Before Q2 Results: TCS, HCL Tech, Mphasis - Univest",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxPQi1Zdk5uTjBXWTVGNlJqZTQ3bmJyYjVMTzRBQnozQnNaVGFVcmNDVjJQZTJwaFZjUTlsOUVuQ01lVm1rR3h6emlvemtRUzFUcUdwNXd5amhuS1l5VDhxOURQRERrSVBBR3k3SFBBOFozTUFyY2ZlSnlyNG1sUlBsT0g0R3JEWDA?oc=5",
+          "publishedAt": "2026-10-05T07:35:00Z",
+          "sourceName": "Univest",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://univest.in",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.86
+        },
+        {
+          "id": "b55555c114fa5ce7",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "TCS, Infosys to Wipro: Jefferies sees earnings risk while Nuvama eyes upside for IT stocks - financialexpress.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQYl9MMzZ0bkhmaEsyc1JyVk40Qi1LWU9QYUJrRURqeTdYVVp5bTBqWjByX3lwWm56ZDVscU5QWHFuTFhPd0tOeHZSbG85VHphZmQwRWhhM0RObFFQSF85aVEwR0t2S2xpUXB1bGduRllLSkNhUXh3U3JMZzNfVGVuN3Bsd0UxZUdRWVJldnFTUGswbGRrQzB1UWxUOVYzMGs0WmZtME9QR21mem9mUXRhOC1pQVY3WklyNmVvMVF2QnpQamVKTjF5QWwySW1PQkRpSXpB0gHaAUFVX3lxTE1oRnAtWW9mb0RhMS1PWG9sRmd6azNITHhPN1MzSlM3VExDUDdNYmxHMGJtWDhicWZpMjFtdndxV1kyVEJwc0drZFEtUjJxLUs3WkxrT2ZMNEM3SVl4Q0hNQ005SzZYekhRTV9EcWRtMENTbUZfVnE0MHAxV1dXanVQbGhYazVWYWlpeVYwRTNXWWxFbnRaNm90TXA2RjBYYkxOU3k2X0lZeGZjV21wTDVRR1ozMHlZVWl5OVJkV3RqUHd1TDdJcXEtOUlmSE9LMzA2X2h5dE9TVS1n?oc=5",
+          "publishedAt": "2026-10-05T03:31:26Z",
+          "sourceName": "financialexpress.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.financialexpress.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.7
+        }
+      ]
     }
   ],
   "laneSummary": {
-    "major_news": 3,
-    "market_business": 0,
+    "major_news": 6,
+    "market_business": 6,
     "hot_emerging": 28,
     "creator_radar": 0
   }
