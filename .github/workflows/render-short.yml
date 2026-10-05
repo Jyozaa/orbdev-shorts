@@ -33,7 +33,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      ORBDEV_NARRATION_PROFILE: orbdev-dry
+      ORBDEV_NARRATION_PROFILE: orbdev-deadpan
       ORBDEV_VOICE_FALLBACK: en-US-BrianMultilingualNeural
       ORBDEV_VOICE_TERTIARY: en-US-AndrewMultilingualNeural
       ORBDEV_CAPTION_LEAD_MS: 45
