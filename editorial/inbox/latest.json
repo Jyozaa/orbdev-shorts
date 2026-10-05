@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-05T07:37:31.411922Z",
+  "generatedAt": "2026-10-05T09:55:36.646105Z",
   "scanCadenceHours": 12,
   "qualified": [
     {
@@ -13,7 +13,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1894.0-total=155268",
+      "qualityGate": "github-trending-stars-per-day=1894.0-total=155416",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -40,11 +40,11 @@
         "title": "DietrichGebert/ponytail",
         "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "url": "https://github.com/DietrichGebert/ponytail",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 155268,
-          "forks": 8345,
+          "stars": 155416,
+          "forks": 8353,
           "starsRecent": 1894,
           "starsPerDay": 1894.0,
           "trendingWindow": "daily",
@@ -73,11 +73,11 @@
           "title": "DietrichGebert/ponytail",
           "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
           "url": "https://github.com/DietrichGebert/ponytail",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 155268,
-            "forks": 8345,
+            "stars": 155416,
+            "forks": 8353,
             "starsRecent": 1894,
             "starsPerDay": 1894.0,
             "trendingWindow": "daily",
@@ -110,7 +110,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=980.0-total=91207",
+      "qualityGate": "github-trending-stars-per-day=980.0-total=91317",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -137,11 +137,11 @@
         "title": "Panniantong/Agent-Reach",
         "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
         "url": "https://github.com/Panniantong/Agent-Reach",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 91207,
-          "forks": 8008,
+          "stars": 91317,
+          "forks": 8022,
           "starsRecent": 980,
           "starsPerDay": 980.0,
           "trendingWindow": "daily",
@@ -170,11 +170,11 @@
           "title": "Panniantong/Agent-Reach",
           "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
           "url": "https://github.com/Panniantong/Agent-Reach",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 91207,
-            "forks": 8008,
+            "stars": 91317,
+            "forks": 8022,
             "starsRecent": 980,
             "starsPerDay": 980.0,
             "trendingWindow": "daily",
@@ -207,7 +207,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=245.0-total=63409",
+      "qualityGate": "github-trending-stars-per-day=245.0-total=63489",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -234,11 +234,11 @@
         "title": "calesthio/OpenMontage",
         "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
         "url": "https://github.com/calesthio/OpenMontage",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 63409,
-          "forks": 8075,
+          "stars": 63489,
+          "forks": 8080,
           "starsRecent": 245,
           "starsPerDay": 245.0,
           "trendingWindow": "daily",
@@ -267,11 +267,11 @@
           "title": "calesthio/OpenMontage",
           "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
           "url": "https://github.com/calesthio/OpenMontage",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 63409,
-            "forks": 8075,
+            "stars": 63489,
+            "forks": 8080,
             "starsRecent": 245,
             "starsPerDay": 245.0,
             "trendingWindow": "daily",
@@ -304,7 +304,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=490.0-total=25313",
+      "qualityGate": "github-trending-stars-per-day=490.0-total=25355",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -331,16 +331,16 @@
         "title": "pingdotgg/t3code",
         "summary": "",
         "url": "https://github.com/pingdotgg/t3code",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 25313,
-          "forks": 6535,
+          "stars": 25355,
+          "forks": 6545,
           "starsRecent": 490,
           "starsPerDay": 490.0,
           "trendingWindow": "daily",
           "repoCreatedAt": "2026-02-08T23:46:22Z",
-          "repoPushedAt": "2026-10-05T07:34:21Z"
+          "repoPushedAt": "2026-10-05T09:52:16Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -364,16 +364,16 @@
           "title": "pingdotgg/t3code",
           "summary": "",
           "url": "https://github.com/pingdotgg/t3code",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 25313,
-            "forks": 6535,
+            "stars": 25355,
+            "forks": 6545,
             "starsRecent": 490,
             "starsPerDay": 490.0,
             "trendingWindow": "daily",
             "repoCreatedAt": "2026-02-08T23:46:22Z",
-            "repoPushedAt": "2026-10-05T07:34:21Z"
+            "repoPushedAt": "2026-10-05T09:52:16Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -401,7 +401,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=336.0-total=101317",
+      "qualityGate": "github-trending-stars-per-day=336.0-total=101358",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -428,11 +428,11 @@
         "title": "addyosmani/agent-skills",
         "summary": "Production-grade engineering skills for AI coding agents.",
         "url": "https://github.com/addyosmani/agent-skills",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 101317,
-          "forks": 10623,
+          "stars": 101358,
+          "forks": 10628,
           "starsRecent": 336,
           "starsPerDay": 336.0,
           "trendingWindow": "daily",
@@ -461,11 +461,11 @@
           "title": "addyosmani/agent-skills",
           "summary": "Production-grade engineering skills for AI coding agents.",
           "url": "https://github.com/addyosmani/agent-skills",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 101317,
-            "forks": 10623,
+            "stars": 101358,
+            "forks": 10628,
             "starsRecent": 336,
             "starsPerDay": 336.0,
             "trendingWindow": "daily",
@@ -498,7 +498,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=628.0-total=96278",
+      "qualityGate": "github-trending-stars-per-day=628.0-total=96321",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -525,16 +525,16 @@
         "title": "thedotmack/claude-mem",
         "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "url": "https://github.com/thedotmack/claude-mem",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 96278,
-          "forks": 8500,
+          "stars": 96321,
+          "forks": 8504,
           "starsRecent": 628,
           "starsPerDay": 628.0,
           "trendingWindow": "daily",
           "repoCreatedAt": "2025-08-31T20:50:03Z",
-          "repoPushedAt": "2026-10-05T07:36:56Z"
+          "repoPushedAt": "2026-10-05T09:30:06Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -558,16 +558,16 @@
           "title": "thedotmack/claude-mem",
           "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
           "url": "https://github.com/thedotmack/claude-mem",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 96278,
-            "forks": 8500,
+            "stars": 96321,
+            "forks": 8504,
             "starsRecent": 628,
             "starsPerDay": 628.0,
             "trendingWindow": "daily",
             "repoCreatedAt": "2025-08-31T20:50:03Z",
-            "repoPushedAt": "2026-10-05T07:36:56Z"
+            "repoPushedAt": "2026-10-05T09:30:06Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -595,7 +595,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=512.0-total=92386",
+      "qualityGate": "github-trending-stars-per-day=512.0-total=92467",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -622,11 +622,11 @@
         "title": "OpenCut-app/OpenCut",
         "summary": "The open-source CapCut alternative",
         "url": "https://github.com/OpenCut-app/OpenCut",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 92386,
-          "forks": 9096,
+          "stars": 92467,
+          "forks": 9100,
           "starsRecent": 512,
           "starsPerDay": 512.0,
           "trendingWindow": "daily",
@@ -655,11 +655,11 @@
           "title": "OpenCut-app/OpenCut",
           "summary": "The open-source CapCut alternative",
           "url": "https://github.com/OpenCut-app/OpenCut",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 92386,
-            "forks": 9096,
+            "stars": 92467,
+            "forks": 9100,
             "starsRecent": 512,
             "starsPerDay": 512.0,
             "trendingWindow": "daily",
@@ -692,7 +692,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1247.4-total=97310",
+      "qualityGate": "github-trending-stars-per-day=1247.4-total=97333",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -719,11 +719,11 @@
         "title": "paperclipai/paperclip",
         "summary": "The open-source app everyone uses to manage agents at work",
         "url": "https://github.com/paperclipai/paperclip",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 97310,
-          "forks": 16464,
+          "stars": 97333,
+          "forks": 16469,
           "starsRecent": 8732,
           "starsPerDay": 1247.43,
           "trendingWindow": "weekly",
@@ -752,11 +752,11 @@
           "title": "paperclipai/paperclip",
           "summary": "The open-source app everyone uses to manage agents at work",
           "url": "https://github.com/paperclipai/paperclip",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 97310,
-            "forks": 16464,
+            "stars": 97333,
+            "forks": 16469,
             "starsRecent": 8732,
             "starsPerDay": 1247.43,
             "trendingWindow": "weekly",
@@ -789,7 +789,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1517.6-total=45619",
+      "qualityGate": "github-trending-stars-per-day=1517.6-total=45671",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -816,11 +816,11 @@
         "title": "vectorize-io/hindsight",
         "summary": "Hindsight: Agent Memory That Learns",
         "url": "https://github.com/vectorize-io/hindsight",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 45619,
-          "forks": 5918,
+          "stars": 45671,
+          "forks": 5920,
           "starsRecent": 10623,
           "starsPerDay": 1517.57,
           "trendingWindow": "weekly",
@@ -849,11 +849,11 @@
           "title": "vectorize-io/hindsight",
           "summary": "Hindsight: Agent Memory That Learns",
           "url": "https://github.com/vectorize-io/hindsight",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 45619,
-            "forks": 5918,
+            "stars": 45671,
+            "forks": 5920,
             "starsRecent": 10623,
             "starsPerDay": 1517.57,
             "trendingWindow": "weekly",
@@ -886,7 +886,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=2098.4-total=53330",
+      "qualityGate": "github-trending-stars-per-day=2098.4-total=53382",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -913,16 +913,16 @@
         "title": "debpalash/VoiceStudio",
         "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "url": "https://github.com/debpalash/VoiceStudio",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 53330,
-          "forks": 5940,
+          "stars": 53382,
+          "forks": 5947,
           "starsRecent": 14689,
           "starsPerDay": 2098.43,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-04-09T21:40:26Z",
-          "repoPushedAt": "2026-10-05T06:48:30Z"
+          "repoPushedAt": "2026-10-05T09:47:38Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -946,16 +946,16 @@
           "title": "debpalash/VoiceStudio",
           "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
           "url": "https://github.com/debpalash/VoiceStudio",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 53330,
-            "forks": 5940,
+            "stars": 53382,
+            "forks": 5947,
             "starsRecent": 14689,
             "starsPerDay": 2098.43,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-04-09T21:40:26Z",
-            "repoPushedAt": "2026-10-05T06:48:30Z"
+            "repoPushedAt": "2026-10-05T09:47:38Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -983,7 +983,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=700.6-total=64111",
+      "qualityGate": "github-trending-stars-per-day=700.6-total=64186",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1010,16 +1010,16 @@
         "title": "rohitg00/ai-engineering-from-scratch",
         "summary": "Learn it. Build it. Ship it for others.",
         "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 64111,
-          "forks": 10987,
+          "stars": 64186,
+          "forks": 11001,
           "starsRecent": 4904,
           "starsPerDay": 700.57,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-03-18T18:38:02Z",
-          "repoPushedAt": "2026-10-05T06:29:17Z"
+          "repoPushedAt": "2026-10-05T07:37:58Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -1043,16 +1043,16 @@
           "title": "rohitg00/ai-engineering-from-scratch",
           "summary": "Learn it. Build it. Ship it for others.",
           "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 64111,
-            "forks": 10987,
+            "stars": 64186,
+            "forks": 11001,
             "starsRecent": 4904,
             "starsPerDay": 700.57,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-03-18T18:38:02Z",
-            "repoPushedAt": "2026-10-05T06:29:17Z"
+            "repoPushedAt": "2026-10-05T07:37:58Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -1080,7 +1080,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=327.3-total=128523",
+      "qualityGate": "github-trending-stars-per-day=327.3-total=128528",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1107,11 +1107,11 @@
         "title": "harry0703/MoneyPrinterTurbo",
         "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
         "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 128523,
-          "forks": 20099,
+          "stars": 128528,
+          "forks": 20102,
           "starsRecent": 2291,
           "starsPerDay": 327.29,
           "trendingWindow": "weekly",
@@ -1140,11 +1140,11 @@
           "title": "harry0703/MoneyPrinterTurbo",
           "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
           "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 128523,
-            "forks": 20099,
+            "stars": 128528,
+            "forks": 20102,
             "starsRecent": 2291,
             "starsPerDay": 327.29,
             "trendingWindow": "weekly",
@@ -1177,7 +1177,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=856.6-total=14919",
+      "qualityGate": "github-trending-stars-per-day=856.6-total=14924",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1204,16 +1204,16 @@
         "title": "NVIDIA/OpenShell",
         "summary": "OpenShell is the safe, private runtime for autonomous AI agents.",
         "url": "https://github.com/NVIDIA/OpenShell",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 14919,
-          "forks": 1699,
+          "stars": 14924,
+          "forks": 1701,
           "starsRecent": 5996,
           "starsPerDay": 856.57,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-02-24T22:52:22Z",
-          "repoPushedAt": "2026-10-05T06:48:47Z"
+          "repoPushedAt": "2026-10-05T09:53:18Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -1237,16 +1237,16 @@
           "title": "NVIDIA/OpenShell",
           "summary": "OpenShell is the safe, private runtime for autonomous AI agents.",
           "url": "https://github.com/NVIDIA/OpenShell",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 14919,
-            "forks": 1699,
+            "stars": 14924,
+            "forks": 1701,
             "starsRecent": 5996,
             "starsPerDay": 856.57,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-02-24T22:52:22Z",
-            "repoPushedAt": "2026-10-05T06:48:47Z"
+            "repoPushedAt": "2026-10-05T09:53:18Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -1274,7 +1274,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=211.0-total=23500",
+      "qualityGate": "github-trending-stars-per-day=211.0-total=23521",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1301,11 +1301,11 @@
         "title": "antirez/ds4",
         "summary": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
         "url": "https://github.com/antirez/ds4",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 23500,
-          "forks": 2255,
+          "stars": 23521,
+          "forks": 2261,
           "starsRecent": 211,
           "starsPerDay": 211.0,
           "trendingWindow": "daily",
@@ -1334,11 +1334,11 @@
           "title": "antirez/ds4",
           "summary": "DeepSeek 4 Flash and PRO local inference engine for Metal, CUDA and ROCm",
           "url": "https://github.com/antirez/ds4",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 23500,
-            "forks": 2255,
+            "stars": 23521,
+            "forks": 2261,
             "starsRecent": 211,
             "starsPerDay": 211.0,
             "trendingWindow": "daily",
@@ -1371,7 +1371,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=197.0-total=53215",
+      "qualityGate": "github-trending-stars-per-day=197.0-total=53279",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1398,11 +1398,11 @@
         "title": "coreyhaines31/marketingskills",
         "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
         "url": "https://github.com/coreyhaines31/marketingskills",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 53215,
-          "forks": 7926,
+          "stars": 53279,
+          "forks": 7935,
           "starsRecent": 197,
           "starsPerDay": 197.0,
           "trendingWindow": "daily",
@@ -1431,11 +1431,11 @@
           "title": "coreyhaines31/marketingskills",
           "summary": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
           "url": "https://github.com/coreyhaines31/marketingskills",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 53215,
-            "forks": 7926,
+            "stars": 53279,
+            "forks": 7935,
             "starsRecent": 197,
             "starsPerDay": 197.0,
             "trendingWindow": "daily",
@@ -1468,7 +1468,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=607.3-total=5037",
+      "qualityGate": "github-trending-stars-per-day=607.3-total=5057",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1495,16 +1495,16 @@
         "title": "mvschwarz/openrig",
         "summary": "Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.",
         "url": "https://github.com/mvschwarz/openrig",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 5037,
-          "forks": 366,
+          "stars": 5057,
+          "forks": 367,
           "starsRecent": 4251,
           "starsPerDay": 607.29,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2026-04-01T06:22:40Z",
-          "repoPushedAt": "2026-10-05T06:38:16Z"
+          "repoPushedAt": "2026-10-05T09:54:56Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -1528,16 +1528,16 @@
           "title": "mvschwarz/openrig",
           "summary": "Build your own network of agents from Claude Code, Codex and Pi: persistent teams with roles, shared context and owned work.",
           "url": "https://github.com/mvschwarz/openrig",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 5037,
-            "forks": 366,
+            "stars": 5057,
+            "forks": 367,
             "starsRecent": 4251,
             "starsPerDay": 607.29,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2026-04-01T06:22:40Z",
-            "repoPushedAt": "2026-10-05T06:38:16Z"
+            "repoPushedAt": "2026-10-05T09:54:56Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -1556,6 +1556,103 @@
       ]
     },
     {
+      "clusterId": "1db4d8ef6d147751",
+      "title": "tester-army/e2e",
+      "score": 9.21,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "github-trending-stars-per-day=345.0-total=3683",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub Trending"
+      ],
+      "primaryUrls": [
+        "https://github.com/tester-army/e2e"
+      ],
+      "relatedUrls": [],
+      "signals": [
+        "github",
+        "github-trending",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "a7b3458890a127c6",
+        "lane": "hot_emerging",
+        "sourceKind": "github_trending",
+        "title": "tester-army/e2e",
+        "summary": "Next generation e2e testing framework for web and mobile apps.",
+        "url": "https://github.com/tester-army/e2e",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
+        "sourceName": "GitHub Trending",
+        "metrics": {
+          "stars": 3683,
+          "forks": 146,
+          "starsRecent": 345,
+          "starsPerDay": 345.0,
+          "trendingWindow": "daily",
+          "repoCreatedAt": "2026-07-22T09:29:04Z",
+          "repoPushedAt": "2026-10-05T09:46:43Z"
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/tester-army/e2e"
+        ],
+        "primaryVerified": true,
+        "relatedUrls": [],
+        "signals": [
+          "github",
+          "github-trending",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 8.66
+      },
+      "evidence": [
+        {
+          "id": "a7b3458890a127c6",
+          "lane": "hot_emerging",
+          "sourceKind": "github_trending",
+          "title": "tester-army/e2e",
+          "summary": "Next generation e2e testing framework for web and mobile apps.",
+          "url": "https://github.com/tester-army/e2e",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
+          "sourceName": "GitHub Trending",
+          "metrics": {
+            "stars": 3683,
+            "forks": 146,
+            "starsRecent": 345,
+            "starsPerDay": 345.0,
+            "trendingWindow": "daily",
+            "repoCreatedAt": "2026-07-22T09:29:04Z",
+            "repoPushedAt": "2026-10-05T09:46:43Z"
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/tester-army/e2e"
+          ],
+          "primaryVerified": true,
+          "relatedUrls": [],
+          "signals": [
+            "github",
+            "github-trending",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 8.66
+        }
+      ]
+    },
+    {
       "clusterId": "58fe31edb49783c7",
       "title": "cs341-illinois/coursebook",
       "score": 9.21,
@@ -1565,7 +1662,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=232.3-total=3709",
+      "qualityGate": "github-trending-stars-per-day=232.3-total=3715",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1592,10 +1689,10 @@
         "title": "cs341-illinois/coursebook",
         "summary": "Open Source Introductory Systems Programming Textbook for the University of Illinois",
         "url": "https://github.com/cs341-illinois/coursebook",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 3709,
+          "stars": 3715,
           "forks": 310,
           "starsRecent": 1626,
           "starsPerDay": 232.29,
@@ -1625,10 +1722,10 @@
           "title": "cs341-illinois/coursebook",
           "summary": "Open Source Introductory Systems Programming Textbook for the University of Illinois",
           "url": "https://github.com/cs341-illinois/coursebook",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 3709,
+            "stars": 3715,
             "forks": 310,
             "starsRecent": 1626,
             "starsPerDay": 232.29,
@@ -1653,103 +1750,6 @@
       ]
     },
     {
-      "clusterId": "1db4d8ef6d147751",
-      "title": "tester-army/e2e",
-      "score": 9.2,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": true,
-      "needsPrimaryVerification": false,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=345.0-total=3531",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub Trending"
-      ],
-      "primaryUrls": [
-        "https://github.com/tester-army/e2e"
-      ],
-      "relatedUrls": [],
-      "signals": [
-        "github",
-        "github-trending",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "a7b3458890a127c6",
-        "lane": "hot_emerging",
-        "sourceKind": "github_trending",
-        "title": "tester-army/e2e",
-        "summary": "Next generation e2e testing framework for web and mobile apps.",
-        "url": "https://github.com/tester-army/e2e",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
-        "sourceName": "GitHub Trending",
-        "metrics": {
-          "stars": 3531,
-          "forks": 136,
-          "starsRecent": 345,
-          "starsPerDay": 345.0,
-          "trendingWindow": "daily",
-          "repoCreatedAt": "2026-07-22T09:29:04Z",
-          "repoPushedAt": "2026-10-05T07:08:10Z"
-        },
-        "creator": null,
-        "primaryUrls": [
-          "https://github.com/tester-army/e2e"
-        ],
-        "primaryVerified": true,
-        "relatedUrls": [],
-        "signals": [
-          "github",
-          "github-trending",
-          "open-source",
-          "momentum"
-        ],
-        "rawScore": 8.65
-      },
-      "evidence": [
-        {
-          "id": "a7b3458890a127c6",
-          "lane": "hot_emerging",
-          "sourceKind": "github_trending",
-          "title": "tester-army/e2e",
-          "summary": "Next generation e2e testing framework for web and mobile apps.",
-          "url": "https://github.com/tester-army/e2e",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
-          "sourceName": "GitHub Trending",
-          "metrics": {
-            "stars": 3531,
-            "forks": 136,
-            "starsRecent": 345,
-            "starsPerDay": 345.0,
-            "trendingWindow": "daily",
-            "repoCreatedAt": "2026-07-22T09:29:04Z",
-            "repoPushedAt": "2026-10-05T07:08:10Z"
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/tester-army/e2e"
-          ],
-          "primaryVerified": true,
-          "relatedUrls": [],
-          "signals": [
-            "github",
-            "github-trending",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 8.65
-        }
-      ]
-    },
-    {
       "clusterId": "94087dfe44d39afa",
       "title": "alirezarezvani/claude-skills",
       "score": 9.14,
@@ -1759,7 +1759,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=146.3-total=27626",
+      "qualityGate": "github-trending-stars-per-day=146.3-total=27637",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1786,11 +1786,11 @@
         "title": "alirezarezvani/claude-skills",
         "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
         "url": "https://github.com/alirezarezvani/claude-skills",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 27626,
-          "forks": 3891,
+          "stars": 27637,
+          "forks": 3894,
           "starsRecent": 1024,
           "starsPerDay": 146.29,
           "trendingWindow": "weekly",
@@ -1819,11 +1819,11 @@
           "title": "alirezarezvani/claude-skills",
           "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
           "url": "https://github.com/alirezarezvani/claude-skills",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 27626,
-            "forks": 3891,
+            "stars": 27637,
+            "forks": 3894,
             "starsRecent": 1024,
             "starsPerDay": 146.29,
             "trendingWindow": "weekly",
@@ -1856,7 +1856,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=232.0-total=1230",
+      "qualityGate": "github-trending-stars-per-day=232.0-total=1266",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1883,11 +1883,11 @@
         "title": "michael-denyer/pstack-claude",
         "summary": "Claude Code, Codex, Pi, OpenCode, Gemini, and Prime Agent versions of Poteto's pstack. Rigorous agent workflows with Cursor primitives translated for other harnesses.",
         "url": "https://github.com/michael-denyer/pstack-claude",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 1230,
-          "forks": 140,
+          "stars": 1266,
+          "forks": 143,
           "starsRecent": 232,
           "starsPerDay": 232.0,
           "trendingWindow": "daily",
@@ -1916,11 +1916,11 @@
           "title": "michael-denyer/pstack-claude",
           "summary": "Claude Code, Codex, Pi, OpenCode, Gemini, and Prime Agent versions of Poteto's pstack. Rigorous agent workflows with Cursor primitives translated for other harnesses.",
           "url": "https://github.com/michael-denyer/pstack-claude",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 1230,
-            "forks": 140,
+            "stars": 1266,
+            "forks": 143,
             "starsRecent": 232,
             "starsPerDay": 232.0,
             "trendingWindow": "daily",
@@ -1953,7 +1953,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=125.0-total=135241",
+      "qualityGate": "github-trending-stars-per-day=125.0-total=135270",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1980,11 +1980,11 @@
         "title": "garrytan/gstack",
         "summary": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
         "url": "https://github.com/garrytan/gstack",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 135241,
-          "forks": 20096,
+          "stars": 135270,
+          "forks": 20100,
           "starsRecent": 125,
           "starsPerDay": 125.0,
           "trendingWindow": "daily",
@@ -2013,11 +2013,11 @@
           "title": "garrytan/gstack",
           "summary": "Use Garry Tan's exact Claude Code setup: 23 opinionated tools that serve as CEO, Designer, Eng Manager, Release Manager, Doc Engineer, and QA",
           "url": "https://github.com/garrytan/gstack",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 135241,
-            "forks": 20096,
+            "stars": 135270,
+            "forks": 20100,
             "starsRecent": 125,
             "starsPerDay": 125.0,
             "trendingWindow": "daily",
@@ -2050,7 +2050,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=119.9-total=8381",
+      "qualityGate": "github-trending-stars-per-day=119.9-total=8391",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2077,11 +2077,11 @@
         "title": "tile-ai/tilelang",
         "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
         "url": "https://github.com/tile-ai/tilelang",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 8381,
-          "forks": 840,
+          "stars": 8391,
+          "forks": 843,
           "starsRecent": 839,
           "starsPerDay": 119.86,
           "trendingWindow": "weekly",
@@ -2110,11 +2110,11 @@
           "title": "tile-ai/tilelang",
           "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
           "url": "https://github.com/tile-ai/tilelang",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 8381,
-            "forks": 840,
+            "stars": 8391,
+            "forks": 843,
             "starsRecent": 839,
             "starsPerDay": 119.86,
             "trendingWindow": "weekly",
@@ -2147,7 +2147,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=83.0-total=17010",
+      "qualityGate": "github-trending-stars-per-day=83.0-total=17050",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2174,11 +2174,11 @@
         "title": "earthtojake/text-to-cad",
         "summary": "Give your agent CAD superpowers.",
         "url": "https://github.com/earthtojake/text-to-cad",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 17010,
-          "forks": 1751,
+          "stars": 17050,
+          "forks": 1754,
           "starsRecent": 83,
           "starsPerDay": 83.0,
           "trendingWindow": "daily",
@@ -2207,11 +2207,11 @@
           "title": "earthtojake/text-to-cad",
           "summary": "Give your agent CAD superpowers.",
           "url": "https://github.com/earthtojake/text-to-cad",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 17010,
-            "forks": 1751,
+            "stars": 17050,
+            "forks": 1754,
             "starsRecent": 83,
             "starsPerDay": 83.0,
             "trendingWindow": "daily",
@@ -2244,7 +2244,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=68.1-total=143182",
+      "qualityGate": "github-trending-stars-per-day=68.1-total=143185",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2271,16 +2271,16 @@
         "title": "vercel/next.js",
         "summary": "The React Framework",
         "url": "https://github.com/vercel/next.js",
-        "publishedAt": "2026-10-05T07:37:31.411922Z",
+        "publishedAt": "2026-10-05T09:55:36.646105Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 143182,
-          "forks": 33936,
+          "stars": 143185,
+          "forks": 33958,
           "starsRecent": 477,
           "starsPerDay": 68.14,
           "trendingWindow": "weekly",
           "repoCreatedAt": "2016-10-05T23:32:51Z",
-          "repoPushedAt": "2026-10-05T07:13:24Z"
+          "repoPushedAt": "2026-10-05T09:32:58Z"
         },
         "creator": null,
         "primaryUrls": [
@@ -2304,16 +2304,16 @@
           "title": "vercel/next.js",
           "summary": "The React Framework",
           "url": "https://github.com/vercel/next.js",
-          "publishedAt": "2026-10-05T07:37:31.411922Z",
+          "publishedAt": "2026-10-05T09:55:36.646105Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 143182,
-            "forks": 33936,
+            "stars": 143185,
+            "forks": 33958,
             "starsRecent": 477,
             "starsPerDay": 68.14,
             "trendingWindow": "weekly",
             "repoCreatedAt": "2016-10-05T23:32:51Z",
-            "repoPushedAt": "2026-10-05T07:13:24Z"
+            "repoPushedAt": "2026-10-05T09:32:58Z"
           },
           "creator": null,
           "primaryUrls": [
@@ -2334,7 +2334,7 @@
     {
       "clusterId": "5bf364cd7d3c71b5",
       "title": "Run Qwen 3.8 Flash Next (125B) on consumer hardware (RTX 4090) at 100T/s",
-      "score": 8.71,
+      "score": 8.65,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": true,
@@ -2373,8 +2373,8 @@
         "publishedAt": "2026-10-04T12:51:53Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 750,
-          "comments": 335
+          "points": 804,
+          "comments": 356
         },
         "creator": null,
         "primaryUrls": [
@@ -2386,7 +2386,7 @@
           "hacker-news",
           "developer-discussion"
         ],
-        "rawScore": 7.73
+        "rawScore": 7.67
       },
       "evidence": [
         {
@@ -2399,8 +2399,8 @@
           "publishedAt": "2026-10-04T12:51:53Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 750,
-            "comments": 335
+            "points": 804,
+            "comments": 356
           },
           "creator": null,
           "primaryUrls": [
@@ -2412,7 +2412,7 @@
             "hacker-news",
             "developer-discussion"
           ],
-          "rawScore": 7.73
+          "rawScore": 7.67
         },
         {
           "id": "d5d79de727aaeb33",
@@ -2424,10 +2424,10 @@
           "publishedAt": "2026-09-24T16:40:20Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 11904,
-            "forks": 1025,
-            "ageHours": 254.95,
-            "starsPerHour": 46.69
+            "stars": 12247,
+            "forks": 1046,
+            "ageHours": 257.25,
+            "starsPerHour": 47.61
           },
           "creator": null,
           "primaryUrls": [
@@ -2445,30 +2445,33 @@
       ]
     },
     {
-      "clusterId": "28837b48233745f9",
+      "clusterId": "66ffd7331c2ba08a",
       "title": "ArtCraft Apps \u2013 open-source Adobe compatible suite written in Rust",
-      "score": 7.47,
+      "score": 8.3,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
       "needsPrimaryVerification": true,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "hn-points=99-comments=109",
+      "qualityGate": "independent-convergence",
       "alreadyCovered": false,
       "lanes": [
-        "hot_emerging"
+        "hot_emerging",
+        "major_news"
       ],
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
+        "GIGAZINE",
         "Hacker News"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
       "signals": [
         "developer-discussion",
-        "hacker-news"
+        "hacker-news",
+        "major-news-search"
       ],
       "bestCandidate": {
         "id": "6838e4e99a6a819e",
@@ -2480,8 +2483,8 @@
         "publishedAt": "2026-10-04T23:02:43Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 99,
-          "comments": 109
+          "points": 103,
+          "comments": 122
         },
         "creator": null,
         "primaryUrls": [],
@@ -2504,8 +2507,8 @@
           "publishedAt": "2026-10-04T23:02:43Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 99,
-            "comments": 109
+            "points": 103,
+            "comments": 122
           },
           "creator": null,
           "primaryUrls": [],
@@ -2516,13 +2519,36 @@
             "developer-discussion"
           ],
           "rawScore": 7.02
+        },
+        {
+          "id": "003765529245f90c",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "ArtCraft Crafting Apps is a collection of free Adobe alternative apps, aiming to be an open-source alternative to Photoshop, Illustrator, Premiere, Lightroom, Acrobat, After Effects, and InDesign. - GIGAZINE",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9LWUVRZ3EtNFFacjdvYkQ1TW1haXZMN2RHYTRhX0VBd2RlVjFocXdrcUg3bjBBMVVON1Z2Vmw4enNZaXJKMjhqanYyMk5LbUxpeWc3cWoyVjN5SkpTckRRXzFjUEF2WkxJWktJQkF5WVVQdGs?oc=5",
+          "publishedAt": "2026-10-05T07:05:23Z",
+          "sourceName": "GIGAZINE",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://gigazine.net",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.88
         }
       ]
     },
     {
-      "clusterId": "b0bb738ffed5b3b5",
-      "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
-      "score": 7.41,
+      "clusterId": "75c895a5cfc05895",
+      "title": "Open Source Mod Brings Rate Limits, Costs and CI Status Into View for Claude Code Users - DevOps.com",
+      "score": 7.65,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -2537,10 +2563,11 @@
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "Axios",
         "Dealroom",
-        "news.lavx.hu",
-        "thenews.com.pk"
+        "DevOps.com",
+        "Open Source For You",
+        "Pandaily",
+        "Pasquale Pillitteri"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
@@ -2548,17 +2575,17 @@
         "major-news-search"
       ],
       "bestCandidate": {
-        "id": "e93e4f42c400153c",
+        "id": "317a6ac8c88b48b9",
         "lane": "major_news",
         "sourceKind": "news_search",
-        "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+        "title": "Open Source Mod Brings Rate Limits, Costs and CI Status Into View for Claude Code Users - DevOps.com",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbGZFcjY4RVNtMWNPTldZSWpPeTd6RHFRR0tIMlFYZ1JGOEl2dUNMNHRwcmRyeEZpY0FPLXJBMmkxOWxtY21YQklRaURPQ0lraVZmcjZiYVU5VFVTZGVKWE5zaElsbEh2cEk4WTJnSW9ZSkhIaDdzQlFqWjNNaFliMHJOY2JWemg3LVhhVjM2b0lfcUpJSUFZbTczLUh0S0ZhMHNoaUNFQjAxQVVi?oc=5",
-        "publishedAt": "2026-10-05T04:24:44Z",
-        "sourceName": "news.lavx.hu",
+        "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPT3Z6N2RBbGsxaG1TeENwUndhTHVQbFhrdDkzZWpKcFdKcXlPSzYxenJfc1kxZXBTY1YzUHphQjR2RW9jZzFXajFIakZUVVpzMUdoeUdfYjJqZnU0MnNjajRZYzlIYkxGVEd6UTMzUnVlOGkxbm5SSktoTmY4Zlg5QzU3a3JTV3pDWDBZZ3pocFJCT1FfekoxSzQxXzNyS3lvNjYwSWJLemhGdw?oc=5",
+        "publishedAt": "2026-10-05T08:14:44Z",
+        "sourceName": "DevOps.com",
         "metrics": {
           "publisherBonus": 0.0,
-          "publisherUrl": "https://news.lavx.hu",
+          "publisherUrl": "https://devops.com",
           "primaryPublisher": false
         },
         "creator": null,
@@ -2568,21 +2595,21 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 6.87
+        "rawScore": 6.93
       },
       "evidence": [
         {
-          "id": "e93e4f42c400153c",
+          "id": "317a6ac8c88b48b9",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+          "title": "Open Source Mod Brings Rate Limits, Costs and CI Status Into View for Claude Code Users - DevOps.com",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbGZFcjY4RVNtMWNPTldZSWpPeTd6RHFRR0tIMlFYZ1JGOEl2dUNMNHRwcmRyeEZpY0FPLXJBMmkxOWxtY21YQklRaURPQ0lraVZmcjZiYVU5VFVTZGVKWE5zaElsbEh2cEk4WTJnSW9ZSkhIaDdzQlFqWjNNaFliMHJOY2JWemg3LVhhVjM2b0lfcUpJSUFZbTczLUh0S0ZhMHNoaUNFQjAxQVVi?oc=5",
-          "publishedAt": "2026-10-05T04:24:44Z",
-          "sourceName": "news.lavx.hu",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPT3Z6N2RBbGsxaG1TeENwUndhTHVQbFhrdDkzZWpKcFdKcXlPSzYxenJfc1kxZXBTY1YzUHphQjR2RW9jZzFXajFIakZUVVpzMUdoeUdfYjJqZnU0MnNjajRZYzlIYkxGVEd6UTMzUnVlOGkxbm5SSktoTmY4Zlg5QzU3a3JTV3pDWDBZZ3pocFJCT1FfekoxSzQxXzNyS3lvNjYwSWJLemhGdw?oc=5",
+          "publishedAt": "2026-10-05T08:14:44Z",
+          "sourceName": "DevOps.com",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://news.lavx.hu",
+            "publisherUrl": "https://devops.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2592,39 +2619,16 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.87
+          "rawScore": 6.93
         },
         {
-          "id": "07393f0700d57e0a",
+          "id": "710ab65283b23e8d",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "New Open AI model could change the global AI race: Here\u2019s how - thenews.com.pk",
+          "title": "Baseten's $13B bet on 100x inference demand \u2014 and open source as the antidote to centralised AI - Dealroom",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNFVMUFVSb1JRd0Q0XzU1UW95WmZ4czE3WENuVjJaaFdCdFpyRlg1cEdSSkVhRGNkR053elJrMzhLVG4xOXN2WXVaZFA4eWVUemg3M1BSczZHR3FjbkhqbDNZWmFpWWI1cy1NSllyWW9wRUhWRS14bXdGMUhjR01MVGN2S0JIOHZ1eGhZSWFDU3p5eFNnT05yTndiakQ3VW9oYmFB0gGfAUFVX3lxTE50UUcxbzIyQXlLejA5SGQ3cmZPX0s5RHZkZFFFVFB2OEZqYWNSakNrN2pSUEMyUmRJTFN3TU1kcV82NUtMdE1SbTA2QjVhR2Z4Uy1ZT05DRTNETVNhNlJ2bUVvSEo5a2lrcU42WTZORjJvektnLV9NdUlIekpCUXhZVFhhRjJxZFdyQWkwLW5BclAwMGJnNFpSMmpfeV8zcw?oc=5",
-          "publishedAt": "2026-10-04T14:47:00Z",
-          "sourceName": "thenews.com.pk",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.thenews.com.pk",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.3
-        },
-        {
-          "id": "f3ad017a8664f64a",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Nvidia-backed Reflection AI prepares first open-weight model launch - Dealroom",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNeDdUMl9IVDhvZDZCR0RHX3NTX0dqQ1J5a3UwdEd6MjZneTB3bWZzYlJMOFZuNmJGWkFQOHJWUHlyTjNPOGN1VVlCTVYxOWNZb3hzczdmM0pLMkxUMzdfM2NwN0dZcUd6T296TTA5V1JPQ0RvaFZIQXpqM1NGUkZXcFJtUXF1eUVQM1Q3dzBJbHh3LUlFaW91U013eFlEel9OZmo0?oc=5",
-          "publishedAt": "2026-10-04T14:34:31Z",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxONWtOWUVjOHAtaXE3RFlUMmdiZ2xuclJMVWdLaFhzSHdwdWo4dllVYW9tUDRJSzBqN3dZTVlZbEhtMDNQellnMHdDd20yX1B5dUtENC1tVDNNdnpGS3RlaGVJR3dVVnVIWW1TUWR6NGFBUHpKcDBtVzloc0NWaXQ5RFE5NGljT1RtUDRSa082dnZrT2JFRVRmUnVMMzg5aHZpSVh1bXFySXA3aG1YVldxSzVyUjZPQW1UN0VLcGt5M3FacXdi?oc=5",
+          "publishedAt": "2026-10-05T08:01:20Z",
           "sourceName": "Dealroom",
           "metrics": {
             "publisherBonus": 0.0,
@@ -2638,20 +2642,20 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.29
+          "rawScore": 6.92
         },
         {
-          "id": "8629a93850428440",
+          "id": "f91e2e7bcf984f63",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Scoop: A powerful new model from startup Reflection is set to shake up the AI race - Axios",
+          "title": "Open-Source Tool Runs AI Locally - Open Source For You",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5meUx1aTFnUHltcTFXRmNIWVhPbW9Nd0lZMXdQVlRuVFVNMW5xRG1QaFpnanA4YnpicU9VTnMwQlZuNzJ4M0lYV0haWnNsZjZGZzFnRkNfZkItbkg2a3BCZ1FEbHdqbEZHc0E?oc=5",
-          "publishedAt": "2026-10-04T13:12:25Z",
-          "sourceName": "Axios",
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE5yaHE0Y2N3WFRLQm9OYThqOVRRUl9jdkpuejFxbkkzdDZzZHN6YVYwR01BS0NQQ1RldDJ4RjVQb1dCb2VqNENSNUU3aktlaHZmZkFWLTVuSDVQSmlPOXRqUWM0YUV4WVZfcTg0akprM3BHM1ZVbXVtUmZIb1k?oc=5",
+          "publishedAt": "2026-10-05T08:07:12Z",
+          "sourceName": "Open Source For You",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://www.axios.com",
+            "publisherUrl": "https://www.opensourceforu.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2661,20 +2665,20 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.23
+          "rawScore": 6.92
         },
         {
-          "id": "8b8d116249677e3a",
+          "id": "10b8984fe8a6df0f",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "OpenAI's Jalape\u00f1o Chip Challenges Nvidia with Homogeneous Inference Design - news.lavx.hu",
+          "title": "DeepSeek Harness v0.2.1-alpha.1 Adds Experimental Claude Code Mods Compatibility Layer - Pandaily",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQenAxUHhMQzJWR1dTcnF4Q203eWJER0tWSFhDTlRxbGNrTHRBRE9iRkhiUlJrS0FJUkx2eDQyaGswcUV4dWY3UGJWTm5ydnNPMWo0SWJ2Y0RqWWsycTNodFEyODdaaXNfeUNfd3RvaWhBUDNSWTVYQnVCWG9JTnVLZkZXZkZCaHo3OW5wckZOQ21vMVh0RmNkYUVkWVMzODZPeUdPeE1B?oc=5",
-          "publishedAt": "2026-10-04T12:05:47Z",
-          "sourceName": "news.lavx.hu",
+          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPcGdoZzFOdXpJNmlkNnlrQ2FONUltaTc2aHVNbEZVdlNyNHM1MkNVT011S1lGaHVnT2lvOUx1Mm1jSkZWWWdzT3NxeEV4WlVLZHRmYnY4ZENtYmFTc1RoQ1NmU0VhTERSeUpva1djdUROc1hMOGxiRzFEY3BXNjBiaEVNbFRoNkVaTWNCc3U5VjNYejA?oc=5",
+          "publishedAt": "2026-10-04T18:59:58Z",
+          "sourceName": "Pandaily",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://news.lavx.hu",
+            "publisherUrl": "https://pandaily.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -2684,21 +2688,328 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.19
+          "rawScore": 6.38
+        },
+        {
+          "id": "38bf7b172b091166",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Free Open Source dots Arrives as OpenDots, but the Model Costs Money - Pasquale Pillitteri",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNQm51UUVwdFFCY1VUaDhYNElqdG1rNkowYTNrbFJmMXpsRkVzekZFUUZlZGRWY0lINC15MlF5QzJ5Y2M2bE83b1FvbS00U2g2YzJBazRxR3hvZnBLTW5feVBvRV91MVpHV0RITXVuZUVTSWx4QVpLeWVVX0xTcS0yTGFYSTVfOS0yQnpCX2Zyamo?oc=5",
+          "publishedAt": "2026-10-04T06:27:40Z",
+          "sourceName": "Pasquale Pillitteri",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://pasqualepillitteri.it",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.86
+        }
+      ]
+    },
+    {
+      "clusterId": "ea990f898b170261",
+      "title": "GIGABYTE AI TOP ATOM 64GB Unified Memory Version Expands Possibilities for Desktop AI Development - StreetInsider",
+      "score": 7.54,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Basic Tutorials",
+        "StreetInsider",
+        "shattered.io",
+        "tech-insider.org"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "605e0bacf6340369",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "GIGABYTE AI TOP ATOM 64GB Unified Memory Version Expands Possibilities for Desktop AI Development - StreetInsider",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPTzFXM3h1VVY3OXcwTzNnZVJhRHhnY2dZdmxkeTVDbjc0Y0xoVWMzQTN6cksyOEU5ZUhveGV2cHlEWFZwekxvVHlyQkdmaFYtUTc1VFVwN3VDNGl5alAyRzAyeFZOc0hHY3ZnUnlYWllOY2ttVEdqRnF5M3FRd3VfY2lmNXJaSkRNSnFfR3VSQXNDckVvV3M3amIxeEE3SzQwTWtrcy1VYTJPQmM0eTJqbFlyWW9xc2lzQ1JOWFhvNmduOEJhUnlXSHZ6Z2FfVnp4YVJTNlFnbVZ0SDEzTXMzRGcxNnVXandEU00xMw?oc=5",
+        "publishedAt": "2026-10-05T09:53:53Z",
+        "sourceName": "StreetInsider",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://www.streetinsider.com",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 7.0
+      },
+      "evidence": [
+        {
+          "id": "605e0bacf6340369",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "GIGABYTE AI TOP ATOM 64GB Unified Memory Version Expands Possibilities for Desktop AI Development - StreetInsider",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi7AFBVV95cUxPTzFXM3h1VVY3OXcwTzNnZVJhRHhnY2dZdmxkeTVDbjc0Y0xoVWMzQTN6cksyOEU5ZUhveGV2cHlEWFZwekxvVHlyQkdmaFYtUTc1VFVwN3VDNGl5alAyRzAyeFZOc0hHY3ZnUnlYWllOY2ttVEdqRnF5M3FRd3VfY2lmNXJaSkRNSnFfR3VSQXNDckVvV3M3amIxeEE3SzQwTWtrcy1VYTJPQmM0eTJqbFlyWW9xc2lzQ1JOWFhvNmduOEJhUnlXSHZ6Z2FfVnp4YVJTNlFnbVZ0SDEzTXMzRGcxNnVXandEU00xMw?oc=5",
+          "publishedAt": "2026-10-05T09:53:53Z",
+          "sourceName": "StreetInsider",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.streetinsider.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 7.0
+        },
+        {
+          "id": "3f30411caac45f99",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Gigabyte AI TOP 100 B850: AI Desktop with Ryzen 9 9950X and up to 128 GB of RAM - Basic Tutorials",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQbGFsUjdKS3RUeFliT3BJcGwyT3V0S0JrQkZBRFN3UG56cUZfRnNHOXVsazlTbktVUVY0Z3VnTUtmYmluUmpLYkRBMXM0TDNDUE5LQjdrTk0xVVotZmNSNHJkbnBfZm91Um9ONV9QQmNMTC1iZDJ5cWppOFBlbFplOEg3SlpkaDlKWkwxc3ZEUXZJcmEwVml1NGtNR3ZFSkNfcXA4NDVxQm5UU1BJdWZPTVBR?oc=5",
+          "publishedAt": "2026-10-05T02:05:25Z",
+          "sourceName": "Basic Tutorials",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://basic-tutorials.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.67
+        },
+        {
+          "id": "4a8545d319dcf5f1",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "GIGABYTE AI TOP ATOM 64GB Targets 200B AI Models [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE5DZTZCTVhoVjQxbTJxNjNjd0Ywd09tR01uajZXY3o4UGhVekhjUGtOb2pDbndDakpkR1llYVkxUXkyTGFxMC12aFBvcG9EVG9mc003amg4c3RQTy1uclB5NlhFbHdkRGYtNzJjamtBZzRGTnVCTEtpaQ?oc=5",
+          "publishedAt": "2026-10-04T12:31:55Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.11
+        },
+        {
+          "id": "84a70b65603e8836",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "PS5 Gets Free AI Upscaling: QSSR Ships in 2 Games [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBoSDFSeF93WUNkai10MndWX0ZPUDZlZzlnNm02RENZRG9LM0xSamI3R3htSGxiMFctbjFMMmd5dnVPajdMYWJIWVU0bzBpblhFWGxjcnB3UGpZV3hRWUV1MGhYRDFGN1FmejBWNlo1UHBpa2I2dWFZ?oc=5",
+          "publishedAt": "2026-10-04T10:39:09Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.03
+        },
+        {
+          "id": "506ee894fad90f71",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Meta Muse Glimmer 30B Setup: 13 Steps, 24GB VRAM [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE5IN2pvMXRsWUk1S3pyaDZYemNWMWVhT1BiYmpMX0Zwc05zeEFLa3BxZFZDVkZyaTRHSWJIY0w1ZlZSbTRBTWpVV0JmMklKUGhHdlBsME94TkI2MkZLaTJzYm1WN1hWSjdBc29Z?oc=5",
+          "publishedAt": "2026-10-04T10:10:58Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.01
+        },
+        {
+          "id": "9499f36793f97691",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Nvidia GPU Smuggling Case: $300M, 4 Chips Named [2026] - shattered.io",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE1JMkF0SjQwQ2ZYRm9fNTNRZm45Q2lWd3dZd0tkNTItZ3BjZFpRVTZ3eUMtSWNsLXg1VGMwaEE3ZDhrUXA2Sm92bjhuY1dkMWU4dndvdzV5eDM1bHAwR2pXc2l5M1ZPeFZVcjFnWnY1QTJCQQ?oc=5",
+          "publishedAt": "2026-10-04T09:23:09Z",
+          "sourceName": "shattered.io",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://shattered.io",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.98
+        },
+        {
+          "id": "53709f358999e97a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Velociraptor DFIR Setup: 13 Steps, 90 Min [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFA2ZFM3YTktRThTQUVJV0Qtc3B0UzZXWlVzcGxTblhQWGpxaE9kcFk3X1pLazFWaG1heDVqNy1ZVGRHU3dtOUtoUDBTblNDcnVXa2ZEX0s2THF0V01yaUZoNGlwQjE?oc=5",
+          "publishedAt": "2026-10-04T08:12:35Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.93
+        },
+        {
+          "id": "70cbb9853a5b9b12",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "AWS Opens Strands Decider 2B: Agent Model Hits 100ms [2026] - shattered.io",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxQMllmMFFqWVpScS1uaTJDV3h2NzZGc095Nkx2aVZaZW5pa2RHeEF5VkhDR0ZSa3E5TlhpZzRzX2xCb1N0cG0yVVBiVGk0MTRqZUhnR3ZJYXltRm5jMlcwdXVKN0Nrd3loOEZBVlRWSVRuekxkSW85YUF4ODNpRlV5NXl3?oc=5",
+          "publishedAt": "2026-10-04T07:13:09Z",
+          "sourceName": "shattered.io",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://shattered.io",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.89
+        },
+        {
+          "id": "492b8e43a174dea0",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Azahar vs Panda3DS vs Lime3DS: 8.3K Star Gap [2026] - tech-insider.org",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1tX1puNmpkSzQ2NGgwd1h4dFYtYVBwdHp5ekt2T0dRWEZYTVMxQTcxakFCQ29lTDNVb2VfTkU3aXFKSGUxdEhHcUR0RFJUR2ZrQlM2enNuU1FLWnVKaF9keHkyLThwc2ZDRk10SmVOQjQ?oc=5",
+          "publishedAt": "2026-10-04T01:36:41Z",
+          "sourceName": "tech-insider.org",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://tech-insider.org",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.65
+        },
+        {
+          "id": "299edf84a3d85574",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Meta's Jolly Mascot vs Clippy: 29 Years Later [2026] - shattered.io",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE1XWEdYa3gtSHhmRDB3MnVUdmNFcV9IN0RzMDZ5b2QyTnMzbmtCX2RtOGlSM2ItYl91LWFtZnNISEZwbHQ2cXoyb0VOaWZQX2Q5SjdidXBRaUJ5ZElTcFZScXJRWjJLM0NlaUZsd1lLUjlqY0Uw?oc=5",
+          "publishedAt": "2026-10-03T23:23:09Z",
+          "sourceName": "shattered.io",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://shattered.io",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 5.56
         }
       ]
     },
     {
       "clusterId": "5835c8774023d4b2",
       "title": "kargulstudio/sales-crm",
-      "score": 7.4,
+      "score": 7.36,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": true,
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-stars=1078-velocity=52.1",
+      "qualityGate": "github-stars=1160-velocity=50.5",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2727,10 +3038,10 @@
         "publishedAt": "2026-10-04T10:55:58Z",
         "sourceName": "GitHub",
         "metrics": {
-          "stars": 1078,
-          "forks": 219,
-          "ageHours": 20.69,
-          "starsPerHour": 52.1
+          "stars": 1160,
+          "forks": 226,
+          "ageHours": 22.99,
+          "starsPerHour": 50.45
         },
         "creator": null,
         "primaryUrls": [
@@ -2743,7 +3054,7 @@
           "open-source",
           "momentum"
         ],
-        "rawScore": 7.05
+        "rawScore": 7.01
       },
       "evidence": [
         {
@@ -2756,10 +3067,10 @@
           "publishedAt": "2026-10-04T10:55:58Z",
           "sourceName": "GitHub",
           "metrics": {
-            "stars": 1078,
-            "forks": 219,
-            "ageHours": 20.69,
-            "starsPerHour": 52.1
+            "stars": 1160,
+            "forks": 226,
+            "ageHours": 22.99,
+            "starsPerHour": 50.45
           },
           "creator": null,
           "primaryUrls": [
@@ -2772,13 +3083,182 @@
             "open-source",
             "momentum"
           ],
-          "rawScore": 7.05
+          "rawScore": 7.01
+        }
+      ]
+    },
+    {
+      "clusterId": "4fd4e0d5db9aeac3",
+      "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+      "score": 7.31,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Dealroom",
+        "The News International",
+        "axios.com",
+        "news.lavx.hu"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search"
+      ],
+      "bestCandidate": {
+        "id": "e93e4f42c400153c",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbGZFcjY4RVNtMWNPTldZSWpPeTd6RHFRR0tIMlFYZ1JGOEl2dUNMNHRwcmRyeEZpY0FPLXJBMmkxOWxtY21YQklRaURPQ0lraVZmcjZiYVU5VFVTZGVKWE5zaElsbEh2cEk4WTJnSW9ZSkhIaDdzQlFqWjNNaFliMHJOY2JWemg3LVhhVjM2b0lfcUpJSUFZbTczLUh0S0ZhMHNoaUNFQjAxQVVi?oc=5",
+        "publishedAt": "2026-10-05T04:24:44Z",
+        "sourceName": "news.lavx.hu",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://news.lavx.hu",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 6.77
+      },
+      "evidence": [
+        {
+          "id": "e93e4f42c400153c",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Nvidia-backed startup Reflection releases open model that could reshape AI race - news.lavx.hu",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxPbGZFcjY4RVNtMWNPTldZSWpPeTd6RHFRR0tIMlFYZ1JGOEl2dUNMNHRwcmRyeEZpY0FPLXJBMmkxOWxtY21YQklRaURPQ0lraVZmcjZiYVU5VFVTZGVKWE5zaElsbEh2cEk4WTJnSW9ZSkhIaDdzQlFqWjNNaFliMHJOY2JWemg3LVhhVjM2b0lfcUpJSUFZbTczLUh0S0ZhMHNoaUNFQjAxQVVi?oc=5",
+          "publishedAt": "2026-10-05T04:24:44Z",
+          "sourceName": "news.lavx.hu",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://news.lavx.hu",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.77
+        },
+        {
+          "id": "31bd3f8e8b15d1f7",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "New Open AI model could change the global AI race: Here\u2019s how - The News International",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPNFVMUFVSb1JRd0Q0XzU1UW95WmZ4czE3WENuVjJaaFdCdFpyRlg1cEdSSkVhRGNkR053elJrMzhLVG4xOXN2WXVaZFA4eWVUemg3M1BSczZHR3FjbkhqbDNZWmFpWWI1cy1NSllyWW9wRUhWRS14bXdGMUhjR01MVGN2S0JIOHZ1eGhZSWFDU3p5eFNnT05yTndiakQ3VW9oYmFB0gGfAUFVX3lxTE50UUcxbzIyQXlLejA5SGQ3cmZPX0s5RHZkZFFFVFB2OEZqYWNSakNrN2pSUEMyUmRJTFN3TU1kcV82NUtMdE1SbTA2QjVhR2Z4Uy1ZT05DRTNETVNhNlJ2bUVvSEo5a2lrcU42WTZORjJvektnLV9NdUlIekpCUXhZVFhhRjJxZFdyQWkwLW5BclAwMGJnNFpSMmpfeV8zcw?oc=5",
+          "publishedAt": "2026-10-04T14:47:00Z",
+          "sourceName": "The News International",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.thenews.com.pk",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.2
+        },
+        {
+          "id": "f3ad017a8664f64a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Nvidia-backed Reflection AI prepares first open-weight model launch - Dealroom",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNeDdUMl9IVDhvZDZCR0RHX3NTX0dqQ1J5a3UwdEd6MjZneTB3bWZzYlJMOFZuNmJGWkFQOHJWUHlyTjNPOGN1VVlCTVYxOWNZb3hzczdmM0pLMkxUMzdfM2NwN0dZcUd6T296TTA5V1JPQ0RvaFZIQXpqM1NGUkZXcFJtUXF1eUVQM1Q3dzBJbHh3LUlFaW91U013eFlEel9OZmo0?oc=5",
+          "publishedAt": "2026-10-04T14:34:31Z",
+          "sourceName": "Dealroom",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://app.dealroom.co",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.19
+        },
+        {
+          "id": "4c76a919d291b1b7",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Scoop: A powerful new model from startup Reflection is set to shake up the AI race - axios.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5meUx1aTFnUHltcTFXRmNIWVhPbW9Nd0lZMXdQVlRuVFVNMW5xRG1QaFpnanA4YnpicU9VTnMwQlZuNzJ4M0lYV0haWnNsZjZGZzFnRkNfZkItbkg2a3BCZ1FEbHdqbEZHc0E?oc=5",
+          "publishedAt": "2026-10-04T13:12:25Z",
+          "sourceName": "axios.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.axios.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.14
+        },
+        {
+          "id": "8b8d116249677e3a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "OpenAI's Jalape\u00f1o Chip Challenges Nvidia with Homogeneous Inference Design - news.lavx.hu",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQenAxUHhMQzJWR1dTcnF4Q203eWJER0tWSFhDTlRxbGNrTHRBRE9iRkhiUlJrS0FJUkx2eDQyaGswcUV4dWY3UGJWTm5ydnNPMWo0SWJ2Y0RqWWsycTNodFEyODdaaXNfeUNfd3RvaWhBUDNSWTVYQnVCWG9JTnVLZkZXZkZCaHo3OW5wckZOQ21vMVh0RmNkYUVkWVMzODZPeUdPeE1B?oc=5",
+          "publishedAt": "2026-10-04T12:05:47Z",
+          "sourceName": "news.lavx.hu",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://news.lavx.hu",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.09
         }
       ]
     }
   ],
   "laneSummary": {
-    "major_news": 1,
+    "major_news": 4,
     "hot_emerging": 27,
     "creator_radar": 0
   }
