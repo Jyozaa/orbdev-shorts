@@ -38,8 +38,27 @@ TECHNICAL_CUES = {
     "agent","agents","coding","developer","developers","architecture","research","paper","robot","robotics",
     "multimodal","video","image","voice","tts","context","security","vulnerability","exploit","browser",
     "tool","tools","library","protocol","mcp","training","reasoning","token","tokens","operating","cloud",
-    "qwen","claude","gemini","deepseek","llama","mistral","flux","ideogram","world-model","world"
+    "qwen","claude","gemini","deepseek","llama","mistral","flux","ideogram","world-model","world",
+    "mathematics","mathematical","theorem","proof","conjecture","prime","primes","geometry","topology",
+    "algebra","combinatorics","cryptography","algorithm","algorithms","quantum","physics","scientific",
+    "breach","breaches","ransomware","cyberattack","cyberattacks","malware","botnet","phishing",
+    "zero-day","zeroday","cve","intrusion","compromise","compromised","credentials","credential",
+    "supply-chain","backdoor","exfiltration","incident","cybersecurity"
 }
+MARKET_CUES = {
+    "earnings","revenue","revenues","guidance","profit","profits","margin","margins","valuation",
+    "acquisition","acquires","acquired","merger","mergers","buyout","ipo","shares","stock","stocks",
+    "market","market-cap","capex","investment","investments","invests","financing","funding",
+    "contract","contracts","deal","deals","restructuring","layoffs","layoff","job-cuts","spending",
+    "forecast","forecasts","sales","bookings","backlog","dividend","buyback"
+}
+MARKET_ENTITY_NAMES = (
+    "openai","anthropic","google","alphabet","microsoft","meta","nvidia","amazon","aws","apple",
+    "oracle","ibm","amd","intel","broadcom","salesforce","adobe","servicenow","palantir",
+    "accenture","deloitte","pwc","pricewaterhousecoopers","ey","ernst & young","kpmg",
+    "mckinsey","boston consulting group","bcg","bain","capgemini","cognizant","infosys",
+    "tata consultancy services","tcs"
+)
 WEAK_CLUSTER_TOKENS = STOPWORDS | {
     "openai","anthropic","google","microsoft","meta","nvidia","github","huggingface","model","models",
     "agent","agents","developer","developers","tool","tools","research","release","open-source","opensource",
@@ -49,10 +68,9 @@ LOW_SIGNAL_NEWS_SOURCES = {
     "tradingview", "stocktwits", "aol.co.uk", "finance.biggo.com"
 }
 HARD_EXCLUDE_RE = re.compile(
-    r"\b(?:quits?|resigns?|hiring|recruit(?:ing|ment)?|fellowships?|funding round|"
-    r"partnership|partners with|election|celebrity|lawsuit|culture is|wiping out humanity|"
-    r"executive order|religious scholars|stock(?:s)?|shares|jpmorgan|investors?|market cap|"
-    r"medicare fraud|medicaid providers?|ipo|wall street|consumer tech roundup)\b",
+    r"\b(?:quits?|resigns?|hiring|recruit(?:ing|ment)?|fellowships?|election|celebrity|"
+    r"culture is|wiping out humanity|executive order|religious scholars|"
+    r"medicare fraud|medicaid providers?|consumer tech roundup)\b",
     re.I,
 )
 
@@ -166,15 +184,22 @@ def is_primary_domain(url: str, primary_domains: list[str]) -> bool:
     return any(host == d or host.endswith("." + d) for d in primary_domains)
 
 
-def google_news_candidates(config: dict[str, Any], now: datetime) -> list[dict[str, Any]]:
+def google_news_candidates(
+    config: dict[str, Any],
+    now: datetime,
+    section: str = "majorNews",
+    lane: str = "major_news",
+    signal: str = "major-news-search",
+) -> list[dict[str, Any]]:
     out: list[dict[str, Any]] = []
     lookback = int(config["candidateLookbackHours"])
-    primary_domains = config["majorNews"]["primaryDomains"]
+    section_config = config.get(section) or {}
+    primary_domains = section_config.get("primaryDomains") or config["majorNews"]["primaryDomains"]
     publisher_bonuses = {
         str(k).lower(): float(v)
-        for k, v in (config["majorNews"].get("publisherBonuses") or {}).items()
+        for k, v in (section_config.get("publisherBonuses") or config["majorNews"].get("publisherBonuses") or {}).items()
     }
-    for query in config["majorNews"]["queries"]:
+    for query in section_config.get("queries", []):
         q = f"({query}) when:2d"
         url = (
             "https://news.google.com/rss/search?q="
@@ -198,12 +223,12 @@ def google_news_candidates(config: dict[str, Any], now: datetime) -> list[dict[s
             source_home = clean_text(source_el.attrib.get("url", "")) if source_el is not None else ""
             source_is_primary = bool(source_home and is_primary_domain(source_home, primary_domains))
             source_bonus = publisher_bonuses.get(source_name.lower(), 0.0)
-            signals = ["major-news-search"]
+            signals = [signal]
             if source_is_primary:
                 signals.append("primary-publisher")
             out.append(
                 make_candidate(
-                    "major_news",
+                    lane,
                     "news_search",
                     title,
                     link,
@@ -700,9 +725,21 @@ def technical_core(candidate: dict[str, Any]) -> bool:
         return False
     if candidate.get("sourceKind") in {"news_search", "hacker_news"} and str(candidate.get("title", "")).count(";") >= 2:
         return False
+
     ts = tokens(text)
     if ts & TECHNICAL_CUES:
         return True
+
+    # Market/business stories are allowed only when they concern one of the
+    # configured AI/Big-Tech/consulting entities and include a concrete market
+    # catalyst. This keeps generic finance chatter out of Orbdev.
+    if candidate.get("lane") == "market_business":
+        lowered = text.lower()
+        entity_match = any(name in lowered for name in MARKET_ENTITY_NAMES)
+        market_match = bool(ts & MARKET_CUES)
+        if entity_match and market_match:
+            return True
+
     # Distinct model/version tokens are technical even if a generic cue is absent.
     if any(any(ch.isdigit() for ch in token) and len(token) >= 4 for token in ts):
         return True
@@ -1045,6 +1082,16 @@ def main() -> None:
 
     candidates: list[dict[str, Any]] = []
     candidates.extend(google_news_candidates(config, now))
+    if config.get("marketBusiness"):
+        candidates.extend(
+            google_news_candidates(
+                config,
+                now,
+                section="marketBusiness",
+                lane="market_business",
+                signal="market-business-search",
+            )
+        )
     candidates.extend(github_candidates(config, now))
     candidates.extend(github_trending_candidates(config, now))
     candidates.extend(hacker_news_candidates(config, now))
@@ -1073,7 +1120,7 @@ def main() -> None:
     qualified = [row for row in cluster_rows if row["qualifiesForEditorial"]]
 
     lane_summary = {}
-    for lane in ("major_news", "hot_emerging", "creator_radar"):
+    for lane in ("major_news", "market_business", "hot_emerging", "creator_radar"):
         lane_summary[lane] = {
             "raw": sum(1 for c in candidates if c["lane"] == lane),
             "qualified": sum(1 for row in qualified if lane in row["lanes"]),
