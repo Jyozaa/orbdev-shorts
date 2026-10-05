@@ -2,7 +2,7 @@
 
 Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
-Read `editorial/policy.json`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.
+Read `editorial/policy.json`, `editorial/script-review.md`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.
 
 ## Voice-first writing
 
@@ -21,6 +21,24 @@ Add an `editorialRole` when useful:
 `fact`, `setup`, `explanation`, `analogy`, `joke`, `reaction`, `punchline`, `callback`, or `transition`.
 
 Use `callbackKey` when a later beat intentionally pays off an earlier joke or visual premise.
+
+## Mandatory multi-pass script workflow
+
+For every qualifying topic, follow `editorial/script-review.md` before visual planning.
+
+The required sequence is:
+
+**verified research -> writer draft -> critic score -> rewrite when needed -> critic re-score -> factual re-check -> beat/visual planning -> queue**
+
+The first draft is never automatically considered final.
+
+During the writer and critic passes, ignore visuals, memes, captions, SFX and editing. Judge whether the narration alone would hold attention and explain the story clearly.
+
+A script may proceed only when it meets the thresholds in `editorial/script-review.md`: average >= 8.0/10, no category below 7.0, and factual discipline >= 8.0. If it fails, rewrite it and score it again. After three unsuccessful iterations, reject that topic for the current batch instead of queueing weak narration.
+
+After a script passes, re-check every material claim against primary sources. If factual corrections materially change the narration, re-run the critic once more.
+
+For newly queued stories, include the compact `editorial.scriptReview` scores and iteration count when practical. Never store chain-of-thought or long private critique text in the repository.
 
 ## Spoken-copy quality gate
 
@@ -203,6 +221,8 @@ When auto-publishing is enabled, the story's `publish` block controls YouTube me
 ## Scheduled ChatGPT editorial contract
 
 Discovery qualification is not publication approval. The scheduled ChatGPT automation is the only autonomous editorial runner. GitHub Actions performs discovery, rendering and optional publishing, but does not call an LLM API.
+
+The scheduled GPT run must explicitly separate researcher, writer, critic/editor, rewriter and production-planner stages. Do not collapse them into a single "write a good script" pass. A story is not queue-ready until the narration-only critic gate and post-rewrite factual re-check both pass.
 
 For each promising lead, use live web research and independently verify the underlying development. At least one primary source must be backed by discovery evidence or live research before accepting a story.
 
