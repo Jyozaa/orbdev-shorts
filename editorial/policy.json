@@ -1,5 +1,5 @@
 {
-  "version": 30,
+  "version": 31,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -190,9 +190,9 @@
     "tertiaryVoice": "en-US-AndrewNeural",
     "engine": "Kokoro-82M",
     "voice": "am_michael",
-    "speed": "Michael base ~1.18x with conservative native retargeting; one continuous performance",
+    "speed": "continuous Michael synthesis around ~1.34x base with conservative native retargeting; no role-based TTS chopping",
     "fallback": "Edge BrianMultilingualNeural",
-    "targetEffectiveWpm": "178 WPM center target; natural articulation takes priority over exact cadence",
+    "targetEffectiveWpm": "172 WPM center target; preferred natural band roughly 165-180 with complete consonants and sentence tails",
     "postTempo": "minimal, capped to roughly 0.995-1.01x",
     "sentencePauseMs": 58,
     "roleAware": false,
