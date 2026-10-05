@@ -58,6 +58,18 @@
       ],
       "renderedAt": "2026-10-04T22:17:27.958377+00:00",
       "youtubeUrl": null
+    },
+    {
+      "storyKey": "aleph-alpha-kolibri-1-open-weight-moe-2026",
+      "slug": "aleph-alpha-kolibri-1",
+      "headline": "Aleph Alpha releases Kolibri-1",
+      "selectedAt": "2026-10-05T02:04:00+01:00",
+      "score": 8.9,
+      "sourceUrls": [
+        "https://huggingface.co/Aleph-Alpha/Kolibri-1"
+      ],
+      "renderedAt": "2026-10-05T04:48:18.900378+00:00",
+      "youtubeUrl": null
     }
   ]
 }
