@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "defaultProfile": "orbdev-deadpan",
   "profiles": {
     "orbdev-dry": {
@@ -133,13 +133,13 @@
     "orbdev-deadpan": {
       "voice": "am_michael",
       "langCode": "a",
-      "baseSpeed": 1.22,
-      "targetWpm": 180,
-      "nativeRetargetToleranceWpm": 5,
-      "nativeRetargetMinMultiplier": 0.94,
-      "nativeRetargetMaxMultiplier": 1.06,
-      "postTempoMin": 0.99,
-      "postTempoMax": 1.015,
+      "baseSpeed": 1.18,
+      "targetWpm": 178,
+      "nativeRetargetToleranceWpm": 6,
+      "nativeRetargetMinMultiplier": 0.97,
+      "nativeRetargetMaxMultiplier": 1.025,
+      "postTempoMin": 0.995,
+      "postTempoMax": 1.01,
       "chunkTargetWords": 10,
       "chunkMaxWords": 14,
       "chunkMinWords": 4,
@@ -193,8 +193,9 @@
           "postMs": 6
         }
       },
-      "trimLeadMs": 10,
-      "trimTailMs": 60
+      "trimLeadMs": 8,
+      "synthesisMode": "continuous",
+      "continuousSplitPattern": "\\n+"
     }
   }
 }
