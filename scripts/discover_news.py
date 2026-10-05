@@ -41,7 +41,8 @@ TECHNICAL_CUES = {
     "qwen","claude","gemini","deepseek","llama","mistral","flux","ideogram","world-model","world",
     "mathematics","mathematical","theorem","proof","conjecture","prime","primes","geometry","topology",
     "algebra","combinatorics","cryptography","algorithm","algorithms","quantum","physics","scientific",
-    "breach","breaches","ransomware","cyberattack","cyberattacks","malware","botnet","phishing",
+    "breach","breaches","leak","leaks","hack","hacked","hacker","hackers","ransomware",
+    "cyberattack","cyberattacks","malware","botnet","phishing","ddos","extortion",
     "zero-day","zeroday","cve","intrusion","compromise","compromised","credentials","credential",
     "supply-chain","backdoor","exfiltration","incident","cybersecurity"
 }
@@ -735,7 +736,10 @@ def technical_core(candidate: dict[str, Any]) -> bool:
     # catalyst. This keeps generic finance chatter out of Orbdev.
     if candidate.get("lane") == "market_business":
         lowered = text.lower()
-        entity_match = any(name in lowered for name in MARKET_ENTITY_NAMES)
+        entity_match = any(
+            re.search(r"(?<![a-z0-9])" + re.escape(name) + r"(?![a-z0-9])", lowered)
+            for name in MARKET_ENTITY_NAMES
+        )
         market_match = bool(ts & MARKET_CUES)
         if entity_match and market_match:
             return True
