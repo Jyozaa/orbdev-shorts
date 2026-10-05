@@ -88,7 +88,13 @@ def load_profile() -> tuple[str, dict[str, Any]]:
     return name, profile
 
 
-def trim_edge_silence(arr, sr: int, threshold: float):
+def trim_edge_silence(
+    arr,
+    sr: int,
+    threshold: float,
+    lead_pad_ms: int = 10,
+    tail_pad_ms: int = 55,
+):
     import numpy as np
 
     if arr.size == 0:
@@ -96,9 +102,15 @@ def trim_edge_silence(arr, sr: int, threshold: float):
     active = np.flatnonzero(np.abs(arr) >= threshold)
     if active.size == 0:
         return arr
-    pad = max(1, int(sr * 0.010))
-    start = max(0, int(active[0]) - pad)
-    end = min(arr.size, int(active[-1]) + pad + 1)
+
+    # Use asymmetric padding. Speech onsets can be trimmed fairly tightly,
+    # but final consonants and natural vocal decay often sit below the
+    # silence threshold. Keeping a longer tail prevents clipped word endings
+    # when independently synthesized thought-groups are stitched together.
+    lead_pad = max(1, int(sr * (lead_pad_ms / 1000.0)))
+    tail_pad = max(1, int(sr * (tail_pad_ms / 1000.0)))
+    start = max(0, int(active[0]) - lead_pad)
+    end = min(arr.size, int(active[-1]) + tail_pad + 1)
     return arr[start:end]
 
 
@@ -260,6 +272,8 @@ def render_kokoro(
     cursor = 0.0
     sr = 24000
     silence_threshold = float(profile.get("silenceThreshold", 0.0035))
+    trim_lead_ms = int(profile.get("trimLeadMs", 10))
+    trim_tail_ms = int(profile.get("trimTailMs", 55))
     sentence_pause_ms = int(profile.get("sentencePauseMs", 18))
 
     for index, chunk in enumerate(speech_chunks):
@@ -283,7 +297,13 @@ def render_kokoro(
             arr = np.asarray(audio, dtype=np.float32).reshape(-1)
             if arr.size == 0:
                 continue
-            arr = trim_edge_silence(arr, sr, silence_threshold)
+            arr = trim_edge_silence(
+                arr,
+                sr,
+                silence_threshold,
+                lead_pad_ms=trim_lead_ms,
+                tail_pad_ms=trim_tail_ms,
+            )
             spoken = str(graphemes).strip()
             duration = arr.size / sr
             if spoken:
