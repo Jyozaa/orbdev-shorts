@@ -196,8 +196,9 @@ For cybersecurity incidents:
 
 For Market / Business:
 - identify the concrete catalyst behind the headline;
-- prefer filings, investor-relations releases, official company statements and reliable financial reporting;
-- distinguish completed M&A/financing from negotiations or reported talks;
+- prefer filings, investor-relations releases and official company statements whenever a public primary source exists;
+- when no public primary document exists, use the narrow policy exception: require either two independent high-quality financial sources or one top-tier source such as Reuters, Bloomberg, Financial Times or The Wall Street Journal with direct sourcing/attribution;
+- distinguish completed M&A/financing from negotiations or reported talks, and say "reported", "in talks", "plans", or similar when confirmation is incomplete;
 - do not turn ordinary stock-price movement into a story without a verified underlying event;
 - explain why the business event matters to AI/tech/consulting rather than merely quoting percentages.
 
