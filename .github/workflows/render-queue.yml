@@ -148,7 +148,7 @@ jobs:
           s=json.load(open(os.environ["STORY_PATH"],encoding="utf-8"));e=s["editorial"];yt={}
           try:yt=json.load(open("build/youtube-result.json"))
           except Exception:pass
-          r={"storyKey":e["storyKey"],"slug":s["slug"],"headline":s["title"],"selectedAt":e["selectedAt"],"score":e["score"],"sourceUrls":[x["url"] for x in e["sources"] if x.get("primary")],"renderedAt":datetime.now(timezone.utc).isoformat(),"youtubeUrl":yt.get("url")}
+          r={"storyKey":e["storyKey"],"slug":s["slug"],"headline":s["title"],"selectedAt":e["selectedAt"],"score":e["score"],"sourceUrls":[x["url"] for x in e["sources"] if x.get("primary")],"renderedAt":datetime.now(timezone.utc).isoformat(),"youtubeUrl":yt.get("url"),"youtubeVideoId":yt.get("videoId"),"youtubeTitle":yt.get("title") or (s.get("publish") or {}).get("youtubeTitle"),"metadataVersion":(s.get("publish") or {}).get("metadataVersion"),"metadataReview":(s.get("publish") or {}).get("metadataReview")}
           json.dump(r,open(f"build/receipt/{s['slug']}.json","w"),indent=2)
           PY
       - uses: actions/upload-artifact@v4
