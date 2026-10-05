@@ -1,5 +1,5 @@
 {
-  "version": 32,
+  "version": 33,
   "timezone": "Europe/London",
   "lookbackHours": 18,
   "exceptionLookbackHours": 48,
@@ -25,7 +25,7 @@
     "heatBonus": "0-2 points after the 10-point base rubric; final score capped at 10; primary verification and base editorial score >= 6.0 are mandatory"
   },
   "hardRules": [
-    "Use at least one primary source.",
+    "Use at least one primary source whenever one is publicly available. For Market / Business stories with no public primary document, a narrow exception allows high-quality financial reporting when the reported/negotiating status is stated explicitly and corroboration meets the Market / Business evidence rule.",
     "Use the original announcement or release time for recency.",
     "Do not cover a story already present in history or the current story file.",
     "Do not publish rumours, unconfirmed leaks, predictions presented as fact, or unverified benchmark claims. Confirmed data/credential leaks and verified breach incidents are valid cybersecurity stories.",
@@ -100,7 +100,8 @@
     "Market / Business stories must involve a concrete catalyst such as earnings/guidance, revenue or demand shifts, M&A, IPO/financing/valuation events, major capex, material contracts, restructuring, or another consequential business event involving an AI company, Big Tech firm, or major consulting firm.",
     "A stock-price move alone is not enough for a Market / Business story; identify and verify the underlying catalyst and explain why it matters.",
     "Market / Business coverage may include OpenAI, Anthropic, Alphabet/Google, Microsoft, Meta, Nvidia, Amazon, Apple, Oracle, IBM, AMD, Intel, Broadcom, Salesforce, ServiceNow, Palantir, Accenture, Deloitte, PwC, EY, KPMG, McKinsey, BCG, Bain, Capgemini, Cognizant, Infosys, TCS, and comparable major AI/technology/consulting firms.",
-    "For private-company valuations or financing, use primary filings/announcements where available and otherwise require strong corroboration from high-quality financial reporting; do not present reported negotiations as completed transactions."
+    "For private-company valuations or financing, use primary filings/announcements where available and otherwise require strong corroboration from high-quality financial reporting; do not present reported negotiations as completed transactions.",
+    "For Market / Business stories without a public primary source, require either two independent high-quality financial sources or one top-tier source such as Reuters, Bloomberg, Financial Times or The Wall Street Journal with direct sourcing/attribution; clearly label the event as reported, planned, discussed or under negotiation rather than completed."
   ],
   "visualRules": {
     "background": "#000000",
@@ -412,7 +413,12 @@
     "scriptReviewMinimumDimension": 7,
     "scriptReviewMinimumFactualDiscipline": 8,
     "scriptReviewMaxIterations": 3,
-    "factualRecheckAfterScriptApproval": true
+    "factualRecheckAfterScriptApproval": true,
+    "marketBusinessPrimarySourceException": {
+      "allowedWhenNoPublicPrimaryExists": true,
+      "evidence": "two independent high-quality financial sources OR one top-tier source with direct sourcing/attribution",
+      "mustLabelReportedStatus": true
+    }
   },
   "scriptQualityGate": {
     "config": "editorial/script-review.md",
