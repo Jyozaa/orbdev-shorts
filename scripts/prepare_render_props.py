@@ -132,14 +132,24 @@ def kinetic_from_beat(beat,position:int=0):
     variant=int(hashlib.sha1(f"{position}|{beat.get('text','')}".encode()).hexdigest()[:8],16)%6
     return {"type":"fact","headline":headline,"detail":detail,"variant":variant}
 
-def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo):
+def choose_window_candidate(beats,candidates,prev_family,prev_kind,prev_drawn_kind,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo):
     viable=[i for i in candidates if base_visual_weight(beats[i])>=0]
     if not viable:
         chosen=max(candidates,key=lambda i:(float(beats[i]["end"])-float(beats[i]["start"]),-i))
         return chosen,True
     non_abstract=[i for i in viable if str(beats[i].get("visual",{}).get("type","")) not in ABSTRACT_TYPES]
-    hard_no_abstract=prev_family=="abstract-tech" or abstract_count>=max_abstract
-    if hard_no_abstract and non_abstract:viable=non_abstract
+    continuity_candidates=[
+        i for i in viable
+        if prev_kind=="drawn-diagram"
+        and str(beats[i].get("visual",{}).get("type",""))=="drawn-diagram"
+        and str(beats[i].get("visual",{}).get("kind",""))!=prev_drawn_kind
+    ]
+    abstract_budget_full=abstract_count>=max_abstract
+    if abstract_budget_full and non_abstract:
+        viable=non_abstract
+    elif prev_family=="abstract-tech":
+        allowed=continuity_candidates+non_abstract
+        if allowed:viable=allowed
     hard_no_logo=prev_family=="brand" or logo_count>=max_logo
     if hard_no_logo:
         allowed=[i for i in viable if str(beats[i].get("visual",{}).get("type",""))!="logo"]
@@ -152,8 +162,29 @@ def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,expla
         if fresh:viable=fresh
     chosen=max(viable,key=lambda i:(candidate_score(beats[i],prev_family,prev_explain_mode),float(beats[i]["end"])-float(beats[i]["start"]),-i))
     chosen_visual=beats[chosen].get("visual",{});chosen_kind=str(chosen_visual.get("type",""));chosen_mode=str(chosen_visual.get("mode","")) if chosen_kind=="explain" else ""
-    force_kinetic=((chosen_kind in ABSTRACT_TYPES and hard_no_abstract) or (chosen_kind=="explain" and explain_count>=max_explain) or (chosen_kind=="explain" and chosen_mode in used_explain_modes) or (chosen_kind=="logo" and hard_no_logo))
+    is_drawn_continuation=(prev_kind=="drawn-diagram" and chosen_kind=="drawn-diagram" and str(chosen_visual.get("kind",""))!=prev_drawn_kind)
+    force_kinetic=((chosen_kind in ABSTRACT_TYPES and abstract_budget_full) or (prev_family=="abstract-tech" and chosen_kind in ABSTRACT_TYPES and not is_drawn_continuation) or (chosen_kind=="explain" and explain_count>=max_explain) or (chosen_kind=="explain" and chosen_mode in used_explain_modes) or (chosen_kind=="logo" and hard_no_logo))
     return chosen,force_kinetic
+
+def apply_diagram_continuity(windows):
+    group=0;i=0
+    while i<len(windows)-1:
+        left=windows[i].get("visual",{});right=windows[i+1].get("visual",{})
+        if left.get("type")=="drawn-diagram" and right.get("type")=="drawn-diagram" and left.get("kind")!=right.get("kind"):
+            key=str(left.get("continuityKey") or right.get("continuityKey") or f"diagram-run-{group}")
+            left["continuityKey"]=key;right["continuityKey"]=key
+            left["continuityOut"]=True;right["continuityIn"]=True
+            left.setdefault("transition","morph");right.setdefault("transition","morph")
+            j=i+1
+            while j+1<len(windows):
+                a=windows[j].get("visual",{});b=windows[j+1].get("visual",{})
+                if a.get("type")!="drawn-diagram" or b.get("type")!="drawn-diagram" or a.get("kind")==b.get("kind"):break
+                a["continuityKey"]=key;b["continuityKey"]=key
+                a["continuityOut"]=True;b["continuityIn"]=True
+                a.setdefault("transition","morph");b.setdefault("transition","morph")
+                j+=1
+            group+=1;i=j
+        i+=1
 
 def assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo):
     kinds=[str(w.get("visual",{}).get("type","")) for w in windows]
@@ -164,11 +195,14 @@ def assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo):
     if len(explains)>max_explain:raise RuntimeError(f"explain hard cap exceeded: {len(explains)}>{max_explain}")
     if len(modes)!=len(set(modes)):raise RuntimeError(f"repeated explain mode survived selection: {modes}")
     for i in range(len(kinds)-1):
-        if kinds[i] in ABSTRACT_TYPES and kinds[i+1] in ABSTRACT_TYPES:raise RuntimeError(f"back-to-back abstract-tech windows survived selection at {i}/{i+1}")
+        if kinds[i] in ABSTRACT_TYPES and kinds[i+1] in ABSTRACT_TYPES:
+            a=windows[i].get("visual",{});b=windows[i+1].get("visual",{})
+            continuous=(a.get("type")=="drawn-diagram" and b.get("type")=="drawn-diagram" and a.get("kind")!=b.get("kind") and a.get("continuityKey") and a.get("continuityKey")==b.get("continuityKey"))
+            if not continuous:raise RuntimeError(f"back-to-back abstract-tech windows survived selection at {i}/{i+1}")
         if kinds[i]=="logo" and kinds[i+1]=="logo":raise RuntimeError(f"back-to-back pure-logo windows survived selection at {i}/{i+1}")
 
 def build_visual_windows(beats,cutaway_by_beat,final_duration):
-    windows=[];index=0;prev_family=None;prev_explain_mode=None;explain_count=0;abstract_count=0;logo_count=0;used_explain_modes:set[str]=set()
+    windows=[];index=0;prev_family=None;prev_kind=None;prev_drawn_kind=None;prev_explain_mode=None;explain_count=0;abstract_count=0;logo_count=0;used_explain_modes:set[str]=set()
     max_explain=max(2,min(3,math.floor(final_duration/12.0)));max_abstract=max(3,min(4,math.floor(final_duration/10.0)));max_logo=max(1,min(2,math.ceil(final_duration/20.0)))
     while index<len(beats):
         start_index=index;end_index=index;start=float(beats[index]["start"]);end=float(beats[index]["end"])
@@ -187,10 +221,11 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
             end_index+=1;end=next_end
             if end_index in cutaway_by_beat or end-start>=TARGET_VISUAL_SECONDS:break
         candidates=list(range(start_index,end_index+1))
-        chosen,force_kinetic=choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo)
+        chosen,force_kinetic=choose_window_candidate(beats,candidates,prev_family,prev_kind,prev_drawn_kind,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo)
         vb=copy.deepcopy(beats[chosen]);vb["start"]=round(start,4);vb["end"]=round(end,4);vb.pop("meme",None);vb.pop("memeIntent",None);vb.pop("sfx",None)
         if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen],chosen)
-        windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind)
+        windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind);prev_kind=kind
+        prev_drawn_kind=str(vb.get("visual",{}).get("kind","")) if kind=="drawn-diagram" else None
         if kind in ABSTRACT_TYPES:abstract_count+=1
         if kind=="logo":logo_count+=1
         if kind=="explain":
@@ -198,6 +233,7 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
         else:prev_explain_mode=None
         index=end_index+1
     if windows and float(windows[-1]["end"])<final_duration:windows[-1]["end"]=round(final_duration,4)
+    apply_diagram_continuity(windows)
     assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo)
     return windows
 

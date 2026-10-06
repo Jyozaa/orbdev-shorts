@@ -162,3 +162,16 @@ npx remotion render src/index.ts OrbdevDiagramGallery out/diagram-gallery.mp4
 The `Diagram engine preview` GitHub workflow typechecks the engine, renders all
 families, verifies that representative frames are non-blank, and stores an MP4 plus
 11 stills as a build artifact. It never publishes to YouTube.
+
+
+### Diagram continuity (Phase 3)
+
+Consecutive `drawn-diagram` scenes can now form one continuous explanation.
+`prepare_render_props.py` groups adjacent diagrams with different semantic
+families and attaches a shared `continuityKey`. During the scene boundary,
+a Remotion-only transition bridge erases the old topology, keeps anchor
+particles alive, moves those anchors into the next layout, and draws the new
+topology around them. Captions and meme layers remain above that visual bridge.
+
+This is deterministic, local rendering code. It does not call an LLM, external
+motion API, diagram service, or image generation API.

@@ -41,7 +41,7 @@ jobs:
         run: npm run typecheck
       - name: Render all diagram families
         run: |
-          mkdir -p out/diagram-stills
+          mkdir -p out/diagram-stills out/transition-stills
           npx remotion render src/index.ts OrbdevDiagramGallery out/diagram-gallery.mp4 \
             --codec=h264 \
             --pixel-format=yuv420p \
@@ -55,13 +55,20 @@ jobs:
             npx remotion still src/index.ts OrbdevDiagramGallery "out/diagram-stills/frame-${frame}.png" \
               --frame="${frame}" --log=error
           done
+          for frame in 90 180 270 360 450 540 630 720 810 900; do
+            npx remotion still src/index.ts OrbdevDiagramGallery "out/transition-stills/boundary-${frame}.png" \
+              --frame="${frame}" --log=error
+          done
           python - <<'PY'
           from pathlib import Path
           from PIL import Image, ImageStat
           files=sorted(Path("out/diagram-stills").glob("*.png"))
           if len(files)!=11:
               raise SystemExit(f"expected 11 stills, got {len(files)}")
-          for path in files:
+          transition_files=sorted(Path("out/transition-stills").glob("*.png"))
+          if len(transition_files)!=10:
+              raise SystemExit(f"expected 10 transition stills, got {len(transition_files)}")
+          for path in files + transition_files:
               image=Image.open(path).convert("L")
               stat=ImageStat.Stat(image)
               extrema=image.getextrema()
@@ -75,5 +82,6 @@ jobs:
           path: |
             out/diagram-gallery.mp4
             out/diagram-stills/*.png
+            out/transition-stills/*.png
           if-no-files-found: error
           retention-days: 30

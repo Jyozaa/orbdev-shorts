@@ -280,7 +280,10 @@ const components = {
 export const DrawnDiagram: React.FC<{visual: DrawnDiagramVisual}> = ({visual}) => {
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
-  const p = clamp01(frame / Math.max(1, durationInFrames - 1));
+  const rawP = clamp01(frame / Math.max(1, durationInFrames - 1));
+  // If a morph bridge just delivered this diagram, do not restart its draw-on
+  // from zero after the overlay ends. The bridge is the entrance animation.
+  const p = visual.continuityIn ? clamp01(0.72 + rawP * 0.28) : rawP;
   const Content = components[visual.kind];
   return <DiagramCanvas progress={p}>
     <Content visual={visual} p={p} />

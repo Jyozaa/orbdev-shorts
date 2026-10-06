@@ -35,10 +35,18 @@ def audit(props:dict)->dict:
             problems.append("More than six consecutive generic scenes")
             break
     patterns=[f"{v.get('mode')}:{v.get('variant',0)}" for v in visuals if v.get("type")=="explain"]
-    if len(patterns)!=len(set(patterns)):problems.append("Exact diagram layout repeated")
+    drawn=[v for v in visuals if v.get("type")=="drawn-diagram"]
+    transitions=0
+    for a,b in zip(visuals,visuals[1:]):
+        if a.get("type")=="drawn-diagram" and b.get("type")=="drawn-diagram" and a.get("kind")!=b.get("kind"):
+            if a.get("continuityKey") and a.get("continuityKey")==b.get("continuityKey") and a.get("transition")!="cut" and b.get("transition")!="cut":
+                transitions+=1
+            else:problems.append("Adjacent drawn diagrams are missing morph continuity metadata")
+    if len(patterns)!=len(set(patterns)):problems.append("Exact legacy diagram layout repeated")
     return {"passed":not problems,"issues":list(dict.fromkeys(problems)),
             "shots":len(windows),"sourceShots":len(ids),"uniqueSourceShots":len(set(ids)),
-            "genericFraction":round(ratio,3),"treatments":kinds,"diagramPatterns":patterns}
+            "genericFraction":round(ratio,3),"treatments":kinds,"diagramPatterns":patterns,
+            "drawnDiagramCount":len(drawn),"diagramMorphTransitions":transitions}
 
 def main():
     p=argparse.ArgumentParser()
