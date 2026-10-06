@@ -269,6 +269,11 @@ def main() -> None:
             variant = visual.get("variant")
             if variant is not None and (type(variant) is not int or not 0 <= variant <= 3):
                 fail(f"beat {index} drawn-diagram variant must be from 0 to 3")
+            if visual.get("transition") is not None and visual.get("transition") not in {"morph","cut"}:
+                fail(f"beat {index} drawn-diagram transition must be morph or cut")
+            key=visual.get("continuityKey")
+            if key is not None and (not isinstance(key,str) or len(key)>64):
+                fail(f"beat {index} drawn-diagram continuityKey must be a short string")
             rich_visual_count += 1
         elif kind == "diagram":
             symbols = visual.get("symbols")
@@ -407,11 +412,14 @@ def main() -> None:
 
     abstract_count = sum(1 for kind in visual_types if kind in ABSTRACT_TYPES)
     if abstract_count > max(3, math.floor(len(beats) * 0.35)):
-        fail("too many abstract-tech beats; keep explain/chart/timeline/comparison/flow/diagram/network to roughly one third")
+        fail("too many abstract-tech beats; keep abstract treatments controlled (drawn-diagram continuity runs still count toward this Phase 3 budget)")
 
     for index in range(len(visual_types) - 1):
         if visual_types[index] in ABSTRACT_TYPES and visual_types[index + 1] in ABSTRACT_TYPES:
-            fail(f"abstract-tech beats must be separated by a visual reset (beats {index}/{index + 1})")
+            left=beats[index].get("visual",{});right=beats[index+1].get("visual",{})
+            continuous=(left.get("type")=="drawn-diagram" and right.get("type")=="drawn-diagram" and left.get("kind")!=right.get("kind"))
+            if not continuous:
+                fail(f"abstract-tech beats must be separated unless different drawn diagrams form a continuity sequence (beats {index}/{index + 1})")
 
     if len(beats) >= 14 and visual_types.count("explain") < 2:
         fail("long technical Shorts need at least two explanatory animation beats")
