@@ -138,6 +138,161 @@
         "descriptionQuality": 9,
         "hashtagRelevance": 9
       }
+    },
+    {
+      "storyKey": "cactus-whistle-16mb-speech-backfill-2026-10-06",
+      "slug": "cactus-whistle-16mb-speech",
+      "headline": "Whistle fits speech recognition into 16.9 MB",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 8.9,
+      "sourceUrls": [
+        "https://huggingface.co/Cactus-Compute/whistle"
+      ],
+      "publishedAt": "2026-10-06T07:22:55Z",
+      "youtubeUrl": "https://youtu.be/oah6Cn07R0c",
+      "youtubeVideoId": "oah6Cn07R0c",
+      "youtubeTitle": "This Speech Model Is Only 16.9 MB and Needs No GPU",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
+    },
+    {
+      "storyKey": "glm-5-3-cyber-capabilities-backfill-2026-10-06",
+      "slug": "glm-5-3-cyber-capabilities",
+      "headline": "GLM-5.3 spreads advanced cyber capabilities",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 9.4,
+      "sourceUrls": [
+        "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities"
+      ],
+      "publishedAt": "2026-10-06T07:23:01Z",
+      "youtubeUrl": "https://youtu.be/M4pwtArZ45g",
+      "youtubeVideoId": "M4pwtArZ45g",
+      "youtubeTitle": "Anthropic Says GLM-5.3 Makes Advanced Cyber Exploits Easier to Access",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
+    },
+    {
+      "storyKey": "opendots-persistent-ai-coworkers-backfill-2026-10-06",
+      "slug": "opendots-persistent-ai-coworkers",
+      "headline": "OpenDots gives persistent agents their own computers",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 8.8,
+      "sourceUrls": [
+        "https://github.com/CopilotKit/OpenDots"
+      ],
+      "publishedAt": "2026-10-06T07:23:15Z",
+      "youtubeUrl": "https://youtu.be/S6v8aj48g0c",
+      "youtubeVideoId": "S6v8aj48g0c",
+      "youtubeTitle": "OpenDots Gives Persistent AI Agents Their Own Computers",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
+    },
+    {
+      "storyKey": "amd-world-labs-acquisition-backfill-2026-10-06",
+      "slug": "amd-world-labs-acquisition",
+      "headline": "AMD is buying World Labs for $8.2B",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 9.3,
+      "sourceUrls": [
+        "https://newsroom.amd.com/news/amd-acquire-world-labs/"
+      ],
+      "publishedAt": "2026-10-06T07:23:09Z",
+      "youtubeUrl": "https://youtu.be/QQLYoK212Xs",
+      "youtubeVideoId": "QQLYoK212Xs",
+      "youtubeTitle": "AMD Is Buying Fei-Fei Li’s World Labs for $8.2 Billion",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
+    },
+    {
+      "storyKey": "gemini-4-argon-restricted-rollout-backfill-2026-10-06",
+      "slug": "gemini-4-argon-restricted-rollout",
+      "headline": "Gemini 4 Argon starts behind a safety gate",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 9.2,
+      "sourceUrls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
+      ],
+      "publishedAt": "2026-10-06T07:23:43Z",
+      "youtubeUrl": "https://youtu.be/tXQ-IvgfroQ",
+      "youtubeVideoId": "tXQ-IvgfroQ",
+      "youtubeTitle": "Google’s Gemini 4 Argon Is So Capable Access Is Restricted",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
+    },
+    {
+      "storyKey": "cloudflare-clef-decision-models-backfill-2026-10-06",
+      "slug": "cloudflare-clef-decision-models",
+      "headline": "Cloudflare Clef makes decisions without essays",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 9.2,
+      "sourceUrls": [
+        "https://blog.cloudflare.com/clef-decision-models/",
+        "https://huggingface.co/Cloudflare/clef"
+      ],
+      "publishedAt": "2026-10-06T07:23:58Z",
+      "youtubeUrl": "https://youtu.be/K0hkt8P9HaQ",
+      "youtubeVideoId": "K0hkt8P9HaQ",
+      "youtubeTitle": "Cloudflare Built an AI Model That Makes Decisions Instead of Writing Essays",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
+    },
+    {
+      "storyKey": "reflection-beam-501b-backfill-2026-10-06",
+      "slug": "reflection-beam-501b",
+      "headline": "Reflection previews Beam 501B",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 9.3,
+      "sourceUrls": [
+        "https://reflection.ai/blog/introducing-beam"
+      ],
+      "publishedAt": "2026-10-06T07:24:01Z",
+      "youtubeUrl": "https://youtu.be/78AfVhkm4NU",
+      "youtubeVideoId": "78AfVhkm4NU",
+      "youtubeTitle": "Reflection Previewed a 501B Open-Weight Model — But the Weights Aren’t Out Yet",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
     }
   ]
 }

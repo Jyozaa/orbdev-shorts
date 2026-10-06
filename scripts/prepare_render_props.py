@@ -1,5 +1,5 @@
 from __future__ import annotations
-import copy,json,math,re,sys,unicodedata
+import copy,hashlib,json,math,re,sys,unicodedata
 from pathlib import Path
 
 BUILD_DIR=Path("build"); CAPTIONS_PATH=Path("public/captions.json"); MEME_SELECTION_PATH=BUILD_DIR/"meme-selection.json"
@@ -44,10 +44,17 @@ def source_match(asset:dict,query:str)->float:
     precision=overlap/max(1,min(len(a),8))
     return round(min(1.0,.82*coverage+.18*precision),3)
 
-def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool):
+def perceptually_same(a:str,b:str)->bool:
+    """dHash: tolerate slight source-image re-encodes, never count them as fresh media."""
+    if len(a)!=16 or len(b)!=16:return bool(a and a==b)
+    try:return (int(a,16)^int(b,16)).bit_count()<=3
+    except ValueError:return False
+
+def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool=False,used_hashes:list[str]|None=None):
+    # Old queued stories may still specify allowReuse=true. Never reuse an actual
+    # image inside the same Short: a re-crop is not a new shot.
     if isinstance(entry,str):
-        if used and not allow_reuse and entry in used:return None,0.0
-        return {"src":entry},0.35
+        return (None,0.0) if entry in used else ({"src":entry},0.35)
     if not isinstance(entry,dict):return None,0.0
     assets=entry.get("assets",[])
     if not isinstance(assets,list):return None,0.0
@@ -56,8 +63,9 @@ def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allo
     for asset in assets:
         if not isinstance(asset,dict):continue
         src=str(asset.get("src",""))
-        if not src:continue
-        if src in used and not allow_reuse:continue
+        digest=str(asset.get("visualHash") or "")
+        if not src or src in used:continue
+        if digest and any(perceptually_same(digest,seen) for seen in (used_hashes or [])):continue
         searchable=norm(f'{asset.get("text","")} {asset.get("url","")}')
         if required and not all(term in searchable for term in required):continue
         scored.append((source_match(asset,query),int(asset.get("baseScore",0)),asset))
@@ -111,9 +119,17 @@ def candidate_score(beat,prev_family=None,prev_explain_mode=None)->float:
             score-=3.0
     return score
 
-def kinetic_from_beat(beat):
+def kinetic_from_beat(beat,position:int=0):
+    """Use short topic-aware editorial compositions when a distinct source is missing."""
     words=re.findall(r"[A-Za-z0-9'’.-]+",str(beat.get("text","")))
-    return {"type":"kinetic","text":" ".join(words[:6]).strip() or "TECH UPDATE","emphasis":words[-1] if words else "UPDATE"}
+    role=str(beat.get("editorialRole","")).lower()
+    if role in {"joke","reaction","punchline","callback","analogy"}:
+        return {"type":"kinetic","text":" ".join(words[:6]).strip() or "TECH UPDATE","emphasis":words[-1] if words else "UPDATE"}
+    # Multiple layouts and two separate semantic fragments; no generic 'MODEL -> MODEL' network.
+    headline=" ".join(words[:min(5,len(words))]).strip() or "TECH UPDATE"
+    detail=" ".join(words[5:10]).strip()
+    variant=int(hashlib.sha1(f"{position}|{beat.get('text','')}".encode()).hexdigest()[:8],16)%6
+    return {"type":"fact","headline":headline,"detail":detail,"variant":variant}
 
 def choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo):
     viable=[i for i in candidates if base_visual_weight(beats[i])>=0]
@@ -172,7 +188,7 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
         candidates=list(range(start_index,end_index+1))
         chosen,force_kinetic=choose_window_candidate(beats,candidates,prev_family,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo)
         vb=copy.deepcopy(beats[chosen]);vb["start"]=round(start,4);vb["end"]=round(end,4);vb.pop("meme",None);vb.pop("memeIntent",None);vb.pop("sfx",None)
-        if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen])
+        if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen],chosen)
         windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind)
         if kind in ABSTRACT_TYPES:abstract_count+=1
         if kind=="logo":logo_count+=1
@@ -193,7 +209,7 @@ def main():
     logos=json.loads(LOGO_ASSETS_PATH.read_text(encoding="utf-8")) if LOGO_ASSETS_PATH.exists() else {}
     cutaways=json.loads(CUTAWAYS_PATH.read_text(encoding="utf-8")) if CUTAWAYS_PATH.exists() else []
     cutaway_by_beat={int(x["beatIndex"]):x for x in cutaways}
-    prepared=[];cursor=0;used_source_assets:set[str]=set()
+    prepared=[];cursor=0;used_source_assets:set[str]=set();used_source_hashes:list[str]=[]
     for index,beat in enumerate(story["beats"]):
         expected=beat_tokens(beat["text"]);si,ei=find_sequence(words,expected,cursor);cursor=ei+1
         adjusted=dict(beat);adjusted["visual"]=json.loads(json.dumps(beat["visual"]))
@@ -206,7 +222,7 @@ def main():
             must_match=v.get("mustMatch",[])
             if not isinstance(must_match,list):must_match=[]
             allow_reuse=bool(v.get("allowReuse",False))
-            asset,score=choose_source(source_assets.get(key),query,must_match,used_source_assets,allow_reuse)
+            asset,score=choose_source(source_assets.get(key),query,must_match,used_source_assets,allow_reuse,used_source_hashes)
             v["matchScore"]=score
             src=str(asset.get("src","")) if isinstance(asset,dict) else ""
             if src:
@@ -214,7 +230,9 @@ def main():
                 if width>0 and height>0:
                     ratio=width/height;v["assetWidth"]=width;v["assetHeight"]=height;v["layout"]="landscape" if ratio>=1.15 else ("portrait" if ratio<=0.78 else "square")
                 else:v["layout"]="unknown"
-                if not allow_reuse:used_source_assets.add(src)
+                used_source_assets.add(src)
+                if asset.get("visualHash"):used_source_hashes.append(str(asset["visualHash"]))
+                v["visualHash"]=asset.get("visualHash")
             print(f'Source beat {index}: query="{query}" required={must_match} match={score:.3f} src={src or "REJECTED"} layout={v.get("layout","none")}')
         attach_logos(v,logos)
         selected=selections.get(str(index))
@@ -240,8 +258,30 @@ def main():
         if last not in cutaway_by_beat:prepared[last]["end"]=round(final_duration,4)
 
     visual_beats=build_visual_windows(prepared,cutaway_by_beat,final_duration)
+    # Assign a reproducible, story-specific geometry rather than the same pipeline
+    # or fanout in every video. Rotate away from recent layouts where possible.
+    history_path=Path("history/visual-history.json")
+    visual_history=json.loads(history_path.read_text(encoding="utf-8")) if history_path.exists() else {"stories":[]}
+    recent=visual_history.get("stories",[])[-24:]
+    local_patterns:set[str]=set()
+    for i,beat in enumerate(visual_beats):
+        visual=beat.get("visual",{})
+        if visual.get("type")!="explain":continue
+        mode=str(visual.get("mode","fanout"))
+        seed=int(hashlib.sha256(f"{story.get('slug','')}|{mode}|{i}".encode()).hexdigest()[:8],16)
+        def pattern_cost(variant:int)->tuple[int,int,int]:
+            pattern=f"{mode}:{variant}"
+            return (
+                100 if pattern in local_patterns else 0,
+                sum(1 for item in recent for token in item.get("patterns",[]) if token==pattern),
+                (variant-seed)%6,
+            )
+        variant=min(range(6),key=pattern_cost)
+        visual["variant"]=variant
+        local_patterns.add(f"{mode}:{variant}")
     props=dict(story);props["durationSeconds"]=round(final_duration,4);props["beats"]=prepared;props["visualBeats"]=visual_beats;props["captions"]=words;props["cutaways"]=cutaways
     BUILD_DIR.mkdir(parents=True,exist_ok=True);(BUILD_DIR/"render-props.json").write_text(json.dumps(props,indent=2),encoding="utf-8")
+    (BUILD_DIR/"visual-quality.json").write_text(json.dumps({"slug":story.get("slug"),"patterns":sorted(local_patterns)},indent=2),encoding="utf-8")
     print(f"Render props ready: {len(prepared)} semantic beats -> {len(visual_beats)} visual windows, {final_duration:.2f}s")
     treatments=[b["visual"]["type"] for b in visual_beats]
     print("Visual treatments:",treatments)

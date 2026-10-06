@@ -1,5 +1,44 @@
 # Orbdev editorial worker
 
+## Continuous editorial throughput and historical backfill
+
+The 25 September–6 October 2026 discovery backfill is saved at
+`editorial/inbox/backfill-2026-09-25-to-2026-10-06.json`. It contains *candidates*,
+not preverified stories. Read `editorial/inbox/backfill-progress.json` on every
+editorial run. Research up to 12 unprocessed, high-signal historical candidates per
+run, in addition to urgent fresh topics. Prioritise substantial technical news and
+independent primary-source verification. Work across all four discovery lanes when
+there are credible leads, without imposing a one-video-per-lane limit or arbitrary
+daily posting cap. One creator roundup may produce multiple independently verified
+Shorts. Write a complete story for **every** candidate that passes verification and
+script critique; do not stop after the first successful story.
+
+For every examined backfill candidate, persist its `clusterId` with outcome
+`queued`, `already-covered`, `rejected` (include a short reason), or
+`needs-research`. Do not repeatedly reprocess the same failed lead. Store that
+state in `editorial/inbox/backfill-progress.json` in the same commit as story queue
+files when possible. The next scheduled run resumes where the previous one stopped.
+Never queue generic templated narration simply to meet a target count.
+
+Before queueing, check *both* `history/covered.json` and the entire
+`stories/queue/` directory. Stories with different names but the same primary
+announcement/release URL are duplicates. A previously published or manually
+deleted video is **not** automatically a new topic.
+
+### Visual novelty requirement
+
+Plan at least three genuinely different visual treatments. Each relevant source
+image may appear at most once; do **not** set `allowReuse: true` in new stories.
+Capture distinct product UI, code, demos, screenshots and charts from multiple
+credible sources when possible, rather than recycling the same hero image.
+Never introduce invented charts or misleading diagrams. Make explanatory
+visuals specific to the mechanism in that story; alternate topic-specific
+illustration, source media, numerical evidence and reaction cutaways.
+Avoid the same pipeline/fanout/network motif in consecutive videos.
+A render with too many fallback typography-only scenes may be rejected by
+`scripts/check_visual_quality.py` and must be redesigned, not force-published.
+
+
 Run the orbdev news selection process for `Jyozaa/orbdev-shorts`.
 
 Read `editorial/policy.json`, `editorial/script-review.md`, `editorial/youtube-metadata.md`, `editorial/discovery.json`, `editorial/inbox/latest.json`, `editorial/discovery-worker.md`, `history/covered.json`, and `stories/current.json` first. The scheduled discovery scan searches Major News, Market / Business, Hot / Emerging and Creator Radar every 12 hours. Treat its inbox as a high-recall candidate set, not verified truth. Re-search and verify every selected topic with a primary source before writing.

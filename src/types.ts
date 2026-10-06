@@ -53,8 +53,10 @@ export type SourceVisual = {
   assetWidth?: number;
   assetHeight?: number;
   layout?: 'landscape' | 'portrait' | 'square' | 'unknown';
+  visualHash?: string;
 };
 
+export type FactVisual = {type: 'fact'; headline: string; detail?: string; variant?: number};
 export type MetricVisual = {type: 'metric'; value: string};
 export type DiagramVisual = {type: 'diagram'; symbols: string[]};
 export type ComparisonVisual = {type: 'comparison'; left: string; right: string};
@@ -99,10 +101,12 @@ export type ExplainVisual = {
   load?: number;
   center?: string;
   nodes?: string[];
+  variant?: number;
 };
 
 export type BeatVisualSpec =
   | SourceVisual
+  | FactVisual
   | MetricVisual
   | DiagramVisual
   | ComparisonVisual

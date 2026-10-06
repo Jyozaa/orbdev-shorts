@@ -127,3 +127,15 @@ Production narration uses `editorial/narration-profiles.json`. The default `orbd
 The complete narration is passed to Kokoro as one performance. Visual beats and editorial roles never force speech cuts. Native-speed retargeting and final `atempo` correction are deliberately conservative so word endings and prosody remain natural.
 
 Every render writes `build/narration-report.json` with synthesis mode, native speed, raw/final WPM and applied tempo. The manual `Narration audition` workflow can render voice variants without changing production defaults.
+
+## Production quality and backfill safeguards (October 2026)
+
+- `scripts/capture_sources.py` fingerprints source images and rejects near duplicates.
+- `scripts/prepare_render_props.py` never reuses source imagery, even if an old story has `allowReuse: true`; it selects distinct story-specific compositions and rotates diagram layout variants against recent successful renders.
+- `scripts/check_visual_quality.py` blocks renders with repeated images, excessive generic fallbacks or repeated diagram layouts.
+- `scripts/filter_queue.py` de-duplicates queue requests against `history/covered.json` and other queued versions of the same story. The uploader also checks published receipts before sending anything to YouTube.
+- Successful render/publish receipts update `history/covered.json` and `history/visual-history.json` *after fetching the newest branch state*, with serialized history writes and retries.
+- `editorial/inbox/backfill-progress.json` lets the twice-daily editorial automation work through the historical September 25–October 6 lead set over several runs without forgetting reviewed or rejected candidates.
+- The editorial worker still verifies primary sources and writes a reviewed script before queuing. Discovery qualification by itself is **not** publication approval. New video counts depend on verified stories and the independent YouTube upload limit.
+
+The quality CI check runs Python syntax/regression tests and TypeScript typechecking without rendering or uploading.

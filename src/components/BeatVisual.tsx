@@ -244,6 +244,31 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
     return <ExplainVisual visual={beat.visual} />;
   }
 
+  if (beat.visual.type === 'fact') {
+    const visual = beat.visual;
+    const variant = ((visual.variant ?? 0) % 6 + 6) % 6;
+    const left = [82, 132, 80, 172, 100, 140][variant];
+    const top = [520, 650, 590, 470, 740, 545][variant];
+    const isStacked = variant === 1 || variant === 4;
+    const headline = visual.headline.toUpperCase();
+    const detail = (visual.detail ?? '').toUpperCase();
+    const fontSize = fittedFontSize(headline, 870, 112, 60);
+    const shift = (1 - enter) * (variant % 2 ? -52 : 52);
+    return <AbsoluteFill style={{...shell, backgroundColor:'#000'}}>
+      <div style={{position:'absolute',top:top-56,left,width:variant===3?185:86,height:8,background:'#fff',opacity:enter}}/>
+      <div style={{position:'absolute',top,left,right:72,fontSize,fontWeight:950,lineHeight:0.94,letterSpacing:-3.8,
+        textTransform:'uppercase',transform:`translate${isStacked?'Y':'X'}(${shift}px)`,opacity:enter,maxWidth:880}}>
+        {headline}
+      </div>
+      {detail && <div style={{position:'absolute',top:top+225,left:variant===2?210:left,right:85,
+        fontSize:34,lineHeight:1.16,fontWeight:650,opacity:0.74*enter,maxWidth:770,
+        transform:`translateY(${(1-enter)*25}px)`}}>{detail}</div>}
+      <div style={{position:'absolute',top:variant===5?1170:1260,left:variant%2?170:80,
+        width:variant===0?680:variant===3?360:495,height:2,background:'rgba(255,255,255,.4)',
+        transformOrigin:'left',transform:`scaleX(${Math.max(0.02,progress)})`}}/>
+    </AbsoluteFill>;
+  }
+
   if (beat.visual.type === 'source') {
     if (!beat.visual.src) {
       return <AbsoluteFill style={shell}><div style={{fontSize:118,fontWeight:950,letterSpacing:-7,textTransform:'uppercase',textAlign:'center',maxWidth:900,transform:`scale(${0.88 + enter * 0.12})`}}>{beat.visual.publisher ?? 'SOURCE'}</div></AbsoluteFill>;
