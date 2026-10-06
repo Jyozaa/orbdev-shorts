@@ -15,15 +15,22 @@ def main():
         beat("A router sends tokens through specialist experts","explanation",{"type":"text","text":"TOKEN ROUTER"}),
         beat("Speech becomes an audio signal before decoding","explanation",{"type":"symbol","symbol":"AUDIO"}),
         beat("Naturally this went perfectly","joke",{"type":"kinetic","text":"SURE IT DID"}),
+        beat("Wait, what?","reaction",{"type":"kinetic","text":"WAIT WHAT"}),
     ]
-    assert render.apply_diagram_first(items)==3
+    assert render.apply_diagram_first(items)==4
     assert items[0]["visual"]["kind"]=="shield"
     assert items[1]["visual"]["kind"]=="branch"
     assert items[2]["visual"]["kind"]=="wave"
-    assert items[3]["visual"]["type"]=="kinetic"
-    for item in items[:3]:
+    assert items[3]["visual"]["type"]=="drawn-diagram"
+    assert items[4]["visual"]["type"]=="kinetic"
+    for item in items[:4]:
         assert item["visual"]["type"]=="drawn-diagram"
         assert all(len(x.split())<=2 and len(x)<=22 for x in item["visual"].get("labels",[]))
+
+    meme_reaction=beat("That result is surprising","reaction",{"type":"kinetic","text":"WAIT WHAT"})
+    meme_reaction["meme"]={"mediaType":"image","src":"memes/example.png"}
+    assert render.apply_diagram_first([meme_reaction])==1
+    assert meme_reaction["visual"]["type"]=="drawn-diagram"
 
     rejected=beat("Requests flow through a model and return results","explanation",
                   {"type":"source","sourceIndex":0,"query":"missing"})
@@ -61,6 +68,15 @@ def main():
     result=quality.audit(good)
     assert result["passed"],result
     assert result["diagramFraction"]>=0.5
+
+    repeated=[
+        beat("Memory and context stay in a storage layer","explanation",{"type":"kinetic","text":"MEMORY"}) 
+        for _ in range(7)
+    ]
+    render.apply_diagram_first(repeated)
+    kinds=[b["visual"]["kind"] for b in repeated]
+    assert max(kinds.count(k) for k in set(kinds))<=2,kinds
+
     print("diagram-first production regression checks passed")
 
 if __name__=="__main__":main()

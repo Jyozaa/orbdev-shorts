@@ -41,12 +41,14 @@ def audit(props:dict)->dict:
             except ValueError:pass
 
     generic_ratio=sum(k in GENERIC for k in kinds)/max(1,len(kinds))
-    if len(windows)>=8 and generic_ratio>0.30:
-        problems.append(f"Too many typography/generic scenes: {generic_ratio:.0%} (max 30%)")
-    if any(displayed_words(v)>6 for v in visuals if v.get("type") in GENERIC):
-        problems.append("A typography-led scene contains more than six large on-screen words")
+    generic_count=sum(k in GENERIC for k in kinds)
+    generic_max=max(2,math.floor(len(windows)*0.20))
+    if len(windows)>=8 and generic_count>generic_max:
+        problems.append(f"Too many typography/generic scenes: {generic_count}/{len(windows)} (max {generic_max})")
+    if any(displayed_words(v)>5 for v in visuals if v.get("type") in GENERIC):
+        problems.append("A typography-led scene contains more than five large on-screen words")
     total_large_words=sum(displayed_words(v) for v in visuals if v.get("type") in GENERIC)
-    if len(windows)>=8 and total_large_words/max(1,len(windows))>2.5:
+    if len(windows)>=8 and total_large_words/max(1,len(windows))>1.25:
         problems.append("Large on-screen word density is too high")
 
     drawn=[v for v in visuals if v.get("type")=="drawn-diagram"]
@@ -62,8 +64,20 @@ def audit(props:dict)->dict:
     strong_ratio=sum(k in STRONG for k in kinds)/max(1,len(kinds))
     if technical and len(windows)>=8 and strong_ratio<0.62:
         problems.append(f"Not enough diagram/source-led scenes: {strong_ratio:.0%} (minimum 62%)")
+    source_candidates=int(props.get("sourceCandidateCount",0) or 0)
+    if technical and len(windows)>=8 and source_candidates>=4:
+        source_min=max(2,math.floor(len(windows)*0.15))
+        if len(sources)<source_min:
+            problems.append(f"Rich verified media exists but too little is used: {len(sources)}/{len(windows)} source windows (minimum {source_min})")
 
-    if len(windows)>=12 and len(set(kinds))<3:problems.append("Not enough visual treatment variety")
+    treatment_signatures=[
+        f"drawn:{v.get('kind','unknown')}" if v.get("type")=="drawn-diagram"
+        else f"explain:{v.get('mode','unknown')}" if v.get("type")=="explain"
+        else str(v.get("type",""))
+        for v in visuals
+    ]
+    if len(windows)>=12 and len(set(treatment_signatures))<4:
+        problems.append("Not enough visual treatment variety")
     streak=0
     for kind in kinds:
         streak=streak+1 if kind in GENERIC else 0
@@ -82,9 +96,11 @@ def audit(props:dict)->dict:
     return {"passed":not problems,"issues":list(dict.fromkeys(problems)),
             "shots":len(windows),"sourceShots":len(ids),"uniqueSourceShots":len(set(ids)),
             "genericFraction":round(generic_ratio,3),"strongVisualFraction":round(strong_ratio,3),
-            "largeTextWords":total_large_words,"treatments":kinds,"diagramPatterns":patterns,
+            "largeTextWords":total_large_words,"treatments":kinds,"treatmentSignatures":treatment_signatures,"diagramPatterns":patterns,
             "drawnDiagramCount":len(drawn),"diagramFraction":round(len(drawn)/max(1,len(windows)),3),
-            "diagramMorphTransitions":transitions,"explanationBeats":explanation_beats}
+            "diagramMorphTransitions":transitions,"explanationBeats":explanation_beats,
+            "sourceCandidateCount":int(props.get("sourceCandidateCount",0) or 0),
+            "sourceEnrichedCount":int(props.get("sourceEnrichedCount",0) or 0)}
 
 def main():
     p=argparse.ArgumentParser()

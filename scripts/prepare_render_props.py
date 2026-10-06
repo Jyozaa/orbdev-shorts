@@ -6,11 +6,12 @@ BUILD_DIR=Path("build"); CAPTIONS_PATH=Path("public/captions.json"); MEME_SELECT
 SOURCE_ASSETS_PATH=BUILD_DIR/"source-assets.json"; LOGO_ASSETS_PATH=BUILD_DIR/"logo-assets.json"; CUTAWAYS_PATH=BUILD_DIR/"cutaways.json"
 MIN_VISUAL_SECONDS=1.05; TARGET_VISUAL_SECONDS=1.55; MAX_VISUAL_SECONDS=2.45
 RHYTHM_BREAK_ROLES={"analogy","joke","reaction","punchline","callback"}
-SOURCE_MIN_MATCH=0.34
+SOURCE_MIN_MATCH=0.34; SOURCE_ENRICH_MIN_MATCH=0.18
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
-LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would"}
-DIAGRAM_FIRST_ROLES={"explanation","transition"}
+LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would","reach","reaches","stays","stay","way","trade","work","per","sounds","point"}
+DIAGRAM_FIRST_ROLES={"explanation","transition","analogy","joke","callback","punchline"}
+TYPOGRAPHY_PUNCTUATION_ROLES={"reaction"}
 LEGACY_DIAGRAM_TYPES={"explain","diagram","flow","network","comparison"}
 
 def fold_ascii(t:str)->str:
@@ -27,11 +28,15 @@ def compact_label(value:object)->str:
     return " ".join(words[:2])[:22].strip().upper()
 
 def visual_label_candidates(visual:dict)->list[str]:
+    """Preserve structured labels, never recycle a kinetic/text sentence."""
     raw=[]
     for key in ("labels","stages","nodes","symbols"):
         value=visual.get(key)
-        if isinstance(value,list):raw.extend(value)
-    for key in ("center","left","right","headline","text"):
+        if isinstance(value,list):
+            for item in value:
+                if isinstance(item,str):raw.append(item)
+                elif isinstance(item,dict):raw.append(item.get("label") or item.get("value") or "")
+    for key in ("center","left","right"):
         value=visual.get(key)
         if isinstance(value,str):raw.append(value)
     if visual.get("type")=="flow":
@@ -44,16 +49,46 @@ def visual_label_candidates(visual:dict)->list[str]:
             labels.append(label);seen.add(label)
     return labels
 
-def narration_labels(text:str,limit:int=4)->list[str]:
-    raw=re.findall(r"[A-Za-z0-9$%+.-]+",str(text))
-    labels=[];seen=set()
-    for token in raw:
-        if token.lower() in LABEL_STOP or len(token)<2:continue
-        label=compact_label(token)
-        if label and label not in seen:
-            labels.append(label);seen.add(label)
-        if len(labels)>=limit:break
-    return labels
+SEMANTIC_LABELS={
+    "shield":[("sandbox","SANDBOX"),("security","SECURITY"),("access","ACCESS")],
+    "wave":[("speech","SPEECH"),("audio","AUDIO"),("signal","SIGNAL"),("voice","VOICE")],
+    "branch":[("router","ROUTER"),("token","TOKEN"),("expert","EXPERTS"),("specialist","EXPERTS")],
+    "stack":[("memory","MEMORY"),("context","CONTEXT"),("cache","CACHE"),("layer","LAYERS")],
+    "mesh":[("network","NETWORK"),("node","NODES"),("cluster","CLUSTER"),("router","ROUTER")],
+    "orbit":[("agent","AGENT"),("tool","TOOLS"),("memory","MEMORY"),("file","FILES")],
+    "funnel":[("filter","FILTER"),("select","SELECT"),("merge","MERGE"),("compress","COMPRESS")],
+    "comparison":[("recommended","RECOMMENDED"),("maximum","MAX"),("max","MAX"),("smaller","SIZE"),("larger","SIZE")],
+    "growth":[("compute","COMPUTE"),("work","COMPUTE"),("latency","LATENCY"),("speed","SPEED"),("performance","PERFORMANCE")],
+    "timeline":[("before","BEFORE"),("after","AFTER"),("now","NOW"),("later","LATER")],
+    "flow":[("input","INPUT"),("output","OUTPUT"),("request","REQUEST"),("data","DATA"),("model","MODEL"),("token","TOKEN")],
+}
+
+def number_labels(text:str)->list[str]:
+    lower=str(text).lower()
+    pairs=[
+        (r"\b(\d+(?:\.\d+)?)\s*billion\s+parameters?\b",lambda m:f"{m.group(1)}B PARAMS"),
+        (r"\b(\d+(?:\.\d+)?)\s*million\s+tokens?\b",lambda m:f"{m.group(1)}M TOKENS"),
+        (r"\bone\s+million\s+tokens?\b",lambda m:"1M TOKENS"),
+        (r"\b(\d+(?:\.\d+)?)\s*gigs?\b",lambda m:f"{m.group(1)} GB"),
+        (r"\b(\d+(?:\.\d+)?)\s*gb\b",lambda m:f"{m.group(1)} GB"),
+        (r"\b(\d+(?:\.\d+)?)\s*%\b",lambda m:f"{m.group(1)}%"),
+        (r"\b(\d+(?:\.\d+)?k)\b",lambda m:m.group(1).upper()),
+    ]
+    out=[]
+    for pattern,format_value in pairs:
+        for match in re.finditer(pattern,lower,re.I):
+            label=format_value(match)
+            if label not in out:out.append(label)
+    return out
+
+def narration_labels(text:str,kind:str,limit:int=3)->list[str]:
+    """Return concepts/numbers, not the first words of the narration."""
+    lower=str(text).lower();labels=[]
+    for label in number_labels(text):
+        if label not in labels:labels.append(label)
+    for token,label in SEMANTIC_LABELS.get(kind,[]):
+        if token in lower and label not in labels:labels.append(label)
+    return labels[:limit]
 
 def diagram_kind_for_beat(beat:dict,position:int=0)->str:
     visual=beat.get("visual",{});kind=str(visual.get("type",""))
@@ -72,9 +107,9 @@ def diagram_kind_for_beat(beat:dict,position:int=0)->str:
         ("stack",{"layer","stack","cache","memory","context","storage","buffer"}),
         ("mesh",{"network","graph","peer","node","connected","connection","cluster"}),
         ("orbit",{"agent","agents","tool","tools","ecosystem","plugin","plugins","service","services"}),
-        ("funnel",{"filter","merge","combine","aggregate","select","compress","reduce","narrow"}),
-        ("comparison",{"versus"," vs ","compare","compared","instead","old","newer","difference"}),
-        ("growth",{"grow","growth","increase","decrease","faster","slower","speed","performance","benchmark","scale","billion","million","percent","%"}),
+        ("funnel",{"filter","merge","combine","aggregate","select","compress","narrow"}),
+        ("growth",{"grow","growth","increase","decrease","drop","drops","lower","less","reduced","reduces","faster","slower","speed","performance","benchmark","scale","billion","million","percent","%"}),
+        ("comparison",{"versus"," vs ","compare","compared","instead","old","newer","difference","smaller","larger"}),
         ("timeline",{"timeline","first","later","eventually","before","after","then","now","year","month","week","day"}),
         ("flow",{"input","output","process","pipeline","token","tokens","request","requests","data","through"}),
     ]
@@ -85,7 +120,7 @@ def diagram_kind_for_beat(beat:dict,position:int=0)->str:
     seed=int(hashlib.sha1(f"{position}|{beat.get('text','')}".encode()).hexdigest()[:8],16)
     return fallbacks[seed%len(fallbacks)]
 
-def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None)->dict:
+def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None,family_counts:dict[str,int]|None=None)->dict:
     visual=beat.get("visual",{}) if isinstance(beat.get("visual"),dict) else {}
     kind=diagram_kind_for_beat(beat,position)
     alternates={
@@ -94,32 +129,51 @@ def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None
         "shield":["mesh","flow"],"stack":["flow","funnel"],"timeline":["growth","flow"],
         "wave":["flow","orbit"],"funnel":["flow","stack"],
     }
-    if previous_kind==kind:
-        kind=alternates.get(kind,["flow"])[position%len(alternates.get(kind,["flow"]))]
+    counts=family_counts or {}
+    options=alternates.get(kind,["flow"])
+    # Adjacent repetition is never useful. Once a semantic family has already
+    # appeared twice, broaden the geometry pool while preserving the original
+    # related alternatives at the front of the preference order.
+    if previous_kind==kind or counts.get(kind,0)>=2:
+        pool=list(options)
+        if counts.get(kind,0)>=2:
+            for candidate in ("flow","branch","orbit","mesh","funnel","comparison","growth","timeline","wave","stack"):
+                if candidate!=kind and candidate not in pool:pool.append(candidate)
+        ranked=sorted(
+            enumerate(pool),
+            key=lambda pair:(counts.get(pair[1],0),pair[0])
+        )
+        if ranked:kind=ranked[0][1]
     target={"comparison":2,"growth":2,"wave":2,"shield":1,"mesh":2,"flow":3,
             "branch":3,"orbit":4,"stack":4,"timeline":3,"funnel":4}.get(kind,3)
     labels=visual_label_candidates(visual)
-    for label in narration_labels(str(beat.get("text","")),target):
+    for label in narration_labels(str(beat.get("text","")),kind,target):
         if label not in labels:labels.append(label)
-    labels=labels[:target]
+    # Sparse labels are intentional: the narration explains the drawing.
+    labels=labels[:min(target,3)]
     seed=int(hashlib.sha256(f"{position}|{kind}|{beat.get('text','')}".encode()).hexdigest()[:8],16)
     result={"type":"drawn-diagram","kind":kind,"variant":seed%4}
     if labels:result["labels"]=labels
     if kind=="mesh":result["focus"]=seed%6
     return result
 
+def has_visible_meme(beat:dict)->bool:
+    meme=beat.get("meme")
+    return isinstance(meme,dict) and str(meme.get("mediaType","")) in {"image","video"}
+
 def should_upgrade_to_drawn(beat:dict,position:int)->bool:
     visual=beat.get("visual",{});kind=str(visual.get("type",""));role=str(beat.get("editorialRole","")).lower()
     if kind=="drawn-diagram" or kind in {"source","logo","metric","chart","timeline"}:return False
-    if role in RHYTHM_BREAK_ROLES:return False
+    if role in TYPOGRAPHY_PUNCTUATION_ROLES:
+        return has_visible_meme(beat) and kind in {"fact","text","kinetic","symbol"}
     if kind in LEGACY_DIAGRAM_TYPES:return True
     word_count=len(re.findall(r"\S+",str(beat.get("text",""))))
     if role in DIAGRAM_FIRST_ROLES:return True
-    if position>0 and role in {"fact","setup"} and kind in {"fact","text","kinetic","symbol"} and word_count>=5:return True
+    if position>0 and role in {"fact","setup"} and kind in {"fact","text","kinetic","symbol"} and word_count>=4:return True
     return False
 
 def apply_diagram_first(beats:list[dict])->int:
-    converted=0;previous_kind=None
+    converted=0;previous_kind=None;family_counts:dict[str,int]={}
     for position,beat in enumerate(beats):
         visual=beat.get("visual",{})
         if visual.get("type")=="source" and visual.get("src"):
@@ -127,11 +181,14 @@ def apply_diagram_first(beats:list[dict])->int:
         rejected_source=visual.get("type")=="source" and not visual.get("src")
         if rejected_source or should_upgrade_to_drawn(beat,position):
             role=str(beat.get("editorialRole","")).lower()
-            if role not in RHYTHM_BREAK_ROLES:
-                beat["visual"]=drawn_diagram_from_beat(beat,position,previous_kind)
-                previous_kind=str(beat["visual"]["kind"]);converted+=1;continue
+            if role not in TYPOGRAPHY_PUNCTUATION_ROLES or has_visible_meme(beat):
+                beat["visual"]=drawn_diagram_from_beat(beat,position,previous_kind,family_counts)
+                previous_kind=str(beat["visual"]["kind"])
+                family_counts[previous_kind]=family_counts.get(previous_kind,0)+1
+                converted+=1;continue
         if beat.get("visual",{}).get("type")=="drawn-diagram":
             previous_kind=str(beat["visual"].get("kind",""))
+            family_counts[previous_kind]=family_counts.get(previous_kind,0)+1
         else:previous_kind=None
     return converted
 
@@ -167,7 +224,7 @@ def perceptually_same(a:str,b:str)->bool:
     try:return (int(a,16)^int(b,16)).bit_count()<=3
     except ValueError:return False
 
-def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool=False,used_hashes:list[str]|None=None):
+def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool=False,used_hashes:list[str]|None=None,threshold:float=SOURCE_MIN_MATCH):
     # Old queued stories may still specify allowReuse=true. Never reuse an actual
     # image inside the same Short: a re-crop is not a new shot.
     if isinstance(entry,str):
@@ -187,8 +244,69 @@ def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allo
         if required and not all(term in searchable for term in required):continue
         scored.append((source_match(asset,query),int(asset.get("baseScore",0)),asset))
     scored.sort(key=lambda x:(x[0],x[1]),reverse=True)
-    if not scored or scored[0][0]<SOURCE_MIN_MATCH:return None,(scored[0][0] if scored else 0.0)
+    if not scored or scored[0][0]<threshold:return None,(scored[0][0] if scored else 0.0)
     return scored[0][2],scored[0][0]
+
+def source_candidate_count(source_assets:dict)->int:
+    return sum(
+        len(entry.get("assets",[]))
+        for entry in source_assets.values()
+        if isinstance(entry,dict) and isinstance(entry.get("assets"),list)
+    )
+
+def apply_source_enrichment(beats:list[dict],source_assets:dict,story:dict,used:set[str],used_hashes:list[str])->int:
+    """Use distinct verified media for factual beats before converting them to diagrams."""
+    total=source_candidate_count(source_assets)
+    if total<3:return 0
+    existing=sum(
+        b.get("visual",{}).get("type")=="source" and bool(b.get("visual",{}).get("src"))
+        for b in beats
+    )
+    desired=min(total,6,max(existing,math.ceil(len(beats)*0.27)))
+    if existing>=desired:return 0
+    sources=story.get("editorial",{}).get("sources",[])
+    enriched=0;claimed:set[int]=set()
+    eligible_roles={"setup","fact","caveat","explanation"}
+
+    while existing+enriched<desired:
+        best=None
+        for beat_index,beat in enumerate(beats):
+            if beat_index in claimed:continue
+            role=str(beat.get("editorialRole","")).lower()
+            visual=beat.get("visual",{})
+            if role not in eligible_roles:continue
+            if visual.get("type") in {"source","metric","chart","logo"}:continue
+            if has_visible_meme(beat):continue
+            query=str(beat.get("text",""))
+            for key,entry in source_assets.items():
+                try:source_index=int(key)
+                except (TypeError,ValueError):continue
+                asset,score=choose_source(
+                    entry,query,[],used,False,used_hashes,SOURCE_ENRICH_MIN_MATCH
+                )
+                if not asset:continue
+                candidate=(score,int(asset.get("baseScore",0)),beat_index,source_index,asset)
+                if best is None or candidate[:2]>best[:2]:best=candidate
+        if best is None:break
+        score,_,beat_index,source_index,asset=best
+        beat=beats[beat_index];src=str(asset.get("src",""))
+        publisher=""
+        if 0<=source_index<len(sources) and isinstance(sources[source_index],dict):
+            publisher=str(sources[source_index].get("publisher",""))
+        v={"type":"source","sourceIndex":source_index,"query":beat.get("text",""),
+           "matchScore":score,"src":src,"publisher":publisher,
+           "visualHash":asset.get("visualHash")}
+        width=int(asset.get("width",0) or 0);height=int(asset.get("height",0) or 0)
+        if width>0 and height>0:
+            ratio=width/height
+            v.update({"assetWidth":width,"assetHeight":height,
+                      "layout":"landscape" if ratio>=1.15 else ("portrait" if ratio<=0.78 else "square")})
+        beat["visual"]=v
+        used.add(src)
+        if asset.get("visualHash"):used_hashes.append(str(asset["visualHash"]))
+        claimed.add(beat_index);enriched+=1
+        print(f'Source enrichment beat {beat_index}: match={score:.3f} src={src}')
+    return enriched
 
 ABSTRACT_TYPES={"explain","chart","timeline","comparison","flow","diagram","network","drawn-diagram"}
 
@@ -277,7 +395,7 @@ def choose_window_candidate(beats,candidates,prev_family,prev_kind,prev_drawn_ki
     chosen=max(viable,key=lambda i:(candidate_score(beats[i],prev_family,prev_explain_mode),float(beats[i]["end"])-float(beats[i]["start"]),-i))
     chosen_visual=beats[chosen].get("visual",{});chosen_kind=str(chosen_visual.get("type",""));chosen_mode=str(chosen_visual.get("mode","")) if chosen_kind=="explain" else ""
     is_drawn_continuation=(prev_kind=="drawn-diagram" and chosen_kind=="drawn-diagram" and str(chosen_visual.get("kind",""))!=prev_drawn_kind)
-    force_kinetic=((chosen_kind in ABSTRACT_TYPES and abstract_budget_full) or (prev_family=="abstract-tech" and chosen_kind in ABSTRACT_TYPES and not is_drawn_continuation) or (chosen_kind=="explain" and explain_count>=max_explain) or (chosen_kind=="explain" and chosen_mode in used_explain_modes) or (chosen_kind=="logo" and hard_no_logo))
+    force_kinetic=((chosen_kind in ABSTRACT_TYPES and chosen_kind!="drawn-diagram" and abstract_budget_full) or (prev_family=="abstract-tech" and chosen_kind in ABSTRACT_TYPES and not is_drawn_continuation) or (chosen_kind=="explain" and explain_count>=max_explain) or (chosen_kind=="explain" and chosen_mode in used_explain_modes) or (chosen_kind=="logo" and hard_no_logo))
     return chosen,force_kinetic
 
 def apply_diagram_continuity(windows):
@@ -302,7 +420,9 @@ def apply_diagram_continuity(windows):
 
 def assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo):
     kinds=[str(w.get("visual",{}).get("type","")) for w in windows]
-    abstract=sum(1 for kind in kinds if kind in ABSTRACT_TYPES);logos=kinds.count("logo")
+    # The hard abstract budget is now for legacy templates only. Drawn diagrams
+    # are the preferred explanation substrate and are governed by variety/quality.
+    abstract=sum(1 for kind in kinds if kind in ABSTRACT_TYPES and kind!="drawn-diagram");logos=kinds.count("logo")
     explains=[w for w in windows if str(w.get("visual",{}).get("type",""))=="explain"];modes=[str(w.get("visual",{}).get("mode","")) for w in explains]
     if abstract>max_abstract:raise RuntimeError(f"abstract-tech hard cap exceeded: {abstract}>{max_abstract}")
     if logos>max_logo:raise RuntimeError(f"pure-logo hard cap exceeded: {logos}>{max_logo}")
@@ -320,7 +440,7 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
     max_explain=max(1,min(2,math.floor(final_duration/16.0)))
     # Phase 4 target: diagrams may lead the visual explanation while source
     # media and memes remain the grounding/punctuation layers.
-    max_abstract=max(5,min(12,math.ceil(final_duration/3.2)))
+    max_abstract=max(3,min(5,math.ceil(final_duration/8.0)))
     max_logo=max(1,min(2,math.ceil(final_duration/20.0)))
     while index<len(beats):
         start_index=index;end_index=index;start=float(beats[index]["start"]);end=float(beats[index]["end"])
@@ -344,7 +464,7 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
         if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen],chosen)
         windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind);prev_kind=kind
         prev_drawn_kind=str(vb.get("visual",{}).get("kind","")) if kind=="drawn-diagram" else None
-        if kind in ABSTRACT_TYPES:abstract_count+=1
+        if kind in ABSTRACT_TYPES and kind!="drawn-diagram":abstract_count+=1
         if kind=="logo":logo_count+=1
         if kind=="explain":
             explain_count+=1;prev_explain_mode=str(vb.get("visual",{}).get("mode",""));used_explain_modes.add(prev_explain_mode)
@@ -412,6 +532,8 @@ def main():
                 use=min(md,max(.35,dur-.05));meme["durationSeconds"]=round(use,3);meme["offsetSeconds"]=round(max(.02,dur-use-.03),3)
         if last not in cutaway_by_beat:prepared[last]["end"]=round(final_duration,4)
 
+    enriched=apply_source_enrichment(prepared,source_assets,story,used_source_assets,used_source_hashes)
+    print(f"Source-media enrichments: {enriched}/{len(prepared)} semantic beats")
     upgraded=apply_diagram_first(prepared)
     print(f"Diagram-first upgrades: {upgraded}/{len(prepared)} semantic beats")
     visual_beats=build_visual_windows(prepared,cutaway_by_beat,final_duration)
@@ -450,6 +572,7 @@ def main():
             visual["variant"]=variant
             local_patterns.add(f"drawn:{kind}:{variant}")
     props=dict(story);props["durationSeconds"]=round(final_duration,4);props["beats"]=prepared;props["visualBeats"]=visual_beats;props["captions"]=words;props["cutaways"]=cutaways
+    props["sourceCandidateCount"]=source_candidate_count(source_assets);props["sourceEnrichedCount"]=enriched
     BUILD_DIR.mkdir(parents=True,exist_ok=True);(BUILD_DIR/"render-props.json").write_text(json.dumps(props,indent=2),encoding="utf-8")
     (BUILD_DIR/"visual-quality.json").write_text(json.dumps({"slug":story.get("slug"),"patterns":sorted(local_patterns)},indent=2),encoding="utf-8")
     print(f"Render props ready: {len(prepared)} semantic beats -> {len(visual_beats)} visual windows, {final_duration:.2f}s")

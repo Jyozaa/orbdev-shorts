@@ -3,6 +3,7 @@ import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remoti
 import {DrawnDiagramVisual} from '../../types';
 import {CANVAS, FAINT, INK, MUTED, Point, clamp01} from './Primitives';
 import {diagramLayout, sampleAnchor} from './layout';
+import {DIAGRAM_BASE_ZOOM} from './DiagramCanvas';
 
 const smooth = (n:number) => {
   const t=clamp01(n);
@@ -51,6 +52,7 @@ export const DiagramTransitionBridge:React.FC<{
 
   return <AbsoluteFill style={{background:CANVAS,zIndex:4}}>
     <svg viewBox="0 0 1080 1920" width="100%" height="100%">
+      <g transform={`translate(540 940) scale(${DIAGRAM_BASE_ZOOM}) translate(-540 -940)`}>
       <circle cx={center.x} cy={center.y} r={250+45*Math.sin(raw*Math.PI)}
         fill="none" stroke={INK} strokeWidth={1.2} opacity={halo}/>
       {a.edges.map(([i,j],index)=><Edge key={`old-${index}`}
@@ -72,6 +74,7 @@ export const DiagramTransitionBridge:React.FC<{
             fill={INK} opacity={0.74+0.26*Math.sin(raw*Math.PI)}/>
         </g>;
       })}
+      </g>
     </svg>
   </AbsoluteFill>;
 };

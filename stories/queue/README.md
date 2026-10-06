@@ -30,14 +30,19 @@ New stories must include an optimized YouTube title, concise description, 4-15 m
 
 The uploader appends any missing primary-source URLs and the visible hashtag line to the final YouTube description. Metricool is used only for performance feedback; it does not delay or perform the upload.
 
-## Duplicate and media-diversity gate
+## Video-identity and media-diversity gate
 
-Before rendering, the workflow skips any queue file covering an already published
-event or a second JSON for the same primary announcement/release. The renderer
-uses each distinct source image at most once (old `allowReuse` flags are ignored).
-Videos with repeated source imagery or too many placeholder scenes are rejected
-before encoding and cannot be autopublished. When source images are scarce,
-add new verified media and redesign the visual plan instead of reusing an asset.
+Repeat topics are allowed. A second Short may use the same announcement, paper,
+repository, or primary URL when its narration/angle/visual plan is genuinely
+different. The queue only suppresses an identical narration + storyboard plan,
+and the YouTube boundary checks the rendered MP4 SHA-256 when a prior upload hash
+is available.
+
+The renderer uses each distinct source image at most once (old `allowReuse`
+flags are ignored). Videos with repeated source imagery or weak text-heavy
+fallback plans are rejected before publishing. When useful source media is
+scarce, the deterministic diagram planner should explain the mechanism rather
+than recycle an image or fill the screen with narration text.
 
 ## Repeat-topic publishing policy (Phase 1)
 
