@@ -64,6 +64,11 @@ def audit(props:dict)->dict:
     strong_ratio=sum(k in STRONG for k in kinds)/max(1,len(kinds))
     if technical and len(windows)>=8 and strong_ratio<0.62:
         problems.append(f"Not enough diagram/source-led scenes: {strong_ratio:.0%} (minimum 62%)")
+    source_candidates=int(props.get("sourceCandidateCount",0) or 0)
+    if technical and len(windows)>=8 and source_candidates>=4:
+        source_min=max(2,math.floor(len(windows)*0.15))
+        if len(sources)<source_min:
+            problems.append(f"Rich verified media exists but too little is used: {len(sources)}/{len(windows)} source windows (minimum {source_min})")
 
     treatment_signatures=[
         f"drawn:{v.get('kind','unknown')}" if v.get("type")=="drawn-diagram"
@@ -93,7 +98,9 @@ def audit(props:dict)->dict:
             "genericFraction":round(generic_ratio,3),"strongVisualFraction":round(strong_ratio,3),
             "largeTextWords":total_large_words,"treatments":kinds,"treatmentSignatures":treatment_signatures,"diagramPatterns":patterns,
             "drawnDiagramCount":len(drawn),"diagramFraction":round(len(drawn)/max(1,len(windows)),3),
-            "diagramMorphTransitions":transitions,"explanationBeats":explanation_beats}
+            "diagramMorphTransitions":transitions,"explanationBeats":explanation_beats,
+            "sourceCandidateCount":int(props.get("sourceCandidateCount",0) or 0),
+            "sourceEnrichedCount":int(props.get("sourceEnrichedCount",0) or 0)}
 
 def main():
     p=argparse.ArgumentParser()
