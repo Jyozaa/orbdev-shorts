@@ -1,0 +1,66 @@
+name: Diagram engine preview
+
+on:
+  pull_request:
+    paths:
+      - 'src/components/diagram/**'
+      - 'src/components/BeatVisual.tsx'
+      - 'src/types.ts'
+      - 'src/Root.tsx'
+      - '.github/workflows/diagram-preview.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render-gallery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Node packages
+        run: npm install --no-audit --no-fund
+      - name: Typecheck diagram engine
+        run: npm run typecheck
+      - name: Render all diagram families
+        run: |
+          mkdir -p out/diagram-stills
+          npx remotion render src/index.ts OrbdevDiagramGallery out/diagram-gallery.mp4 \
+            --codec=h264 \
+            --pixel-format=yuv420p \
+            --concurrency=2 \
+            --log=info
+          ffprobe -v error -show_entries format=duration,size \
+            -of default=noprint_wrappers=1 out/diagram-gallery.mp4
+      - name: Render representative inspection stills
+        run: |
+          for frame in 45 135 225 315 405 495 585 675 765 855 945; do
+            npx remotion still src/index.ts OrbdevDiagramGallery "out/diagram-stills/frame-${frame}.png" \
+              --frame="${frame}" --log=error
+          done
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageStat
+          files=sorted(Path("out/diagram-stills").glob("*.png"))
+          if len(files)!=11:
+              raise SystemExit(f"expected 11 stills, got {len(files)}")
+          for path in files:
+              image=Image.open(path).convert("L")
+              stat=ImageStat.Stat(image)
+              extrema=image.getextrema()
+              if extrema[1] < 80 or stat.mean[0] < 1.0:
+                  raise SystemExit(f"diagram still appears blank: {path}")
+              print(path.name, "mean", round(stat.mean[0],2), "max", extrema[1])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: orbdev-diagram-gallery
+          path: |
+            out/diagram-gallery.mp4
+            out/diagram-stills/*.png
+          if-no-files-found: error
+          retention-days: 30
