@@ -6,7 +6,7 @@ BUILD_DIR=Path("build"); CAPTIONS_PATH=Path("public/captions.json"); MEME_SELECT
 SOURCE_ASSETS_PATH=BUILD_DIR/"source-assets.json"; LOGO_ASSETS_PATH=BUILD_DIR/"logo-assets.json"; CUTAWAYS_PATH=BUILD_DIR/"cutaways.json"
 MIN_VISUAL_SECONDS=1.05; TARGET_VISUAL_SECONDS=1.55; MAX_VISUAL_SECONDS=2.45
 RHYTHM_BREAK_ROLES={"analogy","joke","reaction","punchline","callback"}
-SOURCE_MIN_MATCH=0.34
+SOURCE_MIN_MATCH=0.34; SOURCE_ENRICH_MIN_MATCH=0.18
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
 LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would","reach","reaches","stays","stay","way","trade","work","per","sounds","point"}
@@ -208,7 +208,7 @@ def perceptually_same(a:str,b:str)->bool:
     try:return (int(a,16)^int(b,16)).bit_count()<=3
     except ValueError:return False
 
-def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool=False,used_hashes:list[str]|None=None):
+def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allow_reuse:bool=False,used_hashes:list[str]|None=None,threshold:float=SOURCE_MIN_MATCH):
     # Old queued stories may still specify allowReuse=true. Never reuse an actual
     # image inside the same Short: a re-crop is not a new shot.
     if isinstance(entry,str):
@@ -228,8 +228,69 @@ def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allo
         if required and not all(term in searchable for term in required):continue
         scored.append((source_match(asset,query),int(asset.get("baseScore",0)),asset))
     scored.sort(key=lambda x:(x[0],x[1]),reverse=True)
-    if not scored or scored[0][0]<SOURCE_MIN_MATCH:return None,(scored[0][0] if scored else 0.0)
+    if not scored or scored[0][0]<threshold:return None,(scored[0][0] if scored else 0.0)
     return scored[0][2],scored[0][0]
+
+def source_candidate_count(source_assets:dict)->int:
+    return sum(
+        len(entry.get("assets",[]))
+        for entry in source_assets.values()
+        if isinstance(entry,dict) and isinstance(entry.get("assets"),list)
+    )
+
+def apply_source_enrichment(beats:list[dict],source_assets:dict,story:dict,used:set[str],used_hashes:list[str])->int:
+    """Use distinct verified media for factual beats before converting them to diagrams."""
+    total=source_candidate_count(source_assets)
+    if total<3:return 0
+    existing=sum(
+        b.get("visual",{}).get("type")=="source" and bool(b.get("visual",{}).get("src"))
+        for b in beats
+    )
+    desired=min(total,6,max(existing,math.ceil(len(beats)*0.27)))
+    if existing>=desired:return 0
+    sources=story.get("editorial",{}).get("sources",[])
+    enriched=0;claimed:set[int]=set()
+    eligible_roles={"setup","fact","caveat","explanation"}
+
+    while existing+enriched<desired:
+        best=None
+        for beat_index,beat in enumerate(beats):
+            if beat_index in claimed:continue
+            role=str(beat.get("editorialRole","")).lower()
+            visual=beat.get("visual",{})
+            if role not in eligible_roles:continue
+            if visual.get("type") in {"source","metric","chart","logo"}:continue
+            if has_visible_meme(beat):continue
+            query=str(beat.get("text",""))
+            for key,entry in source_assets.items():
+                try:source_index=int(key)
+                except (TypeError,ValueError):continue
+                asset,score=choose_source(
+                    entry,query,[],used,False,used_hashes,SOURCE_ENRICH_MIN_MATCH
+                )
+                if not asset:continue
+                candidate=(score,int(asset.get("baseScore",0)),beat_index,source_index,asset)
+                if best is None or candidate[:2]>best[:2]:best=candidate
+        if best is None:break
+        score,_,beat_index,source_index,asset=best
+        beat=beats[beat_index];src=str(asset.get("src",""))
+        publisher=""
+        if 0<=source_index<len(sources) and isinstance(sources[source_index],dict):
+            publisher=str(sources[source_index].get("publisher",""))
+        v={"type":"source","sourceIndex":source_index,"query":beat.get("text",""),
+           "matchScore":score,"src":src,"publisher":publisher,
+           "visualHash":asset.get("visualHash")}
+        width=int(asset.get("width",0) or 0);height=int(asset.get("height",0) or 0)
+        if width>0 and height>0:
+            ratio=width/height
+            v.update({"assetWidth":width,"assetHeight":height,
+                      "layout":"landscape" if ratio>=1.15 else ("portrait" if ratio<=0.78 else "square")})
+        beat["visual"]=v
+        used.add(src)
+        if asset.get("visualHash"):used_hashes.append(str(asset["visualHash"]))
+        claimed.add(beat_index);enriched+=1
+        print(f'Source enrichment beat {beat_index}: match={score:.3f} src={src}')
+    return enriched
 
 ABSTRACT_TYPES={"explain","chart","timeline","comparison","flow","diagram","network","drawn-diagram"}
 
@@ -455,6 +516,8 @@ def main():
                 use=min(md,max(.35,dur-.05));meme["durationSeconds"]=round(use,3);meme["offsetSeconds"]=round(max(.02,dur-use-.03),3)
         if last not in cutaway_by_beat:prepared[last]["end"]=round(final_duration,4)
 
+    enriched=apply_source_enrichment(prepared,source_assets,story,used_source_assets,used_source_hashes)
+    print(f"Source-media enrichments: {enriched}/{len(prepared)} semantic beats")
     upgraded=apply_diagram_first(prepared)
     print(f"Diagram-first upgrades: {upgraded}/{len(prepared)} semantic beats")
     visual_beats=build_visual_windows(prepared,cutaway_by_beat,final_duration)
@@ -493,6 +556,7 @@ def main():
             visual["variant"]=variant
             local_patterns.add(f"drawn:{kind}:{variant}")
     props=dict(story);props["durationSeconds"]=round(final_duration,4);props["beats"]=prepared;props["visualBeats"]=visual_beats;props["captions"]=words;props["cutaways"]=cutaways
+    props["sourceCandidateCount"]=source_candidate_count(source_assets);props["sourceEnrichedCount"]=enriched
     BUILD_DIR.mkdir(parents=True,exist_ok=True);(BUILD_DIR/"render-props.json").write_text(json.dumps(props,indent=2),encoding="utf-8")
     (BUILD_DIR/"visual-quality.json").write_text(json.dumps({"slug":story.get("slug"),"patterns":sorted(local_patterns)},indent=2),encoding="utf-8")
     print(f"Render props ready: {len(prepared)} semantic beats -> {len(visual_beats)} visual windows, {final_duration:.2f}s")
