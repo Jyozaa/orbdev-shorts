@@ -1,0 +1,267 @@
+{
+  "slug": "reflection-beam-501b-open-weight",
+  "title": "Reflection introduced a 501B open-weight model",
+  "narration": "Reflection introduced Beam, a 501-billion-parameter open-weight model. Only 23 billion parameters are active for each token. That is a very large model doing selective cardio. Beam targets coding, reasoning, and agentic workloads. Reflection says pretraining used 23.8 trillion tokens. Reinforcement learning then generated over 100 million rollouts. That run used 10,500 NVIDIA GB300 GPUs for four weeks. So the training receipt is probably longer than this Short. Beam is still finishing red-teaming and evaluations. Early access is open now. Reflection says weights and technical reports arrive later this month. Five hundred billion parameters, twenty-three billion actually clocking in.",
+  "beats": [
+    {
+      "text": "Reflection introduced Beam, a 501-billion-parameter open-weight model.",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Reflection Beam 501B model",
+        "mustMatch": [
+          "Beam"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Only 23 billion parameters are active for each token.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "ONLY 23 BILLION PARAMETERS ARE",
+        "emphasis": "ARE"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "wait"
+        ]
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "That is a very large model doing selective cardio.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Beam 23B active parameters",
+        "mustMatch": [
+          "Beam"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Beam targets coding, reasoning, and agentic workloads.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "23B ACTIVE"
+      }
+    },
+    {
+      "text": "Reflection says pretraining used 23.8 trillion tokens.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "comparison",
+        "left": "501B TOTAL",
+        "right": "23B ACTIVE"
+      }
+    },
+    {
+      "text": "Reinforcement learning then generated over 100 million rollouts.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Beam 23.8 trillion tokens",
+        "mustMatch": [
+          "Beam"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "That run used 10,500 NVIDIA GB300 GPUs for four weeks.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "THAT RUN USED 10 500",
+        "emphasis": "500"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.95,
+        "concepts": [
+          "surprised",
+          "contrast",
+          "reaction"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "So the training receipt is probably longer than this Short.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Beam 10500 GB300 GPUs",
+        "mustMatch": [
+          "Beam"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Beam is still finishing red-teaming and evaluations.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "comparison",
+        "left": "PRETRAINING",
+        "right": "100M+ RL"
+      }
+    },
+    {
+      "text": "Early access is open now.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Beam open weight release",
+        "mustMatch": [
+          "Beam"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Reflection says weights and technical reports arrive later this month.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "kinetic",
+        "text": "REFLECTION SAYS WEIGHTS AND TECHNICAL",
+        "emphasis": "TECHNICAL"
+      },
+      "memeIntent": {
+        "purpose": "emphasis",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "emphasis"
+        ]
+      }
+    },
+    {
+      "text": "Five hundred billion parameters, twenty-three billion actually clocking in.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "FIVE HUNDRED BILLION PARAMETERS TWENTY-THREE",
+        "emphasis": "TWENTY-THREE"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "reaction",
+          "laugh",
+          "punchline"
+        ]
+      },
+      "sfx": "whoosh"
+    }
+  ],
+  "editorial": {
+    "storyKey": "reflection-beam-501b-2026-10-05",
+    "selectedAt": "2026-10-06T07:20:00+01:00",
+    "score": 9.6,
+    "memeMode": "normal",
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "open-weight AI",
+      "mixture of experts",
+      "agentic AI"
+    ],
+    "companies": [
+      "Reflection AI",
+      "NVIDIA"
+    ],
+    "sources": [
+      {
+        "title": "Introducing Beam: Reflection’s 501B open-weight model",
+        "publisher": "Reflection",
+        "url": "https://reflection.ai/blog/introducing-beam",
+        "publishedAt": "2026-10-05",
+        "primary": true
+      }
+    ],
+    "discovery": {
+      "backfillStart": "2026-09-25",
+      "backfillEnd": "2026-10-06",
+      "clusterId": "eff2e9b3fd684e39",
+      "lanes": [
+        "major_news",
+        "hot_emerging"
+      ],
+      "creators": []
+    }
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "Beam Is a 501B Model With Only 23B Parameters Active",
+    "description": "Reflection introduced Beam, a sparse 501B-parameter open-weight model with 23B active parameters, trained for coding, reasoning and agentic workloads.",
+    "tags": [
+      "Reflection AI",
+      "Beam",
+      "open weight model",
+      "mixture of experts",
+      "AI model",
+      "coding model",
+      "agentic AI"
+    ],
+    "hashtags": [
+      "#AI",
+      "#OpenSourceAI",
+      "#Beam",
+      "#MachineLearning"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}
