@@ -64,17 +64,18 @@ def diagram_kind_for_beat(beat:dict,position:int=0)->str:
     if mode=="fanout":return "branch"
     if mode=="capacity":return "stack"
     text=(" ".join([str(beat.get("text","")),json.dumps(visual,ensure_ascii=False)])).lower()
+    # Specific mechanism terms outrank generic temporal words such as "before".
     rules=[
-        ("shield",{"security","secure","attack","attacker","breach","protect","protected","malware","exploit","vulnerability","firewall","sandbox"}),
-        ("timeline",{"timeline","first","later","eventually","before","after","then","now","year","month","week","day"}),
+        ("shield",{"security","secure","breach","protect","protected","firewall","sandbox"}),
         ("wave",{"audio","voice","speech","sound","signal","wave","frequency","radio"}),
-        ("comparison",{"versus"," vs ","compare","compared","instead","old","newer","difference"}),
-        ("growth",{"grow","growth","increase","decrease","faster","slower","speed","performance","benchmark","scale","billion","million","percent","%"}),
-        ("funnel",{"filter","merge","combine","aggregate","select","compress","reduce","narrow"}),
-        ("stack",{"layer","stack","cache","memory","context","storage","buffer"}),
         ("branch",{"branch","split","route","router","choice","choose","expert","specialist","dispatch"}),
+        ("stack",{"layer","stack","cache","memory","context","storage","buffer"}),
         ("mesh",{"network","graph","peer","node","connected","connection","cluster"}),
         ("orbit",{"agent","agents","tool","tools","ecosystem","plugin","plugins","service","services"}),
+        ("funnel",{"filter","merge","combine","aggregate","select","compress","reduce","narrow"}),
+        ("comparison",{"versus"," vs ","compare","compared","instead","old","newer","difference"}),
+        ("growth",{"grow","growth","increase","decrease","faster","slower","speed","performance","benchmark","scale","billion","million","percent","%"}),
+        ("timeline",{"timeline","first","later","eventually","before","after","then","now","year","month","week","day"}),
         ("flow",{"input","output","process","pipeline","token","tokens","request","requests","data","through"}),
     ]
     padded=f" {text} "
