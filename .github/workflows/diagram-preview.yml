@@ -28,8 +28,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Install Node packages
-        run: npm install --no-audit --no-fund
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install preview dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          python -m pip install Pillow
+          npm install --no-audit --no-fund
       - name: Typecheck diagram engine
         run: npm run typecheck
       - name: Render all diagram families
