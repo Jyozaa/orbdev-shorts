@@ -27,6 +27,11 @@ def main():
         assert item["visual"]["type"]=="drawn-diagram"
         assert all(len(x.split())<=2 and len(x)<=22 for x in item["visual"].get("labels",[]))
 
+    meme_reaction=beat("That result is surprising","reaction",{"type":"kinetic","text":"WAIT WHAT"})
+    meme_reaction["meme"]={"mediaType":"image","src":"memes/example.png"}
+    assert render.apply_diagram_first([meme_reaction])==1
+    assert meme_reaction["visual"]["type"]=="drawn-diagram"
+
     rejected=beat("Requests flow through a model and return results","explanation",
                   {"type":"source","sourceIndex":0,"query":"missing"})
     render.apply_diagram_first([rejected])
