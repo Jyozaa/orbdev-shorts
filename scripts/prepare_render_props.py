@@ -32,7 +32,10 @@ def visual_label_candidates(visual:dict)->list[str]:
     raw=[]
     for key in ("labels","stages","nodes","symbols"):
         value=visual.get(key)
-        if isinstance(value,list):raw.extend(value)
+        if isinstance(value,list):
+            for item in value:
+                if isinstance(item,str):raw.append(item)
+                elif isinstance(item,dict):raw.append(item.get("label") or item.get("value") or "")
     for key in ("center","left","right"):
         value=visual.get(key)
         if isinstance(value,str):raw.append(value)
