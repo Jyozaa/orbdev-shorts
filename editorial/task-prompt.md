@@ -125,16 +125,18 @@ This is a structure, not a template. Do not repeat identical hooks or punchline 
 
 ## Visual hierarchy
 
-Default hierarchy:
-1. Relevant official/source image, UI, demo, product, person, game, hardware, chart or research figure.
-2. Layered composition using source media plus small branding/highlights.
-3. Genuine explanatory animation when motion explains a relationship.
-4. Metric, kinetic typography, symbol or comparison.
-5. Standalone logo only when the brand reveal itself is the point.
+Orbdev is now **diagram-first for explanation, source-first for evidence**.
 
-Pure logo scenes are rare: normally no more than two in a 25-40 second Short, and never consecutively.
+1. When showing *what actually happened*, use a relevant official/source image, UI, demo, product, person, hardware view, chart or research figure.
+2. When explaining *how or why it works*, default to a clean `drawn-diagram`. The narration explains; the diagram visualizes.
+3. Use source media plus small highlights/branding when the source itself contains the mechanism worth pointing at.
+4. Use metrics/charts when the number is the story.
+5. Use kinetic typography only as brief punctuation for a hook, reaction or punchline. It must not carry paragraphs of explanation.
+6. Standalone logos are rare and only for an actual brand reveal.
 
-When enough relevant media exists, target roughly 35-55% real/source visual windows. Capture several distinct assets from the primary source rather than showing one hero image repeatedly.
+For a typical technical 25-40 second Short, aim roughly for **35-50% drawn-diagram windows**, **20-40% source/media windows when credible media exists**, **10-20% meme/reaction moments layered over or cutting away from those visuals**, and **no more than about 15% typography-led windows**. These ranges are editorial targets, not quotas: never invent a diagram or use irrelevant media to hit a number.
+
+Do not put the narration on screen. Large text is not a substitute for a visual explanation. Diagram annotations should normally be **one or two words**, with three words as a hard maximum. Capture several distinct source assets rather than repeating one hero image.
 
 ## Source imagery and safe framing
 
@@ -151,9 +153,18 @@ Reject weak source matches instead of showing the wrong image.
 
 ## Explanatory animation
 
-Use the new `drawn-diagram` grammar when motion genuinely helps explain transformation, capacity, causality, hierarchy, routing, comparison, security, flow, growth or movement. Prefer its semantic families (`branch/orbit/flow/growth/stack/comparison/timeline/wave/shield/funnel/mesh`) over generic boxes-and-arrows.
+Use the new `drawn-diagram` grammar for normal technical explanation. The semantic families are `branch/orbit/flow/growth/stack/comparison/timeline/wave/shield/funnel/mesh`; choose the family from meaning, not visual novelty alone.
 
-Different `drawn-diagram` families may be consecutive **when they are one evolving explanation**. This is the deliberate exception to the normal abstract-tech reset rule: the renderer persists anchor particles and morphs topology across the scene boundary. Choose a changing family that matches how the idea itself changes. Do not chain the same family repeatedly and do not connect unrelated ideas just to create motion. Other legacy abstract treatments should still receive a visual reset. Phase 4 will increase diagram-first selection and reduce text density.
+```json
+{"type":"drawn-diagram","kind":"branch","labels":["ROUTER","EXPERTS","OUTPUT"]}
+{"type":"drawn-diagram","kind":"shield","labels":["SANDBOX"]}
+{"type":"drawn-diagram","kind":"orbit","labels":["AGENT","TOOLS","MEMORY","FILES"]}
+{"type":"drawn-diagram","kind":"growth","labels":["BEFORE","AFTER"]}
+```
+
+Do not manually add `continuityKey`, `continuityIn` or `continuityOut`; render preparation assigns continuity when adjacent semantic diagrams should morph. Prefer these diagrams over legacy `explain`, `flow`, `diagram`, `network`, and text-card treatments in newly authored stories.
+
+Different `drawn-diagram` families may be consecutive **when they are one evolving explanation**. The renderer persists anchor particles and morphs topology across the scene boundary. Choose a changing family because the idea changes, not merely to animate something. Do not chain the same family repeatedly and do not connect unrelated ideas just to create motion.
 
 ## Editing rhythm
 
@@ -189,7 +200,8 @@ Process every independently qualifying topic from the scan, not only the single 
 Before committing a story, audit the first 5 seconds and every humor beat:
 
 - Do not rely on a fixed cut-every-two-seconds rhythm. Keep the base visual readable, then create energy with quick meme/reaction overlays, highlights, zooms and sound punctuation.
-- Prefer a real screenshot/demo/photo as the visual substrate; logos should usually be a small layer, not the whole frame.
+- Prefer a real screenshot/demo/photo when grounding a factual claim; prefer a drawn diagram when explaining a mechanism. Logos should usually be a small layer, not the whole frame.
+- Audit text density: if a visual needs more than a few large words to make sense, redesign it as a diagram, source highlight or metric.
 - For each `joke`, `analogy`, `reaction`, `punchline` or `callback`, ask what the visual punchline is. If a meme is appropriate, give it an explicit `memeIntent`.
 - In a normal 35-40 second story, plan 4-6 explicit meme/reaction moments, with at least three explicitly preferring image/video media. Use restrained mode only for genuinely sensitive human-suffering topics.
 - Make callbacks intentional: reuse a phrase, premise, visual concept or reaction category near the ending instead of treating every beat as unrelated.
