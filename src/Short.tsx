@@ -11,6 +11,7 @@ import {BeatVisual} from './components/BeatVisual';
 import {CaptionStrip} from './components/CaptionStrip';
 import {MemeTrack} from './components/MemeTrack';
 import {SfxTrack} from './components/SfxTrack';
+import {DiagramContinuityTrack} from './components/diagram/DiagramContinuityTrack';
 import {StoryProps} from './types';
 
 export const OrbdevShort: React.FC<StoryProps> = ({beats, visualBeats, captions, cutaways}) => {
@@ -39,6 +40,7 @@ export const OrbdevShort: React.FC<StoryProps> = ({beats, visualBeats, captions,
           </Sequence>
         );
       })}
+      <DiagramContinuityTrack visualBeats={visualBeats} />
 
       <MemeTrack beats={beats} cutaways={cutaways} />
       <CaptionStrip captions={captions} cutaways={cutaways} />
