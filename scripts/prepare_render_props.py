@@ -120,7 +120,7 @@ def diagram_kind_for_beat(beat:dict,position:int=0)->str:
     seed=int(hashlib.sha1(f"{position}|{beat.get('text','')}".encode()).hexdigest()[:8],16)
     return fallbacks[seed%len(fallbacks)]
 
-def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None)->dict:
+def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None,family_counts:dict[str,int]|None=None)->dict:
     visual=beat.get("visual",{}) if isinstance(beat.get("visual"),dict) else {}
     kind=diagram_kind_for_beat(beat,position)
     alternates={
@@ -129,8 +129,16 @@ def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None
         "shield":["mesh","flow"],"stack":["flow","funnel"],"timeline":["growth","flow"],
         "wave":["flow","orbit"],"funnel":["flow","stack"],
     }
-    if previous_kind==kind:
-        kind=alternates.get(kind,["flow"])[position%len(alternates.get(kind,["flow"]))]
+    counts=family_counts or {}
+    options=alternates.get(kind,["flow"])
+    # Adjacent repetition is never useful, and after two appearances of the
+    # same family in one Short prefer a related geometry with lower usage.
+    if previous_kind==kind or counts.get(kind,0)>=2:
+        ranked=sorted(
+            enumerate(options),
+            key=lambda pair:(counts.get(pair[1],0),pair[0])
+        )
+        if ranked:kind=ranked[0][1]
     target={"comparison":2,"growth":2,"wave":2,"shield":1,"mesh":2,"flow":3,
             "branch":3,"orbit":4,"stack":4,"timeline":3,"funnel":4}.get(kind,3)
     labels=visual_label_candidates(visual)
@@ -160,7 +168,7 @@ def should_upgrade_to_drawn(beat:dict,position:int)->bool:
     return False
 
 def apply_diagram_first(beats:list[dict])->int:
-    converted=0;previous_kind=None
+    converted=0;previous_kind=None;family_counts:dict[str,int]={}
     for position,beat in enumerate(beats):
         visual=beat.get("visual",{})
         if visual.get("type")=="source" and visual.get("src"):
@@ -169,10 +177,13 @@ def apply_diagram_first(beats:list[dict])->int:
         if rejected_source or should_upgrade_to_drawn(beat,position):
             role=str(beat.get("editorialRole","")).lower()
             if role not in TYPOGRAPHY_PUNCTUATION_ROLES or has_visible_meme(beat):
-                beat["visual"]=drawn_diagram_from_beat(beat,position,previous_kind)
-                previous_kind=str(beat["visual"]["kind"]);converted+=1;continue
+                beat["visual"]=drawn_diagram_from_beat(beat,position,previous_kind,family_counts)
+                previous_kind=str(beat["visual"]["kind"])
+                family_counts[previous_kind]=family_counts.get(previous_kind,0)+1
+                converted+=1;continue
         if beat.get("visual",{}).get("type")=="drawn-diagram":
             previous_kind=str(beat["visual"].get("kind",""))
+            family_counts[previous_kind]=family_counts.get(previous_kind,0)+1
         else:previous_kind=None
     return converted
 
