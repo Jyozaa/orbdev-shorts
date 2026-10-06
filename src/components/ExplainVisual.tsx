@@ -41,6 +41,7 @@ export const ExplainVisual: React.FC<{visual: ExplainSpec}> = ({visual}) => {
   const enter=spring({frame,fps,config:{damping:18,stiffness:160,mass:.65}});
   const camera=1+0.025*p;
   const labels=visual.labels ?? [];
+  const variant=((visual.variant ?? 0)%6+6)%6;
 
   if(visual.mode==='pixel-upscale'){
     const leftReveal=clamp01(p/0.35);
@@ -131,17 +132,31 @@ export const ExplainVisual: React.FC<{visual: ExplainSpec}> = ({visual}) => {
   if(visual.mode==='pipeline'){
     const stages=(visual.stages ?? labels).slice(0,5);
     return <AbsoluteFill style={{background:'#000',color:'#fff',fontFamily:'Arial',transform:`scale(${camera})`}}>
-      <div style={{position:'absolute',left:90,right:90,top:760,height:300,display:'flex',alignItems:'center',justifyContent:'space-between'}}>
+      <div style={{
+        position:'absolute',
+        left: variant%3===1 ? 265 : variant%3===2 ? 120 : 90,
+        right: variant%3===1 ? 265 : variant%3===2 ? 120 : 90,
+        top: variant%3===1 ? 410 : variant%3===2 ? 565 : 760,
+        height: variant%3===1 ? 1000 : variant%3===2 ? 550 : 300,
+        display:'flex',
+        flexDirection:variant%3===1?'column':'row',
+        alignItems:'center',justifyContent:'space-between',
+        transform:variant%3===2?'rotate(-8deg)':undefined
+      }}>
         {stages.map((stage,i)=>{
           const r=spring({frame,fps,delay:i*6,config:{damping:18,stiffness:175}});
           return <React.Fragment key={stage+i}>
-            <div style={{width:190,height:190,borderRadius:'50%',border:'4px solid #fff',display:'flex',alignItems:'center',justifyContent:'center',
-              fontSize:Math.max(24,46-stage.length*1.35),fontWeight:950,textAlign:'center',opacity:r,transform:`scale(${.7+.3*r})`,padding:16,boxSizing:'border-box'}}>{stage}</div>
-            {i<stages.length-1&&<div style={{height:5,flex:1,margin:'0 14px',background:'#fff',transformOrigin:'left',transform:`scaleX(${clamp01((p-.12*i)*1.8)})`}}/>}
+            <div style={{
+              width:variant%2?208:190,height:variant%2?150:190,borderRadius:variant%2?22:'50%',
+              border:'4px solid #fff',display:'flex',alignItems:'center',justifyContent:'center',
+              fontSize:Math.max(24,46-stage.length*1.35),fontWeight:950,textAlign:'center',opacity:r,
+              transform:`scale(${.7+.3*r})`,padding:16,boxSizing:'border-box'
+            }}>{stage}</div>
+            {i<stages.length-1&&<div style={{height:variant%3===1?44:5,width:variant%3===1?5:undefined,flex:variant%3===1?undefined:1,margin:variant%3===1?'8px 0':'0 14px',background:'#fff',transformOrigin:'left',transform:`scale${variant%3===1?'Y':'X'}(${clamp01((p-.12*i)*1.8)})`}}/>}
           </React.Fragment>;
         })}
       </div>
-      <div style={{position:'absolute',top:830,left:95+clamp01(p)*820,width:34,height:34,borderRadius:'50%',background:'#fff',boxShadow:'0 0 30px #fff'}}/>
+      <div style={{position:'absolute',top:variant%3===1?500+clamp01(p)*820:830,left:variant%3===1?535:95+clamp01(p)*820,width:24,height:24,borderRadius:'50%',background:'#fff',boxShadow:'0 0 25px #fff'}}/>
     </AbsoluteFill>;
   }
 
@@ -151,7 +166,8 @@ export const ExplainVisual: React.FC<{visual: ExplainSpec}> = ({visual}) => {
     <svg width="1080" height="1920" style={{position:'absolute',inset:0}}>
       {nodes.map((_,i)=>{
         const a=-Math.PI/2+i*Math.PI*2/nodes.length;
-        const x=540+Math.cos(a)*350,y=860+Math.sin(a)*350;
+        const orbit=variant%3===0?350:variant%3===1?260:410;
+        const x=540+Math.cos(a)*orbit,y=860+Math.sin(a)*(variant%3===1?520:variant%3===2?245:350);
         return <line key={i} x1="540" y1="860" x2={x} y2={y} stroke="rgba(255,255,255,.55)" strokeWidth="4"
           strokeDasharray="500" strokeDashoffset={500*(1-clamp01((p-.08*i)*1.8))}/>;
       })}

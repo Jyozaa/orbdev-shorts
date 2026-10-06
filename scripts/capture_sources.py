@@ -83,6 +83,20 @@ def chrome_screenshot(url:str,target:Path)->bool:
         return target.exists()
     except Exception:return False
 
+def visual_hash(path:Path)->str:
+    """64-bit difference hash independent of filename, URL, and image encoding."""
+    try:
+        b=subprocess.check_output(
+            ["ffmpeg","-v","error","-i",str(path),"-vf","scale=9:8,format=gray",
+             "-frames:v","1","-f","rawvideo","-"],timeout=15)
+        if len(b)!=72:return ""
+        bits=0
+        for row in range(8):
+            for col in range(8):
+                bits=(bits<<1)|int(b[row*9+col]>b[row*9+col+1])
+        return f"{bits:016x}"
+    except Exception:return ""
+
 def capture(candidate:dict[str,object],referer:str,index:int,variant:int)->dict[str,object]|None:
     temp=BUILD/f"source-{index}-{variant}.asset"; target=PUBLIC/f"source-{index}-{variant}.jpg"
     try:
@@ -92,7 +106,7 @@ def capture(candidate:dict[str,object],referer:str,index:int,variant:int)->dict[
         dims=normalize_image(temp,target)
         if not dims:return None
         w,h=dims
-        return {"src":f"sources/{target.name}","url":candidate["url"],"text":candidate.get("text",""),"baseScore":candidate.get("baseScore",0),"width":w,"height":h,"aspectRatio":round(w/max(1,h),4)}
+        return {"src":f"sources/{target.name}","url":candidate["url"],"text":candidate.get("text",""),"baseScore":candidate.get("baseScore",0),"width":w,"height":h,"aspectRatio":round(w/max(1,h),4),"visualHash":visual_hash(target)}
     except Exception as e:
         print(f"Source {index} image {variant} failed: {e}"); return None
     finally: temp.unlink(missing_ok=True)
@@ -116,13 +130,20 @@ def main():
                 for cand in extract_image_candidates(page,url):
                     if len(assets)>=MAX_IMAGES_PER_SOURCE:break
                     item=capture(cand,url,index,len(assets))
-                    if item:assets.append(item)
+                    if item:
+                         digest=str(item.get("visualHash") or "")
+                         duplicate=any(digest and prev.get("visualHash") and
+                                       (int(digest,16)^int(prev["visualHash"],16)).bit_count()<=3
+                                       for prev in assets)
+                         if duplicate:
+                             (PUBLIC/item["src"].split("/")[-1]).unlink(missing_ok=True)
+                         else:assets.append(item)
         except Exception as e: print(f"Source {index}: discovery failed: {e}")
         if len(assets)<MAX_IMAGES_PER_SOURCE:
             shot=PUBLIC/f"source-{index}-page.png"
             if chrome_screenshot(url,shot):
                 title=str(sources[index].get("title",""))
-                assets.append({"src":f"sources/{shot.name}","url":url,"text":f"official source page screenshot {title}","baseScore":34,"width":1080,"height":1400,"aspectRatio":round(1080/1400,4)})
+                assets.append({"src":f"sources/{shot.name}","url":url,"text":f"official source page screenshot {title}","baseScore":34,"width":1080,"height":1400,"aspectRatio":round(1080/1400,4),"visualHash":visual_hash(shot)})
         report[str(index)]={"assets":assets,"count":len(assets)}
         print(f"Source {index}: captured {len(assets)} candidate assets with semantic metadata")
     REPORT.write_text(json.dumps(report,indent=2),encoding="utf-8")
