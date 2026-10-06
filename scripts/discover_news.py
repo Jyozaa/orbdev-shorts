@@ -538,27 +538,56 @@ def youtube_channel_videos(channel_url: str, max_videos: int) -> list[dict[str, 
         return []
 
     videos: list[dict[str, Any]] = []
+    detail_options = {
+        "quiet": True,
+        "no_warnings": True,
+        "skip_download": True,
+        "ignoreerrors": True,
+    }
     for entry in payload.get("entries") or []:
         if not isinstance(entry, dict):
             continue
         video_id = str(entry.get("id") or "").strip()
         if not video_id:
             continue
-        timestamp = entry.get("timestamp") or entry.get("release_timestamp")
-        published_at = None
-        if isinstance(timestamp, (int, float)):
-            published_at = iso(datetime.fromtimestamp(float(timestamp), tz=timezone.utc))
-        if not published_at:
-            upload_date = str(entry.get("upload_date") or "").strip()
+        watch_url = f"https://www.youtube.com/watch?v={video_id}"
+
+        def published_from(item: dict[str, Any]) -> str | None:
+            timestamp = item.get("timestamp") or item.get("release_timestamp")
+            if isinstance(timestamp, (int, float)):
+                return iso(datetime.fromtimestamp(float(timestamp), tz=timezone.utc))
+            upload_date = str(item.get("upload_date") or "").strip()
             if re.fullmatch(r"\d{8}", upload_date):
-                published_at = iso(datetime.strptime(upload_date, "%Y%m%d").replace(tzinfo=timezone.utc))
+                return iso(datetime.strptime(upload_date, "%Y%m%d").replace(tzinfo=timezone.utc))
+            return None
+
+        published_at = published_from(entry)
+        detailed = entry
+        if not published_at:
+            try:
+                with yt_dlp.YoutubeDL(detail_options) as ydl:
+                    full = ydl.extract_info(watch_url, download=False)
+                if isinstance(full, dict):
+                    detailed = full
+                    published_at = published_from(full)
+            except Exception as exc:
+                print(
+                    f"creator video metadata unavailable: {video_id}: "
+                    f"{type(exc).__name__}",
+                    file=sys.stderr,
+                )
+
+        if not published_at:
+            print(f"creator video date unavailable: {video_id}", file=sys.stderr)
+            continue
+
         videos.append(
             {
                 "videoId": video_id,
-                "title": clean_text(str(entry.get("title") or "Creator video")),
+                "title": clean_text(str(detailed.get("title") or entry.get("title") or "Creator video")),
                 "publishedAt": published_at,
-                "url": f"https://www.youtube.com/watch?v={video_id}",
-                "description": clean_text(str(entry.get("description") or "")),
+                "url": watch_url,
+                "description": clean_text(str(detailed.get("description") or entry.get("description") or "")),
             }
         )
     return videos
