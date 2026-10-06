@@ -510,6 +510,117 @@ def youtube_feed(channel_id: str) -> list[dict[str, Any]]:
     return videos
 
 
+def youtube_page_time(text: str, now: datetime) -> str | None:
+    value = clean_text(text).lower()
+    value = re.sub(r"^(streamed|premiered)\s+", "", value)
+    if value in {"today", "just now"}:
+        return iso(now)
+    match = re.search(r"(\d+)\s+(minute|hour|day|week|month|year)s?\s+ago", value)
+    if not match:
+        return None
+    amount = int(match.group(1))
+    unit = match.group(2)
+    seconds = {
+        "minute": 60,
+        "hour": 3600,
+        "day": 86400,
+        "week": 7 * 86400,
+        "month": 30 * 86400,
+        "year": 365 * 86400,
+    }[unit] * amount
+    return iso(now - timedelta(seconds=seconds))
+
+
+def youtube_channel_page_videos(
+    channel_url: str,
+    now: datetime,
+    max_videos: int,
+) -> list[dict[str, Any]]:
+    target = channel_url.rstrip("/")
+    if not target.endswith("/videos"):
+        target += "/videos"
+    try:
+        html = fetch_text(target, timeout=20)
+    except Exception as exc:
+        print(
+            f"creator channel page failed: {channel_url}: {type(exc).__name__}: {exc}",
+            file=sys.stderr,
+        )
+        return []
+
+    payload = None
+    decoder = json.JSONDecoder()
+    for pattern in (
+        r"var\s+ytInitialData\s*=\s*",
+        r'window\["ytInitialData"\]\s*=\s*',
+        r"ytInitialData\s*=\s*",
+    ):
+        for match in re.finditer(pattern, html):
+            start = html.find("{", match.end())
+            if start < 0:
+                continue
+            try:
+                payload, _ = decoder.raw_decode(html[start:])
+                break
+            except Exception:
+                continue
+        if payload is not None:
+            break
+    if payload is None:
+        print(f"creator channel page missing ytInitialData: {channel_url}", file=sys.stderr)
+        return []
+
+    rows: list[dict[str, Any]] = []
+    seen: set[str] = set()
+
+    def text_value(value: object) -> str:
+        if not isinstance(value, dict):
+            return ""
+        simple = value.get("simpleText")
+        if isinstance(simple, str):
+            return clean_text(simple)
+        runs = value.get("runs")
+        if isinstance(runs, list):
+            return clean_text("".join(
+                str(row.get("text") or "")
+                for row in runs
+                if isinstance(row, dict)
+            ))
+        return ""
+
+    def visit(node: object) -> None:
+        if isinstance(node, dict):
+            for key in ("videoRenderer", "gridVideoRenderer"):
+                renderer = node.get(key)
+                if not isinstance(renderer, dict):
+                    continue
+                video_id = str(renderer.get("videoId") or "").strip()
+                if not video_id or video_id in seen:
+                    continue
+                title = text_value(renderer.get("title")) or "Creator video"
+                published_text = text_value(renderer.get("publishedTimeText"))
+                published_at = youtube_page_time(published_text, now)
+                if not published_at:
+                    continue
+                description = text_value(renderer.get("descriptionSnippet"))
+                seen.add(video_id)
+                rows.append({
+                    "videoId": video_id,
+                    "title": title,
+                    "publishedAt": published_at,
+                    "url": f"https://www.youtube.com/watch?v={video_id}",
+                    "description": description,
+                })
+            for value in node.values():
+                visit(value)
+        elif isinstance(node, list):
+            for value in node:
+                visit(value)
+
+    visit(payload)
+    return rows[:max_videos]
+
+
 def youtube_channel_videos(channel_url: str, max_videos: int) -> list[dict[str, Any]]:
     """List recent channel videos without relying on YouTube's RSS endpoint."""
     try:
@@ -715,8 +826,19 @@ def creator_candidates(
         try:
             videos = youtube_feed(channel_id)
         except Exception as exc:
-            print(f"creator feed failed: {creator['name']}: {exc}; trying yt-dlp", file=sys.stderr)
-            videos = youtube_channel_videos(creator["url"], max_videos)
+            print(
+                f"creator feed failed: {creator['name']}: {exc}; trying channel page",
+                file=sys.stderr,
+            )
+            videos = youtube_channel_page_videos(
+                creator["url"], now, max(max_videos * 2, 12)
+            )
+            if not videos:
+                print(
+                    f"creator channel page unavailable: {creator['name']}; trying yt-dlp",
+                    file=sys.stderr,
+                )
+                videos = youtube_channel_videos(creator["url"], max_videos)
         if not videos:
             print(f"creator listing unavailable: {creator['name']}", file=sys.stderr)
             continue
