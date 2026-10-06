@@ -151,9 +151,9 @@ Reject weak source matches instead of showing the wrong image.
 
 ## Explanatory animation
 
-Use `explain` only when motion genuinely helps explain transformation, capacity, causality, hierarchy or movement.
+Use the new `drawn-diagram` grammar when motion genuinely helps explain transformation, capacity, causality, hierarchy, routing, comparison, security, flow, growth or movement. Prefer its semantic families (`branch/orbit/flow/growth/stack/comparison/timeline/wave/shield/funnel/mesh`) over generic boxes-and-arrows.
 
-Keep all abstract-tech treatments (`explain/chart/timeline/comparison/flow/diagram/network`) to roughly one third of final windows or less. Never place two abstract-tech windows consecutively. Repeating the same explanation grammar in one Short is prohibited.
+Different `drawn-diagram` families may be consecutive **when they are one evolving explanation**. This is the deliberate exception to the normal abstract-tech reset rule: the renderer persists anchor particles and morphs topology across the scene boundary. Choose a changing family that matches how the idea itself changes. Do not chain the same family repeatedly and do not connect unrelated ideas just to create motion. Other legacy abstract treatments should still receive a visual reset. Phase 4 will increase diagram-first selection and reduce text density.
 
 ## Editing rhythm
 

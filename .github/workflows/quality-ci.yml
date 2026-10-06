@@ -32,6 +32,7 @@ jobs:
         run: |
           python -m compileall -q scripts
           python scripts/test_visual_logic.py
+          python scripts/test_diagram_continuity.py
           python scripts/test_discovery_logic.py
           python scripts/filter_queue.py --covered history/covered.json stories/queue/*.json
       - uses: actions/setup-node@v4
