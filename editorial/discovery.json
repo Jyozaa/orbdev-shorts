@@ -150,7 +150,8 @@
         "url": "https://www.youtube.com/@Fireship",
         "category": "developer_zeitgeist",
         "discoveryWeight": 1.3,
-        "maxSegmentsPerVideo": 10
+        "maxSegmentsPerVideo": 10,
+        "channelId": "UCsBjURrPoezykLs9EqgamOA"
       },
       {
         "name": "AI Search",
@@ -158,7 +159,8 @@
         "url": "https://www.youtube.com/@theAIsearch",
         "category": "ai_news_high_recall",
         "discoveryWeight": 1.3,
-        "maxSegmentsPerVideo": 24
+        "maxSegmentsPerVideo": 24,
+        "channelId": "UCIgnGlGkVRhd4qNFcEwLL4A"
       },
       {
         "name": "Two Minute Papers",
@@ -166,7 +168,8 @@
         "url": "https://www.youtube.com/@TwoMinutePapers",
         "category": "research",
         "discoveryWeight": 1.2,
-        "maxSegmentsPerVideo": 10
+        "maxSegmentsPerVideo": 10,
+        "channelId": "UCbfYPyITQ-7l4upoX8nvctg"
       },
       {
         "name": "AI Explained",
@@ -174,7 +177,8 @@
         "url": "https://www.youtube.com/@aiexplained-official",
         "category": "frontier_ai_analysis",
         "discoveryWeight": 1.2,
-        "maxSegmentsPerVideo": 14
+        "maxSegmentsPerVideo": 14,
+        "channelId": "UCNJ1Ymd5yFuUPtn21xtRbbw"
       },
       {
         "name": "Matt Wolfe",
@@ -182,7 +186,8 @@
         "url": "https://www.youtube.com/@mreflow",
         "category": "ai_news_high_recall",
         "discoveryWeight": 1.3,
-        "maxSegmentsPerVideo": 24
+        "maxSegmentsPerVideo": 24,
+        "channelId": "UChpleBmo18P08aKCIgti38g"
       },
       {
         "name": "ThePrimeTime",
@@ -190,7 +195,8 @@
         "url": "https://www.youtube.com/@ThePrimeTimeagen",
         "category": "developer_zeitgeist",
         "discoveryWeight": 1.3,
-        "maxSegmentsPerVideo": 14
+        "maxSegmentsPerVideo": 14,
+        "channelId": "UCUyeluBRhGPCW4rPe_UvBZQ"
       },
       {
         "name": "Matthew Berman",
@@ -198,7 +204,8 @@
         "url": "https://www.youtube.com/@matthew_berman",
         "category": "frontier_ai_analysis",
         "discoveryWeight": 1.15,
-        "maxSegmentsPerVideo": 14
+        "maxSegmentsPerVideo": 14,
+        "channelId": "UCawZsQWqfGSbCI5yjkdVkTA"
       },
       {
         "name": "All About AI",
@@ -206,7 +213,8 @@
         "url": "https://www.youtube.com/@AllAboutAI/videos",
         "category": "practical_ai_tools",
         "discoveryWeight": 1.1,
-        "maxSegmentsPerVideo": 14
+        "maxSegmentsPerVideo": 14,
+        "channelId": "UCR9j1jqqB5Rse69wjUnbYwA"
       }
     ]
   },
