@@ -2,6 +2,7 @@ import React from 'react';
 import {CalculateMetadataFunction, Composition} from 'remotion';
 import {OrbdevShort} from './Short';
 import {StoryProps} from './types';
+import {DiagramGallery} from './components/diagram/DiagramGallery';
 
 const defaultProps: StoryProps = {
   slug: 'preview',
@@ -33,14 +34,24 @@ const calculateMetadata: CalculateMetadataFunction<StoryProps> = ({props}) => ({
 });
 
 export const Root: React.FC = () => (
-  <Composition
-    id="OrbdevShort"
-    component={OrbdevShort}
-    durationInFrames={180}
-    fps={30}
-    width={1080}
-    height={1920}
-    defaultProps={defaultProps}
-    calculateMetadata={calculateMetadata}
-  />
+  <>
+    <Composition
+      id="OrbdevShort"
+      component={OrbdevShort}
+      durationInFrames={180}
+      fps={30}
+      width={1080}
+      height={1920}
+      defaultProps={defaultProps}
+      calculateMetadata={calculateMetadata}
+    />
+    <Composition
+      id="OrbdevDiagramGallery"
+      component={DiagramGallery}
+      durationInFrames={11 * 90}
+      fps={30}
+      width={1080}
+      height={1920}
+    />
+  </>
 );
