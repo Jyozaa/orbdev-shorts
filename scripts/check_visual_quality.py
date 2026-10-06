@@ -42,7 +42,7 @@ def audit(props:dict)->dict:
 
     generic_ratio=sum(k in GENERIC for k in kinds)/max(1,len(kinds))
     generic_count=sum(k in GENERIC for k in kinds)
-    generic_max=max(2,math.ceil(len(windows)*0.18))
+    generic_max=max(2,math.floor(len(windows)*0.20))
     if len(windows)>=8 and generic_count>generic_max:
         problems.append(f"Too many typography/generic scenes: {generic_count}/{len(windows)} (max {generic_max})")
     if any(displayed_words(v)>5 for v in visuals if v.get("type") in GENERIC):
