@@ -119,13 +119,17 @@ Avoid large unused black areas. Prefer layered compositions and foreground/backg
 
 ## Memes and reactions
 
-Target 4-6 meme/reaction moments when natural, with roughly 3-5 visibly appearing as image/video reactions in a 35-40 second entertainment-heavy Short.
+Meme density is a production contract, not a loose suggestion.
 
-Memes are punctuation, not wallpaper. Attach them to `joke`, `analogy`, `reaction`, `punchline`, and `callback` beats. Use audio reactions more sparingly than visible memes.
+For a normal Orbdev Short, set `editorial.memeMode` to `"normal"` or omit it because normal is the default. Plan **4-6 explicit `memeIntent` beats**, and make at least **3 of them explicitly prefer visible media** with `preferredMedia: "image"` or `"video"`. The selector targets at least 4 actual visible meme/reaction appearances when the approved catalog supports them. A normal production story must not be queued with only one or two meme moments.
 
-Silent meme images/videos are unboxed overlays: no card, border, or frame. Short video cutaways with useful audio may briefly interrupt narration when the gag warrants it.
+Use `editorial.memeMode: "restrained"` only when meme-heavy treatment would be inappropriate, such as deaths, severe physical harm, disasters, war victims, abuse, or similarly sensitive human suffering. Restrained mode may use 0-2 tasteful reaction moments. A cybersecurity breach, product failure, corporate mistake, benchmark surprise, technical limitation, or business story is **not automatically restrained**; reactions can target the system, attacker, company decision, or technical absurdity without mocking affected people.
 
-Do not automatically meme structural phrases like "here's the catch" unless the wording itself contains a joke/reaction.
+Memes are punctuation, not wallpaper. Attach them to `joke`, `analogy`, `reaction`, `punchline`, and `callback` beats, or to a factual beat whose wording creates a genuine reaction opportunity. Prefer visible image/video reactions over audio-only cues. Do not add filler jokes just to satisfy density; instead split naturally funny contrasts, consequences, caveats, and callbacks into their own visual beats.
+
+Silent meme images/videos are unboxed overlays: no card, border, or frame. Short video cutaways with useful audio may briefly interrupt narration when the gag warrants it. Spread meme moments across the Short instead of clustering all of them in one section; when natural, place one in the first five seconds and one near the payoff/callback.
+
+Do not automatically meme structural phrases like "here's the catch" unless the wording itself contains a joke/reaction. The final production planner must audit explicit meme count and visible-media preference before queueing.
 
 ## Narration rendering
 
@@ -141,7 +145,7 @@ Before committing a story, audit the first 5 seconds and every humor beat:
 - Do not rely on a fixed cut-every-two-seconds rhythm. Keep the base visual readable, then create energy with quick meme/reaction overlays, highlights, zooms and sound punctuation.
 - Prefer a real screenshot/demo/photo as the visual substrate; logos should usually be a small layer, not the whole frame.
 - For each `joke`, `analogy`, `reaction`, `punchline` or `callback`, ask what the visual punchline is. If a meme is appropriate, give it an explicit `memeIntent`.
-- In a normal 35-40 second entertainment-heavy story, plan at least three clearly visible meme/image/video reactions when the catalog can support them.
+- In a normal 35-40 second story, plan 4-6 explicit meme/reaction moments, with at least three explicitly preferring image/video media. Use restrained mode only for genuinely sensitive human-suffering topics.
 - Make callbacks intentional: reuse a phrase, premise, visual concept or reaction category near the ending instead of treating every beat as unrelated.
 - Do not crop screenshots or source art for vertical framing. The foreground is always contained inside the subtitle-safe region; visual energy comes from blurred background fill, motion, layered labels and overlays.
 - Keep technical trust intact: jokes can be aggressive, but facts, quotes, benchmark attribution and limitations must remain accurate.
