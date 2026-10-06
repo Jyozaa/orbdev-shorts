@@ -144,10 +144,15 @@ def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None
     if kind=="mesh":result["focus"]=seed%6
     return result
 
+def has_visible_meme(beat:dict)->bool:
+    meme=beat.get("meme")
+    return isinstance(meme,dict) and str(meme.get("mediaType","")) in {"image","video"}
+
 def should_upgrade_to_drawn(beat:dict,position:int)->bool:
     visual=beat.get("visual",{});kind=str(visual.get("type",""));role=str(beat.get("editorialRole","")).lower()
     if kind=="drawn-diagram" or kind in {"source","logo","metric","chart","timeline"}:return False
-    if role in TYPOGRAPHY_PUNCTUATION_ROLES:return False
+    if role in TYPOGRAPHY_PUNCTUATION_ROLES:
+        return has_visible_meme(beat) and kind in {"fact","text","kinetic","symbol"}
     if kind in LEGACY_DIAGRAM_TYPES:return True
     word_count=len(re.findall(r"\S+",str(beat.get("text",""))))
     if role in DIAGRAM_FIRST_ROLES:return True
@@ -163,7 +168,7 @@ def apply_diagram_first(beats:list[dict])->int:
         rejected_source=visual.get("type")=="source" and not visual.get("src")
         if rejected_source or should_upgrade_to_drawn(beat,position):
             role=str(beat.get("editorialRole","")).lower()
-            if role not in TYPOGRAPHY_PUNCTUATION_ROLES:
+            if role not in TYPOGRAPHY_PUNCTUATION_ROLES or has_visible_meme(beat):
                 beat["visual"]=drawn_diagram_from_beat(beat,position,previous_kind)
                 previous_kind=str(beat["visual"]["kind"]);converted+=1;continue
         if beat.get("visual",{}).get("type")=="drawn-diagram":
