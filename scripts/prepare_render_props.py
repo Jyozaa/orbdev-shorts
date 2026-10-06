@@ -318,7 +318,7 @@ def choose_window_candidate(beats,candidates,prev_family,prev_kind,prev_drawn_ki
     chosen=max(viable,key=lambda i:(candidate_score(beats[i],prev_family,prev_explain_mode),float(beats[i]["end"])-float(beats[i]["start"]),-i))
     chosen_visual=beats[chosen].get("visual",{});chosen_kind=str(chosen_visual.get("type",""));chosen_mode=str(chosen_visual.get("mode","")) if chosen_kind=="explain" else ""
     is_drawn_continuation=(prev_kind=="drawn-diagram" and chosen_kind=="drawn-diagram" and str(chosen_visual.get("kind",""))!=prev_drawn_kind)
-    force_kinetic=((chosen_kind in ABSTRACT_TYPES and abstract_budget_full) or (prev_family=="abstract-tech" and chosen_kind in ABSTRACT_TYPES and not is_drawn_continuation) or (chosen_kind=="explain" and explain_count>=max_explain) or (chosen_kind=="explain" and chosen_mode in used_explain_modes) or (chosen_kind=="logo" and hard_no_logo))
+    force_kinetic=((chosen_kind in ABSTRACT_TYPES and chosen_kind!="drawn-diagram" and abstract_budget_full) or (prev_family=="abstract-tech" and chosen_kind in ABSTRACT_TYPES and not is_drawn_continuation) or (chosen_kind=="explain" and explain_count>=max_explain) or (chosen_kind=="explain" and chosen_mode in used_explain_modes) or (chosen_kind=="logo" and hard_no_logo))
     return chosen,force_kinetic
 
 def apply_diagram_continuity(windows):
@@ -343,7 +343,9 @@ def apply_diagram_continuity(windows):
 
 def assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo):
     kinds=[str(w.get("visual",{}).get("type","")) for w in windows]
-    abstract=sum(1 for kind in kinds if kind in ABSTRACT_TYPES);logos=kinds.count("logo")
+    # The hard abstract budget is now for legacy templates only. Drawn diagrams
+    # are the preferred explanation substrate and are governed by variety/quality.
+    abstract=sum(1 for kind in kinds if kind in ABSTRACT_TYPES and kind!="drawn-diagram");logos=kinds.count("logo")
     explains=[w for w in windows if str(w.get("visual",{}).get("type",""))=="explain"];modes=[str(w.get("visual",{}).get("mode","")) for w in explains]
     if abstract>max_abstract:raise RuntimeError(f"abstract-tech hard cap exceeded: {abstract}>{max_abstract}")
     if logos>max_logo:raise RuntimeError(f"pure-logo hard cap exceeded: {logos}>{max_logo}")
@@ -361,7 +363,7 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
     max_explain=max(1,min(2,math.floor(final_duration/16.0)))
     # Phase 4 target: diagrams may lead the visual explanation while source
     # media and memes remain the grounding/punctuation layers.
-    max_abstract=max(5,min(12,math.ceil(final_duration/3.2)))
+    max_abstract=max(3,min(5,math.ceil(final_duration/8.0)))
     max_logo=max(1,min(2,math.ceil(final_duration/20.0)))
     while index<len(beats):
         start_index=index;end_index=index;start=float(beats[index]["start"]);end=float(beats[index]["end"])
@@ -385,7 +387,7 @@ def build_visual_windows(beats,cutaway_by_beat,final_duration):
         if force_kinetic:vb["visual"]=kinetic_from_beat(beats[chosen],chosen)
         windows.append(vb);kind=str(vb.get("visual",{}).get("type","text"));prev_family=family(kind);prev_kind=kind
         prev_drawn_kind=str(vb.get("visual",{}).get("kind","")) if kind=="drawn-diagram" else None
-        if kind in ABSTRACT_TYPES:abstract_count+=1
+        if kind in ABSTRACT_TYPES and kind!="drawn-diagram":abstract_count+=1
         if kind=="logo":logo_count+=1
         if kind=="explain":
             explain_count+=1;prev_explain_mode=str(vb.get("visual",{}).get("mode",""));used_explain_modes.add(prev_explain_mode)
