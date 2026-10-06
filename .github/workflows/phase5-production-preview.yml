@@ -1,0 +1,148 @@
+name: Phase 5 production preview
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/phase5-production-preview.yml'
+      - 'scripts/**'
+      - 'src/**'
+      - 'editorial/**'
+      - 'stories/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        story:
+          - stories/current.json
+          - stories/queue/2026-10-01-cloudflare-clef-decision-models.json
+          - stories/queue/2026-09-29-opendots-persistent-agents.json
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      ORBDEV_NARRATION_PROFILE: orbdev-deadpan
+      ORBDEV_VOICE_FALLBACK: en-US-BrianMultilingualNeural
+      ORBDEV_VOICE_TERTIARY: en-US-AndrewMultilingualNeural
+      ORBDEV_CAPTION_LEAD_MS: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github/
+            editorial/
+            history/
+            public/
+            scripts/
+            src/
+            stories/
+            package.json
+            requirements.txt
+            tsconfig.json
+            README.md
+      - name: Resolve story metadata
+        env:
+          STORY: ${{ matrix.story }}
+        run: |
+          slug="$(python -c 'import json,os;print(json.load(open(os.environ["STORY"],encoding="utf-8"))["slug"])')"
+          echo "STORY_FILE=$STORY" >> "$GITHUB_ENV"
+          echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install renderer dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak-ng
+          npm install --no-audit --no-fund
+          python -m pip install -r requirements.txt
+      - name: Validate story and deterministic production logic
+        run: |
+          python scripts/validate_story.py "$STORY_FILE"
+          python scripts/test_narration_logic.py
+          python scripts/test_visual_logic.py
+          python scripts/test_diagram_continuity.py
+          python scripts/test_diagram_first.py
+      - name: Generate voice and edit assets
+        run: |
+          python scripts/generate_narration.py "$STORY_FILE"
+          python scripts/generate_sfx.py
+      - name: Build and select memes
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/build_meme_catalog.py
+          python scripts/select_memes.py "$STORY_FILE"
+          python scripts/insert_cutaway_pauses.py
+      - name: Capture verified source media
+        run: |
+          python scripts/capture_sources.py "$STORY_FILE"
+          python scripts/capture_logos.py "$STORY_FILE"
+      - name: Prepare and audit final visual plan
+        run: |
+          python scripts/prepare_render_props.py "$STORY_FILE"
+          python scripts/check_visual_quality.py
+          npm run typecheck
+      - name: Render production preview
+        run: |
+          mkdir -p out
+          npx remotion render src/index.ts OrbdevShort "out/${STORY_SLUG}.mp4" \
+            --props=build/render-props.json \
+            --codec=h264 \
+            --pixel-format=yuv420p \
+            --concurrency=2 \
+            --log=info
+      - name: Build visual inspection contact sheet
+        run: |
+          ffmpeg -y -i "out/${STORY_SLUG}.mp4" \
+            -vf "fps=1/3,scale=270:-1,tile=4x3:padding=4:margin=4" \
+            -frames:v 1 "out/${STORY_SLUG}-contact-sheet.jpg"
+          ffprobe -v error -show_entries format=duration,size \
+            -of default=noprint_wrappers=1 "out/${STORY_SLUG}.mp4"
+      - name: Write Phase 5 visual summary
+        run: |
+          python - <<'PY'
+          import json,os
+          props=json.load(open("build/render-props.json",encoding="utf-8"))
+          gate=json.load(open("build/quality-gate-report.json",encoding="utf-8"))
+          memes=json.load(open("build/meme-selection.json",encoding="utf-8"))
+          visuals=[(b.get("visual") or {}).get("type") for b in props.get("visualBeats",[])]
+          payload={
+            "slug":props.get("slug"),
+            "durationSeconds":props.get("durationSeconds"),
+            "visualWindows":len(visuals),
+            "visualTypes":visuals,
+            "diagramCount":visuals.count("drawn-diagram"),
+            "sourceCount":visuals.count("source"),
+            "typographyCount":sum(v in {"fact","kinetic","text","symbol"} for v in visuals),
+            "selectedMemeCount":len(memes),
+            "qualityGate":gate,
+          }
+          json.dump(payload,open("build/phase5-summary.json","w"),indent=2)
+          print(json.dumps(payload,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: phase5-${{ env.STORY_SLUG }}
+          path: |
+            out/${{ env.STORY_SLUG }}.mp4
+            out/${{ env.STORY_SLUG }}-contact-sheet.jpg
+            build/phase5-summary.json
+            build/render-props.json
+            build/quality-gate-report.json
+            build/meme-selection.json
+            build/cutaways.json
+            build/source-assets.json
+            build/narration-report.json
+          if-no-files-found: error
+          retention-days: 30
