@@ -1,8 +1,24 @@
 #!/usr/bin/env python3
-"""Stop poor visual renders before costly Remotion work and YouTube uploads."""
+"""Fail closed when a visual plan drifts back to text-heavy template video."""
 from __future__ import annotations
-import argparse,json
+import argparse,json,math,re
 from pathlib import Path
+
+GENERIC={"fact","kinetic","symbol","text"}
+STRONG={"drawn-diagram","source","chart","timeline","metric","comparison"}
+
+def words(value:object)->int:
+    return len(re.findall(r"\S+",str(value or "")))
+
+def displayed_words(v:dict)->int:
+    kind=v.get("type")
+    if kind=="fact":return words(v.get("headline"))+words(v.get("detail"))
+    if kind=="kinetic":return words(v.get("text"))
+    if kind=="text":return words(v.get("text"))
+    if kind=="symbol":return words(v.get("symbol"))
+    if kind=="logo":return words(v.get("label"))
+    if kind=="drawn-diagram":return sum(words(x) for x in v.get("labels",[]))
+    return 0
 
 def audit(props:dict)->dict:
     windows=props.get("visualBeats") or []
@@ -21,21 +37,40 @@ def audit(props:dict)->dict:
             if not b:continue
             try:
                 if len(a)==len(b)==16 and (int(a,16)^int(b,16)).bit_count()<=3:
-                    problems.append("Near-identical source image repeated")
-                    break
+                    problems.append("Near-identical source image repeated");break
             except ValueError:pass
-    generic={"fact","kinetic","symbol","text"}
-    ratio=sum(k in generic for k in kinds)/max(1,len(kinds))
-    if len(windows)>=12 and ratio>0.70:problems.append(f"Excessive generic scenes: {ratio:.0%}")
+
+    generic_ratio=sum(k in GENERIC for k in kinds)/max(1,len(kinds))
+    if len(windows)>=8 and generic_ratio>0.30:
+        problems.append(f"Too many typography/generic scenes: {generic_ratio:.0%} (max 30%)")
+    if any(displayed_words(v)>6 for v in visuals if v.get("type") in GENERIC):
+        problems.append("A typography-led scene contains more than six large on-screen words")
+    total_large_words=sum(displayed_words(v) for v in visuals if v.get("type") in GENERIC)
+    if len(windows)>=8 and total_large_words/max(1,len(windows))>2.5:
+        problems.append("Large on-screen word density is too high")
+
+    drawn=[v for v in visuals if v.get("type")=="drawn-diagram"]
+    explanation_beats=sum(
+        str(b.get("editorialRole","")).lower() in {"explanation","transition"}
+        for b in (props.get("beats") or []) if isinstance(b,dict)
+    )
+    technical=explanation_beats>=2
+    if technical and len(windows)>=8:
+        minimum=max(2,math.floor(len(windows)*0.32))
+        if len(drawn)<minimum:
+            problems.append(f"Technical Short needs more drawn diagrams: {len(drawn)}/{len(windows)} (minimum {minimum})")
+    strong_ratio=sum(k in STRONG for k in kinds)/max(1,len(kinds))
+    if technical and len(windows)>=8 and strong_ratio<0.62:
+        problems.append(f"Not enough diagram/source-led scenes: {strong_ratio:.0%} (minimum 62%)")
+
     if len(windows)>=12 and len(set(kinds))<3:problems.append("Not enough visual treatment variety")
     streak=0
     for kind in kinds:
-        streak=streak+1 if kind in generic else 0
-        if streak>6:
-            problems.append("More than six consecutive generic scenes")
-            break
+        streak=streak+1 if kind in GENERIC else 0
+        if streak>3:
+            problems.append("More than three consecutive typography/generic scenes");break
+
     patterns=[f"{v.get('mode')}:{v.get('variant',0)}" for v in visuals if v.get("type")=="explain"]
-    drawn=[v for v in visuals if v.get("type")=="drawn-diagram"]
     transitions=0
     for a,b in zip(visuals,visuals[1:]):
         if a.get("type")=="drawn-diagram" and b.get("type")=="drawn-diagram" and a.get("kind")!=b.get("kind"):
@@ -43,10 +78,13 @@ def audit(props:dict)->dict:
                 transitions+=1
             else:problems.append("Adjacent drawn diagrams are missing morph continuity metadata")
     if len(patterns)!=len(set(patterns)):problems.append("Exact legacy diagram layout repeated")
+
     return {"passed":not problems,"issues":list(dict.fromkeys(problems)),
             "shots":len(windows),"sourceShots":len(ids),"uniqueSourceShots":len(set(ids)),
-            "genericFraction":round(ratio,3),"treatments":kinds,"diagramPatterns":patterns,
-            "drawnDiagramCount":len(drawn),"diagramMorphTransitions":transitions}
+            "genericFraction":round(generic_ratio,3),"strongVisualFraction":round(strong_ratio,3),
+            "largeTextWords":total_large_words,"treatments":kinds,"diagramPatterns":patterns,
+            "drawnDiagramCount":len(drawn),"diagramFraction":round(len(drawn)/max(1,len(windows)),3),
+            "diagramMorphTransitions":transitions,"explanationBeats":explanation_beats}
 
 def main():
     p=argparse.ArgumentParser()
