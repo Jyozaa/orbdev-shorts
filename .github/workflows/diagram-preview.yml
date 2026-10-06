@@ -19,6 +19,12 @@ jobs:
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            src/
+            package.json
+            tsconfig.json
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
