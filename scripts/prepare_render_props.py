@@ -131,11 +131,16 @@ def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None
     }
     counts=family_counts or {}
     options=alternates.get(kind,["flow"])
-    # Adjacent repetition is never useful, and after two appearances of the
-    # same family in one Short prefer a related geometry with lower usage.
+    # Adjacent repetition is never useful. Once a semantic family has already
+    # appeared twice, broaden the geometry pool while preserving the original
+    # related alternatives at the front of the preference order.
     if previous_kind==kind or counts.get(kind,0)>=2:
+        pool=list(options)
+        if counts.get(kind,0)>=2:
+            for candidate in ("flow","branch","orbit","mesh","funnel","comparison","growth","timeline","wave","stack"):
+                if candidate!=kind and candidate not in pool:pool.append(candidate)
         ranked=sorted(
-            enumerate(options),
+            enumerate(pool),
             key=lambda pair:(counts.get(pair[1],0),pair[0])
         )
         if ranked:kind=ranked[0][1]
