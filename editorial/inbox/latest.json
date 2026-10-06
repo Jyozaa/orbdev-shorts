@@ -1,10 +1,10 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-06T06:57:16.879953Z",
+  "generatedAt": "2026-10-06T07:01:30.319631Z",
   "scanCadenceHours": 12,
   "qualified": [
     {
-      "clusterId": "2530f9211a7dde15",
+      "clusterId": "f797abb4085a4257",
       "title": "Beam: Reflection's 501B open-weight model",
       "score": 10.0,
       "qualifiesForEditorial": true,
@@ -23,19 +23,19 @@
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "GIGAZINE",
-        "H2S Media",
         "Hacker News",
         "Help Net Security",
         "Kingy AI",
         "MarkTechPost",
+        "SiliconANGLE",
         "Startup Fortune",
+        "TechCrunch",
         "The Next Web",
         "Unite.AI",
         "Wowtale",
         "alphaXiv",
-        "shattered.io",
-        "techcrunch.com"
+        "how2shout.com",
+        "shattered.io"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
@@ -55,7 +55,7 @@
         "publishedAt": "2026-10-05T19:16:35Z",
         "sourceName": "Hacker News",
         "metrics": {
-          "points": 404,
+          "points": 407,
           "comments": 124
         },
         "creator": null,
@@ -79,7 +79,7 @@
           "publishedAt": "2026-10-05T19:16:35Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 404,
+            "points": 407,
             "comments": 124
           },
           "creator": null,
@@ -93,14 +93,14 @@
           "rawScore": 7.91
         },
         {
-          "id": "06ce173b5aaf43b4",
+          "id": "22db99537cb031b4",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Chinese Models Win Most Rows in Reflection's Own Benchmark Table. Beam Competes on Cost - H2S Media",
+          "title": "Chinese Models Win Most Rows in Reflection's Own Benchmark Table. Beam Competes on Cost - how2shout.com",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMiekFVX3lxTE9Pdy1uLVR4LUN6T19ISDlWc29WampUU0dYR0VDc3NqWWdZR1k2ek5mdEMtSW5vRXNZa3ZvVGNhWXY5dDBPTkg4TG03TFNMeUI4R3hHR0V6aTgxMXpZRlQ1OElrZW1pX1g1M1JhaGdGS0VRb1lrTlpyMDR3?oc=5",
           "publishedAt": "2026-10-06T06:39:28Z",
-          "sourceName": "H2S Media",
+          "sourceName": "how2shout.com",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://www.how2shout.com",
@@ -113,7 +113,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.99
+          "rawScore": 6.98
         },
         {
           "id": "55578f99264647e4",
@@ -162,29 +162,6 @@
           "rawScore": 6.93
         },
         {
-          "id": "42a5931bb351e098",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "To compete with China's open-source AI, Reflection has announced 'Beam,' an open model with 501 billion parameters, claiming it is comparable to GLM 5.2, uses one-third to one-fourth the computation, and performs comparably to Qwen 3.8-Max ",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQeVFCVGtpYVI3ZGVoTEZZMF9tOHRNRDRsLUxNVThGSjlNTXBXZ2tyWTB2bUQ3Vk9ZLWhFQW90QXRWa21rVGVLWEltOW5EYnJlOXVWeDBhRjlKWXlSLW96VzA4TENBVTZEZkYwUW5ZamdJM3JwMk9rVU8zYm5YQWpENk9YcGNjUWxj?oc=5",
-          "publishedAt": "2026-10-06T04:32:41Z",
-          "sourceName": "GIGAZINE",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://gigazine.net",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.9
-        },
-        {
           "id": "31f1d9decb3eac26",
           "lane": "major_news",
           "sourceKind": "news_search",
@@ -206,6 +183,52 @@
             "major-news-search"
           ],
           "rawScore": 6.88
+        },
+        {
+          "id": "2fdff6a1e35edfed",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Reflection debuts Beam, an open-weight AI model to rival Chinese models at lower compute cost - TechCrunch",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPSDZGMTF6bG9MakF5andodEYydVRONTZqckdURmpncmI1YzBzVmNBcXdoSDRrM3JmQ1dMWWlKbXZhV3lUcEtxSkRLdFNTYm4wNV9FeWdUUThQVGFpbUpiN05Bdms2cVh2NEI1N05FaWk5SkxNUEFvM0I1MVBmc3hFalJhcHJaMHpPejgxSS1fWTVQc3dRMTBWSlFjN3czNmJrLXlfTDYtbDJrN1A4UkQ3XzlNaXhDMWU3UE5nNVZ1dHRKUFlL?oc=5",
+          "publishedAt": "2026-10-05T19:33:53Z",
+          "sourceName": "TechCrunch",
+          "metrics": {
+            "publisherBonus": 0.32,
+            "publisherUrl": "https://techcrunch.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.84
+        },
+        {
+          "id": "83fb9d9c41d4444c",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Reflection AI debuts open-source Beam model with 501B parameters - SiliconANGLE",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNamc0Rmp0cW9qbjJXVE1KQWhXX19BUGk4WDdWT0VKaGw3Z296S2hxNkJxeEZBWHdzbnlvQjA4MzB1MW1tWGczYU9wM2pMRU42RGthMUtFY0JTR3JPcnJmLUx3T25Uc2cteHFkMVNXdTlNOVBQZ1lad0lscGMtR2RwaEZzcEE0a2g1UVdRLWVpaEdpQkk0aVIyY3Z3U2k4Tml4LWZJ?oc=5",
+          "publishedAt": "2026-10-06T00:46:00Z",
+          "sourceName": "SiliconANGLE",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://siliconangle.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.74
         },
         {
           "id": "6ec245bbd35e0958",
@@ -297,7 +320,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.56
+          "rawScore": 6.55
         },
         {
           "id": "92df1c4981c5a8d6",
@@ -320,30 +343,7 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.56
-        },
-        {
-          "id": "2cdf8a6252cfe427",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Reflection debuts Beam, an open-weight AI model to rival Chinese models at lower compute cost - techcrunch.com",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxPSDZGMTF6bG9MakF5andodEYydVRONTZqckdURmpncmI1YzBzVmNBcXdoSDRrM3JmQ1dMWWlKbXZhV3lUcEtxSkRLdFNTYm4wNV9FeWdUUThQVGFpbUpiN05Bdms2cVh2NEI1N05FaWk5SkxNUEFvM0I1MVBmc3hFalJhcHJaMHpPejgxSS1fWTVQc3dRMTBWSlFjN3czNmJrLXlfTDYtbDJrN1A4UkQ3XzlNaXhDMWU3UE5nNVZ1dHRKUFlL?oc=5",
-          "publishedAt": "2026-10-05T19:33:53Z",
-          "sourceName": "techcrunch.com",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://techcrunch.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.53
+          "rawScore": 6.55
         },
         {
           "id": "b8b69af2c2a6c5ee",
@@ -392,29 +392,6 @@
           "rawScore": 6.53
         },
         {
-          "id": "064794936affc152",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Reflection AI readies a US open-weight model to challenge DeepSeek and Qwen - Startup Fortune",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRUZwci11V3N2OU9kcXhNYUVqOGRkRHFvdjVRa0FqY21ESW9NamRYNnhWM1VUdGZnaUw5Vy1SVlE5YUtQcFRnN2ZUNHpLNE9TV2hTb1FaVkNyQmJvQUwyUlZHMjllc3NRbjl5bEtPRXZkOGNKZUhnSHNQVDFORTdMQXRjUHRYVWdaNE1fQTU3ZzVmblN4cXRuLTVYN2NzNXpleWRVR1BR?oc=5",
-          "publishedAt": "2026-10-05T09:29:47Z",
-          "sourceName": "Startup Fortune",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://startupfortune.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.11
-        },
-        {
           "id": "7689a1a9679bdd43",
           "lane": "major_news",
           "sourceKind": "news_search",
@@ -435,7 +412,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 5.9
+          "rawScore": 5.89
         },
         {
           "id": "721ca7864ba20570",
@@ -463,7 +440,7 @@
       ]
     },
     {
-      "clusterId": "0b31c7a62d8a4409",
+      "clusterId": "be26bf14ae5f9799",
       "title": "2026 Digital Defense Report | Security Insider - Microsoft",
       "score": 10.0,
       "qualifiesForEditorial": true,
@@ -482,31 +459,32 @@
       "creators": [],
       "sourceNames": [
         "24/7 Wall St.",
-        "AD HOC NEWS",
+        "AI Insider",
+        "Business Outreach Magazine",
         "Carnegie Mellon University",
         "Cloudflare Blog",
         "Crunchbase News",
+        "Cybernews",
         "DemandSage",
         "Help Net Security",
-        "International Business Times Australia",
         "Investing.com Canada",
-        "Latest news from Azerbaijan",
         "Medium",
         "Microsoft",
         "Mishcon de Reya LLP",
         "Newsquawk",
-        "Security Boulevard",
         "Tech Briefs",
-        "TechTarget",
         "Techlicious",
         "The Globe and Mail",
         "The Motley Fool",
-        "businessoutreach.in",
+        "The Times of India",
+        "ad-hoc-news.de",
         "cyberpress.org",
         "indiaipo.in",
         "kalkine.ca",
+        "news.az",
         "shattered.io",
-        "tech-insider.org"
+        "tech-insider.org",
+        "techtarget.com"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
@@ -537,7 +515,7 @@
           "major-news-search",
           "primary-publisher"
         ],
-        "rawScore": 7.22
+        "rawScore": 7.21
       },
       "evidence": [
         {
@@ -562,7 +540,7 @@
             "major-news-search",
             "primary-publisher"
           ],
-          "rawScore": 7.22
+          "rawScore": 7.21
         },
         {
           "id": "a252443835567a00",
@@ -588,6 +566,29 @@
           "rawScore": 6.96
         },
         {
+          "id": "70d7b38459133f89",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Best VPS for Self-Hosted AI Tools in 2026 - Cybernews",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFB5VmFMTTQzY05zcFNZU2puRHZLdWRTTVJtYjJ6UEMwZklxZWNDdEVOVGtFXzVLQlBxX2NIR3RTS1pBRGg2ekV0UGh5ejJ6OHk0YU4wV0tDNnpJaWZvb1ZsblhBckJQQUNPRF9abw?oc=5",
+          "publishedAt": "2026-10-06T05:45:39Z",
+          "sourceName": "Cybernews",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://cybernews.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.95
+        },
+        {
           "id": "c27f0720fe9447f4",
           "lane": "market_business",
           "sourceKind": "news_search",
@@ -608,7 +609,7 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.92
+          "rawScore": 6.91
         },
         {
           "id": "111aaf9841891487",
@@ -657,29 +658,6 @@
           "rawScore": 6.88
         },
         {
-          "id": "0f75da7d53f67d6f",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Cybersecurity jobs available right now: October 6, 2026 - Help Net Security",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPb0N0QWZEQXpvVy1rNWhhM0o1OS1XYnV4NXRFQUlBQXZsRWtNY1BsTnhVY0EwV1pWY2FyaFFJaWNjRVQ1c0NKY09mVzM2Y1NEdmk3Z3c0NHRXU3RVa1RFa2tPNmt2NUJwRmVPaXFjSTdENlVtTEtnbFM4SUhLRGJzMG82ZWdqeFV4NjNRVWhnUk50a0tLRjdmQzlFTHRnUQ?oc=5",
-          "publishedAt": "2026-10-06T04:00:58Z",
-          "sourceName": "Help Net Security",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.helpnetsecurity.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.88
-        },
-        {
           "id": "fe7a36afe7ae7efd",
           "lane": "market_business",
           "sourceKind": "news_search",
@@ -703,6 +681,29 @@
           "rawScore": 6.88
         },
         {
+          "id": "0f75da7d53f67d6f",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Cybersecurity jobs available right now: October 6, 2026 - Help Net Security",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPb0N0QWZEQXpvVy1rNWhhM0o1OS1XYnV4NXRFQUlBQXZsRWtNY1BsTnhVY0EwV1pWY2FyaFFJaWNjRVQ1c0NKY09mVzM2Y1NEdmk3Z3c0NHRXU3RVa1RFa2tPNmt2NUJwRmVPaXFjSTdENlVtTEtnbFM4SUhLRGJzMG82ZWdqeFV4NjNRVWhnUk50a0tLRjdmQzlFTHRnUQ?oc=5",
+          "publishedAt": "2026-10-06T04:00:58Z",
+          "sourceName": "Help Net Security",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.helpnetsecurity.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.87
+        },
+        {
           "id": "5822b1fa8f421ac4",
           "lane": "major_news",
           "sourceKind": "news_search",
@@ -724,17 +725,17 @@
             "major-news-search",
             "primary-publisher"
           ],
-          "rawScore": 6.81
+          "rawScore": 6.8
         },
         {
-          "id": "bf935563f179ca83",
+          "id": "96cea4ee5ff615c4",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "New AI Memecoin projects in 2026: How trend discovery and smart contracts are changing launches today - Latest news from Azerbaijan",
+          "title": "New AI Memecoin projects in 2026: How trend discovery and smart contracts are changing launches today - news.az",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQSUdTdFZwM2xReXBkTnFidVpVRS1aTHd0RURNZlhQcGhEMTh3bGhGUHBzanVONjNuVnVhWE5JajFpeTg1WVZBYUJpMEtIYXhUZVl0THNod0syTy1rTzBMQlFycjdKeW1vTnI4S2s1dHFrMm9Bdlc4NjlaRDNKZDZoWUptaDNMaVJUdGtlSG1kMHNKZlVYTlhUemtaZlZYbFlrZU0wLW5QbHE0LWxLbnZCM2k1NWRFNGRBWTNIVS1R?oc=5",
           "publishedAt": "2026-10-06T01:51:51Z",
-          "sourceName": "Latest news from Azerbaijan",
+          "sourceName": "news.az",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://news.az",
@@ -747,30 +748,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.79
-        },
-        {
-          "id": "46aaf74f51ccf16d",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "California Subpoenas OpenAI Over AI Agent Cybersecurity Breaches - Security Boulevard",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNU1hOZU9BRlg2Q1JQNWJTcHR3a1BwdS1OQlI0N3NRbExkak5GLTFUWU93YkQ1R0wwRVN0MFFuLTRnUWhjZzZTd2FJaVY0ZloyQzBOc2tMU0FUV3RsN1BjZGlEOWdhc3BBU1VTU0tGUnNfdC1iaTF4UHhheDRpZGtfRzVadGlyd1dLLXMweUZDc2JPNmJ0X1FDYkhINUY2SEhhNENQV1Vn?oc=5",
-          "publishedAt": "2026-10-06T01:52:30Z",
-          "sourceName": "Security Boulevard",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://securityboulevard.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.79
+          "rawScore": 6.78
         },
         {
           "id": "ebc18853b6547e2b",
@@ -934,14 +912,14 @@
           "rawScore": 6.62
         },
         {
-          "id": "3243c8933104cbe5",
+          "id": "09bda8715481f1a2",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Best crypto presales to watch in 2026: Key features that help projects stand out early today - Latest news from Azerbaijan",
+          "title": "Best crypto presales to watch in 2026: Key features that help projects stand out early today - news.az",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQWF8zZU43czdRM3JSYk9hNDVWZ1plUU04OUtwVWVyaHp3VHkzQTJ0WlBCSEdfQjJBMjhWczcwTzBaRDQ3RVhtRWM5VFN1Vi1uczFWdTU3RUdqQ051WUVxLTIxUmNSYkdseWk5dW8yTmhvRXNEMEpTNmc5SUJkdFptRnZnalRpeHhvcDRMR2hYaEQ4aV9Vcm1qTkpOMS1BUmlNOGg4eUhtYm9Jc241QzdWM1pn?oc=5",
           "publishedAt": "2026-10-05T21:31:20Z",
-          "sourceName": "Latest news from Azerbaijan",
+          "sourceName": "news.az",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://news.az",
@@ -954,17 +932,17 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.61
+          "rawScore": 6.6
         },
         {
-          "id": "a0774b2ded3e6ac3",
+          "id": "263a9cfdb4dc149d",
           "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Accenture stock posts USD 74.18 billion in fiscal 2026 revenue - AD HOC NEWS",
+          "title": "Accenture stock posts USD 74.18 billion in fiscal 2026 revenue - ad-hoc-news.de",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQbVBMUkppYlQtYk1fOUo4akMxUU1nS1haMzc0SkhxV1RvR0NTLXlINk9QR1J6eWR6QkdxVE10U0lSWmxzSDA4WUxGREtfR1E0eDExWFo3d3VncU1xaEdWS254d3g0YVFhSmc0Wmt3VGtrOWlfT3RsbkNqZjdNYW96SXhlX1JDTG5SSlRTMEJaeng1cW5TeThHTnE4NkFDSGhsN0k3ZnV2VHBDWnpOTzJFMGFVQ0lJWXZMZklPT0pldGJqN0E?oc=5",
           "publishedAt": "2026-10-05T21:04:02Z",
-          "sourceName": "AD HOC NEWS",
+          "sourceName": "ad-hoc-news.de",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://www.ad-hoc-news.de",
@@ -1187,14 +1165,14 @@
           "rawScore": 6.47
         },
         {
-          "id": "e825bcab5987a2ba",
+          "id": "83beb0f9cbcd7aad",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Threat summer 2026: Editors discuss top cyber incidents - TechTarget",
+          "title": "Threat summer 2026: Editors discuss top cyber incidents - techtarget.com",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORGpQMTktc1RBMHlaMnRnV29sbHZ1ZUZlZHlmQWhRVHdydGZrU2Vua2lBMkVDQzZaYmFVSWs3SzA2NWY4Q25uc1RKLUZ0VEJhQTlBdlFjM1R0cWJ4X3NaeGNhMm1pd24yQ2Zod2dmbEw3ZnB5YWJzcnJwN1hBZ0p5d1dlajdONHp4a1pJXzhFNHR4ZW5pOTJ6YjNVUmJVRjZOeHg4?oc=5",
           "publishedAt": "2026-10-05T17:54:02Z",
-          "sourceName": "TechTarget",
+          "sourceName": "techtarget.com",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://www.techtarget.com",
@@ -1207,7 +1185,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.46
+          "rawScore": 6.45
         },
         {
           "id": "c4e81b07c6d8f4a9",
@@ -1230,7 +1208,7 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.46
+          "rawScore": 6.45
         },
         {
           "id": "770f0e32f5d569e1",
@@ -1239,7 +1217,7 @@
           "title": "Claude 5.5 Family: 2 Models in 6 Days, Haiku Next [2026] - shattered.io",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMie0FVX3lxTFBwQlQ2UWN5RHY5TlZqV3ZQVjV0TVk0b2dJZktQSFpxMUlYWXFXdV8wZXowOEFRT0Zja0NjQ05SM19va3NzbHFwUVR6OHlVdjFlTmViWmZORGh0bjllZ1dNM2VNTVZlVjZzYXgtdDZGcnctTERDTFJWZkM5cw?oc=5",
-          "publishedAt": "2026-10-05T17:48:47Z",
+          "publishedAt": "2026-10-05T16:48:47Z",
           "sourceName": "shattered.io",
           "metrics": {
             "publisherBonus": 0.0,
@@ -1253,7 +1231,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.45
+          "rawScore": 6.41
         },
         {
           "id": "be5e8a38428f935b",
@@ -1276,40 +1254,17 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.42
+          "rawScore": 6.41
         },
         {
-          "id": "a8d47573947104ba",
+          "id": "81b366efcd383be4",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Top 10 AI Stocks to Watch and Consider Buying in 2026 Amid Tech Boom - International Business Times Australia",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOaGZPaEhKUWhFejBqWkR2M3g2VFp2SHIybnpVb0hfbkY3V000Z0tqZ2JnS3dJQUEtNnlfZ2tFRmRwcVM4QUliYllMbmZQWTFwYnM5X2xpdmM0QjFVRno1ZFdZc21lMVRtaFp0ZEY5VU1fZG12TG5LblVzOGt2emp5eXpEZ0Jydw?oc=5",
-          "publishedAt": "2026-10-05T16:16:52Z",
-          "sourceName": "International Business Times Australia",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.ibtimes.com.au",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.39
-        },
-        {
-          "id": "4836f49524ca123b",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "AI Chip Companies 2026: Top 10 Nvidia, AMD & More - businessoutreach.in",
+          "title": "AI Chip Companies 2026: Top 10 Nvidia, AMD & More - Business Outreach Magazine",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5GRFdVZ0t4XzNqUHNJYzJ1aDJEemM4am5VTzVkRkNLMmNkZWt3Z0xvMXFzMm8xYkd2a2loWTZBMkpWeFJVTU5la3RhS2pHTGhLaEpMVmdCamNPTXRva0hGMlN1di13NUpQbHc?oc=5",
           "publishedAt": "2026-10-05T15:36:35Z",
-          "sourceName": "businessoutreach.in",
+          "sourceName": "Business Outreach Magazine",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://www.businessoutreach.in",
@@ -1371,6 +1326,29 @@
           "rawScore": 6.25
         },
         {
+          "id": "0afc290db4975d13",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "The Week Ahead in AI: Trump Appoints AI Czar, Forms 'Super Intelligence Force', Musk to Rename SpaceXAI, Report of New Open Model, Plus Earnings & Events - AI Insider",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxOYWdPeE5VOFg5RUNhNDhoQ3NsdDhCWVBCT2VxQXl4VWFPQmcydzlnS3JZZldhNWZHeVY2dUk3YUE4Z1FLQUh2NjJxLUxucFM4dDRWV05RZlZfVl9ydzNQSGkyZk4zTC05YXJmTWFodmpBN1FRbkFkZlB0b1ZfdklieVRJRndpdThIOV94OC1RRFphb3YxNWJ6TlpWVzYzYXEteEJUeUozb2ZxX1RWSTZtYWNraklIMTY3RFdIaFVMMi01Rl9DVDdMeDE0dWk2S1JLZkNmZTRNY3FUaW1lQmRqNFdzS05qSUhqNlR4cExsZVpmSVpSOF91STZreXk4aFRkYUlZLUUtR3YwNHRTdlNr?oc=5",
+          "publishedAt": "2026-10-05T12:00:00Z",
+          "sourceName": "AI Insider",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://theaiinsider.tech",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.21
+        },
+        {
           "id": "586523ed30282045",
           "lane": "market_business",
           "sourceKind": "news_search",
@@ -1415,6 +1393,29 @@
             "market-business-search"
           ],
           "rawScore": 6.17
+        },
+        {
+          "id": "a10d1632449b0bff",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Google is limiting Gemini models\u2019 access for free and AI Plus users starting October 9: What is changing - The Times of India",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi_AFBVV95cUxQWEJxdVNJTXVjbXE5V1Z0SFZhWGdscG5hVUtGalF4enZDNEdqX29Ha1FGOU10YVdLS0ppSjA1eG5MeWRUaEJLTlg3cW9NYlJMcmV3MjdLdVlZLVFpX1hLbkpjOHFCSDQ3eXBoYnZlZmpJMkdEMmd0dWsxaW1meHRsQUt0Snl5dkZvT05oczJBNHY2LTdHMWxZcC0teFd6UFhPY0tHbEphcHpVVEdzX0FQcmVfVnVzZkl2NzNGaWFIbS16Wld6dFZfY2FuRnVnYWtFaWEyTmVVbmdmQ1dfOFhnWFdUNzZRZmpJcW9EZlcydFFRYkpnRUxFMUZzdUbSAYICQVVfeXFMTmF1dWdfVFA2azFSSlFCaFpMel9IRHpGQmZrNEFzQml0ckpObUg3d1dnSDY1dUk0WUlrQ1hZZDMyQkxCM1dUNmNhY3dadXl6UkxIdUZyV3R3Mk9HWW5BTjlSbmdnbXVpeEtiWUFRZjNOOTZ6UGdzal84ODRHYnIwaUdEYjJBUTlLdzJ1cTY0VXp6RmxiNjFXajh6eEhCVlRveWRib2szYW96c0tCbUNrVjRLV1FZWnpCSFREYVkxa1JsRXpQS3FYWHZhMmV5YnVjeWF5Tk5YWW5UbXRiOWVvVTZ4TlNsbTNCN2MtVVA3ZUpURjBxM2k1dVNBVzlCSWpxYjl3?oc=5",
+          "publishedAt": "2026-10-05T09:08:00Z",
+          "sourceName": "The Times of India",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://timesofindia.indiatimes.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.09
         },
         {
           "id": "d283315598213681",
@@ -1483,7 +1484,7 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 5.9
+          "rawScore": 5.89
         },
         {
           "id": "32d457d5652328ba",
@@ -1529,7 +1530,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 5.6
+          "rawScore": 5.59
         }
       ]
     },
@@ -1543,7 +1544,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=534.0-total=96740",
+      "qualityGate": "github-trending-stars-per-day=534.0-total=96741",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1570,11 +1571,11 @@
         "title": "thedotmack/claude-mem",
         "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
         "url": "https://github.com/thedotmack/claude-mem",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 96740,
-          "forks": 8534,
+          "stars": 96741,
+          "forks": 8535,
           "starsRecent": 534,
           "starsPerDay": 534.0,
           "trendingWindow": "daily",
@@ -1603,11 +1604,11 @@
           "title": "thedotmack/claude-mem",
           "summary": "Persistent Context Across Sessions for Every Agent \u2013 Captures everything your agent does during sessions, compresses it with AI, and injects relevant context back into future sessions. Works with Claude Code, OpenClaw, Codex, Gemini, Hermes, Copilot, OpenCode + More",
           "url": "https://github.com/thedotmack/claude-mem",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 96740,
-            "forks": 8534,
+            "stars": 96741,
+            "forks": 8535,
             "starsRecent": 534,
             "starsPerDay": 534.0,
             "trendingWindow": "daily",
@@ -1640,7 +1641,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=437.0-total=17565",
+      "qualityGate": "github-trending-stars-per-day=437.0-total=17568",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1667,11 +1668,11 @@
         "title": "earthtojake/text-to-cad",
         "summary": "Give your agent CAD superpowers.",
         "url": "https://github.com/earthtojake/text-to-cad",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 17565,
-          "forks": 1778,
+          "stars": 17568,
+          "forks": 1779,
           "starsRecent": 437,
           "starsPerDay": 437.0,
           "trendingWindow": "daily",
@@ -1700,11 +1701,11 @@
           "title": "earthtojake/text-to-cad",
           "summary": "Give your agent CAD superpowers.",
           "url": "https://github.com/earthtojake/text-to-cad",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 17565,
-            "forks": 1778,
+            "stars": 17568,
+            "forks": 1779,
             "starsRecent": 437,
             "starsPerDay": 437.0,
             "trendingWindow": "daily",
@@ -1737,7 +1738,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=485.0-total=25709",
+      "qualityGate": "github-trending-stars-per-day=485.0-total=25710",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1764,10 +1765,10 @@
         "title": "pingdotgg/t3code",
         "summary": "",
         "url": "https://github.com/pingdotgg/t3code",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 25709,
+          "stars": 25710,
           "forks": 6616,
           "starsRecent": 485,
           "starsPerDay": 485.0,
@@ -1797,10 +1798,10 @@
           "title": "pingdotgg/t3code",
           "summary": "",
           "url": "https://github.com/pingdotgg/t3code",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 25709,
+            "stars": 25710,
             "forks": 6616,
             "starsRecent": 485,
             "starsPerDay": 485.0,
@@ -1834,7 +1835,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1155.0-total=92125",
+      "qualityGate": "github-trending-stars-per-day=1155.0-total=92129",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1861,10 +1862,10 @@
         "title": "Panniantong/Agent-Reach",
         "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
         "url": "https://github.com/Panniantong/Agent-Reach",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 92125,
+          "stars": 92129,
           "forks": 8084,
           "starsRecent": 1155,
           "starsPerDay": 1155.0,
@@ -1894,10 +1895,10 @@
           "title": "Panniantong/Agent-Reach",
           "summary": "Give your AI agent eyes to see the entire internet. Read & search Twitter, Reddit, YouTube, GitHub, Bilibili, XiaoHongShu \u2014 one CLI, zero API fees.",
           "url": "https://github.com/Panniantong/Agent-Reach",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 92125,
+            "stars": 92129,
             "forks": 8084,
             "starsRecent": 1155,
             "starsPerDay": 1155.0,
@@ -1931,7 +1932,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=742.0-total=64252",
+      "qualityGate": "github-trending-stars-per-day=742.0-total=64256",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -1958,11 +1959,11 @@
         "title": "calesthio/OpenMontage",
         "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
         "url": "https://github.com/calesthio/OpenMontage",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 64252,
-          "forks": 8143,
+          "stars": 64256,
+          "forks": 8144,
           "starsRecent": 742,
           "starsPerDay": 742.0,
           "trendingWindow": "daily",
@@ -1991,11 +1992,11 @@
           "title": "calesthio/OpenMontage",
           "summary": "World's first open-source, agentic video production system. 12 production pipelines, 100+ tools, 700+ agent skill and production-knowledge files. Turn your AI coding assistant into a full video production studio.",
           "url": "https://github.com/calesthio/OpenMontage",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 64252,
-            "forks": 8143,
+            "stars": 64256,
+            "forks": 8144,
             "starsRecent": 742,
             "starsPerDay": 742.0,
             "trendingWindow": "daily",
@@ -2028,7 +2029,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=515.0-total=77263",
+      "qualityGate": "github-trending-stars-per-day=515.0-total=77264",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2055,10 +2056,10 @@
         "title": "caddyserver/caddy",
         "summary": "Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS",
         "url": "https://github.com/caddyserver/caddy",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 77263,
+          "stars": 77264,
           "forks": 5080,
           "starsRecent": 515,
           "starsPerDay": 515.0,
@@ -2088,10 +2089,10 @@
           "title": "caddyserver/caddy",
           "summary": "Fast and extensible multi-platform HTTP/1-2-3 web server with automatic HTTPS",
           "url": "https://github.com/caddyserver/caddy",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 77263,
+            "stars": 77264,
             "forks": 5080,
             "starsRecent": 515,
             "starsPerDay": 515.0,
@@ -2152,7 +2153,7 @@
         "title": "msitarzewski/agency-agents",
         "summary": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
         "url": "https://github.com/msitarzewski/agency-agents",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 157415,
@@ -2185,7 +2186,7 @@
           "title": "msitarzewski/agency-agents",
           "summary": "A complete AI agency at your fingertips - From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.",
           "url": "https://github.com/msitarzewski/agency-agents",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 157415,
@@ -2222,7 +2223,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=861.4-total=97780",
+      "qualityGate": "github-trending-stars-per-day=861.4-total=97781",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2249,10 +2250,10 @@
         "title": "paperclipai/paperclip",
         "summary": "The open-source app everyone uses to manage agents at work",
         "url": "https://github.com/paperclipai/paperclip",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 97780,
+          "stars": 97781,
           "forks": 16524,
           "starsRecent": 6030,
           "starsPerDay": 861.43,
@@ -2282,10 +2283,10 @@
           "title": "paperclipai/paperclip",
           "summary": "The open-source app everyone uses to manage agents at work",
           "url": "https://github.com/paperclipai/paperclip",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 97780,
+            "stars": 97781,
             "forks": 16524,
             "starsRecent": 6030,
             "starsPerDay": 861.43,
@@ -2319,7 +2320,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=937.9-total=46058",
+      "qualityGate": "github-trending-stars-per-day=937.9-total=46060",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2346,10 +2347,10 @@
         "title": "vectorize-io/hindsight",
         "summary": "Hindsight: Agent Memory That Learns",
         "url": "https://github.com/vectorize-io/hindsight",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 46058,
+          "stars": 46060,
           "forks": 5936,
           "starsRecent": 6565,
           "starsPerDay": 937.86,
@@ -2379,10 +2380,10 @@
           "title": "vectorize-io/hindsight",
           "summary": "Hindsight: Agent Memory That Learns",
           "url": "https://github.com/vectorize-io/hindsight",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 46058,
+            "stars": 46060,
             "forks": 5936,
             "starsRecent": 6565,
             "starsPerDay": 937.86,
@@ -2416,7 +2417,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1719.4-total=53922",
+      "qualityGate": "github-trending-stars-per-day=1719.4-total=53925",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2443,10 +2444,10 @@
         "title": "debpalash/VoiceStudio",
         "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
         "url": "https://github.com/debpalash/VoiceStudio",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 53922,
+          "stars": 53925,
           "forks": 6029,
           "starsRecent": 12036,
           "starsPerDay": 1719.43,
@@ -2476,10 +2477,10 @@
           "title": "debpalash/VoiceStudio",
           "summary": "VoiceStudio is the open-source, fully-local ElevenLabs alternative \u2014 voice cloning, voice design, video dubbing, dictation, transcription & audiobook creation in 646 languages.",
           "url": "https://github.com/debpalash/VoiceStudio",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 53922,
+            "stars": 53925,
             "forks": 6029,
             "starsRecent": 12036,
             "starsPerDay": 1719.43,
@@ -2513,7 +2514,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1228.0-total=156190",
+      "qualityGate": "github-trending-stars-per-day=1228.0-total=156191",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2540,10 +2541,10 @@
         "title": "DietrichGebert/ponytail",
         "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
         "url": "https://github.com/DietrichGebert/ponytail",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 156190,
+          "stars": 156191,
           "forks": 8395,
           "starsRecent": 8596,
           "starsPerDay": 1228.0,
@@ -2573,10 +2574,10 @@
           "title": "DietrichGebert/ponytail",
           "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
           "url": "https://github.com/DietrichGebert/ponytail",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 156190,
+            "stars": 156191,
             "forks": 8395,
             "starsRecent": 8596,
             "starsPerDay": 1228.0,
@@ -2610,7 +2611,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=625.0-total=64914",
+      "qualityGate": "github-trending-stars-per-day=625.0-total=64915",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2637,11 +2638,11 @@
         "title": "rohitg00/ai-engineering-from-scratch",
         "summary": "Learn it. Build it. Ship it for others.",
         "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 64914,
-          "forks": 11174,
+          "stars": 64915,
+          "forks": 11175,
           "starsRecent": 4375,
           "starsPerDay": 625.0,
           "trendingWindow": "weekly",
@@ -2670,11 +2671,11 @@
           "title": "rohitg00/ai-engineering-from-scratch",
           "summary": "Learn it. Build it. Ship it for others.",
           "url": "https://github.com/rohitg00/ai-engineering-from-scratch",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 64914,
-            "forks": 11174,
+            "stars": 64915,
+            "forks": 11175,
             "starsRecent": 4375,
             "starsPerDay": 625.0,
             "trendingWindow": "weekly",
@@ -2707,7 +2708,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=312.7-total=128700",
+      "qualityGate": "github-trending-stars-per-day=312.7-total=128701",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2734,10 +2735,10 @@
         "title": "harry0703/MoneyPrinterTurbo",
         "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
         "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 128700,
+          "stars": 128701,
           "forks": 20127,
           "starsRecent": 2189,
           "starsPerDay": 312.71,
@@ -2767,10 +2768,10 @@
           "title": "harry0703/MoneyPrinterTurbo",
           "summary": "\u5229\u7528 AI \u5927\u6a21\u578b\u548c\u81ea\u52a8\u5316\u5de5\u4f5c\u6d41\uff0c\u6839\u636e\u4e3b\u9898\u6216\u5173\u952e\u8bcd\u4e00\u952e\u751f\u6210\u9ad8\u6e05\u77ed\u89c6\u9891\u3002Generate HD short videos from a topic or keyword with an automated AI workflow.",
           "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 128700,
+            "stars": 128701,
             "forks": 20127,
             "starsRecent": 2189,
             "starsPerDay": 312.71,
@@ -2804,7 +2805,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1398.0-total=5175",
+      "qualityGate": "github-trending-stars-per-day=1398.0-total=5180",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2831,11 +2832,11 @@
         "title": "tester-army/e2e",
         "summary": "Next generation e2e testing framework for web and mobile apps.",
         "url": "https://github.com/tester-army/e2e",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 5175,
-          "forks": 219,
+          "stars": 5180,
+          "forks": 220,
           "starsRecent": 1398,
           "starsPerDay": 1398.0,
           "trendingWindow": "daily",
@@ -2864,11 +2865,11 @@
           "title": "tester-army/e2e",
           "summary": "Next generation e2e testing framework for web and mobile apps.",
           "url": "https://github.com/tester-army/e2e",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 5175,
-            "forks": 219,
+            "stars": 5180,
+            "forks": 220,
             "starsRecent": 1398,
             "starsPerDay": 1398.0,
             "trendingWindow": "daily",
@@ -2901,7 +2902,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=997.0-total=5144",
+      "qualityGate": "github-trending-stars-per-day=997.0-total=5145",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -2928,11 +2929,11 @@
         "title": "boykopovar/AnyPS5",
         "summary": "Tool for automatic PS5 executables porting to Linux and Windows",
         "url": "https://github.com/boykopovar/AnyPS5",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 5144,
-          "forks": 376,
+          "stars": 5145,
+          "forks": 377,
           "starsRecent": 997,
           "starsPerDay": 997.0,
           "trendingWindow": "daily",
@@ -2961,11 +2962,11 @@
           "title": "boykopovar/AnyPS5",
           "summary": "Tool for automatic PS5 executables porting to Linux and Windows",
           "url": "https://github.com/boykopovar/AnyPS5",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 5144,
-            "forks": 376,
+            "stars": 5145,
+            "forks": 377,
             "starsRecent": 997,
             "starsPerDay": 997.0,
             "trendingWindow": "daily",
@@ -2989,321 +2990,6 @@
       ]
     },
     {
-      "clusterId": "46de37daad4dfbc7",
-      "title": "DeepSeek to raise at least $12 billion in Tencent-backed funding, Bloomberg News reports - Emirates 24|7",
-      "score": 9.24,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": false,
-      "needsPrimaryVerification": true,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "independent-convergence",
-      "alreadyCovered": false,
-      "lanes": [
-        "major_news",
-        "market_business"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "AD HOC NEWS",
-        "Emirates 24|7",
-        "Livemint",
-        "The Business Standard",
-        "The Business Times",
-        "The Korea Herald",
-        "The Times of India",
-        "TradingKey",
-        "Unique Times Magazine",
-        "theinvestor.co.kr"
-      ],
-      "primaryUrls": [],
-      "relatedUrls": [],
-      "signals": [
-        "major-news-search",
-        "market-business-search"
-      ],
-      "bestCandidate": {
-        "id": "aeaaf210bfa696c8",
-        "lane": "major_news",
-        "sourceKind": "news_search",
-        "title": "DeepSeek to raise at least $12 billion in Tencent-backed funding, Bloomberg News reports - Emirates 24|7",
-        "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUGVSbDZJQm9UNVFOTlFQX2E1ZzdvX0pIZ3YzbVpjMmdMX0ZXYm94VmhET3A5WmhROXdFZ3A1Z3pNaVl1T2lUX1hZcU1Xa1RVdjhrNEdSVEVTOUladk96dTdrSDNydEtoVWxZNjRSaUItZ25tR19pVl85MUlqY3lwa2hJX0J2TlVXSzlCZ3RoaGt1dHdCOWFrMVlYTy1nUndYWEM3aGRFTEJTeTBXbEJfbWlqaXNTYmNLR0xJcnJYOFlWYXJKcXNQYlZB0gHkAUFVX3lxTE16UWZWVlZnMVNubkZiUzdsZGhydi1wZldxaWloR0hNLUxjR0h4VGltcE9SaTFSbXJhbUNheFp0QUYxX3VuZU03cVA4VV9iNk8yNXAzYmlaUDByUG1ZZjNLWHc1LUFGZTBET2F2RURyMlRBWXNUMmNXZ3dVLWI5NUxRZ0tSZm1uWlNjeUFSVDJOa0dzTXl6M2hFOUpGS0JCU2tBcmZ5ZWxKcE1VdUJla19OaHB5Tmd1c2dfZVRIQlF6S2t1eFVmcl9lT0Q1YjZvaWwybFU3UHFNbUFrR2RoZE0wbkxJRw?oc=5",
-        "publishedAt": "2026-10-06T06:18:00Z",
-        "sourceName": "Emirates 24|7",
-        "metrics": {
-          "publisherBonus": 0.0,
-          "publisherUrl": "https://www.emirates247.com",
-          "primaryPublisher": false
-        },
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "relatedUrls": [],
-        "signals": [
-          "major-news-search"
-        ],
-        "rawScore": 6.97
-      },
-      "evidence": [
-        {
-          "id": "aeaaf210bfa696c8",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "DeepSeek to raise at least $12 billion in Tencent-backed funding, Bloomberg News reports - Emirates 24|7",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUGVSbDZJQm9UNVFOTlFQX2E1ZzdvX0pIZ3YzbVpjMmdMX0ZXYm94VmhET3A5WmhROXdFZ3A1Z3pNaVl1T2lUX1hZcU1Xa1RVdjhrNEdSVEVTOUladk96dTdrSDNydEtoVWxZNjRSaUItZ25tR19pVl85MUlqY3lwa2hJX0J2TlVXSzlCZ3RoaGt1dHdCOWFrMVlYTy1nUndYWEM3aGRFTEJTeTBXbEJfbWlqaXNTYmNLR0xJcnJYOFlWYXJKcXNQYlZB0gHkAUFVX3lxTE16UWZWVlZnMVNubkZiUzdsZGhydi1wZldxaWloR0hNLUxjR0h4VGltcE9SaTFSbXJhbUNheFp0QUYxX3VuZU03cVA4VV9iNk8yNXAzYmlaUDByUG1ZZjNLWHc1LUFGZTBET2F2RURyMlRBWXNUMmNXZ3dVLWI5NUxRZ0tSZm1uWlNjeUFSVDJOa0dzTXl6M2hFOUpGS0JCU2tBcmZ5ZWxKcE1VdUJla19OaHB5Tmd1c2dfZVRIQlF6S2t1eFVmcl9lT0Q1YjZvaWwybFU3UHFNbUFrR2RoZE0wbkxJRw?oc=5",
-          "publishedAt": "2026-10-06T06:18:00Z",
-          "sourceName": "Emirates 24|7",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.emirates247.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.97
-        },
-        {
-          "id": "fb28734fd297d4c2",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "DeepSeek to raise at least US$12 billion in Tencent-backed funding - The Business Times",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbWdTSmRvMTEzWERIaDVibDRzZE4tdnNRb2toQzNFT3c2enJ1QUEtS081a2ZIYWQzZnFLOHhJXzJnM1hjT1BFUUxlNWJsdVh1NFZ5NXN4N21jQ0M5OFRYT0tfbUtZSXQ2MnhfTWhsS0ZFa2dwZVV3N3lVa2pQT0xkdmtuU2trUlJIUjFSTDM2Sy1YUnZUTVlzNkN3ZUV5dGVaVUJiUW5VUHpad2JjN1BicDhtLWVQSGNsM0h6ZEdQMTdiaVE?oc=5",
-          "publishedAt": "2026-10-06T05:49:00Z",
-          "sourceName": "The Business Times",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.businesstimes.com.sg",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.95
-        },
-        {
-          "id": "76f5939416580f81",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Accenture CEO Julie Sweet rejects concerns that AI is a threat to the company\u2019s business model, says: Our - The Times of India",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiswJBVV95cUxNcGJ1ZmlLejVKVW0xM2g5WEFCUFNON1VLVlpaY3hsLXdOanFEU0oySVFNVFVsNEduaHVGaFJ1VkJzSkFWWVRla0tsWWtsOHpKaWRjTVQ2M0huQnZEZDZuMF9fRExWOTNHOVNWaWp0NTdDLVlYYllPRjZodXEybXRLdXdlREVLaFBkdnoyMW9ya3N3ZUdfclZyMDhtVHRORjBQUExsdnF4S3JqVnVJQnhwMFN1SDJjMWU5VUFCX2NaR2ZXZmNlS3FCUVN3WUx6cFl2dThPX3EwNVBKVmxGR19waFVRUjlkU2xmYnQyX0E0Smh5SkJOck5mNWtqTmhSeDZsamFfQmZkaTM3enF1Z1AxX1VMdUNvcVF6RWs4Snhva2xBcUFhZjFxOUJPeG82cWRSMFNN0gG4AkFVX3lxTE04M0dGb2RQRDJqcl9EM0FfeS0zWV9Qd3N1TGxTRjNKcl91SFJ1QkNTYnhpcHczMTZtOGJ0b1JmRnI2cWNrU21wek8yNEpIUkpZbkpPcFROSlB0UW52Qmg5WURMcWd0eG1KeThRbHlfdVJvc1VKSXNZLXBYeHFiTFp3blBUWFVtOGpVOUNqTHpJTTFGeTJwM2p6MVFMcGlmS3RINFVLanF2eXNKMGdQajczeVdIRnFZLUIzVVJGcDFqenJBUXh2cDJXc0ZtYWdjVzNxRUMwRDNtdjUyRFVGUTJaYjA4NTV3TVNmLTZzYUs0VmdJMU9sdk0xTU0wR1l6OGNaOVVsY3o0c2ctWDE2b1NxZFBWalh1YXJKUWVES2o3eF9CZS1nRVFPZUZtc1M5LVNaNmdVWVBoNQ?oc=5",
-          "publishedAt": "2026-10-06T02:05:00Z",
-          "sourceName": "The Times of India",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://timesofindia.indiatimes.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.8
-        },
-        {
-          "id": "85dc7e60ce957b74",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Oracle Fin stock reports record INR 14.16 billion profit - AD HOC NEWS",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMHE1TnRWSjAyNmN1QmtyM3kwQy1jYmxNSTBJSy1Yelp2RTkwVkh1WVdPcUMta1lqc3g5WFhCRFhVVXZmLWdaNnBhY0hTZlhKMlBaWGNKNkdsRlNkaWVwcjczTzh1WGxhV2VOaU4zNXp6dHBOSGJabjZtUXFrN0RrcmVFOWNzb1FCOVRYRFlKNnpPSFFvQlFfZ2t0MExjS21GMWhnR2JvTTNteHJQQnlEUlRXcjJ2UEw2MGN3?oc=5",
-          "publishedAt": "2026-10-05T17:37:44Z",
-          "sourceName": "AD HOC NEWS",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.ad-hoc-news.de",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.44
-        },
-        {
-          "id": "7f6657a0ae16a37f",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Indian IT Stocks Rise on Accenture Outlook - Unique Times Magazine",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE92dC1ORzJfMXZsYnNOUGJTeDB1bFdWSnpiMl9FYmdzRVVVbDV6TFdrc0NkT24zN2FLdWVWdzR6VEtWdTFkajdLejFpQnd6bHNwLVdoVTVTV19zMk1xUko1NkxtSm5lamo2NXRobkZoTm5WQTgyWHc?oc=5",
-          "publishedAt": "2026-10-05T10:49:38Z",
-          "sourceName": "Unique Times Magazine",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://uniquetimes.org",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.16
-        },
-        {
-          "id": "5ac73243f1d8f4bc",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Accenture reports 6.00 percent revenue growth and Accenture stock costs EUR 177.95 - AD HOC NEWS",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNdHNWRGFoa3NNUkpGNGdycDN5TU5fRkxuNFhPNkZjWlVYc0ZBMWZTR2Z3ZWhjSTJKNGx4SXY3UWlaOTd2Z1VGTTZ4LUFfeHQ5TGtfS2pFMGNjZGtmR0toRFRuTjlxMnROaDZjRnNtLUFpNmZpMmR3NVVfU0JOWlQyMS1RX3RCMlNoV3ZTeXBZdU1GWlhIU3M5dVJxMHVLOWhCVi1ycVZ0R2lfYk81Q0MyeDNTYkh6VERnV1pZaVV6YmtOS2ROSzlYMjNkTUhGbG8?oc=5",
-          "publishedAt": "2026-10-05T09:59:29Z",
-          "sourceName": "AD HOC NEWS",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.ad-hoc-news.de",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.13
-        },
-        {
-          "id": "ab8123538097d1a9",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "OpenAI shelves new AI model release over safety concerns - The Business Standard",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX1BKMGJMcHp1LS1Hd2VhcDAtR0RMZHF2TlRnOGtDajFicUdhWmFTUkZkdm1INERIVEhJT1lfdlNQVVNLaHFuTTh0MGNOYlMtbkw0cUk5amJZS3RZTWRzd0FlMkRhNjJ4UXphWnlCZUpqSG9od2ZvdFpRMjNLZ2EzYzRVZWZOZXdnVkhRNTMyalJqelA0QjBueQ?oc=5",
-          "publishedAt": "2026-10-05T07:57:41Z",
-          "sourceName": "The Business Standard",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.tbsnews.net",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.04
-        },
-        {
-          "id": "3ac58add74afd9c7",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "TCS, Wipro, Infosys, HCL, Tech Mahindra shares: Accenture Q4 strong show impact on Indian IT stocks decoded by experts - Livemint",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQdIBlgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQQ?oc=5",
-          "publishedAt": "2026-10-05T07:34:52Z",
-          "sourceName": "Livemint",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.livemint.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.03
-        },
-        {
-          "id": "258d0373a3eeee6a",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Samsung set for record W100tr quarterly profit on memory boom - theinvestor.co.kr",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1GMUZxU0Z3RkpSdmJ2NHdlaHZSQ3dMWnlGRUk5bTJJWHMwb1BVazlZNEJiemZUdlhYTC1iUlJKWGZoOTZGaFg1T0FTZFlDaGZ1TG92bWRFVmlmdw?oc=5",
-          "publishedAt": "2026-10-05T04:56:03Z",
-          "sourceName": "theinvestor.co.kr",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.theinvestor.co.kr",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 5.92
-        },
-        {
-          "id": "6a30374a5967be8e",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Samsung set for record W100tr quarterly profit on memory boom - The Korea Herald",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5uZWVvUmFiUlRoQ0JKNVMtMzJYUVNSTUZZT2doMFJTMWZKRkJMczRFc1pNN2xFQU5ISl93T0xZd3dmVTJnTVhvWF9XdnJJb0gwbExOVnROUQ?oc=5",
-          "publishedAt": "2026-10-05T04:45:12Z",
-          "sourceName": "The Korea Herald",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.koreaherald.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 5.91
-        },
-        {
-          "id": "f3ca84b28b340a05",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Palantir (PLTR) Stock Soars 30% After Record Earnings, AI Demand and Guidance Boost - TradingKey",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOaXhzLUE1OHJqdVROcDNxVjNiTGNxeWx1Q2RoaEI5YVEycFN4ZmEyM3hOeWxGdWZOVXZkcVJIbnJ0MnliM3FyZUlhMkRDblRseXhEUnNBbnRzZExRUmpyN052d0tSWEJZZ25rSW1rWEtuaFBBaHNGcGw4XzRUNlVuU3Y5aDlTNGpoOUJEdXROZDJ1eXNITk1pc3ZhY1BRU3hUaEhsQ0R5NlZqZ2thNmROZ3hoWjNQTTBUNGEwUjJXUzNBV2xFSjRVbmkyVHlmQ052R3FF?oc=5",
-          "publishedAt": "2026-10-04T22:36:12Z",
-          "sourceName": "TradingKey",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.tradingkey.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 5.65
-        }
-      ]
-    },
-    {
       "clusterId": "60d9c194adc1ee19",
       "title": "DuarteSantos8/openGym",
       "score": 9.23,
@@ -3313,7 +2999,7 @@
       "needsPrimaryVerification": false,
       "needsEditorialVerification": true,
       "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=1433.0-total=4547",
+      "qualityGate": "github-trending-stars-per-day=1433.0-total=4550",
       "alreadyCovered": false,
       "lanes": [
         "hot_emerging"
@@ -3340,10 +3026,10 @@
         "title": "DuarteSantos8/openGym",
         "summary": "Self-hosted gym & body-weight tracker \u2014 plan routines, log workouts (supersets, warm-ups, cardio), see which muscles are trained, fatigued or detrained, import from FitNotes/Strong/Hevy, passkey login. Your data, your server.",
         "url": "https://github.com/DuarteSantos8/openGym",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
-          "stars": 4547,
+          "stars": 4550,
           "forks": 685,
           "starsRecent": 1433,
           "starsPerDay": 1433.0,
@@ -3373,10 +3059,10 @@
           "title": "DuarteSantos8/openGym",
           "summary": "Self-hosted gym & body-weight tracker \u2014 plan routines, log workouts (supersets, warm-ups, cardio), see which muscles are trained, fatigued or detrained, import from FitNotes/Strong/Hevy, passkey login. Your data, your server.",
           "url": "https://github.com/DuarteSantos8/openGym",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
-            "stars": 4547,
+            "stars": 4550,
             "forks": 685,
             "starsRecent": 1433,
             "starsPerDay": 1433.0,
@@ -3437,7 +3123,7 @@
         "title": "alirezarezvani/claude-skills",
         "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
         "url": "https://github.com/alirezarezvani/claude-skills",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
         "sourceName": "GitHub Trending",
         "metrics": {
           "stars": 27745,
@@ -3470,7 +3156,7 @@
           "title": "alirezarezvani/claude-skills",
           "summary": "380 Claude Code skills & agent skills & plugins (30+ Agents, 70+ custom commands, 380+ skills, customizable references, scripts)for Claude Code, Codex, Gemini CLI, Cursor, and 8 more coding agents \u2014 engineering, marketing, product, compliance, C-level advisory, research, business operations, commercial & finance, and your daily productivity skills.",
           "url": "https://github.com/alirezarezvani/claude-skills",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
           "sourceName": "GitHub Trending",
           "metrics": {
             "stars": 27745,
@@ -3498,9 +3184,300 @@
       ]
     },
     {
-      "clusterId": "7f41add14cb5f93f",
-      "title": "ReviewBench: An open benchmark for AI code review - github.blog",
-      "score": 9.1,
+      "clusterId": "958c608728b4ca0d",
+      "title": "M-Abozaid/esp32-c3-adblock",
+      "score": 9.05,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "github-trending-stars-per-day=196.0-total=1512",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub Trending"
+      ],
+      "primaryUrls": [
+        "https://github.com/M-Abozaid/esp32-c3-adblock"
+      ],
+      "relatedUrls": [],
+      "signals": [
+        "github",
+        "github-trending",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "6410813454bf27bf",
+        "lane": "hot_emerging",
+        "sourceKind": "github_trending",
+        "title": "M-Abozaid/esp32-c3-adblock",
+        "summary": "Pi-hole-class DNS ad-blocker on a $2 ESP32-C3 (no PSRAM): 537k domains as 40-bit FNV-1a hashes in flash, binary-searched. UDP DNS sinkhole + web dashboard. https://youtube.com/shorts/RaxszOUMi8E?feature=share",
+        "url": "https://github.com/M-Abozaid/esp32-c3-adblock",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
+        "sourceName": "GitHub Trending",
+        "metrics": {
+          "stars": 1512,
+          "forks": 130,
+          "starsRecent": 196,
+          "starsPerDay": 196.0,
+          "trendingWindow": "daily",
+          "repoCreatedAt": "2026-06-19T18:14:43Z",
+          "repoPushedAt": "2026-10-04T09:40:52Z"
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/M-Abozaid/esp32-c3-adblock"
+        ],
+        "primaryVerified": true,
+        "relatedUrls": [],
+        "signals": [
+          "github",
+          "github-trending",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 8.5
+      },
+      "evidence": [
+        {
+          "id": "6410813454bf27bf",
+          "lane": "hot_emerging",
+          "sourceKind": "github_trending",
+          "title": "M-Abozaid/esp32-c3-adblock",
+          "summary": "Pi-hole-class DNS ad-blocker on a $2 ESP32-C3 (no PSRAM): 537k domains as 40-bit FNV-1a hashes in flash, binary-searched. UDP DNS sinkhole + web dashboard. https://youtube.com/shorts/RaxszOUMi8E?feature=share",
+          "url": "https://github.com/M-Abozaid/esp32-c3-adblock",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
+          "sourceName": "GitHub Trending",
+          "metrics": {
+            "stars": 1512,
+            "forks": 130,
+            "starsRecent": 196,
+            "starsPerDay": 196.0,
+            "trendingWindow": "daily",
+            "repoCreatedAt": "2026-06-19T18:14:43Z",
+            "repoPushedAt": "2026-10-04T09:40:52Z"
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/M-Abozaid/esp32-c3-adblock"
+          ],
+          "primaryVerified": true,
+          "relatedUrls": [],
+          "signals": [
+            "github",
+            "github-trending",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 8.5
+        }
+      ]
+    },
+    {
+      "clusterId": "700cfd43a6853fd1",
+      "title": "tile-ai/tilelang",
+      "score": 9.03,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "github-trending-stars-per-day=131.7-total=8434",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub Trending"
+      ],
+      "primaryUrls": [
+        "https://github.com/tile-ai/tilelang"
+      ],
+      "relatedUrls": [],
+      "signals": [
+        "github",
+        "github-trending",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "e80d5519b0502900",
+        "lane": "hot_emerging",
+        "sourceKind": "github_trending",
+        "title": "tile-ai/tilelang",
+        "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
+        "url": "https://github.com/tile-ai/tilelang",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
+        "sourceName": "GitHub Trending",
+        "metrics": {
+          "stars": 8434,
+          "forks": 853,
+          "starsRecent": 922,
+          "starsPerDay": 131.71,
+          "trendingWindow": "weekly",
+          "repoCreatedAt": "2024-10-03T09:25:45Z",
+          "repoPushedAt": "2026-10-05T18:48:27Z"
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/tile-ai/tilelang"
+        ],
+        "primaryVerified": true,
+        "relatedUrls": [],
+        "signals": [
+          "github",
+          "github-trending",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 8.48
+      },
+      "evidence": [
+        {
+          "id": "e80d5519b0502900",
+          "lane": "hot_emerging",
+          "sourceKind": "github_trending",
+          "title": "tile-ai/tilelang",
+          "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
+          "url": "https://github.com/tile-ai/tilelang",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
+          "sourceName": "GitHub Trending",
+          "metrics": {
+            "stars": 8434,
+            "forks": 853,
+            "starsRecent": 922,
+            "starsPerDay": 131.71,
+            "trendingWindow": "weekly",
+            "repoCreatedAt": "2024-10-03T09:25:45Z",
+            "repoPushedAt": "2026-10-05T18:48:27Z"
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/tile-ai/tilelang"
+          ],
+          "primaryVerified": true,
+          "relatedUrls": [],
+          "signals": [
+            "github",
+            "github-trending",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 8.48
+        }
+      ]
+    },
+    {
+      "clusterId": "929c1b934865b905",
+      "title": "cloudflare/cloudflare-os",
+      "score": 8.93,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "github-trending-stars-per-day=101.0-total=11105",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub Trending"
+      ],
+      "primaryUrls": [
+        "https://github.com/cloudflare/cloudflare-os"
+      ],
+      "relatedUrls": [],
+      "signals": [
+        "github",
+        "github-trending",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "e9522d1037d75450",
+        "lane": "hot_emerging",
+        "sourceKind": "github_trending",
+        "title": "cloudflare/cloudflare-os",
+        "summary": "Agent workspace built on Cloudflare Workers for creating documents, building apps, and running agents with your company\u2019s context and systems.",
+        "url": "https://github.com/cloudflare/cloudflare-os",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
+        "sourceName": "GitHub Trending",
+        "metrics": {
+          "stars": 11105,
+          "forks": 1315,
+          "starsRecent": 101,
+          "starsPerDay": 101.0,
+          "trendingWindow": "daily",
+          "repoCreatedAt": "2026-04-15T22:22:53Z",
+          "repoPushedAt": "2026-10-06T06:15:10Z"
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/cloudflare/cloudflare-os"
+        ],
+        "primaryVerified": true,
+        "relatedUrls": [],
+        "signals": [
+          "github",
+          "github-trending",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 8.38
+      },
+      "evidence": [
+        {
+          "id": "e9522d1037d75450",
+          "lane": "hot_emerging",
+          "sourceKind": "github_trending",
+          "title": "cloudflare/cloudflare-os",
+          "summary": "Agent workspace built on Cloudflare Workers for creating documents, building apps, and running agents with your company\u2019s context and systems.",
+          "url": "https://github.com/cloudflare/cloudflare-os",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
+          "sourceName": "GitHub Trending",
+          "metrics": {
+            "stars": 11105,
+            "forks": 1315,
+            "starsRecent": 101,
+            "starsPerDay": 101.0,
+            "trendingWindow": "daily",
+            "repoCreatedAt": "2026-04-15T22:22:53Z",
+            "repoPushedAt": "2026-10-06T06:15:10Z"
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/cloudflare/cloudflare-os"
+          ],
+          "primaryVerified": true,
+          "relatedUrls": [],
+          "signals": [
+            "github",
+            "github-trending",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 8.38
+        }
+      ]
+    },
+    {
+      "clusterId": "4dffcde6ecbec241",
+      "title": "ReviewBench: An open benchmark for AI code review - The GitHub Blog",
+      "score": 8.92,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -3521,8 +3498,7 @@
         "Hacker News",
         "MarkTechPost",
         "Open Source For You",
-        "Pandaily",
-        "github.blog"
+        "The GitHub Blog"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
@@ -3533,14 +3509,14 @@
         "primary-publisher"
       ],
       "bestCandidate": {
-        "id": "a8962976ac029f62",
+        "id": "9dc5750616907ff8",
         "lane": "major_news",
         "sourceKind": "news_search",
-        "title": "ReviewBench: An open benchmark for AI code review - github.blog",
+        "title": "ReviewBench: An open benchmark for AI code review - The GitHub Blog",
         "summary": "",
         "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQM0t3dWF3dGhmR1NaM3F2YjduYVF6VlUybU9SV0tiWE9jeXVWbVdydmxQb0ttTzk1SWZmYmdPejRMRE1ONHg5YVE2SV8xNDcxMURndDBvV2pVYjRKZ0w3NnZSU3VrZ2NpV2ZzQkd1dzE5UmkzWFBJT0tSWHpfTk9mTDZxaDRmLWtrWXQ2dDJXcmVWT0hDSjlNVGJ3?oc=5",
         "publishedAt": "2026-10-05T20:42:35Z",
-        "sourceName": "github.blog",
+        "sourceName": "The GitHub Blog",
         "metrics": {
           "publisherBonus": 0.0,
           "publisherUrl": "https://github.blog",
@@ -3558,14 +3534,14 @@
       },
       "evidence": [
         {
-          "id": "a8962976ac029f62",
+          "id": "9dc5750616907ff8",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "ReviewBench: An open benchmark for AI code review - github.blog",
+          "title": "ReviewBench: An open benchmark for AI code review - The GitHub Blog",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQM0t3dWF3dGhmR1NaM3F2YjduYVF6VlUybU9SV0tiWE9jeXVWbVdydmxQb0ttTzk1SWZmYmdPejRMRE1ONHg5YVE2SV8xNDcxMURndDBvV2pVYjRKZ0w3NnZSU3VrZ2NpV2ZzQkd1dzE5UmkzWFBJT0tSWHpfTk9mTDZxaDRmLWtrWXQ2dDJXcmVWT0hDSjlNVGJ3?oc=5",
           "publishedAt": "2026-10-05T20:42:35Z",
-          "sourceName": "github.blog",
+          "sourceName": "The GitHub Blog",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://github.blog",
@@ -3582,12 +3558,12 @@
           "rawScore": 6.92
         },
         {
-          "id": "ea0c696c684ade93",
+          "id": "c0694a0cf624ba78",
           "lane": "major_news",
           "sourceKind": "news_search",
           "title": "Meet Together Link: A Free CLI That Runs Open Models Like Kimi K3 and GLM 5.3 Inside Claude Code, Codex, and OpenCode - MarkTechPost",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxQWXNlZUxiUFItZmprSndiU1hfR0NBdWU2T3hoR3hzTXVFWmxBeDNSQW1PaTFJaWlMeS1lUmVBcjBrcmtGWE5ZVFRiSjV0bmxsYXNkVUZhcUhnSnpFWkc2WXo3N2o1Y3h5Mnk1Wno3eXN3czJWN1FCMTQwa25iOC1KeGlLcG95VmZSMHRxOHdqV1p6MDlFWmNZRlc0WmdSSjhWVzkyRUN4LVRHTDJTbm9DRENKMjRjUFlocEVPbTBWNXRYcDF1VkhMUHZlUmVvWHNkUlluVWNraklrSVNSaHFna2VPc0pTOW43S3ZiNkRIY24wWXPSAfMBQVVfeXFMUFlzZWVMYlBSLWZqa0p3YlNYX0dDQXVlNk94aEd4c011RVpsQXgzUkFtT2kxSWlpTHktZVJlQXIwa3JrRlhOWVRUYko1dG5sbGFzZFVGYXFIZ0p6RVpHNll6NzdqNWN4eTJ5NVp6N3lzd3MyVjdRQjE0MGtuYjgtSnhpS3BveVZmUjB0cTh3aldaejA5RVpjWUZXNFpnUko4Vlc5MkVDeC1UR0wyU25vQ0RDSjI0Y1BZaHBFT20wVjV0WHAxdVZITFB2ZVJlb1hzZFJZblVja2pJa0lTUmhxZ2tlT3NKUzluN0t2YjZESGNuMFlz?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxPWVJiVEx1aUJCdmMtZ2lILU9sc1gtM2RVamRwMDQ1VmJrUUxZZG1PZ0tReF9wWHozNmFPazBRc2ZPS3VkbUhJdzJXUEthWV9mellXSkdDMExra01ES3JITVdEbHo5RVBDYkhjMGY3OW5pM3FMMl9fSkRPRnlrUGN3Nk1fN25PeWJIeDB5dmtFUDhoNTV6WUttbzBmNmgzeGFLSkwtM1YzYWtYYWo3SmJZRzgzcnl6elNnMDVFS2xScXJVTm1aclhyREp0VHZBNC1Od3pzU051eE5rSkt2UXB5c3F3WFdDUzlybTRv0gHrAUFVX3lxTE9ZUmJUTHVpQkJ2Yy1naUgtT2xzWC0zZFVqZHAwNDVWYmtRTFlkbU9nS1F4X3BYejM2YU9rMFFzZk9LdWRtSEl3MldQS2FZX2Z6WVdKR0MwTGtrTURLckhNV0RsejlFUENiSGMwZjc5bmkzcUwyX19KRE9GeWtQY3c2TV83bk95Ykh4MHl2a0VQOGg1NXpZS21vMGY2aDN4YUtKTC0zVjNha1hhajdKYllHODNyeXp6U2cwNUVLbFJxclVObVpyWHJESnRUdkE0LU53enNTTnV4TmtKS3ZRcHlzcXdYV0NTOXJtNG8?oc=5",
           "publishedAt": "2026-10-05T22:51:05Z",
           "sourceName": "MarkTechPost",
           "metrics": {
@@ -3683,7 +3659,7 @@
           "publishedAt": "2026-10-05T22:01:35Z",
           "sourceName": "Hacker News",
           "metrics": {
-            "points": 53,
+            "points": 54,
             "comments": 44
           },
           "creator": null,
@@ -3694,37 +3670,111 @@
             "hacker-news",
             "developer-discussion"
           ],
-          "rawScore": 5.79
-        },
-        {
-          "id": "10b8984fe8a6df0f",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "DeepSeek Harness v0.2.1-alpha.1 Adds Experimental Claude Code Mods Compatibility Layer - Pandaily",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPcGdoZzFOdXpJNmlkNnlrQ2FONUltaTc2aHVNbEZVdlNyNHM1MkNVT011S1lGaHVnT2lvOUx1Mm1jSkZWWWdzT3NxeEV4WlVLZHRmYnY4ZENtYmFTc1RoQ1NmU0VhTERSeUpva1djdUROc1hMOGxiRzFEY3BXNjBiaEVNbFRoNkVaTWNCc3U5VjNYejA?oc=5",
-          "publishedAt": "2026-10-04T18:59:58Z",
-          "sourceName": "Pandaily",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://pandaily.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 5.5
+          "rawScore": 5.8
         }
       ]
     },
     {
-      "clusterId": "930c65273e596e7e",
-      "title": "Android closes the door on APKs, the crackdown arrives in the US and UK in 2027 - Pasquale Pillitteri",
-      "score": 9.08,
+      "clusterId": "0ad277434c7342d5",
+      "title": "Gaurav-Gosain/tuios",
+      "score": 8.84,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": true,
+      "needsPrimaryVerification": false,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "github-trending-stars-per-day=100.4-total=4891",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "GitHub Trending"
+      ],
+      "primaryUrls": [
+        "https://github.com/Gaurav-Gosain/tuios"
+      ],
+      "relatedUrls": [],
+      "signals": [
+        "github",
+        "github-trending",
+        "momentum",
+        "open-source"
+      ],
+      "bestCandidate": {
+        "id": "a43c7029965757ff",
+        "lane": "hot_emerging",
+        "sourceKind": "github_trending",
+        "title": "Gaurav-Gosain/tuios",
+        "summary": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent.",
+        "url": "https://github.com/Gaurav-Gosain/tuios",
+        "publishedAt": "2026-10-06T07:01:30.319631Z",
+        "sourceName": "GitHub Trending",
+        "metrics": {
+          "stars": 4891,
+          "forks": 217,
+          "starsRecent": 703,
+          "starsPerDay": 100.43,
+          "trendingWindow": "weekly",
+          "repoCreatedAt": "2025-09-06T18:13:51Z",
+          "repoPushedAt": "2026-10-06T06:18:11Z"
+        },
+        "creator": null,
+        "primaryUrls": [
+          "https://github.com/Gaurav-Gosain/tuios"
+        ],
+        "primaryVerified": true,
+        "relatedUrls": [],
+        "signals": [
+          "github",
+          "github-trending",
+          "open-source",
+          "momentum"
+        ],
+        "rawScore": 8.29
+      },
+      "evidence": [
+        {
+          "id": "a43c7029965757ff",
+          "lane": "hot_emerging",
+          "sourceKind": "github_trending",
+          "title": "Gaurav-Gosain/tuios",
+          "summary": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent.",
+          "url": "https://github.com/Gaurav-Gosain/tuios",
+          "publishedAt": "2026-10-06T07:01:30.319631Z",
+          "sourceName": "GitHub Trending",
+          "metrics": {
+            "stars": 4891,
+            "forks": 217,
+            "starsRecent": 703,
+            "starsPerDay": 100.43,
+            "trendingWindow": "weekly",
+            "repoCreatedAt": "2025-09-06T18:13:51Z",
+            "repoPushedAt": "2026-10-06T06:18:11Z"
+          },
+          "creator": null,
+          "primaryUrls": [
+            "https://github.com/Gaurav-Gosain/tuios"
+          ],
+          "primaryVerified": true,
+          "relatedUrls": [],
+          "signals": [
+            "github",
+            "github-trending",
+            "open-source",
+            "momentum"
+          ],
+          "rawScore": 8.29
+        }
+      ]
+    },
+    {
+      "clusterId": "7f1e4fe8e79465ae",
+      "title": "SRIT India shares debut at 14% premium on NSE after IPO draws 125x subscription \u2014 should you buy, sell... - Moneycontrol.com",
+      "score": 8.8,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -3740,15 +3790,14 @@
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "Benzinga",
-        "Bloomberg.com",
-        "Investing.com UK",
-        "NAI500",
-        "NDTV Profit",
-        "Pasquale Pillitteri",
+        "Livemint",
+        "Moneycontrol.com",
+        "Simply Wall Street",
         "The Economic Times",
-        "WSJ",
-        "qz.com"
+        "The Indian Express",
+        "Unique Times Magazine",
+        "Yahoo Finance",
+        "financialexpress.com"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
@@ -3757,17 +3806,17 @@
         "market-business-search"
       ],
       "bestCandidate": {
-        "id": "8a5f84d10109c338",
-        "lane": "major_news",
+        "id": "a292176b69d8bc2b",
+        "lane": "market_business",
         "sourceKind": "news_search",
-        "title": "Android closes the door on APKs, the crackdown arrives in the US and UK in 2027 - Pasquale Pillitteri",
+        "title": "SRIT India shares debut at 14% premium on NSE after IPO draws 125x subscription \u2014 should you buy, sell... - Moneycontrol.com",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOOEZUN2dUWEp1UXdmNng0V3U1TVV6N1YtNWgxZGRPT0ZpeFZ5OXM4VHNxQll6WXhfZGFWQUJFN2lUREh5bzlDNWp0SWthcEp5OE0xUE1aYTVqRE9xem0yanBuMUNWUU4xTnBfbzNoWEJBNFJxQk02Z0x1TlBPTEstMHBtM2JpblJZeVd0TVFGNU4yNjFLS0p3bUVvTnRteDlw?oc=5",
-        "publishedAt": "2026-10-06T06:49:00Z",
-        "sourceName": "Pasquale Pillitteri",
+        "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNdHY2OHlPb3h6d2R1c29GMVRKdkRDX3ljN1FhSkhiU2xlcWVJUlBqS1lFVGF0SUNZREpienpFQVpmUHkyeFhKU0EyMm1PNERpOTlkS2RZWEtuazBJVmlXMDFJS1NJa210am53eVc2MjBqc3hSSnVjTXYyTVViYkQybHZuUlJ6UXdTeVhtc0FjVUI1aEpmXzdHcmw4TFhkUUhtN1lERXJzNXo4NHJuVkh2aFZuT0tkWTdDcXo5OGtvX3czendPSEpvQy1YOGVnQW85empfc3BBWnp4S0FiLWprZWRDakpocWZNam5CSk1CWkRVa0xaQW5CblBpTml0TkFKWDNtOFJ0dUfSAYgCQVVfeXFMTXR2Njh5T294endkdXNvRjFUSnZEQ195YzdRYUpIYlNsZXFlSVJQaktZRVRhdElDWURKYnp6RUFaZlB5MnhYSlNBMjJtTzREaTk5ZEtkWVhLbmswSVZpVzAxSUtTSWttdGpud3lXNjIwanN4Ukp1Y012Mk1VYmJEMmx2blJSelF3U3lYbXNBY1VCNWhKZl83R3JsOExYZFFIbTdZREVyczV6ODRyblZIdmhWbk9LZFk3Q3F6OThrb193M3p3T0hKb0MtWDhlZ0FvOXpqX3NwQVp6eEtBYi1qa2VkQ2pKaHFmTWpuQkpNQlpEVWtMWkFuQm5QaU5pdE5BSlgzbThSdHVH?oc=5",
+        "publishedAt": "2026-10-06T04:24:06Z",
+        "sourceName": "Moneycontrol.com",
         "metrics": {
           "publisherBonus": 0.0,
-          "publisherUrl": "https://pasqualepillitteri.it",
+          "publisherUrl": "https://www.moneycontrol.com",
           "primaryPublisher": false
         },
         "creator": null,
@@ -3775,46 +3824,23 @@
         "primaryVerified": false,
         "relatedUrls": [],
         "signals": [
-          "major-news-search"
+          "market-business-search"
         ],
-        "rawScore": 6.99
+        "rawScore": 6.89
       },
       "evidence": [
         {
-          "id": "8a5f84d10109c338",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "Android closes the door on APKs, the crackdown arrives in the US and UK in 2027 - Pasquale Pillitteri",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOOEZUN2dUWEp1UXdmNng0V3U1TVV6N1YtNWgxZGRPT0ZpeFZ5OXM4VHNxQll6WXhfZGFWQUJFN2lUREh5bzlDNWp0SWthcEp5OE0xUE1aYTVqRE9xem0yanBuMUNWUU4xTnBfbzNoWEJBNFJxQk02Z0x1TlBPTEstMHBtM2JpblJZeVd0TVFGNU4yNjFLS0p3bUVvTnRteDlw?oc=5",
-          "publishedAt": "2026-10-06T06:49:00Z",
-          "sourceName": "Pasquale Pillitteri",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://pasqualepillitteri.it",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.99
-        },
-        {
-          "id": "4ab2f2b3ee5014a8",
+          "id": "a292176b69d8bc2b",
           "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Moonshot targets HK IPO in early 2027 after funding round at $50 bln valuation- Bloomberg - Investing.com UK",
+          "title": "SRIT India shares debut at 14% premium on NSE after IPO draws 125x subscription \u2014 should you buy, sell... - Moneycontrol.com",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPRHVUNUtpcjkwTzRocjhZLUdsR3ZoU1NaTVVDZTZYMnNROFZSZHR0MjA0NFZDVmpJRXpFZEhpbnpoUUZjVlRBN0F5UjE5VXY5ZEtPd0hjbDhTT3RsQzNoSFZCaFY2aVoweUVfNVR0eG9xOEVUZE5hRXRObTQ5a1g5LVpIVVVuM01CcjI4OW8tdHhUYzVNNjIyb3E0NXpidzN5MHhwY0I2ZV9HY2NxSUh2d3JyZFl3d09fWm9EOUNIUkpuVTZ4TmhKanZkR2tpdzMwckpWWk1mVVp6OFdSS2VlMjJ3?oc=5",
-          "publishedAt": "2026-10-06T03:12:00Z",
-          "sourceName": "Investing.com UK",
+          "url": "https://news.google.com/rss/articles/CBMiiAJBVV95cUxNdHY2OHlPb3h6d2R1c29GMVRKdkRDX3ljN1FhSkhiU2xlcWVJUlBqS1lFVGF0SUNZREpienpFQVpmUHkyeFhKU0EyMm1PNERpOTlkS2RZWEtuazBJVmlXMDFJS1NJa210am53eVc2MjBqc3hSSnVjTXYyTVViYkQybHZuUlJ6UXdTeVhtc0FjVUI1aEpmXzdHcmw4TFhkUUhtN1lERXJzNXo4NHJuVkh2aFZuT0tkWTdDcXo5OGtvX3czendPSEpvQy1YOGVnQW85empfc3BBWnp4S0FiLWprZWRDakpocWZNam5CSk1CWkRVa0xaQW5CblBpTml0TkFKWDNtOFJ0dUfSAYgCQVVfeXFMTXR2Njh5T294endkdXNvRjFUSnZEQ195YzdRYUpIYlNsZXFlSVJQaktZRVRhdElDWURKYnp6RUFaZlB5MnhYSlNBMjJtTzREaTk5ZEtkWVhLbmswSVZpVzAxSUtTSWttdGpud3lXNjIwanN4Ukp1Y012Mk1VYmJEMmx2blJSelF3U3lYbXNBY1VCNWhKZl83R3JsOExYZFFIbTdZREVyczV6ODRyblZIdmhWbk9LZFk3Q3F6OThrb193M3p3T0hKb0MtWDhlZ0FvOXpqX3NwQVp6eEtBYi1qa2VkQ2pKaHFmTWpuQkpNQlpEVWtMWkFuQm5QaU5pdE5BSlgzbThSdHVH?oc=5",
+          "publishedAt": "2026-10-06T04:24:06Z",
+          "sourceName": "Moneycontrol.com",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://uk.investing.com",
+            "publisherUrl": "https://www.moneycontrol.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -3824,76 +3850,7 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.84
-        },
-        {
-          "id": "9a109f797972248c",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Moonshot Said to Eye Early 2027 IPO After Value Hits $50 Billion - Bloomberg.com",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQUWxadFhQQmw2UHl3OU1mdTl5a0RrT1d2X1FlS1BYV2FIS0I5Z0RRWW9RazFFNG10WlhLaXZXTUZRYUM1X0lpRjZlYmszSXg2bUgwYjlodjk5VmJiSUJFSU5qeGw0Vzg4bk53NFNsZXNUMmJWcmRFcEgxSUdUaWFjWGhlMTh2dlB6TnR3em9BSmFCc1VxQjRGU1JYSmxwdGlkdG93QnhFUExkYkp1ZGRVeFNfOFo?oc=5",
-          "publishedAt": "2026-10-06T02:32:00Z",
-          "sourceName": "Bloomberg.com",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://www.bloomberg.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.82
-        },
-        {
-          "id": "8cd3055e5166266b",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "OpenAI in Talks for New Funding Round as Middle East Capital May Become a Major Backer - NAI500",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdWMwUkx5aWJCMDZ0MTkxWnFGRHhOWERtV19iSU90b3o1Z3lacnVHUHdKbGhWMnN0eXI1VlNNVVVRMlVKVGhqSjFCWWFKLS0tMzBhTnJ3Y05LMW9ROGhaMThzVFdFaFR3ay05Y3J5ellDZGdwbE9PcEI2eWV5SVJmY04zUHl1Z0lrbFpkcEM3dXFGZnQtN3R2WHRBYVhNSnY3MVlvY1kyZFBGVkZrMk5mNmVDbDNoNnlERHVB?oc=5",
-          "publishedAt": "2026-10-06T02:30:06Z",
-          "sourceName": "NAI500",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://nai500.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.81
-        },
-        {
-          "id": "7347a7b726a02b85",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "German robotics startup RobCo hits $1 billion valuation - qz.com",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBlSW5XWHJPd2RWSDdPMl9hR0RUX0R1eXlDUDk5blpqbDNVUE1HWmdSOXYwY1NYck9NaFE3MkJZeWJIQk9DNDAtczJVZjZuLUwycXBIVlRnYUV4Nml3RVY4R0V1VFJIMllhSDgwOVNIdldGbi1s?oc=5",
-          "publishedAt": "2026-10-05T20:31:59Z",
-          "sourceName": "qz.com",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://qz.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.57
+          "rawScore": 6.89
         },
         {
           "id": "a2fca433a44dd5d9",
@@ -3942,17 +3899,17 @@
           "rawScore": 6.4
         },
         {
-          "id": "d3f678a3cd796ae0",
+          "id": "e0f622fc329eda81",
           "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "S&P 500 Could Crash Over 35% to 5,000 by 2027 If AI Boom Turns Down, Analyst Warns \u2014 Upcoming Earnings Se - Benzinga",
+          "title": "Accenture forecast lifts most IT stocks but near-term outlook remains hazy - The Indian Express",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNU3QwRVlaaU15eGtaSDlPZzJiT01LZExvZjFJSkpzMEtmQ0pyNlJOMW9rNHA5cDV6anNRVzZHTm1sdXZjZzlmTkdtS0VqT2kyUVRTUHFxdGIyNVgxM2o4ZXR5Q2c0YTliVG9kUV9jYWxTNEdaZ3JQakNYWk9ZZFJXQXh3LUxnbHZRcktnUlNJQWhNZFlpYkJCOUpZa2hzM084MlpISlRYTTZRYkoyRzJUcXNKMFI3V0tiMkVmLWhxb0pfd1ltanBUZXJzMm1UN2xNWE5aZXV5TXRINWg0ZHBhUlVxNkJkNmNGdXB2T1NEUEV0Qy04QUdhS3NPWGNUQVpUa1VvQm9Rek83Qk5lQWhXeHdQYVFxVFB6?oc=5",
-          "publishedAt": "2026-10-05T13:28:00Z",
-          "sourceName": "Benzinga",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNV0NIZlJGYlRCdUVCOC16UGFHa1pDaDRITjU2bWlyZ2ZzSWdiTkduT3dSZFZfTDZOMk1aTFBsZk1kZHgtVTZuWGg1YUROQUV4dElaMWtZN0hnS2Y1VDZVWkVVT0R3OXV3X003TnB6eU9CUWJkdlllbFdZZ005Sjlwc3BwQlJIOGI1LXdnX2ZsYlhsdWIyRXdwekRYUDA3VldDeXdXSVVNcklLM2gxaE1JcEZlaUM3U18yYmdQRXljcHMwa0FSemtCSzZYd244X0nSAdYBQVVfeXFMTjhDSXFvVnRrOTd3ZUNWT2FfQkhaTU9pREo1WnRNUHdaVWJQaGtOeER4YkUySU9rNGpWQTJESUwza0poMHl6WVc3eUIxT1BHc3Mtc24zdlYzNXRUeldqT0JTb3JqMUM0Rk5ZR2F2c3R5cnhnSUJoSVpnS2YtWk1uVzNWbzNUbkh0Z2JWMW1sRllCRURXRFdVTUNYV2lDd2tpcUFGWkw0eURsWGNpb0ZWZ19vTnVmMTVfdk5RZUpFT0UwVDlicjRCRHQ4Z0FRSlhwZG5mZEU2dw?oc=5",
+          "publishedAt": "2026-10-05T11:32:19Z",
+          "sourceName": "The Indian Express",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://www.benzinga.com",
+            "publisherUrl": "https://indianexpress.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -3962,20 +3919,20 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.27
+          "rawScore": 6.19
         },
         {
-          "id": "87c87078117a9283",
-          "lane": "major_news",
+          "id": "25d87c24818981fe",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "'You Should Melt Them': AI Robotics Startup Heeds Schwarzenegger's Advice With 'Terminator' Send-Off - NDTV Profit",
+          "title": "Accenture And 2 Stocks That May Be Priced Below Their Estimated Value - Simply Wall Street",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxNdUluS250MmNqTEZWeGs1MUZRM1JoX1FpRG1xWjRHWUYzOWo2X1djaXA5QjZ1dXJYTUNkWG1QbDlWY0llOVQ0WVhNNlN2Z3FoV0pZLXBLdERMbm5kM3dMdEtqVl9jdHZBZzVmRkx5eVo4XzhfamVBRTVIZVVaN25meUFBUjU4Z1B3SVQ0aGpXTUtwS2NueWdaREY2cWkySWdpbmo1WGNHbG5pVjYwRHE0MHc0SFZTb2l3TllDV0EzTUVlOXBnNmpHRkl4T19hcjdJSzQ5VU1lYzLSAeABQVVfeXFMT0NzeDNMSnFaSkFWUGxlek15R0FTVW10c0l4cGpldm1OZHRYOTVmRHpERXk2clZia1VkVHJFeXRYTC01ZWFnRVY3aFBEejUtMnk5QlA0WXgyb2poUXlBZGZOc3dXTUZvbVIyMUVxMDNXSzJQa2hiMS1qYUI3T2VKQk1WeUtJVGFOM3FYNUVteDdZaVB1ckR4eXVlRkl2M0NKcEdLS1lPWFl3am1SUkJqYmdlZ0gwMXBqTVdMdFRvcWRHY280V1FiZjlYWFQyeGlxRU9hYkxneGx1bkZWY2NPWEs?oc=5",
-          "publishedAt": "2026-10-05T12:53:01Z",
-          "sourceName": "NDTV Profit",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNRDhpaUM1R3Jjbjk3dTQ4eGR0LS1ydTRHdTR1Ynp0Tm1SelpXODF1UHhEaExEaGhDVGZaT0w4RGFNdnFtNnVYMjI1Zm9vT05sWUFsSVp5STV0MEVDSk5EUGRwcVdaVDN4Njc3VlpNUHNQamE2X2dHcU9Fc2x4MXdyS0FjTkJjRFlndklILWs2QUdGMVdvMEEwNEQ1Zl8xVl9zc3FFWGQ1SEdHSElPV0lFamFfWkh2V3JzUzd1Sm5EVWxHMmfSAcgBQVVfeXFMT3dGbEZ3eVc0VFpCRXhQbWRNZnJLeEJmYV9aenV0SDljcTlQbkZra09yc2tSNmxJUUM0b2U1NmRvcnQzT25yNVM2eHExTVBVc0MxYS1OTm1iazRUVVpVRmxpRkZSVk9VUEF0X3BadHk0UWNaYURzUXZFR1UxU001bjN6OUdlVzVVbEtmWFV2elBkVnRIYXc2d1MwNFd5WlVSUHYtOG5tM2tLaVRBdm52THJYQXR2emgwQjJMUG5JOGZKSlpYVGhtQkk?oc=5",
+          "publishedAt": "2026-10-05T11:16:21Z",
+          "sourceName": "Simply Wall Street",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://www.ndtvprofit.com",
+            "publisherUrl": "https://simplywall.st",
             "primaryPublisher": false
           },
           "creator": null,
@@ -3983,22 +3940,22 @@
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "major-news-search"
+            "market-business-search"
           ],
-          "rawScore": 6.25
+          "rawScore": 6.18
         },
         {
-          "id": "c8fafeab55e84c68",
-          "lane": "major_news",
+          "id": "7f6657a0ae16a37f",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Exclusive | Robotics Startup RobCo Hits $1 Billion Valuation - WSJ",
+          "title": "Indian IT Stocks Rise on Accenture Outlook - Unique Times Magazine",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxPQ0d1U2ttS2JZU1YyTTRobnlEbnZKQXFqbnZKU0JGY05tTmNMMFVkOUFfVWxzX2RjV1hQaUNfeDhfMjEyNU5wNzdNeHFFSVpuVkdLLUVnc204Qk1ocG5UU2stNzByVjhidmFXTU1ndXlXY3ZtQ3BRMlVnbUtZcGgyenZZVHBTcTZZ?oc=5",
-          "publishedAt": "2026-10-05T07:00:00Z",
-          "sourceName": "WSJ",
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE92dC1ORzJfMXZsYnNOUGJTeDB1bFdWSnpiMl9FYmdzRVVVbDV6TFdrc0NkT24zN2FLdWVWdzR6VEtWdTFkajdLejFpQnd6bHNwLVdoVTVTV19zMk1xUko1NkxtSm5lamo2NXRobkZoTm5WQTgyWHc?oc=5",
+          "publishedAt": "2026-10-05T10:49:38Z",
+          "sourceName": "Unique Times Magazine",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://www.wsj.com",
+            "publisherUrl": "https://uniquetimes.org",
             "primaryPublisher": false
           },
           "creator": null,
@@ -4006,9 +3963,78 @@
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "major-news-search"
+            "market-business-search"
           ],
-          "rawScore": 6.0
+          "rawScore": 6.16
+        },
+        {
+          "id": "3a5fee3eec88b299",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "IPO-bound Anarock\u2019s FY26 operating cash flow turns negative despite 53% rise in profit - Moneycontrol.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNMHpsY29zX3I1TUVmaEluZC1tWTk4ZU9FWFVnQTlDUmhiQ0dFdkFzUVFnMWVRTXg0dXJ0V3NyNFdURUdWQmFvNjAwSnFmekVYNlVfcTk3eEZ1b3dVWW02ay1SRTVGRGRWSlU3YmNkR0IydlJvT2tlaGJsLW5lbF84RU4zVk50UW01Q2c1N1BaVW82R2hkbzJpbm4xb1ZSdG9xRk9kQ1RFQ2tvRFlZV0g0d1Axc2hvdWZzWTlWRjEzOXlWTjFWQV9rYkRQVGNSWjRESUxvcENqbURPSU1OUGY00gHfAUFVX3lxTE0wemxjb3NfcjVNRWZoSW5kLW1ZOThlT0VYVWdBOUNSaGJDR0V2QXNRUWcxZVFNeDR1cnRXc3I0V1RFR1ZCYW82MDBKcWZ6RVg2VV9xOTd4RnVvd1VZbTZrLVJFNUZEZFZKVTdiY2RHQjJ2Um9Pa2VoYmwtbmVsXzhFTjNWTnRRbTVDZzU3UFpVbzZHaGRvMmlubjFvVlJ0b3FGT2RDVEVDa29EWVlXSDR3UDFzaG91ZnNZOVZGMTM5eVZOMVZBX2tiRFBUY1JaNERJTG9wQ2ptRE9JTU5QZjQ?oc=5",
+          "publishedAt": "2026-10-05T10:12:55Z",
+          "sourceName": "Moneycontrol.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.moneycontrol.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.13
+        },
+        {
+          "id": "3ac58add74afd9c7",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "TCS, Wipro, Infosys, HCL, Tech Mahindra shares: Accenture Q4 strong show impact on Indian IT stocks decoded by experts - Livemint",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMilgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQdIBlgJBVV95cUxNcTJpaTQwWnp1dVZWSjNiT2dURHJEbDA4dFJJQS1hRHo1R1BFeFl3XzlYbERVbGJGTEpWdWFBbWxqS2Q4cGthYTBPUEpwc0dPTzVMNEFPdGNDd0pMZjAxY3dxQkptU1NrMERJSFZhX3ZYVjNmbUhIN0RITzNXTUhoOHU5UW1PdXVvcEEtR2VIaU01TnhGQXVTblI4VE4yVXBCemtjNlpqLTdZUXBRZExMNXhZZ0d4dl9RTGl2bEQxVUNUWFl3RjhUaWo5Mlg2VmhJajUzUVIzTlRBQWtENUYyR1ZnaThsS0dwYmg0Q1dTdVpXYzZRMjJqRFctZTEzUmM4Y1FXWms2ajlpcDFURDhSQlVoQmlXQQ?oc=5",
+          "publishedAt": "2026-10-05T07:34:52Z",
+          "sourceName": "Livemint",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.livemint.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.02
+        },
+        {
+          "id": "b55555c114fa5ce7",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "TCS, Infosys to Wipro: Jefferies sees earnings risk while Nuvama eyes upside for IT stocks - financialexpress.com",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxQYl9MMzZ0bkhmaEsyc1JyVk40Qi1LWU9QYUJrRURqeTdYVVp5bTBqWjByX3lwWm56ZDVscU5QWHFuTFhPd0tOeHZSbG85VHphZmQwRWhhM0RObFFQSF85aVEwR0t2S2xpUXB1bGduRllLSkNhUXh3U3JMZzNfVGVuN3Bsd0UxZUdRWVJldnFTUGswbGRrQzB1UWxUOVYzMGs0WmZtME9QR21mem9mUXRhOC1pQVY3WklyNmVvMVF2QnpQamVKTjF5QWwySW1PQkRpSXpB0gHaAUFVX3lxTE1oRnAtWW9mb0RhMS1PWG9sRmd6azNITHhPN1MzSlM3VExDUDdNYmxHMGJtWDhicWZpMjFtdndxV1kyVEJwc0drZFEtUjJxLUs3WkxrT2ZMNEM3SVl4Q0hNQ005SzZYekhRTV9EcWRtMENTbUZfVnE0MHAxV1dXanVQbGhYazVWYWlpeVYwRTNXWWxFbnRaNm90TXA2RjBYYkxOU3k2X0lZeGZjV21wTDVRR1ozMHlZVWl5OVJkV3RqUHd1TDdJcXEtOUlmSE9LMzA2X2h5dE9TVS1n?oc=5",
+          "publishedAt": "2026-10-05T03:31:26Z",
+          "sourceName": "financialexpress.com",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.financialexpress.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 5.85
         },
         {
           "id": "6822c02b9620bce1",
@@ -4032,466 +4058,19 @@
             "market-business-search"
           ],
           "rawScore": 5.84
-        }
-      ]
-    },
-    {
-      "clusterId": "958c608728b4ca0d",
-      "title": "M-Abozaid/esp32-c3-adblock",
-      "score": 9.05,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": true,
-      "needsPrimaryVerification": false,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=196.0-total=1510",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub Trending"
-      ],
-      "primaryUrls": [
-        "https://github.com/M-Abozaid/esp32-c3-adblock"
-      ],
-      "relatedUrls": [],
-      "signals": [
-        "github",
-        "github-trending",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "6410813454bf27bf",
-        "lane": "hot_emerging",
-        "sourceKind": "github_trending",
-        "title": "M-Abozaid/esp32-c3-adblock",
-        "summary": "Pi-hole-class DNS ad-blocker on a $2 ESP32-C3 (no PSRAM): 537k domains as 40-bit FNV-1a hashes in flash, binary-searched. UDP DNS sinkhole + web dashboard. https://youtube.com/shorts/RaxszOUMi8E?feature=share",
-        "url": "https://github.com/M-Abozaid/esp32-c3-adblock",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
-        "sourceName": "GitHub Trending",
-        "metrics": {
-          "stars": 1510,
-          "forks": 130,
-          "starsRecent": 196,
-          "starsPerDay": 196.0,
-          "trendingWindow": "daily",
-          "repoCreatedAt": "2026-06-19T18:14:43Z",
-          "repoPushedAt": "2026-10-04T09:40:52Z"
         },
-        "creator": null,
-        "primaryUrls": [
-          "https://github.com/M-Abozaid/esp32-c3-adblock"
-        ],
-        "primaryVerified": true,
-        "relatedUrls": [],
-        "signals": [
-          "github",
-          "github-trending",
-          "open-source",
-          "momentum"
-        ],
-        "rawScore": 8.5
-      },
-      "evidence": [
         {
-          "id": "6410813454bf27bf",
-          "lane": "hot_emerging",
-          "sourceKind": "github_trending",
-          "title": "M-Abozaid/esp32-c3-adblock",
-          "summary": "Pi-hole-class DNS ad-blocker on a $2 ESP32-C3 (no PSRAM): 537k domains as 40-bit FNV-1a hashes in flash, binary-searched. UDP DNS sinkhole + web dashboard. https://youtube.com/shorts/RaxszOUMi8E?feature=share",
-          "url": "https://github.com/M-Abozaid/esp32-c3-adblock",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
-          "sourceName": "GitHub Trending",
-          "metrics": {
-            "stars": 1510,
-            "forks": 130,
-            "starsRecent": 196,
-            "starsPerDay": 196.0,
-            "trendingWindow": "daily",
-            "repoCreatedAt": "2026-06-19T18:14:43Z",
-            "repoPushedAt": "2026-10-04T09:40:52Z"
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/M-Abozaid/esp32-c3-adblock"
-          ],
-          "primaryVerified": true,
-          "relatedUrls": [],
-          "signals": [
-            "github",
-            "github-trending",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 8.5
-        }
-      ]
-    },
-    {
-      "clusterId": "700cfd43a6853fd1",
-      "title": "tile-ai/tilelang",
-      "score": 9.03,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": true,
-      "needsPrimaryVerification": false,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=131.7-total=8434",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub Trending"
-      ],
-      "primaryUrls": [
-        "https://github.com/tile-ai/tilelang"
-      ],
-      "relatedUrls": [],
-      "signals": [
-        "github",
-        "github-trending",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "e80d5519b0502900",
-        "lane": "hot_emerging",
-        "sourceKind": "github_trending",
-        "title": "tile-ai/tilelang",
-        "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
-        "url": "https://github.com/tile-ai/tilelang",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
-        "sourceName": "GitHub Trending",
-        "metrics": {
-          "stars": 8434,
-          "forks": 853,
-          "starsRecent": 922,
-          "starsPerDay": 131.71,
-          "trendingWindow": "weekly",
-          "repoCreatedAt": "2024-10-03T09:25:45Z",
-          "repoPushedAt": "2026-10-05T18:48:27Z"
-        },
-        "creator": null,
-        "primaryUrls": [
-          "https://github.com/tile-ai/tilelang"
-        ],
-        "primaryVerified": true,
-        "relatedUrls": [],
-        "signals": [
-          "github",
-          "github-trending",
-          "open-source",
-          "momentum"
-        ],
-        "rawScore": 8.48
-      },
-      "evidence": [
-        {
-          "id": "e80d5519b0502900",
-          "lane": "hot_emerging",
-          "sourceKind": "github_trending",
-          "title": "tile-ai/tilelang",
-          "summary": "Domain-specific language designed to streamline the development of high-performance GPU/CPU/Accelerators kernels",
-          "url": "https://github.com/tile-ai/tilelang",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
-          "sourceName": "GitHub Trending",
-          "metrics": {
-            "stars": 8434,
-            "forks": 853,
-            "starsRecent": 922,
-            "starsPerDay": 131.71,
-            "trendingWindow": "weekly",
-            "repoCreatedAt": "2024-10-03T09:25:45Z",
-            "repoPushedAt": "2026-10-05T18:48:27Z"
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/tile-ai/tilelang"
-          ],
-          "primaryVerified": true,
-          "relatedUrls": [],
-          "signals": [
-            "github",
-            "github-trending",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 8.48
-        }
-      ]
-    },
-    {
-      "clusterId": "929c1b934865b905",
-      "title": "cloudflare/cloudflare-os",
-      "score": 8.93,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": true,
-      "needsPrimaryVerification": false,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=101.0-total=11103",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub Trending"
-      ],
-      "primaryUrls": [
-        "https://github.com/cloudflare/cloudflare-os"
-      ],
-      "relatedUrls": [],
-      "signals": [
-        "github",
-        "github-trending",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "e9522d1037d75450",
-        "lane": "hot_emerging",
-        "sourceKind": "github_trending",
-        "title": "cloudflare/cloudflare-os",
-        "summary": "Agent workspace built on Cloudflare Workers for creating documents, building apps, and running agents with your company\u2019s context and systems.",
-        "url": "https://github.com/cloudflare/cloudflare-os",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
-        "sourceName": "GitHub Trending",
-        "metrics": {
-          "stars": 11103,
-          "forks": 1315,
-          "starsRecent": 101,
-          "starsPerDay": 101.0,
-          "trendingWindow": "daily",
-          "repoCreatedAt": "2026-04-15T22:22:53Z",
-          "repoPushedAt": "2026-10-06T06:15:10Z"
-        },
-        "creator": null,
-        "primaryUrls": [
-          "https://github.com/cloudflare/cloudflare-os"
-        ],
-        "primaryVerified": true,
-        "relatedUrls": [],
-        "signals": [
-          "github",
-          "github-trending",
-          "open-source",
-          "momentum"
-        ],
-        "rawScore": 8.38
-      },
-      "evidence": [
-        {
-          "id": "e9522d1037d75450",
-          "lane": "hot_emerging",
-          "sourceKind": "github_trending",
-          "title": "cloudflare/cloudflare-os",
-          "summary": "Agent workspace built on Cloudflare Workers for creating documents, building apps, and running agents with your company\u2019s context and systems.",
-          "url": "https://github.com/cloudflare/cloudflare-os",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
-          "sourceName": "GitHub Trending",
-          "metrics": {
-            "stars": 11103,
-            "forks": 1315,
-            "starsRecent": 101,
-            "starsPerDay": 101.0,
-            "trendingWindow": "daily",
-            "repoCreatedAt": "2026-04-15T22:22:53Z",
-            "repoPushedAt": "2026-10-06T06:15:10Z"
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/cloudflare/cloudflare-os"
-          ],
-          "primaryVerified": true,
-          "relatedUrls": [],
-          "signals": [
-            "github",
-            "github-trending",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 8.38
-        }
-      ]
-    },
-    {
-      "clusterId": "0ad277434c7342d5",
-      "title": "Gaurav-Gosain/tuios",
-      "score": 8.84,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": true,
-      "needsPrimaryVerification": false,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "github-trending-stars-per-day=100.4-total=4890",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "GitHub Trending"
-      ],
-      "primaryUrls": [
-        "https://github.com/Gaurav-Gosain/tuios"
-      ],
-      "relatedUrls": [],
-      "signals": [
-        "github",
-        "github-trending",
-        "momentum",
-        "open-source"
-      ],
-      "bestCandidate": {
-        "id": "a43c7029965757ff",
-        "lane": "hot_emerging",
-        "sourceKind": "github_trending",
-        "title": "Gaurav-Gosain/tuios",
-        "summary": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent.",
-        "url": "https://github.com/Gaurav-Gosain/tuios",
-        "publishedAt": "2026-10-06T06:57:16.879953Z",
-        "sourceName": "GitHub Trending",
-        "metrics": {
-          "stars": 4890,
-          "forks": 217,
-          "starsRecent": 703,
-          "starsPerDay": 100.43,
-          "trendingWindow": "weekly",
-          "repoCreatedAt": "2025-09-06T18:13:51Z",
-          "repoPushedAt": "2026-10-06T06:18:11Z"
-        },
-        "creator": null,
-        "primaryUrls": [
-          "https://github.com/Gaurav-Gosain/tuios"
-        ],
-        "primaryVerified": true,
-        "relatedUrls": [],
-        "signals": [
-          "github",
-          "github-trending",
-          "open-source",
-          "momentum"
-        ],
-        "rawScore": 8.29
-      },
-      "evidence": [
-        {
-          "id": "a43c7029965757ff",
-          "lane": "hot_emerging",
-          "sourceKind": "github_trending",
-          "title": "Gaurav-Gosain/tuios",
-          "summary": "A terminal window manager that knows what your agents are doing. Tiling panes, workspaces, sessions that survive restarts, and one Inbox for every coding agent.",
-          "url": "https://github.com/Gaurav-Gosain/tuios",
-          "publishedAt": "2026-10-06T06:57:16.879953Z",
-          "sourceName": "GitHub Trending",
-          "metrics": {
-            "stars": 4890,
-            "forks": 217,
-            "starsRecent": 703,
-            "starsPerDay": 100.43,
-            "trendingWindow": "weekly",
-            "repoCreatedAt": "2025-09-06T18:13:51Z",
-            "repoPushedAt": "2026-10-06T06:18:11Z"
-          },
-          "creator": null,
-          "primaryUrls": [
-            "https://github.com/Gaurav-Gosain/tuios"
-          ],
-          "primaryVerified": true,
-          "relatedUrls": [],
-          "signals": [
-            "github",
-            "github-trending",
-            "open-source",
-            "momentum"
-          ],
-          "rawScore": 8.29
-        }
-      ]
-    },
-    {
-      "clusterId": "68bddfc946d6c002",
-      "title": "Global Hybrid Robots Market Size Forecast To Cross $10.03 Billion By 2030 - einnews.com",
-      "score": 8.62,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": false,
-      "needsPrimaryVerification": true,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "independent-convergence",
-      "alreadyCovered": false,
-      "lanes": [
-        "major_news",
-        "market_business"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "CyberSecurityNews",
-        "Pluang",
-        "Supply Chain Digital",
-        "TelecomLead",
-        "Yahoo Finance",
-        "Yahoo! Finance Canada",
-        "einnews.com"
-      ],
-      "primaryUrls": [],
-      "relatedUrls": [],
-      "signals": [
-        "major-news-search",
-        "market-business-search"
-      ],
-      "bestCandidate": {
-        "id": "5f7ff8339396730b",
-        "lane": "major_news",
-        "sourceKind": "news_search",
-        "title": "Global Hybrid Robots Market Size Forecast To Cross $10.03 Billion By 2030 - einnews.com",
-        "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOdVdyQndwOUxKLUxlQno2Nlh3M2o5Njk2NWU1ZTNaVloya2M3TlJEUUdCbXpManNjbWJYQXl1eXBVRklYRHFDOG9JNHlPRUxCeXNqSTZuN1Y4bTNyM2YtRS14VHd0LUdhR0lXRjlBSGFnRjNHUm1fOWwxenFDXzU3eE51U0dxLVozWEYxN3FtQVFXeUdsSDdrUExwRE1hSzhncXRxRVIxbjV6ZnVpdDhBOWFOS0I?oc=5",
-        "publishedAt": "2026-10-06T04:13:00Z",
-        "sourceName": "einnews.com",
-        "metrics": {
-          "publisherBonus": 0.0,
-          "publisherUrl": "https://www.einnews.com",
-          "primaryPublisher": false
-        },
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "relatedUrls": [],
-        "signals": [
-          "major-news-search"
-        ],
-        "rawScore": 6.89
-      },
-      "evidence": [
-        {
-          "id": "5f7ff8339396730b",
+          "id": "0a65f070f69c392b",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Global Hybrid Robots Market Size Forecast To Cross $10.03 Billion By 2030 - einnews.com",
+          "title": "How OCR Model Launch At Elastic (ESTC) Has Changed Its Investment Story - Simply Wall Street",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOdVdyQndwOUxKLUxlQno2Nlh3M2o5Njk2NWU1ZTNaVloya2M3TlJEUUdCbXpManNjbWJYQXl1eXBVRklYRHFDOG9JNHlPRUxCeXNqSTZuN1Y4bTNyM2YtRS14VHd0LUdhR0lXRjlBSGFnRjNHUm1fOWwxenFDXzU3eE51U0dxLVozWEYxN3FtQVFXeUdsSDdrUExwRE1hSzhncXRxRVIxbjV6ZnVpdDhBOWFOS0I?oc=5",
-          "publishedAt": "2026-10-06T04:13:00Z",
-          "sourceName": "einnews.com",
+          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOemEtTXB2bjlFbU96OTdVWER4aFNFM2pKUlM5T0xCYklvZFlpOWdhNW9oOFVWV2NGRjlIVGNYT3pzakw3WHdyc3RhWjBFNmRzRVlKMTRmUUd2cW9WWXNSUk5EVkxlUEdlV08wanA0MEwxMjk2Y1ZNcnl4c20tM1VFbklJS3lKaFRtMGlnclhMcEpscm5wOTBPMXZoT1NTQmJQTmRWakpjX3BkMEdrVFFCWU5zcG1NQ05OU3NWMkNFMmxHSm5RekJV0gHHAUFVX3lxTE56YS1NcHZuOUVtT3o5N1VYRHhoU0UzakpSUzlPTEJiSW9kWWk5Z2E1b2g4VVZXY0ZGOUhUY1hPenNqTDdYd3JzdGFaMEU2ZHNFWUoxNGZRR3Zxb1ZZc1JSTkRWTGVQR2VXTzBqcDQwTDEyOTZjVk1yeXhzbS0zVUVuSUlLeUpoVG0waWdyWExwSmxybnA5ME8xdmhPU1NCYlBOZFZqSmNfcGQwR2tUUUJZTnNwbU1DTk5Tc1YyQ0UybEdKblF6QlU?oc=5",
+          "publishedAt": "2026-10-05T02:34:57Z",
+          "sourceName": "Simply Wall Street",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://www.einnews.com",
+            "publisherUrl": "https://simplywall.st",
             "primaryPublisher": false
           },
           "creator": null,
@@ -4501,145 +4080,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.89
-        },
-        {
-          "id": "63ad5232df132710",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "U.S. Semiconductor Intellectual Property (IP) Market - Executive Strategy and Growth Forecast, 2026-2031 | AI, Automotive, and Domestic Fabs Propel Revenue to USD 29.6 Billion - Supply Chain Digital",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBBb1VtMlc5MXE4cVpOOG5TZTVUcUs2NEtOaGxxSmNlLVliTXcwcFgtQVZPck5oTDFZRFF0dWoxSk5HVUdqSlRyRFFaR2FOVzY3RENtQUIxeHo4eHdQY2VybGZn?oc=5",
-          "publishedAt": "2026-10-06T00:57:53Z",
-          "sourceName": "Supply Chain Digital",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://supplychaindigital.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.75
-        },
-        {
-          "id": "afdfb1baa94e7d47",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "GlassWorm Supply Chain Attack Uses Fake VS Code Themes to Deliver Hidden Malware - CyberSecurityNews",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTFBhNjdwZFJweDhtbnUzQnB6S2hDc1drNDRlaHdtLWlid0RVNWFpWExha3VUZF9tMDJOXzctdDlWVWpUVzhtTXpRZ1B2N05scTlUaVBySEhmSEtjcHRGYWoxcEpHb1RfN082YlJNLdIBckFVX3lxTE9xQTNPZmlZckxLMk9HUkhBWmZwVF83UUF4UjdmRi16b2kyQUFBMTJaRWhSb0xzRkxQU2gxRmcwY01wbUR1NTVqOTdsTURHSkhhb045d2FNYUlReGhXNWN2UGdsN3RyZTZGeFdrMnF6LUJfZw?oc=5",
-          "publishedAt": "2026-10-05T14:40:25Z",
-          "sourceName": "CyberSecurityNews",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://cybersecuritynews.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.32
-        },
-        {
-          "id": "3d0f43ab4ee55178",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Deutsche Telekom Targets \u20ac2.5 Billion AI Cost Savings by 2030, \u20ac800 Million in AI Revenue - TelecomLead",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPN21BdFo0ZU5Cb0FWTHZTbmZlaFNfU1I2RGwtMERLdVBzNV9oMUpCbzYtbUtzaWtnU3MtSnpBR0tkUHNuN3cyN3VudnQ0ejZobVBEWERKSjlvcjlnbFlOeDhua0c4M09BdS1sR3FGeDRWQ1ZGQVotUjJFRHJGLWtpcktFSTU5NUhzRWJqVlFwRkJwZjBjUV8wWDBZeWFtNlRZOE1CRW5ieUFwd2JXWHZNT1lHTjR1MVc1eWY5V1BYRdIBxwFBVV95cUxQUWg1VEJQR2NlR3A0MGZaQXpzRlNXQ1lBdURiQXBrVW01cFNxZ1Y0OXNWZ0dGbk5JWE03blQ4bjlYOVFYRzBlbDdGT19yT2xBSTE4aUpaY2wtMTEwN2YwV01LT2Q4UVNxZGx2Z3JZYmtscVdZbVdkUHpUU1hDRGVxOENjZ1RMRnNvN1VneFMwS0RDTFRMcnFCMnZnWmNEeVB5dTEzSXdrbHl1dk9ZQ0FfUFNISUN1TDZDOVFaYWs1bjl5RjlEQUhv?oc=5",
-          "publishedAt": "2026-10-05T14:06:48Z",
-          "sourceName": "TelecomLead",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://telecomlead.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.3
-        },
-        {
-          "id": "c8dc9975ca593a06",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Accenture beats 4Q revenue estimates but warns of weak organic growth and AI challenges ahead - Pluang",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNV2hUTTV5bEpFQVlBLV9ScmZFZkZLWDBSaF9BeFRIVHJtamJIcWltdWF5X3Vjel9salNiVDZZMmZnb25iZ0YzOVRnOU1jdU1DYzdIWXI4am80Q0tvSlRqNWdQeUI2b1oxcDQ2R0RaRHYxNk5OY3k1eFNvRTdFUFc5VkwtbmJUalRoUGptdEt3aWRpaVZMeGw4ekFVLWtKU2tk?oc=5",
-          "publishedAt": "2026-10-05T12:13:56Z",
-          "sourceName": "Pluang",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://pluang.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.22
-        },
-        {
-          "id": "3dbb0b272a7e7e02",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Nvidia Partner Hon Hai Beats Sales Estimates Due to AI Frenzy - Yahoo! Finance Canada",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOWEswQWVNU1NYT2hQQm1rM2FNQnM2b3ZOUjhOb1d3YWtBcFE3X1pOVXdhZERaQ1lhVEk0VjlhSE9fNGRtd05qUlZwLVNWV2F6Y0pFeTNkWm1RcW9uQm1mcS1oR3pDSERlUXk4LWhMaTJFN0RRM0pmNWlkRVpmeVp5ZHZyVQ?oc=5",
-          "publishedAt": "2026-10-05T07:43:15Z",
-          "sourceName": "Yahoo! Finance Canada",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://ca.finance.yahoo.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.03
-        },
-        {
-          "id": "0cec791eccc5c101",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Stocktwits M&A Watch: Paramount-Warner Bros Combination, Skyworks-Qorvo Merger, AMD\u2019s World Labs Acquisition In Focus - Yahoo Finance",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOeDRKWlphbkFBenZ3b01aSTR2a2Z5TWhBelVmZXFNZGlkWVNHQkl6VzBEU2VqeXJVcGI4TGw5Vmp5UWh2MEFPbHZNX1RJNmdqQVpkdTNpTm1iTFJmcmtQam5vNWFhRmw3ZDRhS3VWTmJoU3Vld0UzakNzQldaOTgtLWJRNlVQMThzVDVpOUNxT3lwZ3FiLW42UjRrNDBaeVRGbXc?oc=5",
-          "publishedAt": "2026-10-05T07:31:29Z",
-          "sourceName": "Yahoo Finance",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://finance.yahoo.com",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.02
+          "rawScore": 5.81
         },
         {
           "id": "3ffde95d0bdc7cf1",
@@ -4663,88 +4104,59 @@
             "market-business-search"
           ],
           "rawScore": 5.79
-        }
-      ]
-    },
-    {
-      "clusterId": "c6f015f3652bd120",
-      "title": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
-      "score": 8.4,
-      "qualifiesForEditorial": true,
-      "publishReady": false,
-      "primarySourceAvailable": false,
-      "needsPrimaryVerification": true,
-      "needsEditorialVerification": true,
-      "qualityGatePassed": true,
-      "qualityGate": "hn-points=302-comments=198",
-      "alreadyCovered": false,
-      "lanes": [
-        "hot_emerging"
-      ],
-      "creatorCategories": [],
-      "creators": [],
-      "sourceNames": [
-        "Hacker News"
-      ],
-      "primaryUrls": [],
-      "relatedUrls": [],
-      "signals": [
-        "developer-discussion",
-        "hacker-news"
-      ],
-      "bestCandidate": {
-        "id": "474479977da5dce5",
-        "lane": "hot_emerging",
-        "sourceKind": "hacker_news",
-        "title": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
-        "summary": "",
-        "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
-        "publishedAt": "2026-10-05T21:00:21Z",
-        "sourceName": "Hacker News",
-        "metrics": {
-          "points": 302,
-          "comments": 198
         },
-        "creator": null,
-        "primaryUrls": [],
-        "primaryVerified": false,
-        "relatedUrls": [],
-        "signals": [
-          "hacker-news",
-          "developer-discussion"
-        ],
-        "rawScore": 7.95
-      },
-      "evidence": [
         {
-          "id": "474479977da5dce5",
-          "lane": "hot_emerging",
-          "sourceKind": "hacker_news",
-          "title": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
+          "id": "69f07ac87a4a9a3d",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "How Investors May Respond To Oracle (ORCL) AI And Cloud Launches - Simply Wall Street",
           "summary": "",
-          "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
-          "publishedAt": "2026-10-05T21:00:21Z",
-          "sourceName": "Hacker News",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOa0VuTWVOY1lPX1lyQnFETm1HbUJIX2JfbFRzTWphdjNnaWdWOGExSzVqaTZOS3RoVkFKZG95VG9EeG94ZjJtaDctWmE2cjdkMzBUdlNIeG8wdFprSmYtNnBEXzNZektDeExMZ19ScU0zOTJLX2xfYi1KRHFfUmNmWGhBaWZ0SzdOVW4tTk1jWTByd3B2R3JiZGpXMUpNUkkxVDdkcUs4T3Y4SHRDNHQ4WWZ3YWgyX3BtbTJpZVRJb3XSAcYBQVVfeXFMTzFLbVVmZDRWYjN3YVc3ZGh2bW1DSWtzV1pzWGxBSnJNQk9fZEdVVEJIdDBIcHA4RkpQUG9kSzJlVmZ5NnFIcDQ0Rk5rcDZJYWJfUVJCaF9XSUJjeW9wUmtvUjBmbEFpN1k5RTVQV0x6WTY0UloxMjE0dkJWV19pV0U4N2xVN0VkOWdLdlA4eDFVbjNhQlBrQVd6YVZLNEhsNzhCWmZjOHlXSjFtdlhJQ2lIaTBHVk9ZUVJ6QTdwbkUxQUphWlNn?oc=5",
+          "publishedAt": "2026-10-05T00:27:50Z",
+          "sourceName": "Simply Wall Street",
           "metrics": {
-            "points": 302,
-            "comments": 198
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://simplywall.st",
+            "primaryPublisher": false
           },
           "creator": null,
           "primaryUrls": [],
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "hacker-news",
-            "developer-discussion"
+            "market-business-search"
           ],
-          "rawScore": 7.95
+          "rawScore": 5.73
+        },
+        {
+          "id": "12cf16e56979d131",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Marvell Stock And 2 US Industrial Policy Plays Backed By National Security Spending - Simply Wall Street",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQWkJpVGNNbm9idEo2b2doX0dING8wTXg0dll5dFFLOXNxbjAyWU1KOFdveHJxYnA2cWZvWEZRV0hnOEZTWUpuYWhrY2NnVlMySUJPMC1QSTFsdnl6dUY5SU82bVVteGV0N18yYnNhQml1R25BemVqYlREMHF0VDVHQlE2YTZTdlRneEFfVDZZNEc1TmRfWms3bjBoVGR1MkpfVWx0Yy1qZ0dFdkdzak9PZlkycUxabXJfTktzUjhRRDBxYzVMcVlPYUV6cVdfYU90R3c2NTV4T0JYemPSAeABQVVfeXFMTmtpMlVNcHk1U0JyV2Ruc3hDeXdoTVVHMGItcUdFMGZXa3pwVTVPX2xZSkhXTUtEalVHamFCNTZyWnBENDFpRms5S0RSamNrNmVwZlRPRExxS2JkZUN4dkxtZmtKc0FXS21QSFcyelA3X25NbXd0QzVraDR3NFVILVUtT3Z4Q21sLXg2M3lJOXhfZjdXQVU2OS1CdlB6VF9pMWhZdnh1dGlXbXlRN1FESU4wVFRZdW5CdnZJTnQwdFNRbFBUMGpqUnZqb0lxXzQ0SlhPb2RCOHJQb3hrUm9INEk?oc=5",
+          "publishedAt": "2026-10-04T19:35:40Z",
+          "sourceName": "Simply Wall Street",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://simplywall.st",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 5.52
         }
       ]
     },
     {
-      "clusterId": "86404710c693a466",
+      "clusterId": "6714dc972a51679b",
       "title": "Nvidia-backed start-up Reflection unveils open AI model to rival China offerings - The Straits Times",
-      "score": 8.33,
+      "score": 8.51,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -4762,6 +4174,7 @@
       "sourceNames": [
         "Business Standard",
         "Startup Fortune",
+        "The Business Standard",
         "The Hill",
         "The Straits Times",
         "news.lavx.hu"
@@ -4909,7 +4322,53 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.53
+          "rawScore": 6.52
+        },
+        {
+          "id": "064794936affc152",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Reflection AI readies a US open-weight model to challenge DeepSeek and Qwen - Startup Fortune",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNRUZwci11V3N2OU9kcXhNYUVqOGRkRHFvdjVRa0FqY21ESW9NamRYNnhWM1VUdGZnaUw5Vy1SVlE5YUtQcFRnN2ZUNHpLNE9TV2hTb1FaVkNyQmJvQUwyUlZHMjllc3NRbjl5bEtPRXZkOGNKZUhnSHNQVDFORTdMQXRjUHRYVWdaNE1fQTU3ZzVmblN4cXRuLTVYN2NzNXpleWRVR1BR?oc=5",
+          "publishedAt": "2026-10-05T09:29:47Z",
+          "sourceName": "Startup Fortune",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://startupfortune.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.1
+        },
+        {
+          "id": "ab8123538097d1a9",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "OpenAI shelves new AI model release over safety concerns - The Business Standard",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQX1BKMGJMcHp1LS1Hd2VhcDAtR0RMZHF2TlRnOGtDajFicUdhWmFTUkZkdm1INERIVEhJT1lfdlNQVVNLaHFuTTh0MGNOYlMtbkw0cUk5amJZS3RZTWRzd0FlMkRhNjJ4UXphWnlCZUpqSG9od2ZvdFpRMjNLZ2EzYzRVZWZOZXdnVkhRNTMyalJqelA0QjBueQ?oc=5",
+          "publishedAt": "2026-10-05T07:57:41Z",
+          "sourceName": "The Business Standard",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.tbsnews.net",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.04
         },
         {
           "id": "53d86fee6a6c9231",
@@ -4978,7 +4437,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 5.86
+          "rawScore": 5.85
         },
         {
           "id": "ea0994215f5967f1",
@@ -5001,7 +4460,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 5.71
+          "rawScore": 5.7
         },
         {
           "id": "03efee18423c86e7",
@@ -5025,6 +4484,472 @@
             "market-business-search"
           ],
           "rawScore": 5.54
+        }
+      ]
+    },
+    {
+      "clusterId": "597911ac07532a31",
+      "title": "Global Hybrid Robots Market Size Forecast To Cross $10.03 Billion By 2030 - EIN News",
+      "score": 8.43,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news",
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "CyberSecurityNews",
+        "EIN News",
+        "Pluang",
+        "Supply Chain Digital",
+        "TelecomLead",
+        "Yahoo! Finance Canada"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search",
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "24e91f8a5637f9bb",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "Global Hybrid Robots Market Size Forecast To Cross $10.03 Billion By 2030 - EIN News",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOdVdyQndwOUxKLUxlQno2Nlh3M2o5Njk2NWU1ZTNaVloya2M3TlJEUUdCbXpManNjbWJYQXl1eXBVRklYRHFDOG9JNHlPRUxCeXNqSTZuN1Y4bTNyM2YtRS14VHd0LUdhR0lXRjlBSGFnRjNHUm1fOWwxenFDXzU3eE51U0dxLVozWEYxN3FtQVFXeUdsSDdrUExwRE1hSzhncXRxRVIxbjV6ZnVpdDhBOWFOS0I?oc=5",
+        "publishedAt": "2026-10-06T04:13:00Z",
+        "sourceName": "EIN News",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://www.einnews.com",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 6.88
+      },
+      "evidence": [
+        {
+          "id": "24e91f8a5637f9bb",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Global Hybrid Robots Market Size Forecast To Cross $10.03 Billion By 2030 - EIN News",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOdVdyQndwOUxKLUxlQno2Nlh3M2o5Njk2NWU1ZTNaVloya2M3TlJEUUdCbXpManNjbWJYQXl1eXBVRklYRHFDOG9JNHlPRUxCeXNqSTZuN1Y4bTNyM2YtRS14VHd0LUdhR0lXRjlBSGFnRjNHUm1fOWwxenFDXzU3eE51U0dxLVozWEYxN3FtQVFXeUdsSDdrUExwRE1hSzhncXRxRVIxbjV6ZnVpdDhBOWFOS0I?oc=5",
+          "publishedAt": "2026-10-06T04:13:00Z",
+          "sourceName": "EIN News",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.einnews.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.88
+        },
+        {
+          "id": "63ad5232df132710",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "U.S. Semiconductor Intellectual Property (IP) Market - Executive Strategy and Growth Forecast, 2026-2031 | AI, Automotive, and Domestic Fabs Propel Revenue to USD 29.6 Billion - Supply Chain Digital",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBBb1VtMlc5MXE4cVpOOG5TZTVUcUs2NEtOaGxxSmNlLVliTXcwcFgtQVZPck5oTDFZRFF0dWoxSk5HVUdqSlRyRFFaR2FOVzY3RENtQUIxeHo4eHdQY2VybGZn?oc=5",
+          "publishedAt": "2026-10-06T00:57:53Z",
+          "sourceName": "Supply Chain Digital",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://supplychaindigital.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.75
+        },
+        {
+          "id": "d9bd584a1666e644",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "IFR: Professional Service Robot Sales Surge 24% Worldwide - Supply Chain Digital",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMilgFBVV95cUxNRjhLbGY4dTZxTmtoallkWDNTcEltWmZTRWdOcVJjcVZqSnZZSGh2Rk9RRG1lQmxMWnlrZU5feVdoTHBDLV9DWFFYRXFwV2RaYzlvdDgtZjg3eEpjUHlFNmsxRlI5Ri11bWMteXFRVGZFcWFrbG9STVozVXpoUnJjSExNUFVaUUdPWG5EMHNjb3ZmbWRIVHc?oc=5",
+          "publishedAt": "2026-10-05T17:06:59Z",
+          "sourceName": "Supply Chain Digital",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://supplychaindigital.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.42
+        },
+        {
+          "id": "3d0f43ab4ee55178",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Deutsche Telekom Targets \u20ac2.5 Billion AI Cost Savings by 2030, \u20ac800 Million in AI Revenue - TelecomLead",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxPN21BdFo0ZU5Cb0FWTHZTbmZlaFNfU1I2RGwtMERLdVBzNV9oMUpCbzYtbUtzaWtnU3MtSnpBR0tkUHNuN3cyN3VudnQ0ejZobVBEWERKSjlvcjlnbFlOeDhua0c4M09BdS1sR3FGeDRWQ1ZGQVotUjJFRHJGLWtpcktFSTU5NUhzRWJqVlFwRkJwZjBjUV8wWDBZeWFtNlRZOE1CRW5ieUFwd2JXWHZNT1lHTjR1MVc1eWY5V1BYRdIBxwFBVV95cUxQUWg1VEJQR2NlR3A0MGZaQXpzRlNXQ1lBdURiQXBrVW01cFNxZ1Y0OXNWZ0dGbk5JWE03blQ4bjlYOVFYRzBlbDdGT19yT2xBSTE4aUpaY2wtMTEwN2YwV01LT2Q4UVNxZGx2Z3JZYmtscVdZbVdkUHpUU1hDRGVxOENjZ1RMRnNvN1VneFMwS0RDTFRMcnFCMnZnWmNEeVB5dTEzSXdrbHl1dk9ZQ0FfUFNISUN1TDZDOVFaYWs1bjl5RjlEQUhv?oc=5",
+          "publishedAt": "2026-10-05T14:06:48Z",
+          "sourceName": "TelecomLead",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://telecomlead.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.3
+        },
+        {
+          "id": "7597376af678bc57",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "GlassWorm Supply Chain Attack Uses Fake VS Code Themes to Deliver Hidden Malware - CyberSecurityNews",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9xQTNPZmlZckxLMk9HUkhBWmZwVF83UUF4UjdmRi16b2kyQUFBMTJaRWhSb0xzRkxQU2gxRmcwY01wbUR1NTVqOTdsTURHSkhhb045d2FNYUlReGhXNWN2UGdsN3RyZTZGeFdrMnF6LUJfZ9IBckFVX3lxTE9xQTNPZmlZckxLMk9HUkhBWmZwVF83UUF4UjdmRi16b2kyQUFBMTJaRWhSb0xzRkxQU2gxRmcwY01wbUR1NTVqOTdsTURHSkhhb045d2FNYUlReGhXNWN2UGdsN3RyZTZGeFdrMnF6LUJfZw?oc=5",
+          "publishedAt": "2026-10-05T12:40:48Z",
+          "sourceName": "CyberSecurityNews",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://cybersecuritynews.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.24
+        },
+        {
+          "id": "c8dc9975ca593a06",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Accenture beats 4Q revenue estimates but warns of weak organic growth and AI challenges ahead - Pluang",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNV2hUTTV5bEpFQVlBLV9ScmZFZkZLWDBSaF9BeFRIVHJtamJIcWltdWF5X3Vjel9salNiVDZZMmZnb25iZ0YzOVRnOU1jdU1DYzdIWXI4am80Q0tvSlRqNWdQeUI2b1oxcDQ2R0RaRHYxNk5OY3k1eFNvRTdFUFc5VkwtbmJUalRoUGptdEt3aWRpaVZMeGw4ekFVLWtKU2tk?oc=5",
+          "publishedAt": "2026-10-05T12:13:56Z",
+          "sourceName": "Pluang",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://pluang.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.22
+        },
+        {
+          "id": "3dbb0b272a7e7e02",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Nvidia Partner Hon Hai Beats Sales Estimates Due to AI Frenzy - Yahoo! Finance Canada",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOWEswQWVNU1NYT2hQQm1rM2FNQnM2b3ZOUjhOb1d3YWtBcFE3X1pOVXdhZERaQ1lhVEk0VjlhSE9fNGRtd05qUlZwLVNWV2F6Y0pFeTNkWm1RcW9uQm1mcS1oR3pDSERlUXk4LWhMaTJFN0RRM0pmNWlkRVpmeVp5ZHZyVQ?oc=5",
+          "publishedAt": "2026-10-05T07:43:15Z",
+          "sourceName": "Yahoo! Finance Canada",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://ca.finance.yahoo.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.03
+        }
+      ]
+    },
+    {
+      "clusterId": "c6f015f3652bd120",
+      "title": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
+      "score": 8.4,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "hn-points=303-comments=198",
+      "alreadyCovered": false,
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Hacker News"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "developer-discussion",
+        "hacker-news"
+      ],
+      "bestCandidate": {
+        "id": "474479977da5dce5",
+        "lane": "hot_emerging",
+        "sourceKind": "hacker_news",
+        "title": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
+        "summary": "",
+        "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
+        "publishedAt": "2026-10-05T21:00:21Z",
+        "sourceName": "Hacker News",
+        "metrics": {
+          "points": 303,
+          "comments": 198
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "hacker-news",
+          "developer-discussion"
+        ],
+        "rawScore": 7.95
+      },
+      "evidence": [
+        {
+          "id": "474479977da5dce5",
+          "lane": "hot_emerging",
+          "sourceKind": "hacker_news",
+          "title": "Opus 5.5 agents discover two room-temperature magnetic semiconductor candidates",
+          "summary": "",
+          "url": "https://www.vals.ai/blogs/room-temperature-magnetic-semiconductors",
+          "publishedAt": "2026-10-05T21:00:21Z",
+          "sourceName": "Hacker News",
+          "metrics": {
+            "points": 303,
+            "comments": 198
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "hacker-news",
+            "developer-discussion"
+          ],
+          "rawScore": 7.95
+        }
+      ]
+    },
+    {
+      "clusterId": "45cc242f270e5890",
+      "title": "Android closes the door on APKs, the crackdown arrives in the US and UK in 2027 - Pasquale Pillitteri",
+      "score": 8.36,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news",
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "Benzinga",
+        "Investing.com UK",
+        "MLex",
+        "NAI500",
+        "Pasquale Pillitteri"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search",
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "8a5f84d10109c338",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "Android closes the door on APKs, the crackdown arrives in the US and UK in 2027 - Pasquale Pillitteri",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOOEZUN2dUWEp1UXdmNng0V3U1TVV6N1YtNWgxZGRPT0ZpeFZ5OXM4VHNxQll6WXhfZGFWQUJFN2lUREh5bzlDNWp0SWthcEp5OE0xUE1aYTVqRE9xem0yanBuMUNWUU4xTnBfbzNoWEJBNFJxQk02Z0x1TlBPTEstMHBtM2JpblJZeVd0TVFGNU4yNjFLS0p3bUVvTnRteDlw?oc=5",
+        "publishedAt": "2026-10-06T06:49:00Z",
+        "sourceName": "Pasquale Pillitteri",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://pasqualepillitteri.it",
+          "primaryPublisher": false
+        },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 6.99
+      },
+      "evidence": [
+        {
+          "id": "8a5f84d10109c338",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "Android closes the door on APKs, the crackdown arrives in the US and UK in 2027 - Pasquale Pillitteri",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOOEZUN2dUWEp1UXdmNng0V3U1TVV6N1YtNWgxZGRPT0ZpeFZ5OXM4VHNxQll6WXhfZGFWQUJFN2lUREh5bzlDNWp0SWthcEp5OE0xUE1aYTVqRE9xem0yanBuMUNWUU4xTnBfbzNoWEJBNFJxQk02Z0x1TlBPTEstMHBtM2JpblJZeVd0TVFGNU4yNjFLS0p3bUVvTnRteDlw?oc=5",
+          "publishedAt": "2026-10-06T06:49:00Z",
+          "sourceName": "Pasquale Pillitteri",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://pasqualepillitteri.it",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.99
+        },
+        {
+          "id": "1949fe3cf359241a",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "South Korea to launch project on frontier AI model in early 2027 - MLex",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQOFFtMndHc3d4U2Zqc0pJMmkxN1VNT2FOcHVmckRPZUpocWVxS3NrZDBsNUxvblVHcUxsd0xIZk5JRHVkVGRVZzdSVXBOUWVIQUV3MFAxeTNqVWNfWmRIU2V0bERYY21HdVBka3RTM3BISkdjT3pJVG1FTE5OcmRoZWp4X1dpc1c1UXhmNGdwc05YUGlsNFA5YWliaEFhSF9Cdk9FQWdreWtzVEHSAVpBVV95cUxQT3FtRUlfNzJUR2FXRF8wc212VUs1ektMOW96QXVyVWVSSVF5RHFITjZJZHVRMVI0TGpWRU83OExFNHlNTWREYVRHZTlUWWtNZG1neVczTWxBYUE?oc=5",
+          "publishedAt": "2026-10-06T04:45:05Z",
+          "sourceName": "MLex",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.mlex.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.91
+        },
+        {
+          "id": "4ab2f2b3ee5014a8",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Moonshot targets HK IPO in early 2027 after funding round at $50 bln valuation- Bloomberg - Investing.com UK",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPRHVUNUtpcjkwTzRocjhZLUdsR3ZoU1NaTVVDZTZYMnNROFZSZHR0MjA0NFZDVmpJRXpFZEhpbnpoUUZjVlRBN0F5UjE5VXY5ZEtPd0hjbDhTT3RsQzNoSFZCaFY2aVoweUVfNVR0eG9xOEVUZE5hRXRObTQ5a1g5LVpIVVVuM01CcjI4OW8tdHhUYzVNNjIyb3E0NXpidzN5MHhwY0I2ZV9HY2NxSUh2d3JyZFl3d09fWm9EOUNIUkpuVTZ4TmhKanZkR2tpdzMwckpWWk1mVVp6OFdSS2VlMjJ3?oc=5",
+          "publishedAt": "2026-10-06T03:12:00Z",
+          "sourceName": "Investing.com UK",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://uk.investing.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.84
+        },
+        {
+          "id": "8cd3055e5166266b",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "OpenAI in Talks for New Funding Round as Middle East Capital May Become a Major Backer - NAI500",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQdWMwUkx5aWJCMDZ0MTkxWnFGRHhOWERtV19iSU90b3o1Z3lacnVHUHdKbGhWMnN0eXI1VlNNVVVRMlVKVGhqSjFCWWFKLS0tMzBhTnJ3Y05LMW9ROGhaMThzVFdFaFR3ay05Y3J5ellDZGdwbE9PcEI2eWV5SVJmY04zUHl1Z0lrbFpkcEM3dXFGZnQtN3R2WHRBYVhNSnY3MVlvY1kyZFBGVkZrMk5mNmVDbDNoNnlERHVB?oc=5",
+          "publishedAt": "2026-10-06T02:30:06Z",
+          "sourceName": "NAI500",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://nai500.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.81
+        },
+        {
+          "id": "d3f678a3cd796ae0",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "S&P 500 Could Crash Over 35% to 5,000 by 2027 If AI Boom Turns Down, Analyst Warns \u2014 Upcoming Earnings Se - Benzinga",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMimAJBVV95cUxNU3QwRVlaaU15eGtaSDlPZzJiT01LZExvZjFJSkpzMEtmQ0pyNlJOMW9rNHA5cDV6anNRVzZHTm1sdXZjZzlmTkdtS0VqT2kyUVRTUHFxdGIyNVgxM2o4ZXR5Q2c0YTliVG9kUV9jYWxTNEdaZ3JQakNYWk9ZZFJXQXh3LUxnbHZRcktnUlNJQWhNZFlpYkJCOUpZa2hzM084MlpISlRYTTZRYkoyRzJUcXNKMFI3V0tiMkVmLWhxb0pfd1ltanBUZXJzMm1UN2xNWE5aZXV5TXRINWg0ZHBhUlVxNkJkNmNGdXB2T1NEUEV0Qy04QUdhS3NPWGNUQVpUa1VvQm9Rek83Qk5lQWhXeHdQYVFxVFB6?oc=5",
+          "publishedAt": "2026-10-05T13:28:00Z",
+          "sourceName": "Benzinga",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.benzinga.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.27
         }
       ]
     },
@@ -5112,7 +5037,7 @@
     {
       "clusterId": "e78dfc41f8053ee6",
       "title": "Web Search API",
-      "score": 8.15,
+      "score": 8.14,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -5156,7 +5081,7 @@
           "hacker-news",
           "developer-discussion"
         ],
-        "rawScore": 7.7
+        "rawScore": 7.69
       },
       "evidence": [
         {
@@ -5180,7 +5105,7 @@
             "hacker-news",
             "developer-discussion"
           ],
-          "rawScore": 7.7
+          "rawScore": 7.69
         }
       ]
     },
@@ -5260,9 +5185,9 @@
       ]
     },
     {
-      "clusterId": "e8f7cdcba39b41b2",
+      "clusterId": "95cb26800125099d",
       "title": "This tool frees up Apple Intelligence storage on macOS, but think twice before using it - 9to5Mac",
-      "score": 8.04,
+      "score": 8.03,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -5279,8 +5204,8 @@
       "creators": [],
       "sourceNames": [
         "9to5Mac",
-        "Firstpost",
         "The Register",
+        "firstpost.com",
         "macrumors.com",
         "news.lavx.hu"
       ],
@@ -5311,7 +5236,7 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 6.67
+        "rawScore": 6.66
       },
       "evidence": [
         {
@@ -5335,7 +5260,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.67
+          "rawScore": 6.66
         },
         {
           "id": "a4c8f600bf078ae7",
@@ -5358,7 +5283,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.57
+          "rawScore": 6.56
         },
         {
           "id": "77bdad0811dd1da5",
@@ -5407,14 +5332,14 @@
           "rawScore": 6.3
         },
         {
-          "id": "4bc347328e02df05",
+          "id": "6c8e5a2a8da6802d",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "Mac storage running low? This tool removes Apple AI models to free up space - Firstpost",
+          "title": "Mac storage running low? This tool removes Apple AI models to free up space - firstpost.com",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQeGFuNjdscU56RUJMVm5uNzE4aV9wZUx1UmJQTURIVzdSdE5iU1cwMWdiam9jQTliWFd3dmNaVFpxdmJsN2k4NmhtOVRqbE9NT29ONEpON3NYTktTaTFZVV9xcHpycUpxSFVIRTU4X1hoWHlhOUFmRFpTYkN6dzNDRERKR3NtR3hOSURsNGt4WjFmN1BtZThaNGRrWEdOd0MtTzlCNlk0ODlkdmxlbzlyalVQVGVhV1lGX09V0gHAAUFVX3lxTE00Nmk2Tk1VZXRDcjFPbnlvRzA2Y1Q5MXgycHJFcHotRUJ4amZycWE4VkItSWdXdmdwblcwU0Zrek5rWlhmQTh2dFZVZHJ3bXZCdlFpSDc2SnJDVFcyY01Hd0tlTzhVUXBiSDZqMEFiX0FmY0xETEQzZTBEdC0yTDUzclM3SDBoamdnbnNrMkFFSXVhcjdKSkJFN1hmaUYxYkVwRmxKYzJnZExFZXJlRUxnS1ZrdmxnRk9SNzBUOXY4dA?oc=5",
           "publishedAt": "2026-10-05T12:57:58Z",
-          "sourceName": "Firstpost",
+          "sourceName": "firstpost.com",
           "metrics": {
             "publisherBonus": 0.0,
             "publisherUrl": "https://www.firstpost.com",
@@ -5455,7 +5380,7 @@
       ]
     },
     {
-      "clusterId": "23f19b806346af33",
+      "clusterId": "e7224649e2c7b53c",
       "title": "Marvell Lays Out Its Custom AI Chip Case to Wall Street at Investor Day - Startup Fortune",
       "score": 7.82,
       "qualifiesForEditorial": true,
@@ -5554,36 +5479,13 @@
           "rawScore": 6.35
         },
         {
-          "id": "b25707ea357420aa",
-          "lane": "major_news",
-          "sourceKind": "news_search",
-          "title": "How OpenFold3 Deployment Will Impact AMD Stock - Simply Wall Street",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxON1ZQMml1SDBtbjN5QzFNQWxLMXZpc1pZLTFYcEtKWXZzQUVuQjhUVDNzTEFSc0FQSlRMUVFRb0hTVzBtTXBxZ3VYQThPbTlvc0FLaktyWjNVVjlzUkljV2hiZFdqX29wVktDeWJhLVZJXzBWSlRXcjMyRkQ3c25CZnBIeUNhc08tdjg1SHllZzVXand5bVBOanYxdTBiQ0I4R0tCSThfUzVrT2FDZ3NheEw1dUFPZ2NvUmNEc3M4ZTdNcTBNZzRTMElPbVjSAdIBQVVfeXFMT0FkQ0NPQ2ZmZnFlUlFVeDZZVENFSmZTQVhrZ2FTVk81THNkOE1XcDYtWjBRYmhIVGZPU210MURfY1V2c0JkbEQ0akp5SmwwRjRKX2xsU3A3U1U0blJwTHp3WVB5dWp5UWlaRVFMMG5wYV91OWxXLVZOcGh5b1dsOGNyMVdJR0xORXMtMlVDTVR2VkRCS0tpejlkQklQVllXa3lUTDZEb2FINGFNQVU5RGcyeXZCNmtLdkZzeExoM19wY0VZdk1QSGhFWUduNjRMMHFn?oc=5",
-          "publishedAt": "2026-10-05T13:50:03Z",
-          "sourceName": "Simply Wall Street",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://simplywall.st",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "major-news-search"
-          ],
-          "rawScore": 6.29
-        },
-        {
           "id": "a136b9593a1b1869",
           "lane": "market_business",
           "sourceKind": "news_search",
           "title": "How OpenFold3 Deployment Will Impact AMD Stock - Simply Wall Street",
           "summary": "",
           "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxON1ZQMml1SDBtbjN5QzFNQWxLMXZpc1pZLTFYcEtKWXZzQUVuQjhUVDNzTEFSc0FQSlRMUVFRb0hTVzBtTXBxZ3VYQThPbTlvc0FLaktyWjNVVjlzUkljV2hiZFdqX29wVktDeWJhLVZJXzBWSlRXcjMyRkQ3c25CZnBIeUNhc08tdjg1SHllZzVXand5bVBOanYxdTBiQ0I4R0tCSThfUzVrT2FDZ3NheEw1dUFPZ2NvUmNEc3M4ZTdNcTBNZzRTMElPbVjSAdIBQVVfeXFMT0FkQ0NPQ2ZmZnFlUlFVeDZZVENFSmZTQVhrZ2FTVk81THNkOE1XcDYtWjBRYmhIVGZPU210MURfY1V2c0JkbEQ0akp5SmwwRjRKX2xsU3A3U1U0blJwTHp3WVB5dWp5UWlaRVFMMG5wYV91OWxXLVZOcGh5b1dsOGNyMVdJR0xORXMtMlVDTVR2VkRCS0tpejlkQklQVllXa3lUTDZEb2FINGFNQVU5RGcyeXZCNmtLdkZzeExoM19wY0VZdk1QSGhFWUduNjRMMHFn?oc=5",
-          "publishedAt": "2026-10-05T13:50:03Z",
+          "publishedAt": "2026-10-05T15:02:27Z",
           "sourceName": "Simply Wall Street",
           "metrics": {
             "publisherBonus": 0.0,
@@ -5597,7 +5499,30 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.29
+          "rawScore": 6.33
+        },
+        {
+          "id": "226c0d5739a7db6d",
+          "lane": "major_news",
+          "sourceKind": "news_search",
+          "title": "How OpenFold3 Deployment Will Impact AMD Stock - Simply Wall Street",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPQWRDQ09DZmZmcWVSUVV4NllUQ0VKZlNBWGtnYVNWTzVMc2Q4TVdwNi1aMFFiaEhUZk9TbXQxRF9jVXZzQmRsRDRqSnlKbDBGNEpfbGxTcDdTVTRuUnBMendZUHl1anlRaVpFUUwwbnBhX3U5bFctVk5waHlvV2w4Y3IxV0lHTE5Fcy0yVUNNVHZWREJLS2l6OWRCSVBWWVdreVRMNkRvYUg0YU1BVTlEZzJ5dkI2a0t2RnN4TGgzX3BjRVl2TVBIaEVZR242NEwwcWfSAdIBQVVfeXFMT0FkQ0NPQ2ZmZnFlUlFVeDZZVENFSmZTQVhrZ2FTVk81THNkOE1XcDYtWjBRYmhIVGZPU210MURfY1V2c0JkbEQ0akp5SmwwRjRKX2xsU3A3U1U0blJwTHp3WVB5dWp5UWlaRVFMMG5wYV91OWxXLVZOcGh5b1dsOGNyMVdJR0xORXMtMlVDTVR2VkRCS0tpejlkQklQVllXa3lUTDZEb2FINGFNQVU5RGcyeXZCNmtLdkZzeExoM19wY0VZdk1QSGhFWUduNjRMMHFn?oc=5",
+          "publishedAt": "2026-10-05T13:50:05Z",
+          "sourceName": "Simply Wall Street",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://simplywall.st",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "major-news-search"
+          ],
+          "rawScore": 6.28
         },
         {
           "id": "fea59a8c7ae7c40c",
@@ -5620,43 +5545,74 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.26
+          "rawScore": 6.25
+        }
+      ]
+    },
+    {
+      "clusterId": "59de5aafb2812262",
+      "title": "DeepSeek to raise at least $12 billion in Tencent-backed funding, Bloomberg News reports - emirates247.com",
+      "score": 7.8,
+      "qualifiesForEditorial": true,
+      "publishReady": false,
+      "primarySourceAvailable": false,
+      "needsPrimaryVerification": true,
+      "needsEditorialVerification": true,
+      "qualityGatePassed": true,
+      "qualityGate": "independent-convergence",
+      "alreadyCovered": false,
+      "lanes": [
+        "major_news",
+        "market_business"
+      ],
+      "creatorCategories": [],
+      "creators": [],
+      "sourceNames": [
+        "businesstimes.com.sg",
+        "emirates247.com"
+      ],
+      "primaryUrls": [],
+      "relatedUrls": [],
+      "signals": [
+        "major-news-search",
+        "market-business-search"
+      ],
+      "bestCandidate": {
+        "id": "d4ca1f149b173866",
+        "lane": "major_news",
+        "sourceKind": "news_search",
+        "title": "DeepSeek to raise at least $12 billion in Tencent-backed funding, Bloomberg News reports - emirates247.com",
+        "summary": "",
+        "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUGVSbDZJQm9UNVFOTlFQX2E1ZzdvX0pIZ3YzbVpjMmdMX0ZXYm94VmhET3A5WmhROXdFZ3A1Z3pNaVl1T2lUX1hZcU1Xa1RVdjhrNEdSVEVTOUladk96dTdrSDNydEtoVWxZNjRSaUItZ25tR19pVl85MUlqY3lwa2hJX0J2TlVXSzlCZ3RoaGt1dHdCOWFrMVlYTy1nUndYWEM3aGRFTEJTeTBXbEJfbWlqaXNTYmNLR0xJcnJYOFlWYXJKcXNQYlZB0gHkAUFVX3lxTE16UWZWVlZnMVNubkZiUzdsZGhydi1wZldxaWloR0hNLUxjR0h4VGltcE9SaTFSbXJhbUNheFp0QUYxX3VuZU03cVA4VV9iNk8yNXAzYmlaUDByUG1ZZjNLWHc1LUFGZTBET2F2RURyMlRBWXNUMmNXZ3dVLWI5NUxRZ0tSZm1uWlNjeUFSVDJOa0dzTXl6M2hFOUpGS0JCU2tBcmZ5ZWxKcE1VdUJla19OaHB5Tmd1c2dfZVRIQlF6S2t1eFVmcl9lT0Q1YjZvaWwybFU3UHFNbUFrR2RoZE0wbkxJRw?oc=5",
+        "publishedAt": "2026-10-06T06:18:00Z",
+        "sourceName": "emirates247.com",
+        "metrics": {
+          "publisherBonus": 0.0,
+          "publisherUrl": "https://www.emirates247.com",
+          "primaryPublisher": false
         },
+        "creator": null,
+        "primaryUrls": [],
+        "primaryVerified": false,
+        "relatedUrls": [],
+        "signals": [
+          "major-news-search"
+        ],
+        "rawScore": 6.97
+      },
+      "evidence": [
         {
-          "id": "25d87c24818981fe",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Accenture And 2 Stocks That May Be Priced Below Their Estimated Value - Simply Wall Street",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNRDhpaUM1R3Jjbjk3dTQ4eGR0LS1ydTRHdTR1Ynp0Tm1SelpXODF1UHhEaExEaGhDVGZaT0w4RGFNdnFtNnVYMjI1Zm9vT05sWUFsSVp5STV0MEVDSk5EUGRwcVdaVDN4Njc3VlpNUHNQamE2X2dHcU9Fc2x4MXdyS0FjTkJjRFlndklILWs2QUdGMVdvMEEwNEQ1Zl8xVl9zc3FFWGQ1SEdHSElPV0lFamFfWkh2V3JzUzd1Sm5EVWxHMmfSAcgBQVVfeXFMT3dGbEZ3eVc0VFpCRXhQbWRNZnJLeEJmYV9aenV0SDljcTlQbkZra09yc2tSNmxJUUM0b2U1NmRvcnQzT25yNVM2eHExTVBVc0MxYS1OTm1iazRUVVpVRmxpRkZSVk9VUEF0X3BadHk0UWNaYURzUXZFR1UxU001bjN6OUdlVzVVbEtmWFV2elBkVnRIYXc2d1MwNFd5WlVSUHYtOG5tM2tLaVRBdm52THJYQXR2emgwQjJMUG5JOGZKSlpYVGhtQkk?oc=5",
-          "publishedAt": "2026-10-05T11:16:21Z",
-          "sourceName": "Simply Wall Street",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://simplywall.st",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 6.18
-        },
-        {
-          "id": "0a65f070f69c392b",
+          "id": "d4ca1f149b173866",
           "lane": "major_news",
           "sourceKind": "news_search",
-          "title": "How OCR Model Launch At Elastic (ESTC) Has Changed Its Investment Story - Simply Wall Street",
+          "title": "DeepSeek to raise at least $12 billion in Tencent-backed funding, Bloomberg News reports - emirates247.com",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOemEtTXB2bjlFbU96OTdVWER4aFNFM2pKUlM5T0xCYklvZFlpOWdhNW9oOFVWV2NGRjlIVGNYT3pzakw3WHdyc3RhWjBFNmRzRVlKMTRmUUd2cW9WWXNSUk5EVkxlUEdlV08wanA0MEwxMjk2Y1ZNcnl4c20tM1VFbklJS3lKaFRtMGlnclhMcEpscm5wOTBPMXZoT1NTQmJQTmRWakpjX3BkMEdrVFFCWU5zcG1NQ05OU3NWMkNFMmxHSm5RekJV0gHHAUFVX3lxTE56YS1NcHZuOUVtT3o5N1VYRHhoU0UzakpSUzlPTEJiSW9kWWk5Z2E1b2g4VVZXY0ZGOUhUY1hPenNqTDdYd3JzdGFaMEU2ZHNFWUoxNGZRR3Zxb1ZZc1JSTkRWTGVQR2VXTzBqcDQwTDEyOTZjVk1yeXhzbS0zVUVuSUlLeUpoVG0waWdyWExwSmxybnA5ME8xdmhPU1NCYlBOZFZqSmNfcGQwR2tUUUJZTnNwbU1DTk5Tc1YyQ0UybEdKblF6QlU?oc=5",
-          "publishedAt": "2026-10-05T02:34:57Z",
-          "sourceName": "Simply Wall Street",
+          "url": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOUGVSbDZJQm9UNVFOTlFQX2E1ZzdvX0pIZ3YzbVpjMmdMX0ZXYm94VmhET3A5WmhROXdFZ3A1Z3pNaVl1T2lUX1hZcU1Xa1RVdjhrNEdSVEVTOUladk96dTdrSDNydEtoVWxZNjRSaUItZ25tR19pVl85MUlqY3lwa2hJX0J2TlVXSzlCZ3RoaGt1dHdCOWFrMVlYTy1nUndYWEM3aGRFTEJTeTBXbEJfbWlqaXNTYmNLR0xJcnJYOFlWYXJKcXNQYlZB0gHkAUFVX3lxTE16UWZWVlZnMVNubkZiUzdsZGhydi1wZldxaWloR0hNLUxjR0h4VGltcE9SaTFSbXJhbUNheFp0QUYxX3VuZU03cVA4VV9iNk8yNXAzYmlaUDByUG1ZZjNLWHc1LUFGZTBET2F2RURyMlRBWXNUMmNXZ3dVLWI5NUxRZ0tSZm1uWlNjeUFSVDJOa0dzTXl6M2hFOUpGS0JCU2tBcmZ5ZWxKcE1VdUJla19OaHB5Tmd1c2dfZVRIQlF6S2t1eFVmcl9lT0Q1YjZvaWwybFU3UHFNbUFrR2RoZE0wbkxJRw?oc=5",
+          "publishedAt": "2026-10-06T06:18:00Z",
+          "sourceName": "emirates247.com",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://simplywall.st",
+            "publisherUrl": "https://www.emirates247.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -5666,20 +5622,20 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 5.82
+          "rawScore": 6.97
         },
         {
-          "id": "69f07ac87a4a9a3d",
+          "id": "325c911fd2c59c3e",
           "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "How Investors May Respond To Oracle (ORCL) AI And Cloud Launches - Simply Wall Street",
+          "title": "DeepSeek to raise at least US$12 billion in Tencent-backed funding - businesstimes.com.sg",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxOa0VuTWVOY1lPX1lyQnFETm1HbUJIX2JfbFRzTWphdjNnaWdWOGExSzVqaTZOS3RoVkFKZG95VG9EeG94ZjJtaDctWmE2cjdkMzBUdlNIeG8wdFprSmYtNnBEXzNZektDeExMZ19ScU0zOTJLX2xfYi1KRHFfUmNmWGhBaWZ0SzdOVW4tTk1jWTByd3B2R3JiZGpXMUpNUkkxVDdkcUs4T3Y4SHRDNHQ4WWZ3YWgyX3BtbTJpZVRJb3XSAcYBQVVfeXFMTzFLbVVmZDRWYjN3YVc3ZGh2bW1DSWtzV1pzWGxBSnJNQk9fZEdVVEJIdDBIcHA4RkpQUG9kSzJlVmZ5NnFIcDQ0Rk5rcDZJYWJfUVJCaF9XSUJjeW9wUmtvUjBmbEFpN1k5RTVQV0x6WTY0UloxMjE0dkJWV19pV0U4N2xVN0VkOWdLdlA4eDFVbjNhQlBrQVd6YVZLNEhsNzhCWmZjOHlXSjFtdlhJQ2lIaTBHVk9ZUVJ6QTdwbkUxQUphWlNn?oc=5",
-          "publishedAt": "2026-10-05T00:27:50Z",
-          "sourceName": "Simply Wall Street",
+          "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNbWdTSmRvMTEzWERIaDVibDRzZE4tdnNRb2toQzNFT3c2enJ1QUEtS081a2ZIYWQzZnFLOHhJXzJnM1hjT1BFUUxlNWJsdVh1NFZ5NXN4N21jQ0M5OFRYT0tfbUtZSXQ2MnhfTWhsS0ZFa2dwZVV3N3lVa2pQT0xkdmtuU2trUlJIUjFSTDM2Sy1YUnZUTVlzNkN3ZUV5dGVaVUJiUW5VUHpad2JjN1BicDhtLWVQSGNsM0h6ZEdQMTdiaVE?oc=5",
+          "publishedAt": "2026-10-06T05:49:00Z",
+          "sourceName": "businesstimes.com.sg",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://simplywall.st",
+            "publisherUrl": "https://www.businesstimes.com.sg",
             "primaryPublisher": false
           },
           "creator": null,
@@ -5689,30 +5645,7 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 5.73
-        },
-        {
-          "id": "12cf16e56979d131",
-          "lane": "market_business",
-          "sourceKind": "news_search",
-          "title": "Marvell Stock And 2 US Industrial Policy Plays Backed By National Security Spending - Simply Wall Street",
-          "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMi2wFBVV95cUxQWkJpVGNNbm9idEo2b2doX0dING8wTXg0dll5dFFLOXNxbjAyWU1KOFdveHJxYnA2cWZvWEZRV0hnOEZTWUpuYWhrY2NnVlMySUJPMC1QSTFsdnl6dUY5SU82bVVteGV0N18yYnNhQml1R25BemVqYlREMHF0VDVHQlE2YTZTdlRneEFfVDZZNEc1TmRfWms3bjBoVGR1MkpfVWx0Yy1qZ0dFdkdzak9PZlkycUxabXJfTktzUjhRRDBxYzVMcVlPYUV6cVdfYU90R3c2NTV4T0JYemPSAeABQVVfeXFMTmtpMlVNcHk1U0JyV2Ruc3hDeXdoTVVHMGItcUdFMGZXa3pwVTVPX2xZSkhXTUtEalVHamFCNTZyWnBENDFpRms5S0RSamNrNmVwZlRPRExxS2JkZUN4dkxtZmtKc0FXS21QSFcyelA3X25NbXd0QzVraDR3NFVILVUtT3Z4Q21sLXg2M3lJOXhfZjdXQVU2OS1CdlB6VF9pMWhZdnh1dGlXbXlRN1FESU4wVFRZdW5CdnZJTnQwdFNRbFBUMGpqUnZqb0lxXzQ0SlhPb2RCOHJQb3hrUm9INEk?oc=5",
-          "publishedAt": "2026-10-04T19:35:40Z",
-          "sourceName": "Simply Wall Street",
-          "metrics": {
-            "publisherBonus": 0.0,
-            "publisherUrl": "https://simplywall.st",
-            "primaryPublisher": false
-          },
-          "creator": null,
-          "primaryUrls": [],
-          "primaryVerified": false,
-          "relatedUrls": [],
-          "signals": [
-            "market-business-search"
-          ],
-          "rawScore": 5.53
+          "rawScore": 6.95
         }
       ]
     },
@@ -5812,7 +5745,7 @@
           "signals": [
             "market-business-search"
           ],
-          "rawScore": 6.12
+          "rawScore": 6.11
         }
       ]
     },
@@ -6010,9 +5943,9 @@
       ]
     },
     {
-      "clusterId": "c73f59cc206bbf86",
+      "clusterId": "ded8a47f31cb0836",
       "title": "Weekly Cybersecurity Newsletter \u2013 Top 50 Biggest Cybersecurity Stories of the Week - gbhackers.com",
-      "score": 7.47,
+      "score": 7.46,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -6038,13 +5971,13 @@
         "major-news-search"
       ],
       "bestCandidate": {
-        "id": "4debf80c3430dcbc",
+        "id": "e4e29914262727b4",
         "lane": "major_news",
         "sourceKind": "news_search",
         "title": "Weekly Cybersecurity Newsletter \u2013 Top 50 Biggest Cybersecurity Stories of the Week - gbhackers.com",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPcHdxQ242RjRVS0poN0FCWWZVbXozSFE4MEJ3a1gwOWFld0FBeUJhR001TmRDMERnb2h4dmhLR0M4ZHVhdGp4ZC1xSk9CQ1E3Nzhrdm1IX2RqRTI4RDBIcnJPTHlDc1lCM1I0cFk1Q0FpOEc5eUJQWDJ0aU0yVlJyV1o0UjViQUw3blHSAY8BQVVfeXFMTVBOakF4eDRHX3ZIaWxLMmNkUm8yRFg4TWt5LWdxOEhadXhEWG8yNGxzbUptb1BDN2liZ0FvdFFhdVcyS29NMmtoZUxnRlE0dVJrSm9Tc2gwM3otSnk5cV93ZFhpMGVrcXpqV0VmSGxjcHdQYlIzeUpSVXhnVGllUHo4NHJSTzNtaVJJM0l5UEE?oc=5",
-        "publishedAt": "2026-10-06T05:13:13Z",
+        "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNUE5qQXh4NEdfdkhpbEsyY2RSbzJEWDhNa3ktZ3E4SFp1eERYbzI0bHNtSm1vUEM3aWJnQW90UWF1VzJLb00ya2hlTGdGUTR1UmtKb1NzaDAzei1KeTlxX3dkWGkwZWtxempXRWZIbGNwd1BiUjN5SlJVeGdUaWVQejg0clJPM21pUkkzSXlQQdIBjwFBVV95cUxNUE5qQXh4NEdfdkhpbEsyY2RSbzJEWDhNa3ktZ3E4SFp1eERYbzI0bHNtSm1vUEM3aWJnQW90UWF1VzJLb00ya2hlTGdGUTR1UmtKb1NzaDAzei1KeTlxX3dkWGkwZWtxempXRWZIbGNwd1BiUjN5SlJVeGdUaWVQejg0clJPM21pUkkzSXlQQQ?oc=5",
+        "publishedAt": "2026-10-06T05:10:07Z",
         "sourceName": "gbhackers.com",
         "metrics": {
           "publisherBonus": 0.0,
@@ -6058,17 +5991,17 @@
         "signals": [
           "major-news-search"
         ],
-        "rawScore": 6.93
+        "rawScore": 6.92
       },
       "evidence": [
         {
-          "id": "4debf80c3430dcbc",
+          "id": "e4e29914262727b4",
           "lane": "major_news",
           "sourceKind": "news_search",
           "title": "Weekly Cybersecurity Newsletter \u2013 Top 50 Biggest Cybersecurity Stories of the Week - gbhackers.com",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiigFBVV95cUxPcHdxQ242RjRVS0poN0FCWWZVbXozSFE4MEJ3a1gwOWFld0FBeUJhR001TmRDMERnb2h4dmhLR0M4ZHVhdGp4ZC1xSk9CQ1E3Nzhrdm1IX2RqRTI4RDBIcnJPTHlDc1lCM1I0cFk1Q0FpOEc5eUJQWDJ0aU0yVlJyV1o0UjViQUw3blHSAY8BQVVfeXFMTVBOakF4eDRHX3ZIaWxLMmNkUm8yRFg4TWt5LWdxOEhadXhEWG8yNGxzbUptb1BDN2liZ0FvdFFhdVcyS29NMmtoZUxnRlE0dVJrSm9Tc2gwM3otSnk5cV93ZFhpMGVrcXpqV0VmSGxjcHdQYlIzeUpSVXhnVGllUHo4NHJSTzNtaVJJM0l5UEE?oc=5",
-          "publishedAt": "2026-10-06T05:13:13Z",
+          "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNUE5qQXh4NEdfdkhpbEsyY2RSbzJEWDhNa3ktZ3E4SFp1eERYbzI0bHNtSm1vUEM3aWJnQW90UWF1VzJLb00ya2hlTGdGUTR1UmtKb1NzaDAzei1KeTlxX3dkWGkwZWtxempXRWZIbGNwd1BiUjN5SlJVeGdUaWVQejg0clJPM21pUkkzSXlQQdIBjwFBVV95cUxNUE5qQXh4NEdfdkhpbEsyY2RSbzJEWDhNa3ktZ3E4SFp1eERYbzI0bHNtSm1vUEM3aWJnQW90UWF1VzJLb00ya2hlTGdGUTR1UmtKb1NzaDAzei1KeTlxX3dkWGkwZWtxempXRWZIbGNwd1BiUjN5SlJVeGdUaWVQejg0clJPM21pUkkzSXlQQQ?oc=5",
+          "publishedAt": "2026-10-06T05:10:07Z",
           "sourceName": "gbhackers.com",
           "metrics": {
             "publisherBonus": 0.0,
@@ -6082,7 +6015,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.93
+          "rawScore": 6.92
         },
         {
           "id": "6f1b43e85ed079b9",
@@ -6105,7 +6038,7 @@
           "signals": [
             "major-news-search"
           ],
-          "rawScore": 6.6
+          "rawScore": 6.59
         },
         {
           "id": "e33f38b4cf714f5d",
@@ -6248,9 +6181,9 @@
       ]
     },
     {
-      "clusterId": "7797f0f3e4b78f43",
-      "title": "Agility Robotics CEO Peggy Johnson Joins DOW-Commissioned Project Meridian - theaiinsider.tech",
-      "score": 7.27,
+      "clusterId": "25137864c2145420",
+      "title": "Broadcom Stock Holds Near $355 as $42B Anthropic Deal Boosts AI Growth Outlook - FXLeaders",
+      "score": 7.44,
       "qualifiesForEditorial": true,
       "publishReady": false,
       "primarySourceAvailable": false,
@@ -6260,33 +6193,35 @@
       "qualityGate": "independent-convergence",
       "alreadyCovered": false,
       "lanes": [
-        "major_news",
         "market_business"
       ],
       "creatorCategories": [],
       "creators": [],
       "sourceNames": [
-        "Investor's Business Daily",
-        "theaiinsider.tech"
+        "FXLeaders",
+        "Pluang",
+        "The Korea Herald",
+        "Trefis",
+        "ad-hoc-news.de",
+        "theinvestor.co.kr"
       ],
       "primaryUrls": [],
       "relatedUrls": [],
       "signals": [
-        "major-news-search",
         "market-business-search"
       ],
       "bestCandidate": {
-        "id": "8935e5e491339bf8",
-        "lane": "major_news",
+        "id": "40e5f6a8e250acd6",
+        "lane": "market_business",
         "sourceKind": "news_search",
-        "title": "Agility Robotics CEO Peggy Johnson Joins DOW-Commissioned Project Meridian - theaiinsider.tech",
+        "title": "Broadcom Stock Holds Near $355 as $42B Anthropic Deal Boosts AI Growth Outlook - FXLeaders",
         "summary": "",
-        "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYTRqd2JoNHhhcGRPVlVQeVk2ZGdLMFVwMTFRVTE5Zm1uOFlJVmVoc3NyNnpNNU5JdmoxRDNRdDQ1MG9iLW9FbkJMMWdFR3dmY29lZ1VnZkE0QUhSV21zQ3JGTmgtQ2xTVkVnZ0xha3p4d09LZlBhYjYtN01WN1B1R1U3aDBDZ3dNYlY5Y1F3VGFaYjlZaDVBckVyeDkxNXNCb0V3VGMyT2F3WTkzdEJ6NHJ3?oc=5",
-        "publishedAt": "2026-10-05T17:25:57Z",
-        "sourceName": "theaiinsider.tech",
+        "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNMDJ3TjZsLW9iS25GaEx4bXI5SVBVckVGQkdjaHB6bDlSLXFRZ2hpVXNpelRFZHdIc2NHcDBzR1ZlLVZnUEduSndtNXBITGgwaHNEelZvdnEzQ2tSenNsMVNpenFPWXpWNWNnTGZwUlVPLVRXSkJoemlOYkpZUmRCaElva2RoS0hoTE52MFRQR19ld29EeVhCdA?oc=5",
+        "publishedAt": "2026-10-05T20:03:25Z",
+        "sourceName": "FXLeaders",
         "metrics": {
           "publisherBonus": 0.0,
-          "publisherUrl": "https://theaiinsider.tech",
+          "publisherUrl": "https://www.fxleaders.com",
           "primaryPublisher": false
         },
         "creator": null,
@@ -6294,23 +6229,23 @@
         "primaryVerified": false,
         "relatedUrls": [],
         "signals": [
-          "major-news-search"
+          "market-business-search"
         ],
-        "rawScore": 6.44
+        "rawScore": 6.54
       },
       "evidence": [
         {
-          "id": "8935e5e491339bf8",
-          "lane": "major_news",
+          "id": "40e5f6a8e250acd6",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Agility Robotics CEO Peggy Johnson Joins DOW-Commissioned Project Meridian - theaiinsider.tech",
+          "title": "Broadcom Stock Holds Near $355 as $42B Anthropic Deal Boosts AI Growth Outlook - FXLeaders",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQYTRqd2JoNHhhcGRPVlVQeVk2ZGdLMFVwMTFRVTE5Zm1uOFlJVmVoc3NyNnpNNU5JdmoxRDNRdDQ1MG9iLW9FbkJMMWdFR3dmY29lZ1VnZkE0QUhSV21zQ3JGTmgtQ2xTVkVnZ0xha3p4d09LZlBhYjYtN01WN1B1R1U3aDBDZ3dNYlY5Y1F3VGFaYjlZaDVBckVyeDkxNXNCb0V3VGMyT2F3WTkzdEJ6NHJ3?oc=5",
-          "publishedAt": "2026-10-05T17:25:57Z",
-          "sourceName": "theaiinsider.tech",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNMDJ3TjZsLW9iS25GaEx4bXI5SVBVckVGQkdjaHB6bDlSLXFRZ2hpVXNpelRFZHdIc2NHcDBzR1ZlLVZnUEduSndtNXBITGgwaHNEelZvdnEzQ2tSenNsMVNpenFPWXpWNWNnTGZwUlVPLVRXSkJoemlOYkpZUmRCaElva2RoS0hoTE52MFRQR19ld29EeVhCdA?oc=5",
+          "publishedAt": "2026-10-05T20:03:25Z",
+          "sourceName": "FXLeaders",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://theaiinsider.tech",
+            "publisherUrl": "https://www.fxleaders.com",
             "primaryPublisher": false
           },
           "creator": null,
@@ -6318,22 +6253,68 @@
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "major-news-search"
+            "market-business-search"
+          ],
+          "rawScore": 6.54
+        },
+        {
+          "id": "7dfb2939326cb5b2",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "The Software Engine The Broadcom Stock Bears Overlook - Trefis",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNdjZUY0NuNmJzbS1WOGphSEc0cjU1ZGprLUlrYmlvNnRtREhFWE1SdUI4T2tLbThacHNQbFZ0dldtTUoxYnBacm96eDVyNG54OTJpd0JqQUZqdW50Rm5PRW1kU2xEQ1ZZcHpHZFZXRzFHQ1Y1Wl9KQTdKbElmNzdWbGI4bGFTbUdKYjM0aDRnNFpCekhDeFVQR0lVWWk2WGdZdDVtdmwyWEJBZEtCdGw3Q21lWk4yczN3RktUWExQX20?oc=5",
+          "publishedAt": "2026-10-05T20:04:35Z",
+          "sourceName": "Trefis",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.trefis.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.54
+        },
+        {
+          "id": "b72182a26485822c",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "ServiceNow stock weighs AI growth against Q2 profit pressure - ad-hoc-news.de",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPNGRlNjI1cmptWHNuU3c3MWpndE85MS1xZUlCbno4SVF4dzI3UkR2Qi14RFpGVnRCczlaTVNjR1NOa096TGxuUUEzTFYxczlHSmdWV1lXa1dmaG5GX2R0dHFGTUVReWFXenk2T1pKbXFUNFpYTzF5LW1KWmY2Rlo5S0t2S1FnWFRPVjhuODlvQmNIbXRfT19BRnVHRWttelROSHhTWVpJMWljOUxDT3FDTnR0d1lsZnRGUVF0OFB1di0?oc=5",
+          "publishedAt": "2026-10-05T17:33:33Z",
+          "sourceName": "ad-hoc-news.de",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.ad-hoc-news.de",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
           ],
           "rawScore": 6.44
         },
         {
-          "id": "7798c899dc5b9c8a",
-          "lane": "major_news",
+          "id": "238e2abaf15a4d1f",
+          "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "The Week Ahead in AI: Trump Appoints AI Czar, Forms 'Super Intelligence Force', Musk to Rename SpaceXAI, Report of New Open Model, Plus Earnings & Events - theaiinsider.tech",
+          "title": "Oracle Fin stock reports record INR 14.16 billion profit - ad-hoc-news.de",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMijwJBVV95cUxOYWdPeE5VOFg5RUNhNDhoQ3NsdDhCWVBCT2VxQXl4VWFPQmcydzlnS3JZZldhNWZHeVY2dUk3YUE4Z1FLQUh2NjJxLUxucFM4dDRWV05RZlZfVl9ydzNQSGkyZk4zTC05YXJmTWFodmpBN1FRbkFkZlB0b1ZfdklieVRJRndpdThIOV94OC1RRFphb3YxNWJ6TlpWVzYzYXEteEJUeUozb2ZxX1RWSTZtYWNraklIMTY3RFdIaFVMMi01Rl9DVDdMeDE0dWk2S1JLZkNmZTRNY3FUaW1lQmRqNFdzS05qSUhqNlR4cExsZVpmSVpSOF91STZreXk4aFRkYUlZLUUtR3YwNHRTdlNr?oc=5",
-          "publishedAt": "2026-10-05T12:00:00Z",
-          "sourceName": "theaiinsider.tech",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNMHE1TnRWSjAyNmN1QmtyM3kwQy1jYmxNSTBJSy1Yelp2RTkwVkh1WVdPcUMta1lqc3g5WFhCRFhVVXZmLWdaNnBhY0hTZlhKMlBaWGNKNkdsRlNkaWVwcjczTzh1WGxhV2VOaU4zNXp6dHBOSGJabjZtUXFrN0RrcmVFOWNzb1FCOVRYRFlKNnpPSFFvQlFfZ2t0MExjS21GMWhnR2JvTTNteHJQQnlEUlRXcjJ2UEw2MGN3?oc=5",
+          "publishedAt": "2026-10-05T17:37:44Z",
+          "sourceName": "ad-hoc-news.de",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://theaiinsider.tech",
+            "publisherUrl": "https://www.ad-hoc-news.de",
             "primaryPublisher": false
           },
           "creator": null,
@@ -6341,22 +6322,68 @@
           "primaryVerified": false,
           "relatedUrls": [],
           "signals": [
-            "major-news-search"
+            "market-business-search"
           ],
-          "rawScore": 6.21
+          "rawScore": 6.44
         },
         {
-          "id": "3974a726be44237b",
+          "id": "6a7eb293031ed3be",
           "lane": "market_business",
           "sourceKind": "news_search",
-          "title": "Why Gemini 4 Failed To Ignite Google Stock Ahead Of Q3 Earnings - Investor's Business Daily",
+          "title": "Broadcom stock up 25X in 10 years; AI chip grow... - Pluang",
           "summary": "",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNRkdSWjBMaFJnZ2k1ZmpOMFdTcGVQQkFCR2J6UkFLN2ZZNEI2SUVNamVoZDFYdUN0eU5oc0Y4TTR6U0Q4RUtCMHhSZk1BeEVvR2ZDbm5xazRZWWxnWmk3WS15SkEzMExCRFFuWEQ1MFdlaExHc2plenJWcHo0OG5RaHRvOUFGYmVfcTU4SUNiMVFNYzcteXZKcllHekJEN0RPZEE?oc=5",
-          "publishedAt": "2026-10-05T12:00:00Z",
-          "sourceName": "Investor's Business Daily",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOQ1Y1Vm1JU1hZcS1VRVpHSHFlVjE2SG1TcU54ODhtV04ycEFjT0xfa0VuaXFydTNsRzRWY2ZXS2xwUUVMZmxZU3JmZFRMRXQzaGFvYWRTWVFJcWpRZXdXUHJKT0hBVVhLOHVoRlZCaDQzOW9nQ0FJY2tqV05BVjFnMjRUd3JPRmo2Q1JiMWoyQ1RCbEExUng2a2Z5S3prSjNKRmc?oc=5",
+          "publishedAt": "2026-10-05T16:43:42Z",
+          "sourceName": "Pluang",
           "metrics": {
             "publisherBonus": 0.0,
-            "publisherUrl": "https://www.investors.com",
+            "publisherUrl": "https://pluang.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.4
+        },
+        {
+          "id": "91d5c5fb6f5c9a27",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "What Could Derail Intel Stock? - Trefis",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPcGVFWUpvVmVnU2syR2JVNlRjSFNWTHVVcHhfeTgxVTdaZGhZMThNaHhwYlk4VU95RXduX2FiTGRBbVp2TUxwRVp6Ny1scnNqWC1vbkFkd2hBQVRWeElOd0Vwb3B5YjFKYnFRSjJ3dm5IU1c1RDZtaVpYTEhyREsxd2tiRjZRenpDU3hyZ05ZNGp5S1Zp?oc=5",
+          "publishedAt": "2026-10-05T14:18:04Z",
+          "sourceName": "Trefis",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.trefis.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.3
+        },
+        {
+          "id": "f64bc3dd9558a108",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Salesforce stock faces AI deal after 10.8 percent growth - ad-hoc-news.de",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNajg3OHNYR3dzQ1JvVWtlTk9WbkRibzVLRW1mWmtPaXByMTN2cUx2Vi1hR3duSFVMajJXbWFoaW1Rc2pYX2VxSGFuQVdfc2ZwbmNfODBoQTJOaWhOb0JzXzY3NGlRMUpHalQ3dDFhUTJxOVlnaWFNemdPaEd2SHhZemxlNTVIVTJtQkpTWmd3R1pZWndhSEdnOUYtYWNNc3FXVHM5bmVIVzZOOXRxNENmNmhfVmhFZDFxMVM4?oc=5",
+          "publishedAt": "2026-10-05T12:09:38Z",
+          "sourceName": "ad-hoc-news.de",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.ad-hoc-news.de",
             "primaryPublisher": false
           },
           "creator": null,
@@ -6367,13 +6394,82 @@
             "market-business-search"
           ],
           "rawScore": 6.21
+        },
+        {
+          "id": "e71b2c5ca709d4d3",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Accenture reports 6.00 percent revenue growth and Accenture stock costs EUR 177.95 - ad-hoc-news.de",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNdHNWRGFoa3NNUkpGNGdycDN5TU5fRkxuNFhPNkZjWlVYc0ZBMWZTR2Z3ZWhjSTJKNGx4SXY3UWlaOTd2Z1VGTTZ4LUFfeHQ5TGtfS2pFMGNjZGtmR0toRFRuTjlxMnROaDZjRnNtLUFpNmZpMmR3NVVfU0JOWlQyMS1RX3RCMlNoV3ZTeXBZdU1GWlhIU3M5dVJxMHVLOWhCVi1ycVZ0R2lfYk81Q0MyeDNTYkh6VERnV1pZaVV6YmtOS2ROSzlYMjNkTUhGbG8?oc=5",
+          "publishedAt": "2026-10-05T09:59:29Z",
+          "sourceName": "ad-hoc-news.de",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.ad-hoc-news.de",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 6.12
+        },
+        {
+          "id": "6a30374a5967be8e",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Samsung set for record W100tr quarterly profit on memory boom - The Korea Herald",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTE5uZWVvUmFiUlRoQ0JKNVMtMzJYUVNSTUZZT2doMFJTMWZKRkJMczRFc1pNN2xFQU5ISl93T0xZd3dmVTJnTVhvWF9XdnJJb0gwbExOVnROUQ?oc=5",
+          "publishedAt": "2026-10-05T04:45:12Z",
+          "sourceName": "The Korea Herald",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.koreaherald.com",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 5.91
+        },
+        {
+          "id": "258d0373a3eeee6a",
+          "lane": "market_business",
+          "sourceKind": "news_search",
+          "title": "Samsung set for record W100tr quarterly profit on memory boom - theinvestor.co.kr",
+          "summary": "",
+          "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1GMUZxU0Z3RkpSdmJ2NHdlaHZSQ3dMWnlGRUk5bTJJWHMwb1BVazlZNEJiemZUdlhYTC1iUlJKWGZoOTZGaFg1T0FTZFlDaGZ1TG92bWRFVmlmdw?oc=5",
+          "publishedAt": "2026-10-05T04:56:03Z",
+          "sourceName": "theinvestor.co.kr",
+          "metrics": {
+            "publisherBonus": 0.0,
+            "publisherUrl": "https://www.theinvestor.co.kr",
+            "primaryPublisher": false
+          },
+          "creator": null,
+          "primaryUrls": [],
+          "primaryVerified": false,
+          "relatedUrls": [],
+          "signals": [
+            "market-business-search"
+          ],
+          "rawScore": 5.91
         }
       ]
     }
   ],
   "laneSummary": {
     "major_news": 13,
-    "market_business": 10,
+    "market_business": 11,
     "hot_emerging": 27,
     "creator_radar": 0
   }
