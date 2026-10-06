@@ -12,6 +12,20 @@ def c(lane: str, kind: str, title: str, url: str, summary: str = "", source: str
 
 
 def main() -> None:
+    # GitHub discovery fetch_text returns (text, final_url). Creator Radar must
+    # unpack that pair before parsing ytInitialData from a YouTube channel page.
+    from datetime import datetime,timezone
+    saved_fetch=d.fetch_text
+    sample='var ytInitialData = '+__import__("json").dumps({
+        "videoRenderer":{"videoId":"TESTVIDEO123","title":{"runs":[{"text":"New open model released"}]},
+                         "publishedTimeText":{"simpleText":"1 day ago"}}
+    })+';'
+    try:
+        d.fetch_text=lambda url,**kwargs:(sample,url)
+        videos=d.youtube_channel_page_videos("https://youtube.com/@test",datetime(2026,10,6,tzinfo=timezone.utc),3)
+        assert len(videos)==1 and videos[0]["videoId"]=="TESTVIDEO123"
+    finally:
+        d.fetch_text=saved_fetch
     shared_summary = "Gemini 4, GPT 6.1, Dots, Claude Sonnet 5.5, Ideogram 4.5, Flux 3: AI NEWS"
     flux = c("creator_radar", "creator_video_topic", "Flux 3", "https://youtube.com/watch?v=x&t=10s", shared_summary)
     ideogram = c("creator_radar", "creator_video_topic", "Ideogram 4.5", "https://youtube.com/watch?v=x&t=20s", shared_summary)

@@ -540,7 +540,7 @@ def youtube_channel_page_videos(
     if not target.endswith("/videos"):
         target += "/videos"
     try:
-        html = fetch_text(target, timeout=20)
+        html, _ = fetch_text(target, timeout=20)
     except Exception as exc:
         print(
             f"creator channel page failed: {channel_url}: {type(exc).__name__}: {exc}",
@@ -826,19 +826,14 @@ def creator_candidates(
         try:
             videos = youtube_feed(channel_id)
         except Exception as exc:
-            print(
-                f"creator feed failed: {creator['name']}: {exc}; trying channel page",
-                file=sys.stderr,
-            )
-            videos = youtube_channel_page_videos(
-                creator["url"], now, max(max_videos * 2, 12)
-            )
-            if not videos:
-                print(
-                    f"creator channel page unavailable: {creator['name']}; trying yt-dlp",
-                    file=sys.stderr,
-                )
-                videos = youtube_channel_videos(creator["url"], max_videos)
+            print(f"creator RSS failed: {creator['name']}: {type(exc).__name__}: {exc}",
+                  file=sys.stderr)
+            videos = []
+        if not videos:
+            videos = youtube_channel_page_videos(creator["url"],now,max(max_videos*2,12))
+        if not videos:
+            print(f"creator page empty: {creator['name']}; trying yt-dlp",file=sys.stderr)
+            videos = youtube_channel_videos(creator["url"],max_videos)
         if not videos:
             print(f"creator listing unavailable: {creator['name']}", file=sys.stderr)
             continue
