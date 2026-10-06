@@ -65,7 +65,14 @@ def audit(props:dict)->dict:
     if technical and len(windows)>=8 and strong_ratio<0.62:
         problems.append(f"Not enough diagram/source-led scenes: {strong_ratio:.0%} (minimum 62%)")
 
-    if len(windows)>=12 and len(set(kinds))<3:problems.append("Not enough visual treatment variety")
+    treatment_signatures=[
+        f"drawn:{v.get('kind','unknown')}" if v.get("type")=="drawn-diagram"
+        else f"explain:{v.get('mode','unknown')}" if v.get("type")=="explain"
+        else str(v.get("type",""))
+        for v in visuals
+    ]
+    if len(windows)>=12 and len(set(treatment_signatures))<4:
+        problems.append("Not enough visual treatment variety")
     streak=0
     for kind in kinds:
         streak=streak+1 if kind in GENERIC else 0
@@ -84,7 +91,7 @@ def audit(props:dict)->dict:
     return {"passed":not problems,"issues":list(dict.fromkeys(problems)),
             "shots":len(windows),"sourceShots":len(ids),"uniqueSourceShots":len(set(ids)),
             "genericFraction":round(generic_ratio,3),"strongVisualFraction":round(strong_ratio,3),
-            "largeTextWords":total_large_words,"treatments":kinds,"diagramPatterns":patterns,
+            "largeTextWords":total_large_words,"treatments":kinds,"treatmentSignatures":treatment_signatures,"diagramPatterns":patterns,
             "drawnDiagramCount":len(drawn),"diagramFraction":round(len(drawn)/max(1,len(windows)),3),
             "diagramMorphTransitions":transitions,"explanationBeats":explanation_beats}
 
