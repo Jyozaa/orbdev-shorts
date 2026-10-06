@@ -9,8 +9,9 @@ RHYTHM_BREAK_ROLES={"analogy","joke","reaction","punchline","callback"}
 SOURCE_MIN_MATCH=0.34
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
-LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would"}
-DIAGRAM_FIRST_ROLES={"explanation","transition"}
+LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would","reach","reaches","stays","stay","way","trade","work","per","sounds","point"}
+DIAGRAM_FIRST_ROLES={"explanation","transition","analogy","callback","punchline"}
+TYPOGRAPHY_PUNCTUATION_ROLES={"joke","reaction"}
 LEGACY_DIAGRAM_TYPES={"explain","diagram","flow","network","comparison"}
 
 def fold_ascii(t:str)->str:
@@ -27,11 +28,12 @@ def compact_label(value:object)->str:
     return " ".join(words[:2])[:22].strip().upper()
 
 def visual_label_candidates(visual:dict)->list[str]:
+    """Preserve structured labels, never recycle a kinetic/text sentence."""
     raw=[]
     for key in ("labels","stages","nodes","symbols"):
         value=visual.get(key)
         if isinstance(value,list):raw.extend(value)
-    for key in ("center","left","right","headline","text"):
+    for key in ("center","left","right"):
         value=visual.get(key)
         if isinstance(value,str):raw.append(value)
     if visual.get("type")=="flow":
@@ -44,16 +46,46 @@ def visual_label_candidates(visual:dict)->list[str]:
             labels.append(label);seen.add(label)
     return labels
 
-def narration_labels(text:str,limit:int=4)->list[str]:
-    raw=re.findall(r"[A-Za-z0-9$%+.-]+",str(text))
-    labels=[];seen=set()
-    for token in raw:
-        if token.lower() in LABEL_STOP or len(token)<2:continue
-        label=compact_label(token)
-        if label and label not in seen:
-            labels.append(label);seen.add(label)
-        if len(labels)>=limit:break
-    return labels
+SEMANTIC_LABELS={
+    "shield":[("sandbox","SANDBOX"),("security","SECURITY"),("access","ACCESS")],
+    "wave":[("speech","SPEECH"),("audio","AUDIO"),("signal","SIGNAL"),("voice","VOICE")],
+    "branch":[("router","ROUTER"),("token","TOKEN"),("expert","EXPERTS"),("specialist","EXPERTS")],
+    "stack":[("memory","MEMORY"),("context","CONTEXT"),("cache","CACHE"),("layer","LAYERS")],
+    "mesh":[("network","NETWORK"),("node","NODES"),("cluster","CLUSTER"),("router","ROUTER")],
+    "orbit":[("agent","AGENT"),("tool","TOOLS"),("memory","MEMORY"),("file","FILES")],
+    "funnel":[("filter","FILTER"),("select","SELECT"),("merge","MERGE"),("compress","COMPRESS")],
+    "comparison":[("recommended","RECOMMENDED"),("maximum","MAX"),("max","MAX"),("smaller","SIZE"),("larger","SIZE")],
+    "growth":[("compute","COMPUTE"),("latency","LATENCY"),("speed","SPEED"),("performance","PERFORMANCE")],
+    "timeline":[("before","BEFORE"),("after","AFTER"),("now","NOW"),("later","LATER")],
+    "flow":[("input","INPUT"),("output","OUTPUT"),("request","REQUEST"),("data","DATA"),("model","MODEL"),("token","TOKEN")],
+}
+
+def number_labels(text:str)->list[str]:
+    lower=str(text).lower()
+    pairs=[
+        (r"\b(\d+(?:\.\d+)?)\s*billion\s+parameters?\b",lambda m:f"{m.group(1)}B PARAMS"),
+        (r"\b(\d+(?:\.\d+)?)\s*million\s+tokens?\b",lambda m:f"{m.group(1)}M TOKENS"),
+        (r"\bone\s+million\s+tokens?\b",lambda m:"1M TOKENS"),
+        (r"\b(\d+(?:\.\d+)?)\s*gigs?\b",lambda m:f"{m.group(1)} GB"),
+        (r"\b(\d+(?:\.\d+)?)\s*gb\b",lambda m:f"{m.group(1)} GB"),
+        (r"\b(\d+(?:\.\d+)?)\s*%\b",lambda m:f"{m.group(1)}%"),
+        (r"\b(\d+(?:\.\d+)?k)\b",lambda m:m.group(1).upper()),
+    ]
+    out=[]
+    for pattern,format_value in pairs:
+        for match in re.finditer(pattern,lower,re.I):
+            label=format_value(match)
+            if label not in out:out.append(label)
+    return out
+
+def narration_labels(text:str,kind:str,limit:int=3)->list[str]:
+    """Return concepts/numbers, not the first words of the narration."""
+    lower=str(text).lower();labels=[]
+    for label in number_labels(text):
+        if label not in labels:labels.append(label)
+    for token,label in SEMANTIC_LABELS.get(kind,[]):
+        if token in lower and label not in labels:labels.append(label)
+    return labels[:limit]
 
 def diagram_kind_for_beat(beat:dict,position:int=0)->str:
     visual=beat.get("visual",{});kind=str(visual.get("type",""))
@@ -72,9 +104,9 @@ def diagram_kind_for_beat(beat:dict,position:int=0)->str:
         ("stack",{"layer","stack","cache","memory","context","storage","buffer"}),
         ("mesh",{"network","graph","peer","node","connected","connection","cluster"}),
         ("orbit",{"agent","agents","tool","tools","ecosystem","plugin","plugins","service","services"}),
-        ("funnel",{"filter","merge","combine","aggregate","select","compress","reduce","narrow"}),
-        ("comparison",{"versus"," vs ","compare","compared","instead","old","newer","difference"}),
-        ("growth",{"grow","growth","increase","decrease","faster","slower","speed","performance","benchmark","scale","billion","million","percent","%"}),
+        ("funnel",{"filter","merge","combine","aggregate","select","compress","narrow"}),
+        ("growth",{"grow","growth","increase","decrease","drop","drops","lower","less","reduced","reduces","faster","slower","speed","performance","benchmark","scale","billion","million","percent","%"}),
+        ("comparison",{"versus"," vs ","compare","compared","instead","old","newer","difference","smaller","larger"}),
         ("timeline",{"timeline","first","later","eventually","before","after","then","now","year","month","week","day"}),
         ("flow",{"input","output","process","pipeline","token","tokens","request","requests","data","through"}),
     ]
@@ -99,9 +131,10 @@ def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None
     target={"comparison":2,"growth":2,"wave":2,"shield":1,"mesh":2,"flow":3,
             "branch":3,"orbit":4,"stack":4,"timeline":3,"funnel":4}.get(kind,3)
     labels=visual_label_candidates(visual)
-    for label in narration_labels(str(beat.get("text","")),target):
+    for label in narration_labels(str(beat.get("text","")),kind,target):
         if label not in labels:labels.append(label)
-    labels=labels[:target]
+    # Sparse labels are intentional: the narration explains the drawing.
+    labels=labels[:min(target,3)]
     seed=int(hashlib.sha256(f"{position}|{kind}|{beat.get('text','')}".encode()).hexdigest()[:8],16)
     result={"type":"drawn-diagram","kind":kind,"variant":seed%4}
     if labels:result["labels"]=labels
@@ -111,7 +144,7 @@ def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None
 def should_upgrade_to_drawn(beat:dict,position:int)->bool:
     visual=beat.get("visual",{});kind=str(visual.get("type",""));role=str(beat.get("editorialRole","")).lower()
     if kind=="drawn-diagram" or kind in {"source","logo","metric","chart","timeline"}:return False
-    if role in RHYTHM_BREAK_ROLES:return False
+    if role in TYPOGRAPHY_PUNCTUATION_ROLES:return False
     if kind in LEGACY_DIAGRAM_TYPES:return True
     word_count=len(re.findall(r"\S+",str(beat.get("text",""))))
     if role in DIAGRAM_FIRST_ROLES:return True
@@ -127,7 +160,7 @@ def apply_diagram_first(beats:list[dict])->int:
         rejected_source=visual.get("type")=="source" and not visual.get("src")
         if rejected_source or should_upgrade_to_drawn(beat,position):
             role=str(beat.get("editorialRole","")).lower()
-            if role not in RHYTHM_BREAK_ROLES:
+            if role not in TYPOGRAPHY_PUNCTUATION_ROLES:
                 beat["visual"]=drawn_diagram_from_beat(beat,position,previous_kind)
                 previous_kind=str(beat["visual"]["kind"]);converted+=1;continue
         if beat.get("visual",{}).get("type")=="drawn-diagram":
