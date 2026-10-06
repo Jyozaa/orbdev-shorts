@@ -259,7 +259,10 @@
       "(Accenture OR Deloitte OR PwC OR EY OR KPMG OR McKinsey OR BCG OR Bain OR Capgemini) major contract deal artificial intelligence",
       "(Salesforce OR Oracle OR IBM OR ServiceNow OR Palantir OR Cognizant OR Infosys OR TCS) AI earnings revenue guidance",
       "big tech stock move earnings guidance AI spending data center",
-      "AI company IPO valuation funding acquisition market news"
+      "AI company IPO valuation funding acquisition market news",
+      "(AMD OR Nvidia OR Intel OR Broadcom OR Qualcomm OR Arm) acquisition merger AI company",
+      "(AMD OR Nvidia OR Intel OR Broadcom OR Qualcomm OR Arm) strategic investment AI startup",
+      "(OpenAI OR Anthropic OR Google OR Microsoft OR Meta) major product launch agent platform"
     ],
     "primaryDomains": [
       "openai.com",
