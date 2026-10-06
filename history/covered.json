@@ -95,151 +95,41 @@
       }
     },
     {
-      "storyKey": "reflection-beam-501b-backfill-2026-10-06",
-      "slug": "reflection-beam-501b",
-      "headline": "Reflection previews Beam 501B",
-      "selectedAt": "2026-10-06T07:20:00+01:00",
-      "score": 9.3,
-      "sourceUrls": [
-        "https://reflection.ai/blog/introducing-beam"
-      ],
-      "renderedAt": "2026-10-06T07:24:01.569079+00:00",
-      "youtubeUrl": "https://youtu.be/78AfVhkm4NU",
-      "youtubeVideoId": "78AfVhkm4NU",
-      "youtubeTitle": "Reflection Previewed a 501B Open-Weight Model — But the Weights Aren’t Out Yet",
-      "metadataVersion": 1,
-      "metadataReview": {
-        "score": 9,
-        "hookAccuracy": 9,
-        "searchClarity": 9,
-        "descriptionQuality": 9,
-        "hashtagRelevance": 9
-      }
-    },
-    {
-      "storyKey": "glm-5-3-cyber-capabilities-backfill-2026-10-06",
-      "slug": "glm-5-3-cyber-capabilities",
-      "headline": "GLM-5.3 spreads advanced cyber capabilities",
-      "selectedAt": "2026-10-06T07:20:00+01:00",
-      "score": 9.4,
-      "sourceUrls": [
-        "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities"
-      ],
-      "renderedAt": "2026-10-06T07:23:01.515694+00:00",
-      "youtubeUrl": "https://youtu.be/M4pwtArZ45g",
-      "youtubeVideoId": "M4pwtArZ45g",
-      "youtubeTitle": "Anthropic Says GLM-5.3 Makes Advanced Cyber Exploits Easier to Access",
-      "metadataVersion": 1,
-      "metadataReview": {
-        "score": 9,
-        "hookAccuracy": 9,
-        "searchClarity": 9,
-        "descriptionQuality": 9,
-        "hashtagRelevance": 9
-      }
-    },
-    {
-      "storyKey": "cactus-whistle-16mb-speech-backfill-2026-10-06",
-      "slug": "cactus-whistle-16mb-speech",
-      "headline": "Whistle fits speech recognition into 16.9 MB",
-      "selectedAt": "2026-10-06T07:20:00+01:00",
-      "score": 8.9,
-      "sourceUrls": [
-        "https://huggingface.co/Cactus-Compute/whistle"
-      ],
-      "renderedAt": "2026-10-06T07:22:55.774562+00:00",
-      "youtubeUrl": "https://youtu.be/oah6Cn07R0c",
-      "youtubeVideoId": "oah6Cn07R0c",
-      "youtubeTitle": "This Speech Model Is Only 16.9 MB and Needs No GPU",
-      "metadataVersion": 1,
-      "metadataReview": {
-        "score": 9,
-        "hookAccuracy": 9,
-        "searchClarity": 9,
-        "descriptionQuality": 9,
-        "hashtagRelevance": 9
-      }
-    },
-    {
-      "storyKey": "gemini-4-argon-restricted-rollout-backfill-2026-10-06",
-      "slug": "gemini-4-argon-restricted-rollout",
-      "headline": "Gemini 4 Argon starts behind a safety gate",
-      "selectedAt": "2026-10-06T07:20:00+01:00",
-      "score": 9.2,
-      "sourceUrls": [
-        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
-      ],
-      "renderedAt": "2026-10-06T07:23:43.658235+00:00",
-      "youtubeUrl": "https://youtu.be/tXQ-IvgfroQ",
-      "youtubeVideoId": "tXQ-IvgfroQ",
-      "youtubeTitle": "Google’s Gemini 4 Argon Is So Capable Access Is Restricted",
-      "metadataVersion": 1,
-      "metadataReview": {
-        "score": 9,
-        "hookAccuracy": 9,
-        "searchClarity": 9,
-        "descriptionQuality": 9,
-        "hashtagRelevance": 9
-      }
-    },
-    {
-      "storyKey": "amd-world-labs-acquisition-backfill-2026-10-06",
-      "slug": "amd-world-labs-acquisition",
-      "headline": "AMD is buying World Labs for $8.2B",
-      "selectedAt": "2026-10-06T07:20:00+01:00",
-      "score": 9.3,
-      "sourceUrls": [
-        "https://newsroom.amd.com/news/amd-acquire-world-labs/"
-      ],
-      "renderedAt": "2026-10-06T07:23:09.107953+00:00",
-      "youtubeUrl": "https://youtu.be/QQLYoK212Xs",
-      "youtubeVideoId": "QQLYoK212Xs",
-      "youtubeTitle": "AMD Is Buying Fei-Fei Li’s World Labs for $8.2 Billion",
-      "metadataVersion": 1,
-      "metadataReview": {
-        "score": 9,
-        "hookAccuracy": 9,
-        "searchClarity": 9,
-        "descriptionQuality": 9,
-        "hashtagRelevance": 9
-      }
-    },
-    {
-      "storyKey": "cloudflare-clef-decision-models-backfill-2026-10-06",
-      "slug": "cloudflare-clef-decision-models",
-      "headline": "Cloudflare Clef makes decisions without essays",
-      "selectedAt": "2026-10-06T07:20:00+01:00",
-      "score": 9.2,
-      "sourceUrls": [
-        "https://blog.cloudflare.com/clef-decision-models/",
-        "https://huggingface.co/Cloudflare/clef"
-      ],
-      "renderedAt": "2026-10-06T07:23:58.071955+00:00",
-      "youtubeUrl": "https://youtu.be/K0hkt8P9HaQ",
-      "youtubeVideoId": "K0hkt8P9HaQ",
-      "youtubeTitle": "Cloudflare Built an AI Model That Makes Decisions Instead of Writing Essays",
-      "metadataVersion": 1,
-      "metadataReview": {
-        "score": 9,
-        "hookAccuracy": 9,
-        "searchClarity": 9,
-        "descriptionQuality": 9,
-        "hashtagRelevance": 9
-      }
-    },
-    {
-      "storyKey": "opendots-persistent-ai-coworkers-backfill-2026-10-06",
-      "slug": "opendots-persistent-ai-coworkers",
-      "headline": "OpenDots gives persistent agents their own computers",
+      "storyKey": "cactus-whistle-speech-2026-09-30",
+      "slug": "cactus-whistle-16-9mb-speech",
+      "headline": "Whistle fits multilingual speech recognition into 16.9 MB",
       "selectedAt": "2026-10-06T07:20:00+01:00",
       "score": 8.8,
       "sourceUrls": [
-        "https://github.com/CopilotKit/OpenDots"
+        "https://huggingface.co/Cactus-Compute/whistle"
       ],
-      "renderedAt": "2026-10-06T07:23:15.083866+00:00",
-      "youtubeUrl": "https://youtu.be/S6v8aj48g0c",
-      "youtubeVideoId": "S6v8aj48g0c",
-      "youtubeTitle": "OpenDots Gives Persistent AI Agents Their Own Computers",
+      "renderedAt": "2026-10-06T07:26:27.654626+00:00",
+      "youtubeUrl": "https://youtu.be/BxaZMtlAePY",
+      "youtubeVideoId": "BxaZMtlAePY",
+      "youtubeTitle": "This Speech Model Fits in Just 16.9 MB",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
+    },
+    {
+      "storyKey": "amd-world-labs-acquisition-2026-09-28",
+      "slug": "amd-world-labs-8-2b-acquisition",
+      "headline": "AMD is buying World Labs for $8.2 billion",
+      "selectedAt": "2026-10-06T07:20:00+01:00",
+      "score": 9.4,
+      "sourceUrls": [
+        "https://newsroom.amd.com/news/amd-acquire-world-labs/",
+        "https://ir.amd.com/financial-information/sec-filings/content/0000002488-26-000182/amd-20260926.htm"
+      ],
+      "renderedAt": "2026-10-06T07:26:17.356395+00:00",
+      "youtubeUrl": "https://youtu.be/y-FZtiE0rZA",
+      "youtubeVideoId": "y-FZtiE0rZA",
+      "youtubeTitle": "AMD Is Buying World Labs for $8.2 Billion",
       "metadataVersion": 1,
       "metadataReview": {
         "score": 9,
