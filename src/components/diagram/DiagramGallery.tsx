@@ -20,7 +20,12 @@ const DEMOS: DrawnDiagramVisual[] = [
 const FPS=30, FRAMES_PER_SCENE=90;
 const visualBeats:Beat[]=DEMOS.map((visual,i)=>({
   text:'',
-  visual:{...visual,continuityKey:'phase3-gallery'},
+  visual:{
+    ...visual,
+    continuityKey:'phase3-gallery',
+    continuityIn:i>0,
+    continuityOut:i<DEMOS.length-1,
+  },
   start:i*FRAMES_PER_SCENE/FPS,
   end:(i+1)*FRAMES_PER_SCENE/FPS,
 }));

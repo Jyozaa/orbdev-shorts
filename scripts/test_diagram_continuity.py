@@ -28,6 +28,10 @@ def main():
     keys=[w["visual"].get("continuityKey") for w in windows]
     assert keys[0] and len(set(keys))==1
     assert all(w["visual"].get("transition")=="morph" for w in windows)
+    assert windows[0]["visual"].get("continuityOut") is True
+    assert windows[1]["visual"].get("continuityIn") is True
+    assert windows[1]["visual"].get("continuityOut") is True
+    assert windows[2]["visual"].get("continuityIn") is True
     render.assert_visual_window_diversity(windows,3,4,2)
 
     broken=[d("branch"),d("branch")]

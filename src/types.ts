@@ -73,6 +73,8 @@ export type DrawnDiagramVisual = {
   /** Assigned by render prep when adjacent diagrams form one visual thought. */
   continuityKey?: string;
   transition?: 'morph' | 'cut';
+  continuityIn?: boolean;
+  continuityOut?: boolean;
 };
 
 export type DiagramVisual = {type: 'diagram'; symbols: string[]};

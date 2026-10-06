@@ -13,6 +13,7 @@ export const DiagramContinuityTrack:React.FC<{visualBeats:Beat[]}>=({visualBeats
   for(let i=0;i<visualBeats.length-1;i++){
     const current=visualBeats[i],next=visualBeats[i+1];
     if(!isDrawn(current)||!isDrawn(next))continue;
+    if(!current.visual.continuityKey||current.visual.continuityKey!==next.visual.continuityKey)continue;
     if(current.visual.transition==='cut'||next.visual.transition==='cut')continue;
     if(current.start===undefined||current.end===undefined||next.start===undefined||next.end===undefined)continue;
     const gap=Math.abs(next.start-current.end);

@@ -173,12 +173,14 @@ def apply_diagram_continuity(windows):
         if left.get("type")=="drawn-diagram" and right.get("type")=="drawn-diagram" and left.get("kind")!=right.get("kind"):
             key=str(left.get("continuityKey") or right.get("continuityKey") or f"diagram-run-{group}")
             left["continuityKey"]=key;right["continuityKey"]=key
+            left["continuityOut"]=True;right["continuityIn"]=True
             left.setdefault("transition","morph");right.setdefault("transition","morph")
             j=i+1
             while j+1<len(windows):
                 a=windows[j].get("visual",{});b=windows[j+1].get("visual",{})
                 if a.get("type")!="drawn-diagram" or b.get("type")!="drawn-diagram" or a.get("kind")==b.get("kind"):break
                 a["continuityKey"]=key;b["continuityKey"]=key
+                a["continuityOut"]=True;b["continuityIn"]=True
                 a.setdefault("transition","morph");b.setdefault("transition","morph")
                 j+=1
             group+=1;i=j
