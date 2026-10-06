@@ -9,6 +9,9 @@ RHYTHM_BREAK_ROLES={"analogy","joke","reaction","punchline","callback"}
 SOURCE_MIN_MATCH=0.34
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
+LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would"}
+DIAGRAM_FIRST_ROLES={"explanation","transition"}
+LEGACY_DIAGRAM_TYPES={"explain","diagram","flow","network","comparison"}
 
 def fold_ascii(t:str)->str:
     return unicodedata.normalize("NFKD",t).encode("ascii","ignore").decode("ascii")
@@ -17,6 +20,119 @@ def norm(t:str)->str:return re.sub(r"[^a-z0-9]+","",fold_ascii(t).lower())
 def tokens(t:str)->set[str]:
     return {x for x in re.sub(r"[^a-z0-9]+"," ",fold_ascii(t).lower()).split() if len(x)>1 and x not in STOP}
 def beat_tokens(t:str)->list[str]:return [x for x in (norm(v) for v in re.findall(r"\S+",t)) if x]
+
+def compact_label(value:object)->str:
+    words=re.findall(r"[A-Za-z0-9$%+.-]+",str(value or ""))
+    words=[w for w in words if w.lower() not in LABEL_STOP]
+    return " ".join(words[:2])[:22].strip().upper()
+
+def visual_label_candidates(visual:dict)->list[str]:
+    raw=[]
+    for key in ("labels","stages","nodes","symbols"):
+        value=visual.get(key)
+        if isinstance(value,list):raw.extend(value)
+    for key in ("center","left","right","headline","text"):
+        value=visual.get(key)
+        if isinstance(value,str):raw.append(value)
+    if visual.get("type")=="flow":
+        for node in visual.get("nodes",[]):
+            if isinstance(node,dict):raw.append(node.get("label") or node.get("value") or "")
+    labels=[];seen=set()
+    for value in raw:
+        label=compact_label(value)
+        if label and label not in seen:
+            labels.append(label);seen.add(label)
+    return labels
+
+def narration_labels(text:str,limit:int=4)->list[str]:
+    raw=re.findall(r"[A-Za-z0-9$%+.-]+",str(text))
+    labels=[];seen=set()
+    for token in raw:
+        if token.lower() in LABEL_STOP or len(token)<2:continue
+        label=compact_label(token)
+        if label and label not in seen:
+            labels.append(label);seen.add(label)
+        if len(labels)>=limit:break
+    return labels
+
+def diagram_kind_for_beat(beat:dict,position:int=0)->str:
+    visual=beat.get("visual",{});kind=str(visual.get("type",""))
+    mode=str(visual.get("mode",""))
+    if kind=="comparison" or mode in {"pixel-upscale","stability"}:return "comparison"
+    if kind=="network" or mode=="network-shrink":return "mesh"
+    if kind in {"flow","diagram"} or mode=="pipeline":return "flow"
+    if mode=="fanout":return "branch"
+    if mode=="capacity":return "stack"
+    text=(" ".join([str(beat.get("text","")),json.dumps(visual,ensure_ascii=False)])).lower()
+    rules=[
+        ("shield",{"security","secure","attack","attacker","breach","protect","protected","malware","exploit","vulnerability","firewall","sandbox"}),
+        ("timeline",{"timeline","first","later","eventually","before","after","then","now","year","month","week","day"}),
+        ("wave",{"audio","voice","speech","sound","signal","wave","frequency","radio"}),
+        ("comparison",{"versus"," vs ","compare","compared","instead","old","newer","difference"}),
+        ("growth",{"grow","growth","increase","decrease","faster","slower","speed","performance","benchmark","scale","billion","million","percent","%"}),
+        ("funnel",{"filter","merge","combine","aggregate","select","compress","reduce","narrow"}),
+        ("stack",{"layer","stack","cache","memory","context","storage","buffer"}),
+        ("branch",{"branch","split","route","router","choice","choose","expert","specialist","dispatch"}),
+        ("mesh",{"network","graph","peer","node","connected","connection","cluster"}),
+        ("orbit",{"agent","agents","tool","tools","ecosystem","plugin","plugins","service","services"}),
+        ("flow",{"input","output","process","pipeline","token","tokens","request","requests","data","through"}),
+    ]
+    padded=f" {text} "
+    for candidate,terms in rules:
+        if any(term in padded for term in terms):return candidate
+    fallbacks=["flow","branch","orbit","stack","mesh"]
+    seed=int(hashlib.sha1(f"{position}|{beat.get('text','')}".encode()).hexdigest()[:8],16)
+    return fallbacks[seed%len(fallbacks)]
+
+def drawn_diagram_from_beat(beat:dict,position:int=0,previous_kind:str|None=None)->dict:
+    visual=beat.get("visual",{}) if isinstance(beat.get("visual"),dict) else {}
+    kind=diagram_kind_for_beat(beat,position)
+    alternates={
+        "flow":["branch","stack"],"branch":["orbit","mesh"],"orbit":["mesh","branch"],
+        "mesh":["orbit","flow"],"growth":["comparison","timeline"],"comparison":["growth","flow"],
+        "shield":["mesh","flow"],"stack":["flow","funnel"],"timeline":["growth","flow"],
+        "wave":["flow","orbit"],"funnel":["flow","stack"],
+    }
+    if previous_kind==kind:
+        kind=alternates.get(kind,["flow"])[position%len(alternates.get(kind,["flow"]))]
+    target={"comparison":2,"growth":2,"wave":2,"shield":1,"mesh":2,"flow":3,
+            "branch":3,"orbit":4,"stack":4,"timeline":3,"funnel":4}.get(kind,3)
+    labels=visual_label_candidates(visual)
+    for label in narration_labels(str(beat.get("text","")),target):
+        if label not in labels:labels.append(label)
+    labels=labels[:target]
+    seed=int(hashlib.sha256(f"{position}|{kind}|{beat.get('text','')}".encode()).hexdigest()[:8],16)
+    result={"type":"drawn-diagram","kind":kind,"variant":seed%4}
+    if labels:result["labels"]=labels
+    if kind=="mesh":result["focus"]=seed%6
+    return result
+
+def should_upgrade_to_drawn(beat:dict,position:int)->bool:
+    visual=beat.get("visual",{});kind=str(visual.get("type",""));role=str(beat.get("editorialRole","")).lower()
+    if kind=="drawn-diagram" or kind in {"source","logo","metric","chart","timeline"}:return False
+    if role in RHYTHM_BREAK_ROLES:return False
+    if kind in LEGACY_DIAGRAM_TYPES:return True
+    word_count=len(re.findall(r"\S+",str(beat.get("text",""))))
+    if role in DIAGRAM_FIRST_ROLES:return True
+    if position>0 and role in {"fact","setup"} and kind in {"fact","text","kinetic","symbol"} and word_count>=5:return True
+    return False
+
+def apply_diagram_first(beats:list[dict])->int:
+    converted=0;previous_kind=None
+    for position,beat in enumerate(beats):
+        visual=beat.get("visual",{})
+        if visual.get("type")=="source" and visual.get("src"):
+            previous_kind=None;continue
+        rejected_source=visual.get("type")=="source" and not visual.get("src")
+        if rejected_source or should_upgrade_to_drawn(beat,position):
+            role=str(beat.get("editorialRole","")).lower()
+            if role not in RHYTHM_BREAK_ROLES:
+                beat["visual"]=drawn_diagram_from_beat(beat,position,previous_kind)
+                previous_kind=str(beat["visual"]["kind"]);converted+=1;continue
+        if beat.get("visual",{}).get("type")=="drawn-diagram":
+            previous_kind=str(beat["visual"].get("kind",""))
+        else:previous_kind=None
+    return converted
 
 def find_sequence(words,expected,cursor):
     normalized=[norm(str(w["text"])) for w in words]
@@ -87,8 +203,8 @@ def base_visual_weight(beat)->float:
     v=beat.get("visual",{}); kind=str(v.get("type","text"))
     base={
         "explain":9.0,
-        "drawn-diagram":10.3,
-        "source":10.6,
+        "drawn-diagram":11.4,
+        "source":10.8,
         "comparison":8.4,
         "chart":8.1,
         "timeline":7.9,
@@ -114,6 +230,8 @@ def candidate_score(beat,prev_family=None,prev_explain_mode=None)->float:
         if fam!=prev_family:score+=1.0
         elif fam=="source":score-=0.5
         else:score-=3.0
+    role=str(beat.get("editorialRole","")).lower()
+    if kind=="drawn-diagram" and role in {"explanation","transition"}:score+=2.0
     if kind=="explain":
         mode=str(v.get("mode",""))
         if prev_explain_mode and mode==prev_explain_mode:
@@ -121,16 +239,11 @@ def candidate_score(beat,prev_family=None,prev_explain_mode=None)->float:
     return score
 
 def kinetic_from_beat(beat,position:int=0):
-    """Use short topic-aware editorial compositions when a distinct source is missing."""
+    """Last-resort punctuation only; explanatory fallback is handled by diagrams."""
     words=re.findall(r"[A-Za-z0-9'’.-]+",str(beat.get("text","")))
-    role=str(beat.get("editorialRole","")).lower()
-    if role in {"joke","reaction","punchline","callback","analogy"}:
-        return {"type":"kinetic","text":" ".join(words[:6]).strip() or "TECH UPDATE","emphasis":words[-1] if words else "UPDATE"}
-    # Multiple layouts and two separate semantic fragments; no generic 'MODEL -> MODEL' network.
-    headline=" ".join(words[:min(5,len(words))]).strip() or "TECH UPDATE"
-    detail=" ".join(words[5:10]).strip()
-    variant=int(hashlib.sha1(f"{position}|{beat.get('text','')}".encode()).hexdigest()[:8],16)%6
-    return {"type":"fact","headline":headline,"detail":detail,"variant":variant}
+    compact=" ".join(words[:4]).strip() or "TECH UPDATE"
+    emphasis=words[min(len(words),4)-1] if words else "UPDATE"
+    return {"type":"kinetic","text":compact,"emphasis":emphasis}
 
 def choose_window_candidate(beats,candidates,prev_family,prev_kind,prev_drawn_kind,prev_explain_mode,explain_count,max_explain,abstract_count,max_abstract,used_explain_modes,logo_count,max_logo):
     viable=[i for i in candidates if base_visual_weight(beats[i])>=0]
@@ -203,7 +316,11 @@ def assert_visual_window_diversity(windows,max_explain,max_abstract,max_logo):
 
 def build_visual_windows(beats,cutaway_by_beat,final_duration):
     windows=[];index=0;prev_family=None;prev_kind=None;prev_drawn_kind=None;prev_explain_mode=None;explain_count=0;abstract_count=0;logo_count=0;used_explain_modes:set[str]=set()
-    max_explain=max(2,min(3,math.floor(final_duration/12.0)));max_abstract=max(3,min(4,math.floor(final_duration/10.0)));max_logo=max(1,min(2,math.ceil(final_duration/20.0)))
+    max_explain=max(1,min(2,math.floor(final_duration/16.0)))
+    # Phase 4 target: diagrams may lead the visual explanation while source
+    # media and memes remain the grounding/punctuation layers.
+    max_abstract=max(5,min(12,math.ceil(final_duration/3.2)))
+    max_logo=max(1,min(2,math.ceil(final_duration/20.0)))
     while index<len(beats):
         start_index=index;end_index=index;start=float(beats[index]["start"]);end=float(beats[index]["end"])
         while end_index+1<len(beats):
@@ -294,6 +411,8 @@ def main():
                 use=min(md,max(.35,dur-.05));meme["durationSeconds"]=round(use,3);meme["offsetSeconds"]=round(max(.02,dur-use-.03),3)
         if last not in cutaway_by_beat:prepared[last]["end"]=round(final_duration,4)
 
+    upgraded=apply_diagram_first(prepared)
+    print(f"Diagram-first upgrades: {upgraded}/{len(prepared)} semantic beats")
     visual_beats=build_visual_windows(prepared,cutaway_by_beat,final_duration)
     # Assign a reproducible, story-specific geometry rather than the same pipeline
     # or fanout in every video. Rotate away from recent layouts where possible.
@@ -303,19 +422,32 @@ def main():
     local_patterns:set[str]=set()
     for i,beat in enumerate(visual_beats):
         visual=beat.get("visual",{})
-        if visual.get("type")!="explain":continue
-        mode=str(visual.get("mode","fanout"))
-        seed=int(hashlib.sha256(f"{story.get('slug','')}|{mode}|{i}".encode()).hexdigest()[:8],16)
-        def pattern_cost(variant:int)->tuple[int,int,int]:
-            pattern=f"{mode}:{variant}"
-            return (
-                100 if pattern in local_patterns else 0,
-                sum(1 for item in recent for token in item.get("patterns",[]) if token==pattern),
-                (variant-seed)%6,
-            )
-        variant=min(range(6),key=pattern_cost)
-        visual["variant"]=variant
-        local_patterns.add(f"{mode}:{variant}")
+        if visual.get("type")=="explain":
+            mode=str(visual.get("mode","fanout"))
+            seed=int(hashlib.sha256(f"{story.get('slug','')}|{mode}|{i}".encode()).hexdigest()[:8],16)
+            def pattern_cost(variant:int)->tuple[int,int,int]:
+                pattern=f"legacy:{mode}:{variant}"
+                return (
+                    100 if pattern in local_patterns else 0,
+                    sum(1 for item in recent for token in item.get("patterns",[]) if token==pattern),
+                    (variant-seed)%6,
+                )
+            variant=min(range(6),key=pattern_cost)
+            visual["variant"]=variant
+            local_patterns.add(f"legacy:{mode}:{variant}")
+        elif visual.get("type")=="drawn-diagram":
+            kind=str(visual.get("kind","flow"))
+            seed=int(hashlib.sha256(f"{story.get('slug','')}|drawn|{kind}|{i}".encode()).hexdigest()[:8],16)
+            def drawn_cost(variant:int)->tuple[int,int,int]:
+                pattern=f"drawn:{kind}:{variant}"
+                return (
+                    100 if pattern in local_patterns else 0,
+                    sum(1 for item in recent for token in item.get("patterns",[]) if token==pattern),
+                    (variant-seed)%4,
+                )
+            variant=min(range(4),key=drawn_cost)
+            visual["variant"]=variant
+            local_patterns.add(f"drawn:{kind}:{variant}")
     props=dict(story);props["durationSeconds"]=round(final_duration,4);props["beats"]=prepared;props["visualBeats"]=visual_beats;props["captions"]=words;props["cutaways"]=cutaways
     BUILD_DIR.mkdir(parents=True,exist_ok=True);(BUILD_DIR/"render-props.json").write_text(json.dumps(props,indent=2),encoding="utf-8")
     (BUILD_DIR/"visual-quality.json").write_text(json.dumps({"slug":story.get("slug"),"patterns":sorted(local_patterns)},indent=2),encoding="utf-8")
@@ -324,7 +456,8 @@ def main():
     print("Visual treatments:",treatments)
     print("Explain modes:",[b["visual"].get("mode") for b in visual_beats if b["visual"]["type"]=="explain"])
     abstract=sum(1 for kind in treatments if kind in ABSTRACT_TYPES)
-    print(f"Abstract-tech windows: {abstract}/{len(treatments)} ({abstract/max(1,len(treatments)):.0%})")
+    drawn=treatments.count("drawn-diagram")
+    print(f"Diagram/abstract windows: {abstract}/{len(treatments)} ({abstract/max(1,len(treatments)):.0%}); drawn diagrams: {drawn}")
     source_count=treatments.count("source");logo_count=treatments.count("logo")
     print(f"Real-source windows: {source_count}/{len(treatments)} ({source_count/max(1,len(treatments)):.0%}); pure logos: {logo_count}")
     print("Visual holds:",[round(float(b["end"])-float(b["start"]),2) for b in visual_beats])
