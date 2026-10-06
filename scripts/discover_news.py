@@ -510,6 +510,60 @@ def youtube_feed(channel_id: str) -> list[dict[str, Any]]:
     return videos
 
 
+def youtube_channel_videos(channel_url: str, max_videos: int) -> list[dict[str, Any]]:
+    """List recent channel videos without relying on YouTube's RSS endpoint."""
+    try:
+        import yt_dlp
+    except Exception as exc:
+        print(f"yt-dlp unavailable: {type(exc).__name__}", file=sys.stderr)
+        return []
+
+    target = channel_url.rstrip("/")
+    if not target.endswith("/videos"):
+        target += "/videos"
+
+    options = {
+        "quiet": True,
+        "no_warnings": True,
+        "skip_download": True,
+        "extract_flat": "in_playlist",
+        "playlistend": max(max_videos * 2, 12),
+        "ignoreerrors": True,
+    }
+    try:
+        with yt_dlp.YoutubeDL(options) as ydl:
+            payload = ydl.extract_info(target, download=False) or {}
+    except Exception as exc:
+        print(f"creator yt-dlp listing failed: {channel_url}: {type(exc).__name__}: {exc}", file=sys.stderr)
+        return []
+
+    videos: list[dict[str, Any]] = []
+    for entry in payload.get("entries") or []:
+        if not isinstance(entry, dict):
+            continue
+        video_id = str(entry.get("id") or "").strip()
+        if not video_id:
+            continue
+        timestamp = entry.get("timestamp") or entry.get("release_timestamp")
+        published_at = None
+        if isinstance(timestamp, (int, float)):
+            published_at = iso(datetime.fromtimestamp(float(timestamp), tz=timezone.utc))
+        if not published_at:
+            upload_date = str(entry.get("upload_date") or "").strip()
+            if re.fullmatch(r"\d{8}", upload_date):
+                published_at = iso(datetime.strptime(upload_date, "%Y%m%d").replace(tzinfo=timezone.utc))
+        videos.append(
+            {
+                "videoId": video_id,
+                "title": clean_text(str(entry.get("title") or "Creator video")),
+                "publishedAt": published_at,
+                "url": f"https://www.youtube.com/watch?v={video_id}",
+                "description": clean_text(str(entry.get("description") or "")),
+            }
+        )
+    return videos
+
+
 def fetch_transcript(video_id: str) -> list[dict[str, Any]]:
     try:
         from youtube_transcript_api import YouTubeTranscriptApi
@@ -632,7 +686,10 @@ def creator_candidates(
         try:
             videos = youtube_feed(channel_id)
         except Exception as exc:
-            print(f"creator feed failed: {creator['name']}: {exc}", file=sys.stderr)
+            print(f"creator feed failed: {creator['name']}: {exc}; trying yt-dlp", file=sys.stderr)
+            videos = youtube_channel_videos(creator["url"], max_videos)
+        if not videos:
+            print(f"creator listing unavailable: {creator['name']}", file=sys.stderr)
             continue
 
         recent = [
