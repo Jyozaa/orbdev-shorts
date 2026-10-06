@@ -140,3 +140,25 @@ Every render writes `build/narration-report.json` with synthesis mode, native sp
 - The editorial worker still verifies primary sources and writes a reviewed script before queuing. Discovery qualification by itself is **not** publication approval. New video counts depend on verified stories and the independent YouTube upload limit.
 
 The quality CI check runs Python syntax/regression tests and TypeScript typechecking without rendering or uploading.
+
+
+## Drawn diagram engine
+
+Orbdev now has a deterministic SVG diagram grammar in `src/components/diagram/`.
+It is rendered entirely inside Remotion from story JSON: no external image generator,
+LLM endpoint, diagram API, or additional API key is involved.
+
+Phase 2 diagram families are `branch`, `orbit`, `flow`, `growth`, `stack`,
+`comparison`, `timeline`, `wave`, `shield`, `funnel`, and `mesh`.
+They share a 1080x1920 coordinate system, thin monochrome strokes, draw-on paths,
+staggered nodes, sparse annotations and deterministic frame-based animation.
+
+For manual inspection:
+
+```bash
+npx remotion render src/index.ts OrbdevDiagramGallery out/diagram-gallery.mp4
+```
+
+The `Diagram engine preview` GitHub workflow typechecks the engine, renders all
+families, verifies that representative frames are non-blank, and stores an MP4 plus
+11 stills as a build artifact. It never publishes to YouTube.

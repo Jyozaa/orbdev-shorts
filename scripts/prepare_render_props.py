@@ -73,7 +73,7 @@ def choose_source(entry:object,query:str,must_match:list[str],used:set[str],allo
     if not scored or scored[0][0]<SOURCE_MIN_MATCH:return None,(scored[0][0] if scored else 0.0)
     return scored[0][2],scored[0][0]
 
-ABSTRACT_TYPES={"explain","chart","timeline","comparison","flow","diagram","network"}
+ABSTRACT_TYPES={"explain","chart","timeline","comparison","flow","diagram","network","drawn-diagram"}
 
 def family(kind:str)->str:
     if kind in ABSTRACT_TYPES:return "abstract-tech"
@@ -87,6 +87,7 @@ def base_visual_weight(beat)->float:
     v=beat.get("visual",{}); kind=str(v.get("type","text"))
     base={
         "explain":9.0,
+        "drawn-diagram":10.3,
         "source":10.6,
         "comparison":8.4,
         "chart":8.1,

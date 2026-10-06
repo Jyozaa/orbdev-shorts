@@ -9,9 +9,10 @@ from urllib.parse import urlparse
 
 ALLOWED_VISUALS = {
     "source", "metric", "diagram", "comparison", "symbol", "text", "kinetic",
-    "logo", "flow", "chart", "timeline", "network", "explain"
+    "logo", "flow", "chart", "timeline", "network", "explain", "drawn-diagram"
 }
-ABSTRACT_TYPES = {"explain", "chart", "timeline", "comparison", "flow", "diagram", "network"}
+ABSTRACT_TYPES = {"explain", "chart", "timeline", "comparison", "flow", "diagram", "network", "drawn-diagram"}
+DRAWN_KINDS = {"branch","orbit","flow","growth","stack","comparison","timeline","wave","shield","funnel","mesh"}
 ALLOWED_SFX = {"scratch", "impact", "whoosh", "tick", "none"}
 ALLOWED_PURPOSES = {"reaction", "punchline", "contrast", "confusion", "failure", "success", "waiting", "absurdity", "emphasis"}
 ALLOWED_TONES = {"positive", "negative", "surprised", "confused", "awkward", "deadpan", "chaotic", "neutral"}
@@ -213,7 +214,8 @@ def main() -> None:
         kind = str(visual["type"])
         visual_types.append(kind)
         visual_signatures.append(
-            f"explain:{visual.get('mode')}" if kind == "explain" else kind
+            f"explain:{visual.get('mode')}" if kind == "explain" else
+            f"drawn-diagram:{visual.get('kind')}" if kind == "drawn-diagram" else kind
         )
         families.add(family(kind))
 
@@ -248,6 +250,26 @@ def main() -> None:
         elif kind == "metric":
             if not isinstance(visual.get("value"), str) or not visual["value"].strip():
                 fail(f"beat {index} metric needs value")
+        elif kind == "drawn-diagram":
+            if visual.get("kind") not in DRAWN_KINDS:
+                fail(f"beat {index} has invalid drawn-diagram family")
+            labels = visual.get("labels", [])
+            if not isinstance(labels, list) or len(labels) > 5:
+                fail(f"beat {index} drawn-diagram labels must contain at most five entries")
+            if any(
+                not isinstance(label, str)
+                or len(label) > 22
+                or len(label.split()) > 3
+                for label in labels
+            ):
+                fail(f"beat {index} drawn-diagram labels must be short annotations (3 words maximum)")
+            focus = visual.get("focus")
+            if focus is not None and (type(focus) is not int or not 0 <= focus <= 5):
+                fail(f"beat {index} drawn-diagram focus must be from 0 to 5")
+            variant = visual.get("variant")
+            if variant is not None and (type(variant) is not int or not 0 <= variant <= 3):
+                fail(f"beat {index} drawn-diagram variant must be from 0 to 3")
+            rich_visual_count += 1
         elif kind == "diagram":
             symbols = visual.get("symbols")
             if not isinstance(symbols, list) or not 2 <= len(symbols) <= 4:

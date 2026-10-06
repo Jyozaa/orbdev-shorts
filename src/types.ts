@@ -58,6 +58,20 @@ export type SourceVisual = {
 
 export type FactVisual = {type: 'fact'; headline: string; detail?: string; variant?: number};
 export type MetricVisual = {type: 'metric'; value: string};
+/** Sparse editorial diagrams. Labels annotate shapes, never repeat narration. */
+export type DrawnDiagramKind =
+  | 'branch' | 'orbit' | 'flow' | 'growth' | 'stack'
+  | 'comparison' | 'timeline' | 'wave' | 'shield' | 'funnel' | 'mesh';
+
+export type DrawnDiagramVisual = {
+  type: 'drawn-diagram';
+  kind: DrawnDiagramKind;
+  labels?: string[];
+  /** Highlighted node for mesh-style layouts, not an on-screen word. */
+  focus?: number;
+  variant?: number;
+};
+
 export type DiagramVisual = {type: 'diagram'; symbols: string[]};
 export type ComparisonVisual = {type: 'comparison'; left: string; right: string};
 export type SymbolVisual = {type: 'symbol'; symbol: string};
@@ -109,6 +123,7 @@ export type BeatVisualSpec =
   | FactVisual
   | MetricVisual
   | DiagramVisual
+  | DrawnDiagramVisual
   | ComparisonVisual
   | SymbolVisual
   | TextVisual

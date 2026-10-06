@@ -10,6 +10,7 @@ import {
 } from 'remotion';
 import {Beat, FlowNode} from '../types';
 import {ExplainVisual} from './ExplainVisual';
+import {DrawnDiagram} from './diagram/DrawnDiagram';
 
 const fittedFontSize = (value: string, boxWidth: number, max: number, min: number) => {
   const normalized = Math.max(1, value.trim().length);
@@ -242,6 +243,10 @@ export const BeatVisual: React.FC<{beat: Beat}> = ({beat}) => {
 
   if (beat.visual.type === 'explain') {
     return <ExplainVisual visual={beat.visual} />;
+  }
+
+  if (beat.visual.type === 'drawn-diagram') {
+    return <DrawnDiagram visual={beat.visual} />;
   }
 
   if (beat.visual.type === 'fact') {
