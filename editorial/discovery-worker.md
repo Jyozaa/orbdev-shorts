@@ -80,7 +80,10 @@ Each topic receives its own score and verification pass. A weak topic is skipped
 
 ## Cross-lane convergence
 
-If the same development appears in multiple lanes, merge the evidence rather than creating duplicate Shorts.
+When one development appears in multiple lanes, merge its evidence into one
+research lead rather than duplicating the candidate. This does **not** prohibit
+publishing distinct Shorts on the same topic with genuinely different scripts,
+angles, or visual treatments. Block exact reuploads, not shared source URLs.
 
 Cross-lane convergence is a heat signal, not proof. For example:
 
@@ -98,7 +101,9 @@ For each candidate marked `qualifiesForEditorial`:
 2. Find and read the strongest available primary source: official announcement, repository, paper, journal/preprint, security advisory, breach notice, regulatory filing, investor-relations release, model page or release notes.
 3. Verify all material claims independently from creator commentary or secondary headlines.
 4. Reject rumours, unconfirmed leaks, unsupported benchmark claims and misleading comparisons. Confirmed breach/data-leak incidents are valid when the evidence is solid.
-5. Check `history/covered.json` and the current story again.
+5. Check `history/covered.json` and the current story for identical video plans.
+   Prior topical coverage is an editorial novelty signal, not an automatic veto.
+   A truly new angle, explanation, or visual story may warrant its own Short.
 6. Re-score using the full editorial rubric, including significance, practical impact, novelty, source confidence, visual potential and current heat.
 7. If it still clears the threshold, create one story JSON for that topic.
 8. Multiple candidates from one scan may all become Shorts.

@@ -133,7 +133,8 @@ Every render writes `build/narration-report.json` with synthesis mode, native sp
 - `scripts/capture_sources.py` fingerprints source images and rejects near duplicates.
 - `scripts/prepare_render_props.py` never reuses source imagery, even if an old story has `allowReuse: true`; it selects distinct story-specific compositions and rotates diagram layout variants against recent successful renders.
 - `scripts/check_visual_quality.py` blocks renders with repeated images, excessive generic fallbacks or repeated diagram layouts.
-- `scripts/filter_queue.py` de-duplicates queue requests against `history/covered.json` and other queued versions of the same story. The uploader also checks published receipts before sending anything to YouTube.
+- `scripts/filter_queue.py` suppresses identical storyboards, **not** stories about the same event. Another original angle on the same development is allowed, even with the same primary source URL.
+- `scripts/publish_youtube.py` checks SHA-256 of the actual rendered MP4 against previous confirmed uploads. A new story may reuse the topic; the *exact same video bytes* cannot be uploaded again when a previous checksum exists. Successful uploads persist the video and story-plan hashes.
 - Successful render/publish receipts update `history/covered.json` and `history/visual-history.json` *after fetching the newest branch state*, with serialized history writes and retries.
 - `editorial/inbox/backfill-progress.json` lets the twice-daily editorial automation work through the historical September 25–October 6 lead set over several runs without forgetting reviewed or rejected candidates.
 - The editorial worker still verifies primary sources and writes a reviewed script before queuing. Discovery qualification by itself is **not** publication approval. New video counts depend on verified stories and the independent YouTube upload limit.

@@ -1202,6 +1202,8 @@ def summarize_cluster(
         score += float(heat["creatorMention"])
 
     score = round(min(10.0, score), 2)
+    # Prior coverage informs editorial novelty, not whether another independently
+    # written Short is possible. Deduplication happens at video-plan and MP4 level.
     covered = already_covered(cluster, covered_fps)
     primary_urls = sorted({u for c in cluster for u in c.get("primaryUrls", []) if u})
     related_urls = sorted({u for c in cluster for u in c.get("relatedUrls", []) if u})
@@ -1209,7 +1211,6 @@ def summarize_cluster(
     quality_gate_passed, quality_gate = cluster_quality_gate(cluster, config)
     qualifies = (
         score >= float(config["qualificationScore"])
-        and not covered
         and quality_gate_passed
     )
 
