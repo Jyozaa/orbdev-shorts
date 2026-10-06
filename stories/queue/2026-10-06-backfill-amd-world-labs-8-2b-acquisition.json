@@ -1,0 +1,274 @@
+{
+  "slug": "amd-world-labs-8-2b-acquisition",
+  "title": "AMD is buying World Labs for $8.2 billion",
+  "narration": "AMD is buying World Labs for about $8.2 billion in stock. The chip company just bought an AI research lab. World Labs builds spatial-intelligence models for interactive 3D environments. AMD says the deal should close by year-end. Fei-Fei Li will become AMD's chief scientist. The strategic part is more interesting than the price. AMD wants model researchers closer to its hardware roadmap. Future chips can target emerging AI workloads earlier. Especially robotics, simulation, and physical AI. Eight billion dollars is a very expensive feedback loop. The deal still needs regulatory approval and customary closing conditions. AI hardware is officially moving upstream.",
+  "beats": [
+    {
+      "text": "AMD is buying World Labs for about $8.2 billion in stock.",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "AMD World Labs acquisition",
+        "mustMatch": [
+          "AMD"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "The chip company just bought an AI research lab.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "THE CHIP COMPANY JUST BOUGHT",
+        "emphasis": "BOUGHT"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "wait"
+        ]
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "World Labs builds spatial-intelligence models for interactive 3D environments.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "World Labs spatial intelligence",
+        "mustMatch": [
+          "AMD"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "AMD says the deal should close by year-end.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "~$8.2B"
+      }
+    },
+    {
+      "text": "Fei-Fei Li will become AMD's chief scientist.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "comparison",
+        "left": "CHIPS",
+        "right": "MODEL RESEARCH"
+      }
+    },
+    {
+      "text": "The strategic part is more interesting than the price.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "AMD AI research acquisition",
+        "mustMatch": [
+          "AMD"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "AMD wants model researchers closer to its hardware roadmap.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "AMD WANTS MODEL RESEARCHERS CLOSER",
+        "emphasis": "CLOSER"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.95,
+        "concepts": [
+          "surprised",
+          "contrast",
+          "reaction"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "Future chips can target emerging AI workloads earlier.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "AMD World Labs 8-K",
+        "mustMatch": [
+          "AMD"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Especially robotics, simulation, and physical AI.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "comparison",
+        "left": "ROBOTICS",
+        "right": "SIMULATION"
+      }
+    },
+    {
+      "text": "Eight billion dollars is a very expensive feedback loop.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Fei-Fei Li AMD",
+        "mustMatch": [
+          "AMD"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "The deal still needs regulatory approval and customary closing conditions.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "kinetic",
+        "text": "THE DEAL STILL NEEDS REGULATORY",
+        "emphasis": "REGULATORY"
+      },
+      "memeIntent": {
+        "purpose": "emphasis",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "emphasis"
+        ]
+      }
+    },
+    {
+      "text": "AI hardware is officially moving upstream.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "AI HARDWARE IS OFFICIALLY MOVING",
+        "emphasis": "MOVING"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "reaction",
+          "laugh",
+          "punchline"
+        ]
+      },
+      "sfx": "whoosh"
+    }
+  ],
+  "editorial": {
+    "storyKey": "amd-world-labs-acquisition-2026-09-28",
+    "selectedAt": "2026-10-06T07:20:00+01:00",
+    "score": 9.4,
+    "memeMode": "normal",
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "AI acquisition",
+      "spatial intelligence",
+      "AI hardware"
+    ],
+    "companies": [
+      "AMD",
+      "World Labs"
+    ],
+    "sources": [
+      {
+        "title": "AMD to Acquire World Labs to Advance the Future of AI Compute",
+        "publisher": "AMD",
+        "url": "https://newsroom.amd.com/news/amd-acquire-world-labs/",
+        "publishedAt": "2026-09-28",
+        "primary": true
+      },
+      {
+        "title": "AMD Form 8-K — World Labs merger agreement",
+        "publisher": "AMD Investor Relations",
+        "url": "https://ir.amd.com/financial-information/sec-filings/content/0000002488-26-000182/amd-20260926.htm",
+        "publishedAt": "2026-09-28",
+        "primary": true
+      }
+    ],
+    "discovery": {
+      "backfillStart": "2026-09-25",
+      "backfillEnd": "2026-10-06",
+      "clusterId": "c36eb1d52b9db307",
+      "lanes": [
+        "market_business",
+        "major_news"
+      ],
+      "creators": []
+    }
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "AMD Is Buying World Labs for $8.2 Billion",
+    "description": "AMD agreed to acquire Fei-Fei Li’s World Labs in an all-stock deal valued at about $8.2 billion, bringing spatial-intelligence model research directly into its AI hardware strategy.",
+    "tags": [
+      "AMD",
+      "World Labs",
+      "Fei-Fei Li",
+      "AI acquisition",
+      "AI hardware",
+      "spatial intelligence",
+      "tech news"
+    ],
+    "hashtags": [
+      "#AMD",
+      "#ArtificialIntelligence",
+      "#WorldLabs",
+      "#TechNews"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}
