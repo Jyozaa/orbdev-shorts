@@ -1,0 +1,43 @@
+name: Quality and regression checks
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github/
+            scripts/
+            src/
+            stories/
+            history/
+            editorial/
+            package.json
+            tsconfig.json
+            requirements-discovery.txt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python syntax and regression tests
+        run: |
+          python -m compileall -q scripts
+          python scripts/test_visual_logic.py
+          python scripts/test_discovery_logic.py
+          python scripts/filter_queue.py --covered history/covered.json stories/queue/*.json
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: TypeScript typecheck
+        run: |
+          npm install --no-audit --no-fund
+          npm run typecheck

@@ -29,3 +29,12 @@ Every newly queued production story should follow `editorial/youtube-metadata.md
 New stories must include an optimized YouTube title, concise description, 4-15 metadata tags, 3-5 visible hashtags, public privacy, `madeForKids: false`, and compact metadata-review scores. `scripts/validate_story.py` enforces this contract for metadataVersion 1 stories.
 
 The uploader appends any missing primary-source URLs and the visible hashtag line to the final YouTube description. Metricool is used only for performance feedback; it does not delay or perform the upload.
+
+## Duplicate and media-diversity gate
+
+Before rendering, the workflow skips any queue file covering an already published
+event or a second JSON for the same primary announcement/release. The renderer
+uses each distinct source image at most once (old `allowReuse` flags are ignored).
+Videos with repeated source imagery or too many placeholder scenes are rejected
+before encoding and cannot be autopublished. When source images are scarce,
+add new verified media and redesign the visual plan instead of reusing an asset.
