@@ -12,11 +12,11 @@ type CanvasProps = {
 
 /** 1080x1920 coordinate system shared by every new diagram family. */
 export const DiagramCanvas: React.FC<CanvasProps> = ({
-  children, progress, panX = 0, panY = 0, zoom = 1,
+  children, progress, panX = 0, panY = 0, zoom = 1.1,
 }) => {
   const shiftX = panX * Math.min(1, progress);
   const shiftY = panY * Math.min(1, progress);
-  const scale = zoom + Math.min(1, progress) * 0.009;
+  const scale = zoom + Math.min(1, progress) * 0.007;
   return (
     <AbsoluteFill style={{background: CANVAS, overflow: 'hidden'}}>
       <svg
