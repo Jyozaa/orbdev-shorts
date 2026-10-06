@@ -22,6 +22,62 @@ def attr(tag:str,name:str)->str:
     m=re.search(rf'\b{name}=["\']([^"\']+)["\']',tag,flags=re.I)
     return html.unescape(m.group(1)).strip() if m else ""
 
+def github_readme_candidates(repo_url:str)->list[dict[str,object]]:
+    """Extract real screenshots/demos linked by a public GitHub README.
+
+    GitHub repository pages often lazy-render README media, so HTML scraping only
+    sees the OpenGraph card. Reading the public raw README exposes the actual
+    demo attachments without any external API key.
+    """
+    parsed=urllib.parse.urlparse(repo_url)
+    if parsed.netloc.lower() not in {"github.com","www.github.com"}:return []
+    parts=[p for p in parsed.path.split("/") if p]
+    if len(parts)<2:return []
+    owner,repo=parts[0],parts[1].removesuffix(".git")
+    raw_url=f"https://raw.githubusercontent.com/{owner}/{repo}/HEAD/README.md"
+    try:
+        data,_=fetch(raw_url,timeout=20,referer=repo_url)
+        md=data.decode("utf-8",errors="ignore")
+    except Exception as e:
+        print(f"GitHub README media discovery failed: {e}")
+        return []
+
+    candidates=[];seen=set()
+    headings=[]
+    for match in re.finditer(r"(?m)^#{2,4}\s+(.+?)\s*$",md):
+        headings.append((match.start(),clean_text(match.group(1))))
+
+    def section_for(pos:int)->str:
+        prior=[title for start,title in headings if start<=pos]
+        return prior[-1] if prior else f"{owner}/{repo}"
+
+    def add(raw:str,pos:int,score:int,alt:str=""):
+        raw=html.unescape(raw.strip().strip("<>"))
+        if not raw:return
+        if raw.startswith("./") or ("://" not in raw and not raw.startswith("/")):
+            raw=f"https://raw.githubusercontent.com/{owner}/{repo}/HEAD/{raw.lstrip('./')}"
+        url=absolute(repo_url,raw)
+        low=url.lower()
+        if url in seen or any(x in low for x in ("shields.io","badge.svg","trendshift.io/api/badge")):return
+        seen.add(url)
+        context=clean_text(md[max(0,pos-420):min(len(md),pos+720)])
+        text=" ".join(x for x in (section_for(pos),clean_text(alt),context) if x)
+        candidates.append({"url":url,"baseScore":score,"text":text})
+
+    # GitHub user attachments are frequently MP4/GIF demo recordings. ffmpeg
+    # later extracts a representative frame, so they are useful source visuals.
+    for m in re.finditer(r"https://github\.com/user-attachments/assets/[A-Za-z0-9-]+",md,re.I):
+        add(m.group(0),m.start(),88)
+
+    for m in re.finditer(r"!\[([^\]]*)\]\(([^)\s]+)(?:\s+['\"][^'\"]*['\"])?\)",md):
+        add(m.group(2),m.start(),76,m.group(1))
+
+    for m in re.finditer(r"<img\b[^>]*>",md,re.I):
+        tag=m.group(0);src=attr(tag,"src")
+        add(src,m.start(),72,attr(tag,"alt"))
+
+    return sorted(candidates,key=lambda x:int(x["baseScore"]),reverse=True)
+
 def extract_image_candidates(page:str,base_url:str)->list[dict[str,object]]:
     candidates=[]; seen=set()
     title=clean_text((re.search(r"<title[^>]*>(.*?)</title>",page,flags=re.I|re.S) or [None,""])[1])
@@ -127,8 +183,13 @@ def main():
             page_bytes,ctype=fetch(url)
             if "text/html" in ctype or page_bytes.lstrip().startswith(b"<"):
                 page=page_bytes.decode("utf-8",errors="ignore")
-                for cand in extract_image_candidates(page,url):
+                discovered=github_readme_candidates(url)+extract_image_candidates(page,url)
+                seen_urls=set()
+                for cand in discovered:
                     if len(assets)>=MAX_IMAGES_PER_SOURCE:break
+                    candidate_url=str(cand.get("url",""))
+                    if not candidate_url or candidate_url in seen_urls:continue
+                    seen_urls.add(candidate_url)
                     item=capture(cand,url,index,len(assets))
                     if item:
                         digest=str(item.get("visualHash") or "")
