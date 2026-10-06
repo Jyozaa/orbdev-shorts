@@ -625,7 +625,7 @@ def creator_candidates(
     processed_videos: list[str] = []
 
     for creator in radar["creators"]:
-        channel_id = resolve_youtube_channel_id(creator["url"])
+        channel_id = str(creator.get("channelId") or "").strip() or resolve_youtube_channel_id(creator["url"])
         if not channel_id:
             print(f"creator channel id unavailable: {creator['name']}", file=sys.stderr)
             continue
