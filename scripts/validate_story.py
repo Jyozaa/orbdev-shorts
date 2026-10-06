@@ -411,8 +411,8 @@ def main() -> None:
         fail("too many generic flow/diagram beats; use source imagery, branding, metrics, kinetic visuals or a different treatment")
 
     abstract_count = sum(1 for kind in visual_types if kind in ABSTRACT_TYPES)
-    if abstract_count > max(3, math.floor(len(beats) * 0.35)):
-        fail("too many abstract-tech beats; keep abstract treatments controlled (drawn-diagram continuity runs still count toward this Phase 3 budget)")
+    if abstract_count > max(5, math.ceil(len(beats) * 0.65)):
+        fail("too many abstract-tech beats; diagram-first Shorts still need source media, metrics, reactions or visual resets")
 
     for index in range(len(visual_types) - 1):
         if visual_types[index] in ABSTRACT_TYPES and visual_types[index + 1] in ABSTRACT_TYPES:
@@ -421,11 +421,13 @@ def main() -> None:
             if not continuous:
                 fail(f"abstract-tech beats must be separated unless different drawn diagrams form a continuity sequence (beats {index}/{index + 1})")
 
-    if len(beats) >= 14 and visual_types.count("explain") < 2:
-        fail("long technical Shorts need at least two explanatory animation beats")
+    explanatory_types={"drawn-diagram","explain","chart","timeline","comparison","flow","network","diagram"}
+    explanatory_count=sum(1 for kind in visual_types if kind in explanatory_types)
+    if len(beats) >= 14 and explanatory_count < 3:
+        fail("long technical Shorts need at least three genuinely explanatory visual beats")
 
-    if visual_types.count("explain") > max(2, math.floor(len(beats) * 0.20)):
-        fail("too many explanatory animation beats; use source imagery, branding, metrics, kinetic visuals and reactions")
+    if visual_types.count("explain") > max(2, math.floor(len(beats) * 0.16)):
+        fail("legacy explain animations should be rare; prefer drawn-diagram for new technical explanations")
 
     is_editorial_story = path.name == "current.json" or path.parent.name == "queue"
     if is_editorial_story:

@@ -175,3 +175,22 @@ topology around them. Captions and meme layers remain above that visual bridge.
 
 This is deterministic, local rendering code. It does not call an LLM, external
 motion API, diagram service, or image generation API.
+
+
+### Diagram-first production planning (Phase 4)
+
+Render preparation now performs a deterministic semantic pass before visual-window
+selection. Explanatory legacy/text visuals are upgraded to the Phase 2
+`drawn-diagram` grammar using local rules (for example routing -> branch,
+audio/speech -> wave, memory/layers -> stack, networks -> mesh, and security
+boundaries -> shield). A rejected source image on an explanatory beat also falls
+back to a diagram instead of a large text card.
+
+The post-preparation quality gate rejects technical Shorts that fall back to too
+much large typography, do not contain enough drawn diagrams, or lack a strong
+diagram/source-led majority. The scheduled GPT task is instructed to author
+diagram-first stories directly, while the local planner remains a deterministic
+safety net for old/legacy story JSON.
+
+This planner is ordinary Python and Remotion logic. It does not call an external
+LLM, image generator, diagram API, or other AI service.
