@@ -421,13 +421,11 @@ def main() -> None:
             if not continuous:
                 fail(f"abstract-tech beats must be separated unless different drawn diagrams form a continuity sequence (beats {index}/{index + 1})")
 
-    explanatory_types={"drawn-diagram","explain","chart","timeline","comparison","flow","network","diagram"}
-    explanatory_count=sum(1 for kind in visual_types if kind in explanatory_types)
-    if len(beats) >= 14 and explanatory_count < 3:
-        fail("long technical Shorts need at least three genuinely explanatory visual beats")
-
-    if visual_types.count("explain") > max(2, math.floor(len(beats) * 0.16)):
-        fail("legacy explain animations should be rare; prefer drawn-diagram for new technical explanations")
+    # Legacy queued stories are upgraded by prepare_render_props.py after source
+    # capture. Do not reject them before that deterministic diagram-first pass.
+    # The post-preparation visual quality gate enforces the final diagram share.
+    if visual_types.count("explain") > max(2, math.floor(len(beats) * 0.20)):
+        fail("too many legacy explain animations; prefer drawn-diagram for newly authored stories")
 
     is_editorial_story = path.name == "current.json" or path.parent.name == "queue"
     if is_editorial_story:
