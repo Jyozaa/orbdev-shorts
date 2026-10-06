@@ -19,6 +19,7 @@ ALLOWED_MEDIA = {"audio", "image", "video", "any"}
 ALLOWED_PRESENTATIONS = {"auto", "overlay", "cutaway"}
 ALLOWED_FLOW_KINDS = {"logo", "symbol", "text"}
 ALLOWED_EDITORIAL_ROLES = {"fact","setup","explanation","analogy","joke","reaction","punchline","callback","transition"}
+ALLOWED_MEME_MODES = {"normal", "restrained"}
 
 
 def fail(message: str) -> None:
@@ -97,6 +98,9 @@ def validate_editorial(data: dict[str, object]) -> None:
     score = editorial["score"]
     if not isinstance(score, (int, float)) or not 0 <= score <= 10:
         fail("editorial.score must be between 0 and 10")
+    meme_mode = editorial.get("memeMode", "normal")
+    if meme_mode not in ALLOWED_MEME_MODES:
+        fail("editorial.memeMode must be normal or restrained")
     sources = editorial["sources"]
     if not isinstance(sources, list) or not sources:
         fail("editorial.sources must contain at least one source")
@@ -184,6 +188,7 @@ def main() -> None:
         fail("beats must contain between 8 and 24 voice-first beats")
 
     meme_count = 0
+    visible_preferred_meme_count = 0
     text_visual_count = 0
     rich_visual_count = 0
     visual_types: list[str] = []
@@ -343,6 +348,8 @@ def main() -> None:
         if beat.get("memeIntent") is not None:
             validate_meme_intent(beat["memeIntent"], index)
             meme_count += 1
+            if beat["memeIntent"].get("preferredMedia") in {"image", "video"}:
+                visible_preferred_meme_count += 1
 
     reconstructed = normalized_space(" ".join(str(beat["text"]) for beat in beats))
     if reconstructed != normalized_space(narration):
@@ -394,6 +401,21 @@ def main() -> None:
     if is_editorial_story:
         validate_editorial(data)
         validate_publish_metadata(data)
+        editorial = data["editorial"]
+        meme_mode = editorial.get("memeMode", "normal")
+        if meme_mode == "normal":
+            if meme_count < 4:
+                fail(
+                    "normal editorial stories need at least four explicit memeIntent beats; "
+                    f"got {meme_count}"
+                )
+            if visible_preferred_meme_count < 3:
+                fail(
+                    "normal editorial stories need at least three memeIntent beats that "
+                    'prefer visible media with preferredMedia "image" or "video"'
+                )
+        elif meme_count > 2:
+            fail("restrained editorial stories may contain at most two explicit memeIntent beats")
         word_count = len(re.findall(r"\S+", narration))
         if not 80 <= word_count <= 105:
             fail(f"editorial narration must contain 80-105 words; got {word_count}")
@@ -401,7 +423,8 @@ def main() -> None:
             fail("editorial stories must contain 12-22 semantic beats")
 
     print(
-        f"Validated {path}: {len(beats)} beats, {meme_count} explicit memes, "
+        f"Validated {path}: {len(beats)} beats, {meme_count} explicit memes "
+        f"({visible_preferred_meme_count} visible-preferred), "
         f"{rich_visual_count} rich visuals, {len(families)} visual families"
     )
 
