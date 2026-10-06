@@ -9,7 +9,7 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
-from story_identity import duplicate
+from story_identity import file_sha256, story_plan_sha256
 
 SCOPE = "https://www.googleapis.com/auth/youtube.upload"
 
@@ -91,17 +91,25 @@ def main() -> None:
         raise SystemExit("story or video file does not exist")
 
     story = json.loads(story_path.read_text(encoding="utf-8"))
-    # A re-upload cannot be undone by deleting a channel video. The historical
-    # receipts guard against duplicate storyKeys, alternate slugs and source URLs.
+    video_sha256 = file_sha256(video_path)
+    plan_sha256 = story_plan_sha256(story)
+    # Source URLs and topic keys are intentionally NOT upload identity.
+    # Compare only exact MP4 bytes against previously confirmed uploads.
     covered_path = Path("history/covered.json")
     if covered_path.exists():
-        rows = json.loads(covered_path.read_text(encoding="utf-8")).get("stories",[])
-        published = next((row for row in rows if row.get("youtubeVideoId")
-                          and duplicate(story,row)), None)
-        if published:
+        rows = json.loads(covered_path.read_text(encoding="utf-8")).get("stories", [])
+        match = next((
+            row for row in rows
+            if row.get("youtubeVideoId")
+            and row.get("videoSha256")
+            and str(row["videoSha256"]).lower() == video_sha256
+        ), None)
+        if match:
             raise SystemExit(
-                "Duplicate YouTube event blocked; previously uploaded as " +
-                str(published.get("youtubeUrl") or published.get("youtubeVideoId")))
+                "Exact rendered video already uploaded: "
+                + str(match.get("youtubeUrl") or match.get("youtubeVideoId"))
+            )
+    print(f"Upload identity: videoSha256={video_sha256}, storyPlanSha256={plan_sha256}")
     publish = story.get("publish") or {}
     title = str(publish.get("youtubeTitle") or story.get("title") or "").strip()
     description = build_description(story, publish)
@@ -167,6 +175,8 @@ def main() -> None:
                     "tags": tags[:50],
                     "hashtags": normalized_hashtags(publish.get("hashtags")),
                     "privacyStatus": privacy,
+                    "videoSha256": video_sha256,
+                    "storyPlanSha256": plan_sha256,
                 },
                 indent=2,
                 ensure_ascii=False,
