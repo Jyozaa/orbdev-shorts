@@ -186,6 +186,7 @@ jobs:
           sparse-checkout: |
             stories/queue
             scripts
+            history
             requirements-publish.txt
           sparse-checkout-cone-mode: false
       - name: Resolve story metadata

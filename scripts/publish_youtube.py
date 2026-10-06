@@ -9,6 +9,7 @@ from google.auth.transport.requests import Request
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
+from story_identity import duplicate
 
 SCOPE = "https://www.googleapis.com/auth/youtube.upload"
 
@@ -90,6 +91,17 @@ def main() -> None:
         raise SystemExit("story or video file does not exist")
 
     story = json.loads(story_path.read_text(encoding="utf-8"))
+    # A re-upload cannot be undone by deleting a channel video. The historical
+    # receipts guard against duplicate storyKeys, alternate slugs and source URLs.
+    covered_path = Path("history/covered.json")
+    if covered_path.exists():
+        rows = json.loads(covered_path.read_text(encoding="utf-8")).get("stories",[])
+        published = next((row for row in rows if row.get("youtubeVideoId")
+                          and duplicate(story,row)), None)
+        if published:
+            raise SystemExit(
+                "Duplicate YouTube event blocked; previously uploaded as " +
+                str(published.get("youtubeUrl") or published.get("youtubeVideoId")))
     publish = story.get("publish") or {}
     title = str(publish.get("youtubeTitle") or story.get("title") or "").strip()
     description = build_description(story, publish)
