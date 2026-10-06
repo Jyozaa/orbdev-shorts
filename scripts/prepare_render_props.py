@@ -10,7 +10,7 @@ SOURCE_MIN_MATCH=0.34
 SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
 LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would","reach","reaches","stays","stay","way","trade","work","per","sounds","point"}
-DIAGRAM_FIRST_ROLES={"explanation","transition","analogy","callback","punchline"}
+DIAGRAM_FIRST_ROLES={"explanation","transition","analogy","joke","callback","punchline"}
 TYPOGRAPHY_PUNCTUATION_ROLES={"reaction"}
 LEGACY_DIAGRAM_TYPES={"explain","diagram","flow","network","comparison"}
 
