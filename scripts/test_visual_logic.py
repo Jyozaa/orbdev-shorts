@@ -24,7 +24,8 @@ def run():
     assert second["src"]=="different.jpg"
     selected.add(second["src"]);hashes.append(second["visualHash"])
     assert render.choose_source(assets,"AI example release",[],selected,True,hashes)[0] is None
-    assert render.kinetic_from_beat({"text":"The model processes images","editorialRole":"fact"})["type"]=="fact"
+    fallback=render.kinetic_from_beat({"text":"The model processes images very differently","editorialRole":"fact"})
+    assert fallback["type"]=="kinetic" and len(fallback["text"].split())<=4
     original={"title":"AMD World Labs acquisition","slug":"amd-world-labs",
               "narration":"AMD is buying World Labs.",
               "beats":[{"text":"AMD is buying World Labs.","visual":{"type":"metric","value":"$8B"}}],
