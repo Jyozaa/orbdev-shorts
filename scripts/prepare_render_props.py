@@ -11,7 +11,7 @@ SFX_DURATIONS={"whoosh":.34,"impact":.42,"scratch":.48,"tick":.10}
 STOP={"the","a","an","and","or","to","for","of","in","on","with","is","are","was","were","it","this","that","from","your","our","their","just","new","image","images","game","gameplay","hardware","console","quality","comparison","detail","official","article"}
 LABEL_STOP=STOP|{"about","after","before","being","can","could","does","doing","even","every","gets","into","more","most","much","only","other","over","same","some","than","then","there","these","they","through","under","using","very","when","where","which","while","will","would","reach","reaches","stays","stay","way","trade","work","per","sounds","point"}
 DIAGRAM_FIRST_ROLES={"explanation","transition","analogy","callback","punchline"}
-TYPOGRAPHY_PUNCTUATION_ROLES={"joke","reaction"}
+TYPOGRAPHY_PUNCTUATION_ROLES={"reaction"}
 LEGACY_DIAGRAM_TYPES={"explain","diagram","flow","network","comparison"}
 
 def fold_ascii(t:str)->str:
@@ -55,7 +55,7 @@ SEMANTIC_LABELS={
     "orbit":[("agent","AGENT"),("tool","TOOLS"),("memory","MEMORY"),("file","FILES")],
     "funnel":[("filter","FILTER"),("select","SELECT"),("merge","MERGE"),("compress","COMPRESS")],
     "comparison":[("recommended","RECOMMENDED"),("maximum","MAX"),("max","MAX"),("smaller","SIZE"),("larger","SIZE")],
-    "growth":[("compute","COMPUTE"),("latency","LATENCY"),("speed","SPEED"),("performance","PERFORMANCE")],
+    "growth":[("compute","COMPUTE"),("work","COMPUTE"),("latency","LATENCY"),("speed","SPEED"),("performance","PERFORMANCE")],
     "timeline":[("before","BEFORE"),("after","AFTER"),("now","NOW"),("later","LATER")],
     "flow":[("input","INPUT"),("output","OUTPUT"),("request","REQUEST"),("data","DATA"),("model","MODEL"),("token","TOKEN")],
 }
@@ -148,7 +148,7 @@ def should_upgrade_to_drawn(beat:dict,position:int)->bool:
     if kind in LEGACY_DIAGRAM_TYPES:return True
     word_count=len(re.findall(r"\S+",str(beat.get("text",""))))
     if role in DIAGRAM_FIRST_ROLES:return True
-    if position>0 and role in {"fact","setup"} and kind in {"fact","text","kinetic","symbol"} and word_count>=5:return True
+    if position>0 and role in {"fact","setup"} and kind in {"fact","text","kinetic","symbol"} and word_count>=4:return True
     return False
 
 def apply_diagram_first(beats:list[dict])->int:
