@@ -70,6 +70,29 @@
       ],
       "renderedAt": "2026-10-05T05:28:59.856418+00:00",
       "youtubeUrl": null
+    },
+    {
+      "storyKey": "denmark-cpr-breach-8-8m-2026-10-05",
+      "slug": "denmark-cpr-breach-8-8-million",
+      "headline": "Denmark CPR breach exposed data on 8.8 million people",
+      "selectedAt": "2026-10-05T19:36:00+01:00",
+      "score": 9.2,
+      "sourceUrls": [
+        "https://www.cpr.dk/cpr-nyt/nyhedsarkiv/2026/okt/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger",
+        "https://ufm.dk/aktuelt/pressemeddelelser/2026/oktober/omfattende-uautoriseret-adgang-til-borgeres-cpr-oplysninger/"
+      ],
+      "renderedAt": "2026-10-06T04:17:53.857881+00:00",
+      "youtubeUrl": "https://youtu.be/Rvdes94ANw4",
+      "youtubeVideoId": "Rvdes94ANw4",
+      "youtubeTitle": "Denmark’s CPR Breach Exposed Data on 8.8 Million People",
+      "metadataVersion": 1,
+      "metadataReview": {
+        "score": 9,
+        "hookAccuracy": 9,
+        "searchClarity": 9,
+        "descriptionQuality": 9,
+        "hashtagRelevance": 9
+      }
     }
   ]
 }
