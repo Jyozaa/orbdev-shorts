@@ -200,8 +200,9 @@ def google_news_candidates(
         str(k).lower(): float(v)
         for k, v in (section_config.get("publisherBonuses") or config["majorNews"].get("publisherBonuses") or {}).items()
     }
+    news_lookback_days = max(2, math.ceil(lookback / 24))
     for query in section_config.get("queries", []):
-        q = f"({query}) when:2d"
+        q = f"({query}) when:{news_lookback_days}d"
         url = (
             "https://news.google.com/rss/search?q="
             + urllib.parse.quote_plus(q)
@@ -1100,7 +1101,10 @@ def main() -> None:
     candidates.extend(github_trending_candidates(config, now))
     candidates.extend(hacker_news_candidates(config, now))
     candidates.extend(huggingface_candidates(config, now))
-    seen_creator_videos = set(old_state.get("seenCreatorVideos") or [])
+    backfill_mode = bool(config.get("backfillMode", False))
+    seen_creator_videos = set() if backfill_mode else set(old_state.get("seenCreatorVideos") or [])
+    if backfill_mode:
+        print("Backfill mode: ignoring prior creator seen-state for historical discovery")
     creator_items, seen_videos = creator_candidates(config, now, seen_creator_videos)
     candidates.extend(creator_items)
 
