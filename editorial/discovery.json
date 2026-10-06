@@ -1,8 +1,8 @@
 {
   "version": 5,
   "scanCadenceHours": 12,
-  "candidateLookbackHours": 272,
-  "exceptionLookbackHours": 272,
+  "candidateLookbackHours": 36,
+  "exceptionLookbackHours": 72,
   "qualificationScore": 7.2,
   "laneSoftTargetPerScan": 1,
   "forceLaneQuota": false,
@@ -140,8 +140,8 @@
     "githubTrendingLimit": 18
   },
   "creatorRadar": {
-    "videoLookbackHours": 272,
-    "maxVideosPerCreator": 8,
+    "videoLookbackHours": 60,
+    "maxVideosPerCreator": 3,
     "maxSegmentsPerVideo": 16,
     "creators": [
       {
@@ -310,5 +310,5 @@
       "The Verge": 0.18
     }
   },
-  "backfillMode": true
+  "backfillMode": false
 }
