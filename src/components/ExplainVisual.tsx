@@ -176,7 +176,8 @@ export const ExplainVisual: React.FC<{visual: ExplainSpec}> = ({visual}) => {
       display:'flex',alignItems:'center',justifyContent:'center',fontSize:42,fontWeight:950,transform:`scale(${.75+.25*enter})`}}>{center}</div>
     {nodes.map((node,i)=>{
       const a=-Math.PI/2+i*Math.PI*2/nodes.length;
-      const x=540+Math.cos(a)*350,y=860+Math.sin(a)*350;
+      const orbit=variant%3===0?350:variant%3===1?260:410;
+      const x=540+Math.cos(a)*orbit,y=860+Math.sin(a)*(variant%3===1?520:variant%3===2?245:350);
       const r=spring({frame,fps,delay:6+i*4,config:{damping:18,stiffness:175}});
       return <div key={node+i} style={{position:'absolute',left:x-90,top:y-90,width:180,height:180,borderRadius:'50%',border:'3px solid #fff',
         display:'flex',alignItems:'center',justifyContent:'center',fontSize:28,fontWeight:900,textAlign:'center',opacity:r,transform:`scale(${.7+.3*r})`,padding:16,boxSizing:'border-box'}}>{node}</div>;

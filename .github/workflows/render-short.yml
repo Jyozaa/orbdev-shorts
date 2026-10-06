@@ -96,6 +96,9 @@ jobs:
       - name: Test narration logic
         run: python scripts/test_narration_logic.py
 
+      - name: Test visual diversity and identity
+        run: python scripts/test_visual_logic.py
+
       - name: Generate narration
         run: python scripts/generate_narration.py "$STORY_FILE"
 
@@ -121,6 +124,9 @@ jobs:
 
       - name: Prepare voice-timed render
         run: python scripts/prepare_render_props.py "$STORY_FILE"
+
+      - name: Visual quality gate
+        run: python scripts/check_visual_quality.py
 
       - name: Type check
         run: npm run typecheck
@@ -154,5 +160,7 @@ jobs:
             build/logo-assets.json
             build/render-props.json
             build/narration-report.json
+            build/quality-gate-report.json
+            build/visual-quality.json
           if-no-files-found: ignore
           retention-days: 30

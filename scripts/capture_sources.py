@@ -131,19 +131,28 @@ def main():
                     if len(assets)>=MAX_IMAGES_PER_SOURCE:break
                     item=capture(cand,url,index,len(assets))
                     if item:
-                         digest=str(item.get("visualHash") or "")
-                         duplicate=any(digest and prev.get("visualHash") and
-                                       (int(digest,16)^int(prev["visualHash"],16)).bit_count()<=3
-                                       for prev in assets)
-                         if duplicate:
-                             (PUBLIC/item["src"].split("/")[-1]).unlink(missing_ok=True)
-                         else:assets.append(item)
+                        digest=str(item.get("visualHash") or "")
+                        duplicate=any(
+                            digest and prev.get("visualHash") and
+                            (int(digest,16)^int(prev["visualHash"],16)).bit_count()<=3
+                            for prev in assets
+                        )
+                        if duplicate:
+                            (PUBLIC/str(item["src"]).split("/")[-1]).unlink(missing_ok=True)
+                        else:
+                            assets.append(item)
         except Exception as e: print(f"Source {index}: discovery failed: {e}")
         if len(assets)<MAX_IMAGES_PER_SOURCE:
             shot=PUBLIC/f"source-{index}-page.png"
             if chrome_screenshot(url,shot):
                 title=str(sources[index].get("title",""))
-                assets.append({"src":f"sources/{shot.name}","url":url,"text":f"official source page screenshot {title}","baseScore":34,"width":1080,"height":1400,"aspectRatio":round(1080/1400,4),"visualHash":visual_hash(shot)})
+                screenshot={"src":f"sources/{shot.name}","url":url,"text":f"official source page screenshot {title}","baseScore":34,"width":1080,"height":1400,"aspectRatio":round(1080/1400,4),"visualHash":visual_hash(shot)}
+                digest=screenshot["visualHash"]
+                if digest and any(prev.get("visualHash") and
+                    (int(digest,16)^int(prev["visualHash"],16)).bit_count()<=3 for prev in assets):
+                    shot.unlink(missing_ok=True)
+                else:
+                    assets.append(screenshot)
         report[str(index)]={"assets":assets,"count":len(assets)}
         print(f"Source {index}: captured {len(assets)} candidate assets with semantic metadata")
     REPORT.write_text(json.dumps(report,indent=2),encoding="utf-8")
