@@ -1,13 +1,8 @@
 name: Phase 5 production preview
 
+# Manual regression tool after the five-phase rollout. Keeping this off normal
+# queue pushes avoids rendering three fixed QA stories on every new publication.
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/phase5-production-preview.yml'
-      - 'scripts/**'
-      - 'src/**'
-      - 'editorial/**'
-      - 'stories/**'
   workflow_dispatch:
 
 permissions:
