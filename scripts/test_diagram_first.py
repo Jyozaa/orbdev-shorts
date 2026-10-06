@@ -15,13 +15,15 @@ def main():
         beat("A router sends tokens through specialist experts","explanation",{"type":"text","text":"TOKEN ROUTER"}),
         beat("Speech becomes an audio signal before decoding","explanation",{"type":"symbol","symbol":"AUDIO"}),
         beat("Naturally this went perfectly","joke",{"type":"kinetic","text":"SURE IT DID"}),
+        beat("Wait, what?","reaction",{"type":"kinetic","text":"WAIT WHAT"}),
     ]
-    assert render.apply_diagram_first(items)==3
+    assert render.apply_diagram_first(items)==4
     assert items[0]["visual"]["kind"]=="shield"
     assert items[1]["visual"]["kind"]=="branch"
     assert items[2]["visual"]["kind"]=="wave"
-    assert items[3]["visual"]["type"]=="kinetic"
-    for item in items[:3]:
+    assert items[3]["visual"]["type"]=="drawn-diagram"
+    assert items[4]["visual"]["type"]=="kinetic"
+    for item in items[:4]:
         assert item["visual"]["type"]=="drawn-diagram"
         assert all(len(x.split())<=2 and len(x)<=22 for x in item["visual"].get("labels",[]))
 
