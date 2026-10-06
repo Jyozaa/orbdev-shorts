@@ -44,10 +44,10 @@ _Computer activity, browser and saved files appear inline._
         beat("Final result","reaction"),
     ]
     source_assets={"0":{"assets":[
-        {"src":"computer.jpg","text":"Dot computers live computer activity browser workspace","baseScore":88,"width":1200,"height":700,"visualHash":"1000000000000000"},
-        {"src":"files.jpg","text":"workspace saved files persist stop start","baseScore":88,"width":1200,"height":700,"visualHash":"2000000000000000"},
-        {"src":"calls.jpg","text":"text calls realtime speech conversation","baseScore":88,"width":1200,"height":700,"visualHash":"3000000000000000"},
-        {"src":"slack.jpg","text":"Slack specialist messages channels integration","baseScore":88,"width":1200,"height":700,"visualHash":"4000000000000000"},
+        {"src":"computer.jpg","text":"Dot computers live computer activity browser workspace","baseScore":88,"width":1200,"height":700,"visualHash":"0000000000000000"},
+        {"src":"files.jpg","text":"workspace saved files persist stop start","baseScore":88,"width":1200,"height":700,"visualHash":"ffffffffffffffff"},
+        {"src":"calls.jpg","text":"text calls realtime speech conversation","baseScore":88,"width":1200,"height":700,"visualHash":"aaaaaaaaaaaaaaaa"},
+        {"src":"slack.jpg","text":"Slack specialist messages channels integration","baseScore":88,"width":1200,"height":700,"visualHash":"5555555555555555"},
     ]}}
     story={"editorial":{"sources":[{"publisher":"GITHUB"}]}}
     used=set();hashes=[]
