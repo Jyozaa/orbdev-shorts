@@ -292,8 +292,12 @@ def main() -> None:
     if len(sys.argv) != 2:
         raise SystemExit("usage: select_memes.py <story.json>")
 
-    story = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
+    story_path = Path(sys.argv[1])
+    story = json.loads(story_path.read_text(encoding="utf-8"))
     beats = story.get("beats", [])
+    editorial = story.get("editorial") if isinstance(story.get("editorial"), dict) else {}
+    meme_mode = str(editorial.get("memeMode", "normal"))
+    is_editorial_story = story_path.name == "current.json" or story_path.parent.name == "queue"
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))["items"]
     chosen_ids: set[str] = set()
     selections: dict[str, object] = {}
@@ -339,7 +343,10 @@ def main() -> None:
     # Entertainment-heavy shorts should not accidentally become an audio-only meme edit.
     # Backfill unused joke/analogy/reaction/callback beats with short visible reactions.
     visible = sum(1 for item in selections.values() if item.get("mediaType") != "audio")
-    target_visible = min(VISIBLE_MEME_TARGET_MIN, MAX_MEME_MOMENTS)
+    if is_editorial_story and meme_mode == "restrained":
+        target_visible = min(1, explicit_count, MAX_MEME_MOMENTS)
+    else:
+        target_visible = min(VISIBLE_MEME_TARGET_MIN, MAX_MEME_MOMENTS)
     if visible < target_visible and len(selections) < MAX_MEME_MOMENTS:
         priority_roles = ("punchline", "joke", "reaction", "callback", "analogy")
         for role in priority_roles:
@@ -374,8 +381,16 @@ def main() -> None:
     SELECTION.write_text(json.dumps(selections, indent=2), encoding="utf-8")
     visible=sum(1 for item in selections.values() if item.get("mediaType")!="audio")
     audio=sum(1 for item in selections.values() if item.get("mediaType")=="audio")
-    print(f"Meme mix: {visible} visible overlays/cutaways + {audio} audio reactions")
-    if len(beats) >= 14 and visible < 3:
+    print(
+        f"Meme mix: {visible} visible overlays/cutaways + {audio} audio reactions "
+        f"(mode={meme_mode})"
+    )
+    if is_editorial_story and meme_mode == "normal" and visible < 3:
+        raise SystemExit(
+            "Meme selection failed: normal editorial stories require at least "
+            f"3 visible meme/reaction assets; selected {visible}"
+        )
+    if not is_editorial_story and len(beats) >= 14 and visible < 3:
         print("WARNING: visible meme density is below the preferred minimum of 3")
 
 
