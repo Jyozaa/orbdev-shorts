@@ -1,0 +1,268 @@
+{
+  "slug": "cactus-whistle-16-9mb-speech",
+  "title": "Whistle fits multilingual speech recognition into 16.9 MB",
+  "narration": "Cactus Compute squeezed multilingual speech recognition into 16.9 megabytes. It is called Whistle, and it runs entirely on-device. No GPU, cloud round trip, or dramatic server invoice. It handles seven languages and 30 seconds per pass. It also returns word timestamps and speech embeddings. The same CPU runtime powers Cactus's Needle model. Devices can run speech and text models in one engine. That matters for wearables, robots, cars, and tiny computers. Audio can stay on the device. The model is Apache-2.0 and ships as one .cact file. Creator Radar surfaced this before the broader feeds did. Sixteen point nine megabytes is suspiciously little luggage.",
+  "beats": [
+    {
+      "text": "Cactus Compute squeezed multilingual speech recognition into 16.9 megabytes.",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Cactus Whistle speech model",
+        "mustMatch": [
+          "Whistle"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "It is called Whistle, and it runs entirely on-device.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "IT IS CALLED WHISTLE AND",
+        "emphasis": "AND"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "wait"
+        ]
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "No GPU, cloud round trip, or dramatic server invoice.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Whistle 16.9 MB model",
+        "mustMatch": [
+          "Whistle"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "It handles seven languages and 30 seconds per pass.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "16.9 MB"
+      }
+    },
+    {
+      "text": "It also returns word timestamps and speech embeddings.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "comparison",
+        "left": "CLOUD ASR",
+        "right": "ON-DEVICE"
+      }
+    },
+    {
+      "text": "The same CPU runtime powers Cactus's Needle model.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Whistle seven languages",
+        "mustMatch": [
+          "Whistle"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Devices can run speech and text models in one engine.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "DEVICES CAN RUN SPEECH AND",
+        "emphasis": "AND"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.95,
+        "concepts": [
+          "surprised",
+          "contrast",
+          "reaction"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "That matters for wearables, robots, cars, and tiny computers.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Whistle Needle runtime",
+        "mustMatch": [
+          "Whistle"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Audio can stay on the device.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "comparison",
+        "left": "SPEECH",
+        "right": "TEXT"
+      }
+    },
+    {
+      "text": "The model is Apache-2.0 and ships as one .cact file.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Whistle on-device speech",
+        "mustMatch": [
+          "Whistle"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Creator Radar surfaced this before the broader feeds did.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "kinetic",
+        "text": "CREATOR RADAR SURFACED THIS BEFORE",
+        "emphasis": "BEFORE"
+      },
+      "memeIntent": {
+        "purpose": "emphasis",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "emphasis"
+        ]
+      }
+    },
+    {
+      "text": "Sixteen point nine megabytes is suspiciously little luggage.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "SIXTEEN POINT NINE MEGABYTES IS",
+        "emphasis": "IS"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "reaction",
+          "laugh",
+          "punchline"
+        ]
+      },
+      "sfx": "whoosh"
+    }
+  ],
+  "editorial": {
+    "storyKey": "cactus-whistle-speech-2026-09-30",
+    "selectedAt": "2026-10-06T07:20:00+01:00",
+    "score": 8.8,
+    "memeMode": "normal",
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "speech recognition",
+      "on-device AI",
+      "edge AI"
+    ],
+    "companies": [
+      "Cactus Compute"
+    ],
+    "sources": [
+      {
+        "title": "Cactus-Compute/whistle model card",
+        "publisher": "Cactus Compute",
+        "url": "https://huggingface.co/Cactus-Compute/whistle",
+        "publishedAt": "2026-09-30",
+        "primary": true
+      }
+    ],
+    "discovery": {
+      "backfillStart": "2026-09-25",
+      "backfillEnd": "2026-10-06",
+      "clusterId": "fe7dfd085d1c3c6d",
+      "lanes": [
+        "creator_radar",
+        "hot_emerging"
+      ],
+      "creators": [
+        "AI Search"
+      ]
+    }
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "This Speech Model Fits in Just 16.9 MB",
+    "description": "Cactus Compute’s Whistle is a 16.9 MB multilingual speech-to-text model that runs entirely on-device without a GPU and supports seven languages.",
+    "tags": [
+      "Cactus Compute",
+      "Whistle",
+      "speech recognition",
+      "speech to text",
+      "on-device AI",
+      "edge AI",
+      "tiny models"
+    ],
+    "hashtags": [
+      "#EdgeAI",
+      "#SpeechRecognition",
+      "#AI",
+      "#Whistle"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}

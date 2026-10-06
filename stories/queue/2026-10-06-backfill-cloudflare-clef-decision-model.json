@@ -1,0 +1,273 @@
+{
+  "slug": "cloudflare-clef-decision-model",
+  "title": "Cloudflare released a model that only makes decisions",
+  "narration": "Cloudflare released Clef, a 27-billion-parameter multimodal decision model. It does not write essays, poems, or apology paragraphs. Instead, Clef scores the allowed answers you provide. Input can be text, JSON, images, or video. Output is a probability for every permitted option. That makes it useful for classification and agent decisions. There is no free-form generation to parse afterward. Clef is post-trained from Qwen 3.8 27B. Cloudflare released it under Apache 2.0. The model is also available through Workers AI. Sometimes you need a decision, not another paragraph. The cure for chatbot verbosity is removing the chatbot part.",
+  "beats": [
+    {
+      "text": "Cloudflare released Clef, a 27-billion-parameter multimodal decision model.",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Cloudflare Clef decision model",
+        "mustMatch": [
+          "Clef"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "It does not write essays, poems, or apology paragraphs.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "IT DOES NOT WRITE ESSAYS",
+        "emphasis": "ESSAYS"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "wait"
+        ]
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "Instead, Clef scores the allowed answers you provide.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "Cloudflare Clef 27B",
+        "mustMatch": [
+          "Clef"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Input can be text, JSON, images, or video.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "27B"
+      }
+    },
+    {
+      "text": "Output is a probability for every permitted option.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "comparison",
+        "left": "FREE TEXT",
+        "right": "BOUNDED CHOICES"
+      }
+    },
+    {
+      "text": "That makes it useful for classification and agent decisions.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Clef structured decisions",
+        "mustMatch": [
+          "Clef"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "There is no free-form generation to parse afterward.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "THERE IS NO FREE-FORM GENERATION",
+        "emphasis": "GENERATION"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.95,
+        "concepts": [
+          "surprised",
+          "contrast",
+          "reaction"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "Clef is post-trained from Qwen 3.8 27B.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 1,
+        "query": "Clef Qwen 3.8 27B",
+        "mustMatch": [
+          "Clef"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Cloudflare released it under Apache 2.0.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "comparison",
+        "left": "STATE",
+        "right": "PROBABILITIES"
+      }
+    },
+    {
+      "text": "The model is also available through Workers AI.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Cloudflare Workers AI Clef",
+        "mustMatch": [
+          "Clef"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Sometimes you need a decision, not another paragraph.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "kinetic",
+        "text": "SOMETIMES YOU NEED A DECISION",
+        "emphasis": "DECISION"
+      },
+      "memeIntent": {
+        "purpose": "emphasis",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "emphasis"
+        ]
+      }
+    },
+    {
+      "text": "The cure for chatbot verbosity is removing the chatbot part.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "THE CURE FOR CHATBOT VERBOSITY",
+        "emphasis": "VERBOSITY"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "reaction",
+          "laugh",
+          "punchline"
+        ]
+      },
+      "sfx": "whoosh"
+    }
+  ],
+  "editorial": {
+    "storyKey": "cloudflare-clef-decision-model-2026-10-01",
+    "selectedAt": "2026-10-06T07:20:00+01:00",
+    "score": 9,
+    "memeMode": "normal",
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "decision models",
+      "multimodal AI",
+      "agent workflows"
+    ],
+    "companies": [
+      "Cloudflare"
+    ],
+    "sources": [
+      {
+        "title": "Introducing Clef: our open-source decision models",
+        "publisher": "Cloudflare",
+        "url": "https://blog.cloudflare.com/clef-decision-models/",
+        "publishedAt": "2026-10-01",
+        "primary": true
+      },
+      {
+        "title": "Cloudflare/clef model card",
+        "publisher": "Cloudflare",
+        "url": "https://huggingface.co/Cloudflare/clef",
+        "publishedAt": "2026-10-01",
+        "primary": true
+      }
+    ],
+    "discovery": {
+      "backfillStart": "2026-09-25",
+      "backfillEnd": "2026-10-06",
+      "clusterId": "b1a1ff11877dfaed",
+      "lanes": [
+        "major_news",
+        "hot_emerging"
+      ],
+      "creators": []
+    }
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "Cloudflare Built an AI Model That Refuses to Write Paragraphs",
+    "description": "Clef is Cloudflare’s 27B multimodal decision model: it takes structured questions and returns probabilities over allowed options instead of generating free-form text.",
+    "tags": [
+      "Cloudflare",
+      "Clef",
+      "decision model",
+      "multimodal AI",
+      "Workers AI",
+      "open source AI",
+      "AI agents"
+    ],
+    "hashtags": [
+      "#Cloudflare",
+      "#AI",
+      "#OpenSourceAI",
+      "#AIAgents"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}

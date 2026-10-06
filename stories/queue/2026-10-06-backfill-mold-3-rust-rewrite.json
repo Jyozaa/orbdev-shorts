@@ -1,0 +1,263 @@
+{
+  "slug": "mold-3-rust-rewrite",
+  "title": "mold 3.0 rewrote the high-speed linker in Rust",
+  "narration": "mold 3.0 replaced its C++ codebase with Rust. This is the high-speed linker, not a developer fragrance. Maintainers say performance stays on par with mold 2.42.1. It keeps the same command-line options and target architectures. The rewrite focuses on safety and maintainability. Corrupted inputs now hit bounds checks instead of unsafe reads. The build system also moved from CMake to Cargo. Rust 1.95 or newer is required. The team tested every supported target and built all Gentoo packages. They reported no compatibility regressions. mold still wants to close more GNU ld compatibility gaps. Same speed, different language, fewer segmentation-fault-shaped surprises.",
+  "beats": [
+    {
+      "text": "mold 3.0 replaced its C++ codebase with Rust.",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "mold 3.0 Rust release",
+        "mustMatch": [
+          "mold"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "This is the high-speed linker, not a developer fragrance.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "THIS IS THE HIGH-SPEED LINKER",
+        "emphasis": "LINKER"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "wait"
+        ]
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "Maintainers say performance stays on par with mold 2.42.1.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "mold linker rewritten Rust",
+        "mustMatch": [
+          "mold"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "It keeps the same command-line options and target architectures.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "RUST 1.95+"
+      }
+    },
+    {
+      "text": "The rewrite focuses on safety and maintainability.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "comparison",
+        "left": "C++ 2.42",
+        "right": "RUST 3.0"
+      }
+    },
+    {
+      "text": "Corrupted inputs now hit bounds checks instead of unsafe reads.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "mold 3.0 compatibility",
+        "mustMatch": [
+          "mold"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "The build system also moved from CMake to Cargo.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "THE BUILD SYSTEM ALSO MOVED",
+        "emphasis": "MOVED"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.95,
+        "concepts": [
+          "surprised",
+          "contrast",
+          "reaction"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "Rust 1.95 or newer is required.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "mold Cargo build",
+        "mustMatch": [
+          "mold"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "The team tested every supported target and built all Gentoo packages.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "comparison",
+        "left": "CMAKE",
+        "right": "CARGO"
+      }
+    },
+    {
+      "text": "They reported no compatibility regressions.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "mold GNU ld compatibility",
+        "mustMatch": [
+          "mold"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "mold still wants to close more GNU ld compatibility gaps.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "kinetic",
+        "text": "MOLD STILL WANTS TO CLOSE",
+        "emphasis": "CLOSE"
+      },
+      "memeIntent": {
+        "purpose": "emphasis",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "emphasis"
+        ]
+      }
+    },
+    {
+      "text": "Same speed, different language, fewer segmentation-fault-shaped surprises.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "SAME SPEED DIFFERENT LANGUAGE FEWER",
+        "emphasis": "FEWER"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "reaction",
+          "laugh",
+          "punchline"
+        ]
+      },
+      "sfx": "whoosh"
+    }
+  ],
+  "editorial": {
+    "storyKey": "mold-3-rust-rewrite-2026-10-05",
+    "selectedAt": "2026-10-06T07:20:00+01:00",
+    "score": 8.5,
+    "memeMode": "normal",
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "Rust",
+      "linkers",
+      "open source developer tools"
+    ],
+    "companies": [],
+    "sources": [
+      {
+        "title": "mold 3.0.0 release",
+        "publisher": "rui314/mold",
+        "url": "https://github.com/rui314/mold/releases/tag/v3.0.0",
+        "publishedAt": "2026-10-05",
+        "primary": true
+      }
+    ],
+    "discovery": {
+      "backfillStart": "2026-09-25",
+      "backfillEnd": "2026-10-06",
+      "clusterId": "c445eb68d7d1e96c",
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creators": []
+    }
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "mold 3.0 Rewrote Its High-Speed Linker in Rust",
+    "description": "mold 3.0 is the first Rust release of the high-speed linker, designed as a drop-in replacement for 2.42.1 while keeping performance on par.",
+    "tags": [
+      "mold linker",
+      "Rust",
+      "C++",
+      "linker",
+      "Linux",
+      "developer tools",
+      "open source"
+    ],
+    "hashtags": [
+      "#Rust",
+      "#OpenSource",
+      "#DeveloperTools",
+      "#Linux"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}

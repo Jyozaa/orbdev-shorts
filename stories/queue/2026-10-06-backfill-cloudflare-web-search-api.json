@@ -1,0 +1,268 @@
+{
+  "slug": "cloudflare-web-search-api",
+  "title": "Cloudflare launched a Web Search API for AI agents",
+  "narration": "Cloudflare launched a Web Search API for AI agents. It adds live web grounding through AI Gateway. Agents can search instead of confidently inventing a URL. Cloudflare supports Ceramic.ai, Exa, and Linkup at launch. All three offer Zero Data Retention through Cloudflare. Search requests also appear in your AI Gateway logs. Pricing follows each provider's list API price. Cloudflare says there is no extra markup. You can also bring your own provider key. The useful part is the shared interface. Swap search providers without rebuilding the whole agent stack. Fewer hallucinated URLs is a respectable feature.",
+  "beats": [
+    {
+      "text": "Cloudflare launched a Web Search API for AI agents.",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Cloudflare Web Search API",
+        "mustMatch": [
+          "Web Search API"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "It adds live web grounding through AI Gateway.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "IT ADDS LIVE WEB GROUNDING",
+        "emphasis": "GROUNDING"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "wait"
+        ]
+      },
+      "sfx": "scratch"
+    },
+    {
+      "text": "Agents can search instead of confidently inventing a URL.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Cloudflare AI Gateway web search",
+        "mustMatch": [
+          "Web Search API"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Cloudflare supports Ceramic.ai, Exa, and Linkup at launch.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "3 PROVIDERS"
+      }
+    },
+    {
+      "text": "All three offer Zero Data Retention through Cloudflare.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "comparison",
+        "left": "MODEL MEMORY",
+        "right": "LIVE WEB"
+      }
+    },
+    {
+      "text": "Search requests also appear in your AI Gateway logs.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Ceramic Exa Linkup Cloudflare",
+        "mustMatch": [
+          "Web Search API"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Pricing follows each provider's list API price.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "PRICING FOLLOWS EACH PROVIDER S",
+        "emphasis": "S"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.95,
+        "concepts": [
+          "surprised",
+          "contrast",
+          "reaction"
+        ]
+      },
+      "sfx": "impact"
+    },
+    {
+      "text": "Cloudflare says there is no extra markup.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Cloudflare web search pricing",
+        "mustMatch": [
+          "Web Search API"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "You can also bring your own provider key.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "comparison",
+        "left": "CERAMIC",
+        "right": "EXA / LINKUP"
+      }
+    },
+    {
+      "text": "The useful part is the shared interface.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Cloudflare Web Search API beta",
+        "mustMatch": [
+          "Web Search API"
+        ],
+        "allowReuse": true
+      }
+    },
+    {
+      "text": "Swap search providers without rebuilding the whole agent stack.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "kinetic",
+        "text": "SWAP SEARCH PROVIDERS WITHOUT REBUILDING",
+        "emphasis": "REBUILDING"
+      },
+      "memeIntent": {
+        "purpose": "emphasis",
+        "tone": "deadpan",
+        "intensity": 1,
+        "preferredMedia": "image",
+        "presentation": "overlay",
+        "maxDurationSeconds": 0.9,
+        "concepts": [
+          "reaction",
+          "deadpan",
+          "emphasis"
+        ]
+      }
+    },
+    {
+      "text": "Fewer hallucinated URLs is a respectable feature.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "FEWER HALLUCINATED URLS IS A",
+        "emphasis": "A"
+      },
+      "memeIntent": {
+        "purpose": "punchline",
+        "tone": "positive",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1,
+        "concepts": [
+          "reaction",
+          "laugh",
+          "punchline"
+        ]
+      },
+      "sfx": "whoosh"
+    }
+  ],
+  "editorial": {
+    "storyKey": "cloudflare-web-search-api-2026-10-02",
+    "selectedAt": "2026-10-06T07:20:00+01:00",
+    "score": 8.6,
+    "memeMode": "normal",
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 9,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "AI agents",
+      "web search",
+      "developer infrastructure"
+    ],
+    "companies": [
+      "Cloudflare",
+      "Exa",
+      "Linkup",
+      "Ceramic.ai"
+    ],
+    "sources": [
+      {
+        "title": "Introducing Web Search API",
+        "publisher": "Cloudflare",
+        "url": "https://developers.cloudflare.com/changelog/post/2026-10-02-introducing-web-search-api/",
+        "publishedAt": "2026-10-02",
+        "primary": true
+      }
+    ],
+    "discovery": {
+      "backfillStart": "2026-09-25",
+      "backfillEnd": "2026-10-06",
+      "clusterId": "e78dfc41f8053ee6",
+      "lanes": [
+        "hot_emerging"
+      ],
+      "creators": []
+    }
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "Cloudflare Just Gave AI Agents a Web Search API",
+    "description": "Cloudflare’s Web Search API is now in beta, giving AI agents live web search through AI Gateway with Ceramic.ai, Exa and Linkup as launch providers.",
+    "tags": [
+      "Cloudflare",
+      "Web Search API",
+      "AI agents",
+      "AI Gateway",
+      "Exa",
+      "Linkup",
+      "developer tools"
+    ],
+    "hashtags": [
+      "#Cloudflare",
+      "#AIAgents",
+      "#DeveloperTools",
+      "#WebSearch"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}
