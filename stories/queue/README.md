@@ -38,3 +38,14 @@ uses each distinct source image at most once (old `allowReuse` flags are ignored
 Videos with repeated source imagery or too many placeholder scenes are rejected
 before encoding and cannot be autopublished. When source images are scarce,
 add new verified media and redesign the visual plan instead of reusing an asset.
+
+## Repeat-topic publishing policy (Phase 1)
+
+The same announcement, research paper or open-source repository may inspire more
+than one Orbdev Short. Each video should add a genuinely different insight,
+angle, or visual explanation. Use a fresh slug for every creative take. The
+queue suppresses identical narration + storyboard payloads, not matching source
+URLs or event keywords. After rendering, the YouTube uploader uses the actual
+MP4 SHA-256 to reject byte-for-byte reuploads already recorded in published
+history. Legacy uploads without stored hashes cannot be byte-verified
+retroactively. No external AI model or AI API key is involved.

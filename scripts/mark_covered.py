@@ -1,16 +1,59 @@
+"""Merge production receipts without overwriting another video on the same topic."""
 from __future__ import annotations
-import argparse,json
+
+import argparse
+import json
 from pathlib import Path
+
+
+def receipt_identity(row: dict) -> str:
+    if row.get("youtubeVideoId"):
+        return "youtube:" + str(row["youtubeVideoId"])
+    if row.get("videoSha256"):
+        return "mp4:" + str(row["videoSha256"])
+    if row.get("storyPlanSha256"):
+        return "plan:" + str(row["storyPlanSha256"])
+    # Legacy render receipts have no video hashes. Preserve separately by slug.
+    return "legacy:" + str(row.get("storyKey") or "") + ":" + str(row.get("slug") or "")
+
+
+def merge_receipts(previous: list[dict], receipts: list[dict]) -> list[dict]:
+    by = {receipt_identity(row): dict(row) for row in previous}
+    for row in receipts:
+        if not row.get("storyKey") and not row.get("slug"):
+            continue
+        key = receipt_identity(row)
+        original = by.get(key, {})
+        # Do not let stale receipts erase fields collected by later jobs.
+        by[key] = {**original, **{k: v for k, v in row.items() if v is not None}}
+    return list(by.values())
+
+
 def main():
-    p=argparse.ArgumentParser();p.add_argument("--receipts-dir",required=True);p.add_argument("--covered",default="history/covered.json");p.add_argument("--output",required=True);a=p.parse_args()
-    covered=json.loads(Path(a.covered).read_text(encoding="utf-8")) if Path(a.covered).exists() else {"version":1,"stories":[]};by={str(x.get("storyKey")):x for x in covered.get("stories",[]) if x.get("storyKey")};receipts=[]
-    root=Path(a.receipts_dir)
-    for path in root.rglob("*.json") if root.exists() else []:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--receipts-dir", required=True)
+    parser.add_argument("--covered", default="history/covered.json")
+    parser.add_argument("--output", required=True)
+    args = parser.parse_args()
+
+    path = Path(args.covered)
+    existing = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {"version": 1, "stories": []}
+    receipts = []
+    root = Path(args.receipts_dir)
+    for file in root.rglob("*.json") if root.exists() else []:
         try:
-            row=json.loads(path.read_text(encoding="utf-8"))
-            if row.get("storyKey"):receipts.append(row)
-        except Exception:pass
-    for r in receipts:
-        by[str(r["storyKey"])]={"storyKey":r["storyKey"],"slug":r.get("slug"),"headline":r.get("headline"),"selectedAt":r.get("selectedAt"),"score":r.get("score"),"sourceUrls":r.get("sourceUrls") or [],"renderedAt":r.get("renderedAt"),"youtubeUrl":r.get("youtubeUrl") or None,"youtubeVideoId":r.get("youtubeVideoId") or None,"youtubeTitle":r.get("youtubeTitle") or None,"metadataVersion":r.get("metadataVersion"),"metadataReview":r.get("metadataReview")}
-    out={"version":1,"stories":list(by.values())};Path(a.output).write_text(json.dumps(out,indent=2,ensure_ascii=False)+"\n",encoding="utf-8");print(f"Covered history: {len(receipts)} receipts merged")
-if __name__=="__main__":main()
+            row = json.loads(file.read_text(encoding="utf-8"))
+            if isinstance(row, dict):
+                receipts.append(row)
+        except (OSError, ValueError):
+            continue
+    merged = merge_receipts(existing.get("stories", []), receipts)
+    Path(args.output).write_text(
+        json.dumps({"version": 1, "stories": merged}, indent=2, ensure_ascii=False) + "\n",
+        encoding="utf-8",
+    )
+    print(f"Covered history: {len(receipts)} receipts merged; {len(merged)} distinct attempts/videos retained")
+
+
+if __name__ == "__main__":
+    main()

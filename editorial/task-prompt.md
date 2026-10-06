@@ -15,15 +15,22 @@ script critique; do not stop after the first successful story.
 
 For every examined backfill candidate, persist its `clusterId` with outcome
 `queued`, `already-covered`, `rejected` (include a short reason), or
-`needs-research`. Do not repeatedly reprocess the same failed lead. Store that
+`needs-research`. A prior Short on the same development does not imply
+`already-covered` when a demonstrably different, independently useful angle
+exists. Do not repeatedly reprocess the same failed lead. Store that
 state in `editorial/inbox/backfill-progress.json` in the same commit as story queue
 files when possible. The next scheduled run resumes where the previous one stopped.
 Never queue generic templated narration simply to meet a target count.
 
-Before queueing, check *both* `history/covered.json` and the entire
-`stories/queue/` directory. Stories with different names but the same primary
-announcement/release URL are duplicates. A previously published or manually
-deleted video is **not** automatically a new topic.
+Before queueing, check both `history/covered.json` and the entire
+`stories/queue/` directory for **exactly repeated videos**, not repeated
+headlines or primary URLs. **A topic may have more than one Short** when a
+substantively new editorial angle, narration, and/or visual treatment produces
+a different output. A previously published or manually deleted video is not
+permission to reupload the identical video. Use a fresh unique slug for each
+distinct take. Do not reupload the exact same narration + visual plan under
+another filename; the uploader also compares final MP4 SHA-256 hashes.
+Historical `alreadyCovered` in discovery is advisory context only, not a ban.
 
 ### Visual novelty requirement
 
