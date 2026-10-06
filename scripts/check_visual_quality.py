@@ -41,12 +41,14 @@ def audit(props:dict)->dict:
             except ValueError:pass
 
     generic_ratio=sum(k in GENERIC for k in kinds)/max(1,len(kinds))
-    if len(windows)>=8 and generic_ratio>0.30:
-        problems.append(f"Too many typography/generic scenes: {generic_ratio:.0%} (max 30%)")
-    if any(displayed_words(v)>6 for v in visuals if v.get("type") in GENERIC):
-        problems.append("A typography-led scene contains more than six large on-screen words")
+    generic_count=sum(k in GENERIC for k in kinds)
+    generic_max=max(2,math.ceil(len(windows)*0.18))
+    if len(windows)>=8 and generic_count>generic_max:
+        problems.append(f"Too many typography/generic scenes: {generic_count}/{len(windows)} (max {generic_max})")
+    if any(displayed_words(v)>5 for v in visuals if v.get("type") in GENERIC):
+        problems.append("A typography-led scene contains more than five large on-screen words")
     total_large_words=sum(displayed_words(v) for v in visuals if v.get("type") in GENERIC)
-    if len(windows)>=8 and total_large_words/max(1,len(windows))>2.5:
+    if len(windows)>=8 and total_large_words/max(1,len(windows))>1.25:
         problems.append("Large on-screen word density is too high")
 
     drawn=[v for v in visuals if v.get("type")=="drawn-diagram"]
