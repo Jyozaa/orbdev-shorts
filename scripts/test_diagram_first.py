@@ -68,6 +68,15 @@ def main():
     result=quality.audit(good)
     assert result["passed"],result
     assert result["diagramFraction"]>=0.5
+
+    repeated=[
+        beat("Memory and context stay in a storage layer","explanation",{"type":"kinetic","text":"MEMORY"}) 
+        for _ in range(7)
+    ]
+    render.apply_diagram_first(repeated)
+    kinds=[b["visual"]["kind"] for b in repeated]
+    assert max(kinds.count(k) for k in set(kinds))<=2,kinds
+
     print("diagram-first production regression checks passed")
 
 if __name__=="__main__":main()
