@@ -65,31 +65,40 @@ def normalize_text(value: object) -> str:
     return " " + re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip() + " "
 
 
-def semantic_contexts(text: str, intent: dict[str, object]) -> set[str]:
-    haystack = normalize_text(text)
-    concept_text = " ".join(str(x) for x in intent.get("concepts", []) if x)
-    combined = haystack + " " + normalize_text(concept_text)
-    contexts: set[str] = set()
-
-    for context, phrases in CONTEXT_RULES:
-        if any(phrase in combined for phrase in phrases):
+def contexts_from_text(text: str) -> set[str]:
+    haystack=normalize_text(text)
+    contexts:set[str]=set()
+    for context,phrases in CONTEXT_RULES:
+        if any(phrase in haystack for phrase in phrases):
             contexts.add(context)
+    return contexts
 
-    purpose = str(intent.get("purpose", ""))
-    tone = str(intent.get("tone", ""))
-    purpose_map = {
+
+def fallback_intent_contexts(intent: dict[str, object]) -> set[str]:
+    contexts:set[str]=set()
+    purpose=str(intent.get("purpose",""))
+    tone=str(intent.get("tone",""))
+    purpose_map={
         "confusion":"confusion","failure":"failure","success":"success",
         "waiting":"waiting","absurdity":"absurdity",
     }
-    tone_map = {
-        "confused":"confusion","surprised":"surprise","negative":"failure",
-    }
-    if purpose in purpose_map:
-        contexts.add(purpose_map[purpose])
-    if tone in tone_map:
-        contexts.add(tone_map[tone])
-
+    tone_map={"confused":"confusion","surprised":"surprise","negative":"failure"}
+    if purpose in purpose_map:contexts.add(purpose_map[purpose])
+    if tone in tone_map:contexts.add(tone_map[tone])
     return contexts
+
+
+def semantic_contexts(text: str, intent: dict[str, object]) -> set[str]:
+    """Contexts are narration-first, then specific editor concepts, then tone."""
+    line_contexts=contexts_from_text(text)
+    if line_contexts:return line_contexts
+    concept_text=" ".join(
+        str(x) for x in intent.get("concepts",[])
+        if re.sub(r"[^a-z0-9]+"," ",str(x).lower()).strip() not in GENERIC_CONCEPTS
+    )
+    concept_contexts=contexts_from_text(concept_text)
+    if concept_contexts:return concept_contexts
+    return fallback_intent_contexts(intent)
 
 
 def specific_concept_tokens(intent: dict[str, object]) -> set[str]:
@@ -109,6 +118,7 @@ def semantic_fit(
 ) -> tuple[bool, float, list[str]]:
     item_tags=tokens(item.get("tags", []))
     item_contexts=set(str(x) for x in item.get("contexts", []) if x)
+    line_contexts=contexts_from_text(beat_text)
     wanted_contexts=semantic_contexts(beat_text,intent)
     specific=specific_concept_tokens(intent)
 
@@ -127,7 +137,12 @@ def semantic_fit(
 
     # Relevance must come from the actual line/concepts, not merely matching
     # generic "reaction" purpose or a deadpan/surprised tone.
-    relevant=bool(context_matches or token_matches or phrase_matches)
+    # If the narration itself gives us a semantic context, an asset must match
+    # that context. Generic intent concepts cannot override what the line says.
+    if line_contexts:
+        relevant=bool(item_contexts & line_contexts)
+    else:
+        relevant=bool(context_matches or token_matches or phrase_matches)
     fit=min(70.0,len(context_matches)*45.0)+min(24.0,len(token_matches)*12.0)+min(20.0,len(phrase_matches)*20.0)
     labels=[*(f"context:{x}" for x in context_matches),*(f"concept:{x}" for x in token_matches),*(f"phrase:{x}" for x in phrase_matches)]
     return relevant,fit,labels
