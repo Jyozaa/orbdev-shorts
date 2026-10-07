@@ -21,9 +21,6 @@ jobs:
           sparse-checkout: |
             scripts/
             stories/
-            Meme Pack/
-            Memes templates -HD-/
-            Memes templates -HD- 2/
       - name: Install ffmpeg
         run: |
           sudo apt-get update
