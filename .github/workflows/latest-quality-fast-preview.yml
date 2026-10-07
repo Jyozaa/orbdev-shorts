@@ -41,8 +41,12 @@ jobs:
           python-version: '3.12'
       - name: Install lightweight preview dependencies
         run: |
-          sudo apt-get install -y ffmpeg espeak-ng
           npm install --no-audit --no-fund
+          npm install --no-save --no-audit --no-fund ffmpeg-static ffprobe-static
+          mkdir -p "$RUNNER_TEMP/bin"
+          ln -sf "$(node -e "process.stdout.write(require('ffmpeg-static'))")" "$RUNNER_TEMP/bin/ffmpeg"
+          ln -sf "$(node -e "process.stdout.write(require('ffprobe-static').path)")" "$RUNNER_TEMP/bin/ffprobe"
+          echo "$RUNNER_TEMP/bin" >> "$GITHUB_PATH"
           python -m pip install edge-tts==7.2.8
       - name: Validate latest selector and story
         run: |
