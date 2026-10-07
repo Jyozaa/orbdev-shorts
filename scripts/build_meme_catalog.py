@@ -32,9 +32,62 @@ def add(values: set[str], *items: str) -> None:
     values.update(item for item in items if item)
 
 
+def semantic_contexts(path: str) -> set[str]:
+    """Infer broad reaction meaning from the asset's filename and folder.
+
+    Folder names in the meme pack are useful metadata (for example
+    "Dumb - Genius" or "Funny - Not funny"). These contexts are deliberately
+    broad and deterministic so the runtime selector can reject a tonally-correct
+    but semantically-wrong meme.
+    """
+    full_text = normalize(path)
+    # Fine-grained meaning comes from the asset name. Broad directory labels
+    # are useful hints but must not make every file in "Dumb - Genius" a
+    # genius reaction, for example.
+    text = normalize(Path(path).stem)
+    contexts: set[str] = set()
+
+    rules = (
+        ("confusion", ("confused", "confusion", "what do you mean", "what did you say", "blinking", "staring", "huh", "nani")),
+        ("rejection", ("nope", "denied", "no god", "no no", "not yet", "not okie", "nooo", "wrong answer")),
+        ("failure", ("fail", "failure", "wasted", "facepalm", "burnt", "this is fine", "game over", "mission failed", "bad time")),
+        ("success", ("victory", "mission passed", "perfect", "woooo yeah", "yeah baby", "happy streamer", "nice", "fanfare", "outstanding move")),
+        ("surprise", ("wow", "woah", "oh my god", "omg", "are you serious", "surprised", "nani")),
+        ("waiting", ("2000 years", "2 hours later", "few moments later", "meanwhile", "waiting", "jeopardy")),
+        ("money", ("stonk", "cash register", "money", "price", "profit", "broke")),
+        ("intelligence", ("big brain", "genius", "smart", "iq", "brain", "outsmart", "harvard", "expert", "clever thoughts", "expanding brain")),
+        ("comedy", ("laugh", "funny", "clown", "comedy", "haha", "hehe", "joke")),
+        ("anger", ("angry", "rage", "frustration", "killing again", "personal attack")),
+        ("disgust", ("disgust", "eww", "weird buddy", "creepy", "gross")),
+        ("suspicion", ("sus", "imposter", "suspicious", "illuminati", "enemy spotted")),
+        ("danger", ("alert", "alarm", "fbi open up", "attack", "horror", "siren", "vengeance")),
+        ("calm", ("calm down", "relax", "okay meme", "okay")),
+        ("delay", ("slow", "later", "waiting", "long time", "meanwhile")),
+        ("old", ("old message", "old computer", "windows 95", "windows 98", "windows xp")),
+        ("absurdity", ("wtf", "what the hell", "weird", "trippin", "cursed", "entire circus")),
+        ("boredom", ("not interesting", "boring", "sipping soup", "humm")),
+    )
+    padded=f" {text} "
+    for context, phrases in rules:
+        if any(f" {normalize(phrase)} " in padded for phrase in phrases):
+            contexts.add(context)
+
+    if "reactions dumb genius" in full_text:
+        contexts.add("comparison")
+    if "reactions funny not funny" in full_text:
+        contexts.add("comedy")
+    if "reactions angry wicked" in full_text:
+        contexts.add("anger")
+    if "reactions humm not interesting boring" in full_text:
+        contexts.add("boredom")
+
+    return contexts
+
+
 def infer(path: str, media_type: str) -> dict[str, object]:
     name = normalize(Path(path).stem)
     tags = set(name.split())
+    contexts = semantic_contexts(path)
     purposes = {"reaction"}
     tones = {"neutral"}
     intensity = 1
@@ -68,6 +121,12 @@ def infer(path: str, media_type: str) -> dict[str, object]:
         tones = {"positive", "chaotic", "deadpan"}
         add(tags, "laugh", "laughter", "funny", "comedy", "joke")
         intensity = max(intensity, 2)
+
+    full_name = normalize(path)
+    if "reactions funny not funny" in full_name:
+        add(purposes, "contrast", "punchline")
+        tones = {"negative", "deadpan"}
+        add(tags, "sarcasm", "mockery", "not funny")
 
     if any(k in name for k in ["this is fine", "burnt", "wasted", "fail", "failure"]):
         add(purposes, "failure", "absurdity")
@@ -105,6 +164,7 @@ def infer(path: str, media_type: str) -> dict[str, object]:
         "tags": sorted(tags),
         "purposes": sorted(purposes),
         "tones": sorted(tones),
+        "contexts": sorted(contexts),
         "intensity": intensity,
         "brandSafe": not any(term in name for term in BLOCKED_TERMS),
         "rightsStatus": "approved",
@@ -150,7 +210,7 @@ def main() -> None:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
-        json.dumps({"version": 6, "source": repo, "items": catalog}, indent=2),
+        json.dumps({"version": 7, "source": repo, "items": catalog}, indent=2),
         encoding="utf-8",
     )
     print(f"Cataloged {len(catalog)} meme assets from {repo}")
