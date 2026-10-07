@@ -41,8 +41,7 @@ jobs:
           python-version: '3.12'
       - name: Install lightweight preview dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg espeak-ng
+          ffmpeg -version | head -n 1
           npm install --no-audit --no-fund
           python -m pip install edge-tts==7.2.8
       - name: Validate latest selector and story
