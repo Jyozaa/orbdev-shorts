@@ -58,6 +58,15 @@ def main():
     line="Big model, selective compute."
     assert score(brain,compute,line)>0
     assert score(laugh,compute,line)<0
+    sarcastic=item(
+        "wow-genius-so-funny",
+        contexts=["intelligence","comedy"],
+        purposes=["emphasis","punchline"],
+        tones=["negative","deadpan"],
+        tags=["wow","genius","funny"],
+        intensity=2,
+    )
+    assert score(sarcastic,compute,line)<0,"neutral technical praise must not use sarcastic mockery"
 
     rejection={
         "purpose":"punchline","tone":"deadpan","intensity":1,
@@ -92,6 +101,9 @@ def main():
     assert "confusion" in catalog.semantic_contexts("Meme Pack/Meme Videos/What do you mean by that - Druski meme.mp4")
     assert "waiting" in catalog.semantic_contexts("Meme Pack/Meme Videos/Spongebob - 2000 Years Later.mp4")
     assert "money" in catalog.semantic_contexts("Memes templates -HD-/stonks price money.jpg")
+    assert "intelligence" not in catalog.semantic_contexts(
+        "Memes templates -HD-/meuf choquée surprise lire smartphone.jpg"
+    )
 
     print("context-aware meme regression checks passed")
 
