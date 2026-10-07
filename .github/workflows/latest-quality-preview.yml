@@ -1,0 +1,107 @@
+name: Latest quality preview
+
+on:
+  push:
+    branches:
+      - preview/latest-quality-2026-10-07b
+    paths:
+      - '.github/workflows/latest-quality-preview.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      STORY_FILE: stories/current.json
+      ORBDEV_NARRATION_PROFILE: orbdev-deadpan
+      ORBDEV_VOICE_FALLBACK: en-US-BrianMultilingualNeural
+      ORBDEV_VOICE_TERTIARY: en-US-AndrewMultilingualNeural
+      ORBDEV_CAPTION_LEAD_MS: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            .github/
+            editorial/
+            history/
+            public/
+            scripts/
+            src/
+            stories/
+            package.json
+            requirements.txt
+            tsconfig.json
+            README.md
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg espeak-ng
+          npm install --no-audit --no-fund
+          python -m pip install -r requirements.txt
+      - name: Validate latest production logic
+        run: |
+          python scripts/validate_story.py "$STORY_FILE"
+          python scripts/test_narration_logic.py
+          python scripts/test_visual_logic.py
+          python scripts/test_diagram_continuity.py
+          python scripts/test_diagram_first.py
+          python scripts/test_source_media.py
+          python scripts/test_meme_context.py
+      - name: Generate narration and assets
+        run: |
+          python scripts/generate_narration.py "$STORY_FILE"
+          python scripts/generate_sfx.py
+      - name: Select context-aware memes
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/build_meme_catalog.py
+          python scripts/select_memes.py "$STORY_FILE"
+          python scripts/insert_cutaway_pauses.py
+      - name: Capture source media
+        run: |
+          python scripts/capture_sources.py "$STORY_FILE"
+          python scripts/capture_logos.py "$STORY_FILE"
+      - name: Prepare final plan
+        run: |
+          python scripts/prepare_render_props.py "$STORY_FILE"
+          python scripts/check_visual_quality.py
+          npm run typecheck
+      - name: Render one latest preview
+        run: |
+          slug="$(python -c 'import json;print(json.load(open("stories/current.json"))["slug"])')"
+          echo "STORY_SLUG=$slug" >> "$GITHUB_ENV"
+          mkdir -p out
+          npx remotion render src/index.ts OrbdevShort "out/$slug.mp4" \
+            --props=build/render-props.json \
+            --codec=h264 \
+            --pixel-format=yuv420p \
+            --concurrency=2 \
+            --log=info
+          ffmpeg -y -i "out/$slug.mp4" \
+            -vf "fps=1/2,scale=270:-1,tile=4x4:padding=4:margin=4" \
+            -frames:v 1 "out/$slug-contact-sheet.jpg"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: latest-quality-${{ env.STORY_SLUG }}
+          path: |
+            out/*.mp4
+            out/*-contact-sheet.jpg
+            build/render-props.json
+            build/quality-gate-report.json
+            build/meme-selection.json
+            build/source-assets.json
+            build/narration-report.json
+          if-no-files-found: error
+          retention-days: 7
