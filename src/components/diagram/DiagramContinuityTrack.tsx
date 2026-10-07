@@ -21,9 +21,12 @@ export const DiagramContinuityTrack:React.FC<{visualBeats:Beat[]}>=({visualBeats
 
     const prevFrames=Math.max(1,Math.round((current.end-current.start)*fps));
     const nextFrames=Math.max(1,Math.round((next.end-next.start)*fps));
-    const duration=Math.max(14,Math.min(24,Math.floor(Math.min(prevFrames,nextFrames)*0.46)));
+    // Give the bridge enough time to complete the anchor movement and let the
+    // incoming diagram visibly draw after the boundary. Slightly more of the
+    // transition lives on the incoming side than the outgoing side.
+    const duration=Math.max(22,Math.min(32,Math.floor(Math.min(prevFrames,nextFrames)*0.55)));
     const boundary=Math.round(next.start*fps);
-    const start=Math.max(0,boundary-Math.floor(duration/2));
+    const start=Math.max(0,boundary-Math.floor(duration*0.42));
 
     bridges.push(
       <Sequence key={`diagram-bridge-${i}`} from={start} durationInFrames={duration}>
