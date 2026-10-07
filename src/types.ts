@@ -24,6 +24,8 @@ export type SelectedMeme = {
   completeClip?: boolean;
   hasAudio?: boolean;
   intentSource?: 'explicit' | 'auto-cue' | 'auto-density';
+  /** Why the local asset was semantically relevant to the spoken line. */
+  contextMatches?: string[];
 };
 
 export type Cutaway = {
