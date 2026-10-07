@@ -1,0 +1,52 @@
+name: Meme context score
+
+on:
+  push:
+    branches:
+      - fix/context-aware-meme-selection
+    paths:
+      - '.github/workflows/meme-context-score.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            scripts/
+            stories/
+      - name: Rank memes against current narration
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/build_meme_catalog.py
+          python - <<'PY'
+          import json,sys
+          sys.path.insert(0,"scripts")
+          import select_memes as s
+          story=json.load(open("stories/current.json",encoding="utf-8"))
+          catalog=json.load(open("build/meme-catalog.json",encoding="utf-8"))["items"]
+          for i,beat in enumerate(story["beats"]):
+              intent=beat.get("memeIntent")
+              if not intent:
+                  continue
+              ranked=[]
+              for item in catalog:
+                  if not item.get("brandSafe") or item.get("rightsStatus")!="approved":
+                      continue
+                  value,matches=s.score(item,intent,beat["text"])
+                  if value>=0:
+                      ranked.append((value,item["path"],matches,item.get("contexts",[])))
+              ranked.sort(reverse=True)
+              print(json.dumps({
+                  "beat":i,
+                  "narration":beat["text"],
+                  "top":ranked[:5],
+              },ensure_ascii=False))
+          PY
