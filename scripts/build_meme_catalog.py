@@ -40,7 +40,11 @@ def semantic_contexts(path: str) -> set[str]:
     broad and deterministic so the runtime selector can reject a tonally-correct
     but semantically-wrong meme.
     """
-    text = normalize(path)
+    full_text = normalize(path)
+    # Fine-grained meaning comes from the asset name. Broad directory labels
+    # are useful hints but must not make every file in "Dumb - Genius" a
+    # genius reaction, for example.
+    text = normalize(Path(path).stem)
     contexts: set[str] = set()
 
     rules = (
@@ -67,13 +71,13 @@ def semantic_contexts(path: str) -> set[str]:
         if any(phrase in text for phrase in phrases):
             contexts.add(context)
 
-    if "reactions dumb genius" in text:
-        contexts.update({"intelligence", "comparison"})
-    if "reactions funny not funny" in text:
-        contexts.update({"comedy", "comparison"})
-    if "reactions angry wicked" in text:
+    if "reactions dumb genius" in full_text:
+        contexts.add("comparison")
+    if "reactions funny not funny" in full_text:
+        contexts.add("comedy")
+    if "reactions angry wicked" in full_text:
         contexts.add("anger")
-    if "reactions humm not interesting boring" in text:
+    if "reactions humm not interesting boring" in full_text:
         contexts.add("boredom")
 
     return contexts
@@ -116,6 +120,12 @@ def infer(path: str, media_type: str) -> dict[str, object]:
         tones = {"positive", "chaotic", "deadpan"}
         add(tags, "laugh", "laughter", "funny", "comedy", "joke")
         intensity = max(intensity, 2)
+
+    full_name = normalize(path)
+    if "reactions funny not funny" in full_name:
+        add(purposes, "contrast", "punchline")
+        tones = {"negative", "deadpan"}
+        add(tags, "sarcasm", "mockery", "not funny")
 
     if any(k in name for k in ["this is fine", "burnt", "wasted", "fail", "failure"]):
         add(purposes, "failure", "absurdity")
