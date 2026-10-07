@@ -119,10 +119,13 @@ def semantic_fit(
     item_tags=tokens(item.get("tags", []))
     item_contexts=set(str(x) for x in item.get("contexts", []) if x)
     line_contexts=contexts_from_text(beat_text)
+    concept_text=" ".join(str(x) for x in intent.get("concepts",[]) or [])
+    concept_contexts=contexts_from_text(concept_text)
     wanted_contexts=semantic_contexts(beat_text,intent)
     specific=specific_concept_tokens(intent)
 
     context_matches=sorted(item_contexts & wanted_contexts)
+    concept_context_matches=sorted(item_contexts & concept_contexts)
     token_matches=sorted(item_tags & specific)
 
     item_text=normalize_text(" ".join([
@@ -143,8 +146,18 @@ def semantic_fit(
         relevant=bool(item_contexts & line_contexts)
     else:
         relevant=bool(context_matches or token_matches or phrase_matches)
-    fit=min(70.0,len(context_matches)*45.0)+min(24.0,len(token_matches)*12.0)+min(20.0,len(phrase_matches)*20.0)
-    labels=[*(f"context:{x}" for x in context_matches),*(f"concept:{x}" for x in token_matches),*(f"phrase:{x}" for x in phrase_matches)]
+    fit=(
+        min(70.0,len(context_matches)*45.0)
+        + min(30.0,len(concept_context_matches)*25.0)
+        + min(24.0,len(token_matches)*12.0)
+        + min(20.0,len(phrase_matches)*20.0)
+    )
+    labels=[
+        *(f"context:{x}" for x in context_matches),
+        *(f"intent-context:{x}" for x in concept_context_matches),
+        *(f"concept:{x}" for x in token_matches),
+        *(f"phrase:{x}" for x in phrase_matches),
+    ]
     return relevant,fit,labels
 
 
