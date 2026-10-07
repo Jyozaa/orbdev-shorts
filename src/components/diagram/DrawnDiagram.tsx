@@ -281,9 +281,10 @@ export const DrawnDiagram: React.FC<{visual: DrawnDiagramVisual}> = ({visual}) =
   const frame = useCurrentFrame();
   const {durationInFrames} = useVideoConfig();
   const rawP = clamp01(frame / Math.max(1, durationInFrames - 1));
-  // If a morph bridge just delivered this diagram, do not restart its draw-on
-  // from zero after the overlay ends. The bridge is the entrance animation.
-  const p = visual.continuityIn ? clamp01(0.72 + rawP * 0.28) : rawP;
+  // Continuity scenes start near zero and keep drawing underneath the bridge.
+  // The bridge fades away gradually, revealing the incoming geometry while it
+  // is still being drawn instead of exposing a nearly-complete diagram at once.
+  const p = visual.continuityIn ? clamp01(rawP * 1.45) : rawP;
   const Content = components[visual.kind];
   return <DiagramCanvas progress={p}>
     <Content visual={visual} p={p} />
