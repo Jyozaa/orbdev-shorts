@@ -128,7 +128,7 @@ def semantic_fit(
     # Relevance must come from the actual line/concepts, not merely matching
     # generic "reaction" purpose or a deadpan/surprised tone.
     relevant=bool(context_matches or token_matches or phrase_matches)
-    fit=min(42.0,len(context_matches)*22.0)+min(18.0,len(token_matches)*9.0)+min(16.0,len(phrase_matches)*16.0)
+    fit=min(70.0,len(context_matches)*45.0)+min(24.0,len(token_matches)*12.0)+min(20.0,len(phrase_matches)*20.0)
     labels=[*(f"context:{x}" for x in context_matches),*(f"concept:{x}" for x in token_matches),*(f"phrase:{x}" for x in phrase_matches)]
     return relevant,fit,labels
 
@@ -328,7 +328,7 @@ def materialize_selection(
         candidates.append((value, item, matches))
 
     candidates.sort(key=lambda pair: pair[0], reverse=True)
-    threshold = 54 if force_visible else 56
+    threshold = 48 if force_visible else 50
     if not candidates or candidates[0][0] < threshold:
         return None
 
