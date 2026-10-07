@@ -177,6 +177,20 @@ def automatic_intent(text: str, editorial_role: str = "") -> dict[str, object] |
     return None
 
 
+def tone_compatible(item: dict[str, object], intent: dict[str, object], beat_text: str) -> bool:
+    tones=set(str(x) for x in item.get("tones",[]) if x)
+    requested=str(intent.get("tone","neutral"))
+    line_contexts=contexts_from_text(beat_text)
+    negative_line=bool(line_contexts & {"failure","rejection","danger","absurdity"})
+    if requested=="neutral" and "negative" in tones and not negative_line:
+        return False
+    if requested=="positive" and "negative" in tones:
+        return False
+    if requested=="negative" and tones=={"positive"}:
+        return False
+    return True
+
+
 def score(
     item: dict[str, object],
     intent: dict[str, object],
@@ -185,7 +199,7 @@ def score(
     purposes = set(item.get("purposes", []))
     tones = set(item.get("tones", []))
     relevant,semantic_score,matches=semantic_fit(item,intent,beat_text)
-    if not relevant:
+    if not relevant or not tone_compatible(item,intent,beat_text):
         return -999.0, []
 
     # Context dominates. Purpose/tone are tie-breakers, not permission to use a
