@@ -6,6 +6,8 @@ on:
       - fix/context-aware-meme-selection
     paths:
       - '.github/workflows/meme-context-score.yml'
+      - 'scripts/select_memes.py'
+      - 'scripts/build_meme_catalog.py'
 
 permissions:
   contents: read
