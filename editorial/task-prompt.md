@@ -176,17 +176,19 @@ Avoid large unused black areas. Prefer layered compositions and foreground/backg
 
 ## Memes and reactions
 
-Meme density is a production contract, not a loose suggestion.
+**Context is more important than meme density.** A meme should feel like the exact reaction to the words being spoken, not merely a generic surprised/deadpan image that happens to fit the tone.
 
-For a normal Orbdev Short, set `editorial.memeMode` to `"normal"` or omit it because normal is the default. Plan **4-6 explicit `memeIntent` beats**, and make at least **3 of them explicitly prefer visible media** with `preferredMedia: "image"` or `"video"`. The selector targets at least 4 actual visible meme/reaction appearances when the approved catalog supports them. A normal production story must not be queued with only one or two meme moments.
+For a normal Orbdev Short, set `editorial.memeMode` to `"normal"` or omit it. Plan roughly **3-6 genuine meme opportunities when the narration naturally supports them**, but never invent a reaction beat or use a weak meme just to hit a count. It is acceptable for the finished edit to contain fewer memes when the approved local catalog has no contextually correct asset.
+
+Every explicit `memeIntent.concepts` must describe the **specific meaning of that narration line**. Prefer concrete concepts such as `["price","cost"]`, `["rejection","not smaller"]`, `["confusion","contradiction"]`, `["large number","surprise"]`, `["smart","efficient"]`, `["failure","hallucination"]`, or `["waiting","slow"]`. Do not use only generic concepts such as `["reaction","deadpan","emphasis"]`; those do not tell the selector what the meme should mean.
 
 Use `editorial.memeMode: "restrained"` only when meme-heavy treatment would be inappropriate, such as deaths, severe physical harm, disasters, war victims, abuse, or similarly sensitive human suffering. Restrained mode may use 0-2 tasteful reaction moments. A cybersecurity breach, product failure, corporate mistake, benchmark surprise, technical limitation, or business story is **not automatically restrained**; reactions can target the system, attacker, company decision, or technical absurdity without mocking affected people.
 
-Memes are punctuation, not wallpaper. Attach them to `joke`, `analogy`, `reaction`, `punchline`, and `callback` beats, or to a factual beat whose wording creates a genuine reaction opportunity. Prefer visible image/video reactions over audio-only cues. Do not add filler jokes just to satisfy density; instead split naturally funny contrasts, consequences, caveats, and callbacks into their own visual beats.
+Memes are punctuation, not wallpaper. Attach them to `joke`, `analogy`, `reaction`, `punchline`, and `callback` beats, or to a factual beat whose wording creates a genuine reaction opportunity. Prefer visible image/video reactions over audio-only cues when the contextual match is strong. The deterministic selector is allowed to skip a requested meme if no approved asset matches the narration context.
 
-Silent meme images/videos are unboxed overlays: no card, border, or frame. Short video cutaways with useful audio may briefly interrupt narration when the gag warrants it. Spread meme moments across the Short instead of clustering all of them in one section; when natural, place one in the first five seconds and one near the payoff/callback.
+Silent meme images/videos are unboxed overlays: no card, border, or frame. Short video cutaways with useful audio may briefly interrupt narration when the gag warrants it. Spread strong meme moments across the Short instead of clustering them, but do not force placements in the first five seconds or ending when the narration does not support one.
 
-Do not automatically meme structural phrases like "here's the catch" unless the wording itself contains a joke/reaction. The final production planner must audit explicit meme count and visible-media preference before queueing.
+Do not automatically meme structural phrases like "here's the catch" or ordinary factual transitions. Before adding `memeIntent`, ask: **what exact reaction should a viewer have to this sentence?** If that answer is vague, omit the meme intent.
 
 ## Narration rendering
 
