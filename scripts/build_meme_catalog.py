@@ -67,8 +67,9 @@ def semantic_contexts(path: str) -> set[str]:
         ("absurdity", ("wtf", "what the hell", "weird", "trippin", "cursed", "entire circus")),
         ("boredom", ("not interesting", "boring", "sipping soup", "humm")),
     )
+    padded=f" {text} "
     for context, phrases in rules:
-        if any(phrase in text for phrase in phrases):
+        if any(f" {normalize(phrase)} " in padded for phrase in phrases):
             contexts.add(context)
 
     if "reactions dumb genius" in full_text:
