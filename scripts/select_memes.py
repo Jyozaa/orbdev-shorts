@@ -18,6 +18,27 @@ MAX_COMPLETE_AUDIO_OVERLAY_SECONDS = 2.2
 MAX_MEME_MOMENTS = 6
 VISIBLE_MEME_TARGET_MIN = 4
 
+GENERIC_CONCEPTS = {
+    "reaction","meme","funny","laugh","punchline","emphasis","contrast",
+    "deadpan","positive","negative","surprised","confused","neutral","wow",
+}
+CONTEXT_RULES = (
+    ("money", ("price","pricing","cost","costs","fee","fees","paid","dollar","revenue","expensive","cheap")),
+    ("intelligence", ("smart","clever","efficient","efficiency","selective compute","expert","reasoning","outsmart")),
+    ("rejection", (" nope "," no "," not ","doesn't","doesnt","can't","cant","won't","wont","without")),
+    ("failure", ("fail","failed","failure","broken","bug","crash","hallucinat","wrong","breach","leak","attack path")),
+    ("success", ("improve","improved","faster","better","works","solved","fewer","reduced","respectable feature","win")),
+    ("waiting", ("wait","waiting","later","delay","slow","latency","eventually")),
+    ("surprise", ("million","billion","huge","massive","wild","insane","largest","unexpected")),
+    ("confusion", ("contradict","confus","what do you mean","wait what","doesn't make sense","doesnt make sense")),
+    ("absurdity", ("weird","absurd","ridiculous","insane","what the hell","wtf")),
+    ("suspicion", ("suspicious","sus","imposter","untrusted")),
+    ("danger", ("security","breach","attack","exploit","vulnerability","malware","unsafe")),
+    ("comparison", ("smaller","larger","versus"," vs ","compare","compared","swap","switch","replace","instead")),
+    ("old", ("old","legacy","outdated","stale")),
+    ("calm", ("relax","calm down")),
+)
+
 REACTION_CUES = (
     (r"\b(headline )?sounds? wild\b|\bthis is wild\b|\bkind of insane\b|\bpretty insane\b|\bsounds? insane\b",
      {"purpose":"reaction","tone":"surprised","intensity":2,"preferredMedia":"any","presentation":"overlay",
@@ -40,6 +61,78 @@ def tokens(values: list[str] | None) -> set[str]:
     return output
 
 
+def normalize_text(value: object) -> str:
+    return " " + re.sub(r"[^a-z0-9]+", " ", str(value or "").lower()).strip() + " "
+
+
+def semantic_contexts(text: str, intent: dict[str, object]) -> set[str]:
+    haystack = normalize_text(text)
+    concept_text = " ".join(str(x) for x in intent.get("concepts", []) if x)
+    combined = haystack + " " + normalize_text(concept_text)
+    contexts: set[str] = set()
+
+    for context, phrases in CONTEXT_RULES:
+        if any(phrase in combined for phrase in phrases):
+            contexts.add(context)
+
+    purpose = str(intent.get("purpose", ""))
+    tone = str(intent.get("tone", ""))
+    purpose_map = {
+        "confusion":"confusion","failure":"failure","success":"success",
+        "waiting":"waiting","absurdity":"absurdity",
+    }
+    tone_map = {
+        "confused":"confusion","surprised":"surprise","negative":"failure",
+    }
+    if purpose in purpose_map:
+        contexts.add(purpose_map[purpose])
+    if tone in tone_map:
+        contexts.add(tone_map[tone])
+
+    return contexts
+
+
+def specific_concept_tokens(intent: dict[str, object]) -> set[str]:
+    values=[]
+    for value in intent.get("concepts", []) or []:
+        normalized=re.sub(r"[^a-z0-9]+"," ",str(value).lower()).strip()
+        if normalized and normalized not in GENERIC_CONCEPTS:
+            values.append(normalized)
+    output=tokens(values)
+    return {x for x in output if x not in GENERIC_CONCEPTS and len(x)>2}
+
+
+def semantic_fit(
+    item: dict[str, object],
+    intent: dict[str, object],
+    beat_text: str,
+) -> tuple[bool, float, list[str]]:
+    item_tags=tokens(item.get("tags", []))
+    item_contexts=set(str(x) for x in item.get("contexts", []) if x)
+    wanted_contexts=semantic_contexts(beat_text,intent)
+    specific=specific_concept_tokens(intent)
+
+    context_matches=sorted(item_contexts & wanted_contexts)
+    token_matches=sorted(item_tags & specific)
+
+    item_text=normalize_text(" ".join([
+        str(item.get("path","")),
+        " ".join(str(x) for x in item.get("tags",[]) or []),
+    ]))
+    phrase_matches=[]
+    for value in intent.get("concepts",[]) or []:
+        phrase=re.sub(r"[^a-z0-9]+"," ",str(value).lower()).strip()
+        if phrase and phrase not in GENERIC_CONCEPTS and len(phrase)>3 and f" {phrase} " in item_text:
+            phrase_matches.append(phrase)
+
+    # Relevance must come from the actual line/concepts, not merely matching
+    # generic "reaction" purpose or a deadpan/surprised tone.
+    relevant=bool(context_matches or token_matches or phrase_matches)
+    fit=min(42.0,len(context_matches)*22.0)+min(18.0,len(token_matches)*9.0)+min(16.0,len(phrase_matches)*16.0)
+    labels=[*(f"context:{x}" for x in context_matches),*(f"concept:{x}" for x in token_matches),*(f"phrase:{x}" for x in phrase_matches)]
+    return relevant,fit,labels
+
+
 def automatic_intent(text: str, editorial_role: str = "") -> dict[str, object] | None:
     role=editorial_role.strip().lower()
     role_intents={
@@ -56,38 +149,37 @@ def automatic_intent(text: str, editorial_role: str = "") -> dict[str, object] |
     return None
 
 
-def score(item: dict[str, object], intent: dict[str, object]) -> float:
+def score(
+    item: dict[str, object],
+    intent: dict[str, object],
+    beat_text: str = "",
+) -> tuple[float, list[str]]:
     purposes = set(item.get("purposes", []))
     tones = set(item.get("tones", []))
-    item_tags = tokens(item.get("tags", []))
-    concepts = tokens(intent.get("concepts", []))
+    relevant,semantic_score,matches=semantic_fit(item,intent,beat_text)
+    if not relevant:
+        return -999.0, []
 
-    result = 0.0
+    # Context dominates. Purpose/tone are tie-breakers, not permission to use a
+    # meme that says something different from the narration.
+    result = semantic_score
     if intent.get("purpose") in purposes:
-        result += 35
+        result += 18
     if intent.get("tone") in tones:
-        result += 25
-    if concepts:
-        result += min(20, len(item_tags & concepts) * 7)
+        result += 12
 
     preferred = intent.get("preferredMedia", "any")
     if preferred == "any":
-        result += 9 if item.get("mediaType") in {"image","video"} else 2
+        result += 7 if item.get("mediaType") in {"image","video"} else 1
     elif item.get("mediaType") == preferred:
-        result += 10
+        result += 8
     else:
         result -= 8
 
     intensity = int(intent.get("intensity", 1))
     item_intensity = int(item.get("intensity", 1))
-    result += max(0, 5 - 2 * abs(intensity - item_intensity))
-
-    name = " ".join(item_tags)
-    for concept in concepts:
-        if concept in name:
-            result += 2
-
-    return result
+    result += max(0, 4 - 2 * abs(intensity - item_intensity))
+    return result,matches
 
 
 def duration(path: Path) -> float:
@@ -213,6 +305,7 @@ def desired_presentation(intent: dict[str, object], media_type: str) -> str:
 def materialize_selection(
     index: int,
     intent: dict[str, object],
+    beat_text: str,
     catalog: list[dict[str, object]],
     chosen_ids: set[str],
     *,
@@ -227,17 +320,19 @@ def materialize_selection(
             continue
         if force_visible and item.get("mediaType") not in {"image", "video"}:
             continue
-        value = score(item, intent)
+        value,matches = score(item, intent, beat_text)
+        if value < 0:
+            continue
         if force_visible and item.get("mediaType") in {"image", "video"}:
-            value += 14
-        candidates.append((value, item))
+            value += 6
+        candidates.append((value, item, matches))
 
     candidates.sort(key=lambda pair: pair[0], reverse=True)
-    threshold = 46 if force_visible else 50
+    threshold = 54 if force_visible else 56
     if not candidates or candidates[0][0] < threshold:
         return None
 
-    for value, selected in candidates[:16]:
+    for value, selected, context_matches in candidates[:16]:
         path = str(selected["path"])
         repo_name = os.getenv("GITHUB_REPOSITORY", "Jyozaa/orbdev-shorts")
         encoded = urllib.parse.quote(path, safe="/")
@@ -279,6 +374,7 @@ def materialize_selection(
                 "volume": 0.62 if media_type == "audio" else (0.78 if presentation == "cutaway" else 0.42),
                 "presentation": presentation,
                 "intentSource": intent_source,
+                "contextMatches": context_matches,
             }
         except Exception as exc:
             print(f"Beat {index}: candidate failed: {path}: {exc}")
@@ -321,7 +417,7 @@ def main() -> None:
             continue
 
         selected = materialize_selection(
-            index, intent, catalog, chosen_ids,
+            index, intent, str(beat.get("text", "")), catalog, chosen_ids,
             force_visible=False, intent_source=intent_source,
         )
         if selected is None:
@@ -337,7 +433,8 @@ def main() -> None:
         print(
             f"Beat {index}: selected {selected['sourcePath']} "
             f"({selected['score']:.1f}, {selected['presentation']}, "
-            f"audio={bool(selected['hasAudio'])}, intent={intent_source})"
+            f"audio={bool(selected['hasAudio'])}, intent={intent_source}, "
+            f"context={','.join(selected.get('contextMatches', []))})"
         )
 
     # Entertainment-heavy shorts should not accidentally become an audio-only meme edit.
@@ -362,7 +459,7 @@ def main() -> None:
                 intent["presentation"] = "overlay"
                 intent["maxDurationSeconds"] = min(float(intent.get("maxDurationSeconds") or 0.9), 1.05)
                 selected = materialize_selection(
-                    index, intent, catalog, chosen_ids,
+                    index, intent, str(beat.get("text", "")), catalog, chosen_ids,
                     force_visible=True, intent_source="auto-density",
                 )
                 if selected is None:
@@ -372,7 +469,8 @@ def main() -> None:
                 visible += 1
                 print(
                     f"Beat {index}: visible-density backfill {selected['sourcePath']} "
-                    f"({selected['score']:.1f}, role={role})"
+                    f"({selected['score']:.1f}, role={role}, "
+                    f"context={','.join(selected.get('contextMatches', []))})"
                 )
             if visible >= target_visible or len(selections) >= MAX_MEME_MOMENTS:
                 break
@@ -386,9 +484,9 @@ def main() -> None:
         f"(mode={meme_mode})"
     )
     if is_editorial_story and meme_mode == "normal" and visible < 3:
-        raise SystemExit(
-            "Meme selection failed: normal editorial stories require at least "
-            f"3 visible meme/reaction assets; selected {visible}"
+        print(
+            "WARNING: fewer than 3 visible memes passed contextual relevance; "
+            "keeping the edit sparse instead of forcing unrelated reactions"
         )
     if not is_editorial_story and len(beats) >= 14 and visible < 3:
         print("WARNING: visible meme density is below the preferred minimum of 3")
