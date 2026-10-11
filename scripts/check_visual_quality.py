@@ -37,6 +37,10 @@ def audit(props:dict)->dict:
         meme=(beat or {}).get("meme") or {}
         if meme and requires_caption(str(meme.get("sourcePath","")),str(meme.get("mediaType",""))):
             problems.append(f"Beat {i} uses an unfinished meme template without added text")
+    for i,cutaway in enumerate(props.get("cutaways") or []):
+        meme=(cutaway or {}).get("meme") or {}
+        if meme and requires_caption(str(meme.get("sourcePath","")),str(meme.get("mediaType",""))):
+            problems.append(f"Cutaway {i} uses an unfinished meme template without added text")
     if any(not x for x in ids):problems.append("Source frame missing image")
     if len(ids)!=len(set(ids)):problems.append("Identical source asset repeated")
     for i,a in enumerate(hashes):
