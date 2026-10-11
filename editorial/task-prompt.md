@@ -178,6 +178,8 @@ Avoid large unused black areas. Prefer layered compositions and foreground/backg
 
 **Context is more important than meme density.** A meme should feel like the exact reaction to the words being spoken, not merely a generic surprised/deadpan image that happens to fit the tone.
 
+**Use finished memes, not blank meme templates.** The `Memes templates -HD-` collections contain raw images intended to have text composed into them, and the current production workflow does not implement that captioning pass. Do not select these images as ready-to-publish reactions, even when the scene context fits. Use complete reaction clips or audio instead; omit the meme when no finished, contextually accurate option exists.
+
 For a normal Orbdev Short, set `editorial.memeMode` to `"normal"` or omit it. Plan roughly **3-6 genuine meme opportunities when the narration naturally supports them**, but never invent a reaction beat or use a weak meme just to hit a count. It is acceptable for the finished edit to contain fewer memes when the approved local catalog has no contextually correct asset.
 
 Every explicit `memeIntent.concepts` must describe the **specific meaning of that narration line**. Prefer concrete concepts such as `["price","cost"]`, `["rejection","not smaller"]`, `["confusion","contradiction"]`, `["large number","surprise"]`, `["smart","efficient"]`, `["failure","hallucination"]`, or `["waiting","slow"]`. Do not use only generic concepts such as `["reaction","deadpan","emphasis"]`; those do not tell the selector what the meme should mean.
@@ -205,7 +207,7 @@ Before committing a story, audit the first 5 seconds and every humor beat:
 - Prefer a real screenshot/demo/photo when grounding a factual claim; prefer a drawn diagram when explaining a mechanism. Logos should usually be a small layer, not the whole frame.
 - Audit text density: if a visual needs more than a few large words to make sense, redesign it as a diagram, source highlight or metric.
 - For each `joke`, `analogy`, `reaction`, `punchline` or `callback`, ask what the visual punchline is. If a meme is appropriate, give it an explicit `memeIntent`.
-- In a normal 35-40 second story, plan 4-6 explicit meme/reaction moments, with at least three explicitly preferring image/video media. Use restrained mode only for genuinely sensitive human-suffering topics.
+- In a normal 35-40 second story, consider 3-6 contextually justified meme/reaction opportunities, but never force a blank template or unrelated reaction to meet a quota. Request image/video only when a finished, suitable asset exists. Use restrained mode for genuinely sensitive human-suffering topics.
 - Make callbacks intentional: reuse a phrase, premise, visual concept or reaction category near the ending instead of treating every beat as unrelated.
 - Do not crop screenshots or source art for vertical framing. The foreground is always contained inside the subtitle-safe region; visual energy comes from blurred background fill, motion, layered labels and overlays.
 - Keep technical trust intact: jokes can be aggressive, but facts, quotes, benchmark attribution and limitations must remain accurate.
