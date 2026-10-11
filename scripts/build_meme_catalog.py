@@ -18,6 +18,32 @@ ROOT_PREFIXES = (
     "Memes templates -HD- 2/",
 )
 
+TEMPLATE_ROOT_PREFIXES = (
+    "Memes templates -HD-/",
+    "Memes templates -HD- 2/",
+)
+
+
+def requires_caption(path: str, media_type: str) -> bool:
+    """Conservatively classify unfinished meme images/videos.
+
+    Images from the two template collections are raw material, even when their
+    filenames lack 'blank' or 'template' (e.g. 'Clever thoughts'). We do not
+    have a meme-caption composition stage yet, so these must never be selected
+    as ready-to-use reactions. Known blank assets elsewhere also need captions.
+    """
+    if media_type not in {"image", "video"}:
+        return False
+    normalized_path = path.replace("\\", "/")
+    if normalized_path.startswith(TEMPLATE_ROOT_PREFIXES):
+        return True
+    filename = normalize(Path(normalized_path).stem)
+    return bool(re.search(
+        r"\b(?:blank|empty|textless|uncaptioned|captionless|template|without text|no text)\b",
+        filename,
+    ))
+
+
 BLOCKED_TERMS = {
     "nigga", "nigger", "retarded", "faggot", "gay berleezy", "thot",
     "bitch", "sex", "lesbian", "porn", "knife attack", "gun shooting",
@@ -165,6 +191,7 @@ def infer(path: str, media_type: str) -> dict[str, object]:
         "purposes": sorted(purposes),
         "tones": sorted(tones),
         "contexts": sorted(contexts),
+        "requiresCaption": requires_caption(path, media_type),
         "intensity": intensity,
         "brandSafe": not any(term in name for term in BLOCKED_TERMS),
         "rightsStatus": "approved",
@@ -210,7 +237,7 @@ def main() -> None:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(
-        json.dumps({"version": 7, "source": repo, "items": catalog}, indent=2),
+        json.dumps({"version": 8, "source": repo, "items": catalog}, indent=2),
         encoding="utf-8",
     )
     print(f"Cataloged {len(catalog)} meme assets from {repo}")

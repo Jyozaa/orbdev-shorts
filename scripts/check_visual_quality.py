@@ -4,6 +4,8 @@ from __future__ import annotations
 import argparse,json,math,re
 from pathlib import Path
 
+from build_meme_catalog import requires_caption
+
 GENERIC={"fact","kinetic","symbol","text"}
 STRONG={"drawn-diagram","source","chart","timeline","metric","comparison"}
 
@@ -29,6 +31,16 @@ def audit(props:dict)->dict:
     hashes=[str(v.get("visualHash") or "") for v in sources]
     problems=[]
     if not windows:problems.append("No visual windows")
+    # Belt-and-braces guard: direct/legacy meme receipts must not bypass
+    # selection rules and slip an uncaptained template into the render.
+    for i,beat in enumerate(props.get("beats") or []):
+        meme=(beat or {}).get("meme") or {}
+        if meme and requires_caption(str(meme.get("sourcePath","")),str(meme.get("mediaType",""))):
+            problems.append(f"Beat {i} uses an unfinished meme template without added text")
+    for i,cutaway in enumerate(props.get("cutaways") or []):
+        meme=(cutaway or {}).get("meme") or {}
+        if meme and requires_caption(str(meme.get("sourcePath","")),str(meme.get("mediaType",""))):
+            problems.append(f"Cutaway {i} uses an unfinished meme template without added text")
     if any(not x for x in ids):problems.append("Source frame missing image")
     if len(ids)!=len(set(ids)):problems.append("Identical source asset repeated")
     for i,a in enumerate(hashes):
