@@ -9,6 +9,8 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
+from build_meme_catalog import requires_caption
+
 BUILD = Path("build")
 PUBLIC = Path("public/memes")
 CATALOG = BUILD / "meme-catalog.json"
@@ -191,11 +193,28 @@ def tone_compatible(item: dict[str, object], intent: dict[str, object], beat_tex
     return True
 
 
+def ready_for_display(item: dict[str, object]) -> bool:
+    """Only finished meme media can enter the video.
+
+    The render pipeline currently has no dedicated step to add labels into
+    empty meme panels. Check both the catalog flag and the source path so old
+    cached catalogs cannot silently re-enable unfinished templates.
+    """
+    if item.get("requiresCaption") is True:
+        return False
+    return not requires_caption(
+        str(item.get("path", "")),
+        str(item.get("mediaType", "")),
+    )
+
+
 def score(
     item: dict[str, object],
     intent: dict[str, object],
     beat_text: str = "",
 ) -> tuple[float, list[str]]:
+    if not ready_for_display(item):
+        return -999.0, []
     purposes = set(item.get("purposes", []))
     tones = set(item.get("tones", []))
     relevant,semantic_score,matches=semantic_fit(item,intent,beat_text)
@@ -358,6 +377,8 @@ def materialize_selection(
     for item in catalog:
         if not item.get("brandSafe", False) or item.get("rightsStatus") != "approved":
             continue
+        if not ready_for_display(item):
+            continue
         if item.get("id") in chosen_ids:
             continue
         if force_visible and item.get("mediaType") not in {"image", "video"}:
@@ -437,6 +458,8 @@ def main() -> None:
     meme_mode = str(editorial.get("memeMode", "normal"))
     is_editorial_story = story_path.name == "current.json" or story_path.parent.name == "queue"
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))["items"]
+    unfinished = sum(not ready_for_display(item) for item in catalog)
+    print(f"Skipped {unfinished} unfinished meme templates; only ready-to-use media may be selected")
     chosen_ids: set[str] = set()
     selections: dict[str, object] = {}
 
