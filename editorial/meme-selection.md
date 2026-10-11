@@ -37,3 +37,8 @@ The editorial roles `joke`, `reaction`, `analogy`, `punchline`, and `callback` c
   }
 }
 ```
+
+
+## Finished memes only
+
+Uncaptioned images from `Memes templates -HD-` and `Memes templates -HD- 2` are excluded until a template-caption renderer exists. Select finished clips or approved audio instead. If no finished meme fits the narration, omit it; contextual relevance and completion beat density.
