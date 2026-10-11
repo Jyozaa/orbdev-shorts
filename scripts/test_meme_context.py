@@ -105,6 +105,48 @@ def main():
         "Memes templates -HD-/meuf choquée surprise lire smartphone.jpg"
     )
 
+    # Regression: these exact blank/template images appeared uncaptioned in
+    # the October quality preview, despite having good semantic matches.
+    unfinished_paths=[
+        "Memes templates -HD- 2/Various & templates (no HD)/Reactions/Offend/Confused screaming.jpg",
+        "Memes templates -HD-/Backing Up The Car Empty Template - Nope - voiture marche arrière.jpg",
+        "Memes templates -HD- 2/Clever thoughts penser think dire tell.jpg",
+    ]
+    for source_path in unfinished_paths:
+        assert catalog.requires_caption(source_path,"image")
+        asset=catalog.infer(source_path,"image")
+        assert asset["requiresCaption"] is True
+        assert not selector.ready_for_display(asset)
+        assert score(asset,confusion,"That sounds contradictory,")<0
+
+    # Old cached catalogs omitted requiresCaption; path-based protection must
+    # still work, and manually changing the flag cannot bypass it.
+    legacy=catalog.infer(unfinished_paths[1],"image")
+    legacy.pop("requiresCaption")
+    assert not selector.ready_for_display(legacy)
+    legacy["requiresCaption"]=False
+    assert not selector.ready_for_display(legacy)
+
+    finished_video=catalog.infer(
+        "Meme Pack/Meme Videos/What do you mean by that - Druski meme.mp4","video"
+    )
+    assert not finished_video["requiresCaption"]
+    assert selector.ready_for_display(finished_video)
+    assert score(finished_video,confusion,"That sounds contradictory,")>0
+    sound=catalog.infer(
+        "Meme Pack/Meme Sound Effects/Buzzer Wrong Answer.mp3","audio"
+    )
+    assert selector.ready_for_display(sound)
+
+    # Defensive post-planning check: a receipt cannot directly embed an
+    # unfinished template even if an upstream selector regresses.
+    import check_visual_quality as quality
+    props={"visualBeats":[{"visual":{"type":"metric","value":"1"}}],
+           "beats":[{"meme":{"sourcePath":unfinished_paths[0],"mediaType":"image"}}]}
+    assert any("unfinished meme template" in problem for problem in quality.audit(props)["issues"])
+    props["beats"][0]["meme"]["sourcePath"]=finished_video["path"]
+    assert quality.audit(props)["passed"]
+
     print("context-aware meme regression checks passed")
 
 
