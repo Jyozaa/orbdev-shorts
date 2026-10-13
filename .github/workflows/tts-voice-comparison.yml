@@ -45,7 +45,16 @@ jobs:
       - name: Install local open-source voice models
         run: |
           python -m pip install 'kokoro==0.9.4' 'chatterbox-tts==0.1.7' soundfile
+          # PyPI 0.1.7 predates the Nano-enabled from_pretrained(nano=True)
+          # on the upstream master branch; replace *only the package code*.
+          python -m pip install --no-deps --force-reinstall 'git+https://github.com/resemble-ai/chatterbox.git@master'
           python -m pip check
+          python - <<'PY'
+          from inspect import signature
+          from chatterbox.tts_turbo import ChatterboxTurboTTS
+          print("Chatterbox loader:", signature(ChatterboxTurboTTS.from_pretrained))
+          assert "nano" in signature(ChatterboxTurboTTS.from_pretrained).parameters
+          PY
       - name: Generate three comparable local voices
         run: |
           python -u scripts/voice_comparison.py
