@@ -1,0 +1,59 @@
+name: TTS voice comparison — Kokoro, Nano, Turbo
+
+on:
+  push:
+    branches: [experiment/tts-kokoro-nano-turbo]
+    paths:
+      - '.github/workflows/tts-voice-comparison.yml'
+      - 'scripts/voice_comparison.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 65
+    env:
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      TOKENIZERS_PARALLELISM: 'false'
+      HF_HUB_DISABLE_XET: '1'
+      HF_HUB_DOWNLOAD_TIMEOUT: '120'
+      HF_HUB_ETAG_TIMEOUT: '60'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            scripts/voice_comparison.py
+            stories/current.json
+            editorial/narration-profiles.json
+          sparse-checkout-cone-mode: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Free unused runner disk space
+        run: |
+          df -h .
+          sudo rm -rf /usr/local/lib/android /opt/hostedtoolcache/CodeQL /usr/share/dotnet || true
+          df -h .
+      - name: Install CPU PyTorch
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+      - name: Install local open-source voice models
+        run: |
+          python -m pip install 'kokoro==0.9.4' 'chatterbox-tts==0.1.7' soundfile
+          python -m pip check
+      - name: Generate three comparable local voices
+        run: |
+          python -u scripts/voice_comparison.py
+      - name: Upload audio and timings, including partial runs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: orbdev-voice-comparison
+          path: out/voice-comparison/
+          if-no-files-found: warn
+          retention-days: 30
