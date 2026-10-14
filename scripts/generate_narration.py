@@ -10,8 +10,6 @@ import sys
 from pathlib import Path
 from typing import Any
 
-import edge_tts
-
 PUBLIC_DIR = Path("public")
 BUILD_DIR = Path("build")
 RAW_AUDIO_PATH = PUBLIC_DIR / "voice-raw.mp3"
@@ -461,6 +459,8 @@ def render_kokoro(
 
 
 async def render_edge(text: str, voice: str, rate: str) -> list[dict[str, object]]:
+    import edge_tts
+
     communicator = edge_tts.Communicate(text=text, voice=voice, rate=rate, pitch="+0Hz")
     captions = []
     RAW_AUDIO_PATH.unlink(missing_ok=True)
@@ -562,64 +562,85 @@ async def main() -> None:
     captions: list[dict[str, object]] = []
     profile_name, profile = load_profile()
     base_speed = float(profile.get("baseSpeed", 1.18))
-    engine = "kokoro"
+    engine = str(profile.get("engine") or "kokoro")
+    chatterbox_meta: dict[str, Any] = {}
     chunk_report: list[dict[str, Any]] = []
     native_passes = 0
     raw_duration = 0.0
     raw_wpm = 0.0
 
-    try:
-        from kokoro import KPipeline
+    if engine == "chatterbox":
+        from chatterbox_narration import DEFAULT_OUTPUT, render_chatterbox_with_fallback
 
-        voice = str(profile.get("voice") or "am_michael")
-        lang_code = str(profile.get("langCode") or ("b" if voice.startswith("b") else "a"))
-        kokoro_pipeline = KPipeline(lang_code=lang_code)
-        captions, chunk_report = render_kokoro(story, profile, base_speed, kokoro_pipeline)
+        captions, chunk_report, chatterbox_meta = render_chatterbox_with_fallback(
+            story, profile, output=DEFAULT_OUTPUT
+        )
+        engine = str(chatterbox_meta["engine"])
         native_passes = 1
-        raw_duration = audio_duration_seconds(RAW_WAV_PATH)
+        raw_duration = audio_duration_seconds(DEFAULT_OUTPUT)
         raw_wpm = (word_count / max(raw_duration, 0.01)) * 60
-        adjusted_speed = native_retarget_speed(base_speed, raw_wpm, profile)
-        if abs(adjusted_speed - base_speed) >= 0.008:
-            print(
-                f"Native cadence retarget: {raw_wpm:.0f} WPM -> target "
-                f"{float(profile.get('targetWpm', 188)):.0f}; base speed "
-                f"{base_speed:.3f}x -> {adjusted_speed:.3f}x"
-            )
-            base_speed = adjusted_speed
-            captions, chunk_report = render_kokoro(story, profile, base_speed, kokoro_pipeline)
-            native_passes = 2
-            raw_duration = audio_duration_seconds(RAW_WAV_PATH)
-            raw_wpm = (word_count / max(raw_duration, 0.01)) * 60
-
         tempo = choose_post_tempo(raw_wpm, profile)
-        process_voice(RAW_WAV_PATH, tempo)
+        process_voice(DEFAULT_OUTPUT, tempo)
         captions = scale_timings(captions, tempo)
         print(
-            f"Narration engine: Kokoro-82M / {profile.get('voice')} / profile={profile_name}; "
-            f"{len(chunk_report)} speech chunks; native={base_speed:.3f}x; post-tempo={tempo:.3f}x"
+            f"Narration engine: {engine}; profile={profile_name}; "
+            f"{len(chunk_report)} speech chunks; post-tempo={tempo:.3f}x"
         )
-    except Exception as exc:
-        print(f"Kokoro unavailable: {exc}")
-        engine = "edge"
-        tempo = 1.0
-        for voice in (
-            os.getenv("ORBDEV_VOICE_FALLBACK", "en-US-BrianMultilingualNeural"),
-            os.getenv("ORBDEV_VOICE_TERTIARY", "en-US-AndrewMultilingualNeural"),
-        ):
-            try:
-                captions = await render_edge(text, voice, str(profile.get("edgeRate", "+10%")))
-                raw_duration = audio_duration_seconds(RAW_AUDIO_PATH)
+    else:
+        try:
+            from kokoro import KPipeline
+    
+            voice = str(profile.get("voice") or "am_michael")
+            lang_code = str(profile.get("langCode") or ("b" if voice.startswith("b") else "a"))
+            kokoro_pipeline = KPipeline(lang_code=lang_code)
+            captions, chunk_report = render_kokoro(story, profile, base_speed, kokoro_pipeline)
+            native_passes = 1
+            raw_duration = audio_duration_seconds(RAW_WAV_PATH)
+            raw_wpm = (word_count / max(raw_duration, 0.01)) * 60
+            adjusted_speed = native_retarget_speed(base_speed, raw_wpm, profile)
+            if abs(adjusted_speed - base_speed) >= 0.008:
+                print(
+                    f"Native cadence retarget: {raw_wpm:.0f} WPM -> target "
+                    f"{float(profile.get('targetWpm', 188)):.0f}; base speed "
+                    f"{base_speed:.3f}x -> {adjusted_speed:.3f}x"
+                )
+                base_speed = adjusted_speed
+                captions, chunk_report = render_kokoro(story, profile, base_speed, kokoro_pipeline)
+                native_passes = 2
+                raw_duration = audio_duration_seconds(RAW_WAV_PATH)
                 raw_wpm = (word_count / max(raw_duration, 0.01)) * 60
-                tempo = choose_post_tempo(raw_wpm, profile)
-                process_voice(RAW_AUDIO_PATH, tempo)
-                captions = scale_timings(captions, tempo)
-                print(f"Narration engine fallback: Edge / {voice}; post-tempo={tempo:.3f}x")
-                break
-            except Exception as edge_exc:
-                print(f"Edge voice unavailable ({voice}): {edge_exc}")
-                captions = []
-
+    
+            tempo = choose_post_tempo(raw_wpm, profile)
+            process_voice(RAW_WAV_PATH, tempo)
+            captions = scale_timings(captions, tempo)
+            print(
+                f"Narration engine: Kokoro-82M / {profile.get('voice')} / profile={profile_name}; "
+                f"{len(chunk_report)} speech chunks; native={base_speed:.3f}x; post-tempo={tempo:.3f}x"
+            )
+        except Exception as exc:
+            print(f"Kokoro unavailable: {exc}")
+            engine = "edge"
+            tempo = 1.0
+            for voice in (
+                os.getenv("ORBDEV_VOICE_FALLBACK", "en-US-BrianMultilingualNeural"),
+                os.getenv("ORBDEV_VOICE_TERTIARY", "en-US-AndrewMultilingualNeural"),
+            ):
+                try:
+                    captions = await render_edge(text, voice, str(profile.get("edgeRate", "+10%")))
+                    raw_duration = audio_duration_seconds(RAW_AUDIO_PATH)
+                    raw_wpm = (word_count / max(raw_duration, 0.01)) * 60
+                    tempo = choose_post_tempo(raw_wpm, profile)
+                    process_voice(RAW_AUDIO_PATH, tempo)
+                    captions = scale_timings(captions, tempo)
+                    print(f"Narration engine fallback: Edge / {voice}; post-tempo={tempo:.3f}x")
+                    break
+                except Exception as edge_exc:
+                    print(f"Edge voice unavailable ({voice}): {edge_exc}")
+                    captions = []
+    
     if not AUDIO_PATH.exists():
+        if str(profile.get("engine") or "kokoro") == "chatterbox":
+            raise RuntimeError("Chatterbox required: narration was not produced; refusing silent fallback")
         engine = "espeak"
         tempo = 1.0
         render_espeak(text, tempo)
@@ -661,6 +682,11 @@ async def main() -> None:
         "finalWpm": round(final_wpm, 1),
         "postTempo": round(tempo, 4),
         "chunks": chunk_report,
+        "usedFallback": bool(chatterbox_meta.get("usedFallback", False)),
+        "voiceReference": chatterbox_meta.get("referencePath"),
+        "chatterboxDevice": chatterbox_meta.get("device"),
+        "fallbackFailures": chatterbox_meta.get("fallbackFailures", []),
+        "inferenceSeconds": chatterbox_meta.get("inferenceSeconds"),
     }
     REPORT_PATH.write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
 
@@ -669,6 +695,9 @@ async def main() -> None:
 
     RAW_AUDIO_PATH.unlink(missing_ok=True)
     RAW_WAV_PATH.unlink(missing_ok=True)
+    if chatterbox_meta:
+        from chatterbox_narration import DEFAULT_OUTPUT
+        DEFAULT_OUTPUT.unlink(missing_ok=True)
     print(
         f"Narration ready: {duration:.2f}s, {len(captions)} timed words, "
         f"{final_wpm:.0f} effective WPM"
