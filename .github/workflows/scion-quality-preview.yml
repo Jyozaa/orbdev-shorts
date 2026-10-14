@@ -1,0 +1,125 @@
+name: Orbdev Scion one-video preview
+
+on:
+  push:
+    branches:
+      - preview/scion-new-story-20261014
+    paths:
+      - '.github/workflows/scion-quality-preview.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      STORY_FILE: stories/previews/anthropic-scion-20261014.json
+      STORY_SLUG: anthropic-scion-git-ai-agent-merge-explosion-20261014-preview
+      ORBDEV_NARRATION_PROFILE: orbdev-chatterbox
+      ORBDEV_CHATTERBOX_DEVICE: cpu
+      HF_HUB_DISABLE_XET: '1'
+      HF_HUB_DOWNLOAD_TIMEOUT: '120'
+      ORBDEV_CAPTION_LEAD_MS: '45'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            editorial/
+            history/
+            public/
+            scripts/
+            src/
+            stories/previews/
+            package.json
+            requirements.txt
+            tsconfig.json
+            README.md
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install renderer and local TTS models
+        run: |
+          sudo apt-get install -y ffmpeg espeak-ng
+          npm install --no-audit --no-fund
+          python -m pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements.txt
+      - name: Validate editorial and narration
+        run: |
+          python scripts/validate_story.py "$STORY_FILE"
+          python scripts/test_narration_logic.py
+          python scripts/test_chatterbox_narration.py
+          python scripts/test_meme_context.py
+      - name: Generate Turbo narration (Nano fallback only)
+        run: |
+          python scripts/generate_narration.py "$STORY_FILE"
+          python scripts/generate_sfx.py
+      - name: Prepare approved, context-aware memes
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          python scripts/build_meme_catalog.py
+          python scripts/select_memes.py "$STORY_FILE"
+          python scripts/insert_cutaway_pauses.py
+      - name: Capture verified official source visuals
+        run: |
+          python scripts/capture_sources.py "$STORY_FILE"
+          python scripts/capture_logos.py "$STORY_FILE"
+      - name: Assemble and validate final visual storyboard
+        run: |
+          python scripts/prepare_render_props.py "$STORY_FILE"
+          python scripts/check_visual_quality.py
+          npm run typecheck
+      - name: Render production Short (no upload)
+        run: |
+          mkdir -p out
+          npx remotion render src/index.ts OrbdevShort "out/${STORY_SLUG}.mp4" \
+            --props=build/render-props.json \
+            --codec=h264 \
+            --pixel-format=yuv420p \
+            --concurrency=2 \
+            --log=info
+          ffmpeg -y -i "out/${STORY_SLUG}.mp4" \
+            -vf "fps=1/4,scale=270:-1,tile=4x4:padding=4:margin=4" \
+            -frames:v 1 "out/${STORY_SLUG}-contact-sheet.jpg"
+          ffprobe -v error -show_entries format=duration,size -of json "out/${STORY_SLUG}.mp4"
+      - name: Summarize source and meme quality
+        if: always()
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          out=Path("build/scion-preview-summary.json")
+          data={"storyFile":"stories/previews/anthropic-scion-20261014.json"}
+          for name in ("narration-report","quality-gate-report","meme-selection","source-assets"):
+              p=Path("build")/(name+".json")
+              if p.exists():data[name]=json.loads(p.read_text())
+          if Path("build/render-props.json").exists():
+              props=json.loads(Path("build/render-props.json").read_text())
+              data["durationSeconds"]=props.get("durationSeconds")
+              data["visualTypes"]=[(b.get("visual") or {}).get("type") for b in props.get("visualBeats",[])]
+          out.parent.mkdir(exist_ok=True)
+          out.write_text(json.dumps(data,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: orbdev-scion-single-quality-preview
+          path: |
+            out/*.mp4
+            out/*-contact-sheet.jpg
+            build/scion-preview-summary.json
+            build/render-props.json
+            build/quality-gate-report.json
+            build/meme-selection.json
+            build/narration-report.json
+          if-no-files-found: warn
+          retention-days: 14
