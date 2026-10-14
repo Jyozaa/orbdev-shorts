@@ -117,7 +117,7 @@ def make_voice_reference(
 
         pipeline = KPipeline(lang_code="b" if voice.startswith("b") else "a")
     chunks = []
-    for result in pipeline(REFERENCE_SCRIPT, voice=voice, speed=1.10):
+    for result in pipeline(REFERENCE_SCRIPT, voice=voice, speed=1.34):
         wav = result[2] if isinstance(result, tuple) else getattr(result, "audio", None)
         if wav is not None:
             part = np.asarray(wav, dtype=np.float32).reshape(-1)
