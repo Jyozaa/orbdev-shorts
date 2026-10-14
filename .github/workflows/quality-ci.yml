@@ -28,9 +28,13 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Lightweight audio test dependencies
+        run: python -m pip install numpy==1.26.4 soundfile==0.14.1
       - name: Python syntax and regression tests
         run: |
           python -m compileall -q scripts
+          python scripts/test_narration_logic.py
+          python scripts/test_chatterbox_narration.py
           python scripts/test_visual_logic.py
           python scripts/test_diagram_continuity.py
           python scripts/test_diagram_first.py
