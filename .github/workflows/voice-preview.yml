@@ -6,6 +6,8 @@ on:
       - feat/turbo-primary-nano-fallback
     paths:
       - '.github/workflows/voice-preview.yml'
+      - 'scripts/chatterbox_narration.py'
+      - 'editorial/narration-profiles.json'
   workflow_dispatch:
     inputs:
       story:
