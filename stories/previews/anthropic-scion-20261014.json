@@ -1,0 +1,326 @@
+{
+  "slug": "anthropic-scion-git-ai-agent-merge-explosion-20261014-preview",
+  "title": "Anthropic replaced Git after AI agents hit 30,000 merges a day",
+  "narration": "Anthropic's AI agents wrote so much code, Git became the bottleneck. In May: twenty-five hundred merges a day. By September? More than thirty thousand. That's over twelve times the merge traffic. And the main branch history? Nearly a hundred gigabytes. CI alone ran about twenty-five million checkouts every day. That's an awful lot of repositories to drag around. So Anthropic built Scion, its own source-control system. It assumes agents are always online. Instead of cloning everything, clients ask servers for just the data they need. History, diffs, and even merges happen server-side. Seven engineers built Scion and its review tool in five months. But don't uninstall Git. Anthropic says Scion isn't meant for ordinary repositories. For most teams, Git still makes sense. Thirty thousand merges a day changes the rules.",
+  "beats": [
+    {
+      "text": "Anthropic's AI agents wrote so much code,",
+      "editorialRole": "setup",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Anthropic Redesigning source control Scion engineering",
+        "mustMatch": []
+      }
+    },
+    {
+      "text": "Git became the bottleneck.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "kinetic",
+        "text": "GIT GOT OVERLOADED",
+        "emphasis": "OVERLOADED"
+      },
+      "memeIntent": {
+        "purpose": "failure",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1.25,
+        "concepts": [
+          "failure",
+          "Git overload",
+          "traffic jam"
+        ]
+      }
+    },
+    {
+      "text": "In May: twenty-five hundred merges a day.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "2,500 / DAY"
+      }
+    },
+    {
+      "text": "By September? More than thirty thousand.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Changes merged to Anthropic monorepo per day January September 2026",
+        "mustMatch": [
+          "merges"
+        ]
+      }
+    },
+    {
+      "text": "That's over twelve times the merge traffic.",
+      "editorialRole": "reaction",
+      "visual": {
+        "type": "metric",
+        "value": "12× MORE"
+      },
+      "memeIntent": {
+        "purpose": "reaction",
+        "tone": "surprised",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1.25,
+        "concepts": [
+          "surprise",
+          "large number",
+          "massive increase"
+        ]
+      }
+    },
+    {
+      "text": "And the main branch history?",
+      "editorialRole": "transition",
+      "visual": {
+        "type": "drawn-diagram",
+        "kind": "stack",
+        "labels": [
+          "HISTORY"
+        ]
+      }
+    },
+    {
+      "text": "Nearly a hundred gigabytes.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "~100 GB"
+      }
+    },
+    {
+      "text": "CI alone ran about twenty-five million checkouts every day.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Anthropic git checkouts large monorepo CI mirrors scaling",
+        "mustMatch": []
+      }
+    },
+    {
+      "text": "That's an awful lot of repositories to drag around.",
+      "editorialRole": "joke",
+      "visual": {
+        "type": "kinetic",
+        "text": "THAT'S A LOT OF REPOS"
+      },
+      "memeIntent": {
+        "purpose": "absurdity",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1.25,
+        "concepts": [
+          "absurdity",
+          "overload",
+          "too much"
+        ]
+      }
+    },
+    {
+      "text": "So Anthropic built Scion,",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Scion Anthropic redesigning source control architecture client server",
+        "mustMatch": []
+      }
+    },
+    {
+      "text": "its own source-control system.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "drawn-diagram",
+        "kind": "orbit",
+        "labels": [
+          "SCION",
+          "CLIENTS"
+        ]
+      }
+    },
+    {
+      "text": "It assumes agents are always online.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "drawn-diagram",
+        "kind": "mesh",
+        "labels": [
+          "AGENTS"
+        ]
+      }
+    },
+    {
+      "text": "Instead of cloning everything,",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "drawn-diagram",
+        "kind": "funnel",
+        "labels": [
+          "ONLY NEEDED FILES"
+        ]
+      }
+    },
+    {
+      "text": "clients ask servers for just the data they need.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "drawn-diagram",
+        "kind": "flow",
+        "labels": [
+          "CLIENT",
+          "SERVER"
+        ]
+      }
+    },
+    {
+      "text": "History, diffs, and even merges happen server-side.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Anthropic Scion server design Git diffs merges code queries",
+        "mustMatch": []
+      }
+    },
+    {
+      "text": "Seven engineers built Scion and its review tool in five months.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "metric",
+        "value": "7 PEOPLE · 5 MONTHS"
+      }
+    },
+    {
+      "text": "But don't uninstall Git.",
+      "editorialRole": "punchline",
+      "visual": {
+        "type": "kinetic",
+        "text": "KEEP GIT"
+      },
+      "memeIntent": {
+        "purpose": "contrast",
+        "tone": "deadpan",
+        "intensity": 2,
+        "preferredMedia": "video",
+        "presentation": "overlay",
+        "maxDurationSeconds": 1.25,
+        "concepts": [
+          "rejection",
+          "don't",
+          "nope",
+          "not replacement"
+        ]
+      }
+    },
+    {
+      "text": "Anthropic says Scion isn't meant for ordinary repositories.",
+      "editorialRole": "explanation",
+      "visual": {
+        "type": "drawn-diagram",
+        "kind": "comparison",
+        "labels": [
+          "GIT",
+          "SCION"
+        ]
+      }
+    },
+    {
+      "text": "For most teams, Git still makes sense.",
+      "editorialRole": "fact",
+      "visual": {
+        "type": "source",
+        "sourceIndex": 0,
+        "query": "Anthropic source control git right design most repos",
+        "mustMatch": []
+      }
+    },
+    {
+      "text": "Thirty thousand merges a day changes the rules.",
+      "editorialRole": "callback",
+      "visual": {
+        "type": "drawn-diagram",
+        "kind": "growth",
+        "labels": [
+          "30K+ MERGES"
+        ]
+      }
+    }
+  ],
+  "editorial": {
+    "storyKey": "anthropic-scion-internal-source-control-2026-10-13",
+    "selectedAt": "2026-10-14T11:27:00+01:00",
+    "score": 9,
+    "memeMode": "normal",
+    "scriptReview": {
+      "iterations": 2,
+      "average": 9,
+      "scores": {
+        "hook": 9,
+        "spokenNaturalness": 9,
+        "explanationClarity": 9,
+        "informationSelection": 9,
+        "humorVoice": 8,
+        "caveatPracticalImplication": 10,
+        "payoff": 9,
+        "factualDiscipline": 10
+      }
+    },
+    "topics": [
+      "developer tools",
+      "AI agent infrastructure",
+      "source control"
+    ],
+    "companies": [
+      "Anthropic"
+    ],
+    "sources": [
+      {
+        "title": "Redesigning source control at Anthropic",
+        "publisher": "Anthropic",
+        "url": "https://www.anthropic.com/engineering/redesigning-source-control",
+        "publishedAt": "2026-10-13",
+        "primary": true
+      }
+    ]
+  },
+  "publish": {
+    "metadataVersion": 1,
+    "youtubeTitle": "AI Wrote So Much Code, Anthropic Replaced Git",
+    "description": "Anthropic says it replaced Git internally with Scion as agent-driven merges grew past 30,000 per day. Here's why the system is built differently—and why ordinary developers should still use Git.",
+    "tags": [
+      "Anthropic",
+      "Scion",
+      "Git",
+      "AI coding",
+      "Claude",
+      "developer tools",
+      "monorepo"
+    ],
+    "hashtags": [
+      "#Anthropic",
+      "#Git",
+      "#DeveloperTools",
+      "#AICoding"
+    ],
+    "category": "SCIENCE_TECHNOLOGY",
+    "madeForKids": false,
+    "privacyStatus": "public",
+    "metadataReview": {
+      "score": 9,
+      "hookAccuracy": 9,
+      "searchClarity": 9,
+      "descriptionQuality": 9,
+      "hashtagRelevance": 9
+    }
+  }
+}
