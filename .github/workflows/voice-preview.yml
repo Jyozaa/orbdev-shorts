@@ -1,0 +1,78 @@
+name: Chatterbox voice preview
+
+on:
+  push:
+    branches:
+      - feat/turbo-primary-nano-fallback
+    paths:
+      - '.github/workflows/voice-preview.yml'
+      - 'scripts/chatterbox_narration.py'
+      - 'editorial/narration-profiles.json'
+  workflow_dispatch:
+    inputs:
+      story:
+        description: Local JSON story file to narrate
+        required: false
+        default: stories/current.json
+
+permissions:
+  contents: read
+
+jobs:
+  sample:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    env:
+      ORBDEV_NARRATION_PROFILE: orbdev-chatterbox
+      ORBDEV_CHATTERBOX_DEVICE: cpu
+      HF_HUB_DISABLE_XET: '1'
+      HF_HUB_DOWNLOAD_TIMEOUT: '120'
+      TOKENIZERS_PARALLELISM: 'false'
+      OMP_NUM_THREADS: '4'
+      MKL_NUM_THREADS: '4'
+      ORBDEV_CAPTION_LEAD_MS: '45'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            scripts/
+            stories/
+            editorial/narration-profiles.json
+            requirements.txt
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install ffmpeg and CPU narration dependencies
+        run: |
+          sudo apt-get install -y ffmpeg espeak-ng
+          python -m pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cpu
+          python -m pip install -r requirements.txt
+      - name: Generate one full voice track without publishing
+        env:
+          STORY_FILE: ${{ inputs.story || 'stories/current.json' }}
+        run: |
+          python scripts/test_narration_logic.py
+          python scripts/test_chatterbox_narration.py
+          python scripts/generate_narration.py "$STORY_FILE"
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          report=json.loads(Path("build/narration-report.json").read_text())
+          captions=json.loads(Path("public/captions.json").read_text())
+          assert report["engine"] in {"chatterbox-turbo","chatterbox-nano"},report
+          assert 0<len(captions["words"])==report["wordCount"]
+          assert report["finalDurationSeconds"]>5
+          assert Path("public/voice.mp3").stat().st_size>20000
+          print(json.dumps(report,indent=2))
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: orbdev-chatterbox-voice-preview
+          path: |
+            public/voice.mp3
+            public/captions.json
+            build/narration-report.json
+          retention-days: 14
+          if-no-files-found: warn

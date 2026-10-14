@@ -1,4 +1,6 @@
 edge-tts==7.2.8
-kokoro>=0.9.4
+kokoro==0.9.4
+# PyPI 0.1.7 lacks Nano. Pin the tested upstream source revision.
+chatterbox-tts @ git+https://github.com/resemble-ai/chatterbox.git@5de7a54aa4e5e2baadb0182dde554908b48b85c2
 soundfile>=0.12.1
-numpy>=1.26
+numpy>=1.26,<2.0

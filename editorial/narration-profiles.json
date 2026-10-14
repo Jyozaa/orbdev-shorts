@@ -1,6 +1,6 @@
 {
-  "version": 3,
-  "defaultProfile": "orbdev-deadpan",
+  "version": 4,
+  "defaultProfile": "orbdev-chatterbox",
   "profiles": {
     "orbdev-dry": {
       "voice": "am_michael",
@@ -196,6 +196,23 @@
       "trimLeadMs": 8,
       "synthesisMode": "continuous",
       "continuousSplitPattern": "\\n+"
+    },
+    "orbdev-chatterbox": {
+      "engine": "chatterbox",
+      "primaryModel": "chatterbox-turbo",
+      "fallbackModel": "chatterbox-nano",
+      "voice": "am_michael",
+      "referenceMode": "synthetic-kokoro",
+      "targetWpm": 176,
+      "postTempoMin": 1,
+      "postTempoMax": 1.2,
+      "chunkTargetWords": 32,
+      "chunkMaxWords": 65,
+      "chunkPauseMs": 60,
+      "temperature": 0.75,
+      "repetitionPenalty": 1.22,
+      "notes": "Turbo and Nano share one synthetic voice reference. Fail closed if both unavailable.",
+      "referenceNativeSpeed": 1.34
     }
   }
 }
