@@ -194,3 +194,27 @@ safety net for old/legacy story JSON.
 
 This planner is ordinary Python and Remotion logic. It does not call an external
 LLM, image generator, diagram API, or other AI service.
+
+
+### Narration: Turbo primary, Nano fallback
+
+Orbdev's default narrator is now **Resemble AI Chatterbox Turbo** (offline/open
+source), with **Chatterbox Nano** as its only fallback. Both use a single locally
+generated synthetic Kokoro Michael voice reference for approximately consistent
+timbre; that reference conditions the model rather than being the final voice.
+Optionally set ORBDEV_CHATTERBOX_REFERENCE_WAV to a WAV with at least six seconds
+from a consenting speaker. No user reference is stored in the repository.
+
+The Chatterbox dependency is pinned to the upstream Nano-enabled revision
+tested in the voice comparison, rather than the older PyPI release. CPU-only
+PyTorch wheels are installed on GitHub Actions. Sentence groups preserve all
+narration words, while timing and final tempo follow generated audio duration.
+
+If Turbo fails, the **entire narration** is regenerated with Nano. If both fail,
+the job stops before publication. It never silently switches to Edge, eSpeak
+or unmodified Kokoro audio under this profile. The narration report records
+the model used, fallback errors, pacing and output duration. Legacy Kokoro
+profiles remain selectable only when explicitly requested.
+
+The optional voice preview workflow produces WAV/MP3 test artifacts without
+publishing to YouTube.
